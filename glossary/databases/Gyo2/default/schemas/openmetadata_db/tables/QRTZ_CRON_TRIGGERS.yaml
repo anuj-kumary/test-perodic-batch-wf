@@ -1,0 +1,106 @@
+name: QRTZ_CRON_TRIGGERS
+fullyQualifiedName: Gyo2.default.openmetadata_db.QRTZ_CRON_TRIGGERS
+tableType: Regular
+columns:
+  - name: SCHED_NAME
+    dataType: VARCHAR
+    dataLength: 120
+    dataTypeDisplay: varchar(120)
+    fullyQualifiedName: Gyo2.default.openmetadata_db.QRTZ_CRON_TRIGGERS.SCHED_NAME
+    tags: []
+    children: []
+    customMetrics: []
+  - name: TRIGGER_NAME
+    dataType: VARCHAR
+    dataLength: 190
+    dataTypeDisplay: varchar(190)
+    fullyQualifiedName: Gyo2.default.openmetadata_db.QRTZ_CRON_TRIGGERS.TRIGGER_NAME
+    tags: []
+    children: []
+    customMetrics: []
+  - name: TRIGGER_GROUP
+    dataType: VARCHAR
+    dataLength: 190
+    dataTypeDisplay: varchar(190)
+    fullyQualifiedName: Gyo2.default.openmetadata_db.QRTZ_CRON_TRIGGERS.TRIGGER_GROUP
+    tags: []
+    children: []
+    customMetrics: []
+  - name: CRON_EXPRESSION
+    dataType: VARCHAR
+    dataLength: 120
+    dataTypeDisplay: varchar(120)
+    fullyQualifiedName: Gyo2.default.openmetadata_db.QRTZ_CRON_TRIGGERS.CRON_EXPRESSION
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TIME_ZONE_ID
+    dataType: VARCHAR
+    dataLength: 80
+    dataTypeDisplay: varchar(80)
+    fullyQualifiedName: Gyo2.default.openmetadata_db.QRTZ_CRON_TRIGGERS.TIME_ZONE_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SCHED_NAME
+      - TRIGGER_GROUP
+      - TRIGGER_NAME
+    referredColumns:
+      - Gyo2.default.openmetadata_db.QRTZ_TRIGGERS.SCHED_NAME
+      - Gyo2.default.openmetadata_db.QRTZ_TRIGGERS.TRIGGER_NAME
+      - Gyo2.default.openmetadata_db.QRTZ_TRIGGERS.TRIGGER_GROUP
+    relationshipType: MANY_TO_MANY
+owners: []
+databaseSchema:
+  id: 1ae3a711-6b03-48cc-a7de-9a34be516eab
+  type: databaseSchema
+  name: openmetadata_db
+  fullyQualifiedName: Gyo2.default.openmetadata_db
+  displayName: openmetadata_db
+  deleted: false
+database:
+  id: b43ed889-df08-430d-8b37-2ee890216f2a
+  type: database
+  name: default
+  fullyQualifiedName: Gyo2.default
+  displayName: default
+  deleted: false
+service:
+  id: acb4d7cc-507e-43a0-b287-0127da7c758d
+  type: databaseService
+  name: Gyo2
+  fullyQualifiedName: Gyo2
+  description: ""
+  displayName: Gyo2
+  deleted: false
+serviceType: Mysql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"SCHED_NAME\"\
+        ,\"TRIGGER_GROUP\",\"TRIGGER_NAME\"],\"referredColumns\":[\"Gyo2.default.openmetadata_db.QRTZ_TRIGGERS.SCHED_NAME\"\
+        ,\"Gyo2.default.openmetadata_db.QRTZ_TRIGGERS.TRIGGER_NAME\",\"Gyo2.default.openmetadata_db.QRTZ_TRIGGERS.TRIGGER_GROUP\"\
+        ],\"relationshipType\":\"MANY_TO_MANY\"}]"
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: tableConstraints
+      oldValue: "[{\"constraintType\":\"PRIMARY_KEY\",\"columns\":[\"SCHED_NAME\"\
+        ,\"TRIGGER_GROUP\",\"TRIGGER_NAME\"]}]"
+  previousVersion: 0.1
+domains: []
+dataProducts: []
+sourceHash: fa3fb84f60a37b0a9531355282cb326d
+processedLineage: false
+entityStatus: Approved
