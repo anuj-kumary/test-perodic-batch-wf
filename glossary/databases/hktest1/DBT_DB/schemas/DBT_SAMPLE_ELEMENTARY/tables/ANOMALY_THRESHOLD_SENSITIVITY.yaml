@@ -1,0 +1,191 @@
+name: ANOMALY_THRESHOLD_SENSITIVITY
+fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY
+tableType: View
+columns:
+  - name: FULL_TABLE_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.FULL_TABLE_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: COLUMN_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.COLUMN_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: METRIC_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.METRIC_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LATEST_METRIC_VALUE
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.LATEST_METRIC_VALUE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: METRIC_AVG
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.METRIC_AVG
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: METRIC_STDDEV
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.METRIC_STDDEV
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ANOMALY_SCORE
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.ANOMALY_SCORE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_anomaly_1_5
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.is_anomaly_1_5
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_anomaly_2
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.is_anomaly_2
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_anomaly_2_5
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.is_anomaly_2_5
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_anomaly_3
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.is_anomaly_3
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_anomaly_3_5
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.is_anomaly_3_5
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_anomaly_4
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.is_anomaly_4
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_anomaly_4_5
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY.is_anomaly_4_5
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3cbb1476-02db-47d7-82bd-46c3700a3234
+  type: databaseSchema
+  name: DBT_SAMPLE_ELEMENTARY
+  fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY
+  displayName: DBT_SAMPLE_ELEMENTARY
+  deleted: false
+database:
+  id: 05a8380c-202a-4bf7-861f-bfd7026e8de1
+  type: database
+  name: DBT_DB
+  fullyQualifiedName: hktest1.DBT_DB
+  displayName: DBT_DB
+  deleted: false
+service:
+  id: bac8305b-a253-4ae2-9ca8-6009c7ebcdce
+  type: databaseService
+  name: hktest1
+  fullyQualifiedName: hktest1
+  description: ""
+  displayName: hktest1
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view dbt_db.DBT_SAMPLE_elementary.anomaly_threshold_sensitivity\n\
+  \  \n   as (\n    \n\nwith metrics_anomaly_score as (\n\n    select * from dbt_db.DBT_SAMPLE_elementary.metrics_anomaly_score\n\
+  \n),\n\nscore_sensitivity as (\n\n    select\n        full_table_name,\n       \
+  \ column_name,\n        metric_name,\n        latest_metric_value,\n        training_avg\
+  \ as metric_avg,\n        training_stddev as metric_stddev,\n        anomaly_score,\n\
+  \        case when abs(anomaly_score) >= 1.5 then true else false end as \"is_anomaly_1_5\"\
+  ,\n        case when abs(anomaly_score) >= 2 then true else false end as \"is_anomaly_2\"\
+  ,\n        case when abs(anomaly_score) >= 2.5 then true else false end as \"is_anomaly_2_5\"\
+  ,\n        case when abs(anomaly_score) >= 3 then true else false end as \"is_anomaly_3\"\
+  ,\n        case when abs(anomaly_score) >= 3.5 then true else false end as \"is_anomaly_3_5\"\
+  ,\n        case when abs(anomaly_score) >= 4 then true else false end as \"is_anomaly_4\"\
+  ,\n        case when abs(anomaly_score) >= 4.5 then true else false end as \"is_anomaly_4_5\"\
+  \n    from metrics_anomaly_score\n    where abs(anomaly_score) >= 1.5\n\n)\n\nselect\
+  \ * from score_sensitivity\n  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: processedLineage
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/vcgkhnh/ic95276/#/data/databases/DBT_DB/schemas/DBT_SAMPLE_ELEMENTARY/view/ANOMALY_THRESHOLD_SENSITIVITY
+domains: []
+dataProducts: []
+sourceHash: f0c8c944741eb582b809ee0cb6c1ec79
+processedLineage: true
+entityStatus: Approved
