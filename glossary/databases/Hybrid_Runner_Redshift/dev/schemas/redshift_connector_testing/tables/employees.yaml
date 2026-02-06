@@ -1,0 +1,143 @@
+name: employees
+fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees
+tableType: Regular
+columns:
+  - name: employee_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees.employee_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees.first_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees.last_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees.email
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: phone_number
+    dataType: VARCHAR
+    dataLength: 20
+    dataTypeDisplay: character varying(20)
+    fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees.phone_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: department_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees.department_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ssn
+    dataType: CHAR
+    dataLength: 9
+    dataTypeDisplay: character(9)
+    fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees.ssn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dob
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing.employees.dob
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: UNIQUE
+    columns:
+      - email
+      - ssn
+  - constraintType: FOREIGN_KEY
+    columns:
+      - department_id
+    referredColumns:
+      - Hybrid Runner Redshift.dev.redshift_connector_testing.departments.department_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: d5c52629-3b09-4165-80e1-888ee03db359
+  type: databaseSchema
+  name: redshift_connector_testing
+  fullyQualifiedName: Hybrid Runner Redshift.dev.redshift_connector_testing
+  displayName: redshift_connector_testing
+  deleted: false
+database:
+  id: 72873d99-8bd2-49af-9725-13493aef86b0
+  type: database
+  name: dev
+  fullyQualifiedName: Hybrid Runner Redshift.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 960bf455-a898-43ad-b514-6f31e5e00427
+  type: databaseService
+  name: Hybrid Runner Redshift
+  fullyQualifiedName: Hybrid Runner Redshift
+  description: ""
+  displayName: Hybrid Runner Redshift
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"UNIQUE\",\"columns\":[\"email\",\"ssn\"]}]"
+  fieldsUpdated:
+    - name: columns.email.constraint
+      oldValue: UNIQUE
+      newValue: NOT_NULL
+    - name: columns.ssn.constraint
+      oldValue: UNIQUE
+      newValue: "NULL"
+    - name: sourceHash
+      oldValue: d13a6d1f821538e0473d306e8320c3b9
+      newValue: 9b06136495d4c7bdf46f5043806a7152
+  fieldsDeleted: []
+  previousVersion: 0.4
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1744018903719
+sourceHash: 9b06136495d4c7bdf46f5043806a7152
+processedLineage: false
+entityStatus: Unprocessed
