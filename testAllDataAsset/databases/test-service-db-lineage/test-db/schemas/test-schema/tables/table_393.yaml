@@ -1,0 +1,94 @@
+name: table_393
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_393
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_393.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_COMMITS(\n\t\"CommitOwnerName\",\n\t\"\
+  CommitOwnerType\",\n\t\"CommitWeekNumber\",\n\t\"CommitTerritoryGUID\",\n\t\"CommitWeekDate\"\
+  ,\n\t\"CommitValue\",\n\t\"CommitUpsideValue\",\n\t\"CommitExpectValue\",\n\t\"\
+  CommitMonthExpect\",\n\t\"CommitMonthUpside\",\n\t\"CommitMonth\",\n\t\"CommitTerritoryName\"\
+  ,\n\t\"CommitQuarter\",\n\t\"CommitModifiedOn\",\n\t\"CommitOwnerGUID\",\n\t\"CommitUpsidePipeline\"\
+  ,\n\t\"CommitPipeline\",\n\t\"CommitExpectPipeline\",\n\t\"CommitUpdateDate\",\n\
+  \t\"CommitImpactedValue\",\n\t\"CommitImpactedExpect\",\n\t\"CommitImpactedUpside\"\
+  ,\n\t\"CommitSourcedPipeline\",\n\t\"CommitSourcedPipleineExpect\",\n\t\"CommitSourcedPipelineUpside\"\
+  ,\n\t\"CommitImpactedValueManual\",\n\t\"CommitImpactedExpectManual\",\n\t\"CommitImpactedUpsideManual\"\
+  ,\n\t\"CommitSourcedPipelineManual\",\n\t\"CommitSourcedPipelineExpectManual\",\n\
+  \t\"CommitSourcedPipelineUpsideManual\",\n\t\"CommitStateStatus\",\n\t\"CommitID\"\
+  ,\n\t\"CommitClosedToQuota\",\n\t\"CommitACVExpectedToCloseThisWeek\",\n\t\"CommitDVType\"\
+  ,\n\t\"CommitSysID\",\n\t\"CommitACVCloseToDate\",\n\t\"CommitDirectorsQuota\",\n\
+  \t\"CommitExpectedNewLogosQuarter\",\n\t\"CommitPSRevenueExpectQuarter\",\n\t\"\
+  CommitPSRevenueExpectMonth\",\n\t\"CommitNewLogoTargetQuarter\",\n\t\"CommitNetNewLogoPipeline\"\
+  ,\n\t\"CommitNotes\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"OWNERIDNAME\" as\
+  \ \"CommitOwnerName\",\n       \"SN_OWNERTYPENAME\" as \"CommitOwnerType\",\n  \
+  \     \"SN_WEEKNUMBER\" as \"CommitWeekNumber\",\n       \"SN_TERRITORY\" as \"\
+  CommitTerritoryGUID\",\n       \"SN_WEEK\" as \"CommitWeekDate\",\n       \"SN_COMMITQUARTER\"\
+  \ as \"CommitValue\",\n       \"SN_UPSIDEQUARTER\" as \"CommitUpsideValue\",\n \
+  \      \"SN_EXPECTQUARTER\" as \"CommitExpectValue\",\n       \"SN_EXPECTMONTH\"\
+  \ as \"CommitMonthExpect\",\n       \"SN_UPSIDEMONTH\" as \"CommitMonthUpside\"\
+  ,\n       \"SN_COMMITMONTH\" as \"CommitMonth\",\n       \"SN_TERRITORYNAME\" as\
+  \ \"CommitTerritoryName\",\n       \"SN_PERIOD\" as \"CommitQuarter\",\n       \"\
+  MODIFIEDON\" as \"CommitModifiedOn\",\n       \"OWNERID\" as \"CommitOwnerGUID\"\
+  ,\n       \"SN_PIPELINEUPSIDEQUARTER\" as \"CommitUpsidePipeline\",\n       \"SN_PIPELINECOMMITQUARTER\"\
+  \ as \"CommitPipeline\",\n       \"SN_PIPELINEEXPECTQUARTER\" as \"CommitExpectPipeline\"\
+  ,\n       \"ETL_UPDATE_DATE\" as \"CommitUpdateDate\",\n       \"SN_IMPACTEDCOMMITQUARTER\"\
+  \ as \"CommitImpactedValue\",\n       \"SN_IMPACTEDEXPECTQUARTER\" as \"CommitImpactedExpect\"\
+  ,\n       \"SN_IMPACTEDUPSIDEQUARTER\" as \"CommitImpactedUpside\",\n       \"SN_PIPELINESOURCEDCOMMITQUARTER\"\
+  \ as \"CommitSourcedPipeline\",\n       \"SN_PIPELINESOURCEDEXPECTQUARTER\" as \"\
+  CommitSourcedPipleineExpect\",\n       \"SN_PIPELINESOURCEDUPSIDEQUARTER\" as \"\
+  CommitSourcedPipelineUpside\",\n       \"SN_IMPACTEDCOMMITQUARTERMANUAL\" as \"\
+  CommitImpactedValueManual\",\n       \"SN_IMPACTEDEXPECTQUARTERMANUAL\" as \"CommitImpactedExpectManual\"\
+  ,\n       \"SN_IMPACTEDUPSIDEQUARTERMANUAL\" as \"CommitImpactedUpsideManual\",\n\
+  \       \"SN_PIPELINESOURCEDCOMMITQUARTERMANUAL\" as \"CommitSourcedPipelineManual\"\
+  ,\n       \"SN_PIPELINESOURCEDEXPECTQUARTERMANUAL\" as \"CommitSourcedPipelineExpectManual\"\
+  ,\n       \"SN_PIPELINESOURCEDUPSIDEQUARTERMANUAL\" as \"CommitSourcedPipelineUpsideManual\"\
+  ,\n       \"STATECODENAME\" as \"CommitStateStatus\",\n\t   \"SN_COMMITID\" as \"\
+  CommitID\",\n        \"SN_QTDCLOSEDTOQUOTARATIO\" as \"CommitClosedToQuota\",\n\
+  \        \"SN_ACVEXPECTEDTOCLOSETHISWEEK_BASE\" as \"CommitACVExpectedToCloseThisWeek\"\
+  ,\n        \"SN_OWNERTYPENAME\" as \"CommitDVType\",\n        \"SN_SURFSYSID\" as\
+  \ \"CommitSysID\",\n        \"SN_ACVCLOSEDTODATEQUARTER\" as \"CommitACVCloseToDate\"\
+  ,\n        \"SN_QUOTA\" as \"CommitDirectorsQuota\",\n        \"SN_EXPECTEDOFNEWLOGOSQUARTER\"\
+  \ as \"CommitExpectedNewLogosQuarter\",\n        \"SN_PSREVENUEEXPECTQUARTER\" as\
+  \ \"CommitPSRevenueExpectQuarter\",\n        \"SN_PSREVENUEEXPECTMONTH\" as \"CommitPSRevenueExpectMonth\"\
+  ,\n        \"SN_NEWLOGOTARGETQUARTER\" as \"CommitNewLogoTargetQuarter\",\n    \
+  \    \"SN_NETNEWLOGOPIPELINE\" as \"CommitNetNewLogoPipeline\",\n        \"SN_DEALSEXPECTEDTOCLOSETHISWEEKNOTES\"\
+  \ as \"CommitNotes\"\nFROM RDS.\"DYNAMICS365\".\"SN_COMMITS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

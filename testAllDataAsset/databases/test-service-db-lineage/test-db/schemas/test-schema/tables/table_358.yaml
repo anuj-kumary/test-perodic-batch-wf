@@ -1,0 +1,64 @@
+name: table_358
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_358
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_358.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CLICK_EMAIL(\n\tID,\n\t\"MarketoGUID\",\n\
+  \t\"LeadID\",\n\t\"ActivityDate\",\n\t\"ActivityTypeID\",\n\t\"PrimaryAttributeValueID\"\
+  ,\n\t\"PrimaryAttributeValue\",\n\t\"CampaignID\",\n\t\"Campaign\",\n\t\"CampaignRunID\"\
+  ,\n\t\"ChoiceNumber\",\n\t\"Device\",\n\t\"MobileDivice\",\n\t\"CampaignHasPredective\"\
+  ,\n\t\"Link\",\n\t\"Platform\",\n\t\"StepID\",\n\t\"UserAgent\",\n\t\"ETLInsetDate\"\
+  ,\n\t\"ETLUpdateDate\",\n\t\"ETLDeleteDate\",\n\t\"LinkType\"\n) as\n SELECT \"\
+  ID\" as \"ID\",\n\"MARKETOGUID\" as \"MarketoGUID\",\n\"LEADID\" as \"LeadID\",\n\
+  \"ACTIVITYDATE\" as \"ActivityDate\",\n\"ACTIVITYTYPEID\" as \"ActivityTypeID\"\
+  ,\n\"PRIMARYATTRIBUTEVALUEID\" as \"PrimaryAttributeValueID\",\n\"PRIMARYATTRIBUTEVALUE\"\
+  \ as \"PrimaryAttributeValue\",\n\"CAMPAIGNID\" as \"CampaignID\",\n\"CAMPAIGN\"\
+  \ as \"Campaign\",\n\"CAMPAIGN_RUN_ID\" as \"CampaignRunID\",\n\"CHOICE_NUMBER\"\
+  \ as \"ChoiceNumber\",\n\"DEVICE\" as \"Device\",\n\"IS_MOBILE_DEVICE\" as \"MobileDivice\"\
+  ,\n\"HAS_PREDECTIVE\" as \"CampaignHasPredective\",\n\"LINK\" as \"Link\",\n\"PLATFORM\"\
+  \ as \"Platform\",\n\"STEP_ID\" as \"StepID\",\n\"USER_AGENT\" as \"UserAgent\"\
+  ,\n\"ETL_INSERT_DATE\" as \"ETLInsetDate\",\n\"ETL_UPDATE_DATE\" as \"ETLUpdateDate\"\
+  ,\n\"ETL_DELETE_DATE\" as \"ETLDeleteDate\",\n        CASE WHEN contains(LINK, 'random')\
+  \ then 'random'\n              WHEN contains(LINK, 'random') then 'random'\n   \
+  \           WHEN contains(LINK, 'random') then 'random' else 'random' end \"LinkType\"\
+  \n   FROM \"RDS\".\"MARKETO\".\"CLICK_EMAIL\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

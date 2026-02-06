@@ -1,0 +1,59 @@
+name: table_405
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_405
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_405.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_BUSINESSUNITCOMMITS(\n\t\"BUCommitForecastCategoryName\"\
+  ,\n\t\"BUCommitNotes\",\n\t\"BUCommitManagerCallBase\",\n\t\"BUCommitOwnerIDtype\"\
+  ,\n\t\"BUCommitOwnerIDtype_Value\",\n\t\"BUCommitForecastDate\",\n\t\"BUCommitTerritoryName\"\
+  ,\n\t\"BUCommitTerritory\",\n\t\"BUCommitBusinessUnitName\",\n\t\"BUCommitStatusCodeName\"\
+  ,\n\t\"BUCommitID\",\n\t\"CommitTypeName\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"SN_FORECASTCATEGORYNAME\" as \"BUCommitForecastCategoryName\",\n       \"SN_NOTES\"\
+  \ as \"BUCommitNotes\",\n       \"SN_MANAGERSCALL_BASE\" as \"BUCommitManagerCallBase\"\
+  ,\n       \"OWNERIDNAME\" as \"BUCommitOwnerIDtype\",\n       \"OWNERIDTYPE\" as\
+  \ \"BUCommitOwnerIDtype_Value\",\n       \"SN_FORECASTDATE\" as \"BUCommitForecastDate\"\
+  ,\n       \"SN_TERRITORYNAME\" as \"BUCommitTerritoryName\",\n       \"SN_TERRITORY\"\
+  \ as \"BUCommitTerritory\",\n       \"SN_BUSINESSUNITNAME\" as \"BUCommitBusinessUnitName\"\
+  ,\n       \"STATUSCODENAME\" as \"BUCommitStatusCodeName\",\n\t   \"SN_COMMIT\"\
+  \ as \"BUCommitID\",\n       \"SN_COMMITTYPENAME\" AS \"CommitTypeName\"\nFROM \"\
+  RDS\".\"DYNAMICS365\".\"SN_BUSINESSUNITCOMMITS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

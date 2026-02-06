@@ -1,0 +1,52 @@
+name: table_439
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_439
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_439.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SEGMENTED_CONTRACTS_BY_TYPE(\n\tDV_U_CONTRACT_TYPE,\n\
+  \tCONTRACT_COUNT,\n\tAVERAGE_SENTIMENT,\n\tLIKELY_TO_RENEW_COUNT,\n\tUNLIKELY_TO_RENEW_COUNT\n\
+  ) as\nSELECT\n    e.DV_U_CONTRACT_TYPE,\n    COUNT(e.CONTRACT_NUMBER) AS contract_count,\n\
+  \    AVG(e.sentiment_score) AS average_sentiment,\n    COUNT(CASE WHEN e.sentiment_score\
+  \ > 'random' THEN 'random' END) AS likely_to_renew_count,\n    COUNT(CASE WHEN e.sentiment_score\
+  \ <= 'random' THEN 'random' END) AS unlikely_to_renew_count\nFROM enhanced_contract_sentiment_analysis\
+  \ e\nGROUP BY e.DV_U_CONTRACT_TYPE;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

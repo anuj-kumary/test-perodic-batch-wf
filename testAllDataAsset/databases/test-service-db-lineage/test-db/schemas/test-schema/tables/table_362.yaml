@@ -1,0 +1,65 @@
+name: table_362
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_362
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_362.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view BENCHMARKTARGETS(\n\t\"TerritorySysID\"\
+  ,\n\t\"Territory\",\n\t\"TerritoryType\",\n\t\"BenchmarkVersions\",\n\t\"PeriodDate\"\
+  ,\n\t\"BusinessUnitSysID\",\n\t\"BusinessUnit\",\n\t\"Quarter\",\n\t\"BechmarkTarget\"\
+  ,\n\t\"MaturityBechmarkTarget\",\n\t\"Period\",\n\t\"ITSMProBechmarkTarget\",\n\t\
+  \"ITSMProMaturityBechmarkTarget\",\n\t\"RecordType\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \n\nSELECT\n    \"TerritorySysID\" as \"TerritorySysID\",\n    \"Territory\" as\
+  \ \"Territory\",\n    \"TerritoryType\" as \"TerritoryType\",\n    \"BenchmarkVersions\"\
+  \ as \"BenchmarkVersions\",\n    \"PeriodDate\" as \"PeriodDate\",\n    \"BusinessUnitSysID\"\
+  \ as \"BusinessUnitSysID\",\n    \"BusinessUnit\" as \"BusinessUnit\",\n    \"Quarter\"\
+  \ as \"Quarter\",\n    \"BenchmarkTarget\" as \"BechmarkTarget\",\n    \"MaturityBechmarkTarget\"\
+  \ as \"MaturityBechmarkTarget\",\n    \"Period\" as \"Period\",\n    \"ITSMProBechmarkTarget\"\
+  \ as \"ITSMProBechmarkTarget\",\n    \"ITSMProMaturityBechmarkTarget\" as \"ITSMProMaturityBechmarkTarget\"\
+  ,\n    case when \"PeriodDate\" = to_date(convert_timezone('random', CURRENT_TIMESTAMP()))\
+  \ then 'random'\n         when \"PeriodDate\" = date_trunc(quarter,to_date(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()))) then 'random'\n    end as \"RecordType\"\nFROM \"EDW_LS\"\
+  .\"RESEARCH_INSIGHTS\".\"TBLBENCHMARKTARGETS\"\nWHERE \"Quarter\" >= RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random')\n    and \"Quarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')), 'random')\n      ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

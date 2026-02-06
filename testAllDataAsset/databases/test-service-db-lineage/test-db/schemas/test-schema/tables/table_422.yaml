@@ -1,0 +1,63 @@
+name: table_422
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_422
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_422.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_CP_CORRAL(\n\t\"SysId\",\n\t\"TypeSysId\"\
+  ,\n\t\"Type\",\n\t\"Active\",\n\t\"Name\",\n\t\"Description\",\n\t\"BusinessUnit\"\
+  ,\n\t\"BusinessUnitSysId\",\n\t\"UAcvScore\",\n\t\"SysModCount\",\n\t\"DisplayName\"\
+  ,\n\t\"UpperValue\",\n\t\"UnitSyId\",\n\t\"Unit\",\n\t\"SysTags\",\n\t\"SysCreatedOn\"\
+  ,\n\t\"SysCreatedBy\",\n\t\"SysUpdatedOn\",\n\t\"SysUpdatedBy\",\n\t\"PspPerInsertDt\"\
+  ,\n\t\"PspPerUpdateDt\",\n\t\"PspPerDeleteDt\"\n) as -- SEMANTIC LAYER BEGINS\n\n\
+  SELECT \"SYS_ID\" as \"SysId\",\n       \"TYPE\" as \"TypeSysId\",\n       \"DV_TYPE\"\
+  \ as \"Type\",\n       \"ACTIVE\" as \"Active\",\n       \"NAME\" as \"Name\",\n\
+  \       \"DESCRIPTION\" as \"Description\",\n       \"DV_BUSINESS_UNIT\" as \"BusinessUnit\"\
+  ,\n       \"BUSINESS_UNIT\" as \"BusinessUnitSysId\",\n       \"U_ACV_SCORE\" as\
+  \ \"UAcvScore\",\n       \"SYS_MOD_COUNT\" as \"SysModCount\",\n       \"DISPLAY_NAME\"\
+  \ as \"DisplayName\",\n       \"UPPER_VALUE\" as \"UpperValue\",\n       \"UNIT\"\
+  \ as \"UnitSyId\",\n       \"DV_UNIT\" as \"Unit\",\n       \"SYS_TAGS\" as \"SysTags\"\
+  ,\n       \"SYS_CREATED_ON\" as \"SysCreatedOn\",\n       \"SYS_CREATED_BY\" as\
+  \ \"SysCreatedBy\",\n       \"SYS_UPDATED_ON\" as \"SysUpdatedOn\",\n       \"SYS_UPDATED_BY\"\
+  \ as \"SysUpdatedBy\",\n       \"PSP_PER_INSERT_DT\" as \"PspPerInsertDt\",\n  \
+  \     \"PSP_PER_UPDATE_DT\" as \"PspPerUpdateDt\",\n       \"PSP_PER_DELETE_DT\"\
+  \ as \"PspPerDeleteDt\"\nFROM \"RDS\".\"SURF\".\"X_SNC_CP_CORRAL\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

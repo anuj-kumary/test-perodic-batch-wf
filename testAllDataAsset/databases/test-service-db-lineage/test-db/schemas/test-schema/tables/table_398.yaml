@@ -1,0 +1,82 @@
+name: table_398
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_398
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_398.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view AP_INVOICE_ITEM(\n\t\"SURFInvoiceId\",\n\
+  \t\"SURFInvoiceNumber\",\n\t\"InvoiceLineItem\",\n\t\"LineItemAmount\",\n\t\"GLAccountName\"\
+  ,\n\t\"GLAccount\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SURFInvoiceId\" as\
+  \ \"SURFInvoiceId\",\n       \"SURFInvoiceNumber\" as \"SURFInvoiceNumber\",\n \
+  \      SUM(\"InvoiceLineItem\") as \"InvoiceLineItem\",\n       SUM(\"LineItemAmount\"\
+  ) as \"LineItemAmount\",\n       \"GLAccountName\" as \"GLAccountName\",\n     \
+  \  \"GLAccount\" as \"GLAccount\"\nFROM\n  (SELECT \"U_AP_INVOICE\" as \"SURFInvoiceId\"\
+  ,\n          \"DV_U_AP_INVOICE\" as \"SURFInvoiceNumber\",\n          \"U_LINE_ID\"\
+  \ as \"InvoiceLineItem\",\n          \"U_LINE_AMOUNT\" as \"LineItemAmount\",\n\
+  \          \"DV_U_GL_ACCOUNT\" as \"GLAccountName\",\n          \"U_GL_ACCOUNT\"\
+  \ as \"GLAccount\"\n   FROM\n     (SELECT \"PSP_PER_UPDATE_DT\" as \"PSP_PER_UPDATE_DT\"\
+  ,\n             \"U_AMOUNT_REMAINING\" as \"U_AMOUNT_REMAINING\",\n            \
+  \ \"SYS_TAGS\" as \"SYS_TAGS\",\n             \"U_AP_INVOICE\" as \"U_AP_INVOICE\"\
+  ,\n             \"U_LINE_DESCRIPTION\" as \"U_LINE_DESCRIPTION\",\n            \
+  \ \"U_LINE_UNIT_PRICE\" as \"U_LINE_UNIT_PRICE\",\n             \"U_LINE_AMOUNT\"\
+  \ as \"U_LINE_AMOUNT\",\n             \"SYS_ID\" as \"SYS_ID\",\n             \"\
+  U_AMOUNT_IN_PROCESS_IN_AP\" as \"U_AMOUNT_IN_PROCESS_IN_AP\",\n             \"U_SAP_EXCEPTION\"\
+  \ as \"U_SAP_EXCEPTION\",\n             \"U_QUANTITY_RECEIVED\" as \"U_QUANTITY_RECEIVED\"\
+  ,\n             \"DV_U_COST_CENTER\" as \"DV_U_COST_CENTER\",\n             \"DV_U_SAP_EXCEPTION\"\
+  \ as \"DV_U_SAP_EXCEPTION\",\n             \"U_PO_LINE_ITEM\" as \"U_PO_LINE_ITEM\"\
+  ,\n             \"DV_U_AP_INVOICE\" as \"DV_U_AP_INVOICE\",\n             \"SYS_MOD_COUNT\"\
+  \ as \"SYS_MOD_COUNT\",\n             \"U_PR_NUMBER\" as \"U_PR_NUMBER\",\n    \
+  \         \"PSP_PER_DELETE_DT\" as \"PSP_PER_DELETE_DT\",\n             \"DV_U_GL_ACCOUNT\"\
+  \ as \"DV_U_GL_ACCOUNT\",\n             \"U_QUANTITY_REMAINING\" as \"U_QUANTITY_REMAINING\"\
+  ,\n             \"U_ARIBA_IF_EXCEPTIONS\" as \"U_ARIBA_IF_EXCEPTIONS\",\n      \
+  \       \"U_AMOUNT_PAID_BY_AP\" as \"U_AMOUNT_PAID_BY_AP\",\n             \"U_LINE_QUANTITY\"\
+  \ as \"U_LINE_QUANTITY\",\n             \"DV_U_PO_NUMBER\" as \"DV_U_PO_NUMBER\"\
+  ,\n             \"U_COST_CENTER\" as \"U_COST_CENTER\",\n             \"U_PO_NUMBER\"\
+  \ as \"U_PO_NUMBER\",\n             \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n\
+  \             \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n             \"U_GL_ACCOUNT\"\
+  \ as \"U_GL_ACCOUNT\",\n             \"U_ARIBA_IGR_EXCEPTIONS\" as \"U_ARIBA_IGR_EXCEPTIONS\"\
+  ,\n             \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n             \"U_LINE_ID\"\
+  \ as \"U_LINE_ID\",\n             \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n  \
+  \           \"DV_U_PR_NUMBER\" as \"DV_U_PR_NUMBER\",\n             \"SYS_CREATED_ON\"\
+  \ as \"SYS_CREATED_ON\"\n      FROM \"RDS\".\"SURF\".\"U_AP_INVOICE_LINEITEM\")\"\
+  Projection_1\")Projection_2\nGROUP BY \"SURFInvoiceId\",\n         \"SURFInvoiceNumber\"\
+  ,\n         \"GLAccountName\",\n         \"GLAccount\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
