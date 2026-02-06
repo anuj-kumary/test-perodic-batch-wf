@@ -1,0 +1,220 @@
+name: dba_apply_error
+fullyQualifiedName: oracle_test.default.sys.dba_apply_error
+tableType: View
+columns:
+  - name: apply_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the apply process at the local site which processed the transaction
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.apply_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: queue_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the queue at the local site where the transaction came from
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.queue_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: queue_owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the queue at the local site where the transaction came from
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.queue_owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: local_transaction_id
+    dataType: VARCHAR
+    dataLength: 22
+    dataTypeDisplay: varchar2(22)
+    description: Local transaction ID for the error creation transaction
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.local_transaction_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: source_database
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Database where the transaction originated
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.source_database
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: source_transaction_id
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Original transaction ID at the source database
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.source_transaction_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: source_commit_scn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Original commit SCN for the transaction at the source database
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.source_commit_scn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: message_number
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Identifier for the message in the transaction that raised an error
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.message_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_number
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Error number
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.error_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_message
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Error message
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.error_message
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: recipient_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: User ID of the original recipient
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.recipient_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: recipient_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the original recipient
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.recipient_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: message_count
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Total number of messages inside the error transaction
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.message_count
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_creation_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The time that this error was created
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.error_creation_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: source_commit_position
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: raw
+    description: Original commit position for the transaction
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.source_commit_position
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_type
+    dataType: VARCHAR
+    dataLength: 25
+    dataTypeDisplay: varchar2(25)
+    description: The type of the error transaction
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.error_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: source_root_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Root Database where the transaction originated
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.source_root_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_position
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: raw
+    description: Position of the LCR that encountered the error
+    fullyQualifiedName: oracle_test.default.sys.dba_apply_error.error_position
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 3eea30ce38b28ea06a6e0c3d563df115
+processedLineage: false
+entityStatus: Approved
