@@ -1,0 +1,446 @@
+name: claims_sample_synthetic
+fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic
+description: |2
+
+  HealthVerity synchronizes transformational technologies with the nation’s largest healthcare and consumer data ecosystem to power previously unattainable outcomes and fundamentally advance science. HealthVerity offers hundreds of data sources across medical, pharmacy, lab, biomarker, EHR, consumer, and more.
+
+  This sample high-fidelity synthetic dataset from HealthVerity represents 1,500+ synthetic patients modeled on de-identified medical and pharmacy claims. **This dataset is intended for educational rather than production purposes, and may be used solely in non-production settings for internal testing, evaluation and/or informational purposes, and may not be relied upon or used for general commercial use**. This is only a synthetic sample dataset meant to illustrate a small portion of the type and volume of Real-world Data that is available within the HealthVerity Marketplace ecosystem. HealthVerity would welcome the opportunity to learn more about your project, and determine the optimal patient data for your objective. For more details on our offerings, please visit our website ([https://www.healthverity.com](https://www.healthverity.com)) or contact us through [https://www.healthverity.com/contact/](https://www.healthverity.com/contact/).
+tableType: Regular
+columns:
+  - name: hvid
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The HealthVerity universal identifier for the patient, as determined\
+      \ by the HealthVerity matching engine."
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.hvid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: claim_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Uniquely identifies a single claim that was submitted for reimbursement
+      by this data vendor.
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.claim_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: claim_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Indicates whether the claim is a professional (P) or institutional
+      (I) claim.
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.claim_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: date_service
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The calendar date on which the services referred to in this claim\
+      \ were rendered. (2400/DTP03, DTP01=472)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.date_service
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: diagnosis_code
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "A code indicating the patient's disease, injury, or condition, as\
+      \ identified by a healthcare practitioner. (2300/HI(01-12)-02)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.diagnosis_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: procedure_code
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "A code indicating the course of action taken by the healthcare practitioner.\
+      \ (837P 2400/SV101-02; 837I 2400/SV201, SV202)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.procedure_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: patient_gender
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "A single character identifying the gender of the person who received\
+      \ healthcare treatment. F = Female, M = Male, U = Unknown. (2010CA/DMG03)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.patient_gender
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: patient_year_of_birth
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The four-digit year in which the patient was born. (2010CA/DMG02)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.patient_year_of_birth
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: patient_zip3
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The first three digits of the U.S. postal code for the residence\
+      \ of the person who received healthcare treatment. If not supplied by the data\
+      \ provider, HealthVerity may populate this field with the first three digits\
+      \ of the postal code for the primary care provider or the rendering provider.\
+      \ (2010CA/N403)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.patient_zip3
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: patient_state
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The two-character postal code for the state in which the patient
+      resides. (2010CA/N402)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.patient_state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: inst_admit_type_std_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A standard code indicating the priority of this admission or visit.
+      (837I 2300/CL101)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.inst_admit_type_std_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: inst_admit_source_std_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A standard code indicating the source of the referral for the admission
+      or visit. (837I 2300/CL102)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.inst_admit_source_std_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: inst_discharge_status_std_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A standard code indicating the status of the patient as of the statement
+      end date. (837I 2300/CL103)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.inst_discharge_status_std_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: inst_type_of_bill_std_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "A standard code identifying the type of facility where services\
+      \ were performed. (837I 2300/CLM05-01, CLM05-03)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.inst_type_of_bill_std_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: inst_drg_std_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A standard diagnosis-related group code indicating the payment classification.
+      (837I 2300/HCP06)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.inst_drg_std_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: place_of_service_std_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "A standard code indicating the facility or place where services\
+      \ were rendered, as maintained by the Centers for Medicare and Medicaid Services\
+      \ (CMS). (2400/SV105)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.place_of_service_std_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: service_line_number
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: An integer representing the sequence for this service line within
+      the claim. (2400/LX01)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.service_line_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: diagnosis_code_qual
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The type of code used to indicate the disease, injury, or condition.\
+      \ Examples: ICD-10, ICD-9."
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.diagnosis_code_qual
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: admit_diagnosis_ind
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A flag indicating whether the diagnosis reported on an institutional
+      claim represents the admitting diagnosis. (2300/HI01-02)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.admit_diagnosis_ind
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: procedure_code_qual
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The type of code used to indicate the course of action taken by\
+      \ the healthcare practitioner. Examples: CPT, HCPCS. (837P 2400/SV101-01; 837I\
+      \ 2400/SV202-01)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.procedure_code_qual
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: procedure_units_billed
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The number of discrete actions, elements, or precisely measured\
+      \ amounts administered in this course of action. (837P 2400/SV104; 837I 2400/SV205)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.procedure_units_billed
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: procedure_modifier_1
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Identifies the first qualifier for the procedure code. This is a
+      code that supplies additional information about the procedure. (837P 2400/SV101-03;
+      837I 2400/SV202-03)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.procedure_modifier_1
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: procedure_modifier_2
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Identifies the second qualifier for the procedure code. This is a
+      code that supplies additional information about the procedure. (837P 2400/SV101-04;
+      837I 2400/SV202-04)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.procedure_modifier_2
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: procedure_modifier_3
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Identifies the third qualifier for the procedure code. This is a
+      code that supplies additional information about the procedure. (837P 2400/SV101-05;
+      837I 2400/SV202-05)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.procedure_modifier_3
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: procedure_modifier_4
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Identifies the fourth qualifier for the procedure code. This is a
+      code that supplies additional information about the procedure. (837P 2400/SV101-06;
+      837I 2400/SV202-06)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.procedure_modifier_4
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: revenue_code
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A standard NUBC revenue code from the UB claim form. (837I 2400/SV201)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.revenue_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: line_charge
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The total amount charged for this service line. (837P 2400/SV102;
+      837I 2400/SV203)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.line_charge
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: line_allowed
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The total amount allowed for this service line. (2400/HCP02)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.line_allowed
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: prov_rendering_npi
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The standard National Provider Identifier (NPI) for the provider\
+      \ who rendered services. (837P 2310B-2420A/NM109, NM108=XX; 837I 2310D-2420C/NM109,\
+      \ NM108=XX)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.prov_rendering_npi
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: prov_billing_npi
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The standard National Provider Identifier (NPI) for the provider\
+      \ that billed for services. (2010AA/NM109, NM108=XX)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.prov_billing_npi
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: prov_referring_npi
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The standard National Provider Identifier (NPI) for the provider\
+      \ who referred the patient to the rendering provider. (837P 2310A/NM109, NM108=XX;\
+      \ 837I 2310F/NM109, NM108=XX)"
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.prov_referring_npi
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payer_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A code indicating the classification for the payer.
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.payer_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: prov_rendering_std_taxonomy
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The National Uniform Claim Committee (NUCC) standard taxonomy code
+      for the provider who rendered services. (837P 2310B/PRV03; 837I 2310D/PRV03)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.prov_rendering_std_taxonomy
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: prov_billing_std_taxonomy
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The National Uniform Claim Committee (NUCC) standard taxonomy code
+      for the provider who submitted the claim. (2000A/PRV03)
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.prov_billing_std_taxonomy
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: prov_referring_std_taxonomy
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The National Uniform Claim Committee (NUCC) standard taxonomy code
+      for the provider who referred the patient to the rendering provider.
+    fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.prov_referring_std_taxonomy
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e3b15174-90d5-4305-8394-2d352015690b
+  type: databaseSchema
+  name: healthverity
+  fullyQualifiedName: testDbxtest.samples.healthverity
+  displayName: healthverity
+  deleted: false
+database:
+  id: f874651a-ac4e-4968-930a-531a93879ab4
+  type: database
+  name: samples
+  fullyQualifiedName: testDbxtest.samples
+  displayName: samples
+  deleted: false
+service:
+  id: d155115f-1a6b-479d-ac0c-96c07737c3a8
+  type: databaseService
+  name: testDbxtest
+  fullyQualifiedName: testDbxtest
+  description: ""
+  displayName: testDbxtest
+  deleted: false
+serviceType: Databricks
+locationPath: s3://system-tables-prod-us-east-2-uc-metastore-bucket/metastore/b622f329-0f39-444f-9dbb-5733ba3e2021/tables/3046cb5e-504e-4d61-9844-fff2ea7eb4d0
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: d4492eff-f55e-4b30-a815-5e9953e87db6
+  type: testSuite
+  name: testDbxtest.samples.healthverity.claims_sample_synthetic.testSuite
+  fullyQualifiedName: testDbxtest.samples.healthverity.claims_sample_synthetic.testSuite
+  displayName: testDbxtest.samples.healthverity.claims_sample_synthetic.testSuite
+  deleted: false
+domains: []
+dataProducts: []
+sourceHash: 88151b447b5ad237c706043316e0a88f
+processedLineage: false
+entityStatus: Approved
