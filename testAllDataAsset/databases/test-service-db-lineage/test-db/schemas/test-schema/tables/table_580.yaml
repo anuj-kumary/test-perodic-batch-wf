@@ -1,0 +1,58 @@
+name: table_580
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_580
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_580.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_ACCEL_DOWNLOAD_HISTORY(\n\t\"DownloadHistorySysID\"\
+  ,\n\t\"DownloadHistoryNowCreatorsErrorMsg\",\n\t\"DownloadHistoryNowCreatorsSyncStatus\"\
+  ,\n\t\"DownloadHistoryTableName\",\n\t\"DownloadHistoryDocumentID\",\n\t\"DownloadHistoryname\"\
+  ,\n\t\"DownloadHistoryUser\",\n\t\"DownloadHistoryUserRecord\",\n\t\"DownloadHistorySysCreatedOn\"\
+  ,\n\t\"DownloadHistoryPSPPerUpdateDate\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"SYS_ID\" as \"DownloadHistorySysID\",\n       \"NOW_CREATORS_ERROR_MSG\" as\
+  \ \"DownloadHistoryNowCreatorsErrorMsg\",\n       \"NOW_CREATORS_SYNC_STATUS\" as\
+  \ \"DownloadHistoryNowCreatorsSyncStatus\",\n       \"TABLE_NAME\" as \"DownloadHistoryTableName\"\
+  ,\n       \"DOCUMENT_ID\" as \"DownloadHistoryDocumentID\",\n       \"NAME\" as\
+  \ \"DownloadHistoryname\",\n       \"USER\" as \"DownloadHistoryUser\",\n      \
+  \ \"USER_RECORD\" as \"DownloadHistoryUserRecord\",\n       \"SYS_CREATED_ON\" as\
+  \ \"DownloadHistorySysCreatedOn\",\n       \"PSP_PER_UPDATE_DT\" as \"DownloadHistoryPSPPerUpdateDate\"\
+  \nFROM \"RDS\".\"LXP\".\"X_SNC_ACCEL_DOWNLOAD_HISTORY\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

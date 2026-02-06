@@ -1,0 +1,197 @@
+name: table_592
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_592
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_592.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ENTITLEMENTS_VALIDATION_TEST(\n\tENTITLEMENTNUMBER,\n\
+  \tPARENTENTITLEMENTNUMBER,\n\tSTATUSCODE,\n\tENTITLEMENTMODEL,\n\tBUSINESSEVENT,\n\
+  \tCUSTOMERID,\n\tCUSTOMERNAME,\n\tPRODUCTCODE,\n\tPRODUCTNAME,\n\tSALESQUANTITY,\n\
+  \tITEMVALIDFROM,\n\tITEMVALIDTO,\n\tOPPORTUNITYNUMBER,\n\tQUOTENUMBER,\n\tECCCONTRACTNUMBER,\n\
+  \tICERTISAGREEMENTNUMBER,\n\tICERTISPARENTAGREEMENTNUMBER,\n\tDATACENTERREGION,\n\
+  \tHOSTINGTYPE,\n\tPLATFORMFLAG,\n\tINSTANCENAME,\n\tINSTANCEPURPOSE,\n\tINSTANCESTATUS,\n\
+  \tSUPPORTLEVELLIFECYCLE,\n\tSURFCONTRACTNUMBER,\n\tSURFPARENTCONTRACTNUMBER,\n\t\
+  TOTALACV,\n\tAVGWEIGHTEDPRICE,\n\tCOMMITTEDIMPACTFLOORACV,\n\tCOMMITTEDIMPACTCEILINGACV,\n\
+  \tDPUNIQUEID,\n\tQUOTEITEMID,\n\tCURRENCY,\n\tSTEPINGROUP,\n\tMETER,\n\tDATACENTERPOD,\n\
+  \tSURFSYSID,\n\tSOURCESYSTEM,\n\tSTORAGECAPACITYTB,\n\tOPTIONPERIOD,\n\tMULTIYEAR\n\
+  ) as\n\n\n    Select  distinct\n\nEntitlementNumber,\nParentEntitlementNumber,\n\
+  StatusCode,\nEntitlementModel,\nBusinessEvent,\n(CustomerID) :: VARCHAR('random')\
+  \  as CustomerID,\nCustomerName,\nProductCode,\nProductName,\nSalesQuantity,\nItemValidFrom,\n\
+  ItemValidTo,\nOpportunityNumber,\n(QuoteNumber) :: VARCHAR('random') as QuoteNumber,\n\
+  (ECCContractNumber) :: VARCHAR('random') as ECCContractNumber,\niCertisAgreementNumber,\n\
+  iCertisParentAgreementNumber,\nDataCenterRegion,\nHostingType,\nPlatformFlag,\n\
+  InstanceName,\nInstancePurpose,\nInstanceStatus,\nSupportLevelLifecycle,\nSURFContractNumber,\n\
+  SURFParentContractNumber,\nTotalACV,\nAvgWeightedPrice,\nCommittedImpactFloorACV,\n\
+  CommittedImpactCeilingACV,\nDPUniqueID,\nQuoteItemId,\nCurrency,\nStepInGroup,\n\
+  Meter,\nDataCenterPOD,\nSURFSysId,\nSourceSystem,\nStorageCapacityTB,\nOptionPeriod,\n\
+  MultiYear\n\n                from (\n\n                    Select distinct\n   \
+  \                 ENTITLEMENTNO as EntitlementNumber,\n                    PARENTENTITLEMENTNO\
+  \ as ParentEntitlementNumber,\n                    STATUSCODE as StatusCode,\n \
+  \                   ENTITLEMENTMODELNAME as EntitlementModel,\n                \
+  \    'random' as BusinessEvent,\n                    CUSTOMERID as CustomerID,\n\
+  \                    CUSTOMERNAME as CustomerName,\n                    OFFERINGID\
+  \ as ProductCode,\n                    -- Confirm Logic & Mapping --\n         \
+  \           CASE WHEN ENTITLEMENTMODELNAME = 'random'\n                        \
+  \ THEN  PACKAGE --OR ZEMS_PACKAGE_V2\n                         ELSE OFFERINGNAME\
+  \ END AS ProductName,\n\n                    -- Confirm Logic & Mapping --\n   \
+  \                 CASE WHEN (ZEMS_SALESQTY_V3 IS not NULL OR ZEMS_SALESQTY_V3 <>\
+  \ 'random')\n                        THEN ZEMS_SALESQTY_V3\n                   \
+  \     ELSE EMS.QUANTITY END AS SalesQuantity,\n                    TO_VARCHAR(VALIDFROM,\
+  \ 'random') as ItemValidFrom,\n                    TO_VARCHAR(VALIDTO, 'random')\
+  \ as ItemValidTo,\n                    ZEMS_OPPORTUNITY_NUMBER_V2 as OpportunityNumber,\n\
+  \                    ZEMS_Quote_Number_v2 as QuoteNumber,\n                    ZEMS_ECC_CONTRACT_NUMBER_V2\
+  \ as ECCContractNumber,\n                    ZEMS_ICERTIS_AGREEMENT_NUMBER as iCertisAgreementNumber,\n\
+  \                    ZEMS_ICERTIS_CONTRACT_NUMBER_V2 as iCertisParentAgreementNumber,\n\
+  \                    DATACENTERREGION as DataCenterRegion,\n\n                 \
+  \   CASE WHEN (ENTITLEMENTMODELNAME = 'random' and HOSTINGTYPE = 'random')\n   \
+  \                      THEN 'random'\n                         ELSE HOSTINGTYPE\
+  \ end as HostingType,\n\n                    PLATFORMFLAG as PlatformFlag,\n   \
+  \                 INSTANCENAME as InstanceName,\n                    INSTANCE_PURPOSE\
+  \ as InstancePurpose,\n                    INSTANCE_STATUS as InstanceStatus,\n\
+  \                    SUPPORT_LEVEL_LIFE_CYCLE as SupportLevelLifecycle,\n      \
+  \              ZEMS_SURF_CONTRACT_NUMBER_V2 as SURFContractNumber,\n           \
+  \         ZEMS_SURF_PARENT_CONTRACT_NUMBER_V2 as SURFParentContractNumber,\n   \
+  \                 -- Confirm Logic & Mapping --\n                    SCI.ACV as\
+  \ TotalACV ,\n                    SCI.SALES_PRICE as AvgWeightedPrice,\n       \
+  \             SCI.U_IMPACT_COMMITTED_FLOOR_PRICE as CommittedImpactFloorACV,\n \
+  \                   SCI.U_IMPACT_COMMITTED_CEILING_PRICE as CommittedImpactCeilingACV,\n\
+  \                    'random' as DPUniqueID,\n                    CPQITEMID as QuoteItemId,\n\
+  \                    SC.U_BASE_CURRENCY as Currency,\n                    'random'\
+  \ AS StepInGroup,\n                    METERTYPE as Meter,\n                   \
+  \ DATACENTERPOD as DataCenterPOD,\n                    ZEMS_SURFSYSID as SURFSysId,\n\
+  \                    SOURCESYSTEM as SourceSystem,\n                    STORAGECAPACITY\
+  \ as StorageCapacityTB,\n                    'random' AS OptionPeriod,\n       \
+  \             'random' AS MultiYear,\n                    PROD.DV_U_FAMILY_3 as\
+  \ Product_Family_3\n\n\n                    from RDS_SHARE.SAP_EMS.ENTITLEMENTS\
+  \ EMS\n\n                    LEFT JOIN RDS_SHARE.SURF.SALES_CONTRACT_ITEM SCI\n\
+  \                    on EMS.ENTITLEMENTNO = SCI.U_EMS_ENTITLEMENT\n\n          \
+  \          LEFT JOIN RDS_SHARE.SURF.SALES_CONTRACT SC\n                    on SCI.CONTRACT\
+  \ = SC.SYS_ID\n\n                    LEFT JOIN RDS_SHARE.SURF.U_CONTRACT_INSTANCE\
+  \ CI\n                    on CI.U_CONTRACT_LINE_ITEM = SCI.SYS_ID\n\n          \
+  \          LEFT JOIN RDS_SHARE.SURF.SALES_PRODUCT PROD\n                    on PROD.U_PRODUCT_CODE\
+  \ = EMS.OFFERINGID\n\n                    WHERE  (cpqitemid IS not NULL\n      \
+  \              or  ZEMS_SURFSYSID IS not NULL )\n\n                     and (DV_U_FAMILY_3\
+  \ <> 'random'\n\n                     and OFFERINGID not in ( 'random','random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random')\n\
+  \n\n\n                    )\n\n                    )\n\n\n\nUNION\n\n\n\nSelect\
+  \  distinct\n\nEntitlementNumber,\nParentEntitlementNumber,\nStatusCode,\nEntitlementModel,\n\
+  BusinessEvent,\n(CustomerID) :: VARCHAR('random')  as CustomerID,\nCustomerName,\n\
+  ProductCode,\nProductName,\nSalesQuantity,\nItemValidFrom,\nItemValidTo,\nOpportunityNumber,\n\
+  (QuoteNumber) :: VARCHAR('random') as QuoteNumber,\n(ECCContractNumber) :: VARCHAR('random')\
+  \ as ECCContractNumber,\niCertisAgreementNumber,\niCertisParentAgreementNumber,\n\
+  DataCenterRegion,\nHostingType,\nPlatformFlag,\nInstanceName,\nInstancePurpose,\n\
+  InstanceStatus,\nSupportLevelLifecycle,\nSURFContractNumber,\nSURFParentContractNumber,\n\
+  CASE WHEN ProductCode IN ( 'random','random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random')\n\
+  \n          or Product_Family_3 = 'random'\n\n\n\n        THEN AvgWeightedPrice\
+  \ * 'random'\n        ELSE ContractLineACV END AS TotalACV,\nAvgWeightedPrice,\n\
+  CommittedImpactFloorACV,\nCommittedImpactCeilingACV,\nDPUniqueID,\nQuoteItemId,\n\
+  Currency,\nStepInGroup,\nMeter,\nDataCenterPOD,\nSURFSysId,\nSourceSystem,\nStorageCapacityTB,\n\
+  OptionPeriod,\nMultiYear\n\n                from (\n\n                    Select\
+  \ distinct\n                    ENTITLEMENTNO as EntitlementNumber,\n          \
+  \          PARENTENTITLEMENTNO as ParentEntitlementNumber,\n                   \
+  \ STATUSCODE as StatusCode,\n                    ENTITLEMENTMODELNAME as EntitlementModel,\n\
+  \                    'random' as BusinessEvent,\n                    CUSTOMERID\
+  \ as CustomerID,\n                    CUSTOMERNAME as CustomerName,\n          \
+  \          OFFERINGID as ProductCode,\n                    -- Confirm Logic & Mapping\
+  \ --\n                    CASE WHEN ENTITLEMENTMODELNAME = 'random'\n          \
+  \               THEN  PACKAGE --OR ZEMS_PACKAGE_V2\n                         ELSE\
+  \ OFFERINGNAME END AS ProductName,\n\n                    -- Confirm Logic & Mapping\
+  \ --\n                    CASE WHEN (ZEMS_SALESQTY_V3 IS not NULL OR ZEMS_SALESQTY_V3\
+  \ <> 'random')\n                        THEN ZEMS_SALESQTY_V3\n                \
+  \        ELSE EMS.QUANTITY END AS SalesQuantity,\n\n                    TO_VARCHAR(VALIDFROM,\
+  \ 'random') as ItemValidFrom,\n                    TO_VARCHAR(VALIDTO, 'random')\
+  \ as ItemValidTo,\n                    ZEMS_OPPORTUNITY_NUMBER_V2 as OpportunityNumber,\n\
+  \                    ZEMS_Quote_Number_v2 as QuoteNumber,\n                    ZEMS_ECC_CONTRACT_NUMBER_V2\
+  \ as ECCContractNumber,\n                    ZEMS_ICERTIS_AGREEMENT_NUMBER as iCertisAgreementNumber,\n\
+  \                    ZEMS_ICERTIS_CONTRACT_NUMBER_V2 as iCertisParentAgreementNumber,\n\
+  \                    DATACENTERREGION as DataCenterRegion,\n\n                 \
+  \   CASE WHEN (ENTITLEMENTMODELNAME = 'random' and HOSTINGTYPE = 'random')\n   \
+  \                      THEN 'random'\n                         ELSE HOSTINGTYPE\
+  \ end as HostingType,\n\n                    PLATFORMFLAG as PlatformFlag,\n   \
+  \                 INSTANCENAME as InstanceName,\n                    INSTANCE_PURPOSE\
+  \ as InstancePurpose,\n                    INSTANCE_STATUS as InstanceStatus,\n\
+  \                    SUPPORT_LEVEL_LIFE_CYCLE as SupportLevelLifecycle,\n      \
+  \              ZEMS_SURF_CONTRACT_NUMBER_V2 as SURFContractNumber,\n           \
+  \         ZEMS_SURF_PARENT_CONTRACT_NUMBER_V2 as SURFParentContractNumber,\n   \
+  \                 -- Confirm Logic & Mapping --\n                    SCI.ACV as\
+  \ ContractLineACV ,\n\n\n                    --SCI.SALES_PRICE as \"AvgWeightedPrice\"\
+  ,\n\n                    CASE WHEN (OFFERINGID IN ('random','random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random')\n\
+  \                                AND INSTANCE_PURPOSE = 'random' )\n           \
+  \                                  THEN SCI.SALES_PRICE/NULLIF(SCI.QUANTITY, 'random')*'random'\n\
+  \                        WHEN (OFFERINGID IN ('random','random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random')\n\
+  \                                 AND INSTANCE_PURPOSE = 'random' )\n          \
+  \                                   THEN SCI.SALES_PRICE/NULLIF(SCI.QUANTITY, 'random')*'random'\n\
+  \                      --  WHEN PROD.DV_U_FAMILY_3 = 'Non-Prod Environment  - Cloud'\n\
+  \                      --                      THEN SCI.SALES_PRICE/NULLIF(SCI.QUANTITY,\
+  \ 0)\n                       ELSE SCI.SALES_PRICE END as AvgWeightedPrice,\n   \
+  \                 SCI.U_IMPACT_COMMITTED_FLOOR_PRICE as CommittedImpactFloorACV,\n\
+  \                    SCI.U_IMPACT_COMMITTED_CEILING_PRICE as CommittedImpactCeilingACV,\n\
+  \                    'random' as DPUniqueID,\n                    CPQITEMID as QuoteItemId,\n\
+  \                    SC.U_BASE_CURRENCY as Currency,\n                    'random'\
+  \ AS StepInGroup,\n                    METERTYPE as Meter,\n                   \
+  \ DATACENTERPOD as DataCenterPOD,\n                    ZEMS_SURFSYSID as SURFSysId,\n\
+  \                    SOURCESYSTEM as SourceSystem,\n                    STORAGECAPACITY\
+  \ as StorageCapacityTB,\n                    'random' AS OptionPeriod,\n       \
+  \             'random' AS MultiYear,\n                    PROD.DV_U_FAMILY_3 as\
+  \ Product_Family_3\n\n\n                   from RDS_SHARE.SAP_EMS.ENTITLEMENTS EMS\n\
+  \nLEFT JOIN RDS_SHARE.SURF.U_CONTRACT_INSTANCE CI\non CI.U_EMS_ENTITLEMENT_ID =\
+  \ EMS.ENTITLEMENTNO\n\n\nLEFT  JOIN RDS_SHARE.SURF.SALES_CONTRACT_ITEM SCI\non CI.U_CONTRACT_LINE_ITEM\
+  \ = SCI.SYS_ID\n\nLEFT JOIN RDS_SHARE.SURF.SALES_CONTRACT SC\non SCI.CONTRACT =\
+  \ SC.SYS_ID\n\n--LEFT JOIN RDS.SURF.U_CONTRACT_INSTANCE CI\n--on CI.U_CONTRACT_LINE_ITEM\
+  \ = SCI.SYS_ID\n\nLEFT JOIN RDS_SHARE.SURF.SALES_PRODUCT PROD\non PROD.U_PRODUCT_CODE\
+  \ = EMS.OFFERINGID\n\nWHERE  cpqitemid IS not NULL\nor  ZEMS_SURFSYSID IS not NULL\n\
+  \n\n                    )\n\n      where ( ProductCode   in ( 'random','random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random',\n\
+  \                    'random','random','random','random','random','random','random','random','random','random','random','random','random','random')\n\
+  \n            OR  Product_Family_3 = 'random');"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,65 @@
+name: table_554
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_554
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_554.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_ACCEL_TASK_VERSION(\n\t\"TaskVersionApproval\"\
+  ,\n\t\"TaskVersionApprovers\",\n\t\"TaskVersionAssignedTo\",\n\t\"TaskVersionName\"\
+  ,\n\t\"TaskVersionOrder\",\n\t\"TaskVersionOverwrite\",\n\t\"TaskVersionPhase\"\
+  ,\n\t\"TaskVersionPurpose\",\n\t\"TaskVersionRiskOfSkipping\",\n\t\"TaskVersionState\"\
+  ,\n\t\"TaskVersionStepsToExecute\",\n\t\"TaskVersionVersionNumber\",\n\t\"TaskVersionInformed\"\
+  ,\n\t\"TaskVersionConsulted\",\n\t\"TaskVersionAccountable\",\n\t\"TaskVersionResponsible\"\
+  ,\n\t\"TaskVersionParent\",\n\t\"TaskVersionSysID\",\n\t\"TaskVersionProcess\"\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"APPROVAL\" as \"TaskVersionApproval\"\
+  ,\n       \"APPROVERS\" as \"TaskVersionApprovers\",\n       \"ASSIGNED_TO\" as\
+  \ \"TaskVersionAssignedTo\",\n       \"NAME\" as \"TaskVersionName\",\n       \"\
+  ORDER\" as \"TaskVersionOrder\",\n       \"OVERWRITE\" as \"TaskVersionOverwrite\"\
+  ,\n       \"PHASE\" as \"TaskVersionPhase\",\n       \"PURPOSE\" as \"TaskVersionPurpose\"\
+  ,\n       \"RISK_OF_SKIPPING\" as \"TaskVersionRiskOfSkipping\",\n       \"STATE\"\
+  \ as \"TaskVersionState\",\n       \"HOW\" as \"TaskVersionStepsToExecute\",\n \
+  \      \"VERSION_NUMBER\" as \"TaskVersionVersionNumber\",\n       \"INFORMED\"\
+  \ as \"TaskVersionInformed\",\n       \"CONSULTED\" as \"TaskVersionConsulted\"\
+  ,\n       \"ACCOUNTABLE\" as \"TaskVersionAccountable\",\n       \"RESPONSIBLE\"\
+  \ as \"TaskVersionResponsible\",\n       \"PARENT\" as \"TaskVersionParent\",\n\
+  \       \"SYS_ID\" as \"TaskVersionSysID\",\n       \"PROCESS\" as \"TaskVersionProcess\"\
+  \nFROM \"RDS\".\"LXP\".\"X_SNC_ACCEL_TASK_VERSION\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

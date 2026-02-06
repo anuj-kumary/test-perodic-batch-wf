@@ -1,0 +1,115 @@
+name: table_600
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_600
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_600.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_U_PR_TASK(\n\tDV_PARENT,\n\tSYS_ID,\n\
+  \tNUMBER,\n\tPARENT,\n\tSHORT_DESCRIPTION,\n\tOPENED_AT,\n\tCLOSED_AT,\n\tDV_STATE,\n\
+  \tDV_U_SAVINGS_TYPE,\n\tDV_U_SPEND_TYPE,\n\tDV_ASSIGNED_TO,\n\tDV_U_TASK_FOR,\n\t\
+  SYS_MOD_COUNT,\n\tU_SOURCING_SAVINGS,\n\tU_TOTAL_AMOUNT_USD,\n\tDV_U_COST_CENTER,\n\
+  \tU_VENDOR_NAME,\n\tDV_OPENED_BY,\n\tDV_CLOSED_BY,\n\tDV_U_PROCUREMENT_MEMBER,\n\
+  \tDV_ASSIGNMENT_GROUP,\n\tSYS_CREATED_ON,\n\tDUE_DATE,\n\tPRIORITY,\n\tU_PROCUREMENT_SAVINGS,\n\
+  \tU_EXPECTED_CLOSURE_DATE,\n\tCLOSED_BY,\n\tU_FIRST_REQUEST,\n\tU_TOTAL_AMOUNT,\n\
+  \tDV_U_PR_REQUESTER,\n\tASSIGNMENT_GROUP,\n\tSOURCE\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"DV_PARENT\" as \"DV_PARENT\",\n          \"SYS_ID\" as \"SYS_ID\",\n\
+  \          \"NUMBER\" as \"NUMBER\",\n          \"PARENT\" as \"PARENT\",\n    \
+  \      \"SHORT_DESCRIPTION\" as \"SHORT_DESCRIPTION\",\n          \"OPENED_AT\"\
+  \ as \"OPENED_AT\",\n          \"CLOSED_AT\" as \"CLOSED_AT\",\n          \"DV_STATE\"\
+  \ as \"DV_STATE\",\n          \"DV_U_SAVINGS_TYPE\" as \"DV_U_SAVINGS_TYPE\",\n\
+  \          \"DV_U_SPEND_TYPE\" as \"DV_U_SPEND_TYPE\",\n          \"DV_ASSIGNED_TO\"\
+  \ as \"DV_ASSIGNED_TO\",\n          \"DV_U_TASK_FOR\" as \"DV_U_TASK_FOR\",\n  \
+  \        \"SYS_MOD_COUNT\" as \"SYS_MOD_COUNT\",\n          \"U_SOURCING_SAVINGS\"\
+  \ as \"U_SOURCING_SAVINGS\",\n          \"U_TOTAL_AMOUNT_USD\" as \"U_TOTAL_AMOUNT_USD\"\
+  ,\n          \"DV_U_COST_CENTER\" as \"DV_U_COST_CENTER\",\n          \"U_VENDOR_NAME\"\
+  \ as \"U_VENDOR_NAME\",\n          \"DV_OPENED_BY\" as \"DV_OPENED_BY\",\n     \
+  \     \"DV_CLOSED_BY\" as \"DV_CLOSED_BY\",\n          \"DV_U_PROCUREMENT_MEMBER\"\
+  \ as \"DV_U_PROCUREMENT_MEMBER\",\n          \"DV_ASSIGNMENT_GROUP\" as \"DV_ASSIGNMENT_GROUP\"\
+  ,\n          \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n          \"DUE_DATE\" as\
+  \ \"DUE_DATE\",\n          \"PRIORITY\" as \"PRIORITY\",\n          \"U_PROCUREMENT_SAVINGS\"\
+  \ as \"U_PROCUREMENT_SAVINGS\",\n          \"U_EXPECTED_CLOSURE_DATE\" as \"U_EXPECTED_CLOSURE_DATE\"\
+  ,\n          \"CLOSED_BY\" as \"CLOSED_BY\",\n          \"U_FIRST_REQUEST\" as \"\
+  U_FIRST_REQUEST\",\n          \"U_TOTAL_AMOUNT\" as \"U_TOTAL_AMOUNT\",\n      \
+  \    \"DV_U_PR_REQUESTER\" as \"DV_U_PR_REQUESTER\",\n          \"ASSIGNMENT_GROUP\"\
+  \ as \"ASSIGNMENT_GROUP\",\n          'random' as \"SOURCE\"\n          From \"\
+  RDS_SHARE\".\"SURF\".\"U_PR_TASK\"\nUNION ALL\n     SELECT \"DV_SPEND_PURCHASE_REQUISITION\"\
+  \ as \"DV_PARENT\",\n             \"SYS_ID\" as \"SYS_ID\",\n             \"NUMBER\"\
+  \ as \"NUMBER\",\n             \"SPEND_PURCHASE_REQUISITION\" as \"PARENT\",\n \
+  \            \"SHORT_DESCRIPTION\" as \"SHORT_DESCRIPTION\",\n             \"OPENED_AT\"\
+  \ as \"OPENED_AT\",\n             \"CLOSED_AT\" as \"CLOSED_AT\",\n            \
+  \ \"DV_STATE\" as \"DV_STATE\",\n             'random' as \"DV_U_SAVINGS_TYPE\"\
+  ,\n             'random' as \"DV_U_SPEND_TYPE\",\n             \"DV_ASSIGNED_TO\"\
+  \ as \"DV_ASSIGNED_TO\",\n             \"DV_U_TASK_FOR\" as \"DV_U_TASK_FOR\",\n\
+  \             'random' as \"SYS_MOD_COUNT\",\n             'random' as \"U_SOURCING_SAVINGS\"\
+  ,\n             'random' as \"U_TOTAL_AMOUNT_USD\",\n             'random' as \"\
+  DV_U_COST_CENTER\",\n             'random' as \"U_VENDOR_NAME\",\n             \"\
+  SYS_CREATED_BY\" as \"DV_OPENED_BY\",\n             \"DV_CLOSED_BY\" as \"DV_CLOSED_BY\"\
+  ,\n             'random' as \"DV_U_PROCUREMENT_MEMBER\",\n             \"DV_ASSIGNMENT_GROUP\"\
+  \ as \"DV_ASSIGNMENT_GROUP\",\n             \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n             \"DUE_DATE\" as \"DUE_DATE\",\n             \"PRIORITY\" as \"PRIORITY\"\
+  ,\n             'random' as \"U_PROCUREMENT_SAVINGS\",\n             'random' as\
+  \ \"U_EXPECTED_CLOSURE_DATE\",\n             \"DV_CLOSED_BY\" as \"CLOSED_BY\",\n\
+  \             'random' as \"U_FIRST_REQUEST\",\n             'random' as \"U_TOTAL_AMOUNT\"\
+  ,\n             'random' as \"DV_U_PR_REQUESTER\",\n             \"ASSIGNMENT_GROUP\"\
+  \ as \"ASSIGNMENT_GROUP\",\n             'random' as \"SOURCE\"\n             From\
+  \ \"RDS_SHARE\".\"SURF\".\"SN_SPEND_PSD_PROCUREMENT_TASK\"\nUNION ALL\n      SELECT\
+  \ \"DV_PURCHASE_REQUEST\" as \"DV_PARENT\",\n              \"SYS_ID\" as \"SYS_ID\"\
+  ,\n              \"NUMBER\" as \"NUMBER\",\n              \"PURCHASE_REQUEST\" as\
+  \ \"PARENT\",\n              \"SHORT_DESCRIPTION\" as \"SHORT_DESCRIPTION\",\n \
+  \             \"OPENED_AT\" as \"OPENED_AT\",\n               \"CLOSED_AT\" as \"\
+  CLOSED_AT\",\n              \"DV_STATE\" as \"DV_STATE\",\n              'random'\
+  \ as \"DV_U_SAVINGS_TYPE\",\n              'random' as \"DV_U_SPEND_TYPE\",\n  \
+  \            \"DV_ASSIGNED_TO\" as \"DV_ASSIGNED_TO\",\n              \"DV_U_TASK_FOR\"\
+  \ as \"DV_U_TASK_FOR\",\n              'random' as \"SYS_MOD_COUNT\",\n        \
+  \       'random' as \"U_SOURCING_SAVINGS\",\n               'random' as \"U_TOTAL_AMOUNT_USD\"\
+  ,\n               'random' as \"DV_U_COST_CENTER\",\n               'random' as\
+  \ \"U_VENDOR_NAME\",\n               \"SYS_CREATED_BY\" as \"DV_OPENED_BY\",\n \
+  \              \"DV_CLOSED_BY\" as \"DV_CLOSED_BY\",\n               'random' as\
+  \ \"DV_U_PROCUREMENT_MEMBER\",\n               \"DV_ASSIGNMENT_GROUP\" as \"DV_ASSIGNMENT_GROUP\"\
+  ,\n               \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n               \"DUE_DATE\"\
+  \ as \"DUE_DATE\",\n               \"PRIORITY\" as \"PRIORITY\",\n             \
+  \  'random' as \"U_PROCUREMENT_SAVINGS\",\n               'random' as \"U_EXPECTED_CLOSURE_DATE\"\
+  ,\n               \"DV_CLOSED_BY\" as \"CLOSED_BY\",\n               'random' as\
+  \ \"U_FIRST_REQUEST\",\n               'random' as \"U_TOTAL_AMOUNT\",\n       \
+  \        'random' as \"DV_U_PR_REQUESTER\",\n               \"ASSIGNMENT_GROUP\"\
+  \ as \"ASSIGNMENT_GROUP\",\n               'random' as \"SOURCE\"\n            \
+  \  From \"RDS_SHARE\".\"SURF\".\"SN_SPEND_PSD_PROCUREMENT_REQUEST\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

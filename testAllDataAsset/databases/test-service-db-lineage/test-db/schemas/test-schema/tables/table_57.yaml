@@ -1,0 +1,59 @@
+name: table_57
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_57
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_57.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CONSOLIDATED_CUSTOMER_VALUE_STORIES(\n\t\
+  \"Sr. No\",\n\t\"Industry\",\n\t\"Sub-Industry\",\n\t\"Primary SKU\",\n\t\"Customer\
+  \ Name\",\n\t\"External/Internal\",\n\t\"Proof Point\",\n\t\"Type of Benefits\"\
+  ,\n\t\"Dollar Benefits\",\n\t\"Updated As On\",\n\t\"Link\",\n\t\"Additional Tagging\"\
+  ,\n\t\"Source\",\n\tETL_INSERT_DATE,\n\tETL_UPDATE_DATE,\n\tETL_DELETE_DATE,\n\t\
+  \"SystemIndustry\"\n) as\nselect\n\"Sr. No\" AS \"Sr. No\",\n\"Industry\" AS \"\
+  Industry\",\n\"Sub-Industry\" AS \"Sub-Industry\",\n\"Primary SKU\" AS \"Primary\
+  \ SKU\",\n\"Customer Name\" AS \"Customer Name\",\n\"External/Internal\" AS \"External/Internal\"\
+  ,\n\"Proof Point\" AS \"Proof Point\",\n\"Type of Benefits\" AS \"Type of Benefits\"\
+  ,\n\"Dollar Benefits\" AS \"Dollar Benefits\",\n\"Updated As On\" AS \"Updated As\
+  \ On\",\n\"Link\" AS \"Link\",\n\"Additional Tagging\" AS \"Additional Tagging\"\
+  ,\n\"Source\" AS \"Source\",\n\"ETL_INSERT_DATE\" AS \"ETL_INSERT_DATE\",\n\"ETL_UPDATE_DATE\"\
+  \ AS \"ETL_UPDATE_DATE\",\n\"ETL_DELETE_DATE\" AS \"ETL_DELETE_DATE\",\n\"SystemIndustry\"\
+  \ AS \"SystemIndustry\"\nfrom RDS.FLATFILESOURCE.CONSOLIDATED_CUSTOMER_VALUE_STORIES;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

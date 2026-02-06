@@ -1,0 +1,58 @@
+name: table_609
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_609
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_609.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_SALES_DQ_SURF_DATA(\n\tOPTY_SYSID,\n\t\
+  OPPORTUNITY_PARENTSYSID,\n\tOPPORTUNITY_NAME,\n\tOPPORTUNITY_NUMBER,\n\tOPPORTUNITY_LINEITEM_NUMBER,\n\
+  \tOPPORTUNITY_STAGE,\n\tOPPORTUNITY_TERRSYSID,\n\tOPPORTUNITY_CREATIONDATE,\n\t\
+  OPPORTUNITY_UPDATEDATE,\n\tOPPORTUNITY_PIPELINESTATUS,\n\tOPPORTUNITY_TYPE,\n\t\
+  OPPORTUNITY_PARTNERED,\n\tOPPORTUNITY_NNACV,\n\tOPPORTUNITY_DQRUNTIME\n) as\nSELECT\n\
+  OPTY_SYSID as OPTY_SYSID,\nOPTY_PARENT_SYSID as OPPORTUNITY_PARENTSYSID,\nOPTY_NAME\
+  \ as OPPORTUNITY_NAME,\nOPTY_NUMBER  as  Opportunity_Number  ,\nLINEITEM_NUM  as\
+  \  Opportunity_LineItem_Number  ,\nSTAGE   as Opportunity_Stage  ,\nU_TERRITORY\
+  \  as  Opportunity_TerrSysId  ,\nOPTY_CREATION_DATE   as Opportunity_CreationDate\
+  \  ,\nOPTY_SYS_UPDATE_ON  as  Opportunity_UpdateDate  ,\nPIPELINE_STATUS  as  Opportunity_PipelineStatus\
+  \  ,\nDV_TYPE  as  Opportunity_Type  ,\nU_PARTNERED   as Opportunity_Partnered \
+  \ ,\nUSD_NET_NEW_ACV  as  Opportunity_NNACV  ,\nDQ_RUN_DATETIME  as  Opportunity_DQRunTime\n\
+  \nFROM  CDL_LS.EDS_DQ.DQ_SURFDATA;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

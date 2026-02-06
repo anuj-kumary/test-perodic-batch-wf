@@ -1,0 +1,65 @@
+name: table_607
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_607
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_607.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_PROBLEM(\n\tEXTRACT_DATE,\n\t\"Number\"\
+  ,\n\t\"SysCreatedOn\",\n\t\"ProblemCategory\",\n\t\"AssignmentGroup\",\n\t\"ProblemType\"\
+  ,\n\t\"ProblemState\",\n\t\"AssignmentGroupSysId\",\n\t\"IsThisARegression\",\n\t\
+  \"FirstFamilyDetected\",\n\t\"ShortDescription\",\n\t\"Priority\",\n\t\"DailyRateOfIncidentCreation\"\
+  ,\n\t\"TargetedVersion\",\n\t\"LastWorkingFamily\",\n\t\"Active\",\n\t\"ExternalIncidentCount\"\
+  ,\n\tDV_U_FIX_STATUS,\n\t\"SysId\",\n\t\"ClosedAt\",\n\t\"AssignedTo\"\n) as --\
+  \ SEMANTIC LAYER BEGINS\n\nSELECT \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n      \
+  \ \"NUMBER\" as \"Number\",\n       \"SYS_CREATED_ON\" as \"SysCreatedOn\",\n  \
+  \     \"DV_U_PROBLEM_CATEGORY\" as \"ProblemCategory\",\n       \"DV_ASSIGNMENT_GROUP\"\
+  \ as \"AssignmentGroup\",\n       \"DV_U_PROBLEM_TYPE\" as \"ProblemType\",\n  \
+  \     \"DV_STATE\" as \"ProblemState\",\n       \"ASSIGNMENT_GROUP\" as \"AssignmentGroupSysId\"\
+  ,\n       \"DV_U_REGRESSION\" as \"IsThisARegression\",\n       \"U_FIRST_FAMILY_DETECTED\"\
+  \ as \"FirstFamilyDetected\",\n       \"SHORT_DESCRIPTION\" as \"ShortDescription\"\
+  ,\n       \"DV_PRIORITY\" as \"Priority\",\n       \"U_DAILY_RATE_OF_INCIDENT_CREATION\"\
+  \ as \"DailyRateOfIncidentCreation\",\n       \"U_TARGETED_VERSION\" as \"TargetedVersion\"\
+  ,\n       \"DV_U_FAMILY_LAST_WORKED\" as \"LastWorkingFamily\",\n       \"ACTIVE\"\
+  \ as \"Active\",\n       \"U_EXTERNAL_INCIDENT_COUNT\" as \"ExternalIncidentCount\"\
+  ,\n       \"DV_U_FIX_STATUS\" as \"DV_U_FIX_STATUS\",\n       \"SYS_ID\" as \"SysId\"\
+  ,\n       \"CLOSED_AT\" as \"ClosedAt\",\n       \"DV_ASSIGNED_TO\" as \"AssignedTo\"\
+  \nFROM \"RDS\".\"HI\".\"ST_PROBLEM\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

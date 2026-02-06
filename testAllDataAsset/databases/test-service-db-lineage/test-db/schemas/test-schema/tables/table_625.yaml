@@ -1,0 +1,65 @@
+name: table_625
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_625
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_625.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_SYS_SEARCH_SIGNAL_RESULT_EVENT_FEB22(\n\
+  \tRESULT_TYPE,\n\tCLICK_POSITION,\n\tRESULT_DOC_ID,\n\tLABEL_DESCRIPTION,\n\tSYS_MOD_COUNT,\n\
+  \tSYS_UPDATED_ON,\n\tSYS_DOMAIN_PATH,\n\tSYS_TAGS,\n\tACTION_DATA,\n\tSOURCE_URL,\n\
+  \tSYS_ID,\n\tNUMBER,\n\tSYS_UPDATED_BY,\n\tSYS_CREATED_ON,\n\tSYS_DOMAIN,\n\tDV_SYS_DOMAIN,\n\
+  \tSEARCH_SIGNAL_EVENT,\n\tDV_SEARCH_SIGNAL_EVENT,\n\tSOURCE_TABLE,\n\tAIS_DOC_ID,\n\
+  \tSYS_CREATED_BY,\n\tUSE_FOR_SUGGESTIONS,\n\tPSP_PER_INSERT_DT,\n\tPSP_PER_DELETE_DT,\n\
+  \tPSP_PER_UPDATE_DT\n) as\nSELECT\nSYS_SEARCH_SIGNAL_RESULT_EVENT.RESULT_TYPE,\n\
+  SYS_SEARCH_SIGNAL_RESULT_EVENT.CLICK_POSITION,\nSYS_SEARCH_SIGNAL_RESULT_EVENT.RESULT_DOC_ID\
+  \ LABEL_DESCRIPTION,\nSYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_MOD_COUNT,\nSYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_UPDATED_ON,SYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_DOMAIN_PATH,SYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_TAGS,\n\
+  SYS_SEARCH_SIGNAL_RESULT_EVENT.ACTION_DATA,SYS_SEARCH_SIGNAL_RESULT_EVENT.SOURCE_URL,SYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_ID,SYS_SEARCH_SIGNAL_RESULT_EVENT.NUMBER,\n\
+  SYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_UPDATED_BY,SYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_CREATED_ON,SYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_DOMAIN,\n\
+  SYS_SEARCH_SIGNAL_RESULT_EVENT.DV_SYS_DOMAIN, SYS_SEARCH_SIGNAL_RESULT_EVENT.SEARCH_SIGNAL_EVENT,\n\
+  SYS_SEARCH_SIGNAL_RESULT_EVENT.DV_SEARCH_SIGNAL_EVENT,\nSYS_SEARCH_SIGNAL_RESULT_EVENT.SOURCE_TABLE,\n\
+  SYS_SEARCH_SIGNAL_RESULT_EVENT.AIS_DOC_ID,\nSYS_SEARCH_SIGNAL_RESULT_EVENT.SYS_CREATED_BY,\n\
+  SYS_SEARCH_SIGNAL_RESULT_EVENT.USE_FOR_SUGGESTIONS,\nSYS_SEARCH_SIGNAL_RESULT_EVENT.PSP_PER_INSERT_DT,\n\
+  SYS_SEARCH_SIGNAL_RESULT_EVENT.PSP_PER_DELETE_DT, SYS_SEARCH_SIGNAL_RESULT_EVENT.PSP_PER_UPDATE_DT,\n\
+  \"SEARCH_QUERY\"\nFROM \"RDS\".\"SURF\".\"SYS_SEARCH_SIGNAL_RESULT_EVENT\"\nleft\
+  \ join \"RDS\".\"SURF\".\"SYS_SEARCH_SIGNAL_EVENT\" on sys_search_signal_result_event.search_signal_event\
+  \ = sys_search_signal_event.SYS_ID\nleft join \"RDS\".\"SURF\".\"SYS_SEARCH_EVENT\"\
+  \ on sys_search_signal_event.search_event = sys_search_event.sys_id;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

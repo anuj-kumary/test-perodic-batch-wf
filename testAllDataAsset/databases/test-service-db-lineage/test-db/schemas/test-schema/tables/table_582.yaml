@@ -1,0 +1,68 @@
+name: table_582
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_582
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_582.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_ACCEL_ASSET_VERSION(\n\t\"AssetVersionApproval\"\
+  ,\n\t\"AssetVersionApprovers\",\n\t\"AssetVersionAssignedTo\",\n\t\"AssetVersionChildProducts\"\
+  ,\n\t\"AssetVersionCurrent\",\n\t\"AssetVersionDescription\",\n\t\"AssetVersionFileFormat\"\
+  ,\n\t\"AssetVersionName\",\n\t\"AssetVersionOwnerGroup\",\n\t\"AssetVersionParent\"\
+  ,\n\t\"AssetVersionProducts\",\n\t\"AssetVersionRole\",\n\t\"AssetVersionState\"\
+  ,\n\t\"AssetVersionUpdateDescription\",\n\t\"AssetVersionUseType\",\n\t\"AssetVersionVersionNumber\"\
+  ,\n\t\"AssetVersionSysID\",\n\t\"AssetVersionSysUpdatedOn\",\n\t\"AssetVersionDVOwnerGroup\"\
+  ,\n\t\"AssetVersionAssetType\",\n\t\"AssetVersionFileFormatValue\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"APPROVAL\" as \"AssetVersionApproval\",\n       \"APPROVERS\"\
+  \ as \"AssetVersionApprovers\",\n       \"ASSIGNED_TO\" as \"AssetVersionAssignedTo\"\
+  ,\n       \"CHILD_PRODUCTS\" as \"AssetVersionChildProducts\",\n       \"CURRENT\"\
+  \ as \"AssetVersionCurrent\",\n       \"DESCRIPTION\" as \"AssetVersionDescription\"\
+  ,\n       \"FILE_FORMAT\" as \"AssetVersionFileFormat\",\n       \"NAME\" as \"\
+  AssetVersionName\",\n       \"OWNER_GROUP\" as \"AssetVersionOwnerGroup\",\n   \
+  \    \"PARENT\" as \"AssetVersionParent\",\n       \"PRODUCTS\" as \"AssetVersionProducts\"\
+  ,\n       \"ROLE\" as \"AssetVersionRole\",\n       \"STATE\" as \"AssetVersionState\"\
+  ,\n       \"UPDATE_DESCRIPTION\" as \"AssetVersionUpdateDescription\",\n       \"\
+  USE_TYPE\" as \"AssetVersionUseType\",\n       \"VERSION_NUMBER\" as \"AssetVersionVersionNumber\"\
+  ,\n       \"SYS_ID\" as \"AssetVersionSysID\",\n       \"SYS_UPDATED_ON\" as \"\
+  AssetVersionSysUpdatedOn\",\n       \"DV_OWNER_GROUP\" as \"AssetVersionDVOwnerGroup\"\
+  ,\n       \"ASSET_TYPE\" as \"AssetVersionAssetType\",\n       \"DV_FILE_FORMAT\"\
+  \ as \"AssetVersionFileFormatValue\"\nFROM \"RDS\".\"LXP\".\"X_SNC_ACCEL_ASSET_VERSION\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

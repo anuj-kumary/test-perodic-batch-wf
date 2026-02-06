@@ -1,0 +1,52 @@
+name: table_546
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_546
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_546.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_PSP_REP_LOGGING(\n\tPSP_JOB_EXEC_ID,\n\
+  \tPSP_JOB_NAME,\n\tJOB_START_TS,\n\tJOB_END_TS,\n\tJOB_DURATION,\n\tFILTER_CONDITION,\n\
+  \tSOURCE_COUNT,\n\tTARGET_COUNT,\n\tETL_INSERT_DATE,\n\tETL_UPDATE_DATE,\n\tETL_DELETE_DATE,\n\
+  \tSTATUS,\n\tRUNTIME_ARGUMENTS,\n\tLOAD_TYPE,\n\tLOAD_INSERTS,\n\tLOAD_UPDATES,\n\
+  \tRECON_UPDATES,\n\tRECON_INSERTS,\n\tSTAGING_TABLE,\n\tTARGET_TABLE\n) as (select\
+  \ * from NOC.LOGGING.PSP_RDS_JOB_RUN_AUDIT  where PSP_JOB_EXEC_ID >'random' and\
+  \ PSP_JOB_NAME like 'random');"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

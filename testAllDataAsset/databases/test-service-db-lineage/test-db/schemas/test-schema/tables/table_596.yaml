@@ -1,0 +1,120 @@
+name: table_596
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_596
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_596.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_CAMPAIGN_HISTORY_ONLY_RF(\n\t\"Lead\"\
+  ,\n\t\"CampaignSysID\",\n\t\"ChActive\",\n\t\"ChNumber\",\n\t\"AssetType\",\n\t\"\
+  ChannelName\"\n) as -- SEMANTIC LAYER BEGINS\nSELECT DISTINCT\n\t \"DV_U_LEAD\"\
+  \ as \"Lead\",\n\t \"SYS_ID\" as \"CampaignSysID\",\n\t \"U_ACTIVE\" as \"ChActive\"\
+  ,\n\t \"U_NUMBER\" as \"ChNumber\",\n\n    CASE WHEN \"Content Type Final 2\" =\
+  \ 'random' THEN 'random'\n        WHEN \"Content Type Final 2\" = 'random' THEN\
+  \ 'random'\n        WHEN IFNULL(\"Content Type Final 2\",'random') != 'random' THEN\
+  \ INITCAP(\"Content Type Final 2\")\n        WHEN contains(lower(B.\"CampaignType\"\
+  ),'random') THEN SPLIT_PART(B.\"CampaignType\",'random','random')\n        WHEN\
+  \ lower(B.\"CampaignType\") like 'random' then 'random'\n\t\t WHEN lower(B.\"CampaignType\"\
+  ) like 'random' then 'random'\n\t\t WHEN lower(B.\"CampaignType\") like 'random'\
+  \ then 'random'\n\t\t WHEN lower(B.\"CampaignName\") like 'random'\n\t\t   or lower(\"\
+  DV_U_CAMPAIGN_ASSET\") like 'random' then 'random'\n\t\t WHEN lower(B.\"CampaignName\"\
+  ) like 'random'\n\t\t   or lower(\"DV_U_CAMPAIGN_ASSET\") like 'random' then 'random'\n\
+  \t\t WHEN lower(B.\"CampaignName\") like 'random'\n\t\t   or lower(B.\"CampaignType\"\
+  ) like 'random'\n\t\t   or lower(\"DV_U_CAMPAIGN_ASSET\") like 'random'\n\t\t  \
+  \ or lower(\"U_PAGE_URL\") like 'random'then 'random'\n\t\t WHEN lower(B.\"CampaignName\"\
+  ) like 'random'\n\t\t   or lower(B.\"CampaignName\") like 'random'\n\t\t   or lower(\"\
+  DV_U_CAMPAIGN_ASSET\") like 'random'\n\t\t   or lower(\"DV_U_CAMPAIGN_ASSET\") like\
+  \ 'random'\n\t\t   or lower(\"DV_U_CAMPAIGN_ASSET\") like 'random'\n\t\t   or lower(\"\
+  U_PAGE_URL\") like 'random'\n\t\t   or lower(\"U_PAGE_URL\") like 'random'\n\t\t\
+  \   or lower(\"U_PAGE_URL\") like 'random' then 'random'\n\t\t WHEN lower(B.\"CampaignName\"\
+  ) like 'random'\n\t\t   or lower(B.\"CampaignName\") like 'random'\n\t\t   or lower(\"\
+  DV_U_CAMPAIGN_ASSET\") like 'random'\n\t\t   or lower(\"DV_U_CAMPAIGN_ASSET\") like\
+  \ 'random'\n\t\t   or lower(\"U_PAGE_URL\") like 'random' then 'random'\n\t\t WHEN\
+  \ lower(B.\"CampaignName\") like 'random'\n\t\t   or lower(B.\"CampaignName\") like\
+  \ 'random'\n\t\t   or lower(\"DV_U_CAMPAIGN_ASSET\") like 'random'\n\t\t   or lower(\"\
+  U_PAGE_URL\") like 'random' then 'random'\n\t\t WHEN lower(B.\"CampaignName\") like\
+  \ 'random' or\n\t\t\t  lower(\"DV_U_CAMPAIGN_ASSET\") like 'random'\n\t\t   or lower(\"\
+  U_PAGE_URL\") like 'random'then 'random'\n\t\t WHEN lower(B.\"CampaignName\") like\
+  \ 'random'\n\t\t   or lower(B.\"CampaignName\") like 'random'\n\t\t   or lower(\"\
+  DV_U_CAMPAIGN_ASSET\") like 'random'\n\t\t   or lower(B.\"CampaignName\") like 'random'then\
+  \ 'random'\n\t\t WHEN lower(\"DV_U_CAMPAIGN_ASSET\") like 'random' then 'random'\n\
+  \t\t WHEN lower(B.\"CampaignName\") like 'random'\n\t\t   or lower(\"U_PAGE_URL\"\
+  ) like 'random' then 'random'\n\t\t WHEN  lower(B.\"CampaignName\") like 'random'\
+  \ then 'random'\n\t\t WHEN  lower(B.\"CampaignName\") like 'random' then 'random'\n\
+  \t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\t\t WHEN  \"U_PAGE_URL\"\
+  \ like 'random' then 'random'\n\t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\
+  \t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\t\t WHEN  \"U_PAGE_URL\"\
+  \ like 'random' then 'random'\n\t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\
+  \t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\t\t WHEN  \"U_PAGE_URL\"\
+  \ like 'random' then 'random'\n\t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\
+  \t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\t\t WHEN  \"U_PAGE_URL\"\
+  \ like 'random' then 'random'\n\t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\
+  \t\t WHEN  \"U_PAGE_URL\" like 'random' then 'random'\n\t\t WHEN \"U_PAGE_URL\"\
+  \ like 'random' then 'random'\n\t\t WHEN \"U_PAGE_URL\" like 'random' then 'random'\n\
+  \t\t WHEN \"U_PAGE_URL\" like 'random' and \"U_PAGE_URL\" like 'random' then 'random'\n\
+  \t\t WHEN lower(\"DV_U_CAMPAIGN_ASSET\") like 'random'  then 'random'\n\t\t WHEN\
+  \ lower(\"U_PAGE_URL\") like 'random' then 'random'\n         WHEN F.\"CampaignAsset\"\
+  \ IS not NULL THEN INITCAP( CASE WHEN F.\"CONTENT_TYPE\"= 'random' THEN 'random'\
+  \ ELSE F.\"CONTENT_TYPE\" END )\n\telse 'random'\n\tend  \"AssetType\"\n\n    ,CASE\n\
+  \t\tWHEN DC.\"CampaignType\" IN (\n\t\t\t\t'random'\n\t\t\t\t,'random'\n\t\t\t\t\
+  )\n\t\t\tTHEN 'random'\n\t\tWHEN STARTSWITH(DC.\"CampaignType\", 'random')\n\t\t\
+  \tTHEN 'random'\n\t\tWHEN DC.\"CampaignType\" = 'random'\n\t\t\tAND CONTAINS (\n\
+  \t\t\t\tLOWER(DC.\"CampaignName\")\n\t\t\t\t,'random'\n\t\t\t\t)\n\t\t\tTHEN 'random'\n\
+  \t\tWHEN DC.\"CampaignType\" = 'random'\n\t\t\tAND NOT CONTAINS (\n\t\t\t\tLOWER(DC.\"\
+  CampaignName\")\n\t\t\t\t,'random'\n\t\t\t\t)\n\t\t\tTHEN 'random'\n\t\tWHEN DC.\"\
+  CampaignType\" IN (\n\t\t\t\t'random'\n\t\t\t\t,'random'\n\t\t\t\t,'random'\n\t\t\
+  \t\t,'random'\n\t\t\t\t,'random'\n\t\t\t\t,'random'\n\t\t\t\t)\n\t\t\tTHEN DC.\"\
+  CampaignType\"\n\t\tWHEN DC.\"CampaignType\" = 'random'\n\t\t\tTHEN IFNULL(DA.\"\
+  CHANNEL\",'random')\n        WHEN B.\"CampaignType\" IN ('random','random','random','random','random')\
+  \ THEN B.\"CampaignType\"\n        WHEN CONTAINS(B.\"CampaignType\",'random') THEN\
+  \ 'random'\n\t\tELSE 'random'\n\t\tEND \"ChannelName\"\n\n\tFROM \"RDS\".\"SURF\"\
+  .\"U_CAMPAIGN_HISTORY\" AS A\n    LEFT JOIN ODS_LS.SURF.U_CAMPAIGN B\n\t\tON A.\"\
+  U_CAMPAIGN_NAME\" = B.\"CampaignSysID\"\n    LEFT JOIN RDS.\"MARKETING\".\"MKT_CONTENT_TYPE_MAPPING_0425\"\
+  \ CT\n        ON trim(lower(ifnull(\"CAMPAIGN\",'random')))  = trim(lower(ifnull(B.\"\
+  CampaignName\",'random')))\n\t\tAND trim(lower(ifnull(\"CAMPAIGNASSET\",'random')))\
+  \  = trim(lower(ifnull(A.\"DV_U_CAMPAIGN_ASSET\",'random')))\n\t\tAND replace(trim(lower(ifnull(\"\
+  PAGEURL\",'random'))),'random','random') = replace(trim(lower(ifnull(A.\"U_PAGE_URL\"\
+  ,'random'))),'random','random')\n\t\tAND trim(lower(ifnull(\"CAMPAIGNTYPE\",'random')))\
+  \ = trim(lower(ifnull(B.\"CampaignType\",'random')))\n    LEFT JOIN EDW_LS.MARKETING.MKT_CONTENT_TYPE_FUZZY_OUTPUT\
+  \ F\n        ON A.\"DV_U_CAMPAIGN_ASSET\" = F.\"CampaignAsset\"\n    LEFT JOIN ODS_LS.SURF.U_CAMPAIGN\
+  \ DC\n\t\tON A.\"U_DELIVERY_CAMPAIGN\" = DC.\"CampaignSysID\"\n    LEFT JOIN RDS.\"\
+  MARKETING\".\"MKT_ABM_CAMPAIGN_MAPPING\" DA -- ABM Channel Details\n\tON DC.\"CampaignName\"\
+  \ = DA.\"Current Campaign Name\"\n    AND DA.\"CHANNEL\" IS not NULL\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,62 @@
+name: table_614
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_614
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_614.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VALUE_SELL_PLAN(\n\t\"ValueSellPlanVPSysID\"\
+  ,\n\t\"ValueSellPlanNumber\",\n\t\"ValueSellPlanDueDate\",\n\t\"ValueSellPlanApproval\"\
+  ,\n\t\"ValueSellPlanActiveFlag\",\n\t\"ValueSellPlanIncludeInLetter\",\n\t\"ValueSellPlanOwner\"\
+  ,\n\t\"ValueSellPlanResponsibility\",\n\t\"ValueSellPlanNotes\",\n\t\"ValueSellPlanState\"\
+  ,\n\t\"ValueSellPlanTaskSysID\",\n\t\"ValueSellPlanTaskName\",\n\t\"ValueSellPlanTaskShortDesc\"\
+  ,\n\t\"ValueSellCustomTaskFlag\",\n\t\"ValueSellUpdatedOn\"\n) as -- SEMANTIC LAYER\
+  \ BEGINS\n\nSELECT \"VALUE_PROMPTER\" as \"ValueSellPlanVPSysID\",\n       \"NUMBER\"\
+  \ as \"ValueSellPlanNumber\",\n       \"DUE_DATE\" as \"ValueSellPlanDueDate\",\n\
+  \       \"DV_APPROVAL\" as \"ValueSellPlanApproval\",\n       \"ACTIVE\" as \"ValueSellPlanActiveFlag\"\
+  ,\n       \"U_INCLUDE_IN_LETTER\" as \"ValueSellPlanIncludeInLetter\",\n       \"\
+  U_OWNERSHIP_TYPE\" as \"ValueSellPlanOwner\",\n       \"U_RESPONSIBILITY\" as \"\
+  ValueSellPlanResponsibility\",\n       \"U_NOTES\" as \"ValueSellPlanNotes\",\n\
+  \       \"DV_STATE\" as \"ValueSellPlanState\",\n       \"U_TASK_NAME\" as \"ValueSellPlanTaskSysID\"\
+  ,\n       \"DV_U_TASK_NAME\" as \"ValueSellPlanTaskName\",\n       \"SHORT_DESCRIPTION\"\
+  \ as \"ValueSellPlanTaskShortDesc\",\n       \"U_CUSTOM_TASK\" as \"ValueSellCustomTaskFlag\"\
+  ,\n       \"SYS_UPDATED_ON\" as \"ValueSellUpdatedOn\"\nFROM \"RDS\".\"SURF\".\"\
+  X_SNC_VALUE_SELL_PLAN\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

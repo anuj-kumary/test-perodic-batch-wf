@@ -1,0 +1,100 @@
+name: table_571
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_571
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_571.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_PSP_API_MISMATCH_BKP(\n\tTABLE_NAME,\n\
+  \tSYS_ID,\n\tPSP_LATEST,\n\tAPI_LATEST,\n\tCOMMENT,\n\tPSP_DELETED_ON,\n\tAPI_DELETED_ON\n\
+  ) as\nwith psp_table as (\nselect 'random' as table_name,sys_id,sys_updated_on from\
+  \ RDS_SHARE.SURF.label_entry union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.sales_account union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.sales_contract union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.sales_contract_item union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.sales_industry union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.sales_opportunity union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.sales_opportunity_item union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.sales_product union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.sales_product_price union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.u_commit union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.u_entitlement union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.u_opportunity_partner union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.u_partner_agreement union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.u_prm_deal_registration union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.u_sales_activity union\nselect 'random' as table_name,sys_id,sys_updated_on\
+  \ from RDS_SHARE.SURF.u_sales_territory\n),\napi_table as (\nselect 'random' as\
+  \ table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.label_entry union\nselect\
+  \ 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.sales_account\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.sales_contract\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.sales_contract_item\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.sales_industry\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.sales_opportunity\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.sales_opportunity_item\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.sales_product\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.sales_product_price\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.u_commit\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.u_entitlement\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.u_opportunity_partner\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.u_partner_agreement\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.u_prm_deal_registration\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.u_sales_activity\
+  \ union\nselect 'random' as table_name,sys_id,sys_updated_on from RDS.POC_SURF_PSP.u_sales_territory\n\
+  ),\npsp_deleted_records as (select documentkey,sys_created_on as deleted_on from\
+  \ RDS_SHARE.SURF.sys_audit_delete),\napi_deleted_records as (select documentkey,sys_created_on\
+  \ as deleted_on from RDS.POC_SURF_PSP.sys_audit_delete),\nmismatch as\n(\n    select\
+  \ coalesce(t1.table_name,t2.table_name) as table_name,\n    coalesce(t1.sys_id,t2.sys_id)\
+  \ as sys_id,\n    t1.sys_updated_on as psp_latest,t2.sys_updated_on as api_latest,\n\
+  \    case\n        when t2.sys_updated_on IS NULL then 'random'\n        when t1.sys_updated_on\
+  \ IS NULL then 'random'\n        when coalesce(t1.sys_updated_on,t2.sys_updated_on)\
+  \ IS not NULL and t2.sys_updated_on<t1.sys_updated_on then 'random'\n        when\
+  \ coalesce(t1.sys_updated_on,t2.sys_updated_on) IS not NULL and t1.sys_updated_on<t2.sys_updated_on\
+  \ then 'random'\n        else 'random'\n    end\n    as comment\n    from psp_table\
+  \ t1\n    full outer join api_table t2\n    on t1.sys_id=t2.sys_id and t1.table_name=t2.table_name\n\
+  \    where t2.sys_updated_on IS NULL --data not available in API table\n       or\
+  \ t2.sys_updated_on<t1.sys_updated_on --API data is not up to date\n       or t1.sys_updated_on\
+  \ IS NULL --data not available in PSP table\n       or t1.sys_updated_on<t2.sys_updated_on\
+  \ --PSP data is not up to date\n), cte as\n(\n    select table_name,sys_id,psp_latest,api_latest,comment,\n\
+  \    max(psp_deleted_records.deleted_on) as psp_deleted_on,max(api_deleted_records.deleted_on)\
+  \  as api_deleted_on\n    from mismatch\n    left join psp_deleted_records\n   \
+  \     on mismatch.sys_id=psp_deleted_records.documentkey\n    left join api_deleted_records\n\
+  \        on mismatch.sys_id=api_deleted_records.documentkey\n    group by 'random','random','random','random','random'\n\
+  )\nselect * from cte;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

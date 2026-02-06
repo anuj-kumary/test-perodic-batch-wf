@@ -1,0 +1,53 @@
+name: table_606
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_606
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_606.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_TIME_DIMENSION(\n\t\"DateTimestamp\"\
+  ,\n\t\"DateSQL\",\n\t\"Week\",\n\t\"Year\",\n\t\"Quarter\",\n\t\"Month\"\n) as\n\
+  SELECT \"DATETIMESTAMP\" as \"DateTimestamp\",\n       \"DATE_SQL\" as \"DateSQL\"\
+  ,\n       \"WEEK\" as \"Week\",\n       \"YEAR\" as \"Year\",\n       \"QUARTER\"\
+  \ as \"Quarter\",\n       \"MONTH\" as \"Month\"\nFROM\n  (SELECT \"DATETIMESTAMP\"\
+  \ as \"DATETIMESTAMP\",\n          \"DATE_SQL\" as \"DATE_SQL\",\n          \"WEEK\"\
+  \ as \"WEEK\",\n          \"YEAR\" as \"YEAR\",\n          \"QUARTER\" as \"QUARTER\"\
+  ,\n          \"MONTH\" as \"MONTH\"\n   FROM RDS.ENTERPRISE.M_TIME_DIMENSION)Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

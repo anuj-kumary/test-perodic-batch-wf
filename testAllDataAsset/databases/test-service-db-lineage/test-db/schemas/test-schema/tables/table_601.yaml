@@ -1,0 +1,221 @@
+name: table_601
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_601
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_601.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_SN_CUSTOMERSERVICE_CASE(\n\t\"DvBlockingTask\"\
+  ,\n\t\"AssignedTo\",\n\t\"Parent\",\n\t\"DvAssignmentGroup\",\n\t\"AssignmentGroup\"\
+  ,\n\t\"DvAssignedTo\",\n\t\"ReassignmentCount\",\n\t\"DvUCaseCategory\",\n\t\"ClosedAt\"\
+  ,\n\t\"ULanguage\",\n\t\"FirstResponseTime\",\n\t\"DvCompany\",\n\t\"Number\",\n\
+  \t\"DvUIncidentCategory\",\n\t\"DvPriority\",\n\t\"SysUpdatedOn\",\n\t\"Active\"\
+  ,\n\t\"DvState\",\n\t\"SysCreatedOn\",\n\t\"Priority\",\n\t\"Problem\",\n\t\"DvULanguage\"\
+  ,\n\t\"UCaseCategory\",\n\t\"DvParent\",\n\t\"DvProblem\",\n\t\"ExtractDate\",\n\
+  \t\"UPotentiallyCausedByUpgrade\",\n\tUSG_FLAG,\n\t\"DvLanguage\",\n\t\"DvUSubState\"\
+  ,\n\t\"DvURefIncident\",\n\t\"DvUPrimaryBlocker\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"DvBlockingTask\" as \"DvBlockingTask\",\n       \"AssignedTo\" as \"\
+  AssignedTo\",\n       \"Parent\" as \"Parent\",\n       \"DvAssignmentGroup\" as\
+  \ \"DvAssignmentGroup\",\n       \"AssignmentGroup\" as \"AssignmentGroup\",\n \
+  \      \"DvAssignedTo\" as \"DvAssignedTo\",\n       \"ReassignmentCount\" as \"\
+  ReassignmentCount\",\n       \"DvUCaseCategory\" as \"DvUCaseCategory\",\n     \
+  \  \"ClosedAt\" as \"ClosedAt\",\n       \"ULanguage\" as \"ULanguage\",\n     \
+  \  \"FirstReponseTime\" as \"FirstResponseTime\",\n       \"DvCompany\" as \"DvCompany\"\
+  ,\n       \"Number\" as \"Number\",\n       \"DvUIncidentCategory\" as \"DvUIncidentCategory\"\
+  ,\n       \"DvPriority\" as \"DvPriority\",\n       \"SysUpdatedOn\" as \"SysUpdatedOn\"\
+  ,\n       \"Active\" as \"Active\",\n       \"DvState\" as \"DvState\",\n      \
+  \ \"SysCreatedOn\" as \"SysCreatedOn\",\n       \"Priority\" as \"Priority\",\n\
+  \       \"Problem\" as \"Problem\",\n       \"DvULanguage\" as \"DvULanguage\",\n\
+  \       \"UCaseCategory\" as \"UCaseCategory\",\n       \"DvParent\" as \"DvParent\"\
+  ,\n       \"DvProblem\" as \"DvProblem\",\n       \"ExtractDate\" as \"ExtractDate\"\
+  ,\n       \"UPotentiallyCausedByUpgrade\" as \"UPotentiallyCausedByUpgrade\",\n\
+  \       \"USG_FLAG\" as \"USG_FLAG\",\n       \"DvLanguage\" as \"DvLanguage\",\n\
+  \       \"DvUSubState\" as \"DvUSubState\",\n       \"DvURefIncident\" as \"DvURefIncident\"\
+  ,\n       \"DvUPrimaryBlocker\" as \"DvUPrimaryBlocker\"\nFROM\n  (SELECT \"Join_1\"\
+  .\"DvBlockingTask\" as \"DvBlockingTask\",\n          \"Join_1\".\"AssignedTo\"\
+  \ as \"AssignedTo\",\n          \"Join_1\".\"Parent\" as \"Parent\",\n         \
+  \ \"Join_1\".\"DvAssignmentGroup\" as \"DvAssignmentGroup\",\n          \"Join_1\"\
+  .\"AssignmentGroup\" as \"AssignmentGroup\",\n          \"Join_1\".\"DvAssignedTo\"\
+  \ as \"DvAssignedTo\",\n          \"Join_1\".\"ReassignmentCount\" as \"ReassignmentCount\"\
+  ,\n          \"Join_1\".\"DvUCaseCategory\" as \"DvUCaseCategory\",\n          \"\
+  Join_1\".\"ClosedAt\" as \"ClosedAt\",\n          \"Join_1\".\"ULanguage\" as \"\
+  ULanguage\",\n          \"Join_1\".\"FirstReponseTime\" as \"FirstReponseTime\"\
+  ,\n          \"Join_1\".\"DvCompany\" as \"DvCompany\",\n          \"Join_1\".\"\
+  Number\" as \"Number\",\n          \"Join_1\".\"DvUIncidentCategory\" as \"DvUIncidentCategory\"\
+  ,\n          \"Join_1\".\"DvPriority\" as \"DvPriority\",\n          \"Join_1\"\
+  .\"SysUpdatedOn\" as \"SysUpdatedOn\",\n          \"Join_1\".\"Active\" as \"Active\"\
+  ,\n          \"Join_1\".\"DvState\" as \"DvState\",\n          \"Join_1\".\"SysCreatedOn\"\
+  \ as \"SysCreatedOn\",\n          \"Join_1\".\"Priority\" as \"Priority\",\n   \
+  \       \"Join_1\".\"Problem\" as \"Problem\",\n          \"Join_1\".\"DvULanguage\"\
+  \ as \"DvULanguage\",\n          \"Join_1\".\"UCaseCategory\" as \"UCaseCategory\"\
+  ,\n          \"Join_1\".\"DvParent\" as \"DvParent\",\n          \"Join_1\".\"DvProblem\"\
+  \ as \"DvProblem\",\n          \"Join_1\".\"ExtractDate\" as \"ExtractDate\",\n\
+  \          \"Join_1\".\"UPotentiallyCausedByUpgrade\" as \"UPotentiallyCausedByUpgrade\"\
+  ,\n          \"Join_1\".\"USG_FLAG\" as \"USG_FLAG\",\n          \"Aggregation_2\"\
+  .\"DvLanguage\" as \"DvLanguage\",\n          \"Join_1\".\"DvUSubState\" as \"DvUSubState\"\
+  ,\n          \"Join_1\".\"DvURefIncident\" as \"DvURefIncident\",\n          \"\
+  Join_1\".\"DvUPrimaryBlocker\" as \"DvUPrimaryBlocker\"\n   FROM\n     (SELECT \"\
+  Rank_1\".\"DvBlockingTask\" as \"DvBlockingTask\",\n             \"Union_1\".\"\
+  AssignedTo\" as \"AssignedTo\",\n             \"Union_1\".\"Parent\" as \"Parent\"\
+  ,\n             \"Union_1\".\"DvAssignmentGroup\" as \"DvAssignmentGroup\",\n  \
+  \           \"Union_1\".\"AssignmentGroup\" as \"AssignmentGroup\",\n          \
+  \   \"Union_1\".\"DvAssignedTo\" as \"DvAssignedTo\",\n             \"Union_1\"\
+  .\"ReassignmentCount\" as \"ReassignmentCount\",\n             \"Union_1\".\"DvUCaseCategory\"\
+  \ as \"DvUCaseCategory\",\n             \"Union_1\".\"ClosedAt\" as \"ClosedAt\"\
+  ,\n             \"Union_1\".\"ULanguage\" as \"ULanguage\",\n             \"Union_1\"\
+  .\"FirstReponseTime\" as \"FirstReponseTime\",\n             \"Union_1\".\"DvCompany\"\
+  \ as \"DvCompany\",\n             \"Union_1\".\"Number\" as \"Number\",\n      \
+  \       \"Union_1\".\"DvUIncidentCategory\" as \"DvUIncidentCategory\",\n      \
+  \       \"Union_1\".\"DvPriority\" as \"DvPriority\",\n             \"Union_1\"\
+  .\"SysUpdatedOn\" as \"SysUpdatedOn\",\n             \"Union_1\".\"Active\" as \"\
+  Active\",\n             \"Union_1\".\"DvState\" as \"DvState\",\n             \"\
+  Union_1\".\"SysCreatedOn\" as \"SysCreatedOn\",\n             \"Union_1\".\"Priority\"\
+  \ as \"Priority\",\n             \"Union_1\".\"Problem\" as \"Problem\",\n     \
+  \        \"Union_1\".\"DvULanguage\" as \"DvULanguage\",\n             \"Union_1\"\
+  .\"UCaseCategory\" as \"UCaseCategory\",\n             \"Union_1\".\"DvParent\"\
+  \ as \"DvParent\",\n             \"Union_1\".\"DvProblem\" as \"DvProblem\",\n \
+  \            \"Union_1\".\"ExtractDate\" as \"ExtractDate\",\n             \"Union_1\"\
+  .\"UPotentiallyCausedByUpgrade\" as \"UPotentiallyCausedByUpgrade\",\n         \
+  \    \"Union_1\".\"USG_FLAG\" as \"USG_FLAG\",\n             \"Rank_1\".\"DvUSubState\"\
+  \ as \"DvUSubState\",\n             \"Union_1\".\"DvURefIncident\" as \"DvURefIncident\"\
+  ,\n             \"Union_1\".\"DvUPrimaryBlocker\" as \"DvUPrimaryBlocker\"\n   \
+  \   FROM\n        (SELECT *\n         FROM\n           (SELECT \"AssignedTo\" as\
+  \ \"AssignedTo\",\n                   \"Parent\" as \"Parent\",\n              \
+  \     \"DvAssignmentGroup\" as \"DvAssignmentGroup\",\n                   \"AssignmentGroup\"\
+  \ as \"AssignmentGroup\",\n                   \"DvAssignedTo\" as \"DvAssignedTo\"\
+  ,\n                   \"ReassignmentCount\" as \"ReassignmentCount\",\n        \
+  \           \"DvUCaseCategory\" as \"DvUCaseCategory\",\n                   \"ClosedAt\"\
+  \ as \"ClosedAt\",\n                   \"ULanguage\" as \"ULanguage\",\n       \
+  \            \"FirstReponseTime\" as \"FirstReponseTime\",\n                   \"\
+  DvCompany\" as \"DvCompany\",\n                   \"Number\" as \"Number\",\n  \
+  \                 \"DvUIncidentCategory\" as \"DvUIncidentCategory\",\n        \
+  \           \"DvPriority\" as \"DvPriority\",\n                   \"SysUpdatedOn\"\
+  \ as \"SysUpdatedOn\",\n                   \"Active\" as \"Active\",\n         \
+  \          \"DvState\" as \"DvState\",\n                   \"SysCreatedOn\" as \"\
+  SysCreatedOn\",\n                   \"Priority\" as \"Priority\",\n            \
+  \       \"Problem\" as \"Problem\",\n                   \"DvULanguage\" as \"DvULanguage\"\
+  ,\n                   \"UCaseCategory\" as \"UCaseCategory\",\n                \
+  \   \"DvParent\" as \"DvParent\",\n                   \"DvProblem\" as \"DvProblem\"\
+  ,\n                   \"ExtractDate\" as \"ExtractDate\",\n                   \"\
+  UPotentiallyCausedByUpgrade\" as \"UPotentiallyCausedByUpgrade\",\n            \
+  \       \"USG_FLAG\" as \"USG_FLAG\",\n                   \"DvURefIncident\" as\
+  \ \"DvURefIncident\",\n                   \"DvUPrimaryBlocker\" as \"DvUPrimaryBlocker\"\
+  \n            FROM\n              (SELECT \"ASSIGNED_TO\" as \"AssignedTo\",\n \
+  \                     \"PARENT\" as \"Parent\",\n                      \"DV_ASSIGNMENT_GROUP\"\
+  \ as \"DvAssignmentGroup\",\n                      \"ASSIGNMENT_GROUP\" as \"AssignmentGroup\"\
+  ,\n                      \"DV_ASSIGNED_TO\" as \"DvAssignedTo\",\n             \
+  \         \"REASSIGNMENT_COUNT\" as \"ReassignmentCount\",\n                   \
+  \   \"DV_U_CASE_CATEGORY\" as \"DvUCaseCategory\",\n                      \"CLOSED_AT\"\
+  \ as \"ClosedAt\",\n                      \"U_LANGUAGE\" as \"ULanguage\",\n   \
+  \                   \"FIRST_RESPONSE_TIME\" as \"FirstReponseTime\",\n         \
+  \             \"DV_COMPANY\" as \"DvCompany\",\n                      \"NUMBER\"\
+  \ as \"Number\",\n                      \"DV_U_INCIDENT_CATEGORY\" as \"DvUIncidentCategory\"\
+  ,\n                      \"DV_PRIORITY\" as \"DvPriority\",\n                  \
+  \    \"SYS_UPDATED_ON\" as \"SysUpdatedOn\",\n                      \"ACTIVE\" as\
+  \ \"Active\",\n                      \"DV_STATE\" as \"DvState\",\n            \
+  \          \"SYS_CREATED_ON\" as \"SysCreatedOn\",\n                      \"PRIORITY\"\
+  \ as \"Priority\",\n                      \"PROBLEM\" as \"Problem\",\n        \
+  \              \"DV_U_LANGUAGE\" as \"DvULanguage\",\n                      \"U_CASE_CATEGORY\"\
+  \ as \"UCaseCategory\",\n                      \"DV_PARENT\" as \"DvParent\",\n\
+  \                      \"DV_PROBLEM\" as \"DvProblem\",\n                      \"\
+  EXTRACT_DATE\" as \"ExtractDate\",\n                      \"U_POTENTIALLY_CAUSED_BY_UPGRADE\"\
+  \ as \"UPotentiallyCausedByUpgrade\",\n                      \"DV_U_REF_INCIDENT\"\
+  \ as \"DvURefIncident\",\n                      \"DV_U_PRIMARY_BLOCKER\" as \"DvUPrimaryBlocker\"\
+  ,\n                      'random' as \"USG_FLAG\"\n               FROM \"RDS\".\"\
+  HI\".\"ST_SN_CUSTOMERSERVICE_CASE\")\"NONUSG\"\n            UNION ALL SELECT 'random'\
+  \ as \"AssignedTo\",\n                             \"CS_PARENT\" as \"Parent\",\n\
+  \                             \"DV_CS_ASSIGNMENT_GROUP\" as \"DvAssignmentGroup\"\
+  ,\n                             \"CS_ASSIGNMENT_GROUP\" as \"AssignmentGroup\",\n\
+  \                             'random' as \"DvAssignedTo\",\n                  \
+  \           'random' as \"ReassignmentCount\",\n                             \"\
+  DV_CS_U_CASE_CATEGORY\" as \"DvUCaseCategory\",\n                             \"\
+  CS_CLOSED_AT\" as \"ClosedAt\",\n                             'random' as \"ULanguage\"\
+  ,\n                             'random' as \"FirstReponseTime\",\n            \
+  \                 'random' as \"DvCompany\",\n                             \"CS_NUMBER\"\
+  \ as \"Number\",\n                             'random' as \"DvUIncidentCategory\"\
+  ,\n                             \"DV_CS_PRIORITY\" as \"DvPriority\",\n        \
+  \                     \"CS_SYS_UPDATED_ON\" as \"SysUpdatedOn\",\n             \
+  \                \"CS_ACTIVE\" as \"Active\",\n                             \"DV_CS_STATE\"\
+  \ as \"DvState\",\n                             \"CS_SYS_CREATED_ON\" as \"SysCreatedOn\"\
+  ,\n                             \"CS_PRIORITY\" as \"Priority\",\n             \
+  \                \"CS_PROBLEM\" as \"Problem\",\n                             'random'\
+  \ as \"DvULanguage\",\n                             \"CS_U_CASE_CATEGORY\" as \"\
+  UCaseCategory\",\n                             \"DV_CS_PARENT\" as \"DvParent\"\
+  ,\n                             \"DV_CS_PROBLEM\" as \"DvProblem\",\n          \
+  \                   \"EXTRACT_DATE\" as \"ExtractDate\",\n                     \
+  \        'random' as \"UPotentiallyCausedByUpgrade\",\n                        \
+  \     \"USG_FLAG\" as \"USG_FLAG\",\n                             'random' as \"\
+  DvURefIncident\",\n                             'random' as \"DvUPrimaryBlocker\"\
+  \n            FROM\n              (SELECT \"CS_PROBLEM\" as \"CS_PROBLEM\",\n  \
+  \                    \"DV_CS_U_CASE_CATEGORY\" as \"DV_CS_U_CASE_CATEGORY\",\n \
+  \                     \"CS_U_CASE_CATEGORY\" as \"CS_U_CASE_CATEGORY\",\n      \
+  \                \"DV_CS_STATE\" as \"DV_CS_STATE\",\n                      \"DV_CS_PRIORITY\"\
+  \ as \"DV_CS_PRIORITY\",\n                      \"CS_NUMBER\" as \"CS_NUMBER\",\n\
+  \                      \"CS_ACTIVE\" as \"CS_ACTIVE\",\n                      \"\
+  CS_PRIORITY\" as \"CS_PRIORITY\",\n                      \"CS_ASSIGNMENT_GROUP\"\
+  \ as \"CS_ASSIGNMENT_GROUP\",\n                      \"DV_CS_PROBLEM\" as \"DV_CS_PROBLEM\"\
+  ,\n                      \"CS_SYS_UPDATED_ON\" as \"CS_SYS_UPDATED_ON\",\n     \
+  \                 \"CS_CLOSED_AT\" as \"CS_CLOSED_AT\",\n                      \"\
+  DV_CS_ASSIGNMENT_GROUP\" as \"DV_CS_ASSIGNMENT_GROUP\",\n                      \"\
+  DV_CS_PARENT\" as \"DV_CS_PARENT\",\n                      \"CS_PARENT\" as \"CS_PARENT\"\
+  ,\n                      \"CS_SYS_CREATED_ON\" as \"CS_SYS_CREATED_ON\",\n     \
+  \                 \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n                      'random'\
+  \ as \"USG_FLAG\"\n               FROM \"RDS\".\"HI\".\"ST_SN_CUSTOMERSERVICE_U_USG_CASE\"\
+  )\"USG\"))\"Union_1\"\n      LEFT JOIN\n        (SELECT \"DvBlockingTask\" as \"\
+  DvBlockingTask\",\n                \"DvBlockingReason\" as \"DvUSubState\",\n  \
+  \              \"SysUpdatedOn\" as \"SysUpdatedOn\",\n                \"ExtractDate\"\
+  \ as \"ExtractDate\",\n                ROW_NUMBER() OVER(PARTITION BY \"DvBlockingTask\"\
+  , \"ExtractDate\"\n                                  ORDER BY \"SysUpdatedOn\" DESC)\"\
+  Rank_Column\"\n         FROM\n           (SELECT \"DvBlockingReason\" as \"DvBlockingReason\"\
+  ,\n                   \"DvBlockingTask\" as \"DvBlockingTask\",\n              \
+  \     \"SysUpdatedOn\" as \"SysUpdatedOn\",\n                   \"SysId\" as \"\
+  SysId\",\n                   \"ExtractDate\" as \"ExtractDate\"\n            FROM\
+  \ ODS_LS.HI.ST_SN_ACTION_STATUS_BLOCKED_BY\n            GROUP BY \"DvBlockingReason\"\
+  ,\n                     \"DvBlockingTask\",\n                     \"SysUpdatedOn\"\
+  ,\n                     \"SysId\",\n                     \"ExtractDate\")\"Aggregation_1\"\
+  \ QUALIFY \"Rank_Column\" = 'random')\"Rank_1\" ON \"Union_1\".\"Number\" = \"Rank_1\"\
+  .\"DvBlockingTask\"\n      AND \"Union_1\".\"ExtractDate\" = \"Rank_1\".\"ExtractDate\"\
+  )\"Join_1\"\n   LEFT JOIN\n     (SELECT \"DvTask\" as \"DvTask\",\n            \
+  \ \"DvSkill\" as \"DvSkill\",\n             SUBSTR(\"DvSkill\",(REGEXP_INSTR(\"\
+  DvSkill\", 'random')+len('random'))) as \"DvLanguage\"\n      FROM ODS_LS.HI.TASK_M2M_SKILL\n\
+  \      WHERE (REGEXP_LIKE(\"DvSkill\", 'random'))\n      GROUP BY \"DvTask\",\n\
+  \               \"DvSkill\")\"Aggregation_2\" ON \"Join_1\".\"Number\" = \"Aggregation_2\"\
+  .\"DvTask\")Join_2;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

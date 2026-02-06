@@ -1,0 +1,68 @@
+name: table_623
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_623
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_623.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_MDM_PRODUCT_BOM_REL_METADATA(\n\tPRODUCT_BOM_COMPONENT_ID,\n\
+  \tPRODUCT_BOM_ID,\n\tBOM_NUM,\n\tBOM_NAME,\n\tBOM_TYPE,\n\tBOM_CATEGORY,\n\tREL_TYPE_CD,\n\
+  \tREL_NAME,\n\tFROM_PRODUCT_ID,\n\tFROM_PRODUCT_MDM_ID,\n\tFROM_PRODUCT_NUM,\n\t\
+  FROM_PRODUCT_SUBCLASS_CODE,\n\tFROM_PRODUCT_NAME,\n\tTO_PRODUCT_ID,\n\tTO_PRODUCT_MDM_ID,\n\
+  \tTO_PRODUCT_NUM,\n\tTO_PRODUCT_SUBCLASS_CODE,\n\tTO_PRODUCT_NAME,\n\tHUB_STATE_IND,\n\
+  \tCREATE_DATE,\n\tLAST_UPDATE_DATE,\n\tACTIVE_FLAG,\n\tEFF_START_DATE,\n\tEFF_END_DATE,\n\
+  \tPROD_QTY,\n\tPROD_UOM,\n\tBOM_EXCLUSION_TYPE,\n\tETL_INSERT_DATE,\n\tETL_UPDATE_DATE,\n\
+  \tETL_DELETE_DATE\n) as\n/*********************************************************************************\n\
+  * Program Name      :   V_MDM_PRODUCT_BOM_REL_METADATA\n* Date Created      :  \
+  \ 11-01-2023\n* Developed BY      :   Vamshi Rao Deshineni\n* Brief Description\
+  \ :   Base Model on top of table V_MDM_PRODUCT_BOM_REL_METADATA\n* --------------------------------------------------------------------------------------------------------------------------\n\
+  * REVISION HISTORY:\n*---------------------------------------------------------------------------------------------------------------------------\n\
+  * CR#                 Date Modified           Modified BY        Brief Description\
+  \ OF CHANGE\n**********************************************************************************/\n\
+  SELECT\n      PRODUCT_BOM_COMPONENT_ID\n    , PRODUCT_BOM_ID\n    , BOM_NUM\n  \
+  \  , BOM_NAME\n    , BOM_TYPE\n    , BOM_CATEGORY\n    , REL_TYPE_CD\n    , REL_NAME\n\
+  \    , FROM_PRODUCT_ID\n    , FROM_PRODUCT_MDM_ID\n    , FROM_PRODUCT_NUM\n    ,\
+  \ FROM_PRODUCT_SUBCLASS_CODE\n    , FROM_PRODUCT_NAME\n    , TO_PRODUCT_ID\n   \
+  \ , TO_PRODUCT_MDM_ID\n    , TO_PRODUCT_NUM\n    , TO_PRODUCT_SUBCLASS_CODE\n  \
+  \  , TO_PRODUCT_NAME\n    , HUB_STATE_IND\n    , CREATE_DATE\n    , LAST_UPDATE_DATE\n\
+  \    , ACTIVE_FLAG\n    , EFF_START_DATE\n    , EFF_END_DATE\n    , PROD_QTY\n \
+  \   , PROD_UOM\n    , BOM_EXCLUSION_TYPE\n    , ETL_INSERT_DATE\n    , ETL_UPDATE_DATE\n\
+  \    , ETL_DELETE_DATE\nFROM RDS.MDM.V_MDM_PRODUCT_BOM_REL_METADATA;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

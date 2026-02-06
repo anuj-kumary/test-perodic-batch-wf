@@ -1,0 +1,63 @@
+name: table_558
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_558
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_558.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_ACCEL_TASK_OVERWRITE(\n\t\"TaskOverwriteAccountable\"\
+  ,\n\t\"TaskOverwriteApproval\",\n\t\"TaskOverwriteApprovers\",\n\t\"TaskOverwriteAssignedTo\"\
+  ,\n\t\"TaskOverwriteConsulted\",\n\t\"TaskOverwriteName\",\n\t\"TaskOverwriteOrder\"\
+  ,\n\t\"TaskOverwriteOverwrite\",\n\t\"TaskOverwritePhase\",\n\t\"TaskOverwritePurpose\"\
+  ,\n\t\"TaskOverwriteRiskOfSkipping\",\n\t\"TaskOverwriteState\",\n\t\"TaskOverwriteHow\"\
+  ,\n\t\"TaskOverwriteVersionNumber\",\n\t\"TaskOverwriteSysID\",\n\t\"TaskOverwitePack\"\
+  ,\n\t\"TaskOverwriteTask\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ACCOUNTABLE\"\
+  \ as \"TaskOverwriteAccountable\",\n       \"APPROVAL\" as \"TaskOverwriteApproval\"\
+  ,\n       \"APPROVERS\" as \"TaskOverwriteApprovers\",\n       \"ASSIGNED_TO\" as\
+  \ \"TaskOverwriteAssignedTo\",\n       \"CONSULTED\" as \"TaskOverwriteConsulted\"\
+  ,\n       \"NAME\" as \"TaskOverwriteName\",\n       \"ORDER\" as \"TaskOverwriteOrder\"\
+  ,\n       \"OVERWRITE\" as \"TaskOverwriteOverwrite\",\n       \"PHASE\" as \"TaskOverwritePhase\"\
+  ,\n       \"PURPOSE\" as \"TaskOverwritePurpose\",\n       \"RISK_OF_SKIPPING\"\
+  \ as \"TaskOverwriteRiskOfSkipping\",\n       \"STATE\" as \"TaskOverwriteState\"\
+  ,\n       \"HOW\" as \"TaskOverwriteHow\",\n       \"VERSION_NUMBER\" as \"TaskOverwriteVersionNumber\"\
+  ,\n       \"SYS_ID\" as \"TaskOverwriteSysID\",\n       \"PACK\" as \"TaskOverwitePack\"\
+  ,\n       \"TASK\" as \"TaskOverwriteTask\"\nFROM \"RDS\".\"LXP\".\"X_SNC_ACCEL_TASK_OVERWRITE\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

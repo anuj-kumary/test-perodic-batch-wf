@@ -1,0 +1,389 @@
+name: table_563
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_563
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_563.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view OPPORTUNITIES_TEST_Q1(\n\t\"SalesActivePipeline\"\
+  ,\n\t\"OpportunityWeightedPercentage\",\n\t\"OpportunityOwnerSysID\",\n\t\"OpportunitySysID\"\
+  ,\n\t\"OpportunityTerritorySydID\",\n\t\"OpportunityCreatedOn\",\n\t\"OpportunityNumber\"\
+  ,\n\t\"OpportunityName\",\n\t\"OpportunitySalesRepSysID\",\n\t\"OpportunityCloseDate\"\
+  ,\n\t\"OpportunityForecastCategory\",\n\t\"OpportunityType\",\n\t\"OpportunitySalesRepName\"\
+  ,\n\t\"OpportunityStage\",\n\t\"OpportunityCustomerID\",\n\t\"OpportunityAccountSysID\"\
+  ,\n\t\"OpportunityStatusCode\",\n\t\"OpportunityStatusCodeName\",\n\t\"OpportunityPSRevenueBase\"\
+  ,\n\t\"OpportunityRenewalACVBase\",\n\t\"OpportunityStateCodeName\",\n\t\"OpportunityProbability\"\
+  ,\n\t\"OpportunityTerritorySydID_CC\",\n\t\"OpportunityContractEndDate\",\n\t\"\
+  OpportunityUSDTotalACV\",\n\t\"OpportunityRiskMitigationSteps\",\n\t\"OpportunityRiskReasonCodeName\"\
+  ,\n\t\"OptyCreatedBy\",\n\t\"OpportunityProductcategoryList\",\n\t\"OpportunityServiceProviderUsageTypeName\"\
+  ,\n\t\"OptyCreatedByName\",\n\t\"OpportunityTiming\",\n\t\"OpportunitySourceSystemName\"\
+  ,\n\t\"ImplementationModeCode\",\n\t\"ImplementationModeName\",\n\t\"OpportunityRisk\"\
+  ,\n\t\"OpportunityBVAName\",\n\t\"OpportunityValueMgmtEngagedName\",\n\t\"OpportunityValuePromptersCreated\"\
+  ,\n\t\"OpportunityDemoName\",\n\t\"OpportunityTechnicalWinName\",\n\t\"OpportunityPOVName\"\
+  ,\n\t\"OptyValuePrompterCreatedStatus\",\n\t\"OpportunityWorkshopName\",\n\t\"OptyParentNumber\"\
+  ,\n\t\"OptyParentTechnicalWinName\",\n\t\"OptyParentTechnicalWinName_CC\",\n\t\"\
+  OptyTechnicalWinName_CC\",\n\t\"OptyDemoName_CC\",\n\t\"OptyPOVName_CC\",\n\t\"\
+  OptyWorkshopName_CC\",\n\t\"OptyBVAName_CC\",\n\t\"OptyParentDealChampionID\",\n\
+  \t\"OptyParentDealChampionName\",\n\t\"OpportunityFlavor\",\n\t\"OptyDynamicsGUID\"\
+  ,\n\t\"OpportunityCloseQuarter\",\n\t\"OpportunityStageName\",\n\t\"OpportunityAccountID\"\
+  ,\n\t\"OpportunityActualCloseDate\",\n\t\"OptyMultiPeriod\",\n\t\"OptyOptionPeriod\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\n-- SELECT IFF (\"OpportunityStage\" in('1 - Opportunity',\
+  \ '2 - Discovery', '3 - Business Issue', '4 - Power Sponsorship', '4 - Present Solution',\
+  \ '5 - Power Validation', '6 - Validation Completed', '7 - Deal Imminent')\nSELECT\
+  \ IFF (\"OpportunityStage\" in('random', 'random', 'random', 'random', 'random',\
+  \ 'random', 'random', 'random')\n            and \"OpportunityStatusCodeName\" not\
+  \ in('random')\n            or ((\"OpportunityStage\"='random')\n              \
+  \  or (\"OpportunityStage\"='random'\n                    and \"OpportunityType\"\
+  ='random')) , 'random', 'random') as \"SalesActivePipeline\",\n       IFF(REPLACE(\"\
+  OpportunityProbability\", 'random', 'random') = 'random', 'random', (REPLACE(\"\
+  OpportunityProbability\", 'random', 'random'))::DOUBLE) as \"OpportunityWeightedPercentage\"\
+  ,\n       \"OpportunityOwnerSysID\" as \"OpportunityOwnerSysID\",\n       \"OpportunitySysID\"\
+  \ as \"OpportunitySysID\",\n       \"OpportunityTerritorySydID\" as \"OpportunityTerritorySydID\"\
+  ,\n       \"OpportunityCreatedOn\" as \"OpportunityCreatedOn\",\n       \"OpportunityNumber\"\
+  \ as \"OpportunityNumber\",\n       \"OpportunityName\" as \"OpportunityName\",\n\
+  \       \"OpportunitySalesRepSysID\" as \"OpportunitySalesRepSysID\",\n       \"\
+  OpportunityCloseDate\" as \"OpportunityCloseDate\",\n       \"OpportunityForecastCategory\"\
+  \ as \"OpportunityForecastCategory\",\n       \"OpportunityType\" as \"OpportunityType\"\
+  ,\n       \"OpportunitySalesRepName\" as \"OpportunitySalesRepName\",\n       \"\
+  OpportunityStage\" as \"OpportunityStage\",\n       \"OpportunityCustomerID\" as\
+  \ \"OpportunityCustomerID\",\n       \"OpportunityAccountSysID\" as \"OpportunityAccountSysID\"\
+  ,\n       \"OpportunityStatusCode\" as \"OpportunityStatusCode\",\n       \"OpportunityStatusCodeName\"\
+  \ as \"OpportunityStatusCodeName\",\n       \"OpportunityPSRevenueBase\" as \"OpportunityPSRevenueBase\"\
+  ,\n       \"OpportunityRenewalACVBase\" as \"OpportunityRenewalACVBase\",\n    \
+  \   \"OpportunityStateCodeName\" as \"OpportunityStateCodeName\",\n       \"OpportunityProbability\"\
+  \ as \"OpportunityProbability\",\n       \"OpportunityTerritorySydID_CC\" as \"\
+  OpportunityTerritorySydID_CC\",\n       \"OpportunityContractEndDate\" as \"OpportunityContractEndDate\"\
+  ,\n       \"OpportunityUSDTotalACV\" as \"OpportunityUSDTotalACV\",\n       \"OpportunityRiskMitigationSteps\"\
+  \ as \"OpportunityRiskMitigationSteps\",\n       \"OpportunityRiskReasonCodeName\"\
+  \ as \"OpportunityRiskReasonCodeName\",\n       \"OptyCreatedBy\" as \"OptyCreatedBy\"\
+  ,\n       \"SN_PRODUCTCATEGORYLIST\" as \"OpportunityProductcategoryList\",\n  \
+  \     \"OpportunityServiceProviderUsageTypeName\" as \"OpportunityServiceProviderUsageTypeName\"\
+  ,\n       \"OptyCreatedByName\" as \"OptyCreatedByName\",\n       \"OpportunityTiming\"\
+  \ as \"OpportunityTiming\",\n       \"OpportunitySourceSystemName\" as \"OpportunitySourceSystemName\"\
+  ,\n       \"ImplementationModeCode\" as \"ImplementationModeCode\",\n       \"ImplementationModeName\"\
+  \ as \"ImplementationModeName\",\n       \"OpportunityRisk\" as \"OpportunityRisk\"\
+  ,\n       \"OpportunityBVAName\" as \"OpportunityBVAName\",\n       \"OpportunityValueMgmtEngagedName\"\
+  \ as \"OpportunityValueMgmtEngagedName\",\n       \"OpportunityValuePromptersCreated\"\
+  \ as \"OpportunityValuePromptersCreated\",\n       \"SN_SCDEMONAME\" as \"OpportunityDemoName\"\
+  ,\n       \"SN_SCTECHNICALWINNAME\" as \"OpportunityTechnicalWinName\",\n      \
+  \ \"SN_SCPOVNAME\" as \"OpportunityPOVName\",\n       \"SN_VALUEPROMPTERCREATEDNAME\"\
+  \ as \"OptyValuePrompterCreatedStatus\",\n       \"SN_SCWORKSHOPSNAME\" as \"OpportunityWorkshopName\"\
+  ,\n       \"ParentOptyNumber\" as \"OptyParentNumber\",\n       \"ParentOptyTechnicalWinName\"\
+  \ as \"OptyParentTechnicalWinName\",\n       IFF((\"OptyParentTechnicalWinName\"\
+  ) IS NULL, 'random', \"OptyParentTechnicalWinName\") as \"OptyParentTechnicalWinName_CC\"\
+  ,\n       IFF((\"OpportunityTechnicalWinName\") IS NULL, 'random', \"OpportunityTechnicalWinName\"\
+  ) as \"OptyTechnicalWinName_CC\",\n       IFF((\"OpportunityDemoName\") IS NULL,\
+  \ 'random', \"OpportunityDemoName\") as \"OptyDemoName_CC\",\n       IFF((\"OpportunityPOVName\"\
+  ) IS NULL, 'random', \"OpportunityPOVName\") as \"OptyPOVName_CC\",\n       IFF((\"\
+  OpportunityWorkshopName\") IS NULL, 'random', \"OpportunityWorkshopName\") as \"\
+  OptyWorkshopName_CC\",\n       IFF((\"OpportunityBVAName\") IS NULL, 'random', \"\
+  OpportunityBVAName\") as \"OptyBVAName_CC\",\n       \"Parent_SN_EXECUTIVESPONSOR\"\
+  \ as \"OptyParentDealChampionID\",\n       \"Parent_SN_EXECUTIVESPONSORNAME\" as\
+  \ \"OptyParentDealChampionName\",\n       \"SN_OPPORTUNITYFLAVORNAME\" as \"OpportunityFlavor\"\
+  ,\n       \"OptyDynamicsGUID\",\n       \"SN_CLOSEQUARTER\" as \"OpportunityCloseQuarter\"\
+  ,\n       \"SALESSTAGENAME\" as \"OpportunityStageName\",\n       \"ACCOUNTID\"\
+  \ as \"OpportunityAccountID\",\n       \"ACTUALCLOSEDATE\" as \"OpportunityActualCloseDate\"\
+  ,\n                             ----- CPQ Q4 Release ----\n          \"SN_MULTIPERIOD\"\
+  \ as \"OptyMultiPeriod\",\n          \"SN_OPTIONPERIOD\" as \"OptyOptionPeriod\"\
+  \nFROM\n  (SELECT \"OpportunityOwnerSysID\" as \"OpportunityOwnerSysID\",\n    \
+  \      \"OpportunitySysID\" as \"OpportunitySysID\",\n          \"OpportunityTerritorySydID\"\
+  \ as \"OpportunityTerritorySydID\",\n          \"OpportunityCreatedOn\" as \"OpportunityCreatedOn\"\
+  ,\n          \"OpportunityNumber\" as \"OpportunityNumber\",\n          \"OpportunityName\"\
+  \ as \"OpportunityName\",\n          \"OpportunitySalesRepSysID\" as \"OpportunitySalesRepSysID\"\
+  ,\n          \"OpportunityCloseDate\" as \"OpportunityCloseDate\",\n          \"\
+  OpportunityForecastCategory\" as \"OpportunityForecastCategory\",\n          \"\
+  OpportunityType\" as \"OpportunityType\",\n          \"OpportunitySalesRepName\"\
+  \ as \"OpportunitySalesRepName\",\n          \"OpportunityStage\" as \"OpportunityStage\"\
+  ,\n          \"OpportunityCustomerID\" as \"OpportunityCustomerID\",\n         \
+  \ \"OpportunityAccountSysID\" as \"OpportunityAccountSysID\",\n          \"OpportunityStatusCode\"\
+  \ as \"OpportunityStatusCode\",\n          \"OpportunityStatusCodeName\" as \"OpportunityStatusCodeName\"\
+  ,\n          \"OpportunityPSRevenueBase\" as \"OpportunityPSRevenueBase\",\n   \
+  \       \"OpportunityRenewalACVBase\" as \"OpportunityRenewalACVBase\",\n      \
+  \    \"OpportunityStateCodeName\" as \"OpportunityStateCodeName\",\n          \"\
+  OpportunityProbability\" as \"OpportunityProbability\",\n          \"OpportunityContractEndDate\"\
+  \ as \"OpportunityContractEndDate\",\n          \"OpportunityUSDTotalACV\" as \"\
+  OpportunityUSDTotalACV\",\n          \"OpportunityRiskMitigationSteps\" as \"OpportunityRiskMitigationSteps\"\
+  ,\n          \"OpportunityRiskReasonCodeName\" as \"OpportunityRiskReasonCodeName\"\
+  ,\n          \"OptyCreatedBy\" as \"OptyCreatedBy\",\n          \"SN_PRODUCTCATEGORYLIST\"\
+  \ as \"SN_PRODUCTCATEGORYLIST\",\n          \"OpportunityServiceProviderUsageTypeName\"\
+  \ as \"OpportunityServiceProviderUsageTypeName\",\n          \"OptyCreatedByName\"\
+  \ as \"OptyCreatedByName\",\n          \"OpportunityTiming\" as \"OpportunityTiming\"\
+  ,\n          \"OpportunitySourceSystemName\" as \"OpportunitySourceSystemName\"\
+  ,\n          \"ImplementationModeCode\" as \"ImplementationModeCode\",\n       \
+  \   \"ImplementationModeName\" as \"ImplementationModeName\",\n          \"OpportunityRisk\"\
+  \ as \"OpportunityRisk\",\n          \"OpportunityBVAName\" as \"OpportunityBVAName\"\
+  ,\n          \"OpportunityValueMgmtEngagedName\" as \"OpportunityValueMgmtEngagedName\"\
+  ,\n          \"OpportunityValuePromptersCreated\" as \"OpportunityValuePromptersCreated\"\
+  ,\n          \"SN_SCDEMONAME\" as \"SN_SCDEMONAME\",\n          \"SN_SCTECHNICALWINNAME\"\
+  \ as \"SN_SCTECHNICALWINNAME\",\n          \"SN_SCPOVNAME\" as \"SN_SCPOVNAME\"\
+  ,\n          \"SN_VALUEPROMPTERCREATEDNAME\" as \"SN_VALUEPROMPTERCREATEDNAME\"\
+  ,\n          \"SN_SCWORKSHOPSNAME\" as \"SN_SCWORKSHOPSNAME\",\n          \"ParentOptyNumber\"\
+  \ as \"ParentOptyNumber\",\n          \"ParentOptyTechnicalWinName\" as \"ParentOptyTechnicalWinName\"\
+  ,\n          \"SN_EXECUTIVESPONSOR\" as \"Parent_SN_EXECUTIVESPONSOR\",\n      \
+  \    \"SN_EXECUTIVESPONSORNAME\" as \"Parent_SN_EXECUTIVESPONSORNAME\",\n      \
+  \    \"SN_OPPORTUNITYFLAVORNAME\" as \"SN_OPPORTUNITYFLAVORNAME\",\n          IFF((\"\
+  OpportunityTerritorySydID\") IS NULL, 'random', \"OpportunityTerritorySydID\") as\
+  \ \"OpportunityTerritorySydID_CC\",\n          \"OptyDynamicsGUID\",\n         \
+  \ \"SN_CLOSEQUARTER\" as \"SN_CLOSEQUARTER\",\n          \"SALESSTAGENAME\" as \"\
+  SALESSTAGENAME\",\n          \"ACCOUNTID\" as \"ACCOUNTID\",\n          \"ACTUALCLOSEDATE\"\
+  \ as \"ACTUALCLOSEDATE\",\n                                ----- CPQ Q4 Release\
+  \ ----\n          \"SN_MULTIPERIOD\" as \"SN_MULTIPERIOD\",\n          \"SN_OPTIONPERIOD\"\
+  \ as \"SN_OPTIONPERIOD\"\n   FROM\n     (SELECT \"Join_2\".\"OpportunityOwnerSysID\"\
+  \ as \"OpportunityOwnerSysID\",\n             \"Join_2\".\"OpportunitySysID\" as\
+  \ \"OpportunitySysID\",\n             \"Join_2\".\"OpportunityTerritorySydID\" as\
+  \ \"OpportunityTerritorySydID\",\n             \"Join_2\".\"OpportunityCreatedOn\"\
+  \ as \"OpportunityCreatedOn\",\n             \"Join_2\".\"OpportunityNumber\" as\
+  \ \"OpportunityNumber\",\n             \"Join_2\".\"OpportunityName\" as \"OpportunityName\"\
+  ,\n             \"Join_2\".\"OpportunitySalesRepSysID\" as \"OpportunitySalesRepSysID\"\
+  ,\n             \"Join_2\".\"OpportunityCloseDate\" as \"OpportunityCloseDate\"\
+  ,\n             \"Join_2\".\"OpportunityForecastCategory\" as \"OpportunityForecastCategory\"\
+  ,\n             \"Join_2\".\"OpportunityType\" as \"OpportunityType\",\n       \
+  \      \"Join_2\".\"OpportunitySalesRepName\" as \"OpportunitySalesRepName\",\n\
+  \             \"Join_2\".\"OpportunityStage\" as \"OpportunityStage\",\n       \
+  \      \"Join_2\".\"OpportunityCustomerID\" as \"OpportunityCustomerID\",\n    \
+  \         \"Join_2\".\"OpportunityAccountSysID\" as \"OpportunityAccountSysID\"\
+  ,\n             \"Join_2\".\"OpportunityStatusCode\" as \"OpportunityStatusCode\"\
+  ,\n             \"Join_2\".\"OpportunityStatusCodeName\" as \"OpportunityStatusCodeName\"\
+  ,\n             \"Join_2\".\"OpportunityPSRevenueBase\" as \"OpportunityPSRevenueBase\"\
+  ,\n             \"Join_2\".\"OpportunityRenewalACVBase\" as \"OpportunityRenewalACVBase\"\
+  ,\n             \"Join_2\".\"OpportunityStateCodeName\" as \"OpportunityStateCodeName\"\
+  ,\n             \"Join_2\".\"OpportunityProbability\" as \"OpportunityProbability\"\
+  ,\n             \"Join_2\".\"OpportunityContractEndDate\" as \"OpportunityContractEndDate\"\
+  ,\n             \"Join_2\".\"OpportunityUSDTotalACV\" as \"OpportunityUSDTotalACV\"\
+  ,\n             \"Join_2\".\"OpportunityRiskMitigationSteps\" as \"OpportunityRiskMitigationSteps\"\
+  ,\n             \"Join_2\".\"OpportunityRiskReasonCodeName\" as \"OpportunityRiskReasonCodeName\"\
+  ,\n             \"Join_2\".\"OptyCreatedBy\" as \"OptyCreatedBy\",\n           \
+  \  \"Join_2\".\"SN_PRODUCTCATEGORYLIST\" as \"SN_PRODUCTCATEGORYLIST\",\n      \
+  \       \"Join_2\".\"OpportunityServiceProviderUsageTypeName\" as \"OpportunityServiceProviderUsageTypeName\"\
+  ,\n             \"Join_2\".\"OptyCreatedByName\" as \"OptyCreatedByName\",\n   \
+  \          \"Join_2\".\"OpportunityTiming\" as \"OpportunityTiming\",\n        \
+  \     \"Join_2\".\"OpportunitySourceSystemName\" as \"OpportunitySourceSystemName\"\
+  ,\n             \"Join_2\".\"ImplementationModeCode\" as \"ImplementationModeCode\"\
+  ,\n             \"Join_2\".\"ImplementationModeName\" as \"ImplementationModeName\"\
+  ,\n             \"Join_2\".\"OpportunityRisk\" as \"OpportunityRisk\",\n       \
+  \      \"Join_2\".\"OpportunityBVAName\" as \"OpportunityBVAName\",\n          \
+  \   \"Join_2\".\"OpportunityValueMgmtEngagedName\" as \"OpportunityValueMgmtEngagedName\"\
+  ,\n             \"Join_2\".\"OpportunityValuePromptersCreated\" as \"OpportunityValuePromptersCreated\"\
+  ,\n             \"Join_2\".\"SN_SCDEMONAME\" as \"SN_SCDEMONAME\",\n           \
+  \  \"Join_2\".\"SN_SCTECHNICALWINNAME\" as \"SN_SCTECHNICALWINNAME\",\n        \
+  \     \"Join_2\".\"SN_SCPOVNAME\" as \"SN_SCPOVNAME\",\n             \"Join_2\"\
+  .\"SN_VALUEPROMPTERCREATEDNAME\" as \"SN_VALUEPROMPTERCREATEDNAME\",\n         \
+  \    \"Join_2\".\"SN_SCWORKSHOPSNAME\" as \"SN_SCWORKSHOPSNAME\",\n            \
+  \ \"Join_2\".\"ParentOptyNumber\" as \"ParentOptyNumber\",\n             \"Join_2\"\
+  .\"ParentOptyDynamicsGUID\" as \"ParentOptyDynamicsGUID\",\n             \"Join_2\"\
+  .\"OptySysID\" as \"OptySysID\",\n             \"Join_2\".\"OptyParentSysID\" as\
+  \ \"OptyParentSysID\",\n             \"Join_2\".\"OptyNumber\" as \"OptyNumber\"\
+  ,\n             \"Join_2\".\"OptyDynamicsGUID\",\n             \"Join_2\".\"SN_OPPORTUNITYFLAVORNAME\"\
+  \ as \"SN_OPPORTUNITYFLAVORNAME\",\n             \"Projection_5\".\"SN_SCTECHNICALWINNAME\"\
+  \ as \"ParentOptyTechnicalWinName\",\n             \"Projection_5\".\"SN_EXECUTIVESPONSOR\"\
+  \ as \"SN_EXECUTIVESPONSOR\",\n             \"Projection_5\".\"SN_EXECUTIVESPONSORNAME\"\
+  \ as \"SN_EXECUTIVESPONSORNAME\",\n             \"Join_2\".\"SN_CLOSEQUARTER\" as\
+  \ \"SN_CLOSEQUARTER\",\n             \"Join_2\".\"SALESSTAGENAME\" as \"SALESSTAGENAME\"\
+  ,\n             \"Join_2\".\"ACCOUNTID\" as \"ACCOUNTID\",\n             \"Join_2\"\
+  .\"ACTUALCLOSEDATE\" as \"ACTUALCLOSEDATE\",\n                                 \
+  \  ----- CPQ Q4 Release ----\n                \"Join_2\".\"SN_MULTIPERIOD\" as \"\
+  SN_MULTIPERIOD\",\n               \"Join_2\".\"SN_OPTIONPERIOD\" as \"SN_OPTIONPERIOD\"\
+  \n      FROM\n        (SELECT \"Join_1\".\"SN_SCWORKSHOPSNAME\" as \"SN_SCWORKSHOPSNAME\"\
+  ,\n                \"Join_1\".\"SN_VALUEPROMPTERCREATEDNAME\" as \"SN_VALUEPROMPTERCREATEDNAME\"\
+  ,\n                \"Join_1\".\"SN_SCPOVNAME\" as \"SN_SCPOVNAME\",\n          \
+  \      \"Join_1\".\"SN_SCTECHNICALWINNAME\" as \"SN_SCTECHNICALWINNAME\",\n    \
+  \            \"Join_1\".\"SN_SCDEMONAME\" as \"SN_SCDEMONAME\",\n              \
+  \  \"Join_1\".\"OpportunityValuePromptersCreated\" as \"OpportunityValuePromptersCreated\"\
+  ,\n                \"Join_1\".\"OpportunityValueMgmtEngagedName\" as \"OpportunityValueMgmtEngagedName\"\
+  ,\n                \"Join_1\".\"OpportunityBVAName\" as \"OpportunityBVAName\",\n\
+  \                \"Join_1\".\"OpportunityRisk\" as \"OpportunityRisk\",\n      \
+  \          \"Join_1\".\"ImplementationModeName\" as \"ImplementationModeName\",\n\
+  \                \"Join_1\".\"ImplementationModeCode\" as \"ImplementationModeCode\"\
+  ,\n                \"Join_1\".\"OpportunitySourceSystemName\" as \"OpportunitySourceSystemName\"\
+  ,\n                \"Join_1\".\"OpportunityTiming\" as \"OpportunityTiming\",\n\
+  \                \"Join_1\".\"OptyCreatedByName\" as \"OptyCreatedByName\",\n  \
+  \              \"Join_1\".\"OpportunityServiceProviderUsageTypeName\" as \"OpportunityServiceProviderUsageTypeName\"\
+  ,\n                \"Join_1\".\"SN_PRODUCTCATEGORYLIST\" as \"SN_PRODUCTCATEGORYLIST\"\
+  ,\n                \"Join_1\".\"OptyCreatedBy\" as \"OptyCreatedBy\",\n        \
+  \        \"Join_1\".\"OpportunityRiskReasonCodeName\" as \"OpportunityRiskReasonCodeName\"\
+  ,\n                \"Join_1\".\"OpportunityRiskMitigationSteps\" as \"OpportunityRiskMitigationSteps\"\
+  ,\n                \"Join_1\".\"OpportunityUSDTotalACV\" as \"OpportunityUSDTotalACV\"\
+  ,\n                \"Join_1\".\"OpportunityContractEndDate\" as \"OpportunityContractEndDate\"\
+  ,\n                \"Join_1\".\"OpportunityProbability\" as \"OpportunityProbability\"\
+  ,\n                \"Join_1\".\"OpportunityStateCodeName\" as \"OpportunityStateCodeName\"\
+  ,\n                \"Join_1\".\"OpportunityRenewalACVBase\" as \"OpportunityRenewalACVBase\"\
+  ,\n                \"Join_1\".\"OpportunityPSRevenueBase\" as \"OpportunityPSRevenueBase\"\
+  ,\n                \"Join_1\".\"OpportunityStatusCodeName\" as \"OpportunityStatusCodeName\"\
+  ,\n                \"Join_1\".\"OpportunityStatusCode\" as \"OpportunityStatusCode\"\
+  ,\n                \"Join_1\".\"OpportunityAccountSysID\" as \"OpportunityAccountSysID\"\
+  ,\n                \"Join_1\".\"OpportunityCustomerID\" as \"OpportunityCustomerID\"\
+  ,\n                \"Join_1\".\"OpportunityStage\" as \"OpportunityStage\",\n  \
+  \              \"Join_1\".\"OpportunitySalesRepName\" as \"OpportunitySalesRepName\"\
+  ,\n                \"Join_1\".\"OpportunityType\" as \"OpportunityType\",\n    \
+  \            \"Join_1\".\"OpportunityForecastCategory\" as \"OpportunityForecastCategory\"\
+  ,\n                \"Join_1\".\"OpportunityCloseDate\" as \"OpportunityCloseDate\"\
+  ,\n                \"Join_1\".\"OpportunitySalesRepSysID\" as \"OpportunitySalesRepSysID\"\
+  ,\n                \"Join_1\".\"OpportunityName\" as \"OpportunityName\",\n    \
+  \            \"Join_1\".\"OpportunityNumber\" as \"OpportunityNumber\",\n      \
+  \          \"Join_1\".\"OpportunityCreatedOn\" as \"OpportunityCreatedOn\",\n  \
+  \              \"Join_1\".\"OpportunityTerritorySydID\" as \"OpportunityTerritorySydID\"\
+  ,\n                \"Join_1\".\"OpportunitySysID\" as \"OpportunitySysID\",\n  \
+  \              \"Join_1\".\"OpportunityOwnerSysID\" as \"OpportunityOwnerSysID\"\
+  ,\n                \"Join_1\".\"OptySysID\" as \"OptySysID\",\n                \"\
+  Join_1\".\"OptyParentSysID\" as \"OptyParentSysID\",\n                \"Join_1\"\
+  .\"OptyNumber\" as \"OptyNumber\",\n                \"Join_1\".\"SN_OPPORTUNITYFLAVORNAME\"\
+  \ as \"SN_OPPORTUNITYFLAVORNAME\",\n                \"Join_1\".\"OptyDynamicsGUID\"\
+  ,\n                \"Projection_4\".\"OptyNumber\" as \"ParentOptyNumber\",\n  \
+  \              \"Projection_4\".\"OptyDynamicsGUID\" as \"ParentOptyDynamicsGUID\"\
+  ,\n                \"Join_1\".\"SN_CLOSEQUARTER\" as \"SN_CLOSEQUARTER\",\n    \
+  \            \"Join_1\".\"SALESSTAGENAME\" as \"SALESSTAGENAME\",\n            \
+  \    \"Join_1\".\"ACCOUNTID\" as \"ACCOUNTID\",\n                \"Join_1\".\"ACTUALCLOSEDATE\"\
+  \ as \"ACTUALCLOSEDATE\",\n                    ----- CPQ Q4 Release ----\n     \
+  \           \"Join_1\".\"SN_MULTIPERIOD\" as \"SN_MULTIPERIOD\",\n             \
+  \  \"Join_1\".\"SN_OPTIONPERIOD\" as \"SN_OPTIONPERIOD\"\n\n         FROM\n    \
+  \       (SELECT \"Projection_1\".\"OWNERID\" as \"OpportunityOwnerSysID\",\n   \
+  \                \"Projection_1\".\"OPPORTUNITYID\" as \"OpportunitySysID\",\n \
+  \                  \"Projection_1\".\"SN_FIELDTERRITORY\" as \"OpportunityTerritorySydID\"\
+  ,\n                   \"Projection_1\".\"CREATEDON\" as \"OpportunityCreatedOn\"\
+  ,\n                   \"Projection_1\".\"SN_NUMBER\" as \"OpportunityNumber\",\n\
+  \                   \"Projection_1\".\"NAME\" as \"OpportunityName\",\n        \
+  \           \"Projection_1\".\"SN_FIELDSALESREP\" as \"OpportunitySalesRepSysID\"\
+  ,\n                   \"Projection_1\".\"ESTIMATEDCLOSEDATE\" as \"OpportunityCloseDate\"\
+  ,\n                   \"Projection_1\".\"SN_FORECASTCATEGORYNAME\" as \"OpportunityForecastCategory\"\
+  ,\n                   \"Projection_1\".\"SN_OPPORTUNITYTYPENAME\" as \"OpportunityType\"\
+  ,\n                   \"Projection_1\".\"SN_FIELDSALESREPNAME\" as \"OpportunitySalesRepName\"\
+  ,\n                   \"Projection_1\".\"SN_SALESSTAGENAME\" as \"OpportunityStage\"\
+  ,\n                   \"Projection_1\".\"CUSTOMERID\" as \"OpportunityCustomerID\"\
+  ,\n                   \"Projection_1\".\"PARENTACCOUNTID\" as \"OpportunityAccountSysID\"\
+  ,\n                   \"Projection_1\".\"STATUSCODE\" as \"OpportunityStatusCode\"\
+  ,\n                   \"Projection_1\".\"STATUSCODENAME\" as \"OpportunityStatusCodeName\"\
+  ,\n                   \"Projection_1\".\"SN_PSREVENUE_BASE\" as \"OpportunityPSRevenueBase\"\
+  ,\n                   \"Projection_1\".\"SN_RENEWALACV_BASE\" as \"OpportunityRenewalACVBase\"\
+  ,\n                   \"Projection_1\".\"STATECODENAME\" as \"OpportunityStateCodeName\"\
+  ,\n                   \"Projection_1\".\"SN_PROBABILITY\" as \"OpportunityProbability\"\
+  ,\n                   \"Projection_1\".\"SN_CURRENTCONTRACTENDDATE\" as \"OpportunityContractEndDate\"\
+  ,\n                   \"Projection_1\".\"USDTotalACV\" as \"OpportunityUSDTotalACV\"\
+  ,\n                   \"Projection_1\".\"SN_RISKMITIGATIONSTEPS\" as \"OpportunityRiskMitigationSteps\"\
+  ,\n                   \"Projection_1\".\"SN_RENEWALRISKREASONCODESNAME\" as \"OpportunityRiskReasonCodeName\"\
+  ,\n                   \"Projection_1\".\"CREATEDONBEHALFBY\" as \"OptyCreatedBy\"\
+  ,\n                   \"Projection_1\".\"SN_PRODUCTCATEGORYLIST\" as \"SN_PRODUCTCATEGORYLIST\"\
+  ,\n                   \"Projection_1\".\"SN_SERVICEPROVIDERUSAGETYPENAME\" as \"\
+  OpportunityServiceProviderUsageTypeName\",\n                   \"Projection_1\"\
+  .\"CREATEDONBEHALFBYNAME\" as \"OptyCreatedByName\",\n                   \"Projection_1\"\
+  .\"SN_RENEWALTIMINGCODESNAME\" as \"OpportunityTiming\",\n                   \"\
+  Projection_1\".\"SN_SOURCESYSTEMNAME\" as \"OpportunitySourceSystemName\",\n   \
+  \                \"Projection_1\".\"SN_IMPLEMENTATIONMODECODE\" as \"ImplementationModeCode\"\
+  ,\n                   \"Projection_1\".\"SN_IMPLEMENTATIONMODECODENAME\" as \"ImplementationModeName\"\
+  ,\n                   \"Projection_1\".\"SN_RISKTYPENAME\" as \"OpportunityRisk\"\
+  ,\n                   \"Projection_1\".\"SN_BUSINESSVALUEASSESSMENTNAME\" as \"\
+  OpportunityBVAName\",\n                   \"Projection_1\".\"SN_VALUEMGMTENGAGEDNAME\"\
+  \ as \"OpportunityValueMgmtEngagedName\",\n                   \"Projection_1\".\"\
+  SN_VALUEPROMPTERSCREATED\" as \"OpportunityValuePromptersCreated\",\n          \
+  \         \"Projection_1\".\"SN_SCDEMONAME\" as \"SN_SCDEMONAME\",\n           \
+  \        \"Projection_1\".\"SN_SCTECHNICALWINNAME\" as \"SN_SCTECHNICALWINNAME\"\
+  ,\n                   \"Projection_1\".\"SN_SCPOVNAME\" as \"SN_SCPOVNAME\",\n \
+  \                  \"Projection_1\".\"SN_VALUEPROMPTERCREATEDNAME\" as \"SN_VALUEPROMPTERCREATEDNAME\"\
+  ,\n                   \"Projection_1\".\"SN_SCWORKSHOPSNAME\" as \"SN_SCWORKSHOPSNAME\"\
+  ,\n                   \"Projection_1\".\"SN_OPPORTUNITYFLAVORNAME\" as \"SN_OPPORTUNITYFLAVORNAME\"\
+  ,\n                   \"Projection_2\".\"OptyNumber\" as \"OptyNumber\",\n     \
+  \              \"Projection_2\".\"OptyParentSysID\" as \"OptyParentSysID\",\n  \
+  \                 \"Projection_2\".\"OptyDynamicsGUID\" as \"OptyDynamicsGUID\"\
+  ,\n                   \"Projection_2\".\"OptySysID\" as \"OptySysID\",\n       \
+  \            \"Projection_1\".\"SN_CLOSEQUARTER\" as \"SN_CLOSEQUARTER\",\n    \
+  \               \"Projection_1\".\"SALESSTAGENAME\" as \"SALESSTAGENAME\",\n   \
+  \                \"Projection_1\".\"ACCOUNTID\" as \"ACCOUNTID\",\n            \
+  \       \"Projection_1\".\"ACTUALCLOSEDATE\" as \"ACTUALCLOSEDATE\",\n         \
+  \            ----- CPQ Q4 Release ----\n                   \"Projection_1\".\"SN_MULTIPERIOD\"\
+  \ as \"SN_MULTIPERIOD\",\n                   \"Projection_1\".\"SN_OPTIONPERIOD\"\
+  \ as \"SN_OPTIONPERIOD\"\n            FROM\n              (SELECT \"OWNERID\" as\
+  \ \"OWNERID\",\n                      \"OPPORTUNITYID\" as \"OPPORTUNITYID\",\n\
+  \                      \"ACCOUNTID\" as \"ACCOUNTID\",\n                      \"\
+  SN_FIELDTERRITORY\" as \"SN_FIELDTERRITORY\",\n                      \"CREATEDON\"\
+  \ as \"CREATEDON\",\n                      \"SN_NUMBER\" as \"SN_NUMBER\",\n   \
+  \                   \"NAME\" as \"NAME\",\n                      \"SN_FIELDSALESREP\"\
+  \ as \"SN_FIELDSALESREP\",\n                      \"ESTIMATEDCLOSEDATE\" as \"ESTIMATEDCLOSEDATE\"\
+  ,\n                      \"SN_FORECASTCATEGORYNAME\" as \"SN_FORECASTCATEGORYNAME\"\
+  ,\n                      \"SN_OPPORTUNITYTYPENAME\" as \"SN_OPPORTUNITYTYPENAME\"\
+  ,\n                      \"SN_FIELDSALESREPNAME\" as \"SN_FIELDSALESREPNAME\",\n\
+  \                      \"SN_SALESSTAGENAME\" as \"SN_SALESSTAGENAME\",\n       \
+  \               \"CUSTOMERID\" as \"CUSTOMERID\",\n                      \"PARENTACCOUNTID\"\
+  \ as \"PARENTACCOUNTID\",\n                      \"STATUSCODE\" as \"STATUSCODE\"\
+  ,\n                      \"STATUSCODENAME\" as \"STATUSCODENAME\",\n           \
+  \           \"SN_PSREVENUE_BASE\" as \"SN_PSREVENUE_BASE\",\n                  \
+  \    \"SN_RENEWALACV_BASE\" as \"SN_RENEWALACV_BASE\",\n                      \"\
+  STATECODENAME\" as \"STATECODENAME\",\n                      \"SN_PROBABILITY\"\
+  \ as \"SN_PROBABILITY\",\n                      \"SN_CURRENTCONTRACTENDDATE\" as\
+  \ \"SN_CURRENTCONTRACTENDDATE\",\n                      \"TOTALLINEITEMAMOUNT_BASE\"\
+  \ as \"USDTotalACV\",\n                      \"SN_RISKMITIGATIONSTEPS\" as \"SN_RISKMITIGATIONSTEPS\"\
+  ,\n                      \"SN_RENEWALRISKREASONCODESNAME\" as \"SN_RENEWALRISKREASONCODESNAME\"\
+  ,\n                      \"CREATEDONBEHALFBY\" as \"CREATEDONBEHALFBY\",\n     \
+  \                 \"SN_PRODUCTCATEGORYLIST\" as \"SN_PRODUCTCATEGORYLIST\",\n  \
+  \                    \"SN_SERVICEPROVIDERUSAGETYPENAME\" as \"SN_SERVICEPROVIDERUSAGETYPENAME\"\
+  ,\n                      \"CREATEDONBEHALFBYNAME\" as \"CREATEDONBEHALFBYNAME\"\
+  ,\n                      \"SN_RENEWALTIMINGCODESNAME\" as \"SN_RENEWALTIMINGCODESNAME\"\
+  ,\n                      \"SN_SOURCESYSTEMNAME\" as \"SN_SOURCESYSTEMNAME\",\n \
+  \                     \"SN_IMPLEMENTATIONMODECODE\" as \"SN_IMPLEMENTATIONMODECODE\"\
+  ,\n                      \"SN_IMPLEMENTATIONMODECODENAME\" as \"SN_IMPLEMENTATIONMODECODENAME\"\
+  ,\n                      \"SN_RISKTYPENAME\" as \"SN_RISKTYPENAME\",\n         \
+  \             \"SN_BUSINESSVALUEASSESSMENTNAME\" as \"SN_BUSINESSVALUEASSESSMENTNAME\"\
+  ,\n                      \"SN_VALUEMGMTENGAGEDNAME\" as \"SN_VALUEMGMTENGAGEDNAME\"\
+  ,\n                      \"SN_OPPORTUNITYSUMMARIESCREATED\" as \"SN_VALUEPROMPTERSCREATED\"\
+  ,\n                      \"SN_SCDEMONAME\" as \"SN_SCDEMONAME\",\n             \
+  \         \"SN_SCTECHNICALWINNAME\" as \"SN_SCTECHNICALWINNAME\",\n            \
+  \          \"SN_SCPOVNAME\" as \"SN_SCPOVNAME\",\n                      \"SN_OPPORTUNITYSUMMARYCREATEDNAME\"\
+  \ as \"SN_VALUEPROMPTERCREATEDNAME\",\n                      \"SN_SCWORKSHOPSNAME\"\
+  \ as \"SN_SCWORKSHOPSNAME\",\n                      \"SN_OPPORTUNITYFLAVORNAME\"\
+  \ as \"SN_OPPORTUNITYFLAVORNAME\",\n                      \"SN_CLOSEQUARTER\" as\
+  \ \"SN_CLOSEQUARTER\",\n                      \"SALESSTAGENAME\" as \"SALESSTAGENAME\"\
+  ,\n                      \"ACTUALCLOSEDATE\" as \"ACTUALCLOSEDATE\",\n         \
+  \               ----- CPQ Q4 Release ----\n                      \"SN_MULTIPERIOD\"\
+  \ as \"SN_MULTIPERIOD\",\n                      \"SN_OPTIONPERIOD\" as \"SN_OPTIONPERIOD\"\
+  \n               FROM RDS.\"DYNAMICS365\".\"OPPORTUNITIES\")\"Projection_1\"\n \
+  \           LEFT JOIN\n              (SELECT \"OptyNumber\" as \"OptyNumber\",\n\
+  \                      \"OptyParentSysID\" as \"OptyParentSysID\",\n           \
+  \           \"OptyDynamicsGUID\" as \"OptyDynamicsGUID\",\n                    \
+  \  \"OptySysID\" as \"OptySysID\"\n               FROM ODS_LS.\"SURF\".\"SALES_OPPORTUNITY\"\
+  )\"Projection_2\" ON \"Projection_1\".\"OPPORTUNITYID\" = \"Projection_2\".\"OptyDynamicsGUID\"\
+  )\"Join_1\"\n         LEFT JOIN\n           (SELECT \"OptyNumber\" as \"OptyNumber\"\
+  ,\n                   \"OptyDynamicsGUID\" as \"OptyDynamicsGUID\",\n          \
+  \         \"OptySysID\" as \"OptySysID\"\n            FROM ODS_LS.\"SURF\".\"SALES_OPPORTUNITY\"\
+  )\"Projection_4\" ON \"Join_1\".\"OptyParentSysID\" = \"Projection_4\".\"OptySysID\"\
+  )\"Join_2\"\n      LEFT JOIN\n        (SELECT \"OPPORTUNITYID\" as \"OPPORTUNITYID\"\
+  ,\n                \"SN_SCTECHNICALWINNAME\" as \"SN_SCTECHNICALWINNAME\",\n   \
+  \             \"SN_EXECUTIVESPONSOR\" as \"SN_EXECUTIVESPONSOR\",\n            \
+  \    \"SN_EXECUTIVESPONSORNAME\" as \"SN_EXECUTIVESPONSORNAME\"\n         FROM RDS.\"\
+  DYNAMICS365\".\"OPPORTUNITIES\")\"Projection_5\" ON \"Join_2\".\"ParentOptyDynamicsGUID\"\
+  \ = \"Projection_5\".\"OPPORTUNITYID\")\"Join_3\")Projection_3;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

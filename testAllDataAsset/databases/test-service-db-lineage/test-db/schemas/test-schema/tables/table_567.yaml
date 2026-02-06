@@ -1,0 +1,60 @@
+name: table_567
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_567
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_567.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_ACCEL_SUCCESS_PACK_VERSION(\n\t\"\
+  SuccessPackversionApprovers\",\n\t\"SuccessPackversionCurrent\",\n\t\"SuccessPackversionDescription\"\
+  ,\n\t\"SuccessPackversionName\",\n\t\"SuccessPackversionOwners\",\n\t\"SuccessPackversionPublishedOn\"\
+  ,\n\t\"SuccessPackversionState\",\n\t\"SuccessPackversionUpdateDescription\",\n\t\
+  \"SuccessPackversionVersionNumber\",\n\t\"SuccessPackversionVideoURL\",\n\t\"SuccessPackversionParent\"\
+  ,\n\t\"SuccessPackversionSysID\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"APPROVERS\"\
+  \ as \"SuccessPackversionApprovers\",\n       \"CURRENT\" as \"SuccessPackversionCurrent\"\
+  ,\n       \"DESCRIPTION\" as \"SuccessPackversionDescription\",\n       \"NAME\"\
+  \ as \"SuccessPackversionName\",\n       \"OWNERS\" as \"SuccessPackversionOwners\"\
+  ,\n       \"PUBLISHED_ON\" as \"SuccessPackversionPublishedOn\",\n       \"STATE\"\
+  \ as \"SuccessPackversionState\",\n       \"UPDATE_DESCRIPTION\" as \"SuccessPackversionUpdateDescription\"\
+  ,\n       \"VERSION_NUMBER\" as \"SuccessPackversionVersionNumber\",\n       \"\
+  VIDEO_URL\" as \"SuccessPackversionVideoURL\",\n       \"PARENT\" as \"SuccessPackversionParent\"\
+  ,\n       \"SYS_ID\" as \"SuccessPackversionSysID\"\nFROM \"RDS\".\"LXP\".\"X_SNC_ACCEL_SUCCESS_PACK_VERSION\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

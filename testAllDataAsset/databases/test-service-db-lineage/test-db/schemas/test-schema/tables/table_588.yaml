@@ -1,0 +1,88 @@
+name: table_588
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_588
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_588.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_ACCEL_ASSET(\n\t\"AssetActive\",\n\
+  \t\"AssetChildAssetbehavior\",\n\t\"AssetChildProducts\",\n\t\"AssetCurrentVersion\"\
+  ,\n\t\"AssetDescription\",\n\t\"AssetEditVersion\",\n\t\"AssetFileFormat\",\n\t\"\
+  AssetName\",\n\t\"AssetOwnerGroup\",\n\t\"AssetParentAsset\",\n\t\"AssetProducts\"\
+  ,\n\t\"AssetProjectTypes\",\n\t\"AssetRelationshipType\",\n\t\"AssetRole\",\n\t\"\
+  AssetType\",\n\t\"AssetWorkstreams\",\n\t\"AssetSysID\",\n\t\"AssetUseType\",\n\t\
+  \"AssetDVUseType\",\n\t\"AssetSysUpdatedOn\",\n\t\"AssetChildAssetBehaviorValue\"\
+  ,\n\t\"AssetProductsValue\",\n\t\"AssetChildProductsValue\",\n\t\"AssetOwnerGroupValue\"\
+  ,\n\t\"AssetWorkstream_CC\",\n\t\"AssetProjectTypesValue\",\n\t\"AssetFileFormatValue\"\
+  ,\n\t\"AssetNumber\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ACTIVE\" as \"AssetActive\"\
+  ,\n       \"CHILD_ASSET_BEHAVIOR\" as \"AssetChildAssetbehavior\",\n       \"CHILD_PRODUCTS\"\
+  \ as \"AssetChildProducts\",\n       \"CURRENT_VERSION\" as \"AssetCurrentVersion\"\
+  ,\n       \"DESCRIPTION\" as \"AssetDescription\",\n       \"EDIT_VERSION\" as \"\
+  AssetEditVersion\",\n       \"FILE_FORMAT\" as \"AssetFileFormat\",\n       \"NAME\"\
+  \ as \"AssetName\",\n       \"OWNER_GROUP\" as \"AssetOwnerGroup\",\n       \"PARENT_ASSET\"\
+  \ as \"AssetParentAsset\",\n       \"PRODUCTS\" as \"AssetProducts\",\n       \"\
+  PROJECT_TYPES\" as \"AssetProjectTypes\",\n       \"RELATIONSHIP_TYPE\" as \"AssetRelationshipType\"\
+  ,\n       \"ROLE\" as \"AssetRole\",\n       \"TYPE\" as \"AssetType\",\n      \
+  \ \"WORKSTREAMS\" as \"AssetWorkstreams\",\n       \"SYS_ID\" as \"AssetSysID\"\
+  ,\n       \"USE_TYPE\" as \"AssetUseType\",\n       \"DV_USE_TYPE\" as \"AssetDVUseType\"\
+  ,\n       \"SYS_UPDATED_ON\" as \"AssetSysUpdatedOn\",\n       \"DV_CHILD_ASSET_BEHAVIOR\"\
+  \ as \"AssetChildAssetBehaviorValue\",\n       \"DV_PRODUCTS\" as \"AssetProductsValue\"\
+  ,\n       \"DV_CHILD_PRODUCTS\" as \"AssetChildProductsValue\",\n       \"DV_OWNER_GROUP\"\
+  \ as \"AssetOwnerGroupValue\",\n       \"AssetWorkstream_CC\" as \"AssetWorkstream_CC\"\
+  ,\n       \"DV_PROJECT_TYPES\" as \"AssetProjectTypesValue\",\n       \"DV_FILE_FORMAT\"\
+  \ as \"AssetFileFormatValue\",\n       \"NUMBER\" as \"AssetNumber\"\nFROM\n  (SELECT\
+  \ \"ACTIVE\" as \"ACTIVE\",\n          \"CHILD_ASSET_BEHAVIOR\" as \"CHILD_ASSET_BEHAVIOR\"\
+  ,\n          \"CHILD_PRODUCTS\" as \"CHILD_PRODUCTS\",\n          \"CURRENT_VERSION\"\
+  \ as \"CURRENT_VERSION\",\n          \"DESCRIPTION\" as \"DESCRIPTION\",\n     \
+  \     \"EDIT_VERSION\" as \"EDIT_VERSION\",\n          \"FILE_FORMAT\" as \"FILE_FORMAT\"\
+  ,\n          \"NAME\" as \"NAME\",\n          \"OWNER_GROUP\" as \"OWNER_GROUP\"\
+  ,\n          \"PARENT_ASSET\" as \"PARENT_ASSET\",\n          \"PRODUCTS\" as \"\
+  PRODUCTS\",\n          \"PROJECT_TYPES\" as \"PROJECT_TYPES\",\n          \"RELATIONSHIP_TYPE\"\
+  \ as \"RELATIONSHIP_TYPE\",\n          \"ROLE\" as \"ROLE\",\n          \"TYPE\"\
+  \ as \"TYPE\",\n          \"WORKSTREAMS\" as \"WORKSTREAMS\",\n          \"SYS_ID\"\
+  \ as \"SYS_ID\",\n          \"USE_TYPE\" as \"USE_TYPE\",\n          \"DV_USE_TYPE\"\
+  \ as \"DV_USE_TYPE\",\n          \"DV_PRODUCTS\" as \"DV_PRODUCTS\",\n         \
+  \ \"DV_CHILD_PRODUCTS\" as \"DV_CHILD_PRODUCTS\",\n          \"DV_CHILD_ASSET_BEHAVIOR\"\
+  \ as \"DV_CHILD_ASSET_BEHAVIOR\",\n          \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  ,\n          \"DV_OWNER_GROUP\" as \"DV_OWNER_GROUP\",\n          \"DV_PROJECT_TYPES\"\
+  \ as \"DV_PROJECT_TYPES\",\n          \"DV_FILE_FORMAT\" as \"DV_FILE_FORMAT\",\n\
+  \          \"NUMBER\" as \"NUMBER\",\n          \"WORKSTREAMS\" as \"AssetWorkstream_CC\"\
+  \n   FROM \"RDS\".\"LXP\".\"X_SNC_ACCEL_ASSET\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

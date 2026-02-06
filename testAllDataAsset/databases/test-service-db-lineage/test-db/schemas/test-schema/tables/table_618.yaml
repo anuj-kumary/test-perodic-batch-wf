@@ -1,0 +1,53 @@
+name: table_618
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_618
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_618.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VALUE_PROMPTER_ANSWERS(\n\t\"VPAnswerVPSysID\"\
+  ,\n\t\"VPAnswerCategory\",\n\t\"VPAnswerDescription\",\n\t\"VPAnswerVPNumber\",\n\
+  \t\"VPAnswerSubCategory\",\n\t\"VPAnswerUpdatedOn\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"U_VALUE_PROMPTER\" as \"VPAnswerVPSysID\",\n       \"DV_U_CATEGORY\"\
+  \ as \"VPAnswerCategory\",\n       \"U_ANSWER\" as \"VPAnswerDescription\",\n  \
+  \     \"DV_U_VALUE_PROMPTER\" as \"VPAnswerVPNumber\",\n       \"DV_U_SUB_CATEGORY\"\
+  \ as \"VPAnswerSubCategory\",\n       \"SYS_UPDATED_ON\" as \"VPAnswerUpdatedOn\"\
+  \nFROM \"RDS\".\"SURF\".\"U_VALUE_PROMPTER_ANSWERS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
