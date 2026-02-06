@@ -1,0 +1,67 @@
+name: VIEW_PERSONS
+fullyQualifiedName: snowflake_all.E2E_DB.E2E_TEST.VIEW_PERSONS
+tableType: View
+columns:
+  - name: PERSON_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snowflake_all.E2E_DB.E2E_TEST.VIEW_PERSONS.PERSON_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FULL_NAME
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: text(255)
+    fullyQualifiedName: snowflake_all.E2E_DB.E2E_TEST.VIEW_PERSONS.FULL_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8e0f6cb4-6537-4be5-9107-283252eccd76
+  type: databaseSchema
+  name: E2E_TEST
+  fullyQualifiedName: snowflake_all.E2E_DB.E2E_TEST
+  displayName: E2E_TEST
+  deleted: false
+database:
+  id: e595ca29-91db-412a-8483-b9050669de8e
+  type: database
+  name: E2E_DB
+  fullyQualifiedName: snowflake_all.E2E_DB
+  displayName: E2E_DB
+  deleted: false
+service:
+  id: 4af6c116-941c-445f-8c08-713dd72e2873
+  type: databaseService
+  name: snowflake_all
+  fullyQualifiedName: snowflake_all
+  description: ""
+  displayName: snowflake_all
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VIEW_PERSONS(\n\tPERSON_ID,\n\tFULL_NAME\n\
+  ) as\n            SELECT person_id, full_name\n            FROM e2e_test.persons;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/eggtndd/jd74081/#/data/databases/E2E_DB/schemas/E2E_TEST/view/VIEW_PERSONS
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1726651716259
+sourceHash: 013416d3f7d1b42aa99bc4df053e8daf
+processedLineage: false
+entityStatus: Approved
