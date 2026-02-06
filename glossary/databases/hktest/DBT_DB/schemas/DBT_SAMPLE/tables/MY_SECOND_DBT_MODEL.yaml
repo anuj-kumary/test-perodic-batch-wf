@@ -1,0 +1,105 @@
+name: MY_SECOND_DBT_MODEL
+fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL
+description: A starter dbt model
+tableType: View
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 1
+    scale: 0
+    dataTypeDisplay: "number(1,0)"
+    description: The primary key for this table
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 784e8d90-2db1-4b79-806b-5dad5f2a175e
+  type: databaseSchema
+  name: DBT_SAMPLE
+  fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE
+  displayName: DBT_SAMPLE
+  deleted: false
+database:
+  id: 7d587349-44f2-4979-9c81-024bf3f7570d
+  type: database
+  name: DBT_DB
+  fullyQualifiedName: hktest.DBT_DB
+  displayName: DBT_DB
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 73ab9d48-0d39-40a1-8a2d-6c224067c98f
+  type: testSuite
+  name: hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL.testSuite
+  fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL.testSuite
+  displayName: hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL.testSuite
+  deleted: false
+dataModel:
+  modelType: DBT
+  resourceType: model
+  description: A starter dbt model
+  path: models/example/my_second_dbt_model.sql
+  rawSql: |-
+    -- Use the `ref` function to select from other models
+
+    select *
+    from {{ ref('my_first_dbt_model') }}
+    where id = 1
+  sql: |-
+    -- Use the `ref` function to select from other models
+
+    select *
+    from dbt_db.DBT_SAMPLE.my_first_dbt_model
+    where id = 1
+  upstream:
+    - hktest.DBT_DB.DBT_SAMPLE.MY_FIRST_DBT_MODEL
+  tags: []
+  columns:
+    - name: id
+      dataType: UNKNOWN
+      dataLength: 1
+      description: The primary key for this table
+      tags: []
+      children: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: deleted
+      oldValue: true
+      newValue: false
+  fieldsDeleted: []
+  previousVersion: 0.6
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/djywarg/lk40101/#/data/databases/DBT_DB/schemas/DBT_SAMPLE/view/MY_SECOND_DBT_MODEL
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1748649600000
+    accessedBy:
+      id: d32d383f-071b-4aa8-8de7-241b3493453c
+      type: user
+      fullyQualifiedName: himanshu
+      href: http://localhost:8585/v1/users/d32d383f-071b-4aa8-8de7-241b3493453c
+sourceHash: b4fe30667c662dd3385ca2eda42e2ec9
+processedLineage: false
+entityStatus: Approved

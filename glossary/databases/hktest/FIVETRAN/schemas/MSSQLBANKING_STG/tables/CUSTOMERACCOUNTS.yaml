@@ -1,0 +1,141 @@
+name: CUSTOMERACCOUNTS
+fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS
+tableType: Regular
+columns:
+  - name: CUSTOMERID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS.CUSTOMERID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: EMAIL
+    dataType: VARCHAR
+    dataLength: 200
+    dataTypeDisplay: text(200)
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS.EMAIL
+    tags: []
+    constraint: UNIQUE
+    children: []
+    customMetrics: []
+  - name: ACCOUNTID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS.ACCOUNTID
+    tags: []
+    constraint: UNIQUE
+    children: []
+    customMetrics: []
+  - name: FIRSTNAME
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: text(100)
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS.FIRSTNAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LASTNAME
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: text(100)
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS.LASTNAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: BALANCE
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 18
+    scale: 2
+    dataTypeDisplay: "number(18,2)"
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS.BALANCE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _FIVETRAN_DELETED
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS._FIVETRAN_DELETED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _FIVETRAN_SYNCED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_tz
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS._FIVETRAN_SYNCED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CUSTOMERID
+    referredColumns:
+      - hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO.CUSTOMERID
+    relationshipType: ONE_TO_ONE
+owners: []
+databaseSchema:
+  id: fd7b29c7-7ccf-4f32-898c-8429afb71c94
+  type: databaseSchema
+  name: MSSQLBANKING_STG
+  fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG
+  displayName: MSSQLBANKING_STG
+  deleted: false
+database:
+  id: de43b30f-bc95-4324-96b4-a5d3e1ea7921
+  type: database
+  name: FIVETRAN
+  fullyQualifiedName: hktest.FIVETRAN
+  displayName: FIVETRAN
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: lifeCycle
+      oldValue: "{\"accessed\":{\"timestamp\":1751587200000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+      newValue: "{\"accessed\":{\"timestamp\":1752192000000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/FIVETRAN/schemas/MSSQLBANKING_STG/table/CUSTOMERACCOUNTS
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1752192000000
+    accessedByAProcess: TESTOPENMETADATA
+sourceHash: f46a0c7526e8f1ce0dfb159b3c8c671b
+processedLineage: false
+entityStatus: Approved

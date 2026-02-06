@@ -1,0 +1,127 @@
+name: CUSTOMERCONTACTHISTORY
+fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERCONTACTHISTORY
+tableType: Regular
+columns:
+  - name: CONTACTREASON
+    dataType: VARCHAR
+    dataLength: 200
+    dataTypeDisplay: text(200)
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERCONTACTHISTORY.CONTACTREASON
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CONTACTID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERCONTACTHISTORY.CONTACTID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: CUSTOMERID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERCONTACTHISTORY.CUSTOMERID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CONTACTDATE
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERCONTACTHISTORY.CONTACTDATE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _FIVETRAN_DELETED
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERCONTACTHISTORY._FIVETRAN_DELETED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _FIVETRAN_SYNCED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_tz
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERCONTACTHISTORY._FIVETRAN_SYNCED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CUSTOMERID
+      - CUSTOMERID
+      - CUSTOMERID
+      - CUSTOMERID
+    referredColumns:
+      - hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO.CUSTOMERID
+      - hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO.CUSTOMERID
+      - hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO.CUSTOMERID
+      - hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO.CUSTOMERID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: d01398d8-f004-4f62-bec6-99122ce8c128
+  type: databaseSchema
+  name: MSSQLBANKING_CUSTOMER
+  fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER
+  displayName: MSSQLBANKING_CUSTOMER
+  deleted: false
+database:
+  id: de43b30f-bc95-4324-96b4-a5d3e1ea7921
+  type: database
+  name: FIVETRAN
+  fullyQualifiedName: hktest.FIVETRAN
+  displayName: FIVETRAN
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: lifeCycle
+      oldValue: "{\"accessed\":{\"timestamp\":1750377600000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+      newValue: "{\"accessed\":{\"timestamp\":1751587200000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+  fieldsDeleted: []
+  previousVersion: 0.4
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/FIVETRAN/schemas/MSSQLBANKING_CUSTOMER/table/CUSTOMERCONTACTHISTORY
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1751587200000
+    accessedByAProcess: TESTOPENMETADATA
+sourceHash: 664d615b11ea1ec88c6157432ed91d68
+processedLineage: false
+entityStatus: Approved
