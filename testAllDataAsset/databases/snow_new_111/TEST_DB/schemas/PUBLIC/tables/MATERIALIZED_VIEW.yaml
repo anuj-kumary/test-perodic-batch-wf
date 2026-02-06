@@ -1,0 +1,124 @@
+name: MATERIALIZED_VIEW
+fullyQualifiedName: snow_new_111.TEST_DB.PUBLIC.MATERIALIZED_VIEW
+description: new description - reverse metadata
+tableType: MaterializedView
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    description: new description
+    fullyQualifiedName: snow_new_111.TEST_DB.PUBLIC.MATERIALIZED_VIEW.ID
+    tags:
+      - tagFQN: General.URL
+        name: URL
+        description: "A URL (Uniform Resource Locator), unique identifier used to\
+          \ locate a resource on the Internet."
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.TEST_DB.PUBLIC.MATERIALIZED_VIEW.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 43726461-b06c-4af4-a6bd-9781375f023c
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: snow_new_111.TEST_DB.PUBLIC
+  description: reverse metadata ingestion.
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: 41ed067f-29a9-455e-9183-3c59e22b362c
+  type: database
+  name: TEST_DB
+  fullyQualifiedName: snow_new_111.TEST_DB
+  description: Updated database description
+  displayName: TEST_DB
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace materialized view MATERIALIZED_VIEW(\n\tID WITH\
+  \ TAG (TEST_DB.PUBLIC.\"General\"='URL') COMMENT 'new description',\n\tNAME\n) WITH\
+  \ TAG (TEST_DB.PUBLIC.PII='Sensitive')\n COMMENT='new description - reverse metadata'\n\
+  \ as\nSELECT id, name FROM TEST_DB.PUBLIC.regular_table;"
+tags:
+  - tagFQN: AYUSHTEST.testayush
+    name: testayush
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: PII.Sensitive
+    name: Sensitive
+    description: "PII which if lost, compromised, or disclosed without authorization,\
+      \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+      \ to an individual."
+    style:
+      color: "#ff0000"
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: TAG_NAME.test
+    name: test
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: pii.Sensitive
+    name: Sensitive
+    description: UNITY CATALOG TAG
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: cc9f923d7baff4347d6a56664b1e4c5f
+      newValue: ca22052d1dc5576b7fa1e3ab73e40aac
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/TEST_DB/schemas/PUBLIC/materialized-view/MATERIALIZED_VIEW
+domains: []
+dataProducts: []
+sourceHash: ca22052d1dc5576b7fa1e3ab73e40aac
+processedLineage: false
+entityStatus: Unprocessed

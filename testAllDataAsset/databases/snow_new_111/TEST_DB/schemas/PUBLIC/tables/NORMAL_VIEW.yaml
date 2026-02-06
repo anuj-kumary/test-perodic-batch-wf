@@ -1,0 +1,110 @@
+name: NORMAL_VIEW
+fullyQualifiedName: snow_new_111.TEST_DB.PUBLIC.NORMAL_VIEW
+description: new desc.
+tableType: View
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    description: new description - reverse metadata testing
+    fullyQualifiedName: snow_new_111.TEST_DB.PUBLIC.NORMAL_VIEW.ID
+    tags:
+      - tagFQN: test.reverse metadata test
+        name: reverse metadata test
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.TEST_DB.PUBLIC.NORMAL_VIEW.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 43726461-b06c-4af4-a6bd-9781375f023c
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: snow_new_111.TEST_DB.PUBLIC
+  description: reverse metadata ingestion.
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: 41ed067f-29a9-455e-9183-3c59e22b362c
+  type: database
+  name: TEST_DB
+  fullyQualifiedName: snow_new_111.TEST_DB
+  description: Updated database description
+  displayName: TEST_DB
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: |-
+  CREATE OR REPLACE VIEW TEST_DB.PUBLIC.normal_view AS
+  SELECT * FROM TEST_DB.PUBLIC.regular_table;
+tags:
+  - tagFQN: AYUSHTEST.testayush
+    name: testayush
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: TAG_NAME.test
+    name: test
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: pii.Sensitive
+    name: Sensitive
+    description: UNITY CATALOG TAG
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 72022cd2bd86a30668392c8ba0766ac9
+      newValue: b504d3e25bb06e2bdbe8a79768d19493
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/TEST_DB/schemas/PUBLIC/view/NORMAL_VIEW
+domains: []
+dataProducts: []
+sourceHash: b504d3e25bb06e2bdbe8a79768d19493
+processedLineage: false
+entityStatus: Unprocessed
