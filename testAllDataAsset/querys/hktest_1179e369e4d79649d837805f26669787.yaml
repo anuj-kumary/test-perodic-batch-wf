@@ -1,0 +1,32 @@
+name: 1179e369e4d79649d837805f26669787
+fullyQualifiedName: hktest.1179e369e4d79649d837805f26669787
+owners: []
+duration: 72.0
+users: []
+query: "WITH \"4c9e7581028a01fc71dfc3997bd40912_rnd\" AS \n(SELECT \"LOAN_1\".\"LOAN_INITIATED_DATE\"\
+  \ AS \"LOAN_INITIATED_DATE\" \nFROM \"LANDING\".\"LOAN\" AS \"LOAN_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"4c9e7581028a01fc71dfc3997bd40912_sample\" AS \n(SELECT \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  .\"LOAN_INITIATED_DATE\" AS \"LOAN_INITIATED_DATE\" \nFROM \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  )\n SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"LOAN_INITIATED_DATE\"\
+  ) ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"LOAN_INITIATED_DATE\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"LOAN_INITIATED_DATE\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"4c9e7581028a01fc71dfc3997bd40912_sample\"\n\
+  \ LIMIT ?"
+checksum: 1179e369e4d79649d837805f26669787
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: daeebc3d-e209-4d6c-838c-8a72fc77990f
+    type: table
+    name: LOAN
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.LOAN
+    displayName: LOAN
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

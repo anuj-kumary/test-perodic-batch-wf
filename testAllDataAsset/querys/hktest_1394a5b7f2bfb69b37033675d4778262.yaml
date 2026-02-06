@@ -1,0 +1,34 @@
+name: 1394a5b7f2bfb69b37033675d4778262
+fullyQualifiedName: hktest.1394a5b7f2bfb69b37033675d4778262
+owners: []
+duration: 61.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"UPSELL_AMOUNT_C\"\
+  \ AS \"UPSELL_AMOUNT_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  UPSELL_AMOUNT_C\" AS \"UPSELL_AMOUNT_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"UPSELL_AMOUNT_C\" ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"UPSELL_AMOUNT_C\" ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY \"UPSELL_AMOUNT_C\" ASC) AS \"thirdQuartile\"\
+  \ \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT ?"
+checksum: 1394a5b7f2bfb69b37033675d4778262
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

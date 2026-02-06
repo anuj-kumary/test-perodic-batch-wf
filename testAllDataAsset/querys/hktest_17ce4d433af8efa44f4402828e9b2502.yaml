@@ -1,0 +1,30 @@
+name: 17ce4d433af8efa44f4402828e9b2502
+fullyQualifiedName: hktest.17ce4d433af8efa44f4402828e9b2502
+owners: []
+duration: 60.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_PART_SUR_F_ADJ\"\
+  \ AS \"CONT_PART_SUR_F_ADJ\" \nFROM \"LANDING\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_PART_SUR_F_ADJ\" AS \"CONT_PART_SUR_F_ADJ\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CONT_PART_SUR_F_ADJ\"\
+  ) AS count_1 \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\" GROUP BY \"CONT_PART_SUR_F_ADJ\"\
+  \ \nHAVING count(\"CONT_PART_SUR_F_ADJ\") = ?) AS only_once\n LIMIT ?"
+checksum: 17ce4d433af8efa44f4402828e9b2502
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

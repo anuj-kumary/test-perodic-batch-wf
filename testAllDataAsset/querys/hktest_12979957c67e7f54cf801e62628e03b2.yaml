@@ -1,0 +1,40 @@
+name: 12979957c67e7f54cf801e62628e03b2
+fullyQualifiedName: hktest.12979957c67e7f54cf801e62628e03b2
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"97a1a769-0ed2-4e8f-b352-177a49154924\",\"type\":\"table\"\
+        ,\"name\":\"SUPPLIER\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.SUPPLIER\"\
+        ,\"description\":\"Supplier data as defined by TPC-H\",\"displayName\":\"\
+        SUPPLIER\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 57.0
+users: []
+query: "SELECT avg(\"S_NATIONKEY\") AS mean, count(\"S_NATIONKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"S_NATIONKEY\") AS \"distinctCount\", MIN(\"S_NATIONKEY\") AS\
+  \ min, MAX(\"S_NATIONKEY\") AS max, coalesce(SUM(CASE WHEN (\"S_NATIONKEY\" IS ?)\
+  \ THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"S_NATIONKEY\") AS stddev,\
+  \ SUM(\"S_NATIONKEY\") AS sum \nFROM \"TPCH_SF1\".\"SUPPLIER\"\n LIMIT ?"
+checksum: 12979957c67e7f54cf801e62628e03b2
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 97a1a769-0ed2-4e8f-b352-177a49154924
+    type: table
+    name: SUPPLIER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.SUPPLIER
+    description: Supplier data as defined by TPC-H
+    displayName: SUPPLIER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,32 @@
+name: 18a6cdb0aafbe46d175c8cb4d3858901
+fullyQualifiedName: hktest.18a6cdb0aafbe46d175c8cb4d3858901
+owners: []
+duration: 64.0
+users: []
+query: "WITH eb2c256f837ad2af0184587c6200ff3d_rnd AS \n(SELECT \"REF_GNRL_1\".\"REF_EFF_START_DTTM\"\
+  \ AS \"REF_EFF_START_DTTM\" \nFROM \"CURATED\".\"REF_GNRL\" AS \"REF_GNRL_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \neb2c256f837ad2af0184587c6200ff3d_sample AS \n(SELECT eb2c256f837ad2af0184587c6200ff3d_rnd.\"\
+  REF_EFF_START_DTTM\" AS \"REF_EFF_START_DTTM\" \nFROM eb2c256f837ad2af0184587c6200ff3d_rnd)\n\
+  \ SELECT ? AS anon_1, count(\"REF_EFF_START_DTTM\") AS \"valuesCount\", count(DISTINCT\
+  \ \"REF_EFF_START_DTTM\") AS \"distinctCount\", MIN(\"REF_EFF_START_DTTM\") AS min,\
+  \ MAX(\"REF_EFF_START_DTTM\") AS max, coalesce(SUM(CASE WHEN (\"REF_EFF_START_DTTM\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", ? AS anon__1, ? AS anon__2 \nFROM\
+  \ eb2c256f837ad2af0184587c6200ff3d_sample\n LIMIT ?"
+checksum: 18a6cdb0aafbe46d175c8cb4d3858901
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3d7dbaac-e22b-470f-816d-8a10e1a4de8b
+    type: table
+    name: REF_GNRL
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.REF_GNRL
+    displayName: REF_GNRL
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

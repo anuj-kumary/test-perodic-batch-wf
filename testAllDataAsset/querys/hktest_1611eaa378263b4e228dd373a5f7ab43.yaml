@@ -1,0 +1,38 @@
+name: 1611eaa378263b4e228dd373a5f7ab43
+fullyQualifiedName: hktest.1611eaa378263b4e228dd373a5f7ab43
+owners: []
+duration: 166.0
+users: []
+query: "WITH \"137a01e95d691837511018085782d241_rnd\" AS \n(SELECT \"CUSTOMERLOGIN_1\"\
+  .\"LOGINID\" AS \"LOGINID\" \nFROM \"MSSQLBANKING_CUSTOMER\".\"CUSTOMERLOGIN\" AS\
+  \ \"CUSTOMERLOGIN_1\" TABLESAMPLE ROW(? ROWS)), \n\"137a01e95d691837511018085782d241_sample\"\
+  \ AS \n(SELECT \"137a01e95d691837511018085782d241_rnd\".\"LOGINID\" AS \"LOGINID\"\
+  \ \nFROM \"137a01e95d691837511018085782d241_rnd\")\n SELECT count(CASE WHEN (\"\
+  LOGINID\" >= ? AND \"LOGINID\" < ?) THEN \"LOGINID\" END) AS \"101.812K to 145.534M\"\
+  , count(CASE WHEN (\"LOGINID\" >= ? AND \"LOGINID\" < ?) THEN \"LOGINID\" END) AS\
+  \ \"145.534M to 290.966M\", count(CASE WHEN (\"LOGINID\" >= ? AND \"LOGINID\" <\
+  \ ?) THEN \"LOGINID\" END) AS \"290.966M to 436.397M\", count(CASE WHEN (\"LOGINID\"\
+  \ >= ? AND \"LOGINID\" < ?) THEN \"LOGINID\" END) AS \"436.397M to 581.829M\", count(CASE\
+  \ WHEN (\"LOGINID\" >= ? AND \"LOGINID\" < ?) THEN \"LOGINID\" END) AS \"581.829M\
+  \ to 727.261M\", count(CASE WHEN (\"LOGINID\" >= ? AND \"LOGINID\" < ?) THEN \"\
+  LOGINID\" END) AS \"727.261M to 872.693M\", count(CASE WHEN (\"LOGINID\" >= ?) THEN\
+  \ \"LOGINID\" END) AS \"872.693M and up\" \nFROM \"137a01e95d691837511018085782d241_sample\"\
+  \n LIMIT ?"
+checksum: 1611eaa378263b4e228dd373a5f7ab43
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 362a3c96-9793-4426-b8a0-46295ee4a87b
+    type: table
+    name: CUSTOMERLOGIN
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERLOGIN
+    displayName: CUSTOMERLOGIN
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

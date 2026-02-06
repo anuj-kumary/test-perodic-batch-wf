@@ -1,0 +1,35 @@
+name: 1283b45d417ec77bebd984632b106288
+fullyQualifiedName: hktest.1283b45d417ec77bebd984632b106288
+owners: []
+duration: 104.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"HS_CROSS_INTEREST_NEXT_12_MOS_2025_C\"\
+  \ AS \"HS_CROSS_INTEREST_NEXT_12_MOS_2025_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"\
+  ACCOUNT_1\" TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample\
+  \ AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"HS_CROSS_INTEREST_NEXT_12_MOS_2025_C\"\
+  \ AS \"HS_CROSS_INTEREST_NEXT_12_MOS_2025_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"HS_CROSS_INTEREST_NEXT_12_MOS_2025_C\"\
+  ) AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"HS_CROSS_INTEREST_NEXT_12_MOS_2025_C\"\
+  \ \nHAVING count(\"HS_CROSS_INTEREST_NEXT_12_MOS_2025_C\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 1283b45d417ec77bebd984632b106288
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

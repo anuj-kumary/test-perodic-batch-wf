@@ -1,0 +1,44 @@
+name: 12ceb554eabfa9d5eb6795b6c1c48cb6
+fullyQualifiedName: hktest.12ceb554eabfa9d5eb6795b6c1c48cb6
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"05b69fe3-187a-4d25-9617-b7917cea2158\",\"type\":\"table\"\
+        ,\"name\":\"MY_SECOND_DBT_MODEL\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL\"\
+        ,\"displayName\":\"MY_SECOND_DBT_MODEL\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 165.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"ID\" ASC) AS median, percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY \"ID\" ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY \"ID\" ASC) AS \"thirdQuartile\" \nFROM \"DBT_SAMPLE\".\"MY_SECOND_DBT_MODEL\"\
+  \n LIMIT ?"
+checksum: 12ceb554eabfa9d5eb6795b6c1c48cb6
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 05b69fe3-187a-4d25-9617-b7917cea2158
+    type: table
+    name: MY_SECOND_DBT_MODEL
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL
+    description: A starter dbt model
+    displayName: MY_SECOND_DBT_MODEL
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

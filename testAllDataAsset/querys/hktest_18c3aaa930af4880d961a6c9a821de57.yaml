@@ -1,0 +1,38 @@
+name: 18c3aaa930af4880d961a6c9a821de57
+fullyQualifiedName: hktest.18c3aaa930af4880d961a6c9a821de57
+owners: []
+duration: 442.0
+users: []
+query: "WITH \"5856cac33d051363dc9eeb2de9e675ce_rnd\" AS \n(SELECT \"WEB_RETURNS_1\"\
+  .\"WR_RETURNING_CDEMO_SK\" AS \"WR_RETURNING_CDEMO_SK\" \nFROM \"TPCDS_SF100TCL\"\
+  .\"WEB_RETURNS\" AS \"WEB_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"5856cac33d051363dc9eeb2de9e675ce_sample\"\
+  \ AS \n(SELECT \"5856cac33d051363dc9eeb2de9e675ce_rnd\".\"WR_RETURNING_CDEMO_SK\"\
+  \ AS \"WR_RETURNING_CDEMO_SK\" \nFROM \"5856cac33d051363dc9eeb2de9e675ce_rnd\")\n\
+  \ SELECT count(CASE WHEN (\"WR_RETURNING_CDEMO_SK\" >= ? AND \"WR_RETURNING_CDEMO_SK\"\
+  \ < ?) THEN \"WR_RETURNING_CDEMO_SK\" END) AS \"31.235K to 485.485K\", count(CASE\
+  \ WHEN (\"WR_RETURNING_CDEMO_SK\" >= ? AND \"WR_RETURNING_CDEMO_SK\" < ?) THEN \"\
+  WR_RETURNING_CDEMO_SK\" END) AS \"485.485K to 939.735K\", count(CASE WHEN (\"WR_RETURNING_CDEMO_SK\"\
+  \ >= ? AND \"WR_RETURNING_CDEMO_SK\" < ?) THEN \"WR_RETURNING_CDEMO_SK\" END) AS\
+  \ \"939.735K to 1.394M\", count(CASE WHEN (\"WR_RETURNING_CDEMO_SK\" >= ? AND \"\
+  WR_RETURNING_CDEMO_SK\" < ?) THEN \"WR_RETURNING_CDEMO_SK\" END) AS \"1.394M to\
+  \ 1.848M\", count(CASE WHEN (\"WR_RETURNING_CDEMO_SK\" >= ?) THEN \"WR_RETURNING_CDEMO_SK\"\
+  \ END) AS \"1.848M and up\" \nFROM \"5856cac33d051363dc9eeb2de9e675ce_sample\"\n\
+  \ LIMIT ?"
+checksum: 18c3aaa930af4880d961a6c9a821de57
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: c0d42425-f509-4e1e-a280-aa20852ebf64
+    type: table
+    name: WEB_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_RETURNS
+    displayName: WEB_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

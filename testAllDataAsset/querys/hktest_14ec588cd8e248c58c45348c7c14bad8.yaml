@@ -1,0 +1,38 @@
+name: 14ec588cd8e248c58c45348c7c14bad8
+fullyQualifiedName: hktest.14ec588cd8e248c58c45348c7c14bad8
+owners: []
+duration: 109.0
+users: []
+query: "WITH \"15e219364c9158944561b60284e81c87_rnd\" AS \n(SELECT \"DATE_DIM_1\"\
+  .\"D_FY_WEEK_SEQ\" AS \"D_FY_WEEK_SEQ\" \nFROM \"TPCDS_SF100TCL\".\"DATE_DIM\" AS\
+  \ \"DATE_DIM_1\" TABLESAMPLE ROW(? ROWS)), \n\"15e219364c9158944561b60284e81c87_sample\"\
+  \ AS \n(SELECT \"15e219364c9158944561b60284e81c87_rnd\".\"D_FY_WEEK_SEQ\" AS \"\
+  D_FY_WEEK_SEQ\" \nFROM \"15e219364c9158944561b60284e81c87_rnd\")\n SELECT count(CASE\
+  \ WHEN (\"D_FY_WEEK_SEQ\" >= ? AND \"D_FY_WEEK_SEQ\" < ?) THEN \"D_FY_WEEK_SEQ\"\
+  \ END) AS \"117.000 to 2.125K\", count(CASE WHEN (\"D_FY_WEEK_SEQ\" >= ? AND \"\
+  D_FY_WEEK_SEQ\" < ?) THEN \"D_FY_WEEK_SEQ\" END) AS \"2.125K to 4.133K\", count(CASE\
+  \ WHEN (\"D_FY_WEEK_SEQ\" >= ? AND \"D_FY_WEEK_SEQ\" < ?) THEN \"D_FY_WEEK_SEQ\"\
+  \ END) AS \"4.133K to 6.141K\", count(CASE WHEN (\"D_FY_WEEK_SEQ\" >= ? AND \"D_FY_WEEK_SEQ\"\
+  \ < ?) THEN \"D_FY_WEEK_SEQ\" END) AS \"6.141K to 8.149K\", count(CASE WHEN (\"\
+  D_FY_WEEK_SEQ\" >= ? AND \"D_FY_WEEK_SEQ\" < ?) THEN \"D_FY_WEEK_SEQ\" END) AS \"\
+  8.149K to 10.157K\", count(CASE WHEN (\"D_FY_WEEK_SEQ\" >= ?) THEN \"D_FY_WEEK_SEQ\"\
+  \ END) AS \"10.157K and up\" \nFROM \"15e219364c9158944561b60284e81c87_sample\"\n\
+  \ LIMIT ?"
+checksum: 14ec588cd8e248c58c45348c7c14bad8
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 31e5520d-ab7b-465c-9eee-1849572de9b7
+    type: table
+    name: DATE_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.DATE_DIM
+    displayName: DATE_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

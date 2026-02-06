@@ -1,0 +1,33 @@
+name: 12a503ed4c8395b55f028135711e212b
+fullyQualifiedName: hktest.12a503ed4c8395b55f028135711e212b
+owners: []
+duration: 67.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"SHIPPING_STREET\"\
+  \ AS \"SHIPPING_STREET\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  SHIPPING_STREET\" AS \"SHIPPING_STREET\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"SHIPPING_STREET\") AS\
+  \ count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"SHIPPING_STREET\"\
+  \ \nHAVING count(\"SHIPPING_STREET\") = ?) AS only_once\n LIMIT ?"
+checksum: 12a503ed4c8395b55f028135711e212b
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

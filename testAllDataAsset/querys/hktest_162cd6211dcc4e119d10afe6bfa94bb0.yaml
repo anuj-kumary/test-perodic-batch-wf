@@ -1,0 +1,40 @@
+name: 162cd6211dcc4e119d10afe6bfa94bb0
+fullyQualifiedName: hktest.162cd6211dcc4e119d10afe6bfa94bb0
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0b565859-50f2-4c96-b4f3-2abd5feeecb1\",\"type\":\"table\"\
+        ,\"name\":\"LINEITEM\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM\"\
+        ,\"description\":\"Lineitem data as defined by TPC-H\",\"displayName\":\"\
+        LINEITEM\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 43.0
+users: []
+query: "SELECT ? AS anon_1, count(\"L_RECEIPTDATE\") AS \"valuesCount\", count(DISTINCT\
+  \ \"L_RECEIPTDATE\") AS \"distinctCount\", MIN(\"L_RECEIPTDATE\") AS min, MAX(\"\
+  L_RECEIPTDATE\") AS max, coalesce(SUM(CASE WHEN (\"L_RECEIPTDATE\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", ? AS anon__1, ? AS anon__2 \nFROM \"TPCH_SF1\"\
+  .\"LINEITEM\"\n LIMIT ?"
+checksum: 162cd6211dcc4e119d10afe6bfa94bb0
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b565859-50f2-4c96-b4f3-2abd5feeecb1
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,36 @@
+name: 138ecdf5b0dbb6536d789bf7b6109262
+fullyQualifiedName: hktest.138ecdf5b0dbb6536d789bf7b6109262
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"e4a80c06-2eeb-4d82-8a71-61523f5b7361\",\"type\":\"table\"\
+        ,\"name\":\"CUSTOMERINFO\",\"fullyQualifiedName\":\"hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO\"\
+        ,\"displayName\":\"CUSTOMERINFO\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 52.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"_FIVETRAN_SYNCED\"\
+  ) AS count_1 \nFROM \"MSSQLBANKING_CUSTOMER\".\"CUSTOMERINFO\" GROUP BY \"_FIVETRAN_SYNCED\"\
+  \ \nHAVING count(\"_FIVETRAN_SYNCED\") = ?) AS only_once\n LIMIT ?"
+checksum: 138ecdf5b0dbb6536d789bf7b6109262
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e4a80c06-2eeb-4d82-8a71-61523f5b7361
+    type: table
+    name: CUSTOMERINFO
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO
+    displayName: CUSTOMERINFO
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

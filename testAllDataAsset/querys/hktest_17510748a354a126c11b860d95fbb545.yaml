@@ -1,0 +1,40 @@
+name: 17510748a354a126c11b860d95fbb545
+fullyQualifiedName: hktest.17510748a354a126c11b860d95fbb545
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0b565859-50f2-4c96-b4f3-2abd5feeecb1\",\"type\":\"table\"\
+        ,\"name\":\"LINEITEM\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM\"\
+        ,\"description\":\"Lineitem data as defined by TPC-H\",\"displayName\":\"\
+        LINEITEM\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 519.0
+users: []
+query: "SELECT avg(\"L_ORDERKEY\") AS mean, count(\"L_ORDERKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"L_ORDERKEY\") AS \"distinctCount\", MIN(\"L_ORDERKEY\") AS min,\
+  \ MAX(\"L_ORDERKEY\") AS max, coalesce(SUM(CASE WHEN (\"L_ORDERKEY\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"L_ORDERKEY\") AS stddev, SUM(\"\
+  L_ORDERKEY\") AS sum \nFROM \"TPCH_SF1\".\"LINEITEM\"\n LIMIT ?"
+checksum: 17510748a354a126c11b860d95fbb545
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b565859-50f2-4c96-b4f3-2abd5feeecb1
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

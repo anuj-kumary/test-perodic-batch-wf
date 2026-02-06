@@ -1,0 +1,31 @@
+name: 16b8d7c168e85b8f4875a4b714f337dd
+fullyQualifiedName: hktest.16b8d7c168e85b8f4875a4b714f337dd
+owners: []
+duration: 751.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_RETURN_AMOUNT\" AS \"CR_RETURN_AMOUNT\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_RETURNS\"\
+  \ AS \"CATALOG_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_RETURN_AMOUNT\" AS\
+  \ \"CR_RETURN_AMOUNT\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CR_RETURN_AMOUNT\") AS count_1\
+  \ \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\" GROUP BY \"CR_RETURN_AMOUNT\"\
+  \ \nHAVING count(\"CR_RETURN_AMOUNT\") = ?) AS only_once\n LIMIT ?"
+checksum: 16b8d7c168e85b8f4875a4b714f337dd
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b9619de9-ba22-4783-99e0-09f868de5c08
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

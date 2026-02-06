@@ -1,0 +1,35 @@
+name: 18d0624223298ce7a3903302d6cacfea
+fullyQualifiedName: hktest.18d0624223298ce7a3903302d6cacfea
+owners: []
+duration: 91.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"MKTO_SI_SALES_INSIGHT_C\"\
+  \ AS \"MKTO_SI_SALES_INSIGHT_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT\
+  \ c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"MKTO_SI_SALES_INSIGHT_C\" AS \"MKTO_SI_SALES_INSIGHT_C\"\
+  \ \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n SELECT percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"MKTO_SI_SALES_INSIGHT_C\") ASC) AS median, percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"MKTO_SI_SALES_INSIGHT_C\") ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"MKTO_SI_SALES_INSIGHT_C\") ASC)\
+  \ AS \"thirdQuartile\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT ?"
+checksum: 18d0624223298ce7a3903302d6cacfea
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,29 @@
+name: 16a2325478d8f36a50b18a3282d6a4bf
+fullyQualifiedName: hktest.16a2325478d8f36a50b18a3282d6a4bf
+owners: []
+duration: 553.0
+users: []
+query: "SELECT avg(\"PS_SUPPKEY\") AS mean, count(\"PS_SUPPKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"PS_SUPPKEY\") AS \"distinctCount\", MIN(\"PS_SUPPKEY\") AS min,\
+  \ MAX(\"PS_SUPPKEY\") AS max, coalesce(SUM(CASE WHEN (\"PS_SUPPKEY\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"PS_SUPPKEY\") AS stddev, SUM(\"\
+  PS_SUPPKEY\") AS sum \nFROM \"TPCH_SF10\".\"PARTSUPP\"\n LIMIT ?"
+checksum: 16a2325478d8f36a50b18a3282d6a4bf
+queryDate: 1752364800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9bbaa7c7-34ce-4cd3-a409-43f685e7074b
+    type: table
+    name: PARTSUPP
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.PARTSUPP
+    description: Partsupp data as defined by TPC-H
+    displayName: PARTSUPP
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

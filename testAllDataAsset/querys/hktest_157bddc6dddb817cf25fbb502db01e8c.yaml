@@ -1,0 +1,35 @@
+name: 157bddc6dddb817cf25fbb502db01e8c
+fullyQualifiedName: hktest.157bddc6dddb817cf25fbb502db01e8c
+owners: []
+duration: 114.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"X_2025_INCORRECT_RANKING_HIGHLIGHT_ORDINA_C\"\
+  \ AS \"X_2025_INCORRECT_RANKING_HIGHLIGHT_ORDINA_C\" \nFROM \"PUBLIC\".\"ACCOUNT\"\
+  \ AS \"ACCOUNT_1\" TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample\
+  \ AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"X_2025_INCORRECT_RANKING_HIGHLIGHT_ORDINA_C\"\
+  \ AS \"X_2025_INCORRECT_RANKING_HIGHLIGHT_ORDINA_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"X_2025_INCORRECT_RANKING_HIGHLIGHT_ORDINA_C\"\
+  ) AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"X_2025_INCORRECT_RANKING_HIGHLIGHT_ORDINA_C\"\
+  \ \nHAVING count(\"X_2025_INCORRECT_RANKING_HIGHLIGHT_ORDINA_C\") = ?) AS only_once\n\
+  \ LIMIT ?"
+checksum: 157bddc6dddb817cf25fbb502db01e8c
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

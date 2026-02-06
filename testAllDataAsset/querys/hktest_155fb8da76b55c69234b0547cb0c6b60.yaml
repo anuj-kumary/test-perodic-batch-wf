@@ -1,0 +1,31 @@
+name: 155fb8da76b55c69234b0547cb0c6b60
+fullyQualifiedName: hktest.155fb8da76b55c69234b0547cb0c6b60
+owners: []
+duration: 102.0
+users: []
+query: "WITH \"4c9e7581028a01fc71dfc3997bd40912_rnd\" AS \n(SELECT \"LOAN_1\".\"AK_HASH_KY\"\
+  \ AS \"AK_HASH_KY\" \nFROM \"LANDING\".\"LOAN\" AS \"LOAN_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"4c9e7581028a01fc71dfc3997bd40912_sample\" AS \n(SELECT \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  .\"AK_HASH_KY\" AS \"AK_HASH_KY\" \nFROM \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  )\n SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"AK_HASH_KY\" ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"AK_HASH_KY\" ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY \"AK_HASH_KY\" ASC) AS \"thirdQuartile\"\
+  \ \nFROM \"4c9e7581028a01fc71dfc3997bd40912_sample\"\n LIMIT ?"
+checksum: 155fb8da76b55c69234b0547cb0c6b60
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: daeebc3d-e209-4d6c-838c-8a72fc77990f
+    type: table
+    name: LOAN
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.LOAN
+    displayName: LOAN
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

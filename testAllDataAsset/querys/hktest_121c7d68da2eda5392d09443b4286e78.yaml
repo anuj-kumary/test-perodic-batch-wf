@@ -1,0 +1,33 @@
+name: 121c7d68da2eda5392d09443b4286e78
+fullyQualifiedName: hktest.121c7d68da2eda5392d09443b4286e78
+owners: []
+duration: 579.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_ORDER_NUMBER\" AS \"CS_ORDER_NUMBER\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_SALES\"\
+  \ AS \"CATALOG_SALES_1\" TABLESAMPLE ROW(? ROWS)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_ORDER_NUMBER\" AS \"CS_ORDER_NUMBER\"\
+  \ \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n SELECT avg(\"CS_ORDER_NUMBER\"\
+  ) AS mean, count(\"CS_ORDER_NUMBER\") AS \"valuesCount\", count(DISTINCT \"CS_ORDER_NUMBER\"\
+  ) AS \"distinctCount\", MIN(\"CS_ORDER_NUMBER\") AS min, MAX(\"CS_ORDER_NUMBER\"\
+  ) AS max, coalesce(SUM(CASE WHEN (\"CS_ORDER_NUMBER\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(\"CS_ORDER_NUMBER\") AS stddev, SUM(\"CS_ORDER_NUMBER\"\
+  ) AS sum \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\n LIMIT ?"
+checksum: 121c7d68da2eda5392d09443b4286e78
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 2c3b67ba-852a-449e-b9b1-18d6862e9d96
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

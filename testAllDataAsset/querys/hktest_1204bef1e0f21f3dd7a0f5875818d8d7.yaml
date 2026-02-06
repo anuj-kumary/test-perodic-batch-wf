@@ -1,0 +1,29 @@
+name: 1204bef1e0f21f3dd7a0f5875818d8d7
+fullyQualifiedName: hktest.1204bef1e0f21f3dd7a0f5875818d8d7
+owners: []
+duration: 83.0
+users: []
+query: "SELECT avg(LEN(\"CONT_PENSION_CODE\")) AS mean, count(\"CONT_PENSION_CODE\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CONT_PENSION_CODE\") AS \"distinctCount\"\
+  , MIN(LEN(\"CONT_PENSION_CODE\")) AS min, MAX(LEN(\"CONT_PENSION_CODE\")) AS max,\
+  \ coalesce(SUM(CASE WHEN (\"CONT_PENSION_CODE\" IS ?) THEN ? ELSE ? END), ?) AS\
+  \ \"nullCount\", STDDEV_POP(LEN(\"CONT_PENSION_CODE\")) AS stddev, SUM(LEN(\"CONT_PENSION_CODE\"\
+  )) AS sum \nFROM \"CURATED\".\"CONT\"\n LIMIT ?"
+checksum: 1204bef1e0f21f3dd7a0f5875818d8d7
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

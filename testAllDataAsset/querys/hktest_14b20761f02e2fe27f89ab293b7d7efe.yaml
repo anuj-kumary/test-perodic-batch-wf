@@ -1,0 +1,37 @@
+name: 14b20761f02e2fe27f89ab293b7d7efe
+fullyQualifiedName: hktest.14b20761f02e2fe27f89ab293b7d7efe
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7c11b729-7c3e-4051-af26-dcc453c5b05d\",\"type\":\"table\"\
+        ,\"name\":\"LOCATIONS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.LOCATIONS\"\
+        ,\"displayName\":\"LOCATIONS\",\"deleted\":false}]"
+  previousVersion: 1.2
+  changeSummary: {}
+owners: []
+duration: 55.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"E2E_TESTCOUNTRY_ID\"\
+  ) ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"E2E_TESTCOUNTRY_ID\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"E2E_TESTCOUNTRY_ID\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"E2E_TEST\".\"LOCATIONS\"\n LIMIT ?"
+checksum: 14b20761f02e2fe27f89ab293b7d7efe
+queryDate: 1752537600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7c11b729-7c3e-4051-af26-dcc453c5b05d
+    type: table
+    name: LOCATIONS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.LOCATIONS
+    displayName: LOCATIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

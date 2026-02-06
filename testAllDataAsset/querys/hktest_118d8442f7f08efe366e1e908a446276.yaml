@@ -1,0 +1,33 @@
+name: 118d8442f7f08efe366e1e908a446276
+fullyQualifiedName: hktest.118d8442f7f08efe366e1e908a446276
+owners: []
+duration: 210.0
+users: []
+query: "WITH \"3cfba54f6873dfd55b0b09d32910b20e_rnd\" AS \n(SELECT \"STORE_1\".\"\
+  S_MARKET_ID\" AS \"S_MARKET_ID\" \nFROM \"TPCDS_SF10TCL\".\"STORE\" AS \"STORE_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"3cfba54f6873dfd55b0b09d32910b20e_sample\" AS \n\
+  (SELECT \"3cfba54f6873dfd55b0b09d32910b20e_rnd\".\"S_MARKET_ID\" AS \"S_MARKET_ID\"\
+  \ \nFROM \"3cfba54f6873dfd55b0b09d32910b20e_rnd\")\n SELECT avg(\"S_MARKET_ID\"\
+  ) AS mean, count(\"S_MARKET_ID\") AS \"valuesCount\", count(DISTINCT \"S_MARKET_ID\"\
+  ) AS \"distinctCount\", MIN(\"S_MARKET_ID\") AS min, MAX(\"S_MARKET_ID\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"S_MARKET_ID\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(\"S_MARKET_ID\") AS stddev, SUM(\"S_MARKET_ID\") AS sum \nFROM \"3cfba54f6873dfd55b0b09d32910b20e_sample\"\
+  \n LIMIT ?"
+checksum: 118d8442f7f08efe366e1e908a446276
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8b867dd5-07fb-4f21-a899-5b84cd0ae9c4
+    type: table
+    name: STORE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.STORE
+    displayName: STORE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

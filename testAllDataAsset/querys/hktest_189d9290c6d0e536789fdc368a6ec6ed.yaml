@@ -1,0 +1,29 @@
+name: 189d9290c6d0e536789fdc368a6ec6ed
+fullyQualifiedName: hktest.189d9290c6d0e536789fdc368a6ec6ed
+owners: []
+duration: 261.0
+users: []
+query: "SELECT avg(\"N_NATIONKEY\") AS mean, count(\"N_NATIONKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"N_NATIONKEY\") AS \"distinctCount\", MIN(\"N_NATIONKEY\") AS\
+  \ min, MAX(\"N_NATIONKEY\") AS max, coalesce(SUM(CASE WHEN (\"N_NATIONKEY\" IS ?)\
+  \ THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"N_NATIONKEY\") AS stddev,\
+  \ SUM(\"N_NATIONKEY\") AS sum \nFROM \"TPCH_SF10\".\"NATION\"\n LIMIT ?"
+checksum: 189d9290c6d0e536789fdc368a6ec6ed
+queryDate: 1752364800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: a74b0f11-b7dd-44fd-b8e7-b7f7228490f5
+    type: table
+    name: NATION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.NATION
+    description: Nation data as defined by TPC-H
+    displayName: NATION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,41 @@
+name: 17e252f9fdfc9c5eda2f4978867aaeea
+fullyQualifiedName: hktest.17e252f9fdfc9c5eda2f4978867aaeea
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f541ed9b-43c8-4fde-9898-ccab88cd5324\",\"type\":\"table\"\
+        ,\"name\":\"ORDERS\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS\"\
+        ,\"description\":\"Orders data as defined by TPC-H\",\"displayName\":\"ORDERS\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.4
+  changeSummary: {}
+owners: []
+duration: 80.0
+users: []
+query: "SELECT avg(LEN(\"O_COMMENT\")) AS mean, count(\"O_COMMENT\") AS \"valuesCount\"\
+  , count(DISTINCT \"O_COMMENT\") AS \"distinctCount\", MIN(LEN(\"O_COMMENT\")) AS\
+  \ min, MAX(LEN(\"O_COMMENT\")) AS max, coalesce(SUM(CASE WHEN (\"O_COMMENT\" IS\
+  \ ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"O_COMMENT\")) AS\
+  \ stddev, SUM(LEN(\"O_COMMENT\")) AS sum \nFROM \"TPCH_SF1\".\"ORDERS\"\n LIMIT\
+  \ ?"
+checksum: 17e252f9fdfc9c5eda2f4978867aaeea
+queryDate: 1752192000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f541ed9b-43c8-4fde-9898-ccab88cd5324
+    type: table
+    name: ORDERS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS
+    description: Orders data as defined by TPC-H
+    displayName: ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

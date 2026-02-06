@@ -1,0 +1,35 @@
+name: 18d3bc723c9daf063b26723a62a4fb1a
+fullyQualifiedName: hktest.18d3bc723c9daf063b26723a62a4fb1a
+owners: []
+duration: 54.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"MATERIALIZATION\")) AS mean, count(\"MATERIALIZATION\") AS\
+  \ \"valuesCount\", count(DISTINCT \"MATERIALIZATION\") AS \"distinctCount\", MIN(LEN(\"\
+  MATERIALIZATION\")) AS min, MAX(LEN(\"MATERIALIZATION\")) AS max, coalesce(SUM(CASE\
+  \ WHEN (\"MATERIALIZATION\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  MATERIALIZATION\")) AS stddev, SUM(LEN(\"MATERIALIZATION\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\"\
+  .\"DBT_SNAPSHOTS\"\n LIMIT ?"
+checksum: 18d3bc723c9daf063b26723a62a4fb1a
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 1a977e20-ac5d-4bad-8a66-725d5b95e434
+    type: table
+    name: DBT_SNAPSHOTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SNAPSHOTS
+    displayName: DBT_SNAPSHOTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

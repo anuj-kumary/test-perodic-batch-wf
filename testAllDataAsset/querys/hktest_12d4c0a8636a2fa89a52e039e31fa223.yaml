@@ -1,0 +1,30 @@
+name: 12d4c0a8636a2fa89a52e039e31fa223
+fullyQualifiedName: hktest.12d4c0a8636a2fa89a52e039e31fa223
+owners: []
+duration: 645.0
+users: []
+query: "SELECT avg(LEN(\"S_ADDRESS\")) AS mean, count(\"S_ADDRESS\") AS \"valuesCount\"\
+  , count(DISTINCT \"S_ADDRESS\") AS \"distinctCount\", MIN(LEN(\"S_ADDRESS\")) AS\
+  \ min, MAX(LEN(\"S_ADDRESS\")) AS max, coalesce(SUM(CASE WHEN (\"S_ADDRESS\" IS\
+  \ ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"S_ADDRESS\")) AS\
+  \ stddev, SUM(LEN(\"S_ADDRESS\")) AS sum \nFROM \"TPCH_SF100\".\"SUPPLIER\"\n LIMIT\
+  \ ?"
+checksum: 12d4c0a8636a2fa89a52e039e31fa223
+queryDate: 1752364800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b34210ba-5818-4ae4-95a1-4f393705da90
+    type: table
+    name: SUPPLIER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.SUPPLIER
+    description: Supplier data as defined by TPC-H
+    displayName: SUPPLIER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
