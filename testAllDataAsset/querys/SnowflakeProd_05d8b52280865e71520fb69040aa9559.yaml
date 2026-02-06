@@ -1,0 +1,29 @@
+name: 05d8b52280865e71520fb69040aa9559
+fullyQualifiedName: SnowflakeProd.05d8b52280865e71520fb69040aa9559
+owners: []
+duration: 80.0
+users: []
+query: "SELECT avg(LEN(\"E2E_TESTCITY\")) AS mean, count(\"E2E_TESTCITY\") AS \"valuesCount\"\
+  , count(DISTINCT \"E2E_TESTCITY\") AS \"distinctCount\", MIN(LEN(\"E2E_TESTCITY\"\
+  )) AS min, MAX(LEN(\"E2E_TESTCITY\")) AS max, SUM(CASE WHEN (\"E2E_TESTCITY\" IS\
+  \ NULL) THEN 1 ELSE 0 END) AS \"nullCount\", STDDEV_POP(LEN(\"E2E_TESTCITY\")) AS\
+  \ stddev, SUM(LEN(\"E2E_TESTCITY\")) AS sum \nFROM \"E2E_TEST\".\"LOCATIONS\"\n\
+  \ LIMIT 1"
+checksum: 05d8b52280865e71520fb69040aa9559
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 6d5d4286-e273-4bad-9939-3e260d8d0906
+    type: table
+    name: LOCATIONS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.LOCATIONS
+    displayName: LOCATIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

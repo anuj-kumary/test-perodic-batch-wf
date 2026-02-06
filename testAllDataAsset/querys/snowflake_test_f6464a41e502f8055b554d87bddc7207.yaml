@@ -1,0 +1,40 @@
+name: f6464a41e502f8055b554d87bddc7207
+fullyQualifiedName: snowflake_test.f6464a41e502f8055b554d87bddc7207
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 67.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_COUNTRY\" AS \"CC_COUNTRY\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\" AS \"\
+  CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_COUNTRY\" AS \"CC_COUNTRY\"\
+  \ \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"CC_COUNTRY\") ASC) AS median, percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"CC_COUNTRY\") ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"CC_COUNTRY\") ASC) AS \"thirdQuartile\" \nFROM \"\
+  6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\n LIMIT ?"
+checksum: f6464a41e502f8055b554d87bddc7207
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f754a47f-35f6-45e8-9ab1-7afdef691f30
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

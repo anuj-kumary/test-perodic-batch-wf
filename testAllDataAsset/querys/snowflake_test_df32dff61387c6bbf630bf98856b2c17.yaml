@@ -1,0 +1,39 @@
+name: df32dff61387c6bbf630bf98856b2c17
+fullyQualifiedName: snowflake_test.df32dff61387c6bbf630bf98856b2c17
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 17711.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_RETURNING_HDEMO_SK\" AS \"CR_RETURNING_HDEMO_SK\" \nFROM \"TPCDS_SF10TCL\"\
+  .\"CATALOG_RETURNS\" AS \"CATALOG_RETURNS_1\" TABLESAMPLE bernoulli(?)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_RETURNING_HDEMO_SK\"\
+  \ AS \"CR_RETURNING_HDEMO_SK\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CR_RETURNING_HDEMO_SK\"\
+  ) AS count_1 \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\" GROUP BY \"CR_RETURNING_HDEMO_SK\"\
+  \ \nHAVING count(\"CR_RETURNING_HDEMO_SK\") = ?) AS only_once\n LIMIT ?"
+checksum: df32dff61387c6bbf630bf98856b2c17
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e9119d1e-971c-4d36-8713-0798a54f4faa
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

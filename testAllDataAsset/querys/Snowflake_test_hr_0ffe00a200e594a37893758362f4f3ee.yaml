@@ -1,0 +1,48 @@
+name: 0ffe00a200e594a37893758362f4f3ee
+fullyQualifiedName: Snowflake_test_hr.0ffe00a200e594a37893758362f4f3ee
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 19.7
+owners: []
+duration: 780.0
+users: []
+query: |-
+  SELECT /* sqlalchemy:_get_schema_columns */
+          ic.table_name,
+          ic.column_name,
+          ic.data_type,
+          ic.character_maximum_length,
+          ic.numeric_precision,
+          ic.numeric_scale,
+          ic.is_nullable,
+          ic.column_default,
+          ic.is_identity,
+          ic.comment,
+          ic.identity_start,
+          ic.identity_increment
+      FROM information_schema.columns ic
+      WHERE ic.table_schema=?
+      ORDER BY ic.ordinal_position
+checksum: 0ffe00a200e594a37893758362f4f3ee
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: abc63d79-0f69-4953-ba6b-c9d7a92843e7
+    type: table
+    name: COLUMNS
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.INFORMATION_SCHEMA.COLUMNS
+    displayName: COLUMNS
+    deleted: false
+processedLineage: false
+service:
+  id: 435fa0a8-a3e1-4465-bd6a-33924c85e6aa
+  type: databaseService
+  name: Snowflake_test_hr
+  fullyQualifiedName: Snowflake_test_hr

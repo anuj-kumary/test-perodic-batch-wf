@@ -1,0 +1,40 @@
+name: c4249b77c8f98da0418777e4b98ca0a3
+fullyQualifiedName: snowflake_test.c4249b77c8f98da0418777e4b98ca0a3
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 74.0
+users: []
+query: "WITH \"8924b4b411990bf5c24320a9ab1eba23_rnd\" AS \n(SELECT \"CATALOG_PAGE_1\"\
+  .\"CP_TYPE\" AS \"CP_TYPE\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_PAGE\" AS \"CATALOG_PAGE_1\"\
+  \ TABLESAMPLE bernoulli(?)), \n\"8924b4b411990bf5c24320a9ab1eba23_sample\" AS \n\
+  (SELECT \"8924b4b411990bf5c24320a9ab1eba23_rnd\".\"CP_TYPE\" AS \"CP_TYPE\" \nFROM\
+  \ \"8924b4b411990bf5c24320a9ab1eba23_rnd\")\n SELECT percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"CP_TYPE\") ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER\
+  \ BY LEN(\"CP_TYPE\") ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"CP_TYPE\") ASC) AS \"thirdQuartile\" \nFROM \"8924b4b411990bf5c24320a9ab1eba23_sample\"\
+  \n LIMIT ?"
+checksum: c4249b77c8f98da0418777e4b98ca0a3
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 5585b699-aff3-4d54-8b10-81ba94bca6ff
+    type: table
+    name: CATALOG_PAGE
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_PAGE
+    displayName: CATALOG_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

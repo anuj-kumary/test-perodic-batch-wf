@@ -1,0 +1,47 @@
+name: c1a18910458ace564f3d843a0e9568f0
+fullyQualifiedName: snowflake_test.c1a18910458ace564f3d843a0e9568f0
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 91.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_COUNTY\" AS \"CC_COUNTY\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\" AS \"CALL_CENTER_1\"\
+  \ TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\" AS \n\
+  (SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_COUNTY\" AS \"CC_COUNTY\"\
+  \ \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT count(CASE WHEN (LEN(\"\
+  CC_COUNTY\") >= ? AND LEN(\"CC_COUNTY\") < ?) THEN LEN(\"CC_COUNTY\") END) AS \"\
+  11.000 to 12.587\", count(CASE WHEN (LEN(\"CC_COUNTY\") >= ? AND LEN(\"CC_COUNTY\"\
+  ) < ?) THEN LEN(\"CC_COUNTY\") END) AS \"12.587 to 14.175\", count(CASE WHEN (LEN(\"\
+  CC_COUNTY\") >= ? AND LEN(\"CC_COUNTY\") < ?) THEN LEN(\"CC_COUNTY\") END) AS \"\
+  14.175 to 15.762\", count(CASE WHEN (LEN(\"CC_COUNTY\") >= ? AND LEN(\"CC_COUNTY\"\
+  ) < ?) THEN LEN(\"CC_COUNTY\") END) AS \"15.762 to 17.350\", count(CASE WHEN (LEN(\"\
+  CC_COUNTY\") >= ? AND LEN(\"CC_COUNTY\") < ?) THEN LEN(\"CC_COUNTY\") END) AS \"\
+  17.350 to 18.937\", count(CASE WHEN (LEN(\"CC_COUNTY\") >= ? AND LEN(\"CC_COUNTY\"\
+  ) < ?) THEN LEN(\"CC_COUNTY\") END) AS \"18.937 to 20.524\", count(CASE WHEN (LEN(\"\
+  CC_COUNTY\") >= ?) THEN LEN(\"CC_COUNTY\") END) AS \"20.524 and up\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \n LIMIT ?"
+checksum: c1a18910458ace564f3d843a0e9568f0
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f754a47f-35f6-45e8-9ab1-7afdef691f30
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

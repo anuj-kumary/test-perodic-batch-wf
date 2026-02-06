@@ -1,0 +1,39 @@
+name: e661cd98b0e6a44c46f50a9b3b791879
+fullyQualifiedName: snowflake_test.e661cd98b0e6a44c46f50a9b3b791879
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 80.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_STREET_NAME\" AS \"CC_STREET_NAME\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\"\
+  \ AS \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_STREET_NAME\" AS \"\
+  CC_STREET_NAME\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT count(*)\
+  \ AS \"uniqueCount\" \nFROM (SELECT count(\"CC_STREET_NAME\") AS count_1 \nFROM\
+  \ \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\" GROUP BY \"CC_STREET_NAME\" \nHAVING\
+  \ count(\"CC_STREET_NAME\") = ?) AS only_once\n LIMIT ?"
+checksum: e661cd98b0e6a44c46f50a9b3b791879
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f754a47f-35f6-45e8-9ab1-7afdef691f30
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

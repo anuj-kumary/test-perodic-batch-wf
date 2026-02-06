@@ -1,0 +1,44 @@
+name: e153a52f5b457006d63c9622c161cb77
+fullyQualifiedName: snowflake_test.e153a52f5b457006d63c9622c161cb77
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 116.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_DIVISION_NAME\" AS \"CC_DIVISION_NAME\" \nFROM \"TPCDS_SF100TCL\".\"CALL_CENTER\"\
+  \ AS \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_DIVISION_NAME\" AS\
+  \ \"CC_DIVISION_NAME\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT\
+  \ count(CASE WHEN (LEN(\"CC_DIVISION_NAME\") >= ? AND LEN(\"CC_DIVISION_NAME\")\
+  \ < ?) THEN LEN(\"CC_DIVISION_NAME\") END) AS \"3.000 to 3.639\", count(CASE WHEN\
+  \ (LEN(\"CC_DIVISION_NAME\") >= ? AND LEN(\"CC_DIVISION_NAME\") < ?) THEN LEN(\"\
+  CC_DIVISION_NAME\") END) AS \"3.639 to 4.277\", count(CASE WHEN (LEN(\"CC_DIVISION_NAME\"\
+  ) >= ? AND LEN(\"CC_DIVISION_NAME\") < ?) THEN LEN(\"CC_DIVISION_NAME\") END) AS\
+  \ \"4.277 to 4.916\", count(CASE WHEN (LEN(\"CC_DIVISION_NAME\") >= ?) THEN LEN(\"\
+  CC_DIVISION_NAME\") END) AS \"4.916 and up\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \n LIMIT ?"
+checksum: e153a52f5b457006d63c9622c161cb77
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f6f32e42-c493-462c-8db5-7d565fc8c892
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

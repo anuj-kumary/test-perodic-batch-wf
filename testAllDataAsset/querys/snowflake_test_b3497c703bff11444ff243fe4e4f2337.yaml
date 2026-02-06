@@ -1,0 +1,41 @@
+name: b3497c703bff11444ff243fe4e4f2337
+fullyQualifiedName: snowflake_test.b3497c703bff11444ff243fe4e4f2337
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 349393.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_RETURN_SHIP_COST\" AS \"CR_RETURN_SHIP_COST\" \nFROM \"TPCDS_SF10TCL\".\"\
+  CATALOG_RETURNS\" AS \"CATALOG_RETURNS_1\" TABLESAMPLE bernoulli(?)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_RETURN_SHIP_COST\"\
+  \ AS \"CR_RETURN_SHIP_COST\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"CR_RETURN_SHIP_COST\" ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY \"CR_RETURN_SHIP_COST\" ASC)\
+  \ AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY \"CR_RETURN_SHIP_COST\"\
+  \ ASC) AS \"thirdQuartile\" \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\"\n\
+  \ LIMIT ?"
+checksum: b3497c703bff11444ff243fe4e4f2337
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e9119d1e-971c-4d36-8713-0798a54f4faa
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

@@ -1,0 +1,39 @@
+name: b9414b3c60e25f48e94991402d7c8a10
+fullyQualifiedName: snowflake_test.b9414b3c60e25f48e94991402d7c8a10
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 69.0
+users: []
+query: "WITH \"8924b4b411990bf5c24320a9ab1eba23_rnd\" AS \n(SELECT \"CATALOG_PAGE_1\"\
+  .\"CP_CATALOG_PAGE_NUMBER\" AS \"CP_CATALOG_PAGE_NUMBER\" \nFROM \"TPCDS_SF100TCL\"\
+  .\"CATALOG_PAGE\" AS \"CATALOG_PAGE_1\" TABLESAMPLE bernoulli(?)), \n\"8924b4b411990bf5c24320a9ab1eba23_sample\"\
+  \ AS \n(SELECT \"8924b4b411990bf5c24320a9ab1eba23_rnd\".\"CP_CATALOG_PAGE_NUMBER\"\
+  \ AS \"CP_CATALOG_PAGE_NUMBER\" \nFROM \"8924b4b411990bf5c24320a9ab1eba23_rnd\"\
+  )\n SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CP_CATALOG_PAGE_NUMBER\"\
+  ) AS count_1 \nFROM \"8924b4b411990bf5c24320a9ab1eba23_sample\" GROUP BY \"CP_CATALOG_PAGE_NUMBER\"\
+  \ \nHAVING count(\"CP_CATALOG_PAGE_NUMBER\") = ?) AS only_once\n LIMIT ?"
+checksum: b9414b3c60e25f48e94991402d7c8a10
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 5585b699-aff3-4d54-8b10-81ba94bca6ff
+    type: table
+    name: CATALOG_PAGE
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_PAGE
+    displayName: CATALOG_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

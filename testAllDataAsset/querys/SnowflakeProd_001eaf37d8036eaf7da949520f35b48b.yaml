@@ -1,0 +1,43 @@
+name: 001eaf37d8036eaf7da949520f35b48b
+fullyQualifiedName: SnowflakeProd.001eaf37d8036eaf7da949520f35b48b
+owners: []
+duration: 875.0
+users: []
+query: |-
+  SELECT
+          QUERY_ID,
+          QUERY_TEXT,
+          QUERY_TYPE,
+          START_TIME,
+          ROWS_INSERTED,
+          ROWS_UPDATED,
+          ROWS_DELETED
+      FROM "SNOWFLAKE"."ACCOUNT_USAGE"."QUERY_HISTORY"
+      WHERE
+      start_time>= DATEADD('DAY', -1, CURRENT_TIMESTAMP)
+      AND QUERY_TEXT ILIKE '%PERSONS%'
+      AND QUERY_TYPE IN (
+          'INSERT',
+          'UPDATE',
+          'DELETE',
+          'MERGE'
+      )
+      AND EXECUTION_STATUS = 'SUCCESS';
+checksum: 001eaf37d8036eaf7da949520f35b48b
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 6671cdaf-361a-4457-bd71-5458944584a3
+    type: table
+    name: QUERY_HISTORY
+    fullyQualifiedName: SnowflakeProd.SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+    displayName: QUERY_HISTORY
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

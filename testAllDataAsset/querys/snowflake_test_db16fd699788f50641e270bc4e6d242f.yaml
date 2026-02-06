@@ -1,0 +1,90 @@
+name: db16fd699788f50641e270bc4e6d242f
+fullyQualifiedName: snowflake_test.db16fd699788f50641e270bc4e6d242f
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 33913.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_RETURNED_TIME_SK\" AS \"CR_RETURNED_TIME_SK\" \nFROM \"TPCDS_SF10TCL\".\"\
+  CATALOG_RETURNS\" AS \"CATALOG_RETURNS_1\" TABLESAMPLE bernoulli(?)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_RETURNED_TIME_SK\"\
+  \ AS \"CR_RETURNED_TIME_SK\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n\
+  \ SELECT count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"0 to 2.700K\", count(CASE WHEN (\"\
+  CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"2.700K to 5.400K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND\
+  \ \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"5.400K to\
+  \ 8.100K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"8.100K to 10.800K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"10.800K to 13.500K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"13.500K\
+  \ to 16.200K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"16.200K to 18.900K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"18.900K to 21.600K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"21.600K\
+  \ to 24.300K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"24.300K to 27.000K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"27.000K to 29.700K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"29.700K\
+  \ to 32.400K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"32.400K to 35.100K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"35.100K to 37.800K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"37.800K\
+  \ to 40.500K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"40.500K to 43.200K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"43.200K to 45.899K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"45.899K\
+  \ to 48.599K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"48.599K to 51.299K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"51.299K to 53.999K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"53.999K\
+  \ to 56.699K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"56.699K to 59.399K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"59.399K to 62.099K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"62.099K\
+  \ to 64.799K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"64.799K to 67.499K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"67.499K to 70.199K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"70.199K\
+  \ to 72.899K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"72.899K to 75.599K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\"\
+  \ END) AS \"75.599K to 78.299K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ?\
+  \ AND \"CR_RETURNED_TIME_SK\" < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"78.299K\
+  \ to 80.999K\", count(CASE WHEN (\"CR_RETURNED_TIME_SK\" >= ? AND \"CR_RETURNED_TIME_SK\"\
+  \ < ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"80.999K to 83.699K\", count(CASE WHEN\
+  \ (\"CR_RETURNED_TIME_SK\" >= ?) THEN \"CR_RETURNED_TIME_SK\" END) AS \"83.699K\
+  \ and up\" \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\"\n LIMIT ?"
+checksum: db16fd699788f50641e270bc4e6d242f
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e9119d1e-971c-4d36-8713-0798a54f4faa
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

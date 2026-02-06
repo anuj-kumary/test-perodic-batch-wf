@@ -1,0 +1,47 @@
+name: f3abea7a691a4ead42d59433b572c17a
+fullyQualifiedName: snowflake_test.f3abea7a691a4ead42d59433b572c17a
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 117.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_STREET_NAME\" AS \"CC_STREET_NAME\" \nFROM \"TPCDS_SF100TCL\".\"CALL_CENTER\"\
+  \ AS \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_STREET_NAME\" AS \"\
+  CC_STREET_NAME\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT count(CASE\
+  \ WHEN (LEN(\"CC_STREET_NAME\") >= ? AND LEN(\"CC_STREET_NAME\") < ?) THEN LEN(\"\
+  CC_STREET_NAME\") END) AS \"4.000 to 6.043\", count(CASE WHEN (LEN(\"CC_STREET_NAME\"\
+  ) >= ? AND LEN(\"CC_STREET_NAME\") < ?) THEN LEN(\"CC_STREET_NAME\") END) AS \"\
+  6.043 to 8.087\", count(CASE WHEN (LEN(\"CC_STREET_NAME\") >= ? AND LEN(\"CC_STREET_NAME\"\
+  ) < ?) THEN LEN(\"CC_STREET_NAME\") END) AS \"8.087 to 10.130\", count(CASE WHEN\
+  \ (LEN(\"CC_STREET_NAME\") >= ? AND LEN(\"CC_STREET_NAME\") < ?) THEN LEN(\"CC_STREET_NAME\"\
+  ) END) AS \"10.130 to 12.174\", count(CASE WHEN (LEN(\"CC_STREET_NAME\") >= ? AND\
+  \ LEN(\"CC_STREET_NAME\") < ?) THEN LEN(\"CC_STREET_NAME\") END) AS \"12.174 to\
+  \ 14.217\", count(CASE WHEN (LEN(\"CC_STREET_NAME\") >= ?) THEN LEN(\"CC_STREET_NAME\"\
+  ) END) AS \"14.217 and up\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\n\
+  \ LIMIT ?"
+checksum: f3abea7a691a4ead42d59433b572c17a
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f6f32e42-c493-462c-8db5-7d565fc8c892
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

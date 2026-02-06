@@ -1,0 +1,42 @@
+name: d47cd5dd2875e04a541dbb030b888b01
+fullyQualifiedName: snowflake_test.d47cd5dd2875e04a541dbb030b888b01
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 106.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_OPEN_DATE_SK\" AS \"CC_OPEN_DATE_SK\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\"\
+  \ AS \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_OPEN_DATE_SK\" AS \"\
+  CC_OPEN_DATE_SK\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT avg(\"\
+  CC_OPEN_DATE_SK\") AS mean, count(\"CC_OPEN_DATE_SK\") AS \"valuesCount\", count(DISTINCT\
+  \ \"CC_OPEN_DATE_SK\") AS \"distinctCount\", MIN(\"CC_OPEN_DATE_SK\") AS min, MAX(\"\
+  CC_OPEN_DATE_SK\") AS max, coalesce(SUM(CASE WHEN (\"CC_OPEN_DATE_SK\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"CC_OPEN_DATE_SK\") AS stddev,\
+  \ SUM(\"CC_OPEN_DATE_SK\") AS sum \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \n LIMIT ?"
+checksum: d47cd5dd2875e04a541dbb030b888b01
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f754a47f-35f6-45e8-9ab1-7afdef691f30
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test
