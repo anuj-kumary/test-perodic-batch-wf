@@ -1,0 +1,67 @@
+name: table_1286
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1286
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1286.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SF_PROD_SCHEMA_REVIEW(\n\tCATALOG,\n\tSCHEMA,\n\
+  \tTABLE_NAME,\n\tCOLUMN_NAME,\n\tDATA_TYPE,\n\tTABLE_TYPE\n) as\n\nselect\n    \
+  \        t.table_catalog as catalog,\n            t.table_schema as schema,\n  \
+  \          t.table_name as table_name,\n            c.COLUMN_NAME as COLUMN_NAME,\n\
+  \            c.DATA_TYPE as DATA_TYPE,\n            case when t.table_type = 'random'\
+  \ then 'random' else t.table_type end as TABLE_TYPE\n    from\n        snowflake.account_usage.tables\
+  \ t\n    inner join\n        snowflake.account_usage.columns c\n    on\n       \
+  \     c.TABLE_CATALOG = t.TABLE_CATALOG\n        and c.table_schema = t.table_schema\n\
+  \        and c.table_name = t.table_name\n    where\n            t.TABLE_CATALOG\
+  \ in ('random')\n        and c.TABLE_CATALOG in ('random')\n        and t.deleted\
+  \ IS NULL\n        and c.deleted IS NULL\n        -- Filters to remove any production\
+  \ backups & copies from documentation requirements.\n        and c.table_name NOT\
+  \ LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random'\n        and c.table_name\
+  \ NOT LIKE 'random'\n        and c.table_name NOT LIKE 'random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

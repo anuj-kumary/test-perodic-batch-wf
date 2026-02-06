@@ -1,0 +1,71 @@
+name: table_1357
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1357
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1357.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PIPELINE_CONVERSION_TEST3(\n\t\
+  QUARTER_ID,\n\tQUARTER_YYQQ,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tBU_GROUP_ID,\n\tNNACV_PREDICTED_USD_CY_FX_BOW,\n\
+  \tNNACV_PREDICTED_USD_CY_FX,\n\tNNACV_PREDICTED_USD_CY_FX_STLW,\n\tNNACV_PREDICTED_USD_CY_FX_STLY,\n\
+  \tTERRITORY_SYSID\n) as\nSELECT\nDQ.QUARTER_ID,\nDQ.QUARTER_YYQQ,\nhash(PPC.\"TerritorySysID\"\
+  ) AS TERRITORY_ID,\nDT.GEO_ID,\nhash(PPC.\"PLSBUGroup\") AS BU_GROUP_ID,\nSUM(\"\
+  FinalPredictedNNACV_WTD\") AS NNACV_PREDICTED_USD_CY_FX_BOW,\nSUM(\"FinalPredictedNNACV\"\
+  ) AS NNACV_PREDICTED_USD_CY_FX,\nSUM(\"FinalPredictedNNACV_Last_Week\") AS NNACV_PREDICTED_USD_CY_FX_STLW,\n\
+  SUM(\"FinalPredictedNNACV_STLY\") AS NNACV_PREDICTED_USD_CY_FX_STLY,\nPPC.\"TerritorySysID\"\
+  \ AS TERRITORY_SYSID\nFROM EDW_LS.SALES_EM.EM_SALES_PLS_PIPELINE_CONVERSION_RT PPC\n\
+  LEFT JOIN EDW.ENTERPRISE.DIM_TERRITORY DT on DT.TERRITORY_SYSID=PPC.\"TerritorySysID\"\
+  \nLEFT JOIN EDW.ENTERPRISE.DIM_QUARTER DQ on DQ.QUARTER_YYQQ=PPC.\"Quarter\"\nWHERE\
+  \ PPC.\"Quarter\"=right(YEAR( convert_timezone( 'random', current_timestamp )) ||\
+  \ 'random' || QUARTER(convert_timezone('random', current_timestamp )), 'random')\n\
+  GROUP BY ALL\nUNION ALL\nSELECT\nDQ.QUARTER_ID,\nDQ.QUARTER_YYQQ,\nhash(ML_UPLIFT.\"\
+  TerritorySysID\") AS TERRITORY_ID,\nDT.GEO_ID,\nhash(ML_UPLIFT.\"BUGroup\")  AS\
+  \ BU_GROUP_ID,\n'random' AS NNACV_PREDICTED_USD_CY_FX_BOW,\nSUM(\"PredictedClosed\"\
+  ) AS NNACV_PREDICTED_USD_CY_FX,\nSUM(\"PredictedClosed_WOW\") AS NNACV_PREDICTED_USD_CY_FX_STLW,\n\
+  'random' AS NNACV_PREDICTED_USD_CY_FX_STLY,\nML_UPLIFT.\"TerritorySysID\" AS TERRITORY_SYSID\n\
+  FROM EDW_LS.\"SALES_EM\".\"EM_PIPELINE_ATTAINMENT_UPLIFT\" ML_UPLIFT\nLEFT JOIN\
+  \ EDW.ENTERPRISE.DIM_TERRITORY DT on DT.TERRITORY_SYSID=ML_UPLIFT.\"TerritorySysID\"\
+  \nLEFT JOIN EDW.ENTERPRISE.DIM_QUARTER DQ on DQ.QUARTER_YYQQ=ML_UPLIFT.\"Quarter\"\
+  \nWHERE ML_UPLIFT.\"Quarter\" BETWEEN RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')), 'random')\nand RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',current_timestamp),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone('random',current_timestamp),'random')),'random')\n\
+  GROUP BY ALL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

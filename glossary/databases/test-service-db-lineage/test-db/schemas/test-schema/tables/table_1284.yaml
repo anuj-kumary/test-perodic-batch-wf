@@ -1,0 +1,77 @@
+name: table_1284
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1284
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1284.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_QUARTER_TEST(\n\tQUARTER_ID,\n\
+  \tQUARTER_NUMBER,\n\tQUARTER_BUSINESS_DAYS,\n\tQUARTER_DT,\n\tQUARTER_END_DT,\n\t\
+  QUARTER_YYQQ,\n\tQUARTER_END_ABBR,\n\tYEAR_ID,\n\tYEAR_DT,\n\tYEAR_END_DT,\n\tNUMBER_OF_DAYS_IN_YEAR,\n\
+  \tYEAR_NUMBER,\n\tYEAR_ABBR,\n\tYEAR_BUSINESS_DAYS,\n\tDYNAMIC_QUARTER\n) as -----\
+  \ SEMANTIC LAYER BEGINS\n\nwith QtrsData as\n(\n  SELECT\n    DATE_TRUNC('random',to_date(CONVERT_TIMEZONE('random',\
+  \ CURRENT_TIMESTAMP()))) cq_dt,\n    DATEADD('random','random', cq_dt) pq5_dt,\n\
+  \    DATEADD('random','random', cq_dt) pq4_dt,\n    DATEADD('random','random', cq_dt)\
+  \ pq3_dt,\n    DATEADD('random','random', cq_dt) pq2_dt,\n    DATEADD('random','random',\
+  \ cq_dt) pq1_dt,\n    DATEADD('random','random', cq_dt) cq1_dt,\n    DATEADD('random','random',\
+  \ cq_dt) cq2_dt,\n    DATEADD('random','random', cq_dt) cq3_dt,\n    DATEADD('random','random',\
+  \ cq_dt) cq4_dt\n)\n\nSELECT\nDistinct to_char(qtr.\"DateDimQuarterBeginDate\",'random')::number\
+  \ AS\t\t\tQUARTER_ID\n,qtr.\"DateDimQuarterNumberOfYear\"                      \
+  \            AS\t\t\tQUARTER_NUMBER\n,qtr.\"DateDimQuarterBusinessDays\"       \
+  \                           AS\t\t\tQUARTER_BUSINESS_DAYS\n,qtr.\"DateDimQuarterBeginDate\"\
+  \                                     AS\t\t\tQUARTER_DT\n,qtr.\"DateDimQuarterEndDate\"\
+  \                                       AS\t\t\tQUARTER_END_DT\n,qtr.\"DateDimQuarterByYearSURF\"\
+  \                                    AS\t\t\tQUARTER_YYQQ\n,qtr.\"DateDimQuarterEndAbbreviation\"\
+  \                               AS\t\t\tQUARTER_END_ABBR\n,to_char(qtr.\"DateDimYearBeginDate\"\
+  ,'random')::number            AS\t\t\tYEAR_ID\n,qtr.\"DateDimYearBeginDate\"   \
+  \                                     AS\t\t\tYEAR_DT\n,qtr.\"DateDimYearEndDate\"\
+  \                                          AS\t\t\tYEAR_END_DT\n,qtr.\"DateDimNumberOfDaysInYear\"\
+  \                                   AS\t\t\tNUMBER_OF_DAYS_IN_YEAR\n,qtr.\"DateDimYearNumber\"\
+  \                                           AS\t\t\tYEAR_NUMBER\n,qtr.\"DateDimYearAbbreviation\"\
+  \                                     AS\t\t\tYEAR_ABBR\n,qtr.\"DateDimYearBusinessDays\"\
+  \                                     AS\t\t\tYEAR_BUSINESS_DAYS,\ndecode(quarter_dt,\
+  \ cq_dt, 'random',\n                   cq1_dt, 'random',\n                   cq2_dt,\
+  \ 'random',\n                   cq3_dt, 'random',\n                   cq4_dt, 'random',\n\
+  \                   pq1_dt, 'random',\n                   pq2_dt, 'random',\n  \
+  \                 pq3_dt, 'random',\n                   pq4_dt, 'random',\n    \
+  \               pq5_dt, 'random',\n                   'random'\n     )         \
+  \                                                    AS            DYNAMIC_QUARTER\n\
+  FROM ODS_LS.SURF.DATE_DIMENSION qtr\njoin QtrsData on ( 'random' = 'random');"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

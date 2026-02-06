@@ -1,0 +1,101 @@
+name: table_1291
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1291
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1291.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_SALES_PROGRAM(\n\tSALES_PROGRAM_ID,\n\
+  \tSALES_PROGRAM_GUID,\n\tACCOUNT_GUID,\n\tACCOUNT_ID,\n\tOPTY_GUID,\n\tOPTY_ID,\n\
+  \tPRODUCT_GUID,\n\tPRODUCT_ID,\n\tSALES_PROGRAM_UNIQUE_ID,\n\tPROGRAM_MAP_TYPE,\n\
+  \tACCOUNT_SYSID,\n\tOPTY_SYSID,\n\tPRODUCT_SYSID\n) as\nSELECT distinct\n    hash(ifnull(PT.\"\
+  PTProgramGUID\",'random')\n    ||ifnull(PT.\"PTProgramName\",'random')\n    ||ifnull(PT.\"\
+  PTSubProgramName\",'random')\n    ||ifnull(PI.\"PICategory\",'random')\n    ||ifnull(PI.\"\
+  PIStartDate\",'random')\n    ||ifnull(PI.\"PIEndDate\",'random')\n    ||ifnull(PT.\"\
+  PTTaggedEntityCodeName\",'random')\n    ||ifnull(PT.\"PTStatusCodeName\",'random')\n\
+  \    ||ifnull(PT.\"PTEndDate\",'random')\n    ||ifnull(PT.\"PTStartDate\",'random')\n\
+  \    ||ifnull(PT.\"PTCreatedOn\",'random'))\n    as SALES_PROGRAM_ID,\n    PT.\"\
+  PTProgramGUID\" as SALES_PROGRAM_GUID,\n\tPT.\"PTAccountGUID\" as ACCOUNT_GUID,\n\
+  \    HASH(SA.\"AcctSysID\") as ACCOUNT_ID,\n\tPT.\"PTOpportunityGUID\" as OPTY_GUID,\n\
+  \    HASH(SO.\"OptySysID\") as OPTY_ID,\n\tPT.\"PTOpportunityProductGUID\" as PRODUCT_GUID,\n\
+  \    HASH(top_level_line.\"ProductSysID\") as PRODUCT_ID,\n    HASH(ifnull(SALES_PROGRAM_ID,'random')||ifnull(PT.\"\
+  PTAccountGUID\",'random')||ifnull(PT.\"PTOpportunityGUID\",'random')||ifnull(PT.\"\
+  PTOpportunityProductGUID\",'random')) as SALES_PROGRAM_UNIQUE_ID,\n\tPT.\"PTTaggedEntityCodeName\"\
+  \ as PROGRAM_MAP_TYPE,\n    SA.\"AcctSysID\" as ACCOUNT_SYSID,\n    SO.\"OptySysID\"\
+  \ as OPTY_SYSID,\n    top_level_line.\"ProductSysID\" as PRODUCT_SYSID\nFROM\n (SELECT\n\
+  \t\t\"PIProgramInformationID\" as \"PIProgramInformationID\",\n\t\t\"PICategory\"\
+  \ as \"PICategory\",\n\t\t\"PIStartDate\" as \"PIStartDate\",\n\t\t\"PIEndDate\"\
+  \ as \"PIEndDate\",\n\t\t\"PIProgramStatusCodeName\" as \"PIProgramStatusCodeName\"\
+  \n  FROM ODS_LS.\"DYNAMICS365\".\"SN_PROGRAMINFORMATIONS\"\n  WHERE \"PIProgramStatusCodeName\"\
+  \ = 'random'\n  )PI\nLEFT JOIN\n (SELECT\n\t\t\"PTTaggedEntityCode\" as \"PTTaggedEntityCode\"\
+  ,\n\t\t\"PTTaggedEntityCodeName\" as \"PTTaggedEntityCodeName\",\n\t\t\"PTOpportunityProductGUID\"\
+  \ as \"PTOpportunityProductGUID\",\n\t\t\"PTSubProgramName\" as \"PTSubProgramName\"\
+  ,\n\t\t\"PTStatusCodeName\" as \"PTStatusCodeName\",\n\t\t\"PTAccountGUID\" as \"\
+  PTAccountGUID\",\n\t\t\"PTOpportunityGUID\" as \"PTOpportunityGUID\",\n\t\t\"PTOpportunityProductIDName\"\
+  \ as \"PTOpportunityProductIDName\",\n\t\t\"PTProgramGUID\" as \"PTProgramGUID\"\
+  ,\n\t\t\"PTProgramName\" as \"PTProgramName\",\n\t\t\"PTEndDate\" as \"PTEndDate\"\
+  ,\n\t\t\"PTStartDate\" as \"PTStartDate\",\n\t\t\"PTCreatedOn\" as \"PTCreatedOn\"\
+  \n  FROM ODS_LS.\"DYNAMICS365\".\"SN_PROGRAMTAGGINGS\"\n  WHERE \"PTStatusCodeName\"\
+  ='random'\n  )PT ON PI.\"PIProgramInformationID\" = PT.\"PTProgramGUID\"\nLEFT JOIN\
+  \ ODS_LS.\"SURF\".\"SALES_ACCOUNT\" SA ON PT.\"PTAccountGUID\" = SA.\"AcctDynamicsGUID\"\
+  \nLEFT JOIN  (select U_DYNAMICS_GUID,U_PRODUCT as \"ProductSysID\"\n           \
+  \ from RDS.SURF.\"U_TOP_LEVEL_OPPORTUNITY_LINE\" T1\n            where T1.U_DYNAMICS_GUID\
+  \ IS not NULL\n           ) top_level_line on PT.\"PTOpportunityProductGUID\" =\
+  \ top_level_line.U_DYNAMICS_GUID\nLEFT JOIN ODS_LS.SURF.SALES_OPPORTUNITY SO on\
+  \ lower(SO.\"OptyDynamicsGUID\") = PT.\"PTOpportunityGUID\"\n\nUNION ALL\n\nSELECT\
+  \ distinct\n    hash('random'\n    ||ifnull(SPM.\"ProgramName\" ,'random')\n   \
+  \ ||ifnull(SPA.\"SPAUstartDt\",'random')\n    ||ifnull(SPA.\"SPAUendDate\" ,'random')\n\
+  \    ||'random'\n    ||'random'\n    ||ifnull(SPM.\"ProgramTaggingEndDate\",'random')\n\
+  \    ||ifnull(SPM.\"ProgramTaggingStartDate\",'random')\n    ||ifnull(SPM.\"ProgramTaggingCreatedOn\"\
+  ,'random'))\n    as SALES_PROGRAM_ID,\n    'random' as SALES_PROGRAM_GUID,\n\tSPM.\"\
+  AcctSysID\" as ACCOUNT_GUID,\n    HASH(SPM.\"AcctSysID\") as ACCOUNT_ID,\n\t'random'\
+  \ as OPTY_GUID,\n    'random' as OPTY_ID,\n\t'random' as PRODUCT_GUID,\n    'random'\
+  \ as PRODUCT_ID,\n    HASH('random'||SPM.\"AcctSysID\") as SALES_PROGRAM_UNIQUE_ID,\n\
+  \t'random' as PROGRAM_MAP_TYPE,\n    SPM.\"AcctSysID\" as ACCOUNT_SYSID,\n    'random'\
+  \ as OPTY_SYSID,\n    'random' as PRODUCT_SYSID\nFROM\n   (SELECT\n\t   \"SPMDynamicsGUID\"\
+  \ as \"AcctDynamicsGUID\",\n\t   \"SPMProgram\" as \"ProgramName\",\n\t   \"SPMStartDate\"\
+  \ as \"ProgramTaggingStartDate\",\n\t   \"SPMEndDate\" as \"ProgramTaggingEndDate\"\
+  ,\n\t   \"SPMSysCreatedOn\" as \"ProgramTaggingCreatedOn\",\n\t   \"SPMActive\"\
+  \ as \"U_ACTIVE\",\n\t   \"SPMAcctSysID\" as \"AcctSysID\"\n\tFROM ODS_LS.\"SURF\"\
+  .\"U_SALES_PROGRAM_MAPPING\"\n\tWHERE (\"U_ACTIVE\" ='random')\n\t  AND ((\"AcctDynamicsGUID\"\
+  ) IS NULL)\n\t  AND (\"ProgramName\" ='random')\n\t)SPM\nLEFT JOIN ODS_LS.\"SURF\"\
+  .\"U_SALES_PROGRAM_ADMIN\" SPA\n\tON SPM.\"ProgramName\" = SPA.\"SPAProgramName\"\
+  \n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

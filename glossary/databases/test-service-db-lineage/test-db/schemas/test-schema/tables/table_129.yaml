@@ -1,0 +1,113 @@
+name: table_129
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_129
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_129.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view GROUP_REFERENCE_CALL_ATTENDEES(\n\tSYS_CREATED_ON,\n\
+  \tAPPROVAL_STATUS,\n\tATTENDANCE_TYPE,\n\tPSP_PER_INSERT_DT,\n\tDV_OPPORTUNITY_ID,\n\
+  \tSYS_TAGS,\n\tUSER_NAME,\n\tDV_INDUSTRY,\n\tLAST_NAME,\n\tDV_GEO,\n\tDV_ATTENDANCE_TYPE,\n\
+  \tLEAVE_TIME,\n\tJOB_TITLE,\n\tSALESPERSON_EMAIL,\n\tPSP_PER_UPDATE_DT,\n\tDV_NN_LOGO,\n\
+  \tSYS_ID,\n\tDV_ATTENDED,\n\tOPPORTUNITY_ID,\n\tATTENDED,\n\tSYS_MOD_COUNT,\n\t\
+  NUMBER,\n\tTIME_IN_SESSION,\n\tSYS_UPDATED_BY,\n\tEMAIL,\n\tORGANIZATION,\n\tPSP_PER_DELETE_DT,\n\
+  \tDV_CALL_ID,\n\tDV_CALL_FORECAST_STAGE,\n\tCALL_ID,\n\tINDUSTRY,\n\tJOIN_TIME,\n\
+  \tNN_LOGO,\n\tGEO,\n\tCALL_FORECAST_STAGE,\n\tFIRST_NAME,\n\tREGISTRATION_TIME,\n\
+  \tSYS_CREATED_BY,\n\tCALL_NNACV,\n\tSYS_UPDATED_ON\n) as\nSELECT \"SYS_CREATED_ON\"\
+  \ as \"SYS_CREATED_ON\",\n       \"APPROVAL_STATUS\" as \"APPROVAL_STATUS\",\n \
+  \      \"ATTENDANCE_TYPE\" as \"ATTENDANCE_TYPE\",\n       \"PSP_PER_INSERT_DT\"\
+  \ as \"PSP_PER_INSERT_DT\",\n       \"DV_OPPORTUNITY_ID\" as \"DV_OPPORTUNITY_ID\"\
+  ,\n       \"SYS_TAGS\" as \"SYS_TAGS\",\n       \"USER_NAME\" as \"USER_NAME\",\n\
+  \       \"DV_INDUSTRY\" as \"DV_INDUSTRY\",\n       \"LAST_NAME\" as \"LAST_NAME\"\
+  ,\n       SUM(\"DV_GEO\") as \"DV_GEO\",\n       \"DV_ATTENDANCE_TYPE\" as \"DV_ATTENDANCE_TYPE\"\
+  ,\n       \"LEAVE_TIME\" as \"LEAVE_TIME\",\n       \"JOB_TITLE\" as \"JOB_TITLE\"\
+  ,\n       \"SALESPERSON_EMAIL\" as \"SALESPERSON_EMAIL\",\n       \"PSP_PER_UPDATE_DT\"\
+  \ as \"PSP_PER_UPDATE_DT\",\n       \"DV_NN_LOGO\" as \"DV_NN_LOGO\",\n       \"\
+  SYS_ID\" as \"SYS_ID\",\n       \"DV_ATTENDED\" as \"DV_ATTENDED\",\n       \"OPPORTUNITY_ID\"\
+  \ as \"OPPORTUNITY_ID\",\n       \"ATTENDED\" as \"ATTENDED\",\n       SUM(\"SYS_MOD_COUNT\"\
+  ) as \"SYS_MOD_COUNT\",\n       \"NUMBER\" as \"NUMBER\",\n       SUM(\"TIME_IN_SESSION\"\
+  ) as \"TIME_IN_SESSION\",\n       \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n  \
+  \     \"EMAIL\" as \"EMAIL\",\n       \"ORGANIZATION\" as \"ORGANIZATION\",\n  \
+  \     \"PSP_PER_DELETE_DT\" as \"PSP_PER_DELETE_DT\",\n       \"DV_CALL_ID\" as\
+  \ \"DV_CALL_ID\",\n       \"DV_CALL_FORECAST_STAGE\" as \"DV_CALL_FORECAST_STAGE\"\
+  ,\n       \"CALL_ID\" as \"CALL_ID\",\n       \"INDUSTRY\" as \"INDUSTRY\",\n  \
+  \     \"JOIN_TIME\" as \"JOIN_TIME\",\n       \"NN_LOGO\" as \"NN_LOGO\",\n    \
+  \   \"GEO\" as \"GEO\",\n       \"CALL_FORECAST_STAGE\" as \"CALL_FORECAST_STAGE\"\
+  ,\n       \"FIRST_NAME\" as \"FIRST_NAME\",\n       \"REGISTRATION_TIME\" as \"\
+  REGISTRATION_TIME\",\n       \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n       SUM(\"\
+  CALL_NNACV\") as \"CALL_NNACV\",\n       \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  \nFROM\n  (SELECT \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n          \"APPROVAL_STATUS\"\
+  \ as \"APPROVAL_STATUS\",\n          \"ATTENDANCE_TYPE\" as \"ATTENDANCE_TYPE\"\
+  ,\n          \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n          \"DV_OPPORTUNITY_ID\"\
+  \ as \"DV_OPPORTUNITY_ID\",\n          \"SYS_TAGS\" as \"SYS_TAGS\",\n         \
+  \ \"USER_NAME\" as \"USER_NAME\",\n          \"DV_INDUSTRY\" as \"DV_INDUSTRY\"\
+  ,\n          \"LAST_NAME\" as \"LAST_NAME\",\n          \"DV_GEO\" as \"DV_GEO\"\
+  ,\n          \"DV_ATTENDANCE_TYPE\" as \"DV_ATTENDANCE_TYPE\",\n          \"LEAVE_TIME\"\
+  \ as \"LEAVE_TIME\",\n          \"JOB_TITLE\" as \"JOB_TITLE\",\n          \"SALESPERSON_EMAIL\"\
+  \ as \"SALESPERSON_EMAIL\",\n          \"PSP_PER_UPDATE_DT\" as \"PSP_PER_UPDATE_DT\"\
+  ,\n          \"DV_NN_LOGO\" as \"DV_NN_LOGO\",\n          \"SYS_ID\" as \"SYS_ID\"\
+  ,\n          \"DV_ATTENDED\" as \"DV_ATTENDED\",\n          \"OPPORTUNITY_ID\" as\
+  \ \"OPPORTUNITY_ID\",\n          \"ATTENDED\" as \"ATTENDED\",\n          \"SYS_MOD_COUNT\"\
+  \ as \"SYS_MOD_COUNT\",\n          \"NUMBER\" as \"NUMBER\",\n          \"TIME_IN_SESSION\"\
+  \ as \"TIME_IN_SESSION\",\n          \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n\
+  \          \"EMAIL\" as \"EMAIL\",\n          \"ORGANIZATION\" as \"ORGANIZATION\"\
+  ,\n          \"PSP_PER_DELETE_DT\" as \"PSP_PER_DELETE_DT\",\n          \"DV_CALL_ID\"\
+  \ as \"DV_CALL_ID\",\n          \"DV_CALL_FORECAST_STAGE\" as \"DV_CALL_FORECAST_STAGE\"\
+  ,\n          \"CALL_ID\" as \"CALL_ID\",\n          \"INDUSTRY\" as \"INDUSTRY\"\
+  ,\n          \"JOIN_TIME\" as \"JOIN_TIME\",\n          \"NN_LOGO\" as \"NN_LOGO\"\
+  ,\n          \"GEO\" as \"GEO\",\n          \"CALL_FORECAST_STAGE\" as \"CALL_FORECAST_STAGE\"\
+  ,\n          \"FIRST_NAME\" as \"FIRST_NAME\",\n          \"REGISTRATION_TIME\"\
+  \ as \"REGISTRATION_TIME\",\n          \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\"\
+  ,\n          \"CALL_NNACV\" as \"CALL_NNACV\",\n          \"SYS_UPDATED_ON\" as\
+  \ \"SYS_UPDATED_ON\"\n   FROM \"RDS\".\"SURF\".\"X_SNC_GROUP_REFERE_CALL_ATTENDEES\"\
+  )Projection_1\nGROUP BY \"SYS_CREATED_ON\",\n         \"APPROVAL_STATUS\",\n   \
+  \      \"ATTENDANCE_TYPE\",\n         \"PSP_PER_INSERT_DT\",\n         \"DV_OPPORTUNITY_ID\"\
+  ,\n         \"SYS_TAGS\",\n         \"USER_NAME\",\n         \"DV_INDUSTRY\",\n\
+  \         \"LAST_NAME\",\n         \"DV_ATTENDANCE_TYPE\",\n         \"LEAVE_TIME\"\
+  ,\n         \"JOB_TITLE\",\n         \"SALESPERSON_EMAIL\",\n         \"PSP_PER_UPDATE_DT\"\
+  ,\n         \"DV_NN_LOGO\",\n         \"SYS_ID\",\n         \"DV_ATTENDED\",\n \
+  \        \"OPPORTUNITY_ID\",\n         \"ATTENDED\",\n         \"NUMBER\",\n   \
+  \      \"SYS_UPDATED_BY\",\n         \"EMAIL\",\n         \"ORGANIZATION\",\n  \
+  \       \"PSP_PER_DELETE_DT\",\n         \"DV_CALL_ID\",\n         \"DV_CALL_FORECAST_STAGE\"\
+  ,\n         \"CALL_ID\",\n         \"INDUSTRY\",\n         \"JOIN_TIME\",\n    \
+  \     \"NN_LOGO\",\n         \"GEO\",\n         \"CALL_FORECAST_STAGE\",\n     \
+  \    \"FIRST_NAME\",\n         \"REGISTRATION_TIME\",\n         \"SYS_CREATED_BY\"\
+  ,\n         \"SYS_UPDATED_ON\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

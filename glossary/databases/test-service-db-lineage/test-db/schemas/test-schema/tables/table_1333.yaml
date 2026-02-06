@@ -1,0 +1,122 @@
+name: table_1333
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1333
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1333.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_SALES_CONTRACT_ITEMS(\n\t\"STConItemQuantity\"\
+  ,\n\t\"STConItemTotalValUSD\",\n\t\"STConItemContractNumber\",\n\t\"STConItemContractSysID\"\
+  ,\n\t\"STConItemProdPrice\",\n\t\"STConItemSysID\",\n\t\"STConItemDVProdPrice\"\
+  ,\n\t\"STConItemACV_USD\",\n\t\"STConItemExtractDate\",\n\t\"STConItemNumber\",\n\
+  \t\"STConItemACV\",\n\t\"STConItemFXRate\",\n\t\"STConItemACVConCurr\",\n\t\"STConItemSalesPriceUSD\"\
+  ,\n\t\"STConItemConstantFXRateEffectiveYear\",\n\t\"STConItemUSDConstantFXAdjustment\"\
+  ,\n\t\"STConItemUSDConstantFXAnnualListValue\",\n\t\"STConItemUSDConstantFXSalesPrice\"\
+  ,\n\t\"STConItemUSDConstantFXTotalValue\",\n\t\"STConItemAdjustment\",\n\t\"STConItemAnnualListValueUSD\"\
+  ,\n\t\"STConItemUSDAdjustment\",\n\t\"STConItemSalesPrice\",\n\t\"STConItemSysCretaedOn\"\
+  ,\n\t\"STConItemAccountSysId\",\n\t\"STConItemACV_DailyRate_USD\",\n\t\"STConItemOptyItemSysID\"\
+  ,\n\t\"STConItemFXRateMAX\"\n) as\nselect\n\t   A.\"QUANTITY\" as \"STConItemQuantity\"\
+  ,\n       A.\"TOTAL_VALUE_USD\" as \"STConItemTotalValUSD\",\n       A.\"DV_CONTRACT\"\
+  \ as \"STConItemContractNumber\",\n       A.\"CONTRACT\" as \"STConItemContractSysID\"\
+  ,\n       A.\"PRODUCT_PRICE\" as \"STConItemProdPrice\",\n       A.\"SYS_ID\" as\
+  \ \"STConItemSysID\",\n       A.\"DV_PRODUCT_PRICE\" as \"STConItemDVProdPrice\"\
+  ,\n       A.\"ACV\"/ B.\"FXRateMax\" as \"STConItemACV_USD\",\n       A.\"EXTRACT_DATE\"\
+  \ as \"STConItemExtractDate\",\n       A.\"NUMBER\" as \"STConItemNumber\",\n  \
+  \     A.\"ACV\" as \"STConItemACV\",\n       A.\"U_CONSTANT_FX_RATE\" as \"STConItemFXRate\"\
+  ,\n       A.\"U_ACV_USD_C_LI_CONST\" as \"STConItemACVConCurr\",\n       A.\"SALES_PRICE_USD\"\
+  \ as \"STConItemSalesPriceUSD\",\n       A.\"U_CONSTANT_FISCAL_YEAR\" as \"STConItemConstantFXRateEffectiveYear\"\
+  ,\n       A.\"U_USD_ADJUSTMENT_A_C_LI_CONST\" as \"STConItemUSDConstantFXAdjustment\"\
+  ,\n       A.\"U_ANNUAL_LIST_VALUE_USD_C_LI_CONST\" as \"STConItemUSDConstantFXAnnualListValue\"\
+  ,\n       A.\"U_SALES_PRICE_USD_C_LI_CONST\" as \"STConItemUSDConstantFXSalesPrice\"\
+  ,\n       A.\"U_TOTAL_VALUE_USD_C_LI_CONST\" as \"STConItemUSDConstantFXTotalValue\"\
+  ,\n       A.\"U_ADJUSTMENT_A\" as \"STConItemAdjustment\",\n       A.\"ANNUAL_LIST_VALUE_USD\"\
+  \ as \"STConItemAnnualListValueUSD\",\n       A.\"U_USD_ADJUSTMENT_A\" as \"STConItemUSDAdjustment\"\
+  ,\n       A.\"SALES_PRICE\" as \"STConItemSalesPrice\",\n       A.\"SYS_CREATED_ON\"\
+  \ as \"STConItemSysCretaedOn\",\n\t   A.\"U_ACCOUNT\" as \"STConItemAccountSysId\"\
+  ,\n\t   A.\"ACV_USD\" as \"STConItemACV_DailyRate_USD\",\n       A.\"U_OPPORTUNITY_ITEM\"\
+  \ AS \"STConItemOptyItemSysID\",\n\t   B.\"FXRateMax\" as \"STConItemFXRateMAX\"\
+  \nfrom\n(\n    select\n    \t   STSCI.\"QUANTITY\",\n           STSCI.\"TOTAL_VALUE_USD\"\
+  ,\n           STSCI.\"DV_CONTRACT\",\n           STSCI.\"CONTRACT\",\n         \
+  \  STSCI.\"PRODUCT_PRICE\",\n           STSCI.\"SYS_ID\",\n           STSCI.\"DV_PRODUCT_PRICE\"\
+  ,\n           STSCI.\"EXTRACT_DATE\",\n           STSCI.\"NUMBER\",\n          \
+  \ STSCI.\"ACV\",\n           STSCI.\"U_CONSTANT_FX_RATE\",\n           STSCI.\"\
+  U_ACV_USD_C_LI_CONST\",\n           STSCI.\"SALES_PRICE_USD\",\n           STSCI.\"\
+  U_CONSTANT_FISCAL_YEAR\",\n           STSCI.\"U_USD_ADJUSTMENT_A_C_LI_CONST\",\n\
+  \           STSCI.\"U_ANNUAL_LIST_VALUE_USD_C_LI_CONST\",\n           STSCI.\"U_SALES_PRICE_USD_C_LI_CONST\"\
+  ,\n           STSCI.\"U_TOTAL_VALUE_USD_C_LI_CONST\",\n           STSCI.\"U_ADJUSTMENT_A\"\
+  ,\n           STSCI.\"ANNUAL_LIST_VALUE_USD\",\n           STSCI.\"U_USD_ADJUSTMENT_A\"\
+  ,\n           STSCI.\"SALES_PRICE\",\n           STSCI.\"SYS_CREATED_ON\",\n   \
+  \ \t   STSCI.\"U_ACCOUNT\",\n    \t   STSCI.\"ACV_USD\",\n           STSCI.\"U_OPPORTUNITY_ITEM\"\
+  \n    FROM\n    RDS.\"SURF\".\"ST_SALES_CONTRACT_ITEM\" STSCI\n    WHERE STSCI.\"\
+  EXTRACT_DATE\"<'random'\n\n    UNION\n\n    select\n    \t   ENT.\"QUANTITY\",\n\
+  \           SCI.\"TOTAL_VALUE_USD\",\n           ENT.\"CONTRACT_NUMBER\",\n    \
+  \       SCI.\"CONTRACT\",\n           SCI.\"PRODUCT_PRICE\",\n           SCI.\"\
+  SYS_ID\",\n           SCI.\"DV_PRODUCT_PRICE\",\n           SCI.\"EXTRACT_DATE\"\
+  ,\n           ENT.\"NUMBER\",\n           SCI.\"ACV\",\n           SCI.\"U_CONSTANT_FX_RATE\"\
+  ,\n           SCI.\"U_ACV_USD_C_LI_CONST\",\n           SCI.\"SALES_PRICE_USD\"\
+  ,\n           SCI.\"U_CONSTANT_FISCAL_YEAR\",\n           SCI.\"U_USD_ADJUSTMENT_A_C_LI_CONST\"\
+  ,\n           SCI.\"U_ANNUAL_LIST_VALUE_USD_C_LI_CONST\",\n           SCI.\"U_SALES_PRICE_USD_C_LI_CONST\"\
+  ,\n           SCI.\"U_TOTAL_VALUE_USD_C_LI_CONST\",\n           SCI.\"U_ADJUSTMENT_A\"\
+  ,\n           SCI.\"ANNUAL_LIST_VALUE_USD\",\n           SCI.\"U_USD_ADJUSTMENT_A\"\
+  ,\n           SCI.\"SALES_PRICE\",\n           SCI.\"SYS_CREATED_ON\",\n    \t \
+  \  SCI.\"U_ACCOUNT\",\n    \t   SCI.\"ACV_USD\",\n           SCI.\"U_OPPORTUNITY_ITEM\"\
+  \n    FROM\n    (\n        SELECT DISTINCT SCI.NUMBER,TRIM(ENT.ZEMS_SURF_CONTRACT_NUMBER_V2)\
+  \ as CONTRACT_NUMBER,ENT.ZEMS_SALESQTY_V3 as QUANTITY,ENT.EXTRACT_DATE,'random'\
+  \ AS RECORD_SOURCE\n            FROM\n            RDS.SAP_EMS.ST_ENTITLEMENTS ENT\n\
+  \            INNER JOIN\n            RDS.SURF.ST_SALES_CONTRACT_ITEM SCI\n     \
+  \       ON SCI.U_EMS_ENTITLEMENT=ENT.ENTITLEMENTNO\n            AND SCI.QUANTITY=ENT.ZEMS_SALESQTY_V3\n\
+  \            AND TRIM(SCI.DV_CONTRACT)=TRIM(ENT.ZEMS_SURF_CONTRACT_NUMBER_V2)\n\
+  \            AND SCI.EXTRACT_DATE=ENT.EXTRACT_DATE\n\n\n            UNION\n\n  \
+  \          SELECT DISTINCT SCI.NUMBER,TRIM(dv_contract) AS CONTRACT_NUMBER, QUANTITY,SCI.EXTRACT_DATE,'random'\
+  \ AS RECORD_SOURCE\n            FROM RDS.SURF.ST_SALES_CONTRACT_ITEM sci\n     \
+  \       WHERE NOT EXISTS(\n            SELECT 'random' FROM RDS.SAP_EMS.ST_ENTITLEMENTS\
+  \ EMS\n            WHERE EMS.ENTITLEMENTNO=SCI.U_EMS_ENTITLEMENT\n            AND\
+  \ SCI.QUANTITY=EMS.ZEMS_SALESQTY_V3\n            AND TRIM(SCI.DV_CONTRACT)=TRIM(EMS.ZEMS_SURF_CONTRACT_NUMBER_V2)\n\
+  \            AND SCI.EXTRACT_DATE=EMS.EXTRACT_DATE\n            )\n    ) ENT\n\n\
+  \    INNER JOIN RDS.SURF.ST_SALES_CONTRACT_ITEM SCI\n\tON SCI.NUMBER=ENT.NUMBER\n\
+  \    AND SCI.EXTRACT_DATE=ENT.EXTRACT_DATE\n\n    WHERE ENT.EXTRACT_DATE>='random'\n\
+  \n)\nA\nleft join\n(\n    select distinct\n            rank() over (partition by\
+  \ trim(\"DV_CONTRACT\"), \"NUMBER\" order by \"EXTRACT_DATE\" desc) as rnk\n   \
+  \         ,\"EXTRACT_DATE\" as  \"ExtractDateMax\"\n            ,coalesce(\"U_CONSTANT_FX_RATE\"\
+  ,'random') as \"FXRateMax\"\n            ,trim(\"DV_CONTRACT\") as \"DV_CONTRACT\"\
+  \n            ,\"NUMBER\"\n    from RDS.\"SURF\".\"ST_SALES_CONTRACT_ITEM\"\n  \
+  \  qualify rnk='random'\n)B\non A.\"DV_CONTRACT\"=B.\"DV_CONTRACT\"\nand A.\"NUMBER\"\
+  =B.\"NUMBER\" ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

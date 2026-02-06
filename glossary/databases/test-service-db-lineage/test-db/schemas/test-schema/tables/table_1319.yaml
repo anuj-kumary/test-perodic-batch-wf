@@ -1,0 +1,156 @@
+name: table_1319
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1319
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1319.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DQ_IMPROVEMENT_INCIDENT(\n\t\"INC_Number\"\
+  ,\n\t\"Child_IncidentNumber\",\n\t\"INC_Caller\",\n\t\"INC_Submitter_Type\",\n\t\
+  \"INC_Proactive_Flag\",\n\t\"INC_Opener\",\n\t\"INC_OpenMonth\",\n\t\"INC_OpenWeek\"\
+  ,\n\t\"INC_OpenDate\",\n\t\"Child_INC_OpenDate\",\n\t\"INC_Source\",\n\t\"INC_WatchList\"\
+  ,\n\t\"Child_INC_WatchList\",\n\t\"INC_Priority\",\n\t\"INC_Status\",\n\t\"INC_Urgency\"\
+  ,\n\t\"INC_Impact\",\n\t\"INC_Business_Service\",\n\t\"INC_Category\",\n\t\"INC_ShortDesc\"\
+  ,\n\t\"INC_Desc\",\n\t\"INC_Config_Item\",\n\t\"INC_Resolution_Code\",\n\t\"Child_INC_Resolution_Code\"\
+  ,\n\t\"INC_AssignmentGroup\",\n\t\"INC_Resolver\",\n\t\"INC_ResolveDate\",\n\t\"\
+  INC_ResolveTime\",\n\t\"INC_StoryId\",\n\t\"INC_ProblemId\",\n\t\"IncidentHasEnhancement\"\
+  ,\n\t\"IncidentHasProblem\",\n\t\"INC_Caller_P4_L1\",\n\t\"INC_Caller_P4_L2\",\n\
+  \t\"INC_Caller_P4_L3\",\n\t\"INC_AG_Manager\",\n\t\"INC_AG_Backup_Manager\",\n\t\
+  INC_AG_P4_L1,\n\tINC_AG_P4_L2,\n\tINC_AG_P4_L3\n) as\n\nWITH\n-- Import assignment\
+  \ group information\nemp_info as\n(\n      select\n         sys_id,\n         first_name,\n\
+  \         last_name,\n         dv_u_p4_1_level,\n         dv_u_p4_2_level,\n   \
+  \      dv_u_p4_3_level,\n         email\n      from\n         RDS.SURF.U_EMPLOYEE\n\
+  ),\n\nassignment_grps as\n(\n    select\n        trim(ag.name) as name,\n      \
+  \  ag.sys_id,\n        emp.first_name,\n        emp.last_name,\n        ag.dv_manager,\n\
+  \        ag.manager,\n        ag.dv_u_backup_manager,\n        emp.dv_u_p4_1_level\
+  \ as ag_p4_1_level,\n        emp.dv_u_p4_2_level as ag_p4_2_level,\n        emp.dv_u_p4_3_level\
+  \ as ag_p4_3_level,\n        ag.dv_parent,\n        ag.email\n    from\n       \
+  \ RDS.SURF.sys_user_group ag\n    inner join\n        emp_info emp\n    on\n   \
+  \     trim(ag.manager) = trim(emp.sys_id)\n    where\n        ag.DV_MANAGER IS not\
+  \ NULL\n),\n\n-- Import general Data qualty incidents\ntotal_dq_incs as\n(\n   select\n\
+  \      -- Incident Information\n      trim(inc.\"IncidentNumber\")      as INC_Number,\n\
+  \      trim(inc.\"IncidentDvCallerId\")  as INC_Caller,\n      trim(inc.\"IncidentDvOpenedBy\"\
+  )  as INC_Opener,\n      substr(trim(inc.\"IncidentOpenedAt\"), 'random', 'random')\
+  \ as INC_OpenDate,\n      trim(inc.\"IncidentUSource\")     as INC_Source,\n   \
+  \   trim(inc.\"IncidentDvWatchList\") as INC_WatchList,\n      trim(inc.\"IncidentDvPriority\"\
+  )  as INC_Priority,\n      trim(inc.\"IncidentDvState\")     as INC_Status,\n  \
+  \    trim(inc.\"IncidentDvUrgency\")   as INC_Urgency,\n      trim(inc.\"IncidentDvImpact\"\
+  )    as INC_Impact,\n      trim(inc.\"IncidentDvBusinessService\") as INC_Business_Service,\
+  \ -- Pull from Business Service table\n      trim(inc.\"IncidentCategory\") as INC_Category,\n\
+  \      trim(inc.\"IncidentShortDescription\") as INC_ShortDesc,\n      substr(trim(inc.\"\
+  IncidentDescription\"), 'random', 'random') as INC_Desc,\n      trim(inc.\"IncidentDvCmdbCi\"\
+  ) as INC_Config_Item, -- Pull from CMDB CI table\n      trim(inc.\"IncidentDvUResolutionCode\"\
+  ) INC_Resolution_Code,\n      ag.name as INC_AssignmentGroup,\n      trim(inc.\"\
+  IncidentDvResolvedBy\") as INC_Resolver,\n      substr(trim(inc.\"IncidentResolvedAt\"\
+  ), 'random', 'random') as INC_ResolveDate,\n      case when inc.\"IncidentResolvedAt\"\
+  \ IS NULL\n         then round(timediff('random', inc.\"IncidentOpenedAt\", SysDate())\
+  \ / 'random' / 'random', 'random')\n         else round(timediff('random', inc.\"\
+  IncidentOpenedAt\", inc.\"IncidentResolvedAt\") / 'random' / 'random', 'random')\n\
+  \         end as INC_ResolveTime,\n\n      trim(inc.\"IncidentParent\") as INC_Parent,\n\
+  \      trim(inc.\"IncidentDvUStoryId\") as INC_StoryId,\n      trim(inc.\"IncidentDvProblemId\"\
+  ) as INC_ProblemId,\n\n      case when trim(inc.\"IncidentDvUStoryId\") IS NULL\
+  \ then 'random' else 'random' end as IncidentHasEnhancement,\n      case when trim(inc.\"\
+  IncidentDvProblemId\") IS NULL then 'random' else 'random' end as IncidentHasProblem,\n\
+  \n      -- Identifying Submitter Employee Hierarchies\n      coalesce(emp.dv_u_p4_1_level,\
+  \ 'random') as INC_Caller_P4_L1,\n      coalesce(emp.dv_u_p4_2_level, 'random')\
+  \ as INC_Caller_P4_L2,\n      coalesce(emp.dv_u_p4_3_level, 'random') as INC_Caller_P4_L3,\n\
+  \n      -- Identifying System User / Proactive Incidents\n      case when trim(inc.\"\
+  IncidentDvOpenedBy\") in ('random', 'random', 'random') then 'random'\n        \
+  \   when trim(inc.\"IncidentDvOpenedBy\") in ('random') then 'random'\n        \
+  \   else 'random' end as INC_Submitter_Type,\n\n      case when trim(inc.\"IncidentDvOpenedBy\"\
+  ) in ('random', 'random', 'random', 'random') then 'random' else 'random' end as\
+  \ INC_Proactive_Flag,\n\n      -- Assignment Group Hierarchies\n      ag.dv_manager\
+  \ as INC_AG_Manager,\n      ag.dv_u_backup_manager as INC_AG_Backup_Manager,\n \
+  \     ag.ag_p4_1_level as INC_AG_P4_L1,\n      ag.ag_p4_2_level as INC_AG_P4_L2,\n\
+  \      ag.ag_p4_3_level as INC_AG_P4_L3\n   from\n      ODS_LS.SURF.INCIDENT inc\n\
+  \   left join\n      emp_info emp\n   on\n      inc.\"IncidentOpenedBy\" = emp.sys_id\n\
+  \   left join\n      assignment_grps ag\n   on\n      inc.\"IncidentAssignmentGroup\"\
+  \ = ag.sys_id\n   WHERE\n      (\n         lower(inc.\"IncidentDescription\") LIKE\
+  \ 'random'\n         OR  lower(inc.\"IncidentDescription\") LIKE 'random'\n    \
+  \     OR  lower(inc.\"IncidentShortDescription\") LIKE 'random'\n         OR  inc.\"\
+  IncidentDvCallerId\" like 'random'\n      )\n      AND substr(inc.\"IncidentOpenedAt\"\
+  , 'random', 'random') >= 'random'--$START_DATE --\n),\n\n-- Identify child DQ incidents\n\
+  child_dq as\n(\n   select  * from total_dq_incs WHERE INC_Parent IS not NULL\n),\n\
+  \n-- Identify parent DQ incidents\nparent_dq as\n(\n   select  * from total_dq_incs\
+  \ WHERE INC_Parent IS NULL\n),\n\n-- Join parent and child incident info together\n\
+  regroup_dq_issues as\n(\n   select\n      coalesce(pdq.INC_Number, cdq.INC_Number)\
+  \ AS INC_Number,\n      cdq.INC_Number as Child_IncidentNumber,\n      coalesce(pdq.INC_Caller,\
+  \ cdq.INC_Caller) AS INC_Caller,\n      coalesce(pdq.INC_Submitter_Type, cdq.INC_Submitter_Type)\
+  \ AS INC_Submitter_Type,\n      coalesce(pdq.INC_Proactive_Flag, cdq.INC_Proactive_Flag)\
+  \ AS INC_Proactive_Flag,\n      coalesce(pdq.INC_Opener, cdq.INC_Opener) AS INC_Opener,\n\
+  \      substr(coalesce(pdq.INC_OpenDate, cdq.INC_OpenDate), 'random', 'random')\
+  \ AS INC_OpenMonth,\n      DATEADD(DAY, -DAYOFWEEK(date(coalesce(pdq.INC_OpenDate,\
+  \ cdq.INC_OpenDate))), date(coalesce(pdq.INC_OpenDate, cdq.INC_OpenDate))) as INC_OpenWeek,\n\
+  \      coalesce(pdq.INC_OpenDate, cdq.INC_OpenDate) AS INC_OpenDate,\n      cdq.INC_OpenDate\
+  \ as Child_INC_OpenDate,\n      coalesce(pdq.INC_Source, cdq.INC_Source     ) AS\
+  \ INC_Source,\n      coalesce(pdq.INC_WatchList, cdq.INC_WatchList) AS INC_WatchList,\n\
+  \      cdq.INC_WatchList as Child_INC_WatchList,\n      coalesce(pdq.INC_Priority,\
+  \ cdq.INC_Priority) AS INC_Priority,\n      coalesce(pdq.INC_Status, cdq.INC_Status)\
+  \ AS INC_Status,\n      coalesce(pdq.INC_Urgency, cdq.INC_Urgency) AS INC_Urgency,\n\
+  \      coalesce(pdq.INC_Impact, cdq.INC_Impact) AS INC_Impact,\n      coalesce(pdq.INC_Business_Service,\
+  \ cdq.INC_Business_Service) AS INC_Business_Service,\n      coalesce(pdq.INC_Category,\
+  \ cdq.INC_Category) AS INC_Category,\n      coalesce(pdq.INC_ShortDesc, cdq.INC_ShortDesc)\
+  \ AS INC_ShortDesc,\n      coalesce(pdq.INC_Desc, cdq.INC_Desc) AS INC_Desc,\n \
+  \     coalesce(pdq.INC_Config_Item, cdq.INC_Config_Item) AS INC_Config_Item,\n \
+  \     coalesce(pdq.INC_Resolution_Code, cdq.INC_Resolution_Code) AS INC_Resolution_Code,\n\
+  \      cdq.INC_Resolution_Code as Child_INC_Resolution_Code,\n      coalesce(cdq.INC_AssignmentGroup\
+  \ , pdq.INC_AssignmentGroup ) AS INC_AssignmentGroup,\n      coalesce(cdq.INC_Resolver,\
+  \ pdq.INC_Resolver) AS INC_Resolver,\n      case when cdq.INC_Number IS NULL then\
+  \ pdq.INC_ResolveDate\n         when pdq.INC_Number IS NULL then cdq.INC_ResolveDate\n\
+  \         when pdq.INC_ResolveDate IS NULL or cdq.INC_ResolveDate IS NULL then 'random'\n\
+  \         when pdq.INC_ResolveDate > cdq.INC_ResolveDate then pdq.INC_ResolveDate\n\
+  \         else cdq.INC_ResolveDate end AS INC_ResolveDate,\n      coalesce(pdq.INC_ResolveTime,\
+  \ 'random') + coalesce(cdq.INC_ResolveTime, 'random') as INC_ResolveTime,\n    \
+  \  coalesce(pdq.INC_StoryId, cdq.INC_StoryId) AS INC_StoryId,\n      coalesce(pdq.INC_ProblemId,\
+  \ cdq.INC_ProblemId ) AS INC_ProblemId,\n      case when pdq.IncidentHasEnhancement\
+  \ = 'random' or cdq.IncidentHasEnhancement = 'random' then 'random' else 'random'\
+  \ end as IncidentHasEnhancement,\n      case when pdq.IncidentHasProblem  = 'random'\
+  \ or cdq.IncidentHasProblem  = 'random' then 'random' else 'random' end as IncidentHasProblem,\n\
+  \      coalesce(pdq.INC_Caller_P4_L1, cdq.INC_Caller_P4_L1) as INC_Caller_P4_L1,\n\
+  \      coalesce(pdq.INC_Caller_P4_L2, cdq.INC_Caller_P4_L2) as INC_Caller_P4_L2,\n\
+  \      coalesce(pdq.INC_Caller_P4_L3, cdq.INC_Caller_P4_L3) as INC_Caller_P4_L3,\n\
+  \      coalesce(pdq.INC_AG_Manager, cdq.INC_AG_Manager) as INC_AG_Manager,\n   \
+  \   coalesce(pdq.INC_AG_Backup_Manager, cdq.INC_AG_Backup_Manager) as INC_AG_Backup_Manager,\n\
+  \      coalesce(pdq.INC_AG_P4_L1, cdq.INC_AG_P4_L1) as INC_AG_P4_L1,\n      coalesce(pdq.INC_AG_P4_L2,\
+  \ cdq.INC_AG_P4_L2) as INC_AG_P4_L2,\n      coalesce(pdq.INC_AG_P4_L3, cdq.INC_AG_P4_L3)\
+  \ as INC_AG_P4_L3\n   from\n      parent_dq as pdq\n   full outer join\n      child_dq\
+  \ as cdq\n   on\n      pdq.INC_Number = cdq.INC_Number\n)\n\nselect\n   *\nfrom\n\
+  \   regroup_dq_issues;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

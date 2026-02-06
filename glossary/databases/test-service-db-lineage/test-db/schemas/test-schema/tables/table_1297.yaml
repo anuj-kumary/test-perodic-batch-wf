@@ -1,0 +1,84 @@
+name: table_1297
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1297
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1297.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_PROJECT(\n\tPROJECT_ID,\n\tPROJECT_NAME,\n\
+  \tSTART_DT,\n\tFINISH_DT,\n\tPROJECT_CUSTOMER_NAME,\n\tPROJECT_ENGAGEMENT_MANAGER,\n\
+  \tPROJECT_COSTCENTER_ID,\n\tPROJECT_STAGE_ID,\n\tCLOSE_DT,\n\tPROJECT_CURRENCY,\n\
+  \tPROJECT_TYPE,\n\tNOTES,\n\tACCOUNT_PARENT,\n\tACCOUNT_NUMBER,\n\tACCOUNT_ID,\n\
+  \tACCOUNT_NEW_SEGMENT,\n\tACCOUNT_TERRITORY_ID,\n\tACCOUNT_MASTER_DATA_MANAGEMENT_ID,\n\
+  \tACCOUNT_PRIMARY_SALES_REP,\n\tACCOUNT_PROFESSIONAL_SERVICE_CHAMPION,\n\tACCOUNT_SOLUTION_CONSULTANT,\n\
+  \tACCOUNT_CUSTOMER_SUCCESS_MANAGER,\n\tBUDGET_LC,\n\tBUDGET_USD,\n\tBUDGET_TIME,\n\
+  \tPROJECT_HEALTH_FLAG,\n\tGOLIVE_DT,\n\tPROJECT_DELIVERY_MANAGER,\n\tOPTY_NUMBER,\n\
+  \tPROJECT_STAGE_NAME,\n\tOPTY_CONTRACT_END_DT,\n\tPROJECT_AREA,\n\tPROJECT_MAJOR_AREA,\n\
+  \tPROJECT_GEO,\n\tPROJECT_REGION,\n\tPROJECT_TERRITORY,\n\tPROJECT_STATUS_REPORT,\n\
+  \tOPTY_DYNAMICS_GUID,\n\tACCT_DYNAMICS_GUID,\n\tOPTY_ID,\n\tDEPLOYMENT_ID,\n\tPROJECT_MASTER_ENTERPRISE_SERVICE_AGREEMENT,\n\
+  \tREVENUE_RECOGNIZED_TYPE_DESC,\n\tPRODUCT_CORE_FAMILY1,\n\tPROJECT_NUMBER,\n\t\
+  PROJECT_SYSID,\n\tPROJECT_USER_SYSID,\n\tACCOUNT_SYSID,\n\tACCOUNT_TERRITORY_SYSID,\n\
+  \tOPTY_SYSID\n) as\nselect\nDISTINCT\nHASH(\"PrjID\") as PROJECT_ID,\n\"PrjName\"\
+  \ as PROJECT_NAME,\n\"PrjStartDate\" AS START_DT,\n\"PrjFinishDate\" AS FINISH_DT,\n\
+  \"PrjCustomerName\" AS PROJECT_CUSTOMER_NAME,\nHASH(\"PrjUserID\") AS PROJECT_ENGAGEMENT_MANAGER,\n\
+  \"PrjCostCenterID\" AS PROJECT_COSTCENTER_ID,\n\"PrjProjectStageID\" AS PROJECT_STAGE_ID,\n\
+  \"PrjProjCloseDate\" AS CLOSE_DT,\n\"PrjCurrency\" as PROJECT_CURRENCY,\n\"PrjProjectType\"\
+  \ as PROJECT_TYPE,\n\"PrjNotes\" as NOTES,\n\"PrjAcctParent\" as ACCOUNT_PARENT,\n\
+  \"PrjAcctNumber\" AS ACCOUNT_NUMBER,\nHASH(\"PrjAcctSysID\") AS ACCOUNT_ID,\n\"\
+  PrjAcctNewSegment\" AS ACCOUNT_NEW_SEGMENT,\nHASH(\"PrjAcctTerritorySysID\") as\
+  \ ACCOUNT_TERRITORY_ID,\n\"PrjAcctMDMID\" as ACCOUNT_MASTER_DATA_MANAGEMENT_ID,\n\
+  \"PrjAcctPrimarySalesRep\" AS ACCOUNT_PRIMARY_SALES_REP,\n\"PrjAcctPSChampion\"\
+  \ AS ACCOUNT_PROFESSIONAL_SERVICE_CHAMPION,\n\"PrjAcctSolutionConsultant\" AS ACCOUNT_SOLUTION_CONSULTANT,\n\
+  \"PrjAcctCustomerSuccessManager\" AS ACCOUNT_CUSTOMER_SUCCESS_MANAGER,\n\"PrjBudget\"\
+  \ AS BUDGET_LC,\n\"PrjBudget_USD\" as BUDGET_USD,\n\"PrjBudgetTime\" AS BUDGET_TIME,\n\
+  \"ProjectHealthEMProjectFilter\" as PROJECT_HEALTH_FLAG,\n\"PrjGoLiveDate\" AS GOLIVE_DT,\n\
+  \"PrjDeliveryManager\" as PROJECT_DELIVERY_MANAGER,\n\"PrjOpportunity_Number\" AS\
+  \ OPTY_NUMBER,\n\"ProjectStageName\" AS PROJECT_STAGE_NAME,\n\"OptyContEndDate\"\
+  \ AS OPTY_CONTRACT_END_DT,\n\"PrjArea\" AS PROJECT_AREA,\n\"PrjMajorArea\" AS PROJECT_MAJOR_AREA,\n\
+  \"PrjGeo\" AS PROJECT_GEO,\n\"PrjRegion\" AS PROJECT_REGION,\n\"PrjPSTerritory\"\
+  \ as PROJECT_TERRITORY,\n\"PrjStatusReportNotRequired\" as PROJECT_STATUS_REPORT,\n\
+  \"OptyDynamicsGUID\" AS OPTY_DYNAMICS_GUID,\n\"AcctDynamicsGUID\" AS ACCT_DYNAMICS_GUID,\n\
+  hash(\"OptySysID\") as OPTY_ID,\n\"CustPrjDeploymentID\" AS DEPLOYMENT_ID,\n\"CustPrjMasterESA\"\
+  \ AS PROJECT_MASTER_ENTERPRISE_SERVICE_AGREEMENT,\n\"CustPrjRevRecTypeDesc\" as\
+  \ REVENUE_RECOGNIZED_TYPE_DESC,\n\"ServProdCoreFamily1\" as PRODUCT_CORE_FAMILY1,\n\
+  \"CustPrjNumber\" as PROJECT_NUMBER,\n\"PrjID\" as PROJECT_SYSID,\n\"PrjUserID\"\
+  \ as PROJECT_USER_SYSID,\n\"PrjAcctSysID\" as ACCOUNT_SYSID,\n\"PrjAcctTerritorySysID\"\
+  \ AS ACCOUNT_TERRITORY_SYSID,\n\"OptySysID\" AS OPTY_SYSID\nfrom EDW_LS.CUSTOMER_PSANEW_EM.EM_PROJECT;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

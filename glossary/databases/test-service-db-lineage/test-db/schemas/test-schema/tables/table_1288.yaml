@@ -1,0 +1,56 @@
+name: table_1288
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1288
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1288.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_USER(\n\tUSER_ID,\n\tEMPLOYEE_NUMBER,\n\
+  \tUSER_NAME,\n\tJOB_FUNCTION,\n\tMANAGER_NAME,\n\tCOST_CENTER_NAME,\n\tUSER_USER_NAME,\n\
+  \tWORK_FLOW,\n\tUSER_EXTERNAL_ID,\n\tEMP_JOB_LEVEL,\n\tGEO,\n\tMAJOR_AREA,\n\tAREA,\n\
+  \tUSER_COUNTRY,\n\tJOB_CODE_NAME,\n\tUSER_SYSID\n) as\nselect\nhash(\"UserID\")\
+  \ as USER_ID,\n\"UserEmployeeNumber\" as EMPLOYEE_NUMBER,\n\"UserName\" as USER_NAME,\n\
+  \"JobCodeJobFunction\" as JOB_FUNCTION,\n\"UserManagerName\" as MANAGER_NAME,\n\"\
+  CostCenterName\" as COST_CENTER_NAME,\n\"UserUserName\" as USER_USER_NAME,\n\"WorkFlow\"\
+  \ as WORK_FLOW,\n\"UserExternalID\" as USER_EXTERNAL_ID,\n\"EmpJobLevel\" as EMP_JOB_LEVEL,\n\
+  \"PSGeo\" as GEO,\n\"PSMajorArea\" as MAJOR_AREA,\n\"PSArea\" as AREA,\n\"UserCountry\"\
+  \ as USER_COUNTRY,\n\"JobCodeName\" as JOB_CODE_NAME,\n\"UserID\" as USER_SYSID\n\
+  from EDW_LS.CUSTOMER_PSANEW_EM.EM_USER;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

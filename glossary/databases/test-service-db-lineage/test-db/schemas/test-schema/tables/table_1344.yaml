@@ -1,0 +1,209 @@
+name: table_1344
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1344
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1344.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_POTENTIAL_EARLY_RENEWAL(\n\t\
+  QUARTER_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tRENEWAL_TERRITORY_ID,\n\tRENEWAL_GEO_ID,\n\
+  \tOPTY_ID,\n\tACCOUNT_ID,\n\tQUARTER_YYQQ,\n\tBU_GROUP_ID,\n\tEARLY_RENEWAL_ID,\n\
+  \tFUTURE_RENEWAL_QUARTER,\n\tRENEWAL_ACV_CQ_PLUS1_USD_DAILY,\n\tRENEWAL_ACV_CQ_PLUS2_USD_DAILY,\n\
+  \tRENEWAL_ACV_CQ_PLUS3_USD_DAILY,\n\tRENEWAL_ACV_FUTURE_QUARTER_USD_DAILY,\n\tNNACV_CURRENT_QUARTER_USD_DAILY,\n\
+  \tCRPO_PCT,\n\tPOTENTIAL_RENEWAL_CONTRIBUTION_TO_CRPO_USD_DAILY,\n\tPOTENTIAL_RENEWAL_CRPO_CY_FX,\n\
+  \tPOTENTIAL_CRPO_FLAG,\n\tTERRITORY_SYSID,\n\tRENEWAL_TERRITORY_SYSID\n) as\nSELECT\n\
+  \    QUARTER_ID,\n    TERRITORY_ID,\n    GEO_ID,\n    RENEWAL_TERRITORY_ID,\n  \
+  \  RENEWAL_GEO_ID,\n    OPTY_ID,\n    ACCOUNT_ID,\n    QUARTER_YYQQ,\n    BU_GROUP_ID,\n\
+  \    EARLY_RENEWAL_ID,\n    FUTURE_RENEWAL_QUARTER,\n    SUM(RENEWAL_ACV_CQ_PLUS1_USD_DAILY)\
+  \ AS RENEWAL_ACV_CQ_PLUS1_USD_DAILY,\n    SUM(RENEWAL_ACV_CQ_PLUS2_USD_DAILY) AS\
+  \ RENEWAL_ACV_CQ_PLUS2_USD_DAILY,\n    SUM(RENEWAL_ACV_CQ_PLUS3_USD_DAILY) AS RENEWAL_ACV_CQ_PLUS3_USD_DAILY,\n\
+  \    SUM(RENEWAL_ACV_FUTURE_QUARTER_USD_DAILY) AS RENEWAL_ACV_FUTURE_QUARTER_USD_DAILY,\n\
+  \    SUM(NNACV_CURRENT_QUARTER_USD_DAILY) AS NNACV_CURRENT_QUARTER_USD_DAILY,\n\
+  \    SUM(CRPO_PCT) AS CRPO_PCT,\n    SUM(POTENTIAL_RENEWAL_CONTRIBUTION_TO_CRPO_USD_DAILY)\
+  \ AS POTENTIAL_RENEWAL_CONTRIBUTION_TO_CRPO_USD_DAILY,\n    SUM(POTENTIAL_RENEWAL_CRPO_CY_FX)\
+  \ AS POTENTIAL_RENEWAL_CRPO_CY_FX,\n    MAX(POTENTIAL_CRPO_FLAG) AS POTENTIAL_CRPO_FLAG,\n\
+  \    \"TerritorySysID\" AS TERRITORY_SYSID,\n    \"RenewalTerritorySysID\" AS RENEWAL_TERRITORY_SYSID\n\
+  FROM\n    (\n        SELECT\n            hash(\n                ifnull(\"NNACVSalesQuarter\"\
+  , 'random') || ifnull(\"TerritorySysID\", 'random') || ifnull(\"RenewalTerritorySysID\"\
+  , 'random') || ifnull(\"OptyParentSysID\", 'random') || ifnull(\"BUGroup\", 'random')\
+  \ || ifnull(\"FutureRenewalQuarter\", 'random')\n            ) AS EARLY_RENEWAL_ID,\n\
+  \            DT.QUARTER_ID AS QUARTER_ID,\n            hash(\"TerritorySysID\")\
+  \ AS TERRITORY_ID,\n            ifnull(TERR1.GEO_ID, HASH(TERR1.GEO_ID)) as GEO_ID,\n\
+  \            hash(\"RenewalTerritorySysID\") AS RENEWAL_TERRITORY_ID,\n        \
+  \    ifnull(TERR2.GEO_ID, HASH(TERR2.GEO_ID)) as RENEWAL_GEO_ID,\n            hash(\"\
+  OptyParentSysID\") AS OPTY_ID,\n            ACC.ACCOUNT_ID AS ACCOUNT_ID,\n    \
+  \        DT.QUARTER_YYQQ AS QUARTER_YYQQ,\n            hash(\"BUGroup\") AS BU_GROUP_ID,\n\
+  \            \"CQ+1QuarterRenewalACV\" AS RENEWAL_ACV_CQ_PLUS1_USD_DAILY,\n    \
+  \        \"CQ+2QuarterRenewalACV\" AS RENEWAL_ACV_CQ_PLUS2_USD_DAILY,\n        \
+  \    \"CQ+3QuarterRenewalACV\" AS RENEWAL_ACV_CQ_PLUS3_USD_DAILY,\n            \"\
+  FutureQuarterRenewalACV\" AS RENEWAL_ACV_FUTURE_QUARTER_USD_DAILY,\n           \
+  \ \"FutureRenewalQuarter\" AS FUTURE_RENEWAL_QUARTER,\n            \"CurrentQuarterNNACV\"\
+  \ AS NNACV_CURRENT_QUARTER_USD_DAILY,\n            \"PercentageCRPO\" AS CRPO_PCT,\n\
+  \            \"PotentialRenContriTocRPO\" AS POTENTIAL_RENEWAL_CONTRIBUTION_TO_CRPO_USD_DAILY,\n\
+  \            \"PotentialRenContriTocRPO_FX\" AS POTENTIAL_RENEWAL_CRPO_CY_FX,\n\
+  \            iff(\n                \"OpportunityParentStage\" not in (\n       \
+  \             'random',\n                    'random',\n                    'random'\n\
+  \                )\n                and Sum(\n                    iff(\n       \
+  \                 \"OpportunityParentStage\" not in (\n                        \
+  \    'random',\n                            'random',\n                        \
+  \    'random'\n                        ),\n                        \"CurrentQuarterNNACV\"\
+  ,\n                        'random'\n                    )\n                ) over\
+  \ (\n                    partition by \"AccountNumber\",\n                    \"\
+  NNACVSalesQuarter\"\n                ) >= 'random'\n                and Sum(\n \
+  \                   iff(\n                        \"OpportunityParentStage\" not\
+  \ in (\n                            'random',\n                            'random',\n\
+  \                            'random'\n                        ),\n            \
+  \            \"FutureQuarterRenewalACV\",\n                        'random'\n  \
+  \                  )\n                ) over (\n                    partition by\
+  \ \"AccountNumber\",\n                    \"NNACVSalesQuarter\"\n              \
+  \  ) >= 'random',\n                'random',\n                'random'\n       \
+  \     ) as POTENTIAL_CRPO_FLAG,\n            \"TerritorySysID\",\n            \"\
+  RenewalTerritorySysID\"\n        from\n            (\n                select\n \
+  \                   \"FutureRenewalQuarter\",\n                    \"AccountNumber\"\
+  ,\n                    \"NNACVSalesQuarter\",\n                    \"ParentOpportunityNumber\"\
+  \ as \"OpportunityParentNumber\",\n                    \"FutureQuarterRenewalACV\"\
+  \ as \"FutureQuarterRenewalACV\",\n                    \"CurrentQuarterNNACV\" as\
+  \ \"CurrentQuarterNNACV\",\n                    \"BUGroup\",\n                 \
+  \   case\n                        when \"FutureRenewalQuarter\" = 'random' then\
+  \ \"FutureQuarterRenewalACV\"\n                    end as \"CQ+1QuarterRenewalACV\"\
+  ,\n                    case\n                        when \"FutureRenewalQuarter\"\
+  \ = 'random' then \"FutureQuarterRenewalACV\"\n                    end as \"CQ+2QuarterRenewalACV\"\
+  ,\n                    case\n                        when \"FutureRenewalQuarter\"\
+  \ = 'random' then \"FutureQuarterRenewalACV\"\n                    end as \"CQ+3QuarterRenewalACV\"\
+  ,\n                    case\n                        when \"OpportunityForeCastType\"\
+  \ in (\n                            'random',\n                            'random'\n\
+  \                        ) Then ifnull(\"OpportunityMSPTerritorySysID\", 'random')\n\
+  \                        else \"TerritorySysID_CC\"\n                    end as\
+  \ \"RenewalTerritorySysID\",\n                    \"TerritorySysID\",\n        \
+  \            \"OptyParentSysID\",\n                    \"OptyParentStageValue\"\
+  \ as \"OpportunityParentStage\",\n                    \"PercentageCRPO\",\n    \
+  \                \"PotentialRenContriTocRPO\",\n                    \"PotentialRenContriTocRPO_FX\"\
+  \n                from\n                    (\n                        select\n\
+  \                            distinct \"FutureRenewalQuarter\",\n              \
+  \              \"AccountNumber\",\n                            \"AccountName\",\n\
+  \                            \"RenewalSalesQuarter\" as \"SalesQuarter\",\n    \
+  \                        \"RenewalOptyParentNumber\" as \"ParentOpportunityNumber\"\
+  ,\n                            \"FutureQuarterRenewalACV\",\n                  \
+  \          \"FutureQuarterRenewalACV_FX\",\n                            'random'\
+  \ as \"CurrentQuarterNNACV\",\n                            \"RenewalReportingGeo\"\
+  \ as \"ReportingTerritoryGeo\",\n                            \"NNACVSalesQuarter\"\
+  ,\n                            \"RenewalOpportunityTerritory\" as \"TerrName\",\n\
+  \                            \"RenewalOpportunityDistrict\" as \"District\",\n \
+  \                           \"RenewalOpportunityMajorArea\" as \"MajorArea\",\n\
+  \                            \"RenewalOpportunityArea\" as \"Area\",\n         \
+  \                   \"RenewalOpportunityRegion\" as \"Region\",\n              \
+  \              \"RenewalBUWorkFlow\" as \"BUWorkflow\",\n                      \
+  \      \"RenewalBUGroup\" as \"BUGroup\",\n                            \"RenewalOptyTerrMarketSegmentation\"\
+  \ as \"OptyTerrMarketSegmentation\",\n                            \"RenewalTerritorySysID\"\
+  \ as \"TerritorySysID\",\n                            \"RenewalOptyParentDynamicsGUID\"\
+  \ as \"OptyParentDynamicsGUID\",\n                            \"RenewalOptyParentSysID\"\
+  \ as \"OptyParentSysID\",\n                            \"RenewalOptyParentCloseDate\"\
+  \ as \"OptyParentCloseDate\",\n                            \"RenewalOptyParentStageValue\"\
+  \ as \"OptyParentStageValue\",\n                            \"RenewalOptyParentPipelineStatusValue\"\
+  \ as \"OptyParentPipelineStatusValue\",\n                            \"RenewalOptyParentName\"\
+  \ as \"OptyParentName\",\n                            \"RenewalOptyParentRenewalStatusValue\"\
+  \ as \"OptyParentRenewalStatusValue\",\n                            \"RenewalOptyParentAccount\"\
+  \ as \"OptyParentAccount\",\n                            \"RenewalOptyParentType\"\
+  \ as \"OptyParentType\",\n                            \"RenewalClosedOptyContractEndDate\"\
+  \ as \"ClosedOptyContractEndDate\",\n                            \"RenewalContractEndDate\"\
+  \ as \"ContractEndDate\",\n                            \"RenewalOpportunityParentContEndDate\"\
+  \ as \"OpportunityParentContEndDate\",\n                            \"RenewalOptyParentOrderTermStartDate\"\
+  \ as \"OptyParentOrderTermStartDate\",\n                            \"RenewalOptyParentOrderTermEndDate\"\
+  \ as \"OptyParentOrderTermEndDate\",\n                            \"OpportunityForeCastType\"\
+  ,\n                            \"OpportunityMSPGeo\",\n                        \
+  \    \"OpportunityMSPMajorArea\",\n                            \"OpportunityMSPArea\"\
+  ,\n                            \"OpportunityMSPRegion\",\n                     \
+  \       \"OpportunityMSPDistrict\",\n                            \"OpportunityMSPTerritory\"\
+  ,\n                            \"OpportunityMSPTerritorySysID\",\n             \
+  \               \"TerritorySysID_CC\",\n                            \"ContEndDateQtrFlag\"\
+  ,\n                            \"RenewalOptyParentCRPOPercentage\" as \"PercentageCRPO\"\
+  ,\n                            \"PotentialRenContriTocRPO\",\n                 \
+  \           \"PotentialRenContriTocRPO_FX\"\n                        from\n    \
+  \                        EDW_LS.SALES_EM.VW_EM_SALES_POTENTIAL_EARLY_RENEWALS\n\
+  \                        union all\n                        select\n           \
+  \                 distinct \"FutureRenewalQuarter\",\n                         \
+  \   \"AccountNumber\",\n                            \"AccountName\",\n         \
+  \                   \"NNACVSalesQuarter\" as \"SalesQuarter\",\n               \
+  \             \"NNACVOpportunityNumber\" as \"ParentOpportunityNumber\",\n     \
+  \                       'random' as \"FutureQuarterRenewalACV\",\n             \
+  \               'random' as \"FutureQuarterRenewalACV_FX\",\n                  \
+  \          \"CurrentQuarterNNACV\" as \"CurrentQuarterNNACV\",\n               \
+  \             \"NNACVReportingGeo\" as \"ReportingTerritoryGeo\",\n            \
+  \                \"NNACVSalesQuarter\",\n                            \"NNACVOpportunityTerritory\"\
+  \ as \"TerrName\",\n                            \"NNACVOpportunityDistrict\" as\
+  \ \"District\",\n                            \"NNACVOpportunityMajorArea\" as \"\
+  MajorArea\",\n                            \"NNACVOpportunityArea\" as \"Area\",\n\
+  \                            \"NNACVOpportunityRegion\" as \"Region\",\n       \
+  \                     \"NNACVBUWorkFlow\" as \"BUWorkflow\",\n                 \
+  \           \"NNACVBUGroup\" as \"BUGroup\",\n                            \"NNACVOptyTerrMarketSegmentation\"\
+  \ as \"OptyTerrMarketSegmentation\",\n                            \"NNACVTerritorySysID\"\
+  \ as \"TerritorySysID\",\n                            \"NNACVOptyParentDynamicsGUID\"\
+  \ as \"OptyParentDynamicsGUID\",\n                            \"NNACVOptyParentSysID\"\
+  \ as \"OptyParentSysID\",\n                            \"NNACVOptyParentCloseDate\"\
+  \ as \"OptyParentCloseDate\",\n                            \"NNACVOptyParentStageValue\"\
+  \ as \"OptyParentStageValue\",\n                            \"NNACVOptyParentPipelineStatusValue\"\
+  \ as \"OptyParentPipelineStatusValue\",\n                            \"NNACVOptyParentName\"\
+  \ as \"OptyParentName\",\n                            \"NNACVOptyParentRenewalStatusValue\"\
+  \ as \"OptyParentRenewalStatusValue\",\n                            \"NNACVOptyParentAccount\"\
+  \ as \"OptyParentAccount\",\n                            \"NNACVOptyParentType\"\
+  \ as \"OptyParentType\",\n                            \"NNACVClosedOptyContractEndDate\"\
+  \ as \"ClosedOptyContractEndDate\",\n                            \"NNACVContractEndDate\"\
+  \ as \"ContractEndDate\",\n                            \"NNACVOpportunityParentContEndDate\"\
+  \ as \"OpportunityParentContEndDate\",\n                            \"NNACVOptyParentOrderTermStartDate\"\
+  \ as \"OptyParentOrderTermStartDate\",\n                            \"NNACVOptyParentOrderTermEndDate\"\
+  \ as \"OptyParentOrderTermEndDate\",\n                            \"OpportunityForeCastType\"\
+  ,\n                            \"OpportunityMSPGeo\",\n                        \
+  \    \"OpportunityMSPMajorArea\",\n                            \"OpportunityMSPArea\"\
+  ,\n                            \"OpportunityMSPRegion\",\n                     \
+  \       \"OpportunityMSPDistrict\",\n                            \"OpportunityMSPTerritory\"\
+  ,\n                            \"OpportunityMSPTerritorySysID\",\n             \
+  \               \"TerritorySysID_CC\",\n                            \"ContEndDateQtrFlag\"\
+  ,\n                            'random' as \"PercentageCRPO\",\n               \
+  \             'random' as \"PotentialRenContriTocRPO\",\n                      \
+  \      'random' as \"PotentialRenContriTocRPO_FX\"\n                        from\n\
+  \                            EDW_LS.SALES_EM.VW_EM_SALES_POTENTIAL_EARLY_RENEWALS\n\
+  \                    )\n            ) EARLY_RENEWAL\n            LEFT JOIN EDW.ENTERPRISE.DIM_ACCOUNT\
+  \ ACC ON ACC.ACCOUNT_NUMBER = EARLY_RENEWAL.\"AccountNumber\"\n            LEFT\
+  \ JOIN EDW.ENTERPRISE.DIM_QUARTER DT ON DT.QUARTER_YYQQ = EARLY_RENEWAL.\"NNACVSalesQuarter\"\
+  \n            LEFT JOIN EDW.ENTERPRISE.DIM_TERRITORY TERR1 ON TERR1.TERRITORY_SYSID\
+  \ = EARLY_RENEWAL.\"TerritorySysID\"\n            LEFT JOIN EDW.ENTERPRISE.DIM_TERRITORY\
+  \ TERR2 ON TERR2.TERRITORY_SYSID = EARLY_RENEWAL.\"RenewalTerritorySysID\"\n   \
+  \ )\nGROUP BY\n    ALL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

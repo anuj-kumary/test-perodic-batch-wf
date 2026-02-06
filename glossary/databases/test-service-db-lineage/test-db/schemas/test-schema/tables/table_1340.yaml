@@ -1,0 +1,153 @@
+name: table_1340
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1340
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1340.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view USAGE_LICENSE_PREP(\n\tTREND,\n\tU_NUMBER,\n\
+  \tACCOUNT_NAME,\n\tDV_U_INSTANCE_AHA_SUMMARY,\n\tU_PRODUCT_NAME,\n\tAPPLICATIONNAME,\n\
+  \tUSAGE_DEFINITION,\n\tU_ESM_FAMILY1,\n\tU_ESM_FAMILY2,\n\tU_ESM_NAME,\n\tUSAGE_TYPE,\n\
+  \tMOST_RECENT_USAGE_DATE,\n\tMOST_RECENT_USAGE_VALUE,\n\tSECOND_MOST_RECENT_DATE,\n\
+  \t\"2ND_RECENT_USAGE_VALUE\",\n\tUSAGE_INDICATOR,\n\tLICENSED_INDICATOR,\n\tUSAGE_STATUS,\n\
+  \tLICENSED_STATUS,\n\tDAYS_BETWEEN_FLAG,\n\tDAYS_BETWEEN_FLAG_180DAYS\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT SUM(CASE\n               WHEN \"2ND_RECENT_USAGE_VALUE\"\
+  \ IS not NULL THEN IFF(\"2ND_RECENT_USAGE_VALUE\"!='random', (\"MOST_RECENT_USAGE_VALUE\"\
+  -\"2ND_RECENT_USAGE_VALUE\")/\"2ND_RECENT_USAGE_VALUE\"*'random', 'random')\n  \
+  \         END) as \"TREND\",\n       \"U_NUMBER\" as \"U_NUMBER\",\n       \"ACCOUNT_NAME\"\
+  \ as \"ACCOUNT_NAME\",\n       \"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n       \"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n       \"APPLICATIONNAME\"\
+  \ as \"APPLICATIONNAME\",\n       \"USAGE_DEFINITION\" as \"USAGE_DEFINITION\",\n\
+  \       \"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\",\n       \"U_ESM_FAMILY2\" as \"\
+  U_ESM_FAMILY2\",\n       \"U_ESM_NAME\" as \"U_ESM_NAME\",\n       \"USAGE_TYPE\"\
+  \ as \"USAGE_TYPE\",\n       MAX(\"MOST_RECENT_USAGE_DATE\") as \"MOST_RECENT_USAGE_DATE\"\
+  ,\n       SUM(\"MOST_RECENT_USAGE_VALUE\") as \"MOST_RECENT_USAGE_VALUE\",\n   \
+  \    MAX(\"SECOND_MOST_RECENT_DATE\") as \"SECOND_MOST_RECENT_DATE\",\n       SUM(\"\
+  2ND_RECENT_USAGE_VALUE\") as \"2ND_RECENT_USAGE_VALUE\",\n       MAX(\"USAGE_INDICATOR\"\
+  ) as \"USAGE_INDICATOR\",\n       MAX(\"LICENSED_INDICATOR\") as \"LICENSED_INDICATOR\"\
+  ,\n       \"USAGE_STATUS\" as \"USAGE_STATUS\",\n       \"LICENSED_STATUS\" as \"\
+  LICENSED_STATUS\",\n       IFF(MAX(\"MOST_RECENT_USAGE_DATE\") IS NULL, 'random',\
+  \ IFF((DATEDIFF(day, MAX(\"MOST_RECENT_USAGE_DATE\"), CURRENT_TIMESTAMP)<='random')\
+  \ ,'random', 'random')) as \"DAYS_BETWEEN_FLAG\",\n       IFF(MAX(\"MOST_RECENT_USAGE_DATE\"\
+  ) IS NULL, 'random', IFF((DATEDIFF(day, MAX(\"MOST_RECENT_USAGE_DATE\"), CURRENT_TIMESTAMP)<='random')\
+  \ ,'random', 'random')) as \"DAYS_BETWEEN_FLAG_180DAYS\"\nFROM\n  (SELECT \"Projection_1\"\
+  .\"U_NUMBER\" as \"U_NUMBER\",\n          \"Projection_1\".\"ACCOUNT_NAME\" as \"\
+  ACCOUNT_NAME\",\n          \"Join_3\".\"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n          \"Join_3\".\"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n          \"\
+  Join_3\".\"APPLICATIONNAME\" as \"APPLICATIONNAME\",\n          \"Join_3\".\"USAGE_DEFINITION\"\
+  \ as \"USAGE_DEFINITION\",\n          \"Join_3\".\"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\"\
+  ,\n          \"Join_3\".\"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n          \"Join_3\"\
+  .\"U_ESM_NAME\" as \"U_ESM_NAME\",\n          \"Join_3\".\"USAGE_TYPE\" as \"USAGE_TYPE\"\
+  ,\n          \"Join_3\".\"MOST_RECENT_USAGE_DATE\" as \"MOST_RECENT_USAGE_DATE\"\
+  ,\n          \"Join_3\".\"MOST_RECENT_USAGE_VALUE\" as \"MOST_RECENT_USAGE_VALUE\"\
+  ,\n          \"Join_3\".\"SECOND_MOST_RECENT_DATE\" as \"SECOND_MOST_RECENT_DATE\"\
+  ,\n          \"Join_3\".\"2ND_RECENT_USAGE_VALUE\" as \"2ND_RECENT_USAGE_VALUE\"\
+  ,\n          \"Join_3\".\"USAGE_INDICATOR\" as \"USAGE_INDICATOR\",\n          \"\
+  Join_3\".\"LICENSED_INDICATOR\" as \"LICENSED_INDICATOR\",\n          \"Join_3\"\
+  .\"USAGE_STATUS\" as \"USAGE_STATUS\",\n          \"Join_3\".\"LICENSED_STATUS\"\
+  \ as \"LICENSED_STATUS\"\n   FROM\n     (SELECT \"Join_2\".\"U_NUMBER\" as \"U_NUMBER\"\
+  ,\n             \"Join_2\".\"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n             \"Join_2\".\"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n         \
+  \    \"Join_2\".\"APPLICATIONNAME\" as \"APPLICATIONNAME\",\n             \"Join_2\"\
+  .\"USAGE_DEFINITION\" as \"USAGE_DEFINITION\",\n             \"Join_2\".\"U_ESM_FAMILY1\"\
+  \ as \"U_ESM_FAMILY1\",\n             \"Join_2\".\"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\"\
+  ,\n             \"Join_2\".\"U_ESM_NAME\" as \"U_ESM_NAME\",\n             \"Join_2\"\
+  .\"USAGE_TYPE\" as \"USAGE_TYPE\",\n             \"Join_2\".\"MOST_RECENT_USAGE_DATE\"\
+  \ as \"MOST_RECENT_USAGE_DATE\",\n             \"Join_2\".\"MOST_RECENT_USAGE_VALUE\"\
+  \ as \"MOST_RECENT_USAGE_VALUE\",\n             \"Join_2\".\"SECOND_MOST_RECENT_DATE\"\
+  \ as \"SECOND_MOST_RECENT_DATE\",\n             \"Join_2\".\"2ND_RECENT_USAGE_VALUE\"\
+  \ as \"2ND_RECENT_USAGE_VALUE\",\n             \"LICENSING_USAGE\".\"USAGE_INDICATOR\"\
+  \ as \"USAGE_INDICATOR\",\n             \"LICENSING_USAGE\".\"LICENSED_INDICATOR\"\
+  \ as \"LICENSED_INDICATOR\",\n             \"LICENSING_USAGE\".\"USAGE_STATUS\"\
+  \ as \"USAGE_STATUS\",\n             \"LICENSING_USAGE\".\"LICENSED_STATUS\" as\
+  \ \"LICENSED_STATUS\"\n      FROM\n        (SELECT \"MOST_RECENT\".\"U_NUMBER\"\
+  \ as \"U_NUMBER\",\n                \"MOST_RECENT\".\"DV_U_INSTANCE_AHA_SUMMARY\"\
+  \ as \"DV_U_INSTANCE_AHA_SUMMARY\",\n                \"MOST_RECENT\".\"APPLICATIONNAME\"\
+  \ as \"APPLICATIONNAME\",\n                \"MOST_RECENT\".\"USAGE_DEFINITION\"\
+  \ as \"USAGE_DEFINITION\",\n                \"MOST_RECENT\".\"U_ESM_FAMILY1\" as\
+  \ \"U_ESM_FAMILY1\",\n                \"MOST_RECENT\".\"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\"\
+  ,\n                \"MOST_RECENT\".\"U_ESM_NAME\" as \"U_ESM_NAME\",\n         \
+  \       \"MOST_RECENT\".\"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n            \
+  \    \"MOST_RECENT\".\"USAGE_TYPE\" as \"USAGE_TYPE\",\n                \"MOST_RECENT\"\
+  .\"MOST_RECENT_USAGE_DATE\" as \"MOST_RECENT_USAGE_DATE\",\n                \"MOST_RECENT\"\
+  .\"MOST_RECENT_USAGE_VALUE\" as \"MOST_RECENT_USAGE_VALUE\",\n                \"\
+  2ND_MOST_RECENT\".\"SECOND_MOST_RECENT_DATE\" as \"SECOND_MOST_RECENT_DATE\",\n\
+  \                \"2ND_MOST_RECENT\".\"2ND_RECENT_USAGE_VALUE\" as \"2ND_RECENT_USAGE_VALUE\"\
+  \n         FROM\n           (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n            \
+  \       \"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\",\n      \
+  \             \"APPLICATIONNAME\" as \"APPLICATIONNAME\",\n                   \"\
+  USAGE_DEFINITION\" as \"USAGE_DEFINITION\",\n                   \"U_ESM_FAMILY1\"\
+  \ as \"U_ESM_FAMILY1\",\n                   \"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\"\
+  ,\n                   \"U_ESM_NAME\" as \"U_ESM_NAME\",\n                   \"U_PRODUCT_NAME\"\
+  \ as \"U_PRODUCT_NAME\",\n                   \"USAGE_TYPE\" as \"USAGE_TYPE\",\n\
+  \                   \"MOST_RECENT_USAGE_DATE\" as \"MOST_RECENT_USAGE_DATE\",\n\
+  \                   \"MOST_RECENT_USAGE_VALUE\" as \"MOST_RECENT_USAGE_VALUE\"\n\
+  \            FROM \"CDL_LS\".\"CUSTOMER_RPT\".\"USAGE_LICENSE_MOST_RECENT\")\"MOST_RECENT\"\
+  \n         LEFT JOIN\n           (SELECT \"AccountNumber\" as \"U_NUMBER\",\n  \
+  \                 \"InstanceName\" as \"U_INSTANCE_NAME\",\n                   \"\
+  ApplicationName\" as \"APPLICATIONNAME\",\n                   \"UsageDefinitionID\"\
+  \ as \"U_DEFINITION_ID\",\n                   \"ESMFamily1\" as \"U_ESM_FAMILY1\"\
+  ,\n                   \"ESMFamily2\" as \"U_ESM_FAMILY2\",\n                   \"\
+  ESMName\" as \"U_ESM_NAME\",\n                   \"UsageScanDate\" as \"SECOND_MOST_RECENT_DATE\"\
+  ,\n                   \"UsageValue\" as \"2ND_RECENT_USAGE_VALUE\",\n          \
+  \         \"UsageType\" as \"USAGE_TYPE\"\n            FROM \"CDL_LS\".\"CUSTOMER_RPT\"\
+  .\"USAGE_LICENSE_2ND_MOST_RECENT\")\"2ND_MOST_RECENT\" ON \"MOST_RECENT\".\"U_NUMBER\"\
+  \ = \"2ND_MOST_RECENT\".\"U_NUMBER\"\n         AND \"MOST_RECENT\".\"DV_U_INSTANCE_AHA_SUMMARY\"\
+  \ = \"2ND_MOST_RECENT\".\"U_INSTANCE_NAME\"\n         AND \"MOST_RECENT\".\"USAGE_DEFINITION\"\
+  \ = \"2ND_MOST_RECENT\".\"U_DEFINITION_ID\"\n         AND \"MOST_RECENT\".\"USAGE_TYPE\"\
+  \ = \"2ND_MOST_RECENT\".\"USAGE_TYPE\")\"Join_2\"\n      LEFT JOIN\n        (SELECT\
+  \ \"U_NUMBER\" as \"U_NUMBER\",\n                \"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\"\
+  ,\n                \"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n                \"U_ESM_NAME\"\
+  \ as \"U_ESM_NAME\",\n                \"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n\
+  \                \"USAGE_INDICATOR\" as \"USAGE_INDICATOR\",\n                \"\
+  LICENSED_INDICATOR\" as \"LICENSED_INDICATOR\",\n                \"USAGE_STATUS\"\
+  \ as \"USAGE_STATUS\",\n                \"LICENSED_STATUS\" as \"LICENSED_STATUS\"\
+  \n         FROM \"EDW_LS\".\"CUSTOMER_EM\".\"CUST360_LICENSING\")\"LICENSING_USAGE\"\
+  \ ON \"Join_2\".\"U_NUMBER\" = \"LICENSING_USAGE\".\"U_NUMBER\"\n      AND \"Join_2\"\
+  .\"U_PRODUCT_NAME\" = \"LICENSING_USAGE\".\"U_PRODUCT_NAME\")\"Join_3\"\n   RIGHT\
+  \ JOIN\n     (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n             \"ACCOUNT_NAME\"\
+  \ as \"ACCOUNT_NAME\"\n      FROM \"EDW_LS\".\"CUSTOMER_EM\".\"VW_ACCOUNT\")\"Projection_1\"\
+  \ ON \"Join_3\".\"U_NUMBER\" = \"Projection_1\".\"U_NUMBER\")Join_4\nGROUP BY \"\
+  U_NUMBER\",\n         \"ACCOUNT_NAME\",\n         \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n         \"U_PRODUCT_NAME\",\n         \"APPLICATIONNAME\",\n         \"USAGE_DEFINITION\"\
+  ,\n         \"U_ESM_FAMILY1\",\n         \"U_ESM_FAMILY2\",\n         \"U_ESM_NAME\"\
+  ,\n         \"USAGE_TYPE\",\n         \"USAGE_STATUS\",\n         \"LICENSED_STATUS\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

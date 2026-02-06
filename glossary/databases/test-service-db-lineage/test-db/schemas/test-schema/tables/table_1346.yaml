@@ -1,0 +1,65 @@
+name: table_1346
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1346
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1346.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PIPELINE_HISTORICAL_CONVERSION_D(\n\
+  \tDATE_ID,\n\tTERRITORY_ID,\n\tBU_GROUP,\n\tQUARTER_YYQQ,\n\tGEO_ID,\n\tPIPELINE_ID,\n\
+  \tBU_WORKFLOW,\n\tREPORTING_QUARTER,\n\tNNACV_CURRENT_INP_USD_CY_FX,\n\tQUOTA_CURRENT_USD,\n\
+  \tNNACV_CURRENT_WEIGHTED_USD_CY_FX,\n\tNNACV_CURRENT_OPEN_WEIGHT_INP_USD_CY_FX,\n\
+  \tNNACV_CLOSED_USD_CY_FX,\n\tNNACV_FINAL_CLOSED_USD_CY_FX,\n\tNNACV_OPEN_USD_CY_FX,\n\
+  \tNNACV_OPEN_COVERAGE_INP,\n\tHIST_QTR_DESIRABILITY,\n\tABILITY_TO_CLOSE_INP,\n\t\
+  TERRITORY_SYSID\n) as\nSELECT\nto_char(PD.\"SnapshotDate\",'random')::number DATE_ID,\n\
+  HASH(PD.\"TerritorySysID\") AS TERRITORY_ID,\nPD.\"PLSBUGroup\" AS BU_GROUP,\nPD.\"\
+  SalesQuarter\" AS QUARTER_YYQQ,\nTERR.GEO_ID AS GEO_ID,\nHASH\n(\n    ifnull(PD.\"\
+  SnapshotDate\", 'random') || ifnull(PD.\"TerritorySysID\", 'random') || ifnull(PD.\"\
+  PLSBUGroup\", 'random')\n) AS PIPELINE_ID,\nPD.\"BUWorkFlow\" AS BU_WORKFLOW,\n\
+  PD.\"ReportingQuarter\" AS REPORTING_QUARTER,\nPD.\"CurrentPipeline\" AS NNACV_CURRENT_INP_USD_CY_FX,\n\
+  PD.\"CurrentQuota\" AS QUOTA_CURRENT_USD,\nPD.\"CurrentWeightedPipeline\" AS NNACV_CURRENT_WEIGHTED_USD_CY_FX,\n\
+  PD.\"CurrentOpenPipelineWeight\" AS NNACV_CURRENT_OPEN_WEIGHT_INP_USD_CY_FX,\nPD.\"\
+  CurrentClosed\" AS NNACV_CLOSED_USD_CY_FX,\nPD.\"FinalClosed\" AS NNACV_FINAL_CLOSED_USD_CY_FX,\n\
+  PD.\"OpenPipeline\" AS NNACV_OPEN_USD_CY_FX,\nPD.\"OpenPipelineCoverage\" AS NNACV_OPEN_COVERAGE_INP,\n\
+  PD.\"HistoricalQtrDesirability\" AS HIST_QTR_DESIRABILITY,\nPD.\"Abilitytoclose\"\
+  \ AS ABILITY_TO_CLOSE_INP,\nPD.\"TerritorySysID\" AS TERRITORY_SYSID\nFROM EDW_LS.SALES_EM.PREDICTION_DRILLDOWN\
+  \ PD\nLEFT JOIN EDW.ENTERPRISE.DIM_TERRITORY TERR\nON PD.\"TerritorySysID\"=TERR.TERRITORY_SYSID\n\
+  WHERE \"RecordType\"='random'\nAND DATE_ID IS not NULL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,68 @@
+name: table_1326
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1326
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1326.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_REP_QUOTA(\n\tQUARTER_ID,\n\t\
+  SALESREP_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tQUARTER_DT,\n\tQUARTER_YYQQ,\n\tCOST_CENTER,\n\
+  \tQUOTA_REP_USD,\n\tSALESREP_SYSID,\n\tTERRITORY_SYSID\n) as\n\n/*****************************************************************************************************************************************\n\
+  CREATE/CHANGE LOG:\nDATE        MOD BY                                         \
+  \                                           DESC\n\n11/May/24       \tprabhat.ranjanbehera@servicenow.com\
+  \       Updated the sourec from EDW_LS.SALES_EM.TBLREPQUOTA to EDW_LS.SALES_EM.EM_SALES_REPS_QUOTA_RT\n\
+  *******************************************************************************************************************************************/\n\
+  \n\n\n\n\nSELECT\n    QUARTER_ID as QUARTER_ID,\n    HASH(\"SRepEmpSysID\") AS SALESREP_ID,\n\
+  \    HASH(\"SRepTerritorySysID\") AS TERRITORY_ID,\n    TERR.GEO_ID,\n    QUARTER_DT\
+  \ as QUARTER_DT,\n    QUARTER_YYQQ as QUARTER_YYQQ,\n    \"DeptCostCenter\" as COST_CENTER,\n\
+  \    sum(\"RepQuota\") as QUOTA_REP_USD,\n    \"SRepEmpSysID\" as SALESREP_SYSID,\n\
+  \    \"SRepTerritorySysID\" as TERRITORY_SYSID\nFROM\n    EDW_LS.SALES_EM.EM_SALES_REPS_QUOTA_RT\n\
+  \    left outer join (\n        select\n            distinct QUARTER_ID,\n     \
+  \       QUARTER_DT,\n            QUARTER_YYQQ\n        from\n            EDW.ENTERPRISE.DIM_QUARTER\n\
+  \    ) qtr on \"SRepQuarter\" = qtr.QUARTER_YYQQ\n    INNER join (\n        SELECT\n\
+  \            \"EmpEmployeeNumber\",\n            \"EmpSysID\",\n            \"DeptCostCenter\"\
+  \n        from\n            ODS_LS.SURF.EMPLOYEE A\n            inner join ODS_LS.SURF.CMN_DEPARTMENT\
+  \ B on A.\"EmpDepartmentSysID\" = B.\"DeptSysID\"\n        where\n            \"\
+  DeptCostCenter\" in ('random', 'random', 'random', 'random', 'random', 'random')\n\
+  \            and \"DeptActive\" = 'random'\n            and \"EmpActive\" = 'random'\n\
+  \    ) ON \"EmpEmployeeNumber\" = \"SRepEmployeeNumber\"\n    left outer join EDW.ENTERPRISE.DIM_TERRITORY\
+  \ TERR ON \"SRepTerritorySysID\" = TERR.TERRITORY_SYSID\n    ---where \"QUOTACOMPONENT\"\
+  \ = 'Primary'\ngroup by\n    ALL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

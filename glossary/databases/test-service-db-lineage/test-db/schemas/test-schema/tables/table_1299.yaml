@@ -1,0 +1,81 @@
+name: table_1299
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1299
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1299.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_PRODUCT_TEST2(\n\tPRODUCT_ID,\n\
+  \tPRODUCT_SKU,\n\tPRODUCT_NAME,\n\tPRODUCT_CODE,\n\tPRODUCT_CATEGORY,\n\tPRODUCT_FAMILY1,\n\
+  \tPRODUCT_FAMILY2,\n\tPRODUCT_FAMILY3,\n\tPRODUCT_FAMILY,\n\tPRODUCT_DESCRIPTION,\n\
+  \tIS_ACTIVE,\n\tIS_LEGACY,\n\tPRODUCT_STATUS,\n\tPRODUCT_UNIT,\n\tBU,\n\tBU_GROUP,\n\
+  \tBU_WORKFLOW,\n\tCUSTOMER_PRODUCT_DESCRIPTION,\n\tCUSTOMER_PRODUCT_NAME,\n\tVARIABLE_LIST_PRICE_MODEL,\n\
+  \tPRODUCT_BASE_PRICE,\n\tIS_NOW_BUYING_PROGRAM,\n\tITSM_PRO_FLAG,\n\tDEFAULT_REVREC_VALUE,\n\
+  \tIS_INSTANCE_PROVISION_REQUIRED,\n\tLICENSE_TYPE,\n\tPACKAGE_TYPE,\n\tPARENT_CUSTOM_SKU,\n\
+  \tPRODUCT_PROGRAM_TYPE,\n\tCOMMISSIONABLE_BU,\n\tBU_ID,\n\tBU_GROUP_ID,\n\tPRODUCT_SYSID,\n\
+  \tPRODUCT_CREATED_TS,\n\tPRODUCT_CREATED_BY\n) as ----- SEMANTIC LAYER BEGINS\n\
+  SELECT\n    HASH(\"ProductSysID\") AS \"PRODUCT_ID\"\n\t,\"ProductSKU\" AS \"PRODUCT_SKU\"\
+  \n\t,\"ProductFullName\" AS \"PRODUCT_NAME\"\n\t,\"ProductCode\" AS \"PRODUCT_CODE\"\
+  \n\t,\"ProductCategoryValue\" AS \"PRODUCT_CATEGORY\"\n\t,\"ProductFamily1\" AS\
+  \ \"PRODUCT_FAMILY1\"\n\t,\"ProductFamily2\" AS \"PRODUCT_FAMILY2\"\n\t,\"ProductFamily3\"\
+  \ AS \"PRODUCT_FAMILY3\"\n\t,\"ProductFamilyValue\" AS \"PRODUCT_FAMILY\"\n\t,\"\
+  ProductNewDecsription\" AS \"PRODUCT_DESCRIPTION\"\n\t,\"ProductActive\" AS \"IS_ACTIVE\"\
+  \n\t,\"ProductLegacyFlag\" AS \"IS_LEGACY\"\n\t,\"ProductStatus\" AS \"PRODUCT_STATUS\"\
+  \n\t,\"ProductUnit\" AS \"PRODUCT_UNIT\"\n\t,\"ProductBusinessUnitValue\" AS \"\
+  BU\"\n\t,\"BUGroup\" AS \"BU_GROUP\"\n    ,\"BUWorkFlow\" AS \"BU_WORKFLOW\"\n\t\
+  , LEFT(\"ProductDescription\", 'random') AS \"CUSTOMER_PRODUCT_DESCRIPTION\"\n\t\
+  ,\"ProductName\" AS \"CUSTOMER_PRODUCT_NAME\"\n\t,\"ProductListPriceModel\" AS \"\
+  VARIABLE_LIST_PRICE_MODEL\"\n\t,\"ProductBaseAmount\" AS \"PRODUCT_BASE_PRICE\"\n\
+  \t,\"ProductNowBuyingProgramFlag\" AS \"IS_NOW_BUYING_PROGRAM\"\n\t, IFF(\"BUGroup\"\
+  \ = 'random'\n          and (REGEXP_INSTR(LOWER(\"ProductFamily3Value\") , LOWER('random'))\n\
+  \                or\n               REGEXP_INSTR(LOWER(\"ProductFamily3Value\")\
+  \ , LOWER('random'))\n              ) ,'random', IFF(\"BUGroup\" = 'random' and\
+  \ REGEXP_INSTR(LOWER(\"ProductFamily3Value\") , LOWER('random')) , 'random', IFF(\"\
+  BUGroup\" = 'random', 'random', 'random'))\n          ) as \"ITSM_PRO_FLAG\"\n\t\
+  \ ,\"ProductDefaultRevRecValue\" AS \"DEFAULT_REVREC_VALUE\"\n\t ,\"ProductIsInstanceProvisioningRequired\"\
+  \ AS \"IS_INSTANCE_PROVISION_REQUIRED\"\n\t ,\"ProductLicenseTypeValue\" AS \"LICENSE_TYPE\"\
+  \n\t ,\"ProductPackageType\" AS \"PACKAGE_TYPE\"\n\t ,\"ProductParentCustomSKU\"\
+  \ AS \"PARENT_CUSTOM_SKU\"\n\t ,\"ProductProgramType\" AS \"PRODUCT_PROGRAM_TYPE\"\
+  \n\t ,\"ProdCommissionableBU\" AS \"COMMISSIONABLE_BU\"\n\t ,HASH(\"ProductBusinessUnitValue\"\
+  ) as \"BU_ID\"\n     ,HASH(\"BUGroup\") as \"BU_GROUP_ID\"\n\t ,\"ProductSysID\"\
+  \ AS \"PRODUCT_SYSID\"\n\t ,\"ProductsCreatedOn\" AS \"PRODUCT_CREATED_TS\"\n\t\
+  \ ,\"ProductCreatedBy\" AS \"PRODUCT_CREATED_BY\"\nFROM\n\tODS_LS.\"SURF\".\"SALES_PRODUCT\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

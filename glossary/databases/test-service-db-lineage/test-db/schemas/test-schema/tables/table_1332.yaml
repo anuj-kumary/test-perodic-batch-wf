@@ -1,0 +1,108 @@
+name: table_1332
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1332
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1332.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view USER_COUNT_TREND(\n\t\"AccountNumber\",\n\
+  \t\"AccountName\",\n\t\"UsageDefinitionArea\",\n\t\"InstanceName\",\n\t\"UserType\"\
+  ,\n\t\"UserTypeShortName\",\n\t\"MAXUsageScanDate\",\n\t\"UsageScanDate\",\n\t\"\
+  UsageValue\",\n\tALL_FLAG,\n\tDUMMY,\n\t\"UsageDefinitionDescription\"\n) as --\
+  \ SEMANTIC LAYER BEGINS\n\nSELECT \"AccountNumber\" as \"AccountNumber\",\n    \
+  \   \"AccountName\" as \"AccountName\",\n       \"UsageDefinitionArea\" as \"UsageDefinitionArea\"\
+  ,\n       \"InstanceName\" as \"InstanceName\",\n       \"UserType\" as \"UserType\"\
+  ,\n       \"UserTypeShortName\" as \"UserTypeShortName\",\n       \"MAXUsageScanDate\"\
+  \ as \"MAXUsageScanDate\",\n       \"UsageScanDate\" as \"UsageScanDate\",\n   \
+  \    \"UsageValue\" as \"UsageValue\",\n       \"ALL_FLAG\" as \"ALL_FLAG\",\n \
+  \      SUM(\"DUMMY\") as \"DUMMY\",\n       \"UsageDefinitionDescription\" as \"\
+  UsageDefinitionDescription\"\nFROM\n  (SELECT \"AccountNumber\" as \"AccountNumber\"\
+  ,\n          \"AccountName\" as \"AccountName\",\n          \"UsageDefinitionArea\"\
+  \ as \"UsageDefinitionArea\",\n          \"InstanceName\" as \"InstanceName\",\n\
+  \          \"UserType\" as \"UserType\",\n          \"UserTypeShortName\" as \"\
+  UserTypeShortName\",\n          \"MAXUsageScanDate\" as \"MAXUsageScanDate\",\n\
+  \          \"UsageScanDate\" as \"UsageScanDate\",\n          \"UsageValue\" as\
+  \ \"UsageValue\",\n          \"UsageDefinitionDescription\" as \"UsageDefinitionDescription\"\
+  ,\n          CASE\n              WHEN \"MAXUsageScanDate\" IS NULL then 'random'\n\
+  \              else IFF(\"MAXUsageScanDate\"=\"UsageScanDate\"\n               \
+  \        AND DATEDIFF(day, \"UsageScanDate\", CURRENT_TIMESTAMP) <='random', 'random',\
+  \ 'random')\n          END as \"ALL_FLAG\",\n          'random' as \"DUMMY\"\n \
+  \  FROM\n     (SELECT \"Projection_2\".\"AccountNumber\" as \"AccountNumber\",\n\
+  \             \"Projection_2\".\"AccountName\" as \"AccountName\",\n           \
+  \  \"Projection_2\".\"UsageDefinitionArea\" as \"UsageDefinitionArea\",\n      \
+  \       \"Projection_2\".\"InstanceName\" as \"InstanceName\",\n             \"\
+  Projection_2\".\"UserType\" as \"UserType\",\n             \"Projection_2\".\"UserTypeShortName\"\
+  \ as \"UserTypeShortName\",\n             \"Aggregation_1\".\"MAXUsageScanDate\"\
+  \ as \"MAXUsageScanDate\",\n             \"Projection_2\".\"UsageScanDate\" as \"\
+  UsageScanDate\",\n             \"Projection_2\".\"UsageValue\" as \"UsageValue\"\
+  ,\n             \"Projection_2\".\"UsageDefinitionDescription\" as \"UsageDefinitionDescription\"\
+  \n      FROM\n        (SELECT \"AccountNumber\" as \"AccountNumber\",\n        \
+  \        \"AccountName\" as \"AccountName\",\n                \"UsageDefinitionArea\"\
+  \ as \"UsageDefinitionArea\",\n                \"InstanceName\" as \"InstanceName\"\
+  ,\n                \"UserType\" as \"UserType\",\n                \"UserTypeShortName\"\
+  \ as \"UserTypeShortName\",\n                MAX(\"UsageScanDate\") as \"MAXUsageScanDate\"\
+  \n         FROM\n           (SELECT \"AccountNumber\" as \"AccountNumber\",\n  \
+  \                 \"AccountName\" as \"AccountName\",\n                   \"UsageDefinitionArea\"\
+  \ as \"UsageDefinitionArea\",\n                   \"InstanceName\" as \"InstanceName\"\
+  ,\n                   \"UserType\" as \"UserType\",\n                   \"UserTypeShortName\"\
+  \ as \"UserTypeShortName\",\n                   \"UsageScanDate\" as \"UsageScanDate\"\
+  \n            FROM \"CDL_LS\".\"CUSTOMER_RPT\".\"USER_COUNT_UNION\")\"Projection_1\"\
+  \n         GROUP BY \"AccountNumber\",\n                  \"AccountName\",\n   \
+  \               \"UsageDefinitionArea\",\n                  \"InstanceName\",\n\
+  \                  \"UserType\",\n                  \"UserTypeShortName\")\"Aggregation_1\"\
+  \n      RIGHT JOIN\n        (SELECT \"AccountNumber\" as \"AccountNumber\",\n  \
+  \              \"AccountName\" as \"AccountName\",\n                \"UsageDefinitionArea\"\
+  \ as \"UsageDefinitionArea\",\n                \"UsageDefinitionDescription\" as\
+  \ \"UsageDefinitionDescription\",\n                \"InstanceName\" as \"InstanceName\"\
+  ,\n                \"UserType\" as \"UserType\",\n                \"UserTypeShortName\"\
+  \ as \"UserTypeShortName\",\n                \"UsageScanDate\" as \"UsageScanDate\"\
+  ,\n                \"UsageValue\" as \"UsageValue\"\n         FROM \"CDL_LS\".\"\
+  CUSTOMER_RPT\".\"USER_COUNT_UNION\")\"Projection_2\" ON \"Aggregation_1\".\"AccountNumber\"\
+  \ = \"Projection_2\".\"AccountNumber\"\n      AND \"Aggregation_1\".\"AccountName\"\
+  \ = \"Projection_2\".\"AccountName\"\n      AND \"Aggregation_1\".\"UsageDefinitionArea\"\
+  \ = \"Projection_2\".\"UsageDefinitionArea\"\n      AND \"Aggregation_1\".\"InstanceName\"\
+  \ = \"Projection_2\".\"InstanceName\"\n      AND \"Aggregation_1\".\"UserType\"\
+  \ = \"Projection_2\".\"UserType\"\n      AND \"Aggregation_1\".\"UserTypeShortName\"\
+  \ = \"Projection_2\".\"UserTypeShortName\")\"Join_1\")Projection_3\nGROUP BY \"\
+  AccountNumber\",\n         \"AccountName\",\n         \"UsageDefinitionArea\",\n\
+  \         \"InstanceName\",\n         \"UserType\",\n         \"UserTypeShortName\"\
+  ,\n         \"MAXUsageScanDate\",\n         \"UsageScanDate\",\n         \"UsageValue\"\
+  ,\n         \"ALL_FLAG\",\n         \"UsageDefinitionDescription\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

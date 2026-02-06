@@ -1,0 +1,60 @@
+name: table_1347
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1347
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1347.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PIPELINE_HISTORICAL_CONVERSION(\n\
+  \tBU_ID,\n\tDATE_ID,\n\tQUARTER_ID,\n\tQUARTER_YYQQ,\n\tTERRITORY_ID,\n\tGEO_ID,\n\
+  \tCURRENT_COMMIT,\n\tCURRENT_EXPECT,\n\tCURRENT_OPEN_PIPELINE_WEIGHT,\n\tCURRENT_PIPELINE,\n\
+  \tCURRENT_UPSIDE,\n\tCURRENT_WEIGHTED_PIPELINE,\n\tFINAL_CLOSED,\n\tOPEN_PIPELINE,\n\
+  \tRECORD_TYPE\n) as\nselect\nDBU.BU_ID,\nto_char(\"SnapshotDate\",'random')::number\
+  \ DATE_ID,\nto_char(DATE_TRUNC('random',\"SnapshotDate\"),'random')::number QUARTER_ID,\n\
+  \"SalesQuarter\" QUARTER_YYQQ,\nDTE.TERRITORY_ID,\nDTE.GEO_ID,\nsum(\"CurrentCommit\"\
+  ) AS CURRENT_COMMIT,\nsum(\"CurrentExpect\") AS CURRENT_EXPECT,\nsum(\"CurrentOpenPipelineWeight\"\
+  ) AS CURRENT_OPEN_PIPELINE_WEIGHT,\nsum(\"CurrentPipeline\") AS CURRENT_PIPELINE,\n\
+  sum(\"CurrentUpside\") AS CURRENT_UPSIDE,\nsum(\"CurrentOpenPipelineWeight\") AS\
+  \ CURRENT_WEIGHTED_PIPELINE,\nsum(\"FinalClosed\") AS FINAL_CLOSED,\nsum(\"OpenPipeline\"\
+  ) AS OPEN_PIPELINE,\nPD.\"RecordType\" RECORD_TYPE\nfrom EDW_LS.SALES_EM.PREDICTION_DRILLDOWN\
+  \ PD\nLEFT OUTER JOIN\nEDW.ENTERPRISE.DIM_BU DBU on DBU.BU_GROUP=PD.\"PLSBUGroup\"\
+  \nleft OUTER JOIN\nEDW.ENTERPRISE.DIM_TERRITORY DTE on DTE.territory_sysid=PD.\"\
+  TerritorySysID\"\ngroup by all;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

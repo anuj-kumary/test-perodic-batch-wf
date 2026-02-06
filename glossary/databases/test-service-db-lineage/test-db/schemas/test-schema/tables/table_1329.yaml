@@ -1,0 +1,234 @@
+name: table_1329
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1329
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1329.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view USER_COUNT_UNION(\n\t\"AccountNumber\",\n\
+  \t\"AccountName\",\n\t\"UsageDefinitionArea\",\n\t\"UsageDefinitionDescription\"\
+  ,\n\t\"UsageDefinitionName\",\n\t\"InstanceName\",\n\t\"UsageScanDate\",\n\t\"UsageValue\"\
+  ,\n\t\"UserType\",\n\t\"UserTypeShortName\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"U_NUMBER\" as \"AccountNumber\",\n       \"ACCOUNT_NAME\" as \"AccountName\"\
+  ,\n       \"U_AREA\" as \"UsageDefinitionArea\",\n       \"U_DESCRIPTION\" as \"\
+  UsageDefinitionDescription\",\n       \"U_NAME\" as \"UsageDefinitionName\",\n \
+  \      \"U_INSTANCE_NAME\" as \"InstanceName\",\n       \"RUN_DATE_SANS_TIME\" as\
+  \ \"UsageScanDate\",\n       \"U_VALUE\" as \"UsageValue\",\n       \"USER_TYPE\"\
+  \ as \"UserType\",\n       \"USER_TYPE_HOME\" as \"UserTypeShortName\"\nFROM\n \
+  \ (SELECT \"Union_1\".\"CORE_COMPANY_U_NUMBER\" as \"U_NUMBER\",\n          \"Projection_3\"\
+  .\"ACCOUNT_NAME\" as \"ACCOUNT_NAME\",\n          \"Union_1\".\"U_AREA\" as \"U_AREA\"\
+  ,\n          \"Union_1\".\"U_DESCRIPTION\" as \"U_DESCRIPTION\",\n          \"Union_1\"\
+  .\"U_NAME\" as \"U_NAME\",\n          \"Union_1\".\"U_VALUE\" as \"U_VALUE\",\n\
+  \          \"Union_1\".\"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n          \"\
+  Union_1\".\"RUN_DATE_SANS_TIME\" as \"RUN_DATE_SANS_TIME\",\n          \"Union_1\"\
+  .\"USER_TYPE\" as \"USER_TYPE\",\n          \"Union_1\".\"USER_TYPE_HOME\" as \"\
+  USER_TYPE_HOME\"\n   FROM\n     (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n        \
+  \     \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\"\n      FROM \"EDW_LS\".\"CUSTOMER_EM\"\
+  .\"VW_ACCOUNT\")\"Projection_3\"\n   INNER JOIN\n     (SELECT *\n      FROM\n  \
+  \      (SELECT \"U_AREA\" as \"U_AREA\",\n                \"U_DESCRIPTION\" as \"\
+  U_DESCRIPTION\",\n                \"U_NAME\" as \"U_NAME\",\n                \"\
+  U_DATE_RUN\" as \"U_DATE_RUN\",\n                \"U_VALUE\" as \"U_VALUE\",\n \
+  \               \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n                \"\
+  CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\",\n                \"RUN_DATE_SANS_TIME\"\
+  \ as \"RUN_DATE_SANS_TIME\",\n                \"USER_TYPE\" as \"USER_TYPE\",\n\
+  \                \"USER_TYPE_HOME\" as \"USER_TYPE_HOME\"\n         FROM\n     \
+  \      (SELECT \"U_AREA\" as \"U_AREA\",\n                   \"U_DESCRIPTION\" as\
+  \ \"U_DESCRIPTION\",\n                   \"U_NAME\" as \"U_NAME\",\n           \
+  \        \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                   \"U_VALUE\" as \"\
+  U_VALUE\",\n                   \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n   \
+  \                \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\",\n     \
+  \              \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\",\n                   \"\
+  U_DATE_RUN\"::date as \"RUN_DATE_SANS_TIME\",\n                   'random' as \"\
+  USER_TYPE\",\n                   'random' as \"USER_TYPE_HOME\"\n            FROM\
+  \ \"EDW_LS\".\"CUSTOMER_EM\".\"USAGE\"\n            WHERE \"U_AREA\" = 'random'\n\
+  \              AND \"U_TYPE_PURPOSE\" IN('random',\n                           \
+  \           'random') )\"Requester_365\"\n         UNION ALL SELECT \"U_AREA\" as\
+  \ \"U_AREA\",\n                          \"U_DESCRIPTION\" as \"U_DESCRIPTION\"\
+  ,\n                          \"U_NAME\" as \"U_NAME\",\n                       \
+  \   \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                          \"U_VALUE\" as\
+  \ \"U_VALUE\",\n                          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\"\
+  ,\n                          \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\"\
+  ,\n                          \"RUN_DATE_SANS_TIME\" as \"RUN_DATE_SANS_TIME\",\n\
+  \                          \"USER_TYPE\" as \"USER_TYPE\",\n                   \
+  \       'random' as \"USER_TYPE_HOME\"\n         FROM\n           (SELECT \"U_AREA\"\
+  \ as \"U_AREA\",\n                   \"U_DESCRIPTION\" as \"U_DESCRIPTION\",\n \
+  \                  \"U_NAME\" as \"U_NAME\",\n                   \"U_DATE_RUN\"\
+  \ as \"U_DATE_RUN\",\n                   \"U_VALUE\" as \"U_VALUE\",\n         \
+  \          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n                   \"CORE_COMPANY_U_NUMBER\"\
+  \ as \"CORE_COMPANY_U_NUMBER\",\n                   \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\"\
+  ,\n                   \"U_DATE_RUN\"::date as \"RUN_DATE_SANS_TIME\",\n        \
+  \           'random' as \"USER_TYPE\"\n            FROM \"EDW_LS\".\"CUSTOMER_EM\"\
+  .\"USAGE\"\n            WHERE \"U_AREA\" = 'random'\n              AND \"U_TYPE_PURPOSE\"\
+  \ IN('random',\n                                      'random') )\"Fulfiller_90\"\
+  \n         UNION ALL SELECT \"U_AREA\" as \"U_AREA\",\n                        \
+  \  \"U_DESCRIPTION\" as \"U_DESCRIPTION\",\n                          \"U_NAME\"\
+  \ as \"U_NAME\",\n                          \"U_DATE_RUN\" as \"U_DATE_RUN\",\n\
+  \                          \"U_VALUE\" as \"U_VALUE\",\n                       \
+  \   \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n                          \"CORE_COMPANY_U_NUMBER\"\
+  \ as \"CORE_COMPANY_U_NUMBER\",\n                          \"RUN_DATE_SANS_TIME\"\
+  \ as \"RUN_DATE_SANS_TIME\",\n                          \"USER_TYPE\" as \"USER_TYPE\"\
+  ,\n                          'random' as \"USER_TYPE_HOME\"\n         FROM\n   \
+  \        (SELECT \"U_AREA\" as \"U_AREA\",\n                   \"U_DESCRIPTION\"\
+  \ as \"U_DESCRIPTION\",\n                   \"U_NAME\" as \"U_NAME\",\n        \
+  \           \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                   \"U_VALUE\" as\
+  \ \"U_VALUE\",\n                   \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n\
+  \                   \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\",\n  \
+  \                 \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\",\n                  \
+  \ \"U_DATE_RUN\"::date as \"RUN_DATE_SANS_TIME\",\n                   'random' as\
+  \ \"USER_TYPE\"\n            FROM \"EDW_LS\".\"CUSTOMER_EM\".\"USAGE\"\n       \
+  \     WHERE \"U_AREA\" = 'random'\n              AND \"U_TYPE_PURPOSE\" IN('random',\n\
+  \                                      'random') )\"Fulfiller_30\"\n         UNION\
+  \ ALL SELECT \"U_AREA\" as \"U_AREA\",\n                          \"U_DESCRIPTION\"\
+  \ as \"U_DESCRIPTION\",\n                          \"U_NAME\" as \"U_NAME\",\n \
+  \                         \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                  \
+  \        \"U_VALUE\" as \"U_VALUE\",\n                          \"U_INSTANCE_NAME\"\
+  \ as \"U_INSTANCE_NAME\",\n                          \"CORE_COMPANY_U_NUMBER\" as\
+  \ \"CORE_COMPANY_U_NUMBER\",\n                          \"RUN_DATE_SANS_TIME\" as\
+  \ \"RUN_DATE_SANS_TIME\",\n                          \"USER_TYPE\" as \"USER_TYPE\"\
+  ,\n                          \"USER_TYPE_HOME\" as \"USER_TYPE_HOME\"\n        \
+  \ FROM\n           (SELECT \"U_AREA\" as \"U_AREA\",\n                   \"U_DESCRIPTION\"\
+  \ as \"U_DESCRIPTION\",\n                   \"U_NAME\" as \"U_NAME\",\n        \
+  \           \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                   \"U_VALUE\" as\
+  \ \"U_VALUE\",\n                   \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n\
+  \                   \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\",\n  \
+  \                 \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\",\n                  \
+  \ \"U_DATE_RUN\" ::date as \"RUN_DATE_SANS_TIME\",\n                   'random'\
+  \ as \"USER_TYPE\",\n                   'random' as \"USER_TYPE_HOME\"\n       \
+  \     FROM \"EDW_LS\".\"CUSTOMER_EM\".\"USAGE\"\n            WHERE \"U_AREA\" =\
+  \ 'random'\n              AND \"U_TYPE_PURPOSE\" IN('random',\n                \
+  \                      'random') )\"Approver_365\"\n         UNION ALL SELECT \"\
+  U_AREA\" as \"U_AREA\",\n                          \"U_DESCRIPTION\" as \"U_DESCRIPTION\"\
+  ,\n                          \"U_NAME\" as \"U_NAME\",\n                       \
+  \   \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                          \"U_VALUE\" as\
+  \ \"U_VALUE\",\n                          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\"\
+  ,\n                          \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\"\
+  ,\n                          \"RUN_DATE_SANS_TIME\" as \"RUN_DATE_SANS_TIME\",\n\
+  \                          \"USER_TYPE\" as \"USER_TYPE\",\n                   \
+  \       \"USER_TYPE_HOME\" as \"USER_TYPE_HOME\"\n         FROM\n           (SELECT\
+  \ \"U_AREA\" as \"U_AREA\",\n                   \"U_DESCRIPTION\" as \"U_DESCRIPTION\"\
+  ,\n                   \"U_NAME\" as \"U_NAME\",\n                   \"U_DATE_RUN\"\
+  \ as \"U_DATE_RUN\",\n                   \"U_VALUE\" as \"U_VALUE\",\n         \
+  \          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n                   \"CORE_COMPANY_U_NUMBER\"\
+  \ as \"CORE_COMPANY_U_NUMBER\",\n                   \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\"\
+  ,\n                   \"U_DATE_RUN\" ::date as \"RUN_DATE_SANS_TIME\",\n       \
+  \            'random' as \"USER_TYPE\",\n                   'random' as \"USER_TYPE_HOME\"\
+  \n            FROM \"EDW_LS\".\"CUSTOMER_EM\".\"USAGE\"\n            WHERE \"U_AREA\"\
+  \ = 'random'\n              AND \"U_TYPE_PURPOSE\" IN('random',\n              \
+  \                        'random',\n                                      'random')\
+  \ )\"Fulfiller_365\"\n         UNION ALL SELECT \"U_AREA\" as \"U_AREA\",\n    \
+  \                      \"U_DESCRIPTION\" as \"U_DESCRIPTION\",\n               \
+  \           \"U_NAME\" as \"U_NAME\",\n                          \"U_DATE_RUN\"\
+  \ as \"U_DATE_RUN\",\n                          \"U_VALUE\" as \"U_VALUE\",\n  \
+  \                        \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n         \
+  \                 \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\",\n    \
+  \                      \"RUN_DATE_SANS_TIME\" as \"RUN_DATE_SANS_TIME\",\n     \
+  \                     \"USER_TYPE\" as \"USER_TYPE\",\n                        \
+  \  'random' as \"USER_TYPE_HOME\"\n         FROM\n           (SELECT \"U_AREA\"\
+  \ as \"U_AREA\",\n                   \"U_DESCRIPTION\" as \"U_DESCRIPTION\",\n \
+  \                  \"U_NAME\" as \"U_NAME\",\n                   \"U_DATE_RUN\"\
+  \ as \"U_DATE_RUN\",\n                   \"U_VALUE\" as \"U_VALUE\",\n         \
+  \          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n                   \"CORE_COMPANY_U_NUMBER\"\
+  \ as \"CORE_COMPANY_U_NUMBER\",\n                   \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\"\
+  ,\n                   \"U_DATE_RUN\" ::date as \"RUN_DATE_SANS_TIME\",\n       \
+  \            'random' as \"USER_TYPE\"\n            FROM \"EDW_LS\".\"CUSTOMER_EM\"\
+  .\"USAGE\"\n            WHERE (\"U_AREA\" ='random')\n              AND (\"U_TYPE_PURPOSE\"\
+  \ in ('random',\n                                        'random',\n           \
+  \                             'random')) )\"Fulfiller_30_OLD\"\n         UNION ALL\
+  \ SELECT \"U_AREA\" as \"U_AREA\",\n                          \"U_DESCRIPTION\"\
+  \ as \"U_DESCRIPTION\",\n                          \"U_NAME\" as \"U_NAME\",\n \
+  \                         \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                  \
+  \        \"U_VALUE\" as \"U_VALUE\",\n                          \"U_INSTANCE_NAME\"\
+  \ as \"U_INSTANCE_NAME\",\n                          \"CORE_COMPANY_U_NUMBER\" as\
+  \ \"CORE_COMPANY_U_NUMBER\",\n                          \"RUN_DATE_SANS_TIME\" as\
+  \ \"RUN_DATE_SANS_TIME\",\n                          \"USER_TYPE\" as \"USER_TYPE\"\
+  ,\n                          'random' as \"USER_TYPE_HOME\"\n         FROM\n   \
+  \        (SELECT \"U_AREA\" as \"U_AREA\",\n                   \"U_DESCRIPTION\"\
+  \ as \"U_DESCRIPTION\",\n                   \"U_NAME\" as \"U_NAME\",\n        \
+  \           \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                   \"U_VALUE\" as\
+  \ \"U_VALUE\",\n                   \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n\
+  \                   \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\",\n  \
+  \                 \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\",\n                  \
+  \ \"U_DATE_RUN\"::date as \"RUN_DATE_SANS_TIME\",\n                   'random' as\
+  \ \"USER_TYPE\"\n            FROM \"EDW_LS\".\"CUSTOMER_EM\".\"USAGE\"\n       \
+  \     WHERE (\"U_AREA\" ='random')\n              AND (\"U_TYPE_PURPOSE\" in ('random',\n\
+  \                                        'random',\n                           \
+  \             'random')))\"Fulfiller_90_OLD\"\n         UNION ALL SELECT \"U_AREA\"\
+  \ as \"U_AREA\",\n                          \"U_DESCRIPTION\" as \"U_DESCRIPTION\"\
+  ,\n                          \"U_NAME\" as \"U_NAME\",\n                       \
+  \   \"U_DATE_RUN\" as \"U_DATE_RUN\",\n                          \"U_VALUE\" as\
+  \ \"U_VALUE\",\n                          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\"\
+  ,\n                          \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\"\
+  ,\n                          \"RUN_DATE_SANS_TIME\" as \"RUN_DATE_SANS_TIME\",\n\
+  \                          \"USER_TYPE\" as \"USER_TYPE\",\n                   \
+  \       \"USER_TYPE_HOME\" as \"USER_TYPE_HOME\"\n         FROM\n           (SELECT\
+  \ \"U_AREA\" as \"U_AREA\",\n                   \"U_DESCRIPTION\" as \"U_DESCRIPTION\"\
+  ,\n                   \"U_NAME\" as \"U_NAME\",\n                   \"U_DATE_RUN\"\
+  \ as \"U_DATE_RUN\",\n                   \"U_VALUE\" as \"U_VALUE\",\n         \
+  \          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n                   \"CORE_COMPANY_U_NUMBER\"\
+  \ as \"CORE_COMPANY_U_NUMBER\",\n                   \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\"\
+  ,\n                   \"U_DATE_RUN\"::date as \"RUN_DATE_SANS_TIME\",\n        \
+  \           'random' as \"USER_TYPE\",\n                   'random' as \"USER_TYPE_HOME\"\
+  \n            FROM \"EDW_LS\".\"CUSTOMER_EM\".\"USAGE\"\n            WHERE (\"U_AREA\"\
+  \ ='random')\n              AND (\"U_TYPE_PURPOSE\" in ('random',\n            \
+  \                            'random',\n                                       \
+  \ 'random')) )\"Fulfiller_365_OLD\"\n         UNION ALL SELECT \"U_AREA\" as \"\
+  U_AREA\",\n                          \"U_DESCRIPTION\" as \"U_DESCRIPTION\",\n \
+  \                         \"U_NAME\" as \"U_NAME\",\n                          \"\
+  U_DATE_RUN\" as \"U_DATE_RUN\",\n                          \"U_VALUE\" as \"U_VALUE\"\
+  ,\n                          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n     \
+  \                     \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\",\n\
+  \                          \"RUN_DATE_SANS_TIME\" as \"RUN_DATE_SANS_TIME\",\n \
+  \                         \"USER_TYPE\" as \"USER_TYPE\",\n                    \
+  \      'random' as \"USER_TYPE_HOME\"\n         FROM\n           (SELECT \"U_AREA\"\
+  \ as \"U_AREA\",\n                   \"U_DESCRIPTION\" as \"U_DESCRIPTION\",\n \
+  \                  \"U_NAME\" as \"U_NAME\",\n                   \"U_DATE_RUN\"\
+  \ as \"U_DATE_RUN\",\n                   \"U_VALUE\" as \"U_VALUE\",\n         \
+  \          \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n                   \"CORE_COMPANY_U_NUMBER\"\
+  \ as \"CORE_COMPANY_U_NUMBER\",\n                   \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\"\
+  ,\n                   \"U_DATE_RUN\" ::date as \"RUN_DATE_SANS_TIME\",\n       \
+  \            'random' as \"USER_TYPE\"\n            FROM \"EDW_LS\".\"CUSTOMER_EM\"\
+  .\"USAGE\"\n            WHERE \"U_AREA\" = 'random'\n              AND \"U_TYPE_PURPOSE\"\
+  \ IN('random',\n                                      'random') )\"End_OLD\"))\"\
+  Union_1\" ON \"Projection_3\".\"U_NUMBER\" = \"Union_1\".\"CORE_COMPANY_U_NUMBER\"\
+  )Join_3\ngroup by \"U_NUMBER\",\n         \"ACCOUNT_NAME\",\n         \"U_AREA\"\
+  ,\n         \"U_DESCRIPTION\",\n         \"U_NAME\",\n         \"U_INSTANCE_NAME\"\
+  ,\n         \"RUN_DATE_SANS_TIME\",\n         \"U_VALUE\",\n         \"USER_TYPE\"\
+  ,\n         \"USER_TYPE_HOME\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

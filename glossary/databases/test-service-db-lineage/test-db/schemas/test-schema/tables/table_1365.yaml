@@ -1,0 +1,70 @@
+name: table_1365
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1365
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1365.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_MRKT_U_CAMPAIGN_HISTORY_MONTHLY(\n\t\"\
+  CampaignAssociatiSurfDate\",\n\t\"ChNumber\",\n\t\"ChLeadSysID\",\n\t\"ChCampaignSysID\"\
+  ,\n\t\"ChActive\",\n\t\"ChExtractDate\",\n\t\"ChSysID\",\n\t\"ChCampaignName\",\n\
+  \t\"ChMemberStatus\",\n\t\"ChLeadStatus\",\n\t\"ChPageURL\",\n\t\"ChLeadNumber\"\
+  ,\n\t\"ChDeliveryCampaignSysID\",\n\t\"ChBusinessUnit\",\n\t\"ChCampaignAsset\"\n\
+  ) as\nSELECT \"U_CAMPAIGN_ASSOCIATION_SURF_DATE\" as \"CampaignAssociatiSurfDate\"\
+  ,\n       \"U_NUMBER\" as \"ChNumber\",\n       \"U_LEAD\" as \"ChLeadSysID\",\n\
+  \       \"U_CAMPAIGN_NAME\" as \"ChCampaignSysID\",\n       \"U_ACTIVE\" as \"ChActive\"\
+  ,\n       \"EXTRACT_DATE\" as \"ChExtractDate\",\n       \"SYS_ID\" as \"ChSysID\"\
+  ,\n       \"DV_U_CAMPAIGN_NAME\" as \"ChCampaignName\",\n       \"DV_U_MEMBER_STATUS\"\
+  \ as \"ChMemberStatus\",\n       \"U_LEAD_STATUS\" as \"ChLeadStatus\",\n      \
+  \ \"U_PAGE_URL\" as \"ChPageURL\",\n       \"DV_U_LEAD\" as \"ChLeadNumber\",\n\
+  \       \"U_DELIVERY_CAMPAIGN\" as \"ChDeliveryCampaignSysID\",\n       \"DV_U_BUSINESS_UNIT\"\
+  \ as \"ChBusinessUnit\",\n       \"DV_U_CAMPAIGN_ASSET\" as \"ChCampaignAsset\"\n\
+  FROM\n  (SELECT \"U_CAMPAIGN_ASSOCIATION_SURF_DATE\" as \"U_CAMPAIGN_ASSOCIATION_SURF_DATE\"\
+  ,\n          \"U_NUMBER\" as \"U_NUMBER\",\n          \"U_LEAD\" as \"U_LEAD\",\n\
+  \          \"U_CAMPAIGN_NAME\" as \"U_CAMPAIGN_NAME\",\n          \"U_ACTIVE\" as\
+  \ \"U_ACTIVE\",\n          \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n          \"SYS_ID\"\
+  \ as \"SYS_ID\",\n          \"DV_U_CAMPAIGN_NAME\" as \"DV_U_CAMPAIGN_NAME\",\n\
+  \          \"DV_U_MEMBER_STATUS\" as \"DV_U_MEMBER_STATUS\",\n          \"U_LEAD_STATUS\"\
+  \ as \"U_LEAD_STATUS\",\n          \"U_PAGE_URL\" as \"U_PAGE_URL\",\n         \
+  \ \"DV_U_LEAD\" as \"DV_U_LEAD\",\n          U_DELIVERY_CAMPAIGN AS \"U_DELIVERY_CAMPAIGN\"\
+  ,\n          DV_U_BUSINESS_UNIT as \"DV_U_BUSINESS_UNIT\",\n          DV_U_CAMPAIGN_ASSET\
+  \ as DV_U_CAMPAIGN_ASSET\n\n\n   FROM \"RDS\".\"SURF\".\"ST_MRKT_U_CAMPAIGN_HISTORY_MONTHLY\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,71 @@
+name: table_1359
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1359
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1359.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_PS_BILLING_ACTUALS(\n\t\"SBAGeo\",\n\t\
+  \"SBANumber\",\n\t\"SBAAccountName\",\n\t\"SBARevRecType\",\n\t\"SBACategory\",\n\
+  \t\"SBACloseDate\",\n\t\"SBACurrency\",\n\t\"SBABillingMonth\",\n\t\"SBACorrectedTotalHours\"\
+  ,\n\t\"SBACorrectedUSDInvoiceAmount\",\n\t\"SBACorrectedUSDInvoiceAmountCloseRate\"\
+  ,\n\t\"SBABase\",\n\t\"SBAResourceRole\",\n\t\"SBADealSize\",\n\t\"SBAMajorArea\"\
+  ,\n\t\"SBAArea\",\n\t\"SBAStage\",\n\t\"SBAState\",\n\t\"SBAProductCategory\",\n\
+  \t\"SBANewSegment\",\n\t\"SBADealType\",\n\t\"SBADealAge\",\n\t\"SBARevRec\",\n\t\
+  \"SBAConsultantType\",\n\t\"SBABillNonBill\",\n\t\"SBADeploymentPhase\",\n\t\"SBASendToSapDate\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"DV_U_GEO\" as \"SBAGeo\",\n       \"\
+  NUMBER\" as \"SBANumber\",\n       \"DV_U_ACCOUNT\" as \"SBAAccountName\",\n   \
+  \    \"DV_U_REV_REC_TYPE\" as \"SBARevRecType\",\n       \"CATEGORY\" as \"SBACategory\"\
+  ,\n       \"CLOSE_DATE\" as \"SBACloseDate\",\n       \"DV_U_CURRENCY\" as \"SBACurrency\"\
+  ,\n       \"BILLING_MONTH\" as \"SBABillingMonth\",\n       \"CORRECTED_TOTAL_HOURS\"\
+  \ as \"SBACorrectedTotalHours\",\n       \"CORRECTED_USD_INVOICE_AMOUNT\" as \"\
+  SBACorrectedUSDInvoiceAmount\",\n       \"CORRECTED_USD_INVOICE_AMOUNT_CLOSE_RATE\"\
+  \ as \"SBACorrectedUSDInvoiceAmountCloseRate\",\n       \"BASE\" as \"SBABase\"\
+  ,\n       \"DV_U_RESOURCE_ROLE\" as \"SBAResourceRole\",\n       \"DEAL_SIZE\" as\
+  \ \"SBADealSize\",\n       \"DV_U_MAJOR_AREA\" as \"SBAMajorArea\",\n       \"DV_U_AREA\"\
+  \ as \"SBAArea\",\n       \"DV_STAGE\" as \"SBAStage\",\n       \"DV_STATE\" as\
+  \ \"SBAState\",\n       \"U_PRODUCT_CATEGORY\" as \"SBAProductCategory\",\n    \
+  \   \"U_NEW_SEGMENT\" as \"SBANewSegment\",\n       \"DEAL_TYPE\" as \"SBADealType\"\
+  ,\n       \"DEAL_AGE_Q\" as \"SBADealAge\",\n       \"REV_REC\" as \"SBARevRec\"\
+  ,\n       \"CONSULTANT_TYPE\" as \"SBAConsultantType\",\n       \"U_BILL_NON_BILL\"\
+  \ as \"SBABillNonBill\",\n       \"U_DEPLOYMENT_PHASE\" as \"SBADeploymentPhase\"\
+  ,\n       \"U_SEND_TO_SAP_DATE\" as \"SBASendToSapDate\"\nFROM \"RDS\".\"SURF\"\
+  .\"ST_PS_BILLING_ACTUALS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,61 @@
+name: table_1318
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1318
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1318.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_REP_QUOTA_TEST2(\n\tQUARTER_ID,\n\
+  \tSALESREP_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tQUARTER_DT,\n\tQUARTER_YYQQ,\n\tCOSTCENTER,\n\
+  \tREP_QUOTA_USD,\n\tSALESREP_SYSID,\n\tTERRITORY_SYSID\n) as\nSELECT\n QUARTER_ID\
+  \ as QUARTER_ID\n,HASH(\"EmpSysID\") AS SALESREP_ID\n,HASH(\"TERRITORYSYSID\") AS\
+  \ TERRITORY_ID\n,TERR.GEO_ID\n,QUARTER_DT as QUARTER_DT\n,QUARTER_YYQQ as QUARTER_YYQQ\n\
+  ,\"DeptCostCenter\" as COSTCENTER\n,sum(\"QUOTA\") as REP_QUOTA_USD\n,\"EmpSysID\"\
+  \ as SALESREP_SYSID\n,\"TERRITORYSYSID\" as TERRITORY_SYSID\nFROM EDW_LS.SALES_EM.TBLREPQUOTA\n\
+  left outer join (select distinct QUARTER_ID, QUARTER_DT, QUARTER_YYQQ from EDW.ENTERPRISE.DIM_QUARTER)\
+  \ qtr on \"QUARTER\" = qtr.QUARTER_YYQQ\nINNER join (SELECT \"EmpEmployeeNumber\"\
+  ,\"EmpSysID\", \"DeptCostCenter\" from ODS_LS.SURF.EMPLOYEE A\n            inner\
+  \ join\n                ODS_LS.SURF.CMN_DEPARTMENT B on A.\"EmpDepartmentSysID\"\
+  =B.\"DeptSysID\"\n            where \"DeptCostCenter\" in ('random','random','random','random','random','random')\n\
+  \            and \"DeptActive\"='random' and \"EmpActive\"='random' ) ON \"EmpEmployeeNumber\"\
+  \ = \"EMPLOYEE_NUMBER\"\nleft outer join EDW.ENTERPRISE.DIM_TERRITORY TERR ON \"\
+  TERRITORYSYSID\" = TERR.TERRITORY_SYSID\nwhere \"QUOTACOMPONENT\" = 'random'\ngroup\
+  \ by ALL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

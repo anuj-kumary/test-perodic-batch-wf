@@ -1,0 +1,74 @@
+name: table_1363
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1363
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1363.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_OPPORTUNITY_PARTNER(\n\t\"STPartnerNumber\"\
+  ,\n\t\"STPartnerOpportunitySysID\",\n\t\"STPartnerSourced\",\n\t\"STPartnerActive\"\
+  ,\n\t\"STPartnerPercentageAllocated\",\n\t\"STPartnerManager\",\n\t\"STPartnershipType\"\
+  ,\n\t\"STPartnerCreatedOn\",\n\t\"STPartnerOpportunityNumber\",\n\t\"STPartnerAccountSysID\"\
+  ,\n\t\"STPartnerAccount\",\n\t\"STPartnerAllocatedNNACV\",\n\t\"STPartnerAllocatedRenewalACV\"\
+  ,\n\t\"STPartnerOptyRegExpirationDate\",\n\t\"STPartnerOptyRegNumber\",\n\t\"STPartnerPartnershipType\"\
+  ,\n\t\"STPartnerPartnerTerritory\",\n\t\"STPartnerPartnerManager\",\n\t\"STPartnerPartnerJustification\"\
+  ,\n\t\"STPartnerExtractDate\",\n\t\"STPartnerTerritory\",\n\t\"STJPPNumber\",\n\t\
+  \"STPipelineSourced\",\n\t\"STACESourcingPartner\",\n\t\"STACETransactionType\"\
+  ,\n\t\"STACESourcingParentPartner\"\n) as -- SEMANTIC LAYER BEGINS\nSELECT\n   \
+  \ \"U_NUMBER\" as \"STPartnerNumber\",\n    \"U_OPPORTUNITY\" as \"STPartnerOpportunitySysID\"\
+  ,\n    \"U_SOURCED\" as \"STPartnerSourced\",\n    \"U_ACTIVE\" as \"STPartnerActive\"\
+  ,\n    \"U_PARTNER_PERCENTAGE_ALLOCATED\" as \"STPartnerPercentageAllocated\",\n\
+  \    \"U_PARTNER_MANAGER\" as \"STPartnerManager\",\n    \"U_PARTNERSHIP_TYPE\"\
+  \ as \"STPartnershipType\",\n    \"SYS_CREATED_ON\" as \"STPartnerCreatedOn\",\n\
+  \    \"DV_U_OPPORTUNITY\" as \"STPartnerOpportunityNumber\",\n    \"U_PARTNER_ACCOUNT\"\
+  \ as \"STPartnerAccountSysID\",\n    \"DV_U_PARTNER_ACCOUNT\" as \"STPartnerAccount\"\
+  ,\n    \"U_PARTNER_ALLOCATED_NNACV\" as \"STPartnerAllocatedNNACV\",\n    \"U_PARTNER_ALLOCATED_RENEWAL_ACV\"\
+  \ as \"STPartnerAllocatedRenewalACV\",\n    \"U_OPPORTUNITY_REG_EXPIRATION_DATE\"\
+  \ as \"STPartnerOptyRegExpirationDate\",\n    \"U_OPPORTUNITY_REGISTRATION_NUMBER\"\
+  \ as \"STPartnerOptyRegNumber\",\n    \"DV_U_PARTNERSHIP_TYPE\" as \"STPartnerPartnershipType\"\
+  ,\n    \"DV_U_PARTNER_TERRITORY\" as \"STPartnerPartnerTerritory\",\n    \"DV_U_PARTNER_MANAGER\"\
+  \ as \"STPartnerPartnerManager\",\n    \"DV_U_PARTNER_JUSTIFICATION\" as \"STPartnerPartnerJustification\"\
+  ,\n    \"EXTRACT_DATE\" as \"STPartnerExtractDate\",\n    \"U_PARTNER_TERRITORY\"\
+  \ as \"STPartnerTerritory\",\n    \"DV_U_JPP_NUMBER\" as \"STJPPNumber\",\n    \"\
+  U_PIPELINE_SOURCED\" as \"STPipelineSourced\",\n    \"SOURCING_PARTNER\" as \"STACESourcingPartner\"\
+  ,\n    \"ACE_TRANSACTION_TYPE\" as \"STACETransactionType\",\n    \"SOURCING_PARTNER_ULTIMATE_PARENT_ACCOUNT\"\
+  \ as \"STACESourcingParentPartner\"\nFROM\n    \"RDS\".\"SURF\".\"ST_U_OPPORTUNITY_PARTNER\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,929 @@
+name: table_1305
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1305
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1305.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_FIXEDDATA_PIPELINE_DB_0717(\n\
+  \tQUARTER_DT,\n\tQUARTER_YYQQ,\n\tQUARTER_ID,\n\tOPTY_ID,\n\tOPTY_NUMBER,\n\tOPTY_LINE_ITEM_ID,\n\
+  \tOPTY_ITEM_NUMBER,\n\tOPTY_ITEM_NUMBER_CRM,\n\tACCOUNT_ID,\n\tPRODUCT_ID,\n\tTERRITORY_ID,\n\
+  \tGEO_ID,\n\tBOOKING_BRIDGE_FLAGS_ID,\n\tREPORTING_PARENT_QUARTER_YYQQ,\n\tREPORTING_OPTY_ID,\n\
+  \tREPORTING_OPTY_ACCOUNT_ID,\n\tPARENT_OPTY_ACCOUNT_ID,\n\tPIPELINE_ID,\n\tIS_FIXED,\n\
+  \tIS_SALES_ACTIVE_PIPELINE,\n\tOPTY_CLOSE_QUARTER_YYQQ,\n\tIS_VALID,\n\tCLOSED_NEW_LOGO_USD,\n\
+  \tCLOSED_NEW_LOGO_USD_CFX,\n\tRENEWAL_STATUS,\n\tNNACV_LC,\n\tNNACV_USD,\n\tNNACV_USD_CFX,\n\
+  \tNNACV_CLOSED_USD,\n\tNNACV_CLOSED_USD_CFX,\n\tNNACV_OPEN_USD,\n\tNNACV_OPEN_USD_CFX,\n\
+  \tNNACV_SUBMITTED_USD,\n\tNNACV_SUBMITTED_USD_CFX,\n\tNNACV_UPSIDE_USD,\n\tNNACV_UPSIDE_USD_CFX,\n\
+  \tNNACV_WEIGHTED_USD,\n\tNNACV_WEIGHTED_USD_CFX,\n\tNNACV_MATURE_USD,\n\tNNACV_MATURE_USD_CFX,\n\
+  \tNNACV_ACE_SOURCE_USD_CFX,\n\tNNACV_ACQUIRED_USD,\n\tNNACV_ACQUIRED_USD_CFX,\n\t\
+  NNACV_COMMIT_USD_CFX,\n\tNNACV_COMMIT_USD,\n\tNNACV_CS_CLOSED_USD_CFX,\n\tNNACV_EXPECT_USD_CFX,\n\
+  \tNNACV_EXPECT_USD,\n\tNNACV_MKT_SOURCE_USD_CFX,\n\tPS_REVENUE_LC,\n\tPS_REVENUE_USD,\n\
+  \tPS_REVENUE_USD_CFX,\n\tRENEWAL_ACV_LC,\n\tRENEWAL_ACV_USD,\n\tRENEWAL_ACV_USD_CFX,\n\
+  \tRENEWAL_ACV_CLOSED_USD,\n\tRENEWAL_ACV_CLOSED_USD_CFX,\n\tRENEWAL_ACV_CLOSED_LOST_USD,\n\
+  \tRENEWAL_ACV_CLOSED_LOST_USD_CFX,\n\tRENEWAL_ACV_CLOSED_WON_USD,\n\tRENEWAL_ACV_CLOSED_WON_USD_CFX,\n\
+  \tRENEWAL_ACV_OPEN_USD,\n\tRENEWAL_ACV_OPEN_USD_CFX,\n\tRENEWAL_ACV_TOTAL_OPEN_USD_CFX,\n\
+  \tRENEWAL_RATE,\n\tRENEWAL_NNACV_USD,\n\tRENEWAL_NNACV_USD_CFX,\n\tRENEWAL_NNACV_BU_OPEN_DOWNSELL_HEALTH_USD_CY_FX,\n\
+  \tRENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_LC,\n\tRENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_USD,\n\
+  \tRENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_USD_CFX,\n\tRENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_LC,\n\
+  \tRENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_USD,\n\tRENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_USD_CFX,\n\
+  \tRENEWAL_ACV_OPEN_RISK_REP_LC,\n\tRENEWAL_ACV_OPEN_RISK_REP_USD,\n\tRENEWAL_ACV_OPEN_RISK_REP_USD_CFX,\n\
+  \tRENEWAL_ACV_OPEN_RISK_ML_LC,\n\tRENEWAL_ACV_OPEN_RISK_ML_USD,\n\tRENEWAL_ACV_OPEN_RISK_ML_USD_CFX,\n\
+  \tRENEWAL_ACV_PQ_OVERDUE_USD_CY_FX,\n\tTRANSACTION_BAND,\n\tPARENT_DEAL_BAND,\n\t\
+  SERVICES_REVENUE_LC,\n\tSERVICES_REVENUE_USD,\n\tSERVICES_USD_CFX,\n\tTOTAL_ACV_USD_CFX,\n\
+  \tTOTAL_SERVICES_CLOSED_ACV_USD_CFX,\n\tTOTAL_VALUE_AMOUNT_LC,\n\tTOTAL_VALUE_AMOUNT_USD,\n\
+  \tTOTAL_VALUE_AMOUNT_USD_CALLIDUS,\n\tTOTAL_VALUE_LC,\n\tTRAINING_REVENUE_CLOSED_USD,\n\
+  \tTRAINING_REVENUE_TOTAL_LC,\n\tTRAINING_REVENUE_USD,\n\tTRAINING_REVENUE_USD_CFX,\n\
+  \tLOST_ACV_FX,\n\tLOST_ACV_USD,\n\tEXPERT_SERVICES_CLOSED_ACV_USD_CFX,\n\tACV_LC,\n\
+  \tACV_USD,\n\tADJUSTMENT_USD,\n\tANNUAL_LIST_PRICE_USD,\n\tLIST_PRICE_USD_CFX,\n\
+  \tESTIMATED_TAX_USD,\n\tBASE_PRICE,\n\tSALE_PRICE,\n\tLIST_PRICE_WITH_ADJUSTMENTS,\n\
+  \tCUSTOM_TRAINING_AMOUNT_USD,\n\tDEAL_REG_DISCOUNT,\n\tDISCOUNT_GUIDELINE_PERCENT,\n\
+  \tDISCOUNT_PERCENT,\n\tDISCRETION_PERCENT,\n\tTOTAL_DISCOUNT_PERCENT,\n\tPARTNER_DISCOUNT_PERCENT,\n\
+  \tNET_NEW_QUANTITY,\n\tOPTY_ITEM_QUANTITY,\n\tCONTRACT_LINE_QUANTITY,\n\tOPTY_ITEM_TERM,\n\
+  \tIS_FLAGS_FILTER,\n\tOPTY_ITEM_CREATED_BY,\n\tOPTY_ITEM_CREATED_BY_ROLE,\n\tOPTY_ITEM_FLAGGED_AS,\n\
+  \tOPTY_ITEM_ORIGIN,\n\tOPTY_ITEM_REPLACES_LINE,\n\tOPTY_ITEM_REV_REC_TYPE,\n\tOPTY_ITEM_SOURCE_SYSTEM,\n\
+  \tOPTY_ITEM_TERM_MONTHS_AND_DAYS,\n\tOPTY_ITEM_USD_CONSTANT_FX_NET_NEW_ACV,\n\t\
+  OPTY_ITEM_USD_CONSTANT_FX_RENEWAL_ACV,\n\tOPTY_CONTRACT_LINE_REFERENCE,\n\tPRICE_RESET_PRIMARY_LINE,\n\
+  \tREASON_FOR_100_PERCENT_DISCOUNT,\n\tTE_EXCEPTION_REASON,\n\tALLOCATION_TYPE,\n\
+  \tOPTY_SYSID,\n\tOPTY_ITEM_SYSID,\n\tACCOUNT_SYSID,\n\tPRODUCT_SYSID,\n\tTERRITORY_SYSID,\n\
+  \tOPTY_ITEM_START_TS,\n\tOPTY_ITEM_END_TS,\n\tOPTY_ITEM_CREATED_TS,\n\tOPTY_ITEM_UPDATED_TS,\n\
+  \tEXPECTED_TO_CLOSE_THIS_WEEK_ACV,\n\tEXPECTED_TO_CLOSE_THIS_WEEK_ACV_CY_FX,\n\t\
+  NEW_LOGO,\n\tNNACV_SALES_SOURCE_USD_CY_FX,\n\tPQ_PUSHED_LATE_RENEWAL_FLAG,\n\tNNACV_RENEWAL_OPEN_ACV_USD,\n\
+  \tCLOSED_LOST_RENEWAL_USD,\n\tRENEWAL_NNACV_CLOSED_DOWNSELL_CORP_USD_CY_FX,\n\t\
+  PQ_OVER_DUE_DYNAMIC_QUARTER,\n\tPQ_PUSHED_DYNAMIC_QUARTER_CQ,\n\tPQ_PUSHED_DYNAMIC_QUARTER_PQ,\n\
+  \tCLOSED_UPSELL_ACV_USD,\n\tNNACV_RENEWAL_OPEN_UPSELL_USD,\n\tNNACV_RENEWAL_CLOSED_LOST_USD,\n\
+  \tRENEWAL_NNACV_OPEN_DOWNSELL_CORP_USD_CY_FX,\n\tCLOSED_DOWNSELL_ACV_USD,\n\tRENEWAL_NNACV_CLOSED_UPSELL_USD_CY_FX,\n\
+  \tRENEWAL_NNACV_CLOSED_DOWNSELL_USD_CY_FX,\n\tRENEWAL_NNACV_OPEN_DOWNSELL_LOST_USD_CY_FX,\n\
+  \tRENEWAL_TOTACV_OPEN_DOWNSELL_ACCT_USD,\n\tRENEWAL_TOTACV_ADDL_BU_ML_RSK_USD,\n\
+  \tRENEWAL_TOTACV_BU_OPEN_DOWNSELL_USD,\n\tONTIME_CLOSED_WON_LOST_USD_CY_FX,\n\t\
+  RENEWAL_NNACV_OPTY_SURVIVOR_DOWNSELL_USD_CY_FX,\n\tRENEWAL_NNACV_OPEN_SURVIVOR_DOWNSELL_USD_CY_FX,\n\
+  \tRENEWAL_NNACV_DOWNSELL_USD_CY_FX,\n\tRENEWAL_NNACV_OPEN_UPSELL_HEALTH_USD_CY_FX,\n\
+  \tRENEWAL_NNACV_TOTAL_DOWNSELL_CORP_USD_DAILY,\n\tRENEWAL_NNACV_PROJECTED_LOSS_CORP_USD_DAILY,\n\
+  \tRENEWAL_NNACV_OPEN_DOWNSELL_CORP_USD_DAILY,\n\tRENEWAL_NNACV_BU_OPEN_DOWNSELL_CORP_USD_DAILY,\n\
+  \tRENEWAL_NNACV_BU_CLOSED_LOST_USD_DAILY,\n\tRENEWAL_NNACV_CLOSED_LOST_USD_CY_FX,\n\
+  \tRENEWAL_NNACV_OPEN_DOWNSELL_USD_CY_FX,\n\tRENEWAL_NNACV_OPEN_UPSELL_BU_USD_CY_FX,\n\
+  \tRENEWAL_NNACV_TOTAL_CLOSED_LOST_USD_CY_FX,\n\tRENEWAL_NNACV_UPSELL_USD_CY_FX,\n\
+  \tRENEWAL_TOTACV_BU_ML_RSK_HIGH_USD,\n\tRENEWAL_TOTACV_BU_ML_RSK_MED_USD,\n\tRENEWAL_NNACV_BU_CLOSED_DOWNSELL_HEALTH_USD_CY_FX,\n\
+  \tRENEWAL_NNACV_CLOSED_DOWNSELL_HEALTH_USD_CY_FX,\n\tRENEWAL_NNACV_CLOSED_DOWNSELL_CORP_USD_DAILY,\n\
+  \tRENEWAL_TOTACV_ADDL_MLFLG_RSK_ACCT_USD,\n\tRENEWAL_TOTACV_ADDL_ML_RSK_ACCT_MED_USD,\n\
+  \tRENEWAL_TOTACV_ADDL_ML_RSK_ACCT_HIGH_USD,\n\tRENEWAL_ACV_SURVIVOR_LOST_USD_CY_FX,\n\
+  \tRENEWAL_ACV_OPEN_USD_DAILY,\n\tRENEWAL_ACV_CLOSED_UPSELL_USD_CY_FX,\n\tRENEWAL_NNACV_ACCOUNT_DOWNSELL_USD_CY_FX,\n\
+  \tRENEWAL_ACV_UPSELL_DOWNSELL_USD_CY_FX,\n\tRENEWAL_NNACV_OPEN_SURVIVOR_UPSELL_USD_CY_FX,\n\
+  \tRENEWAL_ACV_EARLY_OPEN_USD_CY_FX,\n\tRENEWAL_ACV_CLOSED_ONTIME_USD_CY_FX,\n\t\
+  RENEWAL_ACV_OPEN_ONTIME_CY_FX,\n\tRENEWAL_ACV_SUMMARY_OPEN_USD_CY_FX,\n\tRENEWAL_NNACV_CLOSED_UPSELL_CORP_USD_CY_FX,\n\
+  \tRENEWAL_ACV_EARLY_OPEN_LC,\n\tRENEWAL_ACV_EARLY_CLOSED_LC,\n\tRENEWAL_NNACV_CLOSED_LOST_CORP_USD_DAILY,\n\
+  \tTRAINING_REVENUE_TOTAL_USD_DAILY,\n\tIS_RENEWAL_OPTY_OPEN,\n\tIS_RENEWAL_OPTY_SURVIVOR_CLOSED_DOWNSELL,\n\
+  \tIS_RENEWAL_OPTY_SURVIVOR_LOST,\n\tRENEWAL_NNACV_OPEN_DOWNSELL_BU_USD_CY_FX,\n\t\
+  RENEWAL_NNACV_OPEN_DOWNSELL_CCN_USD_CY_FX,\n\tRENEWAL_ACV_INTRAQTR_LATE_USD_CY_FX,\n\
+  \tRENEWAL_NNACV_BU_TOTAL_LOST_CORP_USD_DAILY,\n\tRENEWAL_NNACV_TOTAL_LOST_CORP_USD_DAILY,\n\
+  \tRENEWAL_NNACV_BU_TOTAL_UPSELL_CORP_USD_DAILY,\n\tRENEWAL_NNACV_BU_TOTAL_DOWNSELL_CORP_USD_DAILY,\n\
+  \tRENEWAL_NNACV_TOTAL_UPSELL_CORP_USD_DAILY,\n\tRENEWAL_ACV_EARLY_USD_CY_FX,\n\t\
+  EARLY_RENEWAL_CONTRIBUTION_TO_CRPO_USD_DAILY,\n\tEARLY_RENEWAL_CONTRIBUTION_TO_CRPO_USD_CY_FX,\n\
+  \tSERVICES_USD_DAILY,\n\tNNACV_CLOSED_PQ_USD_DAILY,\n\tRENEWAL_NNACV_CLOSED_DOWNSELL_LOST_CCN_USD_CY_FX,\n\
+  \tRENEWAL_TOTACV_OPEN_DOWNSELL_ACCT_CCN_USD,\n\tRQ4_PIPELINE_SLIPPED_FROM_PQ,\n\t\
+  REPORTING_PARENT_DEAL_BAND,\n\tREPORTING_DEAL_BAND_SUM_USD\n) as --SEMANTIC LAYER\
+  \ BEGINS\n/****************************************************************************************************************************************************************\n\
+  CREATE/CHANGE LOG:\nDATE        \tMODIFIED BY                               DESCRIPTION\n\
+  11/01/24       \tprabhat.ranjanbehera@servicenow.com       Added  PQ_PUSHED_LATE_RENEWAL_FLAG\n\
+  05/03/24        yash.agarwal1@servicenow.com              Added  PQ_OVER_DUE_DYNAMIC_QUARTER,PQ_PUSHED_DYNAMIC_QUARTER_CQ,\n\
+  \                                                          PQ_PUSHED_DYNAMIC_QUARTER_CQ+1,PQ_PUSHED_DYNAMIC_QUARTER_CQ+2,\n\
+  \                                                          PQ_PUSHED_DYNAMIC_QUARTER_CQ+3,PQ_PUSHED_DYNAMIC_QUARTER_PQ,CLOSED_UPSELL_ACV_USD\n\
+  \t\t\t\t\t\t\t\t\t\t\t\t\t\t  NNACV_RENEWAL_CLOSED_LOST_USD,NNACV_RENEWAL_OPEN_UPSELL_USD,NNACV_RENEWAL_OPEN_DOWNSELL_USD\n\
+  13/03/24       \tprabhat.ranjanbehera@servicenow.com\t\t  CLOSED_LOST_RENEWAL_USD,\
+  \ NNACV_RENEWAL_OPEN_ACV_USD\n14/03/24\t\tmanoha.rajaraouppara@servicenow.com\t\t\
+  \  CLOSED_DOWNSELL_ACV_USD, RENEWAL_NNACV_CLOSED_UPSELL_USD_CY_FX\n25/03/24    \
+  \   \tprabhat.ranjanbehera@servicenow.com\t\t  RENEWAL_NNACV_CLOSED_DOWNSELL_CORP_USD_CY_FX\n\
+  28/03/24       \tprabhat.ranjanbehera@servicenow.com\t\t  RENEWAL_TOTACV_BU_ML_RSK_HIGH_USD,\
+  \ RENEWAL_TOTACV_BU_ML_RSK_MED_USD\n28/03/24\t\trathinam.santhosh@servicenow.com\t\
+  \t  EXPECTED_TO_CLOSE_THIS_WEEK_ACV, EXPECTED_TO_CLOSE_THIS_WEEK_ACV_CY_FX\n19/03/24\t\
+  \tmanoha.rajaraouppara@servicenow.com\t\t  RENEWAL_NNACV_CLOSED_DOWNSELL_USD_CY_FX\n\
+  20/03/24\t\tmanoha.rajaraouppara@servicenow.com\t\t  RENEWAL_NNACV_OPEN_DOWNSELL_LOST_USD_CY_FX,\
+  \ RENEWAL_TOTACV_OPEN_DOWNSELL_ACCT_USD\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t  RENEWAL_TOTACV_ADDL_BU_ML_RSK_USD\n\
+  20/03/24\t\trathinam.santhosh@servicenow.com\t\t  RENEWAL_TOTACV_BU_OPEN_DOWNSELL_USD,\
+  \ ONTIME_CLOSED_WON_LOST_USD_CY_FX,\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t  RENEWAL_NNACV_OPTY_SURVIVOR_DOWNSELL_USD_CY_FX,RENEWAL_NNACV_OPEN_UPSELL_HEALTH_USD_CY_FX,\n\
+  \t\t\t\t\t\t\t\t\t\t                  RENEWAL_NNACV_TOTAL_DOWNSELL_CORP_USD_DAILY,\
+  \ RENEWAL_NNACV_PROJECTED_LOSS_CORP_USD_DAILY, RENEWAL_NNACV_OPEN_DOWNSELL_CORP_USD_DAILY\n\
+  27/03/24        jyoti.gandhi@servicenow.com\t\t\t\t  Added columns: RENEWAL_NNACV_BU_OPEN_DOWNSELL_CORP_USD_DAILY,\
+  \ RENEWAL_NNACV_BU_CLOSED_LOST_USD_DAILY,\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t  RENEWAL_NNACV_CLOSED_LOST_USD_CY_FX,\n\
+  \t\t\t\t\t\t\t\t\t\t\t\t\t\t  RENEWAL_NNACV_OPEN_DOWNSELL_USD_CY_FX, RENEWAL_NNACV_OPEN_UPSELL_BU_USD_CY_FX,\
+  \ RENEWAL_NNACV_TOTAL_CLOSED_LOST_USD_CY_FX, RENEWAL_NNACV_UPSELL_USD_CY_FX\n29/03/24\t\
+  \tmanoha.rajaraouppara@servicenow.com\t\t  RENEWAL_NNACV_BU_CLOSED_DOWNSELL_HEALTH_USD_CY_FX,\
+  \ RENEWAL_NNACV_CLOSED_DOWNSELL_HEALTH_USD_CY_FX\n29/03/24\t\tyash.agarwal1@servicenow.com\
+  \ \t\t\t  Added RENEWAL_NNACV_CLOSED_DOWNSELL_CORP_USD_DAILY\n\t\t\t\t\t\t\t\t\t\
+  \t\t\t\t\t  RENEWAL_TOTACV_ADDL_ML_RSK_ACCT_HIGH_USD\n\t\t\t\t\t\t\t\t\t\t\t\t\t\
+  \t  RENEWAL_TOTACV_ADDL_ML_RSK_ACCT_MED_USD\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t  RENEWAL_TOTACV_ADDL_MLFLG_RSK_ACCT_USD\n\
+  03/29/24       sneha.jagdishsantani@servicenow.com   \t  RENEWAL_NNACV_OPEN_DOWNSELL_CORP_USD_CY_FX\n\
+  01/04/24\t   manoha.rajaraouppara@servicenow.com\t\t  RENEWAL_ACV_SURVIVOR_LOST_USD_CY_FX,\
+  \ RENEWAL_ACV_OPEN_USD_DAILY\n01/04/24       sneha.jagdishsantani@servicenow.com\
+  \        RENEWAL_NNACV_OPEN_SURVIVOR_DOWNSELL_USD_CY_FX, RENEWAL_NNACV_DOWNSELL_USD_CY_FX\n\
+  01/04/24       varun.kumarmilkuri@servicenow.com          RENEWAL_ACV_CLOSED_UPSELL_USD_CY_FX,RENEWAL_NNACV_ACCOUNT_DOWNSELL_USD_CY_FX\n\
+  03/04/24       rathinam.santhosh@servicenow.com           Added column:RENEWAL_NNACV_OPEN_SURVIVOR_UPSELL_USD_CY_FX,RENEWAL_ACV_EARLY_OPEN_USD_CY_FX\n\
+  03/04/24       Varun.kumarmilkuri@servicenow.com          RENEWAL_NNACV_BU_OPEN_DOWNSELL_HEALTH_USD_CY_FX,RENEWAL_ACV_PQ_OVERDUE_USD_CY_FX\n\
+  03/04/24       prabhat.ranjanbehera@servicenow.com        RENEWAL_ACV_CLOSED_ONTIME_USD_CY_FX\n\
+  04/04/24\t   jyoti.gandhi@servicenow.com\t\t\t\t  Added column: RENEWAL_ACV_UPSELL_DOWNSELL_USD_CY_FX,\
+  \ RENEWAL_ACV_OPEN_ONTIME_CY_FX\n04/04/24\t   yash.agarwal1@servicenow.com \t\t\t\
+  \  Added RENEWAL_ACV_SUMMARY_OPEN_USD_CY_FX, RENEWAL_NNACV_CLOSED_UPSELL_CORP_USD_CY_FX\n\
+  05/04/24\t   manoha.rajaraouppara@servicenow.com\t\t  RENEWAL_ACV_EARLY_OPEN_LC,\
+  \ RENEWAL_ACV_EARLY_CLOSED_LC\n05/04/24       Matthew.solone@servicenow.com    \
+  \          IS_RENEWAL_OPTY_OPEN, IS_RENEWAL_OPTY_SURVIVOR_CLOSED_DOWNSELL,\n\t\t\
+  \t\t\t\t\t\t\t\t\t\t\t\t  IS_RENEWAL_OPTY_SURVIVOR_LOST, RENEWAL_NNACV_CLOSED_LOST_CORP_USD_DAILY\n\
+  08/04/24       Matthew.solone@servicenow.com              RENEWAL_NNACV_OPEN_DOWNSELL_BU_USD_CY_FX,\
+  \ RENEWAL_ACV_INTRAQTR_LATE_USD_CY_FX\n10/04/24\t   manoha.rajaraouppara@servicenow.com\t\
+  \t  RENEWAL_NNACV_TOTAL_LOST_CORP_USD_DAILY, RENEWAL_NNACV_BU_TOTAL_LOST_CORP_USD_DAILY\n\
+  10/04/24       rathinam.santhosh@servicenow.com           Added column RENEWAL_NNACV_BU_TOTAL_UPSELL_CORP_USD_DAILY\
+  \ ,RENEWAL_NNACV_BU_TOTAL_DOWNSELL_CORP_USD_DAILY\n10/04/24\t   jyoti.gandhi@servicenow.com\t\
+  \t\t\t  Added column RENEWAL_NNACV_TOTAL_UPSELL_CORP_USD_DAILY\n11/04/24       matthew.solone@servicenow.com\
+  \              Added column RENEWAL_ACV_EARLY_USD_CY_FX\n16/04/24       matthew.solone@servicenow.com\
+  \              Added column TRAINING_REVENUE_TOTAL_USD_DAILY\n23/04/24\t   rathinam.santhosh@servicenow.com\t\
+  \          Added column EARLY_RENEWAL_CONTRIBUTION_TO_CRPO_USD_DAILY\n30/04/24\t\
+  \  keerthi.reddyroddham@servicenow.com\t      Added column EARLY_RENEWAL_CONTRIBUTION_TO_CRPO_USD_CY_FX\n\
+  26/04/24       matthew.solone@servicenow.com              Added column SERVICES_USD_DAILY\n\
+  29/04/24       rathinam.santhosh@servicenow.com           Added column NNACV_CLOSED_PQ_USD_DAILY\n\
+  23/05/24\t   jyoti.gandhi@servicenow.com\t\t\t\t  Added column RENEWAL_NNACV_CLOSED_DOWNSELL_LOST_CCN_USD_CY_FX\n\
+  23/05/24\t   varun.kumarmilkuri@servicenow.com\t\t  Added column RENEWAL_NNACV_OPEN_DOWNSELL_CCN_USD_CY_FX\n\
+  23/05/24\t   manoha.rajaraouppara@servicenow.com\t\t  RENEWAL_TOTACV_OPEN_DOWNSELL_ACCT_CCN_USD\n\
+  29/05/24\t   manoha.rajaraouppara@servicenow.com\t\t  4RQ_PIPELINE_SLIPPED_FROM_PQ\n\
+  ****************************************************************************************************************************************************************/\n\
+  select\n    distinct QTR.QUARTER_DT as QUARTER_DT,\n    FD.\"SalesQuarter\" as QUARTER_YYQQ,\n\
+  \    QTR.QUARTER_ID as QUARTER_ID,\n    HASH(FD.\"OpportunitySysID\") as OPTY_ID,\n\
+  \    FD.\"OpportunityNumber\" as OPTY_NUMBER,\n    HASH(FD.\"LineItemNumber\") as\
+  \ OPTY_LINE_ITEM_ID,\n    --SS 1.5/Avantika/Updated on: 04-01-2024/Release on: 02-02-2024/\
+  \ Release Type: Regular\n    FD.\"LineItemNumber\" as OPTY_ITEM_NUMBER,\n    FD.\"\
+  LineItemNumber_CRM\" as OPTY_ITEM_NUMBER_CRM,\n    ACC.ACCOUNT_ID as ACCOUNT_ID,\n\
+  \    HASH(FD.\"ProductSysID\") as PRODUCT_ID,\n    --Updated by Kranthi to fix the\
+  \ Null issue in TERRITORY_ID\n    HASH(FD.\"TerritorySysID\") as TERRITORY_ID,\n\
+  \    --Updated by Kranthi to fix the Null issue in TERRITORY_ID\n    ifnull(TERR.GEO_ID,\
+  \ HASH(TERR.GEO_ID)) as GEO_ID,\n    OPTY_ITEM.BOOKING_BRIDGE_FLAGS_ID,\n    --SS\
+  \ 1.5 Changes /Avantika Keshav/Updated on: 12-01-2024/Release on: 02-02-2024/ Release\
+  \ Type: Regular\n    -- Start of Marquee Columns related changes by Avantika/Updated\
+  \ on: 08-02-2024/Release on: 14-02-2024/ Release Type: Regular\n    OPD.REPORTING_PARENT_QUARTER_YYQQ\
+  \ as REPORTING_PARENT_QUARTER_YYQQ,\n    OPD.REPORTING_OPTY_ID as REPORTING_OPTY_ID,\n\
+  \    OPD.REPORTING_OPTY_ACCOUNT_ID as REPORTING_OPTY_ACCOUNT_ID,\n    OPD.PARENT_OPTY_ACCOUNT_ID\
+  \ as PARENT_OPTY_ACCOUNT_ID,\n    -- End of Marquee Columns related changes by Avantika/Updated\
+  \ on: 08-02-2024/Release on: 14-02-2024/ Release Type: Regular\n    HASH(\n    \
+  \    ifnull(FD.\"OpportunitySysID\", 'random') || ifnull(OLI.\"OptyItemLineItemSysID\"\
+  , 'random') || ifnull(FD.\"LineItemNumber\", 'random')\n    ) as PIPELINE_ID,\n\
+  \    case\n        when FD.\"IsFixed\" = 'random' then 'random'\n        else 'random'\n\
+  \    end as IS_FIXED,\n    FD.\"SalesActivePipeline\" AS IS_SALES_ACTIVE_PIPELINE,\n\
+  \    substr(OPD.OPTY_CLOSE_DT,'random','random')|| 'random'||quarter(OPD.OPTY_CLOSE_DT)\
+  \ OPTY_CLOSE_QUARTER_YYQQ,--SS 1.5 Changes /Avantika Keshav/Updated on: 05-07-2024/\
+  \ Added to exclude Opportunities that are reopened after the quarter end fixeddata\
+  \ processing\n    case when OPTY_CLOSE_QUARTER_YYQQ != \"SalesQuarter\"\n      \
+  \        and OPTY_CLOSE_QUARTER_YYQQ < RIGHT(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))\
+  \ ||'random'|| QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)), 'random')\n\
+  \              and \"IsFixed\" = 'random'\n         then 'random' else 'random'\n\
+  \    end as IS_VALID, --SS 1.5 Changes /Avantika Keshav/Updated on: 05-07-2024/\
+  \ Added to exclude Opportunities that are reopened after the quarter end fixeddata\
+  \ processing\n    CASE\n        when (\n            OPD.IS_DP_NEW_LOGO = 'random'\n\
+  \            AND OPD.IS_DP_POTENTIAL_NEW_LOGO = 'random'\n            AND OPD.IS_ELIGIBLE_NEW_LOGO\
+  \ = 'random'\n        ) THEN FD.\"Closed_FX\"\n    END AS CLOSED_NEW_LOGO_USD,\n\
+  \    CASE\n        when (\n            OPD.IS_DP_NEW_LOGO = 'random'\n         \
+  \   AND OPD.IS_DP_POTENTIAL_NEW_LOGO = 'random'\n            AND OPD.IS_ELIGIBLE_NEW_LOGO\
+  \ = 'random'\n        ) THEN FD.\"Closed\"\n    END AS CLOSED_NEW_LOGO_USD_CFX,\n\
+  \    FD.\"RenewalStatusSubCategoryFlagMode\" AS RENEWAL_STATUS,\n    FD.\"NetNewACV\"\
+  \ as NNACV_LC,\n    FD.\"NetNewACV_FX\" as NNACV_USD,\n    FD.\"USDNetNewACV\" as\
+  \ NNACV_USD_CFX,\n    FD.\"Closed_FX\" as NNACV_CLOSED_USD,\n    FD.\"Closed\" as\
+  \ NNACV_CLOSED_USD_CFX,\n    FD.\"OpenPipeline_FX\" as NNACV_OPEN_USD,\n    FD.\"\
+  OpenPipeline\" as NNACV_OPEN_USD_CFX,\n    FD.\"Submitted_FX\" as NNACV_SUBMITTED_USD,\n\
+  \    FD.\"Submitted\" as NNACV_SUBMITTED_USD_CFX,\n    FD.\"Upside_FX\" as NNACV_UPSIDE_USD,\n\
+  \    FD.\"Upside\" as NNACV_UPSIDE_USD_CFX,\n    FD.\"WeightedNetNewACV_FX\" as\
+  \ NNACV_WEIGHTED_USD,\n    FD.\"USDWeightedACV\" as NNACV_WEIGHTED_USD_CFX,\n  \
+  \  FD.\"MaturedPipeline_FX\" as NNACV_MATURE_USD,\n    FD.\"MaturedPipeline\" as\
+  \ NNACV_MATURE_USD_CFX,\n    FD.\"ACESourcedUSDNetNewACV\" as NNACV_ACE_SOURCE_USD_CFX,\n\
+  \    OFD.\"SFixedDataAcquiredNewNewACVDC\" as NNACV_ACQUIRED_USD,\n    OFD.\"SFixedDataAcquiredNewNewACVDC\"\
+  \ / FX.\"CFXRate\" as NNACV_ACQUIRED_USD_CFX,\n    FD.\"Commit\" as NNACV_COMMIT_USD_CFX,\n\
+  \    FD.\"Commit_FX\" as NNACV_COMMIT_USD,\n    case\n        when FD.\"BUGroup\"\
+  \ = 'random' then (FD.\"Closed\") --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release\
+  \ on: 01-03-2024/ Release Type: RTB\n        else 'random'\n    end as NNACV_CS_CLOSED_USD_CFX,\n\
+  \    FD.\"Expect\" as NNACV_EXPECT_USD_CFX,\n    FD.\"Expect_FX\" as NNACV_EXPECT_USD,\n\
+  \    FD.\"MKTSourcedUSDNetNewACV\" as NNACV_MKT_SOURCE_USD_CFX,\n    FD.\"PSRevenue_FX\"\
+  \ as PS_REVENUE_LC,\n    FD.\"PSRevenue\" as PS_REVENUE_USD,\n    FD.\"USDPSRevenue\"\
+  \ as PS_REVENUE_USD_CFX,\n    FD.\"RenewalACV\" as RENEWAL_ACV_LC,\n    FD.\"RenewalACV_FX\"\
+  \ as RENEWAL_ACV_USD,\n    FD.\"USDRenewalACV\" as RENEWAL_ACV_USD_CFX,\n    FD.\"\
+  ClosedRenewals_FX\" as RENEWAL_ACV_CLOSED_USD,\n    FD.\"ClosedRenewals\" as RENEWAL_ACV_CLOSED_USD_CFX,\n\
+  \    FD.\"ClosedLostRenewal_FX\" as RENEWAL_ACV_CLOSED_LOST_USD,\n    FD.\"ClosedLostRenewal\"\
+  \ as RENEWAL_ACV_CLOSED_LOST_USD_CFX,\n    FD.\"ClosedWonRenewal_FX\" as RENEWAL_ACV_CLOSED_WON_USD,\n\
+  \    FD.\"ClosedWonRenewal\" as RENEWAL_ACV_CLOSED_WON_USD_CFX,\n    FD.\"OpenRenewals_FX\"\
+  \ as RENEWAL_ACV_OPEN_USD,\n    FD.\"OpenRenewals\" as RENEWAL_ACV_OPEN_USD_CFX,\n\
+  \    case\n        when not(FD.\"OpportunityStage\" like 'random') then FD.\"USDNetNewACV\"\
+  \ --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/ Release\
+  \ Type: RTB\n        else 'random'\n    END as RENEWAL_ACV_TOTAL_OPEN_USD_CFX,\n\
+  \    case\n        when FD.\"Closed\" = 'random' then 'random'\n        else (\n\
+  \            FD.\"Closed\" - case\n                when (FD.\"ClosedLostRenewal\"\
+  ) IS NULL then 'random'\n                else FD.\"ClosedLostRenewal\"\n       \
+  \     end\n        ) / FD.\"Closed\"\n    end as RENEWAL_RATE,\n    --SS 1.5 Changes\
+  \ /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/ Release Type: RTB\n \
+  \   FD.\"RenewalNNACV_FX\" as RENEWAL_NNACV_USD,\n    FD.\"USDRenewalNNACV\" as\
+  \ RENEWAL_NNACV_USD_CFX,\n    -------------------------------------Start code added\
+  \ by Varun on 3-Apr-2024 --------------------------------------------\n    CASE\n\
+  \        WHEN BKGS.ACCT_BU_NNACV_FLAG = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_BU_OPEN_DOWNSELL_HEALTH_USD_CY_FX,\n\
+  \    -------------------------------------End code added by Varun on 3-Apr-2024\
+  \ --------------------------------------------\n    --Start of SS 1.5 Changes /Jaya\
+  \ Prakash/Updated on: 04-01-2024/Release on: 02-02-2024/ Release Type: Regular\n\
+  \    case\n        when BKGS.ACCT_BU_NNACV_FLAG <> 'random' then case\n        \
+  \    when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV\"\n          \
+  \  else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_LC,\n\
+  \    case\n        when BKGS.ACCT_BU_NNACV_FLAG <> 'random' then case\n        \
+  \    when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV_FX\"\n       \
+  \     else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_USD,\n\
+  \    case\n        when BKGS.ACCT_BU_NNACV_FLAG <> 'random' then case\n        \
+  \    when FD.\"RenewalStatusOld\" = 'random' then FD.\"USDRenewalACV\"\n       \
+  \     else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_USD_CFX,\n\
+  \    case\n        when BKGS.ACCT_WW_NNACV_FLAG <> 'random' then case\n        \
+  \    when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV\"\n          \
+  \  else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_LC,\n\
+  \    case\n        when BKGS.ACCT_WW_NNACV_FLAG <> 'random' then case\n        \
+  \    when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV_FX\"\n       \
+  \     else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_USD,\n\
+  \    case\n        when BKGS.ACCT_WW_NNACV_FLAG <> 'random' then case\n        \
+  \    when FD.\"RenewalStatusOld\" = 'random' then FD.\"USDRenewalACV\"\n       \
+  \     else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_USD_CFX,\n\
+  \    case\n        when BKGS.OPTY_SURVIVOR_BRIDGE_FLAG <> 'random' then case\n \
+  \           when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV\"\n   \
+  \         else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_RISK_REP_LC,\n\
+  \    case\n        when BKGS.OPTY_SURVIVOR_BRIDGE_FLAG <> 'random' then case\n \
+  \           when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV_FX\"\n\
+  \            else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_RISK_REP_USD,\n\
+  \    case\n        when BKGS.OPTY_SURVIVOR_BRIDGE_FLAG <> 'random' then case\n \
+  \           when FD.\"RenewalStatusOld\" = 'random' then FD.\"USDRenewalACV\"\n\
+  \            else 'random'\n        end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_RISK_REP_USD_CFX,\n\
+  \    case\n        when rbu1.\"RiskScoreSeverity\" in ('random', 'random')\n   \
+  \     and fd.\"PipelineStatus\" != 'random' then fd.\"RenewalACV\"\n        else\
+  \ 'random'\n    end as RENEWAL_ACV_OPEN_RISK_ML_LC,\n    case\n        when rbu1.\"\
+  RiskScoreSeverity\" in ('random', 'random')\n        and fd.\"PipelineStatus\" !=\
+  \ 'random' then fd.\"RenewalACV_FX\"\n        else 'random'\n    end as RENEWAL_ACV_OPEN_RISK_ML_USD,\n\
+  \    case\n        when rbu1.\"RiskScoreSeverity\" in ('random', 'random')\n   \
+  \     and fd.\"PipelineStatus\" != 'random' then fd.\"USDRenewalACV\"\n        else\
+  \ 'random'\n    end as RENEWAL_ACV_OPEN_RISK_ML_USD_CFX,\n    -------------------------------------Start\
+  \ code added by Varun on 3-Apr-2024 --------------------------------------------\n\
+  \    CASE\n        WHEN OPD.TIMELINE_STATUS = 'random' THEN ZEROIFNULL(RENEWAL_ACV_USD_CFX)\n\
+  \    END AS RENEWAL_ACV_PQ_OVERDUE_USD_CY_FX,\n    -------------------------------------end\
+  \ code added by Varun on 3-Apr-2024 ---------------------------------------------\n\
+  \    /* start prabhat 03/26 added code from PROD*/\n    --End of SS 1.5 Changes\
+  \ /Jaya Prakash/Updated on: 04-01-2024/Release on: 02-02-2024/ Release Type: Regular\n\
+  \    --Start of SS 1.5 Changes /Jay Modi/Updated on: 12-07-2024/Release on: 19-07-2024/\
+  \ Release Type: RTB\n    case\n        when ROUND(sum(FD.\"USDNetNewACV\") over\
+  \ (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random')< 'random' then 'random'\n        when ROUND(coalesce(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"), 'random'),'random') = 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') > 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\"\
+  ) over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\"\
+  ) over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\"\
+  ) over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\"\
+  ) over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\"\
+  ) over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\"\
+  ) over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\"\
+  ) over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)),FD.\"\
+  SalesQuarter\"),'random') >= 'random' then 'random'\n    end as TRANSACTION_BAND,\n\
+  \    case\n        when ROUND(sum(FD.\"USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(coalesce(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"), 'random'),'random')\
+  \ = 'random' then 'random'\n        when ROUND(sum(FD.\"USDNetNewACV\") over (partition\
+  \ by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random') > 'random'\n        and ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random')\
+  \ < 'random' then 'random'\n        when ROUND(sum(FD.\"USDNetNewACV\") over (partition\
+  \ by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random') >= 'random'\n        and\
+  \ ROUND(sum(FD.\"USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"\
+  ),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"USDNetNewACV\"\
+  ) over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random') >= 'random'\n\
+  \        and ROUND(sum(FD.\"USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random')\
+  \ >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random')\
+  \ >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random')\
+  \ >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random')\
+  \ >= 'random'\n        and ROUND(sum(FD.\"USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\"),'random') < 'random' then 'random'\n        when ROUND(sum(FD.\"\
+  USDNetNewACV\") over (partition by PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"),'random')\
+  \ >= 'random' then 'random'\n    end as PARENT_DEAL_BAND,\n    --End of SS 1.5 Changes\
+  \ /Jay Modi/Updated on: 12-07-2024/Release on: 19-07-2024/ Release Type: RTB\n \
+  \   FD.\"Services\" as SERVICES_REVENUE_LC,\n    FD.\"Services_FX\" as SERVICES_REVENUE_USD,\n\
+  \    FD.\"USDServices\" as SERVICES_USD_CFX,\n    FD.\"USDTotalACV\" as TOTAL_ACV_USD_CFX,\n\
+  \    case\n        when FD.\"PipelineStatus\" = 'random' then (FD.\"USDTotalTrainingRevenue\"\
+  ) --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/ Release\
+  \ Type: RTB\n        else 'random'\n    end as TOTAL_SERVICES_CLOSED_ACV_USD_CFX,\n\
+  \    FD.\"TotalValueAmount_FX\" as TOTAL_VALUE_AMOUNT_LC,\n    FD.\"TotalValueAmount\"\
+  \ as TOTAL_VALUE_AMOUNT_USD,\n    OLI.\"OptyItemTotalValueAmount_USD_FromCallidus\"\
+  \ as TOTAL_VALUE_AMOUNT_USD_CALLIDUS,\n    OLI.\"OptyItemTotalValueAmount\" as TOTAL_VALUE_LC,\n\
+  \    FD.\"TotalTrainingRevenue\" as TRAINING_REVENUE_CLOSED_USD,\n    FD.\"TotalTrainingRevenue_FX\"\
+  \ as TRAINING_REVENUE_TOTAL_LC,\n    FD.\"TotalTrainingRevenue\" as TRAINING_REVENUE_USD,\n\
+  \    SUM(\n        \"TOTAL_SERVICES_CLOSED_ACV_USD_CFX\" + (\n            case\n\
+  \                when FD.\"PipelineStatus\" = 'random' then (FD.\"USDPSRevenue\"\
+  ) --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/ Release\
+  \ Type: RTB\n                else 'random'\n            end\n        ) + \"NNACV_CS_CLOSED_USD_CFX\"\
+  \n    ) over(partition by OLI.\"OptyItemLineItemSysID\") as TRAINING_REVENUE_USD_CFX,\n\
+  \    FD.\"LostACV_FX\" as LOST_ACV_FX,\n    FD.\"LostACV\" as LOST_ACV_USD,\n  \
+  \  case\n        when FD.\"PipelineStatus\" = 'random' then (FD.\"USDPSRevenue\"\
+  ) --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/ Release\
+  \ Type: RTB\n        else 'random'\n    end as EXPERT_SERVICES_CLOSED_ACV_USD_CFX,\n\
+  \    OLI.\"OptyItemAnnualContractValueAmount\" as ACV_LC,\n    OLI.\"OptyItemAnnualContractAmount_USD\"\
+  \ as ACV_USD,\n    OLI.\"OptyItemAdjustment\" as ADJUSTMENT_USD,\n    OLI.\"OptyItemAnnualListAmount_USD\"\
+  \ as ANNUAL_LIST_PRICE_USD,\n    FD.\"USDListPrice\" as LIST_PRICE_USD_CFX,\n  \
+  \  OLI.\"OptyItemEstimatedTax\" as ESTIMATED_TAX_USD,\n    OLI.\"OptyItemUnadjustedAmount\"\
+  \ as BASE_PRICE,\n    OLI.\"OptyItemSalesAmount\" as SALE_PRICE,\n    OLI.\"OptyItemBaseAmount\"\
+  \ as LIST_PRICE_WITH_ADJUSTMENTS,\n    OLI.\"OptyItemCustomTrainingAmount\" as CUSTOM_TRAINING_AMOUNT_USD,\n\
+  \    OLI.\"OptyItemDealRegDiscount\" as DEAL_REG_DISCOUNT,\n    OLI.\"OptyItemDiscountGuideline\"\
+  \ as DISCOUNT_GUIDELINE_PERCENT,\n    OLI.\"OptyItemDiscountPercent\" as DISCOUNT_PERCENT,\n\
+  \    OLI.\"OptyItemDiscretion\" as DISCRETION_PERCENT,\n    OLI.\"OptyItemTotalDiscountPercent\"\
+  \ as TOTAL_DISCOUNT_PERCENT,\n    OLI.\"OptyItemPartnerDiscount\" as PARTNER_DISCOUNT_PERCENT,\n\
+  \    FD.\"LineItemNetNewQuantity\" as NET_NEW_QUANTITY,\n    FD.\"LineItemQuantity\"\
+  \ as OPTY_ITEM_QUANTITY,\n    OLI.\"OptyItemContractLineQuantity\" as CONTRACT_LINE_QUANTITY,\n\
+  \    FD.\"LineItemTerm\" as OPTY_ITEM_TERM,\n    FD.\"FlagsFilter\" as IS_FLAGS_FILTER,\n\
+  \    FD.\"OptyItemLineCreatedBy\" as OPTY_ITEM_CREATED_BY,\n    FD.\"OptyItemLineCreatedBy\"\
+  \ as OPTY_ITEM_CREATED_BY_ROLE,\n    OPTY_ITEM.OPTY_ITEM_FLAGGED_AS as OPTY_ITEM_FLAGGED_AS,\n\
+  \    OPTY_ITEM.OPTY_ITEM_ORIGIN as OPTY_ITEM_ORIGIN,\n    OPTY_ITEM.OPTY_ITEM_REPLACES_LINE\
+  \ as OPTY_ITEM_REPLACES_LINE,\n    OPTY_ITEM.OPTY_ITEM_REV_REC_TYPE as OPTY_ITEM_REV_REC_TYPE,\n\
+  \    OPTY_ITEM.OPTY_ITEM_SOURCE_SYSTEM as OPTY_ITEM_SOURCE_SYSTEM,\n    OPTY_ITEM.OPTY_ITEM_TERM_MONTHS_AND_DAYS\
+  \ as OPTY_ITEM_TERM_MONTHS_AND_DAYS,\n    OLI.\"OptyItemConstNetNewAcvAmount_USD\"\
+  \ as OPTY_ITEM_USD_CONSTANT_FX_NET_NEW_ACV,\n    OLI.\"OptyItemConstContractLineACV\"\
+  \ as OPTY_ITEM_USD_CONSTANT_FX_RENEWAL_ACV,\n    OPTY_ITEM.OPTY_CONTRACT_LINE_REFERENCE\
+  \ as OPTY_CONTRACT_LINE_REFERENCE,\n    OPTY_ITEM.PRICE_RESET_PRIMARY_LINE as PRICE_RESET_PRIMARY_LINE,\n\
+  \    OLI.\"OptyItemReasonFor100PercentDiscountValue\" as REASON_FOR_100_PERCENT_DISCOUNT,\n\
+  \    OPTY_ITEM.TE_EXCEPTION_REASON as TE_EXCEPTION_REASON,\n    FD.\"AllocationType\"\
+  \ as ALLOCATION_TYPE,\n    FD.\"OpportunitySysID\" as OPTY_SYSID,\n    OPTY_ITEM.OPTY_ITEM_SYSID\
+  \ as OPTY_ITEM_SYSID,\n    FD.\"OpportunityAccountSysID\" as ACCOUNT_SYSID,\n  \
+  \  FD.\"ProductSysID\" as PRODUCT_SYSID,\n    FD.\"TerritorySysID\" as TERRITORY_SYSID,\n\
+  \    OPTY_ITEM.OPTY_ITEM_START_TS as OPTY_ITEM_START_TS,\n    OPTY_ITEM.OPTY_ITEM_END_TS\
+  \ as OPTY_ITEM_END_TS,\n    OPTY_ITEM.OPTY_ITEM_CREATED_TS as OPTY_ITEM_CREATED_TS,\n\
+  \    OPTY_ITEM.OPTY_ITEM_UPDATED_TS as OPTY_ITEM_UPDATED_TS,\n    case\n       \
+  \ when fd.\"OpportunityCloseDate\" between DATEADD(\n            DAY,(DAYOFWEEK(CURRENT_TIMESTAMP)\
+  \ -'random') * 'random',\n            CURRENT_DATE\n        )\n        and DATEADD(\n\
+  \            DAY,('random' - (DAYOFWEEK(CURRENT_TIMESTAMP) -'random')),\n      \
+  \      CURRENT_DATE\n        )\n        and fd.\"PipelineStatus\" != 'random' then\
+  \ fd.\"USDNetNewACV\"\n        else 'random'\n    end AS EXPECTED_TO_CLOSE_THIS_WEEK_ACV,\n\
+  \    ---Renamed the column from ACV_FORECASTED_TO_CLOSE_THIS_WEEK to EXPECTED_TO_CLOSE_THIS_WEEK_ACV\
+  \ by Santhosh on 03/18/2024(Acc team)\n    case\n        when fd.\"OpportunityCloseDate\"\
+  \ between DATEADD(\n            DAY,(DAYOFWEEK(CURRENT_TIMESTAMP) -'random') * 'random',\n\
+  \            CURRENT_DATE\n        )\n        and DATEADD(\n            DAY,('random'\
+  \ - (DAYOFWEEK(CURRENT_TIMESTAMP) -'random')),\n            CURRENT_DATE\n     \
+  \   )\n        and fd.\"PipelineStatus\" != 'random' then FD.\"NetNewACV_FX\"\n\
+  \        else 'random'\n    end AS EXPECTED_TO_CLOSE_THIS_WEEK_ACV_CY_FX,\n    ---\
+  \ Renamed the column from ACV_FORECASTED_TO_CLOSE_THIS_WEEK_FX to EXPECTED_TO_CLOSE_THIS_WEEK_ACV_CY_FX\
+  \ by Santhosh on 03/18/2024(Acc team)\n    FD.\"NewLogo\" AS NEW_LOGO,\n    /*\n\
+  \                    --- Added by Manohar(Accenture)\n                    IFNULL(FD.\"\
+  Closed\", 0) + IFNULL(OFD.\"SFixedDataAcquiredNewNewACV\", 0) as LOST_ACQUIRED_ACV_USD,\n\
+  \                    ------FD.\"RenewalStatusOld\" as RENEWAL_STATUS_OLD,\n    \
+  \            \t*/\n    FD.\"SalesSourcedUSDNetNewACV\" as NNACV_SALES_SOURCE_USD_CY_FX,\n\
+  \n    --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/\
+  \ Release Type: RTB\n    case\n        WHEN (\n            FD.\"SalesQuarter\" >\
+  \ right(\n                YEAR(\n                    convert_timezone(\n       \
+  \                 'random',\n                        ADD_MONTHS(current_timestamp,\
+  \ 'random')\n                    )\n                ) || 'random' || QUARTER(\n\
+  \                    convert_timezone(\n                        'random',\n    \
+  \                    ADD_MONTHS(current_timestamp, 'random')\n                 \
+  \   )\n                ),\n                'random'\n            )\n           \
+  \ and (\n                right(year(FD.\"OptyContEndDate\"), 'random') || 'random'\
+  \ || quarter(FD.\"OptyContEndDate\")\n            ) < right(\n                YEAR(\n\
+  \                    convert_timezone(\n                        'random',\n    \
+  \                    ADD_MONTHS(current_timestamp, 'random')\n                 \
+  \   )\n                ) || 'random' || QUARTER(\n                    convert_timezone(\n\
+  \                        'random',\n                        ADD_MONTHS(current_timestamp,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            )\n        )\n        or (\n            FD.\"SalesQuarter\" > right(\n\
+  \                YEAR(\n                    convert_timezone('random', current_timestamp)\n\
+  \                ) || 'random' || QUARTER(\n                    convert_timezone('random',\
+  \ current_timestamp)\n                ),\n                'random'\n           \
+  \ )\n            and right(year(FD.\"OptyContEndDate\"), 'random') || 'random' ||\
+  \ quarter(FD.\"OptyContEndDate\") < right(\n                YEAR(\n            \
+  \        convert_timezone('random', current_timestamp)\n                ) || 'random'\
+  \ || QUARTER(\n                    convert_timezone('random', current_timestamp)\n\
+  \                ),\n                'random'\n            )\n        )\n      \
+  \  or (\n            FD.\"SalesQuarter\" > right(\n                YEAR(\n     \
+  \               convert_timezone(\n                        'random',\n         \
+  \               ADD_MONTHS(current_timestamp, 'random')\n                    )\n\
+  \                ) || 'random' || QUARTER(\n                    convert_timezone(\n\
+  \                        'random',\n                        ADD_MONTHS(current_timestamp,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            )\n            and right(year(FD.\"OptyContEndDate\"), 'random') ||\
+  \ 'random' || quarter(FD.\"OptyContEndDate\") < right(\n                YEAR(\n\
+  \                    convert_timezone(\n                        'random',\n    \
+  \                    ADD_MONTHS(current_timestamp, 'random')\n                 \
+  \   )\n                ) || 'random' || QUARTER(\n                    convert_timezone(\n\
+  \                        'random',\n                        ADD_MONTHS(current_timestamp,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            )\n        )\n        or (\n            FD.\"SalesQuarter\" > right(\n\
+  \                YEAR(\n                    convert_timezone(\n                \
+  \        'random',\n                        ADD_MONTHS(current_timestamp, 'random')\n\
+  \                    )\n                ) || 'random' || QUARTER(\n            \
+  \        convert_timezone(\n                        'random',\n                \
+  \        ADD_MONTHS(current_timestamp, 'random')\n                    )\n      \
+  \          ),\n                'random'\n            )\n            and right(year(FD.\"\
+  OptyContEndDate\"), 'random') || 'random' || quarter(FD.\"OptyContEndDate\") < right(\n\
+  \                YEAR(\n                    convert_timezone(\n                \
+  \        'random',\n                        ADD_MONTHS(current_timestamp, 'random')\n\
+  \                    )\n                ) || 'random' || QUARTER(\n            \
+  \        convert_timezone(\n                        'random',\n                \
+  \        ADD_MONTHS(current_timestamp, 'random')\n                    )\n      \
+  \          ),\n                'random'\n            )\n        )\n        or (\n\
+  \            FD.\"SalesQuarter\" > right(\n                YEAR(\n             \
+  \       convert_timezone(\n                        'random',\n                 \
+  \       ADD_MONTHS(current_timestamp, 'random')\n                    )\n       \
+  \         ) || 'random' || QUARTER(\n                    convert_timezone(\n   \
+  \                     'random',\n                        ADD_MONTHS(current_timestamp,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            )\n            and right(year(FD.\"OptyContEndDate\"), 'random') ||\
+  \ 'random' || quarter(FD.\"OptyContEndDate\") < right(\n                YEAR(\n\
+  \                    convert_timezone(\n                        'random',\n    \
+  \                    ADD_MONTHS(current_timestamp, 'random')\n                 \
+  \   )\n                ) || 'random' || QUARTER(\n                    convert_timezone(\n\
+  \                        'random',\n                        ADD_MONTHS(current_timestamp,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            )\n        )\n        or (\n            FD.\"SalesQuarter\" > right(\n\
+  \                YEAR(\n                    convert_timezone(\n                \
+  \        'random',\n                        ADD_MONTHS(current_timestamp, 'random')\n\
+  \                    )\n                ) || 'random' || QUARTER(\n            \
+  \        convert_timezone(\n                        'random',\n                \
+  \        ADD_MONTHS(current_timestamp, 'random')\n                    )\n      \
+  \          ),\n                'random'\n            )\n            and right(year(FD.\"\
+  OptyContEndDate\"), 'random') || 'random' || quarter(FD.\"OptyContEndDate\") < right(\n\
+  \                YEAR(\n                    convert_timezone(\n                \
+  \        'random',\n                        ADD_MONTHS(current_timestamp, 'random')\n\
+  \                    )\n                ) || 'random' || QUARTER(\n            \
+  \        convert_timezone(\n                        'random',\n                \
+  \        ADD_MONTHS(current_timestamp, 'random')\n                    )\n      \
+  \          ),\n                'random'\n            )\n        )\n        and FD.\"\
+  RenewalStatusFlag_CC\" = 'random' then 'random'\n    end as PQ_PUSHED_LATE_RENEWAL_FLAG,\n\
+  \n    CASE\n        WHEN OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS = 'random' THEN RENEWAL_ACV_USD_CFX\n\
+  \    END AS NNACV_RENEWAL_OPEN_ACV_USD,\n    --Added by Prabhat on 03/13 as part\
+  \ of PBI Migration.\n    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random' THEN\
+  \ RENEWAL_ACV_CLOSED_LOST_USD_CFX\n    END CLOSED_LOST_RENEWAL_USD,\n    ----Added\
+  \ by Prabhat on 03/13 as part of PBI Migration\n    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG\
+  \ = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'random' THEN NNACV_USD_CFX\n\
+  \    END AS RENEWAL_NNACV_CLOSED_DOWNSELL_CORP_USD_CY_FX,\n    --- Added by Prabhat\
+  \ (Accenture on 25 th March)\n    /*\n                    CASE WHEN BKGS.ACCT_WW_NNACV_FLAG\
+  \ = 'Account Downsell' and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'Open' THEN 1\
+  \ ELSE 0 END AS IS_CLOSED_DOWNSELL_CORP_ACV,\n                    CASE WHEN BKGS.ACCT_WW_NNACV_FLAG\
+  \ = 'Account Downsell' and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'Open' THEN 1\
+  \ ELSE 0 END AS IS_CLOSED_DOWNSELL_CORP_DAILY_ACV,\n                    CASE WHEN\
+  \ BKGS.ACCT_WW_NNACV_FLAG = 'Account Downsell' and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ <> 'Open' THEN 1 ELSE 0 END AS IS_CLOSED_DOWNSELL_CORP_HEALTH_ACV,\n         \
+  \           */\n    -----------Prabhat's code end-----------------------------\n\
+  \    /*Raj code not required so commenting Prabhat\n                    -----------Raj's\
+  \ code Start-----------------------------\n                    CASE\n          \
+  \              WHEN OPD.OPTY_STAGE IN ('8 - Closed Won (100%)', '8 - Closed Lost\
+  \ (100%)') THEN 'Closed'\n                        ELSE 'Open'\n                \
+  \    END AS OPD.OPTY_OPEN_CLOSED_FLAG,\n                    CASE\n             \
+  \           WHEN BKGS.ACCT_WW_NNACV_FLAG = 'Account Downsell' THEN 1\n         \
+  \               ELSE 0\n                    END AS IS_FIN_NNACV_USD,\n\n       \
+  \             -----------Raj's code end-----------------------------\n         \
+  \       \t/*comment end Prabhat*/\n    ---Code addition as part of Calculated columns\
+  \ by Yash:--STARTS--------\n    ------Ref:SALES_RENEWAL_NODE logic--------\n   \
+  \ CASE\n        WHEN RENEWAL_STATUS = 'random' then FD.\"SalesQuarter\"\n    end\
+  \ as PQ_OVER_DUE_DYNAMIC_QUARTER,\n    CASE\n        WHEN PQ_PUSHED_LATE_RENEWAL_FLAG\
+  \ = 'random'\n        and FD.\"SalesQuarter\" > right(\n            YEAR(\n    \
+  \            convert_timezone('random', current_timestamp)\n            ) || 'random'\
+  \ || QUARTER(\n                convert_timezone('random', current_timestamp)\n \
+  \           ),\n            'random'\n        )\n        and right(year(FD.\"OptyContEndDate\"\
+  ), 'random') || 'random' || quarter(FD.\"OptyContEndDate\") < right(\n         \
+  \   YEAR(\n                convert_timezone('random', current_timestamp)\n     \
+  \       ) || 'random' || QUARTER(\n                convert_timezone('random', current_timestamp)\n\
+  \            ),\n            'random'\n        ) then right(\n            YEAR(\n\
+  \                convert_timezone('random', current_timestamp)\n            ) ||\
+  \ 'random' || QUARTER(\n                convert_timezone('random', current_timestamp)\n\
+  \            ),\n            'random'\n        )\n    end as PQ_PUSHED_DYNAMIC_QUARTER_CQ,/*\n\
+  \    CASE\n        WHEN PQ_PUSHED_LATE_RENEWAL_FLAG = 'PQPushedLateRenewals'\n \
+  \       and FD.\"SalesQuarter\" > right(\n            YEAR(\n                convert_timezone(\n\
+  \                    'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 3)\n                )\n            ) || '-Q' || QUARTER(\n                convert_timezone(\n\
+  \                    'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 3)\n                )\n            ),\n            5\n        )\n        and right(year(FD.\"\
+  OptyContEndDate\"), 2) || '-Q' || quarter(FD.\"OptyContEndDate\") < right(\n   \
+  \         YEAR(\n                convert_timezone(\n                    'America/Los_Angeles',\n\
+  \                    ADD_MONTHS(current_timestamp, 3)\n                )\n     \
+  \       ) || '-Q' || QUARTER(\n                convert_timezone(\n             \
+  \       'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 3)\n                )\n            ),\n            5\n        ) then right(\n\
+  \            YEAR(\n                convert_timezone(\n                    'America/Los_Angeles',\n\
+  \                    ADD_MONTHS(current_timestamp, 3)\n                )\n     \
+  \       ) || '-Q' || QUARTER(\n                convert_timezone(\n             \
+  \       'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 3)\n                )\n            ),\n            5\n        )\n    end as \"\
+  PQ_PUSHED_DYNAMIC_QUARTER_CQ+1\",\n    CASE\n        WHEN PQ_PUSHED_LATE_RENEWAL_FLAG\
+  \ = 'PQPushedLateRenewals'\n        and FD.\"SalesQuarter\" > right(\n         \
+  \   YEAR(\n                convert_timezone(\n                    'America/Los_Angeles',\n\
+  \                    ADD_MONTHS(current_timestamp, 6)\n                )\n     \
+  \       ) || '-Q' || QUARTER(\n                convert_timezone(\n             \
+  \       'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 6)\n                )\n            ),\n            5\n        )\n        and right(year(FD.\"\
+  OptyContEndDate\"), 2) || '-Q' || quarter(FD.\"OptyContEndDate\") < right(\n   \
+  \         YEAR(\n                convert_timezone(\n                    'America/Los_Angeles',\n\
+  \                    ADD_MONTHS(current_timestamp, 6)\n                )\n     \
+  \       ) || '-Q' || QUARTER(\n                convert_timezone(\n             \
+  \       'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 6)\n                )\n            ),\n            5\n        ) then right(\n\
+  \            YEAR(\n                convert_timezone(\n                    'America/Los_Angeles',\n\
+  \                    ADD_MONTHS(current_timestamp, 6)\n                )\n     \
+  \       ) || '-Q' || QUARTER(\n                convert_timezone(\n             \
+  \       'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 6)\n                )\n            ),\n            5\n        )\n    end as \"\
+  PQ_PUSHED_DYNAMIC_QUARTER_CQ+2\",\n    CASE\n        WHEN PQ_PUSHED_LATE_RENEWAL_FLAG\
+  \ = 'PQPushedLateRenewals'\n        and FD.\"SalesQuarter\" > right(\n         \
+  \   YEAR(\n                convert_timezone(\n                    'America/Los_Angeles',\n\
+  \                    ADD_MONTHS(current_timestamp, 9)\n                )\n     \
+  \       ) || '-Q' || QUARTER(\n                convert_timezone(\n             \
+  \       'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 9)\n                )\n            ),\n            5\n        )\n        and right(year(FD.\"\
+  OptyContEndDate\"), 2) || '-Q' || quarter(FD.\"OptyContEndDate\") < right(\n   \
+  \         YEAR(\n                convert_timezone(\n                    'America/Los_Angeles',\n\
+  \                    ADD_MONTHS(current_timestamp, 9)\n                )\n     \
+  \       ) || '-Q' || QUARTER(\n                convert_timezone(\n             \
+  \       'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 9)\n                )\n            ),\n            5\n        ) then right(\n\
+  \            YEAR(\n                convert_timezone(\n                    'America/Los_Angeles',\n\
+  \                    ADD_MONTHS(current_timestamp, 9)\n                )\n     \
+  \       ) || '-Q' || QUARTER(\n                convert_timezone(\n             \
+  \       'America/Los_Angeles',\n                    ADD_MONTHS(current_timestamp,\
+  \ 9)\n                )\n            ),\n            5\n        )\n    end as \"\
+  PQ_PUSHED_DYNAMIC_QUARTER_CQ+3\",*/\n    CASE\n        WHEN PQ_PUSHED_LATE_RENEWAL_FLAG\
+  \ = 'random'\n        and FD.\"SalesQuarter\" > right(\n            YEAR(\n    \
+  \            convert_timezone(\n                    'random',\n                \
+  \    ADD_MONTHS(current_timestamp, 'random')\n                )\n            ) ||\
+  \ 'random' || QUARTER(\n                convert_timezone(\n                    'random',\n\
+  \                    ADD_MONTHS(current_timestamp, 'random')\n                )\n\
+  \            ),\n            'random'\n        )\n        and (\n            right(year(FD.\"\
+  OptyContEndDate\"), 'random') || 'random' || quarter(FD.\"OptyContEndDate\")\n \
+  \       ) < right(\n            YEAR(\n                convert_timezone(\n     \
+  \               'random',\n                    ADD_MONTHS(current_timestamp, 'random')\n\
+  \                )\n            ) || 'random' || QUARTER(\n                convert_timezone(\n\
+  \                    'random',\n                    ADD_MONTHS(current_timestamp,\
+  \ 'random')\n                )\n            ),\n            'random'\n        )\
+  \ then right(\n            YEAR(\n                convert_timezone(\n          \
+  \          'random',\n                    ADD_MONTHS(current_timestamp, 'random')\n\
+  \                )\n            ) || 'random' || QUARTER(\n                convert_timezone(\n\
+  \                    'random',\n                    ADD_MONTHS(current_timestamp,\
+  \ 'random')\n                )\n            ),\n            'random'\n        )\n\
+  \    end as PQ_PUSHED_DYNAMIC_QUARTER_PQ,\n    CASE\n        WHEN (\n          \
+  \  fd.\"PipelineStatus\" in ('random')\n            and OPD.OPTY_OPEN_CLOSED_FLAG\
+  \ in ('random')\n        )\n        and BKGS.ACCT_WW_RENEWAL_FLAG = 'random' then\
+  \ FD.FINNNACV_CC --this should go to FACT_BOOKINGS Prabhat\n    end as CLOSED_UPSELL_ACV_USD,\n\
+  \    CASE\n        WHEN (\n            fd.\"PipelineStatus\" not in ('random')\n\
+  \            and OPD.OPTY_OPEN_CLOSED_FLAG in ('random')\n        )\n        and\
+  \ BKGS.ACCT_WW_RENEWAL_FLAG = 'random' then ZEROIFNULL(NNACV_USD_CFX)\n    end as\
+  \ NNACV_RENEWAL_OPEN_UPSELL_USD,\n    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG\
+  \ = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \    END AS NNACV_RENEWAL_CLOSED_LOST_USD,\n    ---Code addition as part of Calculated\
+  \ columns by Yash:--ENDS--------\n    /* Begin: Added by Sneha (Accenture) on 04/Apr/2024\
+  \ Renamed from RENEWAL_NNACV_OPEN_DOWNSELL_CORP_USD to RENEWAL_NNACV_OPEN_DOWNSELL_CORP_USD_CY_FX\
+  \ */\n    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_OPEN_DOWNSELL_CORP_USD_CY_FX,\n\
+  \    /* End: Renamed by Manohar (Accenture) on 04/Apr/2024 */\n    /* Begin: Added\
+  \ by Manohar (Accenture) on 20/Mar/2024 */\n    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG\
+  \ = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'random' THEN ZEROIFNULL(FD.\"\
+  NetNewACV_FX\")\n    END AS CLOSED_DOWNSELL_ACV_USD,\n    CASE\n        WHEN BKGS.ACCT_BU_RENEWAL_FLAG\
+  \ = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \    END AS RENEWAL_NNACV_CLOSED_UPSELL_USD_CY_FX,\n    CASE\n        WHEN BKGS.ACCT_BU_NNACV_FLAG\
+  \ = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \    END AS RENEWAL_NNACV_CLOSED_DOWNSELL_USD_CY_FX,\n    CASE\n        WHEN BKGS.ACCT_BU_NNACV_FLAG\
+  \ IN ('random', 'random')\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS = 'random'\
+  \ THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_OPEN_DOWNSELL_LOST_USD_CY_FX,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random' THEN ZEROIFNULL(FD.\"RenewalACV_FX\")\n    END AS RENEWAL_TOTACV_OPEN_DOWNSELL_ACCT_USD,\n\
+  \    CASE\n        WHEN (\n            BKGS.ACCT_BU_NNACV_FLAG <> 'random'\n   \
+  \         OR BKGS.ACCT_BU_NNACV_FLAG <> 'random'\n        )\n        AND (\n   \
+  \         rbu.\"BUDownSellSeverity_CC\" IN ('random', 'random')\n        ) THEN\
+  \ ZEROIFNULL(FD.\"USDRenewalACV\")\n    END AS RENEWAL_TOTACV_ADDL_BU_ML_RSK_USD,\n\
+  \    /* End: Added by Manohar (Accenture) on 20/Mar/2024 */\n    CASE\n        WHEN\
+  \ (\n            BKGS.ACCT_BU_NNACV_FLAG = 'random'\n            OR BKGS.ACCT_BU_NNACV_FLAG\
+  \ = 'random'\n        )\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS = 'random'\
+  \ THEN ZEROIFNULL(FD.\"USDRenewalACV\")\n    END AS RENEWAL_TOTACV_BU_OPEN_DOWNSELL_USD,\n\
+  \    --- Added by Santhosh (Accenture) on 03/20/2024\n    CASE\n        WHEN OPD.TIMELINE_STATUS\
+  \ = 'random' THEN (\n            ZEROIFNULL(RENEWAL_ACV_CLOSED_LOST_USD_CFX) + ZEROIFNULL(RENEWAL_ACV_CLOSED_WON_USD_CFX)\n\
+  \        )\n    END AS ONTIME_CLOSED_WON_LOST_USD_CY_FX,\n    -- Added by Santhosh\
+  \ (Accenture) on 03/25/2024\n    CASE\n        WHEN BKGS.OPTY_SURVIVOR_BRIDGE_FLAG\
+  \ = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \        ELSE 'random'\n    END AS RENEWAL_NNACV_OPTY_SURVIVOR_DOWNSELL_USD_CY_FX,\n\
+  \    -- Added by Santhosh (Accenture) on 03/26/2024\n    CASE\n        WHEN BKGS.OPTY_SURVIVOR_BRIDGE_FLAG\
+  \ = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \        ELSE 'random'\n    END AS RENEWAL_NNACV_OPEN_SURVIVOR_DOWNSELL_USD_CY_FX,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \        ELSE 'random'\n    END AS RENEWAL_NNACV_DOWNSELL_USD_CY_FX,\n    -- Added\
+  \ by Sneha (Accenture) on 04/1/2024\n    CASE\n        WHEN BKGS.ACCT_BU_RENEWAL_FLAG\
+  \ = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n        WHEN BKGS.ACCT_WW_RENEWAL_FLAG\
+  \ = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_OPEN_UPSELL_HEALTH_USD_CY_FX,\n\
+  \    -- Added by Santhosh (Accenture) on 03/26/2024\n    -- Start of code - Added\
+  \ by Santhosh (Accenture) on 03/27/2024 ----\n    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG\
+  \ = 'random' THEN NNACV_USD\n    END AS RENEWAL_NNACV_TOTAL_DOWNSELL_CORP_USD_DAILY,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random'\n        AND BKGS.ACCT_PRJ_LOSS_DOWNSELL_FLAG\
+  \ = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS = 'random' THEN NNACV_USD\n\
+  \    END AS RENEWAL_NNACV_PROJECTED_LOSS_CORP_USD_DAILY,\n    CASE\n        WHEN\
+  \ BKGS.ACCT_WW_NNACV_FLAG = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random' THEN NNACV_USD\n    END AS RENEWAL_NNACV_OPEN_DOWNSELL_CORP_USD_DAILY,\n\
+  \    ----------------------- End of code ----------------------------------------------------\n\
+  \    -- Start of code - Added by Jyoti (Accenture) on 03/27/2024 ----\n    CASE\n\
+  \        WHEN BKGS.ACCT_BU_NNACV_FLAG IN ('random', 'random')\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_BU_OPEN_DOWNSELL_CORP_USD_DAILY,\n\
+  \    CASE\n        WHEN (\n            BKGS.ACCT_BU_NNACV_FLAG = 'random'\n    \
+  \        OR BKGS.ACCT_BU_NNACV_FLAG = 'random'\n        )\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_BU_CLOSED_LOST_USD_DAILY,\n\
+  \    CASE\n        WHEN (\n            BKGS.ACCT_BU_NNACV_FLAG = 'random'\n    \
+  \        OR BKGS.ACCT_BU_NNACV_FLAG = 'random'\n        )\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_CLOSED_LOST_USD_CY_FX,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_OPEN_DOWNSELL_USD_CY_FX,\n\
+  \    CASE\n        WHEN BKGS.ACCT_BU_RENEWAL_FLAG = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_OPEN_UPSELL_BU_USD_CY_FX,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_TOTAL_CLOSED_LOST_USD_CY_FX,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_RENEWAL_FLAG = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \    END AS RENEWAL_NNACV_UPSELL_USD_CY_FX,\n    ----------------------- End of\
+  \ code ----------------------------------------------------\n    ----------------------Start\
+  \ code added by Prabhat on 03/28 --------------------------------------------\n\
+  \    CASE\n        WHEN BKGS.ACCT_BU_NNACV_FLAG IN (\n            'random',\n  \
+  \          'random',\n            'random',\n            'random'\n        )\n \
+  \       AND rbu.\"MLPredictedRisk_BU\" IN ('random') THEN ZEROIFNULL(RENEWAL_ACV_USD_CFX)\n\
+  \        ELSE 'random'\n    END AS RENEWAL_TOTACV_BU_ML_RSK_HIGH_USD,\n    CASE\n\
+  \        WHEN BKGS.ACCT_BU_NNACV_FLAG IN (\n            'random',\n            'random',\n\
+  \            'random',\n            'random'\n        )\n        AND rbu.\"MLPredictedRisk_BU\"\
+  \ IN ('random') THEN ZEROIFNULL(RENEWAL_ACV_USD_CFX)\n        ELSE 'random'\n  \
+  \  END AS RENEWAL_TOTACV_BU_ML_RSK_MED_USD,\n    ---------------------------------------------------------end\
+  \ code ---------------------------\n    ----------------------------------------------Start\
+  \ code added by Manohar on 29-Mar-2024 ---------------------------------------------------\n\
+  \    CASE\n        WHEN BKGS.ACCT_BU_NNACV_FLAG = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_BU_CLOSED_DOWNSELL_HEALTH_USD_CY_FX,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_CLOSED_DOWNSELL_HEALTH_USD_CY_FX,\n\
+  \    -----------------------------------------------End code added by Manohar on\
+  \ 29-Mar-2024 ----------------------------------------------------\n    ------Code\
+  \ addition for renewals 3/29 by Yash---\n    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG\
+  \ in ('random')\n        and (\n            fd.\"PipelineStatus\" in ('random')\n\
+  \            and OPD.OPTY_OPEN_CLOSED_FLAG in ('random')\n        ) then NNACV_USD\n\
+  \    END as RENEWAL_NNACV_CLOSED_DOWNSELL_CORP_USD_DAILY,\n    CASE\n        WHEN\
+  \ BKGS.ACCT_WW_NNACV_FLAG <> 'random'\n        and rbu2.\"MLPredictedRisk_Account\"\
+  \ in ('random', 'random') THEN FD.\"USDRenewalACV\"\n    END AS RENEWAL_TOTACV_ADDL_MLFLG_RSK_ACCT_USD,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG in (\n            'random',\n  \
+  \          'random',\n            'random',\n            'random'\n        )\n \
+  \       and rbu2.\"MLPredictedRisk_Account\" in ('random')\n        and (\n    \
+  \        fd.\"OpportunityStage\" not in (\n                'random',\n         \
+  \       'random'\n            )\n        )\n        and fd.\"PipelineStatus\" <>\
+  \ 'random' THEN ZEROIFNULL(FD.\"USDRenewalACV\")\n    END AS RENEWAL_TOTACV_ADDL_ML_RSK_ACCT_MED_USD,\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG in (\n            'random',\n  \
+  \          'random',\n            'random',\n            'random'\n        )\n \
+  \       and rbu2.\"MLPredictedRisk_Account\" in ('random')\n        and (\n    \
+  \        fd.\"OpportunityStage\" not in (\n                'random',\n         \
+  \       'random'\n            )\n        )\n        and fd.\"PipelineStatus\" <>\
+  \ 'random' THEN ZEROIFNULL(FD.\"USDRenewalACV\")\n    END AS RENEWAL_TOTACV_ADDL_ML_RSK_ACCT_HIGH_USD,\n\
+  \    ------Code addition for renewals 3/29 by Yash---\n    -------------------------------------Start\
+  \ code added by Manohar on 1-Apr-2024 --------------------------------------------\n\
+  \    CASE\n        WHEN BKGS.OPTY_SURVIVOR_BRIDGE_FLAG = 'random' THEN ('random'\
+  \ * ZEROIFNULL(RENEWAL_ACV_USD_CFX))\n        ELSE 'random'\n    END AS RENEWAL_ACV_SURVIVOR_LOST_USD_CY_FX,\n\
+  \    CASE\n        WHEN OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS = 'random' THEN ZEROIFNULL(RENEWAL_ACV_USD)\n\
+  \    END AS RENEWAL_ACV_OPEN_USD_DAILY,\n    ------------------------------------End\
+  \ code added by Manohar on 1-Apr-2024 ------------------------------------------------\n\
+  \    -------------------------------------Start code added by Varun on 2-Apr-2024\
+  \ --------------------------------------------\n    CASE\n        WHEN BKGS.ACCT_WW_RENEWAL_FLAG\
+  \ = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \    END AS RENEWAL_ACV_CLOSED_UPSELL_USD_CY_FX,\n    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG\
+  \ = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \    END AS RENEWAL_NNACV_ACCOUNT_DOWNSELL_USD_CY_FX,\n    ------------------------------------End\
+  \ code added by Varun on 2-Apr-2024 ------------------------------------------------\n\
+  \    -------------------------------------Start code added by Jyoti(Accenture) on\
+  \ 4-Apr-2024 --------------------------------------------\n    CASE\n        WHEN\
+  \ BKGS.ACCT_BU_NNACV_FLAG = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS\
+  \ RENEWAL_ACV_UPSELL_DOWNSELL_USD_CY_FX,\n    ------------------------------------End\
+  \ code added by Jyoti(Accenture) on 4-Apr-2024-------------------------------------------------\n\
+  \    -------------------------------------Start code added by Santhosh(Accenture)\
+  \ on 3-Apr-2024 --------------------------------------------\n    CASE\n       \
+  \ WHEN BKGS.OPTY_SURVIVOR_BRIDGE_FLAG = 'random'\n        AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n    END AS RENEWAL_NNACV_OPEN_SURVIVOR_UPSELL_USD_CY_FX,\n\
+  \    CASE\n        WHEN OPD.TIMELINE_STATUS = 'random'\n        AND (\n        \
+  \    RENEWAL_STATUS_LEGACY = 'random'\n            OR RENEWAL_STATUS_LEGACY = 'random'\n\
+  \        ) THEN NNACV_RENEWAL_OPEN_ACV_USD\n    END AS RENEWAL_ACV_EARLY_OPEN_USD_CY_FX,\n\
+  \    ------------------------------------End code added by Santhosh(Accenture) on\
+  \ 3-Apr-2024 -------\n    -------------------------------start Prabaht's code-------------\n\
+  \    CASE\n        WHEN OPD.TIMELINE_STATUS = 'random' THEN ZEROIFNULL(RENEWAL_ACV_CLOSED_LOST_USD_CFX)\
+  \ + ZEROIFNULL(RENEWAL_ACV_CLOSED_WON_USD_CFX)\n    END AS RENEWAL_ACV_CLOSED_ONTIME_USD_CY_FX,\n\
+  \    -------------------------------end Prabaht's code-------------\n    ---------------------------------------Start\
+  \ code added by Jyoti(Accenture) on 4-Apr-2024 --------------------------------------------\n\
+  \    CASE\n        WHEN OPD.TIMELINE_STATUS = 'random' THEN NNACV_RENEWAL_OPEN_ACV_USD\n\
+  \    END AS RENEWAL_ACV_OPEN_ONTIME_CY_FX,\n    ---------------column renamed from\
+  \ RENEWAL_ACV_OPEN_ONTIME on 10-Apr-2024 by Jyoti(Accenture)------------------------------------------\n\
+  \    ------------------------------------End code added by Jyoti(Accenture) on 4-Apr-2024---------------------------------------------------\n\
+  \    ---------Added by Yash 4-Apr-2024------------------------------------------------------------------------------------------------------\n\
+  \    CASE\n        WHEN (\n            FD.\"PipelineStatus\" IN ('random')\n   \
+  \         AND OPD.OPTY_OPEN_CLOSED_FLAG NOT IN ('random')\n        ) THEN FD.\"\
+  USDRenewalACV\"\n    END AS RENEWAL_ACV_SUMMARY_OPEN_USD_CY_FX,\n    --------------------column\
+  \ renamed from RENEWAL_ACV_SUMMARY_OPEN_USD_CFX on 10-Apr-2024 by Jyoti(Accenture)-----------------------------\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_RENEWAL_FLAG IN ('random')\n        AND (\n\
+  \            FD.\"OpportunityStage\" IN (\n                'random',\n         \
+  \       'random'\n            )\n            AND FD.\"PipelineStatus\" = 'random'\n\
+  \        ) THEN NNACV_USD_CFX\n    END AS RENEWAL_NNACV_CLOSED_UPSELL_CORP_USD_CY_FX,\n\
+  \    -------------------------------------Start code added by Manohar(Accenture)\
+  \ on 5-Apr-2024 --------------------------------------------\n    CASE\n       \
+  \ WHEN OPD.OPTY_FORECAST_CATEGORY <> 'random'\n        AND OPD.TIMELINE_STATUS =\
+  \ 'random' THEN ZEROIFNULL(RENEWAL_ACV_LC)\n    END AS RENEWAL_ACV_EARLY_OPEN_LC,\n\
+  \    CASE\n        WHEN OPD.OPTY_FORECAST_CATEGORY = 'random'\n        AND OPD.TIMELINE_STATUS\
+  \ = 'random' THEN ZEROIFNULL(RENEWAL_ACV_LC)\n    END AS RENEWAL_ACV_EARLY_CLOSED_LC,\n\
+  \    ------------------------------------End code added by Manohar(Accenture) on\
+  \ 5-Apr-2024 ------------------------------------------------\n    -- Start Code\
+  \ by Matt(Accenture) on 04/05/2024\n    CASE\n        ---- WHEN BKGS.ACCT_WW_RENEWAL_FLAG\
+  \ = 'Account Lost'\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random' ----added by\
+  \ Yash\n        -----AND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'Open'\n       \
+  \ THEN NNACV_USD_CFX\n    END AS RENEWAL_NNACV_CLOSED_LOST_CORP_USD_DAILY,\n   \
+  \ FD.\"USDTotalTrainingRevenue\" AS TRAINING_REVENUE_TOTAL_USD_DAILY,\n    CASE\n\
+  \        WHEN OPD.OPTY_OPEN_CLOSED_FLAG = 'random'\n        AND RENEWAL_ACV_USD_CFX\
+  \ = 'random' THEN 'random'\n        ELSE 'random'\n    END AS IS_RENEWAL_OPTY_OPEN,\n\
+  \    CASE\n        WHEN RENEWAL_ACV_USD_CFX > 'random'\n        AND BKGS.OPTY_SURVIVOR_BRIDGE_FLAG\
+  \ = 'random'\n        AND OPD.OPTY_OPEN_CLOSED_FLAG = 'random' THEN 'random'\n \
+  \       ELSE 'random'\n    END AS IS_RENEWAL_OPTY_SURVIVOR_CLOSED_DOWNSELL,\n  \
+  \  CASE\n        WHEN RENEWAL_ACV_USD_CFX > 'random'\n        AND BKGS.OPTY_SURVIVOR_BRIDGE_FLAG\
+  \ = 'random' THEN 'random'\n        ELSE 'random'\n    END AS IS_RENEWAL_OPTY_SURVIVOR_LOST,\n\
+  \    -- End code added by Matt (Accenture) on 04/05/2024\n    -- Start Code by Matt(Accenture)\
+  \ on 04/08/2024\n    CASE\n        WHEN BKGS.ACCT_BU_NNACV_FLAG = 'random'\n   \
+  \     and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\n\
+  \    END AS RENEWAL_NNACV_OPEN_DOWNSELL_BU_USD_CY_FX,\n    -- End code added by\
+  \ Matt (Accenture) on 04/08/2024\n\t-- Start Code by Varun(Accenture) on 05/23/2024\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_NNACV_FLAG = 'random'\n        and OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random'\n\t\tand PARENT_ACC.IS_CCN_ACCOUNT = 'random' THEN ZEROIFNULL(NNACV_USD_CFX)\
+  \ ELSE 'random'\n    END AS RENEWAL_NNACV_OPEN_DOWNSELL_CCN_USD_CY_FX,\n\t-- End\
+  \ code added by Varun (Accenture) on 05/23/2024\n    CASE\n        WHEN OPD.TIMELINE_STATUS\
+  \ = 'random' THEN ZEROIFNULL(RENEWAL_ACV_USD_CFX)\n    END AS RENEWAL_ACV_INTRAQTR_LATE_USD_CY_FX,\n\
+  \    -------------------------------------Start code added by Manohar(Accenture)\
+  \ on 10-Apr-2024 --------------------------------------------\n    CASE\n      \
+  \  WHEN BKGS.ACCT_BU_NNACV_FLAG IN ('random', 'random') THEN ZEROIFNULL(NNACV_USD)\n\
+  \    END AS RENEWAL_NNACV_BU_TOTAL_LOST_CORP_USD_DAILY,\n    CASE\n        WHEN\
+  \ BKGS.ACCT_WW_NNACV_FLAG = 'random' THEN ZEROIFNULL(NNACV_USD)\n    END AS RENEWAL_NNACV_TOTAL_LOST_CORP_USD_DAILY,\n\
+  \    ------------------------------------End code added by Manohar(Accenture) on\
+  \ 10-Apr-2024 ------------------------------------------------\n    -------------------------------------Start\
+  \ code added by Santhosh(Accenture) on 10-Apr-2024 --------------------------------------------\n\
+  \    CASE\n        WHEN BKGS.ACCT_BU_RENEWAL_FLAG = 'random' THEN ZEROIFNULL(NNACV_USD)\n\
+  \    END AS RENEWAL_NNACV_BU_TOTAL_UPSELL_CORP_USD_DAILY,\n    CASE\n        WHEN\
+  \ BKGS.ACCT_BU_NNACV_FLAG = 'random' THEN ZEROIFNULL(NNACV_USD)\n    END AS RENEWAL_NNACV_BU_TOTAL_DOWNSELL_CORP_USD_DAILY,\n\
+  \    -------------------------------------End code added by Santhosh(Accenture)\
+  \ on 10-Apr-2024 --------------------------------------------\n    -------------------------------------Start\
+  \ code added by Jyoti(Accenture) on 10-Apr-2024 ---------------------------------------------\n\
+  \    CASE\n        WHEN BKGS.ACCT_WW_RENEWAL_FLAG = 'random' THEN ZEROIFNULL(NNACV_USD)\n\
+  \    END AS RENEWAL_NNACV_TOTAL_UPSELL_CORP_USD_DAILY,\n    -------------------------------------End\
+  \ code added by Jyoti(Accenture) on 10-Apr-2024 -----------------------------------------------\n\
+  \    -------------------------------------Start code added by Matt(Accenture) on\
+  \ 11-Apr-2024 ---------------------------------------------\n    CASE\n        WHEN\
+  \ OPD.TIMELINE_STATUS = 'random' THEN ZEROIFNULL(RENEWAL_ACV_USD_CFX)\n    END AS\
+  \ RENEWAL_ACV_EARLY_USD_CY_FX,\n    -------------------------------------End code\
+  \ added by Matt(Accenture) on 11-Apr-2024 ---------------------------------------------\n\
+  \    ------------------------------------Start code added by Santhosh(Accenture)\
+  \ on 23-Apr-2024-----------------------------------\n    CASE\n        WHEN ER.\"\
+  DynamicContractEndQuarter\" = 'random' then ER.\"RPercentageRemaningDays\" * FD.\"\
+  USDRenewalACV\"\n        WHEN ER.\"DynamicContractEndQuarter\" = 'random' then ER.\"\
+  RPercentageRemaningDays\" * FD.\"USDRenewalACV\"\n        WHEN ER.\"DynamicContractEndQuarter\"\
+  \ = 'random' then ER.\"RPercentageRemaningDays\" * FD.\"USDRenewalACV\"\n      \
+  \  WHEN ER.\"DynamicContractEndQuarter\" = 'random' then ER.\"RPercentageRemaningDays\"\
+  \ * FD.\"USDRenewalACV\"\n        ELSE 'random'\n    END AS EARLY_RENEWAL_CONTRIBUTION_TO_CRPO_USD_DAILY,\n\
+  \    ------------------------------------End code added by Santhosh(Accenture) on\
+  \ 23-Apr-2024-----------------------------------\n    ------------------------------------Start\
+  \ code added by Keerthi(Accenture) on 30-Apr-2024-----------------------------------\n\
+  \    CASE\n        WHEN ER.\"DynamicContractEndQuarter\" = 'random' then ER.\"RPercentageRemaningDays\"\
+  \ * FD.\"RenewalACV_FX\"\n        WHEN ER.\"DynamicContractEndQuarter\" = 'random'\
+  \ then ER.\"RPercentageRemaningDays\" * FD.\"RenewalACV_FX\"\n        WHEN ER.\"\
+  DynamicContractEndQuarter\" = 'random' then ER.\"RPercentageRemaningDays\" * FD.\"\
+  RenewalACV_FX\"\n        WHEN ER.\"DynamicContractEndQuarter\" = 'random' then ER.\"\
+  RPercentageRemaningDays\" * FD.\"RenewalACV_FX\"\n        ELSE 'random'\n    END\
+  \ AS EARLY_RENEWAL_CONTRIBUTION_TO_CRPO_USD_CY_FX,\n    ------------------------------------End\
+  \ code added by Keerthi(Accenture) on 30-Apr-2024-----------------------------------\n\
+  \    -------------------------------------Start code added by Matt(Accenture) on\
+  \ 26-Apr-2024 ---------------------------------------------\n    FD.\"Services_FX\"\
+  \ AS SERVICES_USD_DAILY,\n    -------------------------------------End code added\
+  \ by Matt(Accenture) on 26-Apr-2024 ---------------------------------------------\n\
+  \    -------------------------------------Start code added by Santhosh(Accenture)\
+  \ on 29-Apr-2024 ---------------------------------------------\n    CASE\n     \
+  \   WHEN QTR.DYNAMIC_QUARTER = 'random' THEN NNACV_CLOSED_USD\n        ELSE NNACV_USD\n\
+  \    END AS NNACV_CLOSED_PQ_USD_DAILY,\n    -------------------------------------End\
+  \ code added by Santhosh(Accenture) on 29-Apr-2024 ---------------------------------------------\n\
+  \t--\t\t\t\t\tColumn RENEWAL_NNACV_CLOSED_DOWNSELL_LOST_CCN_USD_CY_FX added by Jyoti(Accenture)\
+  \ on 23-May-2024--------\n\tCASE\n\t\tWHEN BKGS.ACCT_WW_NNACV_FLAG IN ('random',\
+  \ 'random')\n\t\t\tAND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS <> 'random'\n\t\t\tAND\
+  \ PARENT_ACC.IS_CCN_ACCOUNT = 'random'\n\t\tTHEN ZEROIFNULL(NNACV_USD_CFX) ELSE\
+  \ 'random'\n    END AS RENEWAL_NNACV_CLOSED_DOWNSELL_LOST_CCN_USD_CY_FX,\n\n\tCASE\n\
+  \t\tWHEN BKGS.ACCT_WW_NNACV_FLAG = 'random'\n\t\tAND OPD.RENEWAL_OPTY_OPEN_CLOSED_STATUS\
+  \ = 'random'\n\t\tAND PARENT_ACC.IS_CCN_ACCOUNT = 'random' THEN ZEROIFNULL(FD.\"\
+  RenewalACV_FX\")\n\tEND AS RENEWAL_TOTACV_OPEN_DOWNSELL_ACCT_CCN_USD,\n\t---Below\
+  \ attribute added by prabhat on 05-May-2024----\n\t CASE WHEN ref.ST_OPTY_NUMBER\
+  \ IS not NULL and fd.\"OpportunityStage\" not in ('random'\n\t   , 'random') THEN\
+  \ fd.\"USDNetNewACV\" END AS RQ4_PIPELINE_SLIPPED_FROM_PQ\n    ,FD.\"ParentDealBand\"\
+  \  as REPORTING_PARENT_DEAL_BAND\n    ,FD.\"DealBandSumUSD\" as REPORTING_DEAL_BAND_SUM_USD\n\
+  \nfrom\n    CDL_LS.SALES_RPT.RPT_FIXEDDATAPLUSQUOTA_RT FD\n    left outer join ODS_LS.SURF.SALES_OPPORTUNITY_ITEM\
+  \ OLI on FD.\"LineItemNumber_CRM\" = OLI.\"OptyItemLineItemNumber\"\n    left outer\
+  \ join EDW.ENTERPRISE.DIM_PRODUCT PRD ON FD.\"ProductSysID\" = PRD.PRODUCT_SYSID\n\
+  \    left outer join EDW.ENTERPRISE.DIM_TERRITORY TERR ON FD.\"TerritorySysID\"\
+  \ = TERR.TERRITORY_SYSID\n    left outer join (\n        select\n            *\n\
+  \        from\n            EDW.ENTERPRISE.DIM_OPPORTUNITY\n        where\n     \
+  \       OPTY_ID NOT IN (\n                -- Excluding the below Opty's which are\
+  \ having duplicate sysid's and nulls. As per discussion with Aravind, this should\
+  \ be fixed at the FixedDataSource.\n                'random',\n                'random',\n\
+  \                'random',\n                'random',\n                'random',\n\
+  \                'random'\n            )\n    ) OPD ON FD.\"OpportunitySysID\" =\
+  \ OPD.OPTY_SYSID --SS 1.5/Avantika/Updated on: 12-02-2024/Release on: 14-02-2024/\
+  \ Release Type: Regular/Added CDL view instead of EDW table to avoid the duplicates\
+  \ in the EDW table of DIM_OPTY\n    left outer join EDW.ENTERPRISE.DIM_ACCOUNT ACC\
+  \ ON FD.\"OpportunityAccountSysID\" = ACC.ACCOUNT_SYSID\n    left outer join EDW.ENTERPRISE.DIM_ACCOUNT\
+  \ PARENT_ACC ON OPD.PARENT_OPTY_ACCOUNT_ID = PARENT_ACC.ACCOUNT_ID\n    left outer\
+  \ join EDW.ENTERPRISE.DIM_QUARTER QTR on FD.\"SalesQuarter\" = QTR.QUARTER_YYQQ\n\
+  \    left outer join EDW.ENTERPRISE.DIM_OPPORTUNITY_ITEM OPTY_ITEM ON HASH(FD.\"\
+  LineItemNumber\") = OPTY_ITEM.OPTY_ITEM_ID --SS 1.5/Avantika/Updated on: 04-01-2024/Release\
+  \ on: 02-02-2024/ Release Type: Regular\n    left outer join EDW.ENTERPRISE.DIM_BOOKING_BRIDGE_FLAGS\
+  \ BKGS ON OPTY_ITEM.BOOKING_BRIDGE_FLAGS_ID = BKGS.BOOKING_BRIDGE_FLAGS_ID --SS\
+  \ 1.5/Avantika/Updated on: 04-01-2024/Release on: 02-02-2024/ Release Type: Regular\n\
+  \    left outer join ODS_LS.\"FILES\".\"SALES_OPPTY_FIXEDDATA\" OFD on FD.\"LineItemNumber\"\
+  \ = OFD.\"SFixedDataLineItemNumber\"\n    LEFT OUTER JOIN (\n        SELECT\n  \
+  \          DISTINCT \"OptySalesQuarter\",\n            \"OptyNumber\",(\"RPercentageRemaningDays\"\
+  \ / 'random') as \"RPercentageRemaningDays\",\n            \"DynamicContractEndQuarter\"\
+  \n        FROM\n            EDW_LS.FINANCE_FPA_EM.EM_CRPO_RT_EARLY_RENEWAL\n   \
+  \     WHERE\n            \"RecordType\" = 'random'\n    ) ER ON FD.\"OpportunityNumber\"\
+  \ = ER.\"OptyNumber\"\n    left outer join (\n        SELECT\n            \"CFXRate\"\
+  \ as \"CFXRate\",\n            \"CFXCurrency\" as \"CFXCurrency\",\n           \
+  \ \"U_FX_RATE_START\" as \"U_FX_RATE_START\",\n            YEAR(\"U_FX_RATE_START\"\
+  ) as \"FXRateStartYear\"\n        FROM\n            EDW_LS.\"SALES_EM\".\"EM_CONSTANT_FX_RATE_RT\"\
+  \n        where\n            YEAR(\"U_FX_RATE_START\") = YEAR(\n               \
+  \ convert_timezone('random', CURRENT_TIMESTAMP())\n            )\n    ) FX ON OFD.\"\
+  SFixedDataDocumentCurrency\" = FX.\"CFXCurrency\"\n    left outer join (\n     \
+  \   SELECT\n            DISTINCT \"AccountNumber\",\n            \"Quarter\",\n\
+  \            \"OverallRisk\" as \"RiskScoreSeverity\"\n        FROM\n          \
+  \  EDW_LS.CUSTOMER_CD_EM.ML_RISK_REASONS_BY_QUARTER\n        WHERE\n           \
+  \ \"RiskLevel\" = 'random'\n    ) rbu1 on rbu1.\"AccountNumber\" = fd.\"AccountNumber\"\
+  \n    and rbu1.\"Quarter\" = fd.\"SalesQuarter\"\n    /*below join added by Prabaht\
+  \ on 03/28 as account level Parentriskscoreserverity*/\n    left outer join (\n\
+  \        SELECT\n            distinct \"AccountNumber\",\n            \"Quarter\"\
+  ,\n            \"BusinessUnit\",\n            \"OverallRisk\" as \"BUDownSellSeverity_CC\"\
+  ,\n            \"OverallRiskReasonCode\" as \"BUDownSellReason\",\n            \"\
+  MLRisk\" as \"MLPredictedRisk_BU\"\n        from\n            EDW_LS.CUSTOMER_CD_EM.ML_RISK_REASONS_BY_QUARTER\n\
+  \        WHERE\n            \"RiskLevel\" = 'random'\n    ) rbu on rbu.\"AccountNumber\"\
+  \ = FD.\"OptyParentAccountNumber\"\n    and rbu.\"BusinessUnit\" = IFNULL(FD.\"\
+  ProductBusinessUnit\", 'random')\n    and rbu.\"Quarter\" = FD.\"SalesQuarter\"\n\
+  \    /*end code Prabhat*/\n    ------added by Yash for ML related Risk for parent\
+  \ accounts Renewals-----\n    left outer join (\n        SELECT\n            DISTINCT\
+  \ \"AccountNumber\",\n            \"Quarter\",\n            \"OverallRisk\" as \"\
+  RiskScoreSeverity\",\n            \"MLRisk\" as \"MLPredictedRisk_Account\"\n  \
+  \      FROM\n            EDW_LS.CUSTOMER_CD_EM.ML_RISK_REASONS_BY_QUARTER\n    \
+  \    WHERE\n            \"RiskLevel\" = 'random'\n    ) rbu2 on rbu2.\"AccountNumber\"\
+  \ = fd.\"OptyParentAccountNumber\"\n    and rbu2.\"Quarter\" = fd.\"SalesQuarter\"\
+  \n\n------below join added by Prabhat for 4RQ_PIPELINE_SLIPPED_FROM_PQ----\n\tleft\
+  \ outer join\n\t(SELECT ST_OPTY_NUMBER,ST_OPTY_ID,ST_OPTY_SYSID FROM EDW.SALES.REF_PQ_OPTY_15DAY_SNAPSHOTS)\
+  \ ref\n\tON\n\tref.ST_OPTY_NUMBER=OPD.OPTY_NUMBER\n\tAND\n\tref.ST_OPTY_ID=OPD.OPTY_ID\n\
+  \nwhere\n    FD.\"RecordType\" = 'random' --SS 1.5 Changes /Jay Modi/Updated on:\
+  \ 21-02-2024/Release on: 01-03-2024/ Release Type: RTB\n    and IS_VALID = 'random'\
+  \ --SS 1.5 Changes /Avantika Keshav/Updated on: 05-07-2024/ Added to exclude Opportunities\
+  \ that are reopened after the quarter end fixeddata processing\n\n\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

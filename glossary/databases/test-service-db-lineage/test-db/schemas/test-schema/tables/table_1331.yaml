@@ -1,0 +1,195 @@
+name: table_1331
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1331
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1331.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_REP_ATTAINMENT(\n\tQUARTER_ID,\n\
+  \tTERRITORY_ID,\n\tEMPLOYEE_ID,\n\tQUARTER_DT,\n\tQUARTER_YYQQ,\n\tGEO_ID,\n\tQUOTA,\n\
+  \tQUOTA_PQ,\n\tQUOTA_PQ2,\n\tQUOTA_PQ3,\n\tQUOTA_PQ4,\n\tATTAINMENT_PCT,\n\tATTAINMENT_PCT_PQ,\n\
+  \tATTAINMENT_PCT_PQ2,\n\tATTAINMENT_PCT_PQ3,\n\tATTAINMENT_PCT_PQ4,\n\tNNACV_CLOSED_USD_DAILY,\n\
+  \tNNACV_CLOSED_PQ_USD_DAILY,\n\tNNACV_CLOSED_PQ2_USD_DAILY,\n\tNNACV_CLOSED_PQ3_USD_DAILY,\n\
+  \tNNACV_CLOSED_PQ4_USD_DAILY,\n\tTERRITORY_SYSID,\n\tNNACV_FY_CLOSED_USD_CY_FX\n\
+  ) as\n/****************************************************************************************************************************\n\
+  CREATE/CHANGE LOG:\nDATE        \tMODIFIED BY                               DESCRIPTION\n\
+  19/04/24       \tjyoti.gandhi@servicenow.com       New View created with Grain:\
+  \ Quarter, Employee, Territory  and columns                                    \
+  \                   added: QUOTA, QUOTA_PQ, QUOTA_PQ2, QUOTA_PQ3, QUOTA_PQ4,\tATTAINMENT_PCT,\n\
+  \t\t\t\t\t\t\t\t\t\t\t\t  ATTAINMENT_PCT_PQ,\tATTAINMENT_PCT_PQ2,\tATTAINMENT_PCT_PQ3,\n\
+  \                                                  ATTAINMENT_PCT_PQ4\n23/04/24\
+  \        matthew.solone@servicenow.com     Logic added for:\n                  \
+  \                                NNACV_CLOSED_USD_DAILY,\n                     \
+  \                             NNACV_CLOSED_PQ_USD_DAILY,\n                     \
+  \                             NNACV_CLOSED_PQ2_USD_DAILY,\n                    \
+  \                              NNACV_CLOSED_PQ3_USD_DAILY,\n                   \
+  \                               NNACV_CLOSED_PQ4_USD_DAILY\n10/05/24        Matthew.solone@servicenow.com\
+  \       NNACV_FY_CLOSED_USD_CY_FX\n****************************************************************************************************************************/\n\
+  SELECT\n    QUARTER_ID,\n    HASH(Terr_act.\"STEmpTerrTerritorySysId\") as TERRITORY_ID,\n\
+  \    HASH(RR.\"EmpSysID\") as EMPLOYEE_ID,\n    QUARTER_DT,\n    QUARTER_YYQQ,\n\
+  \    TERR.GEO_ID,\n    SUM(\"Quota\") AS QUOTA,\n    SUM(\n        CASE\n      \
+  \      WHEN \"Quarter\" = RIGHT(\n                YEAR(\n                    CONVERT_TIMEZONE(\n\
+  \                        'random',\n                        ADD_MONTHS(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ) || 'random' || QUARTER(\n\
+  \                    CONVERT_TIMEZONE(\n                        'random',\n    \
+  \                    ADD_MONTHS(CURRENT_DATE, 'random')\n                    )\n\
+  \                ),\n                'random'\n            ) THEN \"Quota\"\n  \
+  \          ELSE 'random'\n        END\n    ) AS QUOTA_PQ,\n    SUM(\n        CASE\n\
+  \            WHEN \"Quarter\" = RIGHT(\n                YEAR(\n                \
+  \    CONVERT_TIMEZONE(\n                        'random',\n                    \
+  \    ADD_MONTHS(CURRENT_DATE, 'random')\n                    )\n               \
+  \ ) || 'random' || QUARTER(\n                    CONVERT_TIMEZONE(\n           \
+  \             'random',\n                        ADD_MONTHS(CURRENT_DATE, 'random')\n\
+  \                    )\n                ),\n                'random'\n         \
+  \   ) THEN \"Quota\"\n            ELSE 'random'\n        END\n    ) AS QUOTA_PQ2,\n\
+  \    SUM(\n        CASE\n            WHEN \"Quarter\" = RIGHT(\n               \
+  \ YEAR(\n                    CONVERT_TIMEZONE(\n                        'random',\n\
+  \                        ADD_MONTHS(CURRENT_DATE, 'random')\n                  \
+  \  )\n                ) || 'random' || QUARTER(\n                    CONVERT_TIMEZONE(\n\
+  \                        'random',\n                        ADD_MONTHS(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            ) THEN \"Quota\"\n            ELSE 'random'\n        END\n    ) AS\
+  \ QUOTA_PQ3,\n    SUM(\n        CASE\n            WHEN \"Quarter\" = RIGHT(\n  \
+  \              YEAR(\n                    CONVERT_TIMEZONE(\n                  \
+  \      'random',\n                        ADD_MONTHS(CURRENT_DATE, 'random')\n \
+  \                   )\n                ) || 'random' || QUARTER(\n             \
+  \       CONVERT_TIMEZONE(\n                        'random',\n                 \
+  \       ADD_MONTHS(CURRENT_DATE, 'random')\n                    )\n            \
+  \    ),\n                'random'\n            ) THEN \"Quota\"\n            ELSE\
+  \ 'random'\n        END\n    ) AS QUOTA_PQ4,\n    SUM(\"AttainmentPercentage\")\
+  \ AS ATTAINMENT_PCT,\n    SUM(\n        CASE\n            WHEN \"Quarter\" = RIGHT(\n\
+  \                YEAR(\n                    CONVERT_TIMEZONE(\n                \
+  \        'random',\n                        ADD_MONTHS(CURRENT_DATE, 'random')\n\
+  \                    )\n                ) || 'random' || QUARTER(\n            \
+  \        CONVERT_TIMEZONE(\n                        'random',\n                \
+  \        ADD_MONTHS(CURRENT_DATE, 'random')\n                    )\n           \
+  \     ),\n                'random'\n            ) THEN \"AttainmentPercentage\"\
+  ::NUMBER('random', 'random') / 'random'\n            ELSE 'random'\n        END\n\
+  \    ) AS ATTAINMENT_PCT_PQ,\n    SUM(\n        CASE\n            WHEN \"Quarter\"\
+  \ = RIGHT(\n                YEAR(\n                    CONVERT_TIMEZONE(\n     \
+  \                   'random',\n                        ADD_MONTHS(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ) || 'random' || QUARTER(\n\
+  \                    CONVERT_TIMEZONE(\n                        'random',\n    \
+  \                    ADD_MONTHS(CURRENT_DATE, 'random')\n                    )\n\
+  \                ),\n                'random'\n            ) THEN \"AttainmentPercentage\"\
+  ::NUMBER('random', 'random') / 'random'\n            ELSE 'random'\n        END\n\
+  \    ) AS ATTAINMENT_PCT_PQ2,\n    SUM(\n        CASE\n            WHEN \"Quarter\"\
+  \ = RIGHT(\n                YEAR(\n                    CONVERT_TIMEZONE(\n     \
+  \                   'random',\n                        ADD_MONTHS(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ) || 'random' || QUARTER(\n\
+  \                    CONVERT_TIMEZONE(\n                        'random',\n    \
+  \                    ADD_MONTHS(CURRENT_DATE, 'random')\n                    )\n\
+  \                ),\n                'random'\n            ) THEN \"AttainmentPercentage\"\
+  ::NUMBER('random', 'random') / 'random'\n            ELSE 'random'\n        END\n\
+  \    ) AS ATTAINMENT_PCT_PQ3,\n    SUM(\n        CASE\n            WHEN \"Quarter\"\
+  \ = RIGHT(\n                YEAR(\n                    CONVERT_TIMEZONE(\n     \
+  \                   'random',\n                        ADD_MONTHS(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ) || 'random' || QUARTER(\n\
+  \                    CONVERT_TIMEZONE(\n                        'random',\n    \
+  \                    ADD_MONTHS(CURRENT_DATE, 'random')\n                    )\n\
+  \                ),\n                'random'\n            ) THEN \"AttainmentPercentage\"\
+  ::NUMBER('random', 'random') / 'random'\n            ELSE 'random'\n        END\n\
+  \    ) AS ATTAINMENT_PCT_PQ4,\n    SUM(\"ClosedNetNewACV\") AS NNACV_CLOSED_USD_DAILY,\n\
+  \    SUM(\n        CASE\n            WHEN \"Quarter\" = RIGHT(\n               \
+  \ YEAR(\n                    CONVERT_TIMEZONE(\n                        'random',\n\
+  \                        add_months(CURRENT_DATE, 'random')\n                  \
+  \  )\n                ) || 'random' || Quarter(\n                    convert_timezone(\n\
+  \                        'random',\n                        add_months(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            ) THEN \"ClosedNetNewACV\"::number('random', 'random')\n          \
+  \  ELSE 'random'\n        END\n    ) AS NNACV_CLOSED_PQ_USD_DAILY,\n    SUM(\n \
+  \       CASE\n            WHEN \"Quarter\" = RIGHT(\n                YEAR(\n   \
+  \                 CONVERT_TIMEZONE(\n                        'random',\n       \
+  \                 add_months(CURRENT_DATE, 'random')\n                    )\n  \
+  \              ) || 'random' || Quarter(\n                    convert_timezone(\n\
+  \                        'random',\n                        add_months(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            ) THEN \"ClosedNetNewACV\"::number('random', 'random')\n          \
+  \  ELSE 'random'\n        END\n    ) AS NNACV_CLOSED_PQ2_USD_DAILY,\n    SUM(\n\
+  \        CASE\n            WHEN \"Quarter\" = RIGHT(\n                YEAR(\n  \
+  \                  CONVERT_TIMEZONE(\n                        'random',\n      \
+  \                  add_months(CURRENT_DATE, 'random')\n                    )\n \
+  \               ) || 'random' || Quarter(\n                    convert_timezone(\n\
+  \                        'random',\n                        add_months(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            ) THEN \"ClosedNetNewACV\"::number('random', 'random')\n          \
+  \  ELSE 'random'\n        END\n    ) AS NNACV_CLOSED_PQ3_USD_DAILY,\n    SUM(\n\
+  \        CASE\n            WHEN \"Quarter\" = RIGHT(\n                YEAR(\n  \
+  \                  CONVERT_TIMEZONE(\n                        'random',\n      \
+  \                  ADD_MONTHS(CURRENT_DATE, 'random')\n                    )\n \
+  \               ) || 'random' || QUARTER(\n                    CONVERT_TIMEZONE(\n\
+  \                        'random',\n                        ADD_MONTHS(CURRENT_DATE,\
+  \ 'random')\n                    )\n                ),\n                'random'\n\
+  \            ) THEN \"ClosedNetNewACV\"::number('random', 'random')\n          \
+  \  ELSE 'random'\n        END\n    ) AS NNACV_CLOSED_PQ4_USD_DAILY,\n    Terr_act.\"\
+  STEmpTerrTerritorySysId\" as TERRITORY_SYSID,\n    PR.\"YearToLastCompletedMonthClosed\"\
+  \ AS NNACV_FY_CLOSED_USD_CY_FX\nFROM\n    CDL_LS.SALES_RPT.RPT_RANKING_REPORTS RR\n\
+  \    LEFT OUTER JOIN EDW_LS.\"SALES_EM\".\"ANAPLAN_TERRITORY_REP\" Terr_act ON RR.\"\
+  EmployeeName\" = Terr_act.\"STEmpTerrEmployeeName\"\n    LEFT OUTER JOIN (\n   \
+  \     SELECT\n            DISTINCT QUARTER_ID,\n            QUARTER_DT,\n      \
+  \      QUARTER_YYQQ\n        from\n            EDW.ENTERPRISE.DIM_QUARTER\n    )\
+  \ QTR ON RR.\"Quarter\" = QTR.QUARTER_YYQQ\n    LEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY\
+  \ TERR ON RR.\"EmployeeTerritorySysID\" = TERR.TERRITORY_SYSID\n    LEFT OUTER JOIN\
+  \ (\n        select\n            tbl.\"employee_sys_id\" as \"EmployeeSysID\",\n\
+  \            sum(tbl.\"net_new_acv_closed\") as \"YearToLastCompletedMonthClosed\"\
+  \n        from\n            EDW_LS.SALES_EM.TBLPERFORMANCERANKING tbl\n        \
+  \    join (\n                select\n                    \"employee_sys_id\",\n\
+  \                    max(\"quarter\") as max_as_of_quarter\n                from\n\
+  \                    EDW_LS.SALES_EM.TBLPERFORMANCERANKING\n                group\
+  \ by\n                    \"employee_sys_id\"\n            ) max_asof on tbl.\"\
+  employee_sys_id\" = max_asof.\"employee_sys_id\"\n            and tbl.\"quarter\"\
+  \ = max_asof.max_as_of_quarter\n        where\n            tbl.\"quarter\" <= RIGHT(\n\
+  \                YEAR(\n                    convert_timezone('random', CURRENT_TIMESTAMP())\n\
+  \                ) || 'random' || QUARTER(\n                    convert_timezone('random',\
+  \ CURRENT_TIMESTAMP())\n                ),\n                'random'\n         \
+  \   )\n            and left(tbl.\"quarter\", 'random') = RIGHT(\n              \
+  \  YEAR(\n                    convert_timezone('random', CURRENT_TIMESTAMP())\n\
+  \                ),\n                'random'\n            )\n        group by\n\
+  \            tbl.\"employee_sys_id\"\n    ) PR on EMPLOYEE_ID = HASH(PR.\"EmployeeSysID\"\
+  )\nWHERE\n    RR.\"Quarter\" >= RIGHT(\n        YEAR(\n            CONVERT_TIMEZONE(\n\
+  \                'random',\n                ADD_MONTHS(CURRENT_DATE, 'random')\n\
+  \            )\n        ) || 'random' || QUARTER(\n            CONVERT_TIMEZONE(\n\
+  \                'random',\n                ADD_MONTHS(CURRENT_DATE, 'random')\n\
+  \            )\n        ),\n        'random'\n    )\n    AND RR.\"Quarter\" < RIGHT(\n\
+  \        YEAR(\n            CONVERT_TIMEZONE('random', CURRENT_DATE)\n        )\
+  \ || 'random' || QUARTER(\n            CONVERT_TIMEZONE('random', CURRENT_DATE)\n\
+  \        ),\n        'random'\n    )\n    AND \"Active\" = 'random'\nGROUP BY\n\
+  \    ALL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

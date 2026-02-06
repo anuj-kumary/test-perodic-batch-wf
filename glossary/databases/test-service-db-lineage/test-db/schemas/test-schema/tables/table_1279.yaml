@@ -1,0 +1,88 @@
+name: table_1279
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1279
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1279.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_SALES_PROGRAM_BKP_0807(\n\tSALES_PROGRAM_ID,\n\
+  \tSALES_PROGRAM_GUID,\n\tACCOUNT_GUID,\n\tACCOUNT_ID,\n\tOPTY_GUID,\n\tOPTY_ID,\n\
+  \tPRODUCT_GUID,\n\tPRODUCT_ID,\n\tSALES_PROGRAM_UNIQUE_ID,\n\tPROGRAM_MAP_TYPE,\n\
+  \tACCOUNT_SYSID,\n\tOPTY_SYSID,\n\tPRODUCT_SYSID\n) as\nSELECT distinct\n    hash(ifnull(PT.'random','random')\n\
+  \    ||ifnull(PT.'random','random')\n    ||ifnull(PT.'random','random')\n    ||ifnull(PI.'random','random')\n\
+  \    ||ifnull(PI.'random','random')\n    ||ifnull(PI.'random','random')\n    ||ifnull(PT.'random','random')\n\
+  \    ||ifnull(PT.'random','random')\n    ||ifnull(PT.'random','random')\n    ||ifnull(PT.'random','random')\n\
+  \    ||ifnull(PT.'random','random'))\n    as SALES_PROGRAM_ID,\n    PT.'random'\
+  \ as SALES_PROGRAM_GUID,\n\tPT.'random' as ACCOUNT_GUID,\n    HASH(SA.'random')\
+  \ as ACCOUNT_ID,\n\tPT.'random' as OPTY_GUID,\n    HASH(SO.'random') as OPTY_ID,\n\
+  \tPT.'random' as PRODUCT_GUID,\n    HASH(item.'random') as PRODUCT_ID,\n    HASH(ifnull(SALES_PROGRAM_ID,'random')||ifnull(PT.'random','random')||ifnull(PT.'random','random')||ifnull(PT.'random','random'))\
+  \ as SALES_PROGRAM_UNIQUE_ID,\n\tPT.'random' as PROGRAM_MAP_TYPE,\n    SA.'random'\
+  \ as ACCOUNT_SYSID,\n    SO.'random' as OPTY_SYSID,\n    item.'random' as PRODUCT_SYSID\n\
+  FROM\n (SELECT\n\t\t'random' as 'random',\n\t\t'random' as 'random',\n\t\t'random'\
+  \ as 'random',\n\t\t'random' as 'random',\n\t\t'random' as 'random'\n  FROM ODS_LS.'random'.'random'\n\
+  \  WHERE 'random' = 'random'\n  )PI\nLEFT JOIN\n (SELECT\n\t\t'random' as 'random',\n\
+  \t\t'random' as 'random',\n\t\t'random' as 'random',\n\t\t'random' as 'random',\n\
+  \t\t'random' as 'random',\n\t\t'random' as 'random',\n\t\t'random' as 'random',\n\
+  \t\t'random' as 'random',\n\t\t'random' as 'random',\n\t\t'random' as 'random',\n\
+  \t\t'random' as 'random',\n\t\t'random' as 'random',\n\t\t'random' as 'random'\n\
+  \  FROM ODS_LS.'random'.'random'\n  WHERE 'random'='random'\n  )PT ON PI.'random'\
+  \ = PT.'random'\nLEFT JOIN ODS_LS.'random'.'random' SA ON PT.'random' = SA.'random'\n\
+  LEFT JOIN  (select U_DYNAMICS_GUID,value as 'random'\n            from RDS.SURF.'random'\
+  \ T1,LATERAL\n\t\t\tSplit_to_table(T1.u_contributing_surf_oportunity_lines,'random')\n\
+  \            where T1.u_contributing_surf_oportunity_lines is not NULL and T1.U_DYNAMICS_GUID\n\
+  \t\t\tis not null\n           ) top_level_line\n\t\t   on lower(PT.'random') =lower(\
+  \ top_level_line.U_DYNAMICS_GUID)\n\t\t   join ODS_LS.surf.sales_opportunity_item\
+  \ item\n\t\t   on item.'random'=top_level_line.'random'\nLEFT JOIN ODS_LS.SURF.SALES_OPPORTUNITY\
+  \ SO on lower(SO.'random') = PT.'random'\n\nUNION ALL\n\nSELECT distinct\n    hash('random'\n\
+  \    ||ifnull(SPM.'random' ,'random')\n    ||ifnull(SPA.'random','random')\n   \
+  \ ||ifnull(SPA.'random' ,'random')\n    ||'random'\n    ||'random'\n    ||ifnull(SPM.'random','random')\n\
+  \    ||ifnull(SPM.'random','random')\n    ||ifnull(SPM.'random','random'))\n   \
+  \ as SALES_PROGRAM_ID,\n    'random' as SALES_PROGRAM_GUID,\n\tSPM.'random' as ACCOUNT_GUID,\n\
+  \    HASH(SPM.'random') as ACCOUNT_ID,\n\tNULL as OPTY_GUID,\n    NULL as OPTY_ID,\n\
+  \tNULL as PRODUCT_GUID,\n    NULL as PRODUCT_ID,\n    HASH('random'||SPM.'random')\
+  \ as SALES_PROGRAM_UNIQUE_ID,\n\t'random' as PROGRAM_MAP_TYPE,\n    SPM.'random'\
+  \ as ACCOUNT_SYSID,\n    NULL as OPTY_SYSID,\n    NULL as PRODUCT_SYSID\nFROM\n\
+  \   (SELECT\n\t   'random' as 'random',\n\t   'random' as 'random',\n\t   'random'\
+  \ as 'random',\n\t   'random' as 'random',\n\t   'random' as 'random',\n\t   'random'\
+  \ as 'random',\n\t   'random' as 'random'\n\tFROM ODS_LS.'random'.'random'\n\tWHERE\
+  \ ('random' ='random')\n\t  AND (('random') IS NULL)\n\t  AND ('random' ='random')\n\
+  \t)SPM\nLEFT JOIN ODS_LS.'random'.'random' SPA\n\tON SPM.'random' = SPA.'random'\n\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

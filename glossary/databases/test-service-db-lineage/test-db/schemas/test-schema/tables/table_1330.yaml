@@ -1,0 +1,420 @@
+name: table_1330
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1330
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1330.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_ENGAGEMENT_CENTRAL(\n\tOPTY_ID,\n\t\"\
+  OptySalesQuarter\",\n\t\"DynamicQuarter\",\n\tACCOUNT_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\
+  \t\"BUGroup\",\n\t\"BUWorkFlow\",\n\t\"EngagementType\",\n\t\"EngagementOrderforSort\"\
+  ,\n\t\"OwnerID\",\n\t\"EngagementOwner\",\n\t\"OwnerJobRoleName\",\n\t\"EngagementOwnerManager\"\
+  ,\n\t\"EngagementParticipant\",\n\t\"ParticipantJobRoleName\",\n\t\"EngagementParticipantManager\"\
+  ,\n\t\"PrePostSale\",\n\t\"EngagementCreatedQuarter\",\n\t\"EngagementCompleteQuarter\"\
+  ,\n\t\"EngCmpltRolling5QtrFlag\",\n\t\"EngCreatedRolling5QtrFlag\",\n\t\"EngagementStatusCodeName\"\
+  ,\n\t\"EngagementSalesStageCodeName\",\n\t\"EngagementNumber\",\n\t\"EngagementDescription\"\
+  ,\n\t\"EngagementCategoryCodeName\",\n\t\"OptyDemoStatus\",\n\t\"OptyWorkshopStatus\"\
+  ,\n\t\"OptyPOVStatus\",\n\t\"OptyTechnicalWinStatus\",\n\t\"OptyBVAStatus\",\n\t\
+  \"OptyValueMgmtEngagedStatus\",\n\t\"OptyValuePromptersCreated\",\n\t\"OptyValuePrompterCreatedStatus\"\
+  ,\n\t\"ParentOptyTechnicalWinStatus\",\n\t\"EngagementStageName\",\n\t\"GenAIFLag\"\
+  ,\n\t\"EngagementSubType\",\n\tOPTY_ID_DEPT\n) as\n\nwith Interactions as (\n  \
+  \  SELECT interaction.*,\n        eng.\"OpportunityGUID\" AS \"OpportunityGUID\"\
+  ,\n        eng.\"OpportunityName\" AS \"OpportunityName\",\n        case\n     \
+  \       when eng.\"EngagementSubTypeName\" IS not NULL then eng.\"EngagementSubTypeName\"\
+  \n            else eng.\"EngagementTypeName\"\n        end as \"EngagementTypeName2\"\
+  ,\n        ifnull(grp.INTERACTION_TYPE, 'random') as \"EngagementTypeName\",\n \
+  \       grp.\"ORDER\" as \"EngagementOrderforSort\",\n        eng.\"EngagementTypeName\"\
+  \ AS \"EngagementTypeNameOld\",\n        eng.\"EngagementSubTypeName\" AS \"EngagementSubTypeName\"\
+  ,\n        eng.\"PrimaryProductName\" AS \"PrimaryProductName\",\n        eng.\"\
+  PrimaryStatusName\" AS \"PrimaryStatusName\",\n        eng.\"EngagementOwnerID\"\
+  \ AS \"EngagementOwnerID\",\n        suo.\"UserFullName\" AS \"EngagementOwner\"\
+  ,\n        suo.\"UserInternalEmailAddress\" AS \"EngagementOwnerEmail\",\n     \
+  \   uro.\"JobRole\" AS \"OwnerJobRoleName\",\n        suo.\"UserParentUserName\"\
+  \ AS \"EngagementOwnerManager\",\n        eng.\"ParticipantIDName\" AS \"ParticipantIDName\"\
+  ,\n        sup.\"UserInternalEmailAddress\" AS \"EngagementParticipantEmail\",\n\
+  \        urp.\"JobRole\" AS \"ParticipantJobRoleName\",\n        sup.\"UserParentUserName\"\
+  \ AS \"EngagementParticipantManager\",\n        eng.\"EngagementPrePostSaleName\"\
+  \ AS \"EngagementPrePostSaleName\",\n        eng.\"EngagementCompleteDate\" AS \"\
+  EngagementCompleteDate\",\n        eng.\"EngagementStatusCodeName\" AS \"EngagementStatusCodeName\"\
+  ,\n        eng.\"EngagementSalesStageCodeName\" AS \"EngagementSalesStageCodeName\"\
+  ,\n        eng.\"EngagementNumber\" as \"EngagementNumber\",\n        eng.\"EngagementDescription\"\
+  \ AS \"EngagementDescription\",\n        eng.\"EngagementProductFamilyName\" AS\
+  \ \"EngagementProductFamilyName\",\n        eng.\"EngagementCategoryCodeName\" AS\
+  \ \"EngagementCategoryCodeName\",\n\n        RIGHT(\n            YEAR(eng.\"EngagementCompleteDate\"\
+  ) || 'random' || QUARTER(eng.\"EngagementCompleteDate\"),\n            'random'\n\
+  \        ) AS \"EngagementCompleteQuarter\",\n        RIGHT(\n            YEAR(eng.\"\
+  EngagementCreatedOn\") || 'random' || QUARTER(eng.\"EngagementCreatedOn\"),\n  \
+  \          'random'\n        ) AS \"EngagementCreatedQuarter\",\n        eng.\"\
+  EngagementStageName\" as \"EngagementStageName\"\n    FROM ML_SENSITIVE.\"MSEXCHANGE_SHARED\"\
+  .\"TBL_CONTACT_ALL_INTERACTIONS_SHARED\" interaction\n      --LEFT OUTER JOIN EDW_LS.\"\
+  SALES_D365_EM\".\"EM_ENGAGEMENTS\" eng ON LOWER(interaction.\"OPTY_DYNAMICS_GUID\"\
+  ) = LOWER(eng.\"OpportunityGUID\")\n        LEFT OUTER JOIN EDW_LS.\"SALES_D365_EM\"\
+  .\"EM_ENGAGEMENTS\" eng ON interaction.ENGAGEMENT_NUMBER = eng.\"EngagementNumber\"\
+  \n        LEFT OUTER JOIN RDS.FLATFILESOURCE.ENGAGEMENT_GROUPING grp on\n      \
+  \  interaction.INTERACTION_TYPE = grp.INTERACTION_CATEGORY\n        --and ifnull(eng.\"\
+  EngagementSubTypeName\", \"EngagementTypeName\")=grp.INTERACTION_TYPE\n    and \
+  \ eng.\"EngagementTypeName\" =grp.INTERACTION_TYPE ----to allow all eng types to\
+  \ flow in instead of others\n        LEFT OUTER JOIN ODS_LS.\"DYNAMICS365\".\"SYSTEMUSERS\"\
+  \ suo ON eng.\"EngagementOwnerID\" = suo.\"UserSysID\"\n        LEFT OUTER JOIN\
+  \ ODS_LS.\"DYNAMICS365\".\"SYSTEMUSERS\" sup ON eng.\"ParticipantID\" = sup.\"UserSysID\"\
+  \n        LEFT OUTER JOIN ODS_LS.\"DYNAMICS365\".\"SN_USERJOBROLES\" uro ON suo.\"\
+  UserJobRoleID\" = uro.\"JobRoleID\"\n        LEFT OUTER JOIN ODS_LS.\"DYNAMICS365\"\
+  .\"SN_USERJOBROLES\" urp ON sup.\"UserJobRoleID\" = urp.\"JobRoleID\"\n    WHERE\
+  \ 'random'='random'\n    --  AND CONTACT_NAME IS NOT NULL\n      AND ENGAGEMENT_TYPE\
+  \ IS not NULL\n    --  AND INTERACTION_DATE IS NOT NULL\n      AND \"INTERACTION_DATE\"\
+  \ >= dateadd(month, 'random', current_date())\n      and \"INTERACTION_DATE\" <=\
+  \  dateadd(month,'random', current_date())\n      AND DATA_SOURCE<> 'random' and\
+  \ DATA_SOURCE<> 'random'\n),\n\nOptyBUPipelineInformation AS (\n         SELECT\
+  \ opp.\"OpportunityNumber\" ,\n                opp.\"OpportunityName\" ,\n     \
+  \           opp.\"OpportunityOwnerName\" ,\n                opp.\"OptySysCreatedOn\"\
+  \ ,\n                opp.\"OpportunityCloseDate\" ,\n                opp.\"SalesQuarter\"\
+  ,\n                opp.\"OpportunityStage\" ,\n                opp.\"PipelineStatus\"\
+  \ ,\n                opp.\"OpportunityType\" ,\n                opp.\"ContractType\"\
+  \ ,\n                opp.\"OpportunityAccountSysID\" ,\n                opp.\"AccountNumber\"\
+  \ ,\n                opp.\"AccountName\" ,\n                opp.\"AccountOwnerName\"\
+  \ ,\n                opp.\"AccountType\" ,\n                opp.\"TerritorySysID\"\
+  \ ,\n                opp.\"ReportingTerritoryGeo\" ,\n                opp.\"OpportunityMajorArea\"\
+  \ ,\n                opp.\"OpportunityArea\" ,\n                opp.\"OpportunityRegion\"\
+  \ ,\n                opp.\"OpportunityDistrict\" ,\n                opp.\"OpportunityTerritory\"\
+  \ ,\n                opp.\"BUGroup\" ,\n                LOWER(opp.\"OptyDynamicsGUID\"\
+  ) as \"OptyDynamicsGUID\",\n                Case when \"NewLogoFlag\"='random' then\
+  \ 'random' else 'random' end as \"NewLogoFlag\",\n                Case when \"MarqueeAccount\"\
+  ='random' then 'random' else 'random' end as \"MarqueeFlag\" ,\n               \
+  \ opp.\"AcctExecutiveSponsorName\" ,\n                opp.\"OptyDynamicsDealChampionName\"\
+  ,\n                opp.\"AccountIndustry\",\n                opp.\"AccountIndustryCategory\"\
+  ,\n                opp.\"BUWorkFlow\",\n                SUM(\"Closed\") AS \"Closed\"\
+  ,\n                SUM(\"Submitted\") AS \"Submitted\",\n                SUM(\"\
+  Expect\") AS \"Expect\",\n                SUM(\"Commit\") AS \"Commit\",\n     \
+  \           SUM(\"Upside\") AS \"Upside\",\n                SUM(\"MaturedPipeline\"\
+  ) AS \"MaturedPipeline\",\n                SUM(\"USDWeightedACV\") AS \"USDWeightedACV\"\
+  ,\n                SUM(\"USDNetNewACV\") AS \"USDNetNewACV\",\n                SUM(\"\
+  Quota\") AS \"Quota\",\n                'random' AS \"ContractTotalACV\", --due\
+  \ to join inflation will be added if needed\n                opp.\"OptyTerrMarketSegmentation\"\
+  ,\n                \"GenAIProductFlag\"\n\n\n               FROM\n             \
+  \   CDL_LS.\"SALES_RPT\".\"RPT_FIXEDDATAPLUSQUOTA_RT\" opp\n\n\n\n             \
+  \   WHERE 'random'='random'\n                AND \"SalesActivePipeline\" = 'random'\n\
+  \                AND \"RecordType\" in ('random')\n                AND \"SalesQuarter\"\
+  \ >=  right(YEAR(convert_timezone('random',ADD_MONTHS(current_timestamp, 'random')))\
+  \ || 'random' ||\n                                     QUARTER(convert_timezone('random',ADD_MONTHS(current_timestamp,\
+  \ 'random'))),'random')--12 to 9\n                AND \"SalesQuarter\" <=  right(YEAR(convert_timezone('random',ADD_MONTHS(current_timestamp,\
+  \ 'random'))) || 'random' ||\n                                     QUARTER(convert_timezone('random',ADD_MONTHS(current_timestamp,\
+  \ 'random'))),'random')\n                GROUP BY opp.\"OpportunityNumber\" ,\n\
+  \                opp.\"OpportunityName\" ,\n                opp.\"OpportunityOwnerName\"\
+  \ ,\n                opp.\"OptySysCreatedOn\" ,\n                opp.\"OpportunityCloseDate\"\
+  \ ,\n                opp.\"SalesQuarter\",\n                opp.\"OpportunityStage\"\
+  \ ,\n                opp.\"PipelineStatus\" ,\n                opp.\"OpportunityType\"\
+  \ ,\n                opp.\"ContractType\" ,\n                opp.\"OpportunityAccountSysID\"\
+  \ ,\n                opp.\"AccountNumber\" ,\n                opp.\"AccountName\"\
+  \ ,\n                opp.\"AccountOwnerName\" ,\n                opp.\"AccountType\"\
+  \ ,\n                opp.\"TerritorySysID\" ,\n                opp.\"ReportingTerritoryGeo\"\
+  \ ,\n                opp.\"OpportunityMajorArea\" ,\n                opp.\"OpportunityArea\"\
+  \ ,\n                opp.\"OpportunityRegion\" ,\n                opp.\"OpportunityDistrict\"\
+  \ ,\n                opp.\"OpportunityTerritory\" ,\n                opp.\"BUGroup\"\
+  \ ,\n                LOWER(opp.\"OptyDynamicsGUID\")  ,\n                opp.\"\
+  NewLogoFlag\",\n                opp.\"MarqueeAccount\" ,\n                opp.\"\
+  AcctExecutiveSponsorName\" ,\n                opp.\"OptyDynamicsDealChampionName\"\
+  ,\n                opp.\"AccountIndustry\",\n                opp.\"AccountIndustryCategory\"\
+  ,\n                opp.\"BUWorkFlow\",\n                opp.\"OptyTerrMarketSegmentation\"\
+  ,\n                opp.\"GenAIProductFlag\"\n\n),\n\nDealsEngagementLevel as\n(select\
+  \ OPTY_NUMBER, INTERACTION_TYPE, sum(\"EngagementCount\") as \"EngagementCount\"\
+  ,\ncase when  max(\"TechWinExists\")='random' and sum(\"EngagementCount\") > 'random'\
+  \ then 'random'\n     when  (max(\"TechWinExists\")='random'  or max(\"TechWinExists\"\
+  ) IS NULL) and sum(\"EngagementCount\") <= 'random' then 'random'\n     else 'random'\
+  \ end as \"DealsEngagementLevel\"\nfrom(\nselect ci.OPTY_NUMBER, INTERACTION_TYPE,\n\
+  case when ci.engagement_type='random' then 'random' end as \"TechWinExists\",\n\
+  count (distinct ENGAGEMENT_ID) as \"EngagementCount\"\nfrom\nML_SENSITIVE.\"MSEXCHANGE_SHARED\"\
+  .\"TBL_CONTACT_ALL_INTERACTIONS_SHARED\" ci\nwhere CRM_ENGAGEMENT_STATUS_CODE_NAME\
+  \ IN ('random', 'random')\nAND \"INTERACTION_DATE\" >= dateadd(month, 'random',\
+  \ current_date())\nand \"INTERACTION_DATE\" <=  dateadd(month,'random', current_date())\n\
+  group by all\n)\ngroup by OPTY_NUMBER, interaction_type\n),\n\n\nOptyEngagement\
+  \ AS (\n                SELECT\n                'random' AS \"RecordType\",\n  \
+  \              opp.\"OpportunityNumber\" AS \"OptyNumber\",\n                opp.\"\
+  OpportunityName\" AS \"OptyName\",\n                opp.\"OpportunityOwnerName\"\
+  \ AS \"OptyOwnerName\",\n                opp.\"OptySysCreatedOn\" AS \"OptySysCreatedOn\"\
+  ,\n                opp.\"OpportunityCloseDate\" AS \"OptyCloseDate\",\n        \
+  \        opp.\"SalesQuarter\" AS \"OptySalesQuarter\",\n                CASE\n \
+  \                   WHEN opp.\"SalesQuarter\" = RIGHT(\n                       \
+  \ YEAR(\n                            ADD_MONTHS(\n                             \
+  \   convert_timezone('random', CURRENT_TIMESTAMP()),\n                         \
+  \       'random'\n                            )\n                        ) || 'random'\
+  \ || QUARTER(\n                            ADD_MONTHS(\n                       \
+  \         convert_timezone('random', CURRENT_TIMESTAMP()),\n                   \
+  \             'random'\n                            )\n                        ),\n\
+  \                        'random'\n                    ) THEN 'random'\n       \
+  \             WHEN opp.\"SalesQuarter\" = RIGHT(\n                        YEAR(\n\
+  \                            ADD_MONTHS(\n                                convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),\n                                'random'\n            \
+  \                )\n                        ) || 'random' || QUARTER(\n        \
+  \                    ADD_MONTHS(\n                                convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),\n                                'random'\n            \
+  \                )\n                        ),\n                        'random'\n\
+  \                    ) THEN 'random'\n                    WHEN opp.\"SalesQuarter\"\
+  \ = RIGHT(\n                        YEAR(\n                            ADD_MONTHS(\n\
+  \                                convert_timezone('random', CURRENT_TIMESTAMP()),\n\
+  \                                'random'\n                            )\n     \
+  \                   ) || 'random' || QUARTER(\n                            ADD_MONTHS(\n\
+  \                                convert_timezone('random', CURRENT_TIMESTAMP()),\n\
+  \                                'random'\n                            )\n     \
+  \                   ),\n                        'random'\n                    )\
+  \ THEN 'random'\n                    WHEN opp.\"SalesQuarter\" = RIGHT(\n      \
+  \                  YEAR(\n                            ADD_MONTHS(\n            \
+  \                    convert_timezone('random', CURRENT_TIMESTAMP()),\n        \
+  \                        'random'\n                            )\n             \
+  \           ) || 'random' || QUARTER(\n                            ADD_MONTHS(\n\
+  \                                convert_timezone('random', CURRENT_TIMESTAMP()),\n\
+  \                                'random'\n                            )\n     \
+  \                   ),\n                        'random'\n                    )\
+  \ THEN 'random'\n                    WHEN opp.\"SalesQuarter\" = RIGHT(\n      \
+  \                  YEAR(\n                            convert_timezone('random',\
+  \ CURRENT_TIMESTAMP())\n                        ) || 'random' || QUARTER(\n    \
+  \                        convert_timezone('random', CURRENT_TIMESTAMP())\n     \
+  \                   ),\n                        'random'\n                    )\
+  \ THEN 'random'\n                    WHEN opp.\"SalesQuarter\" = RIGHT(\n      \
+  \                  YEAR(\n                            ADD_MONTHS(\n            \
+  \                    convert_timezone('random', CURRENT_TIMESTAMP()),\n        \
+  \                        'random'\n                            )\n             \
+  \           ) || 'random' || QUARTER(\n                            ADD_MONTHS(\n\
+  \                                convert_timezone('random', CURRENT_TIMESTAMP()),\n\
+  \                                'random'\n                            )\n     \
+  \                   ),\n                        'random'\n                    )\
+  \ THEN 'random'\n                    WHEN opp.\"SalesQuarter\" = RIGHT(\n      \
+  \                  YEAR(\n                            ADD_MONTHS(\n            \
+  \                    convert_timezone('random', CURRENT_TIMESTAMP()),\n        \
+  \                        'random'\n                            )\n             \
+  \           ) || 'random' || QUARTER(\n                            ADD_MONTHS(\n\
+  \                                convert_timezone('random', CURRENT_TIMESTAMP()),\n\
+  \                                'random'\n                            )\n     \
+  \                   ),\n                        'random'\n                    )\
+  \ THEN 'random'\n                    WHEN opp.\"SalesQuarter\" = RIGHT(\n      \
+  \                  YEAR(\n                            ADD_MONTHS(\n            \
+  \                    convert_timezone('random', CURRENT_TIMESTAMP()),\n        \
+  \                        'random'\n                            )\n             \
+  \           ) || 'random' || QUARTER(\n                            ADD_MONTHS(\n\
+  \                                convert_timezone('random', CURRENT_TIMESTAMP()),\n\
+  \                                'random'\n                            )\n     \
+  \                   ),\n                        'random'\n                    )\
+  \ THEN 'random'\n                    ELSE 'random'\n                END AS \"DynamicQuarter\"\
+  ,\n                opp.\"OpportunityStage\" AS \"OptyStage\",\n                opp.\"\
+  PipelineStatus\" AS \"OptyPipelineStatus\",\n                opp.\"OpportunityType\"\
+  \ AS \"OptyType\",\n                opp.\"ContractType\" AS \"OptyContractType\"\
+  ,\n                opp.\"OpportunityAccountSysID\" as \"AccountSysID\",\n      \
+  \          opp.\"AccountNumber\" AS \"AcctNumber\",\n                opp.\"AccountName\"\
+  \ AS \"AcctName\",\n                opp.\"AccountOwnerName\" AS \"AcctOwnerName\"\
+  ,\n                opp.\"AccountType\" AS \"AcctType\",\n                opp.\"\
+  TerritorySysID\" AS \"TerritorySysID\",\n                opp.\"ReportingTerritoryGeo\"\
+  \ AS \"ReportingTerrGeo\",\n                opp.\"OpportunityMajorArea\" AS \"TerrMajorArea\"\
+  ,\n                opp.\"OpportunityArea\" AS \"TerrArea\",\n                opp.\"\
+  OpportunityRegion\" AS \"TerrRegion\",\n                opp.\"OpportunityDistrict\"\
+  \ AS \"TerrDistrict\",\n                opp.\"OpportunityTerritory\" AS \"TerrName\"\
+  ,\n                opp.\"BUGroup\" AS \"BUGroup\",\n                LOWER(opp.\"\
+  OptyDynamicsGUID\") AS \"OptyDynamicsGUID\",\n                opp.\"NewLogoFlag\"\
+  ,\n                opp.\"MarqueeFlag\" ,\n                opp.\"AcctExecutiveSponsorName\"\
+  \ AS \"AcctExecutiveSponsorName\",\n                opp.\"OptyDynamicsDealChampionName\"\
+  \ AS \"OptyDynamicsDealChampionName\",\n                opp.\"AccountIndustry\"\
+  \ AS \"AccountIndustry\",\n                opp.\"AccountIndustryCategory\" AS \"\
+  AccountIndustryCategory\",\n                opp.\"BUWorkFlow\" AS \"BUWorkFlow\"\
+  ,\n                interaction.\"EngagementTypeName\" AS \"EngagementType\", --eng\n\
+  \                interaction.\"EngagementOrderforSort\",\n                interaction.\"\
+  EngagementOwnerID\" AS \"OwnerID\", --eng\n                interaction.\"EngagementOwner\"\
+  \ AS \"EngagementOwner\", --eng\n                interaction.\"OwnerJobRoleName\"\
+  \ AS \"OwnerJobRoleName\", --eng\n                interaction.\"EngagementOwnerManager\"\
+  \ AS \"EngagementOwnerManager\", --eng\n                interaction.\"ParticipantIDName\"\
+  \ AS \"EngagementParticipant\", --eng\n                interaction.\"ParticipantJobRoleName\"\
+  \ AS \"ParticipantJobRoleName\", --eng\n                interaction.\"EngagementParticipantManager\"\
+  \ AS \"EngagementParticipantManager\", --eng\n                interaction.\"EngagementPrePostSaleName\"\
+  \ AS \"PrePostSale\", --eng\n                interaction.\"EngagementCreatedQuarter\"\
+  \ AS \"EngagementCreatedQuarter\", --eng\n                interaction.\"EngagementCompleteQuarter\"\
+  \ AS \"EngagementCompleteQuarter\", --eng\n                CASE\n              \
+  \      WHEN interaction.\"EngagementCompleteQuarter\" BETWEEN RIGHT( --eng\n   \
+  \                     YEAR(\n                            ADD_MONTHS(\n         \
+  \                       convert_timezone('random', CURRENT_TIMESTAMP()),\n     \
+  \                           'random'\n                            )\n          \
+  \              ) || 'random' || QUARTER(\n                            ADD_MONTHS(\n\
+  \                                convert_timezone('random', CURRENT_TIMESTAMP()),\n\
+  \                                'random'\n                            )\n     \
+  \                   ),\n                        'random'\n                    )\n\
+  \                    AND RIGHT(\n                        YEAR(\n               \
+  \             ADD_MONTHS(\n                                convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),\n                                'random'\n            \
+  \                )\n                        ) || 'random' || QUARTER(\n        \
+  \                    ADD_MONTHS(\n                                convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),\n                                'random'\n            \
+  \                )\n                        ),\n                        'random'\n\
+  \                    ) THEN 'random'\n                    ELSE 'random'\n      \
+  \          END AS \"EngCmpltRolling5QtrFlag\",\n                CASE\n         \
+  \           WHEN interaction.\"EngagementCreatedQuarter\" BETWEEN RIGHT( --eng\n\
+  \                        YEAR(\n                            ADD_MONTHS(\n      \
+  \                          convert_timezone('random', CURRENT_TIMESTAMP()),\n  \
+  \                              'random'\n                            )\n       \
+  \                 ) || 'random' || QUARTER(\n                            ADD_MONTHS(\n\
+  \                                convert_timezone('random', CURRENT_TIMESTAMP()),\n\
+  \                                'random'\n                            )\n     \
+  \                   ),\n                        'random'\n                    )\n\
+  \                    AND RIGHT(\n                        YEAR(\n               \
+  \             ADD_MONTHS(\n                                convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),\n                                'random'\n            \
+  \                )\n                        ) || 'random' || QUARTER(\n        \
+  \                    ADD_MONTHS(\n                                convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),\n                                'random'\n            \
+  \                )\n                        ),\n                        'random'\n\
+  \                    ) THEN 'random'\n                    ELSE 'random'\n      \
+  \          END AS \"EngCreatedRolling5QtrFlag\",\n                interaction.\"\
+  EngagementStatusCodeName\" AS \"EngagementStatusCodeName\", --eng\n            \
+  \    interaction.\"EngagementSalesStageCodeName\" AS \"EngagementSalesStageCodeName\"\
+  , --eng\n                interaction.\"EngagementNumber\" AS \"EngagementNumber\"\
+  , --eng\n                interaction.\"EngagementDescription\" AS \"EngagementDescription\"\
+  , --eng\n                interaction.\"EngagementProductFamilyName\" AS \"EngagementProductFamilyName\"\
+  , --eng\n                interaction.\"EngagementCategoryCodeName\" AS \"EngagementCategoryCodeName\"\
+  , --eng\n                dop.\"OptyDemoName_CC\" AS \"OptyDemoStatus\",\n      \
+  \          dop.\"OptyWorkshopName_CC\" AS \"OptyWorkshopStatus\",\n            \
+  \    dop.\"OptyPOVName_CC\" AS \"OptyPOVStatus\",\n\n                ifnull(dop.\"\
+  OptyTechnicalWinName_CC\", 'random') AS \"OptyTechnicalWinStatus\",--- changing\
+  \ null status to no--swarnali\n                dop.\"OptyBVAName_CC\" AS \"OptyBVAStatus\"\
+  ,\n                dop.\"OpportunityValueMgmtEngagedName\" AS \"OptyValueMgmtEngagedStatus\"\
+  ,\n                dop.\"OpportunityValuePromptersCreated\" AS \"OptyValuePromptersCreated\"\
+  ,\n                dop.\"OptyValuePrompterCreatedStatus\" AS \"OptyValuePrompterCreatedStatus\"\
+  ,\n                dop.\"OptyParentTechnicalWinName_CC\" AS \"ParentOptyTechnicalWinStatus\"\
+  ,\n                opp.\"Closed\",\n                opp.\"Submitted\",\n       \
+  \         opp.\"Expect\",\n                opp.\"Commit\",\n                opp.\"\
+  Upside\",\n                opp.\"MaturedPipeline\",\n                opp.\"USDWeightedACV\"\
+  ,\n                opp.\"USDNetNewACV\",\n                opp.\"Quota\",\n     \
+  \           opp.\"ContractTotalACV\", --to be added\n                interaction.\"\
+  INTERACTION_TYPE\" AS \"InteractionType\",\n                interaction.\"INTERACTION_DATE\"\
+  \ AS \"InteractionDate\",\n                interaction.\"BUSINESS_UNIT\" AS \"BusinessUnit\"\
+  ,\n                interaction.\"ENGAGEMENT_LEVEL\" AS \"EngagementLevel\",\n  \
+  \              interaction.\"EMPLOYEE_COST_CENTER_ID\" AS \"EmployeeCostCenterID\"\
+  ,\n                interaction.\"CONTACT_JOB_LEVEL\" AS \"ContactJobLevel\"\n  \
+  \              ,interaction.\"EngagementStageName\" as \"EngagementStageName\"\n\
+  \                ,opp.\"OptyTerrMarketSegmentation\"\n                ,opp.\"GenAIProductFlag\"\
+  ,\n                 interaction.\"EngagementSubTypeName\" AS \"EngagementSubType\"\
+  ---swarnali\n\n            FROM\n                OptyBUPipelineInformation opp\n\
+  \                LEFT OUTER JOIN Interactions interaction ON opp.\"OpportunityNumber\"\
+  \ = interaction.\"OPTY_NUMBER\"\n                LEFT OUTER JOIN ODS_LS.\"DYNAMICS365\"\
+  .\"OPPORTUNITIES\" dop ON LOWER(opp.\"OptyDynamicsGUID\") = LOWER(dop.\"OpportunitySysID\"\
+  )\n                  WHERE 'random'='random'\n\n\n\nUNION ALL\n\n            SELECT\n\
+  \               'random' AS \"RecordType\",\n                'random' AS \"OptyNumber\"\
+  ,\n                'random' AS \"OptyName\",\n                'random' AS \"OptyOwnerName\"\
+  ,\n                'random' AS \"OptySysCreatedOn\",\n                'random' AS\
+  \ \"OptyCloseDate\",\n                'random' AS \"OptySalesQuarter\",\n      \
+  \          'random' AS \"DynamicQuarter\",\n                'random' AS \"OptyStage\"\
+  ,\n                'random' AS \"OptyPipelineStatus\",\n                'random'\
+  \ AS \"OptyType\",\n                'random' AS \"OptyContractType\",\n        \
+  \        'random' as \"AccountSysID\",\n                interaction.\"ACCOUNT_NUMBER\"\
+  \ AS \"AcctNumber\",\n                'random' AS \"AcctName\",\n              \
+  \  'random' AS \"AcctOwnerName\",\n                'random' AS \"AcctType\",\n \
+  \               'random' AS \"TerritorySysID\",\n                'random' AS \"\
+  ReportingTerrGeo\",\n                'random' AS \"TerrMajorArea\",\n          \
+  \      'random' AS \"TerrArea\",\n                'random' AS \"TerrRegion\",\n\
+  \                'random' AS \"TerrDistrict\",\n                'random' AS \"TerrName\"\
+  ,\n                'random' AS \"BUGroup\",\n                'random' AS \"OptyDynamicsGUID\"\
+  ,\n                'random' AS \"NewLogoFlag\",\n                'random' AS \"\
+  MarqueeFlag\" ,\n                'random' AS \"AcctExecutiveSponsorName\",\n   \
+  \             'random' AS \"OptyDynamicsDealChampionName\",\n                'random'\
+  \ AS \"AccountIndustry\",\n                'random' AS \"AccountIndustryCategory\"\
+  ,\n                'random' AS \"BUWorkFlow\",\n                'random' AS \"EngagementType\"\
+  ,\n                'random' AS \"EngagementOrderforSort\",\n                'random'\
+  \ AS \"OwnerID\",\n                'random' AS \"EngagementOwner\",\n          \
+  \      'random' AS \"OwnerJobRoleName\",\n                'random' AS \"EngagementOwnerManager\"\
+  ,\n                'random' AS \"EngagementParticipant\",\n                'random'\
+  \ AS \"ParticipantJobRoleName\",\n                'random' AS \"EngagementParticipantManager\"\
+  ,\n                'random' AS \"PrePostSale\",\n                'random' AS \"\
+  EngagementCreatedQuarter\",\n                'random' AS \"EngagementCompleteQuarter\"\
+  ,\n                'random' AS \"EngCmpltRolling5QtrFlag\",\n                'random'\
+  \ AS \"EngCreatedRolling5QtrFlag\",\n                'random' AS \"EngagementStatusCodeName\"\
+  ,\n                'random' AS \"EngagementSalesStageCodeName\",\n             \
+  \   'random' AS \"EngagementNumber\",\n                'random' AS \"EngagementDescription\"\
+  ,\n                'random' AS \"EngagementProductFamilyName\",\n              \
+  \  'random' AS \"EngagementCategoryName\",\n                'random' AS \"OptyDemoStatus\"\
+  ,\n                'random' AS \"OptyWorkshopStatus\",\n                'random'\
+  \ AS \"OptyPOVStatus\",\n                'random' AS \"OptyTechnicalWinStatus\"\
+  ,\n                'random' AS \"OptyBVAStatus\",\n                'random' AS \"\
+  OptyValueMgmtEngagedStatus\",\n                'random' AS \"OptyValuePromptersCreated\"\
+  ,\n                'random' AS \"OptyValuePrompterCreatedStatus\",\n           \
+  \     'random' AS \"ParentOptyTechnicalWinStatus\",\n                'random' AS\
+  \ \"Closed\",\n                'random' AS \"Submitted\",\n                'random'\
+  \ AS \"Expect\",\n                'random' AS \"Commit\",\n                'random'\
+  \ AS \"Upside\",\n                'random' AS \"MaturedPipeline\",\n           \
+  \     'random' AS \"USDWeightedACV\",\n                'random' AS \"USDNetNewACV\"\
+  ,\n                'random' AS \"Quota\",\n                'random' AS \"ContractTotalACV\"\
+  ,\n                interaction.\"INTERACTION_TYPE\" AS \"InteractionType\",\n  \
+  \              interaction.\"INTERACTION_DATE\" AS \"InteractionDate\",\n      \
+  \          interaction.\"BUSINESS_UNIT\" AS \"BusinessUnit\",\n                interaction.\"\
+  ENGAGEMENT_LEVEL\" AS \"EngagementLevel\",\n                interaction.\"EMPLOYEE_COST_CENTER_ID\"\
+  \ AS \"EmployeeCostCenterID\",\n                interaction.\"CONTACT_JOB_LEVEL\"\
+  \ AS \"ContactJobLevel\",\n                'random' as \"EngagementStageName\",\n\
+  \                'random' as \"OptyTerrMarketSegmentation\",\n                'random'\
+  \ as \"GenAIProductFlag\",\n                'random' as \"EngagementSubType\"\n\n\
+  \           FROM Interactions interaction\n            WHERE NOT EXISTS\n      \
+  \          (SELECT distinct \"AccountNumber\" FROM CDL_LS.\"SALES_RPT\".\"RPT_FIXEDDATAPLUSQUOTA_RT\"\
+  \ fd\n                 WHERE  interaction.ACCOUNT_NUMBER = FD.\"AccountNumber\"\n\
+  \                 and \"SalesQuarter\" BETWEEN\n                               \
+  \   right(YEAR(convert_timezone('random',ADD_MONTHS(current_timestamp, 'random')))\
+  \ || 'random' ||\n                                     QUARTER(convert_timezone('random',ADD_MONTHS(current_timestamp,\
+  \ 'random'))),'random')--12 to 9\n                AND   right(YEAR(convert_timezone('random',ADD_MONTHS(current_timestamp,\
+  \ 'random'))) || 'random' ||\n                                     QUARTER(convert_timezone('random',ADD_MONTHS(current_timestamp,\
+  \ 'random'))),'random')\n                 )\n                GROUP BY\n        \
+  \        interaction.\"ACCOUNT_NUMBER\",\n                interaction.\"INTERACTION_TYPE\"\
+  ,\n                interaction.\"INTERACTION_QUARTER\",\n                interaction.\"\
+  INTERACTION_DATE\",\n                interaction.\"BUSINESS_UNIT\",\n          \
+  \      interaction.\"ENGAGEMENT_LEVEL\",\n                interaction.\"EMPLOYEE_COST_CENTER_ID\"\
+  ,\n                interaction.\"CONTACT_JOB_LEVEL\"\n),\n\nAccountCustomerInteraction\
+  \ as (\n\nselect  distinct ACCOUNT_NUMBER,\n'random' as \"AccountCustomerInteraction\"\
+  \nfrom ML_SENSITIVE.MSEXCHANGE_SHARED.TBL_CONTACT_ALL_INTERACTIONS_SHARED\nwhere\
+  \ NEW_MAPPING_C_VP IS not NULL\nAND (\n     CONTACT_JOB_LEVEL IN ('random','random')\n\
+  \     AND INTERACTION_DATE >= DATEADD(DAY,'random',CURRENT_DATE)\n    )\n--OR CONTACT_JOB_LEVEL\
+  \ NOT IN ('C-Level','Vice President/SVP')\n\n)\n\n    SELECT DISTINCT\n    OP.OPTY_ID,\n\
+  \t\"OptySalesQuarter\",\n\t\"DynamicQuarter\",\n\tHASH(\"AccountSysID\") AS ACCOUNT_ID,\n\
+  \tHASH(\"TerritorySysID\") AS TERRITORY_ID,\n\tOP.GEO_ID,\n\t\"BUGroup\",\n\t\"\
+  BUWorkFlow\",\n\t\"EngagementType\",\n\t\"EngagementOrderforSort\",\n\t\"OwnerID\"\
+  ,\n\t\"EngagementOwner\",\n\t\"OwnerJobRoleName\",\n\t\"EngagementOwnerManager\"\
+  ,\n\t\"EngagementParticipant\",\n\t\"ParticipantJobRoleName\",\n\t\"EngagementParticipantManager\"\
+  ,\n\t\"PrePostSale\",\n\t\"EngagementCreatedQuarter\",\n\t\"EngagementCompleteQuarter\"\
+  ,\n\t\"EngCmpltRolling5QtrFlag\",\n\t\"EngCreatedRolling5QtrFlag\",\n\t\"EngagementStatusCodeName\"\
+  ,\n\t\"EngagementSalesStageCodeName\",\n\t\"EngagementNumber\",\n\t\"EngagementDescription\"\
+  ,\n\t\"EngagementCategoryCodeName\",\n\t\"OptyDemoStatus\",\n\t\"OptyWorkshopStatus\"\
+  ,\n\t\"OptyPOVStatus\",\n\t\"OptyTechnicalWinStatus\",\n\t\"OptyBVAStatus\",\n\t\
+  \"OptyValueMgmtEngagedStatus\",\n\t\"OptyValuePromptersCreated\",\n\t\"OptyValuePrompterCreatedStatus\"\
+  ,\n\t\"ParentOptyTechnicalWinStatus\",\n\t\"EngagementStageName\",\n        case\n\
+  \         when \"GenAIProductFlag\"='random'  then 'random'\n         when  \"GenAIProductFlag\"\
+  ='random'  then 'random'\n         end as \"GenAIFLag\",\n         \"EngagementSubType\"\
+  ,\n    OPTY_ID||'random'||\"EngagementCategoryCodeName\" as OPTY_ID_DEPT\n    FROM\
+  \ OptyEngagement EC\n    LEFT JOIN CDL.ENTERPRISE.V_DIM_OPPORTUNITY OP ON EC.\"\
+  OptyNumber\"=OP.OPTY_NUMBER\n    where \"RecordType\"='random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

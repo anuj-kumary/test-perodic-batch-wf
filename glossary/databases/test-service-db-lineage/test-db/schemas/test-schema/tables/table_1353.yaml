@@ -1,0 +1,203 @@
+name: table_1353
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1353
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1353.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_SALES_ACCOUNT(\n\tDV_U_ACCOUNT_TERRITORY,\n\
+  \t\"STAcctPSTerritory\",\n\t\"STAcctPSTerritorySysID\",\n\t\"STAcctSalesTerritory\"\
+  ,\n\t\"STAcctSalesTerritorySysID\",\n\t\"STAcctDNBSysID\",\n\t\"STAcctMSPEndCustomerSysID\"\
+  ,\n\t\"STAcctMergeWith\",\n\t\"STAcctActive\",\n\t\"STAcctStatus\",\n\t\"STAcctTopAccount\"\
+  ,\n\t\"STAcctFieldSalesParent\",\n\t\"STAcctSolutionConsultantValue\",\n\t\"STAcctcustomerHQaccountsysid\"\
+  ,\n\t\"STAcctCustomerType\",\n\t\"STAcctCustomerHQSysId\",\n\t\"STAcctLeadSysID\"\
+  ,\n\t\"STAcctFieldSalesParentChangeReason\",\n\t\"STAcctFieldSalesParentSysID\"\
+  ,\n\t\"STAcctRenewalGuidelines\",\n\t\"STAcctOfLegalReview\",\n\t\"STAcctLegalProgress\"\
+  ,\n\t\"STAcctContractReview\",\n\t\"STAcctZip\",\n\t\"STAcctWebsite\",\n\t\"STAcctVertical\"\
+  ,\n\t\"STAcctTotalACV\",\n\t\"STAcctSysUpdatedBy\",\n\t\"STAcctState\",\n\t\"STAcctSolutionConsultant\"\
+  ,\n\t\"STAcctSegment\",\n\t\"STAcctSAPCustomerID\",\n\t\"STAcctPrimarySalesRepName\"\
+  ,\n\t\"STAcctPORequired\",\n\t\"STAcctPartnerAccountNumber\",\n\t\"STAcctOverrideSegmentReason\"\
+  ,\n\t\"STAcctNumberOfServers\",\n\t\"STAcctNewPartnerType\",\n\t\"STAcctNewITSMSolution\"\
+  ,\n\t\"STAcctInsideSalesRepNew\",\n\t\"STAcctIndustrySegmentChangeReason\",\n\t\"\
+  STAcctKeyAccountParent\",\n\t\"STAcctNewDisplacedITSMSolution\",\n\t\"STAcctCustomerHQAccountEmployeeUsed\"\
+  ,\n\t\"STAcctCreatedBy\",\n\t\"STAcctCountry\",\n\t\"STAcctCity\",\n\t\"STAcctAnnualRevenue\"\
+  ,\n\t\"STAcctInsideSalesRep\",\n\t\"STAcctAddress2\",\n\t\"STAcctAddress1\",\n\t\
+  \"STAcctMaintenance\",\n\t\"STAcctMarketingStatus\",\n\t\"STAcctInsideSalesRepSysID\"\
+  ,\n\t\"STAcctParent\",\n\t\"STAcctSysCreatedOn\",\n\t\"STAcctMSPEndCustomer\",\n\
+  \t\"STAcctCustomerHQOverrideSegment\",\n\t\"STAcctParentSysID\",\n\t\"STAcctSysMerge\"\
+  ,\n\t\"STAcctSalesPartner\",\n\t\"STAcctCustomerSince\",\n\t\"STAcctEmployeeDB\"\
+  ,\n\t\"STAcctEmployees\",\n\t\"STAcctIndustrySysID\",\n\t\"STAcctType\",\n\t\"STAcctPartnerType\"\
+  ,\n\t\"STAcctSysUpdatedOn\",\n\t\"STAcctPrimarySalesRep\",\n\t\"STAcctNewTerritory\"\
+  ,\n\t\"STAcctNewSegment\",\n\t\"STAcctG2KAudit\",\n\t\"STAcctOverrideSegment\",\n\
+  \t\"STAcctIndustry\",\n\t\"STAcctPaymentStatus\",\n\t\"STAcctName\",\n\t\"STAcctG2KParentSysID\"\
+  ,\n\t\"STAcctCustomerHQ\",\n\t\"STAcctExtractDate\",\n\t\"STAcctAccountTerritorySysId\"\
+  ,\n\t\"STAcctNumber\",\n\t\"STAcctTargetAccount\",\n\t\"STAcctSysId\",\n\t\"STAcctCustomerHQName\"\
+  ,\n\t\"STAcctCustomerHQCountry\",\n\t\"STAcctCMID\",\n\t\"STAcctDPEmployeeDB\",\n\
+  \t\"STAcctDPNumber\",\n\t\"STAcctDPOverrideSegment\"\n) as\n\n-- SEMANTIC LAYER\
+  \ BEGINS\nSELECT \"DV_U_ACCOUNT_TERRITORY\" as \"DV_U_ACCOUNT_TERRITORY\",\n   \
+  \    \"Territoryname_CC\" as \"STAcctPSTerritory\",\n       \"Territory_CC\" as\
+  \ \"STAcctPSTerritorySysID\",\n       \"DV_U_TERRITORY\" as \"STAcctSalesTerritory\"\
+  ,\n       \"U_TERRITORY\" as \"STAcctSalesTerritorySysID\",\n       \"U_DNB\" as\
+  \ \"STAcctDNBSysID\",\n       \"U_MSP_END_CUST\" as \"STAcctMSPEndCustomerSysID\"\
+  ,\n       \"DV_U_MERGE_WITH\" as \"STAcctMergeWith\",\n       \"U_ACTIVE\" as \"\
+  STAcctActive\",\n       \"DV_U_ACCOUNT_STATUS\" as \"STAcctStatus\",\n       \"\
+  DV_U_TOP_ACCOUNT\" as \"STAcctTopAccount\",\n       \"DP_OVERRIDE_NAME\" as \"STAcctFieldSalesParent\"\
+  ,\n       \"DV_U_SOLUTION_CONSULTANT\" as \"STAcctSolutionConsultantValue\",\n \
+  \      \"U_CUSTOMER_HQ_ACCOUNT\" as \"STAcctcustomerHQaccountsysid\",\n       \"\
+  DV_U_CUSTOMER_TYPE\" as \"STAcctCustomerType\",\n       \"U_CUSTOMER_HQ\" as \"\
+  STAcctCustomerHQSysId\",\n       \"U_LEAD\" as \"STAcctLeadSysID\",\n       \"DV_U_FIELD_SALES_PARENT_CHANGE_REASON\"\
+  \ as \"STAcctFieldSalesParentChangeReason\",\n       \"U_FIELD_SALES_PARENT\" as\
+  \ \"STAcctFieldSalesParentSysID\",\n       \"DV_U_RENEWAL_GUIDELINE\" as \"STAcctRenewalGuidelines\"\
+  ,\n       \"DV_U_OF_LEGAL_REVIEW\" as \"STAcctOfLegalReview\",\n       \"DV_U_LEGAL_PROGRESS\"\
+  \ as \"STAcctLegalProgress\",\n       \"DV_U_CONTRACT_REVIEW\" as \"STAcctContractReview\"\
+  ,\n       \"ZIP\" as \"STAcctZip\",\n       \"WEBSITE\" as \"STAcctWebsite\",\n\
+  \       \"DV_U_VERTICAL\" as \"STAcctVertical\",\n       \"U_TOTAL_ACV\" as \"STAcctTotalACV\"\
+  ,\n       \"SYS_UPDATED_BY\" as \"STAcctSysUpdatedBy\",\n       \"DV_STATE\" as\
+  \ \"STAcctState\",\n       \"U_SOLUTION_CONSULTANT\" as \"STAcctSolutionConsultant\"\
+  ,\n       \"U_SEGMENT\" as \"STAcctSegment\",\n       \"U_SAP_CUSTOMER_ID\" as \"\
+  STAcctSAPCustomerID\",\n       \"DV_PRIMARY_SALES_REP\" as \"STAcctPrimarySalesRepName\"\
+  ,\n       \"DV_U_PO_REQUIRED\" as \"STAcctPORequired\",\n       \"U_PARTNER_ACCOUNT_NUMBER\"\
+  \ as \"STAcctPartnerAccountNumber\",\n       \"DV_U_OVERRIDE_SEGMENT_REASON\" as\
+  \ \"STAcctOverrideSegmentReason\",\n       \"U_NUMBER_OF_SERVERS\" as \"STAcctNumberOfServers\"\
+  ,\n       \"DV_U_NEW_PARTNER_TYPE\" as \"STAcctNewPartnerType\",\n       \"DV_U_NEW_ITSM_SOLUTION\"\
+  \ as \"STAcctNewITSMSolution\",\n       \"DV_U_INSIDE_SALES_REP_NEW\" as \"STAcctInsideSalesRepNew\"\
+  ,\n       \"DV_U_INDUSTRY_SEGMENT_CHANGE_REASON\" as \"STAcctIndustrySegmentChangeReason\"\
+  ,\n       \"DV_U_KEY_ACCOUNT_PARENT\" as \"STAcctKeyAccountParent\",\n       \"\
+  DV_U_NEW_DISPLACED_ITSM_SOLUTION\" as \"STAcctNewDisplacedITSMSolution\",\n    \
+  \   \"GP_OVERRIDE_EMPL_CNT\" as \"STAcctCustomerHQAccountEmployeeUsed\",\n     \
+  \  \"SYS_CREATED_BY\" as \"STAcctCreatedBy\",\n       \"DV_COUNTRY\" as \"STAcctCountry\"\
+  ,\n       \"CITY\" as \"STAcctCity\",\n       \"ANNUAL_REVENUE\" as \"STAcctAnnualRevenue\"\
+  ,\n       \"DV_INSIDE_SALES_REP\" as \"STAcctInsideSalesRep\",\n       \"U_ADDRESS_2\"\
+  \ as \"STAcctAddress2\",\n       \"U_ADDRESS_1\" as \"STAcctAddress1\",\n      \
+  \ \"DV_U_ACCOUNT_MAINTENANCE\" as \"STAcctMaintenance\",\n       \"DV_U_MARKETING_STATUS\"\
+  \ as \"STAcctMarketingStatus\",\n       \"INSIDE_SALES_REP\" as \"STAcctInsideSalesRepSysID\"\
+  ,\n       \"DV_PARENT\" as \"STAcctParent\",\n       \"SYS_CREATED_ON\" as \"STAcctSysCreatedOn\"\
+  ,\n       \"DV_U_MSP_END_CUST\" as \"STAcctMSPEndCustomer\",\n       \"GP_OVERRIDE_SEGMENT\"\
+  \ as \"STAcctCustomerHQOverrideSegment\",\n       \"PARENT\" as \"STAcctParentSysID\"\
+  ,\n       \"SYS_MERGE\" as \"STAcctSysMerge\",\n       \"DV_SALES_PARTNER\" as \"\
+  STAcctSalesPartner\",\n       \"CUSTOMER_SINCE\" as \"STAcctCustomerSince\",\n \
+  \      \"U_EMPLOYEE_D_B\" as \"STAcctEmployeeDB\",\n       \"EMPLOYEES\" as \"STAcctEmployees\"\
+  ,\n       \"INDUSTRY\" as \"STAcctIndustrySysID\",\n       \"DV_TYPE\" as \"STAcctType\"\
+  ,\n       \"DV_PARTNER_TYPE\" as \"STAcctPartnerType\",\n       \"SYS_UPDATED_ON\"\
+  \ as \"STAcctSysUpdatedOn\",\n       \"PRIMARY_SALES_REP\" as \"STAcctPrimarySalesRep\"\
+  ,\n       \"DV_U_NEW_TERRITORY\" as \"STAcctNewTerritory\",\n       \"DV_U_NEW_SEGMENT\"\
+  \ as \"STAcctNewSegment\",\n       \"DV_U_G2K_AUDIT\" as \"STAcctG2KAudit\",\n \
+  \      \"DV_U_OVERRIDE_SEGMENT\" as \"STAcctOverrideSegment\",\n       \"DV_INDUSTRY\"\
+  \ as \"STAcctIndustry\",\n       \"DV_U_PAYMENT_STATUS\" as \"STAcctPaymentStatus\"\
+  ,\n       \"NAME\" as \"STAcctName\",\n       \"U_KEY_ACCOUNT_PARENT\" as \"STAcctG2KParentSysID\"\
+  ,\n       \"DV_U_CUSTOMER_HQ1\" as \"STAcctCustomerHQ\",\n       \"EXTRACT_DATE\"\
+  \ as \"STAcctExtractDate\",\n       \"U_ACCOUNT_TERRITORY\" as \"STAcctAccountTerritorySysId\"\
+  ,\n       \"U_NUMBER\" as \"STAcctNumber\",\n       \"U_TARGET_ACCOUNT\" as \"STAcctTargetAccount\"\
+  ,\n       \"SYS_ID\" as \"STAcctSysId\",\n       \"GP_MDM_NAME\" as \"STAcctCustomerHQName\"\
+  ,\n       \"GP_COUNTRY_1\" as \"STAcctCustomerHQCountry\",\n       \"U_ACCOUNT_CMID\"\
+  \ as \"STAcctCMID\",\n       \"DP_OVERRIDE_EMPL_CNT\" as \"STAcctDPEmployeeDB\"\
+  ,\n       \"DP_NMBR\" as \"STAcctDPNumber\",\n       \"DP_OVERRIDE_SEGMENT\" as\
+  \ \"STAcctDPOverrideSegment\"\nFROM\n  (SELECT \"SYS_ID\" as \"SYS_ID\",\n     \
+  \     \"U_NUMBER\" as \"U_NUMBER\",\n          \"U_TARGET_ACCOUNT\" as \"U_TARGET_ACCOUNT\"\
+  ,\n          \"U_ACCOUNT_TERRITORY\" as \"U_ACCOUNT_TERRITORY\",\n          \"EXTRACT_DATE\"\
+  \ as \"EXTRACT_DATE\",\n          \"U_KEY_ACCOUNT_PARENT\" as \"U_KEY_ACCOUNT_PARENT\"\
+  ,\n          \"DV_U_CUSTOMER_HQ\" as \"DV_U_CUSTOMER_HQ\",\n          \"NAME\" as\
+  \ \"NAME\",\n          \"DV_U_PAYMENT_STATUS\" as \"DV_U_PAYMENT_STATUS\",\n   \
+  \       \"DV_INDUSTRY\" as \"DV_INDUSTRY\",\n          \"DV_U_OVERRIDE_SEGMENT\"\
+  \ as \"DV_U_OVERRIDE_SEGMENT\",\n          \"DV_U_G2K_AUDIT\" as \"DV_U_G2K_AUDIT\"\
+  ,\n          \"DV_U_NEW_SEGMENT\" as \"DV_U_NEW_SEGMENT\",\n          \"DV_U_NEW_TERRITORY\"\
+  \ as \"DV_U_NEW_TERRITORY\",\n          \"PRIMARY_SALES_REP\" as \"PRIMARY_SALES_REP\"\
+  ,\n          \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n          \"DV_PARTNER_TYPE\"\
+  \ as \"DV_PARTNER_TYPE\",\n          \"DV_TYPE\" as \"DV_TYPE\",\n          \"INDUSTRY\"\
+  \ as \"INDUSTRY\",\n          \"EMPLOYEES\" as \"EMPLOYEES\",\n          \"U_EMPLOYEE_D_B\"\
+  \ as \"U_EMPLOYEE_D_B\",\n          \"CUSTOMER_SINCE\" as \"CUSTOMER_SINCE\",\n\
+  \          \"DV_SALES_PARTNER\" as \"DV_SALES_PARTNER\",\n          \"SYS_MERGE\"\
+  \ as \"SYS_MERGE\",\n          \"PARENT\" as \"PARENT\",\n          \"U_CUSTOMER_HQ_ACCOUNT_OVERRIDE_SEGMENT\"\
+  \ as \"U_CUSTOMER_HQ_ACCOUNT_OVERRIDE_SEGMENT\",\n          \"DV_U_MSP_END_CUST\"\
+  \ as \"DV_U_MSP_END_CUST\",\n          \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n          \"DV_PARENT\" as \"DV_PARENT\",\n          \"INSIDE_SALES_REP\" as\
+  \ \"INSIDE_SALES_REP\",\n          \"DV_U_MARKETING_STATUS\" as \"DV_U_MARKETING_STATUS\"\
+  ,\n          \"DV_U_ACCOUNT_MAINTENANCE\" as \"DV_U_ACCOUNT_MAINTENANCE\",\n   \
+  \       \"U_ADDRESS_1\" as \"U_ADDRESS_1\",\n          \"U_ADDRESS_2\" as \"U_ADDRESS_2\"\
+  ,\n          \"DV_INSIDE_SALES_REP\" as \"DV_INSIDE_SALES_REP\",\n          \"ANNUAL_REVENUE\"\
+  \ as \"ANNUAL_REVENUE\",\n          \"CITY\" as \"CITY\",\n          \"DV_COUNTRY\"\
+  \ as \"DV_COUNTRY\",\n          \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n    \
+  \      \"U_CUSTOMER_HQ_ACCOUNT_EMPLOYEE_USED\" as \"U_CUSTOMER_HQ_ACCOUNT_EMPLOYEE_USED\"\
+  ,\n          \"DV_U_NEW_DISPLACED_ITSM_SOLUTION\" as \"DV_U_NEW_DISPLACED_ITSM_SOLUTION\"\
+  ,\n          \"DV_U_KEY_ACCOUNT_PARENT\" as \"DV_U_KEY_ACCOUNT_PARENT\",\n     \
+  \     \"DV_U_INDUSTRY_SEGMENT_CHANGE_REASON\" as \"DV_U_INDUSTRY_SEGMENT_CHANGE_REASON\"\
+  ,\n          \"DV_U_INSIDE_SALES_REP_NEW\" as \"DV_U_INSIDE_SALES_REP_NEW\",\n \
+  \         \"DV_U_NEW_ITSM_SOLUTION\" as \"DV_U_NEW_ITSM_SOLUTION\",\n          \"\
+  DV_U_NEW_PARTNER_TYPE\" as \"DV_U_NEW_PARTNER_TYPE\",\n          \"U_NUMBER_OF_SERVERS\"\
+  \ as \"U_NUMBER_OF_SERVERS\",\n          \"DV_U_OVERRIDE_SEGMENT_REASON\" as \"\
+  DV_U_OVERRIDE_SEGMENT_REASON\",\n          \"U_PARTNER_ACCOUNT_NUMBER\" as \"U_PARTNER_ACCOUNT_NUMBER\"\
+  ,\n          \"DV_U_PO_REQUIRED\" as \"DV_U_PO_REQUIRED\",\n          \"DV_PRIMARY_SALES_REP\"\
+  \ as \"DV_PRIMARY_SALES_REP\",\n          \"U_SAP_CUSTOMER_ID\" as \"U_SAP_CUSTOMER_ID\"\
+  ,\n          \"U_SEGMENT\" as \"U_SEGMENT\",\n          \"U_SOLUTION_CONSULTANT\"\
+  \ as \"U_SOLUTION_CONSULTANT\",\n          \"DV_STATE\" as \"DV_STATE\",\n     \
+  \     \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n          \"U_TOTAL_ACV\" as \"\
+  U_TOTAL_ACV\",\n          \"DV_U_VERTICAL\" as \"DV_U_VERTICAL\",\n          \"\
+  WEBSITE\" as \"WEBSITE\",\n          \"ZIP\" as \"ZIP\",\n          \"DV_U_CONTRACT_REVIEW\"\
+  \ as \"DV_U_CONTRACT_REVIEW\",\n          \"DV_U_LEGAL_PROGRESS\" as \"DV_U_LEGAL_PROGRESS\"\
+  ,\n          \"DV_U_OF_LEGAL_REVIEW\" as \"DV_U_OF_LEGAL_REVIEW\",\n          \"\
+  DV_U_RENEWAL_GUIDELINE\" as \"DV_U_RENEWAL_GUIDELINE\",\n          \"U_FIELD_SALES_PARENT\"\
+  \ as \"U_FIELD_SALES_PARENT\",\n          \"DV_U_FIELD_SALES_PARENT_CHANGE_REASON\"\
+  \ as \"DV_U_FIELD_SALES_PARENT_CHANGE_REASON\",\n          \"U_LEAD\" as \"U_LEAD\"\
+  ,\n          \"U_CUSTOMER_HQ\" as \"U_CUSTOMER_HQ\",\n          \"DV_U_CUSTOMER_TYPE\"\
+  \ as \"DV_U_CUSTOMER_TYPE\",\n          \"U_CUSTOMER_HQ_ACCOUNT\" as \"U_CUSTOMER_HQ_ACCOUNT\"\
+  ,\n          \"DV_U_SOLUTION_CONSULTANT\" as \"DV_U_SOLUTION_CONSULTANT\",\n   \
+  \       \"DV_U_FIELD_SALES_PARENT\" as \"DV_U_FIELD_SALES_PARENT\",\n          \"\
+  DV_U_TOP_ACCOUNT\" as \"DV_U_TOP_ACCOUNT\",\n          \"DV_U_ACCOUNT_STATUS\" as\
+  \ \"DV_U_ACCOUNT_STATUS\",\n          \"U_ACTIVE\" as \"U_ACTIVE\",\n          \"\
+  DV_U_MERGE_WITH\" as \"DV_U_MERGE_WITH\",\n          \"U_MSP_END_CUST\" as \"U_MSP_END_CUST\"\
+  ,\n          \"U_DNB\" as \"U_DNB\",\n          \"U_TERRITORY\" as \"U_TERRITORY\"\
+  ,\n          \"DV_U_TERRITORY\" as \"DV_U_TERRITORY\",\n          \"DV_U_PS_TERRITORY\"\
+  \ as \"DV_U_PS_TERRITORY\",\n          \"U_PS_TERRITORY\" as \"U_PS_TERRITORY\"\
+  ,\n          \"DV_U_ACCOUNT_TERRITORY\" as \"DV_U_ACCOUNT_TERRITORY\",\n       \
+  \   \"U_ACCOUNT_CMID\" as \"U_ACCOUNT_CMID\",\n          \"COUNTRY_CD\" as \"COUNTRY_CD\"\
+  ,\n          \"COUNTRY_NM\" as \"COUNTRY_NM\",\n          \"GP_COUNTRY\" as \"GP_COUNTRY\"\
+  ,\n          \"DV_U_CUSTOMER_HQ1\" as \"DV_U_CUSTOMER_HQ1\",\n          \"GP_MDM_NAME\"\
+  \ as \"GP_MDM_NAME\",\n          \"GP_OVERRIDE_SEGMENT\" as \"GP_OVERRIDE_SEGMENT\"\
+  ,\n          \"GP_OVERRIDE_EMPL_CNT\" as \"GP_OVERRIDE_EMPL_CNT\",\n          IFF(\"\
+  EXTRACT_DATE\"<to_date('random','random'), \"U_PS_TERRITORY\", \"U_ACCOUNT_TERRITORY\"\
+  ) as \"Territory_CC\",\n          IFF(\"EXTRACT_DATE\"<to_date('random','random'),\
+  \ \"DV_U_PS_TERRITORY\", \"DV_U_ACCOUNT_TERRITORY\") as \"Territoryname_CC\",\n\
+  \          case\n              when (\"GP_COUNTRY\") IS NULL then CONCAT(CONCAT(\"\
+  COUNTRY_CD\", 'random'), \"COUNTRY_NM\")\n              else \"GP_COUNTRY\"\n  \
+  \        end as \"GP_COUNTRY_1\",\n          \"DP_OVERRIDE_NAME\" as \"DP_OVERRIDE_NAME\"\
+  ,\n          \"DP_OVERRIDE_EMPL_CNT\" as \"DP_OVERRIDE_EMPL_CNT\",\n          \"\
+  DP_NMBR\" as \"DP_NMBR\",\n          \"DP_OVERRIDE_SEGMENT\" as \"DP_OVERRIDE_SEGMENT\"\
+  \n   FROM RDS_CPQ.\"SURF\".\"ST_SALES_ACCOUNT\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

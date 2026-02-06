@@ -1,0 +1,52 @@
+name: table_1282
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1282
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1282.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_ACTION_STATUS_BLOCKED_BY(\n\t\"SysId\"\
+  ,\n\t\"DvBlockingReason\",\n\t\"DvBlockingTask\",\n\t\"SysCreatedOn\",\n\t\"SysUpdatedOn\"\
+  ,\n\t\"DvBlockedTask\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SYS_ID\" as \"\
+  SysId\",\n       \"DV_BLOCKING_REASON\" as \"DvBlockingReason\",\n       \"DV_BLOCKING_TASK\"\
+  \ as \"DvBlockingTask\",\n       \"SYS_CREATED_ON\" as \"SysCreatedOn\",\n     \
+  \  \"SYS_UPDATED_ON\" as \"SysUpdatedOn\",\n       \"DV_BLOCKED_TASK\" as \"DvBlockedTask\"\
+  \nFROM \"RDS\".\"HI\".\"SN_ACTION_STATUS_BLOCKED_BY\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

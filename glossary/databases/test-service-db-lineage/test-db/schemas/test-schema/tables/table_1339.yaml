@@ -1,0 +1,75 @@
+name: table_1339
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1339
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1339.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_SALES_CONTRACT_BCKP(\n\t\"STContractActive\"\
+  ,\n\t\"STReferenceNumber\",\n\t\"STContractSysID\",\n\t\"STContractRenewalDate\"\
+  ,\n\t\"STConContractNumber\",\n\t\"STConExtractDate\",\n\t\"STAccountSysID\",\n\t\
+  \"STContractRenewalStatus\",\n\t\"STStartDate\",\n\t\"STTotalAcv\",\n\t\"STContractEndDate\"\
+  ,\n\t\"STContractType\",\n\t\"STContractUSDTotalACV\",\n\t\"STContractEndDateDimension\"\
+  ,\n\t\"STContractDataCenter\",\n\t\"STContractDedicatedServer\",\n\t\"STContractMaster\"\
+  ,\n\t\"STContractNumberOfInstances\",\n\t\"STContractSLAPercent\",\n\t\"STContractTerm\"\
+  ,\n\t\"STContractUSDTotalOtherRevenue\",\n\t\"STContractUSDTotalPSRevenue\",\n\t\
+  \"STContractUSDTotalServicesRevenue\",\n\t\"STContractUSDTotalTrainingRevenue\"\
+  ,\n\t\"STContractProductSysID\",\n\t\"STContractStartDateDimension\",\n\t\"STContractBaseCurrency\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ACTIVE\" as \"STContractActive\",\n\
+  \       \"REFERENCE_NUMBER\" as \"STReferenceNumber\",\n       \"SYS_ID\" as \"\
+  STContractSysID\",\n       \"RENEWAL_DATE\" as \"STContractRenewalDate\",\n    \
+  \   \"CONTRACT_NUMBER\" as \"STConContractNumber\",\n       \"EXTRACT_DATE\" as\
+  \ \"STConExtractDate\",\n       \"ACCOUNT\" as \"STAccountSysID\",\n       \"DV_RENEWAL_STATUS\"\
+  \ as \"STContractRenewalStatus\",\n       \"START_DATE\" as \"STStartDate\",\n \
+  \      \"U_TOTAL_ACV\" as \"STTotalAcv\",\n       \"END_DATE\" as \"STContractEndDate\"\
+  ,\n       \"DV_U_CONTRACT_TYPE\" as \"STContractType\",\n       \"U_USD_TOTAL_ACV\"\
+  \ as \"STContractUSDTotalACV\",\n       \"DV_U_END_DATE_DATE_DIMENSION\" as \"STContractEndDateDimension\"\
+  ,\n       \"DV_U_DATA_CENTER\" as \"STContractDataCenter\",\n       \"U_DEDICATED_SERVER\"\
+  \ as \"STContractDedicatedServer\",\n       \"DV_U_MASTER_CONTRACT\" as \"STContractMaster\"\
+  ,\n       \"U_NUMBER_OF_INSTANCES\" as \"STContractNumberOfInstances\",\n      \
+  \ \"DV_SLA_PERCENT\" as \"STContractSLAPercent\",\n       \"U_TERM\" as \"STContractTerm\"\
+  ,\n       \"U_SSA_ROLLUP_OTHER_REV_USD_A\" as \"STContractUSDTotalOtherRevenue\"\
+  ,\n       \"U_SSA_ROLLUP_PS_REV_USD_A\" as \"STContractUSDTotalPSRevenue\",\n  \
+  \     \"U_SSA_ROLLUP_TTL_SERV_USD_A\" as \"STContractUSDTotalServicesRevenue\",\n\
+  \       \"U_SSA_ROLLUP_TRAIN_REV_USD_A\" as \"STContractUSDTotalTrainingRevenue\"\
+  ,\n       \"PRODUCT\" as \"STContractProductSysID\",\n       \"DV_U_START_DATE_DATE_DIMENSION\"\
+  \ as \"STContractStartDateDimension\",\n       \"DV_U_BASE_CURRENCY\" as \"STContractBaseCurrency\"\
+  \nFROM \"RDS\".\"SURF\".\"ST_SALES_CONTRACT\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

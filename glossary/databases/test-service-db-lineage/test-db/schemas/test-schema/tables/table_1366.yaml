@@ -1,0 +1,81 @@
+name: table_1366
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1366
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1366.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PIPELINE_CONVERSION_SUMMARY_Q(\n\
+  \tDATE_ID,\n\tTERRITORY_ID,\n\tBU_GROUP_ID,\n\tGEO_ID,\n\tQUARTER_YYQQ,\n\tSNAPSHOT_DT,\n\
+  \tBU_GROUP,\n\tBU_WORKFLOW,\n\tREPORTING_QUARTER,\n\tHIST_ABILITY_AVG_INP,\n\tCURRENT_QTR_DESIRABILITY,\n\
+  \tNNACV_OPEN_WEIGHT_AVG_INP_USD_CY_FX,\n\tNNACV_CURRENT_USD_CY_FX,\n\tNNACV_CURRENT_WEIGHTED_USD_CY_FX,\n\
+  \tNNACV_CURRENT_OPEN_WEIGHT_INP_USD_CY_FX,\n\tNNACV_CURRENT_CLOSED_USD_CY_FX,\n\t\
+  NNACV_FINAL_CLOSED_USD_CY_FX,\n\tNNACV_OPEN_USD_CY_FX,\n\tNNACV_PREDICTED_INP_USD_CY_FX,\n\
+  \tNNACV_PREDICTED_INP_USD_CY_FX_STLW,\n\tNNACV_HIST_TOTAL_USD_CY_FX,\n\tNNACV_HIST_CLOSED_INP_USD_CY_FX,\n\
+  \tNNACV_HIST_OPEN_USD_CY_FX,\n\tNNACV_HIST_WEIGHTED_USD_CY_FX,\n\tQUOTA_CURRENT_USD,\n\
+  \tQUOTA_HIST_INP_USD,\n\tCLOSED_TO_QUOTA_HIST_AVG_INP,\n\tTOTAL_COVERAGE_HIST_AVG_INP,\n\
+  \tOPEN_COVERAGE_HIST_AVG_INP,\n\tBENCHMARK_TARGET,\n\tTERRITORY_SYSID\n) as SELECT\n\
+  \tTO_CHAR(PD.\"SnapshotDate\",'random')::number AS DATE_ID,\n--\t\tIFNULL(TO_CHAR(PD.\"\
+  SnapshotDate\",'YYYYMMDD'),'')::number AS DATE_ID,\n\tHASH(PD.\"TerritorySysID\"\
+  ) AS TERRITORY_ID,\n\tHASH(PD.\"PLSBUGroup\") AS BU_GROUP_ID,\n\tTERR.GEO_ID,\n\t\
+  RIGHT(YEAR(PD.\"SnapshotDate\") || 'random' || QUARTER(PD.\"SnapshotDate\") ,'random')\
+  \ AS QUARTER_YYQQ,\n    PD.\"SnapshotDate\" AS SNAPSHOT_DT,\n\tPD.\"PLSBUGroup\"\
+  \ AS BU_GROUP,\n\tPD.\"BUWorkFlow\" as BU_WORKFLOW,\n\tPD.\"ReportingQuarter\" AS\
+  \ REPORTING_QUARTER,\n\tZEROIFNULL(PD.\"HistoricalAbility_Average\") AS HIST_ABILITY_AVG_INP,\n\
+  \tZEROIFNULL(PD.\"CurrentQtrDesirability\") AS CURRENT_QTR_DESIRABILITY,\n\tZEROIFNULL(PD.\"\
+  AverageOpenPipelineWeight\") AS NNACV_OPEN_WEIGHT_AVG_INP_USD_CY_FX,\n\tZEROIFNULL(PD.\"\
+  CurrentPipeline\") AS NNACV_CURRENT_USD_CY_FX,\n\tZEROIFNULL(PD.\"CurrentWeightedPipeline\"\
+  ) AS NNACV_CURRENT_WEIGHTED_USD_CY_FX,\n\tZEROIFNULL(PD.\"CurrentOpenPipelineWeight\"\
+  ) AS NNACV_CURRENT_OPEN_WEIGHT_INP_USD_CY_FX,\n\tZEROIFNULL(PD.\"CurrentClosed\"\
+  ) AS NNACV_CURRENT_CLOSED_USD_CY_FX,\n\tZEROIFNULL(PD.\"FinalClosed\") AS NNACV_FINAL_CLOSED_USD_CY_FX,\n\
+  \tZEROIFNULL(PD.\"OpenPipeline\") AS NNACV_OPEN_USD_CY_FX,\n\tZEROIFNULL(PD.\"FinalPredictedNNACV\"\
+  ) AS NNACV_PREDICTED_INP_USD_CY_FX,\n\tZEROIFNULL(PD.\"Last7DayMLValue\") AS NNACV_PREDICTED_INP_USD_CY_FX_STLW,\n\
+  \tZEROIFNULL(PD.\"HistTotalPipeline\") AS NNACV_HIST_TOTAL_USD_CY_FX,\n\tZEROIFNULL(PD.\"\
+  HistClosedPipeline\") AS NNACV_HIST_CLOSED_INP_USD_CY_FX,\n\tZEROIFNULL(PD.\"HistOpenPipeline\"\
+  ) AS NNACV_HIST_OPEN_USD_CY_FX,\n\tZEROIFNULL(PD.\"HistWeightedPipeline\") AS NNACV_HIST_WEIGHTED_USD_CY_FX,\n\
+  \tZEROIFNULL(PD.\"CurrentQuota\") AS QUOTA_CURRENT_USD,\n\tZEROIFNULL(PD.\"HistQuota\"\
+  ) AS QUOTA_HIST_INP_USD,\n\tZEROIFNULL(PD.\"HistAvgClosedToQuota\") AS CLOSED_TO_QUOTA_HIST_AVG_INP,\n\
+  \tZEROIFNULL(PD.\"HistAvgTotalCoverage\") AS TOTAL_COVERAGE_HIST_AVG_INP,\n\tZEROIFNULL(PD.\"\
+  HistAvgOpenCoverage\") AS OPEN_COVERAGE_HIST_AVG_INP,\n\tZEROIFNULL(PD.\"BenchmarkTarget\"\
+  ) AS BENCHMARK_TARGET,\n\tPD.\"TerritorySysID\" AS TERRITORY_SYSID\nFROM EDW_LS.SALES_EM.PREDICTION_DRILLDOWN\
+  \ PD\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY TERR ON PD.\"TerritorySysID\"\
+  \ = TERR.TERRITORY_SYSID\nWHERE PD.\"RecordType\" = 'random'\n  AND PD.\"SnapshotDate\"\
+  \ IS not NULL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

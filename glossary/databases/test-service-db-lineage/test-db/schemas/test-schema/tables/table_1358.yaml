@@ -1,0 +1,178 @@
+name: table_1358
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1358
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1358.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SURVEY_UNION(\n\t\"Dummy\",\n\t\"AccountNumber\"\
+  ,\n\t\"AccountName\",\n\t\"TypeOfSurvey\",\n\t\"QuarterNumber\",\n\t\"OverallCustomerSatifaction\"\
+  ,\n\t\"LastYearQuarter\",\n\t\"Quarter\",\n\t\"Loyalty\",\n\t\"QuarterDate\",\n\t\
+  \"AccountKey\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT 'random' as \"Dummy\",\n\
+  \       \"U_NUMBER\" as \"AccountNumber\",\n       \"ACCOUNT_NAME\" as \"AccountName\"\
+  ,\n       \"SOURCE\" as \"TypeOfSurvey\",\n       \"Quarter_Number\" as \"QuarterNumber\"\
+  ,\n       SUM(\"OVERALL_CUSTOMER_SATISFACTION\") as \"OverallCustomerSatifaction\"\
+  ,\n       \"LAST_YEAR_QUARTER\" as \"LastYearQuarter\",\n       RIGHT(LEFT(to_varchar(\"\
+  QuarterNumber\"), 'random'), 'random') || 'random' || RIGHT(to_varchar(\"QuarterNumber\"\
+  ), 'random') as \"Quarter\",\n       \"Loyalty\" as \"Loyalty\",\n       CASE\n\
+  \           WHEN RIGHT(\"QuarterNumber\", 'random') = 'random' THEN LEFT(\"QuarterNumber\"\
+  , 'random') || 'random'\n           WHEN RIGHT(\"QuarterNumber\", 'random') = 'random'\
+  \ THEN LEFT(\"QuarterNumber\", 'random') || 'random'\n           WHEN RIGHT(\"QuarterNumber\"\
+  , 'random') = 'random' THEN LEFT(\"QuarterNumber\", 'random') || 'random'\n    \
+  \       WHEN RIGHT(\"QuarterNumber\", 'random') = 'random' THEN LEFT(\"QuarterNumber\"\
+  , 'random') || 'random'\n           ELSE 'random'\n       END as \"QuarterDate\"\
+  ,\n       \"AccountKey\" as \"AccountKey\"\nFROM\n  (SELECT \"U_NUMBER\" as \"U_NUMBER\"\
+  ,\n          \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\",\n          \"Quarter_Number\"\
+  \ as \"Quarter_Number\",\n          \"SOURCE\" as \"SOURCE\",\n          \"OVERALL_CUSTOMER_SATISFACTION\"\
+  \ as \"OVERALL_CUSTOMER_SATISFACTION\",\n          \"AccountKey\" as \"AccountKey\"\
+  , --CURRENT_TIMESTAMP -365 as \"LAST_YEAR_DATE\",\ndateadd(year, 'random', current_date)\
+  \ as \"LAST_YEAR_DATE\",\n                                                     \
+  \                                EXTRACT(YEAR\n                                \
+  \                                                             from \"LAST_YEAR_DATE\"\
+  ) *'random' + (IFF(EXTRACT(MONTH\n                                             \
+  \                                                                              \
+  \            from \"LAST_YEAR_DATE\") <='random', 'random', (IFF(EXTRACT(MONTH\n\
+  \                                                                              \
+  \                                                                              \
+  \                       from \"LAST_YEAR_DATE\") <='random', 'random',(IFF(EXTRACT(MONTH\n\
+  \                                                                              \
+  \                                                                              \
+  \                                                                  from \"LAST_YEAR_DATE\"\
+  ) <='random', 'random', 'random')))))) as \"LAST_YEAR_QUARTER\",\n             \
+  \                                                                        CASE\n\
+  \                                                                              \
+  \           WHEN \"OVERALL_CUSTOMER_SATISFACTION\" IS NULL then 'random'\n     \
+  \                                                                              \
+  \      else IFF(\"OVERALL_CUSTOMER_SATISFACTION\">'random', 'random', IFF(\"OVERALL_CUSTOMER_SATISFACTION\"\
+  >'random', 'random', 'random'))\n                                              \
+  \                                       END as \"Loyalty\"\n   FROM\n     (SELECT\
+  \ *\n      FROM\n        (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n               \
+  \ \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\",\n                \"Quarter_Number\" as \"\
+  Quarter_Number\",\n                \"SOURCE\" as \"SOURCE\",\n                \"\
+  LIKELY_TO_RECOMMEND_SN\" as \"OVERALL_CUSTOMER_SATISFACTION\",\n               \
+  \ \"AccountKey\" as \"AccountKey\"\n         FROM\n           (SELECT \"U_NUMBER\"\
+  \ as \"U_NUMBER\",\n                   \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\",\n \
+  \                  \"Quarter_Number\" as \"Quarter_Number\",\n                 \
+  \  \"SOURCE\" as \"SOURCE\",\n                   SUM(\"LIKELY_TO_RECOMMEND_SERVICENOW\"\
+  ) as \"LIKELY_TO_RECOMMEND_SERVICENOW\",\n                   COUNT(\"RESPONDENT\"\
+  ) as \"RESPONDENT\",\n                   SUM(\"RESPONDENT_COUNT\") as \"RESPONDENT_COUNT\"\
+  ,\n                   \"AccountKey\" as \"AccountKey\", --SUM(\"LIKELY_TO_RECOMMEND_SN\"\
+  ) as \"LIKELY_TO_RECOMMEND_SN\"\nIFF(SUM(\"RESPONDENT_COUNT\") = 'random', sum(\"\
+  LIKELY_TO_RECOMMEND_SERVICENOW\"), ROUND(sum(\"LIKELY_TO_RECOMMEND_SERVICENOW\"\
+  )/SUM(\"RESPONDENT_COUNT\"), 'random')) as \"LIKELY_TO_RECOMMEND_SN\"\n        \
+  \    FROM\n              (SELECT \"AccountNumber\" as \"U_NUMBER\",\n          \
+  \            \"AccountName\" as \"ACCOUNT_NAME\",\n                      \"SurveyQuarter\"\
+  \ as \"QUARTER\",\n                      \"LikelyToRecommendServiceNow\" as \"LIKELY_TO_RECOMMEND_SERVICENOW\"\
+  ,\n                      \"OverallSatisfaction\" as \"OVERALL_SATISFACTION\",\n\
+  \                      \"QuarterNumber\" as \"Quarter_Number\",\n              \
+  \        \"Respondent\" as \"RESPONDENT\",\n                      \"AccountKey\"\
+  \ as \"AccountKey\",\n                      'random' as \"SOURCE\",\n          \
+  \            IFF((\"RESPONDENT\") IS NULL , 'random', 'random') as \"RESPONDENT_COUNT\"\
+  ,\n                      IFF(\"RESPONDENT_COUNT\" = 'random', \"LIKELY_TO_RECOMMEND_SERVICENOW\"\
+  , ROUND(\"LIKELY_TO_RECOMMEND_SERVICENOW\"/\"RESPONDENT_COUNT\", 'random')) \"LIKELY_TO_RECOMMEND_SN\"\
+  \n               FROM \"CDL_LS\".\"CUSTOMER_RPT\".\"NPS_SURVEY\")\"Projection_1\"\
+  \n            GROUP BY --\"RESPONDENT_COUNT\",\n\"U_NUMBER\",\n                \
+  \                          \"ACCOUNT_NAME\",\n                                 \
+  \         \"Quarter_Number\",\n                                          \"SOURCE\"\
+  ,\n                                          \"AccountKey\")\"NPS\"\n         UNION\
+  \ ALL SELECT \"U_NUMBER\" as \"U_NUMBER\",\n                          \"ACCOUNT_NAME\"\
+  \ as \"ACCOUNT_NAME\",\n                          \"Quarter_Number\" as \"Quarter_Number\"\
+  ,\n                          \"SOURCE\" as \"SOURCE\",\n                       \
+  \   \"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\" as \"OVERALL_CUSTOMER_SATISFACTION\"\
+  ,\n                          \"AccountKey\" as \"AccountKey\"\n         FROM\n \
+  \          (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n                   \"ACCOUNT_NAME\"\
+  \ as \"ACCOUNT_NAME\",\n                   \"Quarter_Number\" as \"Quarter_Number\"\
+  ,\n                   SUM(\"U_OVERALL_SATISFACTION\") as \"OVERALL_SATISFACTION\"\
+  ,\n                   \"SOURCE\" as \"SOURCE\",\n                   COUNT(\"DV_U_RESPONDENT_NAME\"\
+  ) as \"DV_U_RESPONDENT_NAME\",\n                   SUM(\"DV_U_RESPONDENT_NAME_COUNT\"\
+  ) as \"DV_U_RESPONDENT_NAME_COUNT\",\n                   \"AccountKey\" as \"AccountKey\"\
+  ,\n                   IFF(SUM(\"DV_U_RESPONDENT_NAME_COUNT\")= 'random', SUM(\"\
+  U_OVERALL_SATISFACTION\"), ROUND(SUM(\"U_OVERALL_SATISFACTION\")/SUM(\"DV_U_RESPONDENT_NAME_COUNT\"\
+  ), 'random')) as \"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\" --SUM(\"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\"\
+  )  as \"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\"\n\n            FROM\n    \
+  \          (SELECT distinct \"AccountNumber\" as \"U_NUMBER\",\n               \
+  \                \"AccountName\" as \"ACCOUNT_NAME\",\n                        \
+  \       \"SurveyNumber\" as \"SURVEY_NUMBER\",\n                               \"\
+  OverallSatisfaction\" as \"U_OVERALL_SATISFACTION\",\n                         \
+  \      \"QuarterNumber\" as \"Quarter_Number\",\n                              \
+  \ \"RespondentName\" as \"DV_U_RESPONDENT_NAME\",\n                            \
+  \   \"DeploymentNumber\" as \"DV_U_DEPLOYMENT\",\n                             \
+  \  \"AccountKey\" as \"AccountKey\",\n                               'random' as\
+  \ \"SOURCE\",\n                               IFF((\"DV_U_RESPONDENT_NAME\") IS\
+  \ NULL , 'random', 'random') as \"DV_U_RESPONDENT_NAME_COUNT\" --IFF((\"DV_U_RESPONDENT_NAME_COUNT\"\
+  )= 0 ,(\"U_OVERALL_SATISFACTION\"), ROUND((\"U_OVERALL_SATISFACTION\")/(\"DV_U_RESPONDENT_NAME_COUNT\"\
+  ),2) ) as \"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\"\n\n               FROM\
+  \ \"CDL_LS\".\"CUSTOMER_RPT\".\"ENGAGEMENT_SURVEY\")\"Projection_2\"\n         \
+  \   GROUP BY --\"DV_U_RESPONDENT_NAME_COUNT\",\n\"U_NUMBER\",\n                \
+  \                                    \"ACCOUNT_NAME\",\n                       \
+  \                             \"Quarter_Number\",\n                            \
+  \                        \"SOURCE\",\n                                         \
+  \           \"AccountKey\")\"Engagement\"\n         UNION ALL SELECT \"U_NUMBER\"\
+  \ as \"U_NUMBER\",\n                          \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\"\
+  ,\n                          \"Quarter_Number\" as \"Quarter_Number\",\n       \
+  \                   \"SOURCE\" as \"SOURCE\",\n                          \"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\"\
+  \ as \"OVERALL_CUSTOMER_SATISFACTION\",\n                          \"AccountKey\"\
+  \ as \"AccountKey\"\n         FROM\n           (SELECT \"U_NUMBER\" as \"U_NUMBER\"\
+  ,\n                   \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\",\n                  \
+  \ \"Quarter_Number\" as \"Quarter_Number\",\n                   \"SOURCE\" as \"\
+  SOURCE\",\n                   COUNT(\"INCIDENT_NUM\") as \"INCIDENT_NUM_COUNT\"\
+  ,\n                   SUM(\"Overall_Support_Experience_For_This_Incident\") as \"\
+  Overall_Support_Experience_For_This_Incident\",\n                   SUM(\"INCIDENT_NUM_COUNT\"\
+  ) as \"INCIDENT_NUM_CNT\",\n                   \"AccountKey\" as \"AccountKey\"\
+  ,\n                   IFF(SUM(\"INCIDENT_NUM_COUNT\")= 'random', SUM(\"Overall_Support_Experience_For_This_Incident\"\
+  ), ROUND(SUM(\"Overall_Support_Experience_For_This_Incident\")/SUM(\"INCIDENT_NUM_COUNT\"\
+  ), 'random')) as \"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\" -- SUM(\"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\"\
+  ) as \"OVERALL_CUSTOMER_SATISFACTION_THIS_INCIDENT\"\nFROM\n              (SELECT\
+  \ distinct \"AccountNumber\" as \"U_NUMBER\",\n                               \"\
+  AccountName\" as \"ACCOUNT_NAME\",\n                               \"QuarterNumber\"\
+  \ as \"Quarter_Number\",\n                               \"OverallSupportExperienceForThisIncident\"\
+  \ as \"Overall_Support_Experience_For_This_Incident\",\n                       \
+  \        \"Dummy\" as \"Count\",\n                               \"IncidentNumber\"\
+  \ as \"INCIDENT_NUM\",\n                               \"AccountKey\" as \"AccountKey\"\
+  ,\n                               'random' as \"SOURCE\",\n                    \
+  \           IFF((\"INCIDENT_NUM\") IS NULL , 'random', 'random') as \"INCIDENT_NUM_COUNT\"\
+  \n               FROM \"CDL_LS\".\"CUSTOMER_RPT\".\"SUPPORT_SURVEY\")\"Projection_3\"\
+  \n            GROUP BY \"U_NUMBER\",\n                     \"ACCOUNT_NAME\",\n \
+  \                    \"Quarter_Number\",\n                     \"SOURCE\",\n   \
+  \                  \"AccountKey\")\"Support\"))\"Union_1\")Projection_4\nGROUP BY\
+  \ \"AccountNumber\",\n         \"AccountName\",\n         \"TypeOfSurvey\",\n  \
+  \       \"QuarterNumber\",\n         \"LastYearQuarter\",\n         \"Loyalty\"\
+  ,\n         \"AccountKey\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

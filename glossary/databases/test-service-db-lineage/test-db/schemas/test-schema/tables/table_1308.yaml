@@ -1,0 +1,101 @@
+name: table_1308
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1308
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1308.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DQ_IMPROVEMENT_PROBLEM(\n\tPRB_NUMBER,\n\
+  \tPRB_STATE,\n\tPRB_PRIORITY,\n\tPRB_CAUSE,\n\tPRB_CONFIG_ITEM,\n\tPRB_ASSIGNED_TO,\n\
+  \tPRB_ASSIGNTO_P4_1_LEVEL,\n\tPRB_ASSIGNTO_P4_2_LEVEL,\n\tPRB_ASSIGNTO_P4_3_LEVEL,\n\
+  \tPRB_ASSIGNMENT_GROUP,\n\tPRB_ASSIGNMENT_GROUP_P4_1_LEVEL,\n\tPRB_ASSIGNMENT_GROUP_P4_2_LEVEL,\n\
+  \tPRB_ASSIGNMENT_GROUP_P4_3_LEVEL,\n\tDV_RESOLUTION_CODE,\n\tPRB_RESOLVED_BY,\n\t\
+  PRB_RESOLVEDBY_P4_1_LEVEL,\n\tPRB_RESOLVEDBY_P4_2_LEVEL,\n\tPRB_RESOLVEDBY_P4_3_LEVEL,\n\
+  \tPRB_DESCRIPTION,\n\tPRB_SHORT_DESCRIPTION,\n\tPRB_OPENED_BY,\n\tPRB_OPENED_AT,\n\
+  \tPRB_RESOLVED_AT,\n\tPRB_RCA_ASSIGNED_TO,\n\tPRB_RCA_5WHYS,\n\tPRB_TIMELINE,\n\t\
+  PRB_LESSONS_LEARNT,\n\tPRB_IMPACT,\n\tPRB_CAPA,\n\tPRB_AGILE_STORY,\n\tPRB_INCIDENT_SUMMARY\n\
+  ) as\n\nWITH\nemp_info as\n(\n      select\n         sys_id,\n         first_name,\n\
+  \         last_name,\n         dv_u_p4_1_level,\n         dv_u_p4_2_level,\n   \
+  \      dv_u_p4_3_level,\n         name,\n         email\n      from\n         RDS.SURF.U_EMPLOYEE\n\
+  ),\n\nassignment_grps as\n(\n    select\n        trim(ag.name) as name,\n      \
+  \  ag.sys_id,\n        emp.first_name,\n        emp.last_name,\n        ag.dv_manager,\n\
+  \        ag.manager,\n        ag.dv_u_backup_manager,\n        emp.dv_u_p4_1_level\
+  \ as ag_p4_1_level,\n        emp.dv_u_p4_2_level as ag_p4_2_level,\n        emp.dv_u_p4_3_level\
+  \ as ag_p4_3_level,\n        ag.dv_parent,\n        ag.email\n    from\n       \
+  \ RDS.SURF.sys_user_group ag\n    inner join\n        emp_info emp\n    on\n   \
+  \     trim(ag.manager) = trim(emp.sys_id)\n    where\n        ag.DV_MANAGER IS not\
+  \ NULL\n),\n\ndq_incs as\n(\n      select\n        distinct trim(inc.\"IncidentDvProblemId\"\
+  ) as INC_ProblemId,\n   from\n      ODS_LS.SURF.INCIDENT inc\n   WHERE\n      (\n\
+  \         lower(inc.\"IncidentDescription\") LIKE 'random'\n         OR  lower(inc.\"\
+  IncidentDescription\") LIKE 'random'\n         OR  lower(inc.\"IncidentShortDescription\"\
+  ) LIKE 'random'\n         OR  inc.\"IncidentDvCallerId\" like 'random'\n      )\n\
+  \      AND substr(inc.\"IncidentOpenedAt\", 'random', 'random') >= 'random'--$START_DATE\
+  \ --\n      and inc.\"IncidentDvProblemId\" IS not NULL\n),\n\nprb_total as\n(\n\
+  \    select\n        trim(prb.number) as PRB_NUMBER,\n        prb.dv_state as PRB_STATE,\n\
+  \n        prb.DV_PRIORITY AS PRB_PRIORITY,\n        prb.DV_U_PROBLEM_CAUSE as PRB_CAUSE,\n\
+  \        prb.DV_CMDB_CI as PRB_Config_Item,\n        empat.name as PRB_ASSIGNED_TO,\n\
+  \        empat.dv_u_p4_1_level as PRB_ASSIGNTO_P4_1_LEVEL,\n        empat.dv_u_p4_2_level\
+  \ as PRB_ASSIGNTO_P4_2_LEVEL,\n        empat.dv_u_p4_3_level as PRB_ASSIGNTO_P4_3_LEVEL,\n\
+  \        ag.name as PRB_ASSIGNMENT_GROUP,\n        ag.ag_p4_1_level as PRB_ASSIGNMENT_GROUP_P4_1_LEVEL,\n\
+  \        ag.ag_p4_2_level as PRB_ASSIGNMENT_GROUP_P4_2_LEVEL,\n        ag.ag_p4_3_level\
+  \ as PRB_ASSIGNMENT_GROUP_P4_3_LEVEL,\n        prb.DV_RESOLUTION_CODE,\n       \
+  \ emprb.name as PRB_RESOLVED_BY,\n        emprb.dv_u_p4_1_level as PRB_RESOLVEDBY_P4_1_LEVEL,\n\
+  \        emprb.dv_u_p4_2_level as PRB_RESOLVEDBY_P4_2_LEVEL,\n        emprb.dv_u_p4_3_level\
+  \ as PRB_RESOLVEDBY_P4_3_LEVEL,\n        prb.DESCRIPTION as PRB_DESCRIPTION,\n \
+  \       prb.SHORT_DESCRIPTION as PRB_SHORT_DESCRIPTION,\n        prb.OPENED_BY as\
+  \ PRB_OPENED_BY,\n        prb.OPENED_AT as PRB_OPENED_AT,\n        prb.RESOLVED_AT\
+  \ as PRB_RESOLVED_AT,\n        prb.DV_U_RCA_ASSIGNED_TO as PRB_RCA_ASSIGNED_TO,\n\
+  \        prb.U_ROOT_CAUSE_ANALYSIS_5_WHYS as PRB_RCA_5WHYS,\n        prb.U_TIMELINE_OF_EVENTS\
+  \ as PRB_TIMELINE,\n        prb.U_BRIEFLY_HIGHLIGHT_LESSONS_LEARNT as PRB_LESSONS_LEARNT,\n\
+  \        prb.U_IMPACT_CONSEQUENCES as PRB_IMPACT,\n        prb.U_CORRECTIVE_PREVENTATIVE_ACTION_PLAN_CAPA\
+  \ as PRB_CAPA,\n        prb.DV_AGILE_STORY as PRB_AGILE_STORY,\n        prb.U_INCIDENT_SUMMARY\
+  \ as PRB_INCIDENT_SUMMARY\n    from\n        rds.surf.problem prb\n    left join\n\
+  \        emp_info empat\n    on\n        trim(prb.assigned_to) = trim(empat.sys_id)\n\
+  \    left join\n        emp_info emprb\n    on\n        trim(prb.resolved_by) =\
+  \ trim(emprb.sys_id)\n    left join\n        assignment_grps ag\n    on\n      \
+  \  trim(prb.assignment_group) = trim(ag.sys_id)\n    where\n    --         prb.DV_U_PROBLEM_CAUSE\
+  \ = 'Data Quality'\n            substr(prb.opened_at, 'random', 'random') >= 'random'\n\
+  \        and coalesce(lower(prb.dv_resolution_code), 'random') not in ('random','random')\n\
+  \        and (\n                trim(prb.number) in (select INC_ProblemId from dq_incs)\n\
+  \            or  lower(trim(prb.description)) like 'random'\n            or  lower(trim(prb.description))\
+  \ like 'random'\n            or  lower(trim(prb.short_description)) like 'random'\n\
+  \            or  lower(trim(prb.short_description)) like 'random'\n        )\n)\n\
+  \nselect * from prb_total;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

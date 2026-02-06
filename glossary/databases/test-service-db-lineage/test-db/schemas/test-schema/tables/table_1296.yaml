@@ -1,0 +1,131 @@
+name: table_1296
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1296
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1296.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view MASTER_DATA_DOCUMENTATION(\n\tDOCUMENT_ID\
+  \ COMMENT 'random',\n\tDOCUMENT_NAME COMMENT 'random',\n\tDATA_TYPE COMMENT 'random',\n\
+  \tTECHNICAL_DEFINITION COMMENT 'random',\n\tBUSINESS_DEFINITION COMMENT 'random',\n\
+  \tUSE_CASES COMMENT 'random',\n\tBUSINESS_DOMAIN COMMENT 'random',\n\tTABLEAU_ALIAS\
+  \ COMMENT 'random',\n\tPOWER_BI_ALIAS COMMENT 'random',\n\tDATA_ASSET_TYPE COMMENT\
+  \ 'random',\n\tKB_REFERENCE_LINK COMMENT 'random',\n\tCATALOG_LINK COMMENT 'random',\n\
+  \tCONTROLS COMMENT 'random',\n\tBUSINESS_IMPACT COMMENT 'random',\n\tCLASSIFICATION\
+  \ COMMENT 'random',\n\tCLASSIFICATION_SUBCLASS COMMENT 'random',\n\tCLASSIFICATION_APPROVAL_DATE\
+  \ COMMENT 'random',\n\tERROR_TOLERANCE COMMENT 'random',\n\tSOURCE_SYSTEM COMMENT\
+  \ 'random',\n\tSOURCE_LOCATION COMMENT 'random',\n\tSYSTEM_OF_RECORD COMMENT 'random',\n\
+  \tSYNONYMS COMMENT 'random',\n\tRELATED_TERMS COMMENT 'random',\n\tLEGACY_SOURCE\
+  \ COMMENT 'random',\n\tLEGACY_NAME COMMENT 'random',\n\tBUSINESS_PARTNER_TEAM COMMENT\
+  \ 'random',\n\tBUSINESS_STEWARD_POC COMMENT 'random',\n\tBUSINESS_STEWARD_POC_ID\
+  \ COMMENT 'random',\n\tBUSINESS_PARTNER_LEAD_P4_L1 COMMENT 'random',\n\tBUSINESS_PARTNER_LEAD_P4_L2\
+  \ COMMENT 'random',\n\tBUSINESS_PARTNER_LEAD_P4_L3 COMMENT 'random',\n\tBUSINESS_PARTNER_LEAD_P4_L4\
+  \ COMMENT 'random',\n\tTECHNICAL_PARTNER_TEAM COMMENT 'random',\n\tTECHNICAL_STEWARD_POC\
+  \ COMMENT 'random',\n\tTECHNICAL_STEWARD_POC_ID COMMENT 'random',\n\tTECHNICAL_PARTNER_LEAD_P4_L1\
+  \ COMMENT 'random',\n\tTECHNICAL_PARTNER_LEAD_P4_L2 COMMENT 'random',\n\tTECHNICAL_PARTNER_LEAD_P4_L3\
+  \ COMMENT 'random',\n\tTECHNICAL_PARTNER_LEAD_P4_L4 COMMENT 'random',\n\tCUSTODIAN_PARTNER_TEAM\
+  \ COMMENT 'random',\n\tCUSTODIAN_STEWARD_POC COMMENT 'random',\n\tCUSTODIAN_STEWARD_POC_ID\
+  \ COMMENT 'random',\n\tREVIEW_STATUS COMMENT 'random',\n\tADDITIONAL_REVIEW_COMMENTS\
+  \ COMMENT 'random',\n\tSTAKEHOLDERS COMMENT 'random',\n\tIMPACTED_AREAS COMMENT\
+  \ 'random',\n\tAREAS_OF_CONCERN COMMENT 'random',\n\tAPPROVAL_DATE COMMENT 'random',\n\
+  \tNEXT_SCHEDULED_REVIEW COMMENT 'random',\n\tPLANNED_DEPLOYMENT_DATE COMMENT 'random',\n\
+  \tEXCEPTION_APPROVER COMMENT 'random',\n\tEXCEPTION_COMMENTS COMMENT 'random',\n\
+  \tEXCEPTION_APPROVAL_DATE COMMENT 'random',\n\tDEPRECATION_DATE COMMENT 'random',\n\
+  \tLAST_UPDATE COMMENT 'random',\n\tUPDATE_BY COMMENT 'random',\n\tETL_INSERT_DATE\
+  \ COMMENT 'random',\n\tETL_UPDATE_DATE COMMENT 'random',\n\tETL_DELETE_DATE\n) COMMENT='random'\n\
+  \ as\n\nWITH emp_info as\n(\n    select\n        sys_id,\n        employee_number,\n\
+  \        dv_u_p4_1_level,\n        dv_u_p4_2_level,\n        dv_u_p4_3_level,\n\
+  \        dv_u_p4_4_level\n    from\n        RDS.SURF.U_EMPLOYEE\n),\n\nMSTR_DOC\
+  \ AS\n(\n    select\n        \"Document_ID\" AS DOCUMENT_ID,\n        \"Name\" AS\
+  \ DOCUMENT_NAME,\n        \"Type\" AS DATA_TYPE,\n        \"Technical_Definition\"\
+  \ AS TECHNICAL_DEFINITION,\n        \"Business_Definition\" AS BUSINESS_DEFINITION,\n\
+  \        \"Use_Cases\" AS USE_CASES,\n        \"Business_Domain\" AS BUSINESS_DOMAIN,\n\
+  \        \"Tableau_Alias\" AS TABLEAU_ALIAS,\n        \"Power_BI_Alias\" AS POWER_BI_ALIAS,\n\
+  \        \"Data_Asset_Type\" AS DATA_ASSET_TYPE,\n        \"KB_Reference_Link\"\
+  \ AS KB_REFERENCE_LINK,\n        \"Catalog_Link\" AS CATALOG_LINK,\n        \"Controls\"\
+  \ AS CONTROLS,\n        \"Business_Impact\" AS BUSINESS_IMPACT,\n        \"Classification\"\
+  \ AS CLASSIFICATION,\n        \"Classification_Subclass\" AS CLASSIFICATION_SUBCLASS,\n\
+  \        \"Classification_Approval_Date\" AS CLASSIFICATION_APPROVAL_DATE,\n   \
+  \     \"Error_Tolerance\" AS ERROR_TOLERANCE,\n        \"Source_System\" AS SOURCE_SYSTEM,\n\
+  \        \"Source_Location\" AS SOURCE_LOCATION,\n        \"System_of_Record\" AS\
+  \ SYSTEM_OF_RECORD,\n        \"Synonyms\" AS SYNONYMS,\n        \"Related_Terms\"\
+  \ AS RELATED_TERMS,\n        \"Legacy_Source\" AS LEGACY_SOURCE,\n        \"Legacy_Name\"\
+  \ AS LEGACY_NAME,\n        \"Business_Partner_Team\" AS BUSINESS_PARTNER_TEAM,\n\
+  \        \"Business_Steward_POC\" AS BUSINESS_STEWARD_POC,\n        \"Business_Steward_POC_ID\"\
+  \ AS BUSINESS_STEWARD_POC_ID,\n        \"BUSINESS_PARTNER_LEAD_P4_L1\" AS BUSINESS_PARTNER_LEAD_P4_L1,\n\
+  \        \"BUSINESS_PARTNER_LEAD_P4_L2\" AS BUSINESS_PARTNER_LEAD_P4_L2,\n     \
+  \   \"BUSINESS_PARTNER_LEAD_P4_L3\" AS BUSINESS_PARTNER_LEAD_P4_L3,\n        \"\
+  BUSINESS_PARTNER_LEAD_P4_L4\" AS BUSINESS_PARTNER_LEAD_P4_L4,\n        \"Technical_Partner_Team\"\
+  \ AS TECHNICAL_PARTNER_TEAM,\n        \"Technical_Steward_POC\" AS TECHNICAL_STEWARD_POC,\n\
+  \        \"Technical_Partner_POC_ID\" AS TECHNICAL_STEWARD_POC_ID,\n        \"TECHNICAL_PARTNER_LEAD_P4_L1\"\
+  \ AS TECHNICAL_PARTNER_LEAD_P4_L1,\n        \"TECHNICAL_PARTNER_LEAD_P4_L2\" AS\
+  \ TECHNICAL_PARTNER_LEAD_P4_L2,\n        \"TECHNICAL_PARTNER_LEAD_P4_L3\" AS TECHNICAL_PARTNER_LEAD_P4_L3,\n\
+  \        \"TECHNICAL_PARTNER_LEAD_P4_L4\" AS TECHNICAL_PARTNER_LEAD_P4_L4,\n   \
+  \     \"Custodian_Partner_Team\" AS CUSTODIAN_PARTNER_TEAM,\n        \"Custodian_POC\"\
+  \ AS CUSTODIAN_STEWARD_POC,\n        \"Custodian_POC_ID\" AS CUSTODIAN_STEWARD_POC_ID,\n\
+  \        \"Review_Status\" AS REVIEW_STATUS,\n        \"Additional_Review_Comments\"\
+  \ AS ADDITIONAL_REVIEW_COMMENTS,\n        \"Stakeholders\" AS STAKEHOLDERS,\n  \
+  \      \"Impacted_Areas\" AS IMPACTED_AREAS,\n        \"Areas_of_Concern\" AS AREAS_OF_CONCERN,\n\
+  \        \"Approval_Date\" AS APPROVAL_DATE,\n        \"Next_Scheduled_Review\"\
+  \ AS NEXT_SCHEDULED_REVIEW,\n        \"Planned_Deployment_Date\" AS PLANNED_DEPLOYMENT_DATE,\n\
+  \        \"Exception_Approver\" AS EXCEPTION_APPROVER,\n        \"Exception_Comments\"\
+  \ AS EXCEPTION_COMMENTS,\n        \"Exception_Approval_Date\" AS EXCEPTION_APPROVAL_DATE,\n\
+  \        \"Deprecation_Date\" AS DEPRECATION_DATE,\n        \"Last_Update\" AS LAST_UPDATE,\n\
+  \        \"Update_By\" AS UPDATE_BY,\n        \"ETL_INSERT_DATE\" AS ETL_INSERT_DATE,\n\
+  \        \"ETL_UPDATE_DATE\" AS ETL_UPDATE_DATE,\n        \"ETL_DELETE_DATE\" AS\
+  \ ETL_DELETE_DATE\n    from\n    (\n        select\n            -- Load info from\
+  \ master doc source\n            docs.*,\n\n            -- Add Employee Hierarchy\
+  \ Info for Business Steward\n            emp_bs.dv_u_p4_1_level as BUSINESS_PARTNER_LEAD_P4_L1,\n\
+  \            emp_bs.dv_u_p4_2_level as BUSINESS_PARTNER_LEAD_P4_L2,\n          \
+  \  emp_bs.dv_u_p4_3_level as BUSINESS_PARTNER_LEAD_P4_L3,\n            emp_bs.dv_u_p4_4_level\
+  \ as BUSINESS_PARTNER_LEAD_P4_L4,\n\n            -- Add Employee Hierarchy Info\
+  \ for Technical Steward\n            emp_ts.dv_u_p4_1_level as TECHNICAL_PARTNER_LEAD_P4_L1,\n\
+  \            emp_ts.dv_u_p4_2_level as TECHNICAL_PARTNER_LEAD_P4_L2,\n         \
+  \   emp_ts.dv_u_p4_3_level as TECHNICAL_PARTNER_LEAD_P4_L3,\n            emp_ts.dv_u_p4_4_level\
+  \ as TECHNICAL_PARTNER_LEAD_P4_L4,\n\n            -- Create ID to filter down to\
+  \ latest documentation entry\n            row_number() OVER (PARTITION BY docs.\"\
+  Name\", docs.\"Source_Location\" ORDER BY docs.ETL_UPDATE_DATE desc) AS latest_entry\n\
+  \        from\n            RDS.FLATFILESOURCE.MASTER_DATA_DOCUMENTATION docs\n \
+  \       left join\n            emp_info emp_bs\n        on\n            docs.\"\
+  Business_Steward_POC_ID\" = emp_bs.employee_number\n        left join\n        \
+  \    emp_info emp_ts\n        on\n            docs.\"Technical_Partner_POC_ID\"\
+  \ = emp_ts.employee_number\n        order by\n            ETL_UPDATE_DATE\n    )\n\
+  \    where\n        latest_entry = 'random'\n)\n\nSELECT * FROM MSTR_DOC;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

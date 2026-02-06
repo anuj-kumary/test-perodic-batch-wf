@@ -1,0 +1,114 @@
+name: table_1338
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1338
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1338.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_QUOTE_ITEM(\n\tQUOTE_ITEM_ID,\n\
+  \tQUOTE_ID,\n\tOPTY_ID,\n\tPRODUCT_ID,\n\tBU_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\t\
+  ACCOUNT_ID,\n\tQUARTER_DT,\n\tQUARTER_YYQQ,\n\tQUARTER_ID,\n\tLINE_ITEM_NUMBER,\n\
+  \tQUANTITY,\n\tNET_NEW_QUANTITY,\n\tNNACV_LC,\n\tNNACV_USD_DAILY,\n\tNNACV_USD_CY_FX,\n\
+  \tRENEWAL_ACV_LC,\n\tRENEWAL_ACV_USD_DAILY,\n\tRENEWAL_ACV_USD_CY_FX,\n\tVARIABLE_PRICE_ACV_LC,\n\
+  \tVARIABLE_PRICE_ACV_USD_DAILY,\n\tVARIABLE_PRICE_ACV_USD_CY_FX,\n\tQUOTE_PRIOR_ACV_LC,\n\
+  \tQUOTE_PRIOR_ACV_USD_CY_FX,\n\tNNACV_QUOTE_PRICE_UPLIFT_LC,\n\tNNACV_QUOTE_PRICE_UPLIFT_USD_CY_FX,\n\
+  \tNNACV_QUOTE_QUANTITY_INCREASE_LC,\n\tNNACV_QUOTE_QUANTITY_INCREASE_USD_CY_FX,\n\
+  \tPRIOR_COMMITTED_FLOOR_ACV_LC,\n\tPRIOR_COMMITTED_FLOOR_ACV_USD_CY_FX,\n\tPRIOR_COMMITTED_CEIL_ACV_LC,\n\
+  \tPRIOR_COMMITTED_CEIL_ACV_USD_CY_FX,\n\tCACV_LC,\n\tCACV_USD_DAILY,\n\tCACV_USD_CY_FX,\n\
+  \tCOMMITTED_FLOOR_ACV_LC,\n\tCOMMITTED_FLOOR_ACV_USD_CY_FX,\n\tCOMMITTED_CEIL_ACV_LC,\n\
+  \tCOMMITTED_CEIL_ACV_USD_CY_FX,\n\tQUOTE_ACV_LC,\n\tQUOTE_ACV_USD_DAILY,\n\tQUOTE_ACV_USD_CY_FX,\n\
+  \tNON_NNACV_LC,\n\tNON_NNACV_USD_CY_FX,\n\tNNACV_WEIGHTED_USD,\n\tSOURCE,\n\tCREDIT_REPLACE_NNACV_PERCENT,\n\
+  \tQUOTE_ITEM_SYSID,\n\tOPTY_SYSID,\n\tQUOTE_SYSID,\n\tPRODUCT_SYSID,\n\tACCOUNT_SYSID\n\
+  ) as\nWITH FXRATE\nAS(\n    SELECT\n        \"CFXRate\" as \"CFXRate\",\n      \
+  \  \"CFXCurrency\" as \"CFXCurrency\",\n        \"U_FX_RATE_START\" as \"U_FX_RATE_START\"\
+  ,\n        YEAR(\"U_FX_RATE_START\") as \"FXRateStartYear\"\n    FROM\n        EDW_LS.\"\
+  SALES_EM\".\"EM_CONSTANT_FX_RATE_RT\"\n    where\n        YEAR(\"U_FX_RATE_START\"\
+  ) = YEAR(\n            convert_timezone('random', CURRENT_TIMESTAMP())\n       \
+  \ )\n )\nSELECT\nHASH(\"OptyItemLineItemNumber\") as QUOTE_ITEM_ID,\nHASH(\"OptyItemQuoteSysID\"\
+  ) as QUOTE_ID,\nHASH(Q.\"QuoteOpportunitySysId\") as OPTY_ID,\nHASH(\"OptyItemProductSysID\"\
+  ) as PRODUCT_ID,\nPRD.BU_ID AS BU_ID,\ncoalesce(SO.OPTY_TERRITORY_ID,hash('random'))\
+  \ as TERRITORY_ID,\ncoalesce(TERR.GEO_ID,hash('random')) as GEO_ID,\nSO.OPTY_ACCOUNT_ID\
+  \ as ACCOUNT_ID,\nSO.QUARTER_DT,\nSO.QUARTER_YYQQ,\nSO.QUARTER_ID,\n\"OptyItemLineItemNumber\"\
+  \ LINE_ITEM_NUMBER,\n\"OptyItemQuantity\" as QUANTITY,\n\"OptyItemNetNewQuantity\"\
+  \ as NET_NEW_QUANTITY,\n\"OptyItemNetNewACVAmount\" as NNACV_LC,\n\"OptyItemNetNewACVAmount_USD\"\
+  \ as NNACV_USD_DAILY,\n\"OptyItemNetNewACVAmount\" / FXRATE.\"CFXRate\" as NNACV_USD_CY_FX,\n\
+  \"OptyItemContractLineACV\" as RENEWAL_ACV_LC,\n\"OptyItemContractLineACV_USD\"\
+  \ as RENEWAL_ACV_USD_DAILY,\n\"OptyItemContractLineACV\" / FXRATE.\"CFXRate\" as\
+  \ RENEWAL_ACV_USD_CY_FX,\n\"OptyItemVariablePriceACV\" as VARIABLE_PRICE_ACV_LC,\n\
+  \"OptyItemUSDVariablePriceACV\" as VARIABLE_PRICE_ACV_USD_DAILY,\n\"OptyItemVariablePriceACV\"\
+  \ / FXRATE.\"CFXRate\" as VARIABLE_PRICE_ACV_USD_CY_FX,\n\"OptyItemQuotePriorTotalACV\"\
+  \ as QUOTE_PRIOR_ACV_LC,\n\"OptyItemQuotePriorTotalACV\" / FXRATE.\"CFXRate\"  as\
+  \ QUOTE_PRIOR_ACV_USD_CY_FX,\n\"OptyItemQuotePriceUpliftNNACV\" as NNACV_QUOTE_PRICE_UPLIFT_LC,\n\
+  \"OptyItemQuotePriceUpliftNNACV\" / FXRATE.\"CFXRate\" as NNACV_QUOTE_PRICE_UPLIFT_USD_CY_FX,\n\
+  \"OptyItemQuoteQtyIncreaseNNACV\" as NNACV_QUOTE_QUANTITY_INCREASE_LC,\n\"OptyItemQuoteQtyIncreaseNNACV\"\
+  \  / FXRATE.\"CFXRate\" as NNACV_QUOTE_QUANTITY_INCREASE_USD_CY_FX,\n\"OptyItemQuotePriorCommittedImpactFloorACV\"\
+  \ as PRIOR_COMMITTED_FLOOR_ACV_LC,\n\"OptyItemQuotePriorCommittedImpactFloorACV\"\
+  \ / FXRATE.\"CFXRate\" as PRIOR_COMMITTED_FLOOR_ACV_USD_CY_FX,\n\"OptyItemQuotePriorCommittedImpactCeilingACV\"\
+  \ as PRIOR_COMMITTED_CEIL_ACV_LC,\n\"OptyItemQuotePriorCommittedImpactCeilingACV\"\
+  \ / FXRATE.\"CFXRate\" as PRIOR_COMMITTED_CEIL_ACV_USD_CY_FX,\n\"OptyItemQuoteImpactCACV\"\
+  \ as CACV_LC,\n\"OptyItemQuoteUSDImpactCACV\" as CACV_USD_DAILY,\n\"OptyItemQuoteImpactCACV\"\
+  \  / FXRATE.\"CFXRate\" as CACV_USD_CY_FX,\n\"OptyItemQuoteCommittedImpactFloorACV\"\
+  \ as COMMITTED_FLOOR_ACV_LC,\n\"OptyItemQuoteCommittedImpactFloorACV\" / FXRATE.\"\
+  CFXRate\" as COMMITTED_FLOOR_ACV_USD_CY_FX,\n\"OptyItemQuoteCommittedImpactCeilingACV\"\
+  \ as COMMITTED_CEIL_ACV_LC,\n\"OptyItemQuoteCommittedImpactCeilingACV\" / FXRATE.\"\
+  CFXRate\" as COMMITTED_CEIL_ACV_USD_CY_FX,\n\"OptyItemQuoteACV\" as QUOTE_ACV_LC,\n\
+  \"OptyItemQuoteACV_USD\" as QUOTE_ACV_USD_DAILY,\n\"OptyItemQuoteACV\" / FXRATE.\"\
+  CFXRate\" as  QUOTE_ACV_USD_CY_FX,\n\"OptyItemDoNotCalNetNewAcv\" as NON_NNACV_LC,\n\
+  \"OptyItemDoNotCalNetNewAcv\" / FXRATE.\"CFXRate\" as  NON_NNACV_USD_CY_FX,\n\"\
+  OptyItemWeightedNNACV_USD\" as NNACV_WEIGHTED_USD,\n\"OptyItemSource\" as SOURCE,\n\
+  Q.\"QuoteCreditReplaceNNACVPercent\" AS CREDIT_REPLACE_NNACV_PERCENT, -- SS 1.5\
+  \ Jay Modi/Updated on: 12-07-2024/Release on: 19-07-2024/ Release Type: RTB\n\"\
+  OptyItemLineItemSysID\" as QUOTE_ITEM_SYSID,\n\"OptyItemOpportunitySysID\" as OPTY_SYSID,\n\
+  \"OptyItemQuoteSysID\" as QUOTE_SYSID,\n\"OptyItemProductSysID\" as PRODUCT_SYSID,\n\
+  SO.OPTY_ACCOUNT_SYSID as ACCOUNT_SYSID\nFROM ODS_LS.SURF.SALES_OPPORTUNITY_ITEM_EXTENDED\
+  \ SOI\nLEFT OUTER JOIN ODS_LS.\"SURF\".\"SALES_QUOTE\" Q ON Q.\"QuoteSysID\" = SOI.\"\
+  OptyItemQuoteSysID\"\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_PRODUCT PRD ON SOI.\"OptyItemProductSysID\"\
+  \ = PRD.PRODUCT_SYSID\nLEFT OUTER JOIN FXRATE ON SOI.\"OptyItemCurrencyCode\" =\
+  \ FXRATE.\"CFXCurrency\"\nLEFT OUTER JOIN (select *\n                 from EDW.ENTERPRISE.DIM_OPPORTUNITY\n\
+  \                 where  OPTY_ID NOT IN ( -- Excluding the below Opty's which are\
+  \ having duplicate sysid's and nulls. As per discussion with Aravind, this should\
+  \ be fixed at the FixedDataSource.\n                                        'random',\n\
+  \                                        'random',\n                           \
+  \             'random',\n                                        'random',\n   \
+  \                                     'random',\n                              \
+  \          'random')\n                 ) SO ON  SO.OPTY_ID = HASH(Q.\"QuoteOpportunitySysId\"\
+  )\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY TERR ON TERR.TERRITORY_ID = SO.OPTY_TERRITORY_ID\n\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,90 @@
+name: table_1300
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1300
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1300.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DQ_IMPROVEMENT_STORY(\n\tSTR_NUMBER,\n\t\
+  STR_SPRINT,\n\tSTR_CREATED_BY,\n\tSTR_CREATEDBY_P4_1_LEVEL,\n\tSTR_CREATEDBY_P4_2_LEVEL,\n\
+  \tSTR_CREATEDBY_P4_3_LEVEL,\n\tSTR_CREATED_ON,\n\tSTR_STATUS,\n\tSTR_STATE,\n\t\
+  STR_PRIORITY,\n\tSTR_CLASSIFICATION,\n\tSTR_TYPE,\n\tSTR_ASSIGNED_TO,\n\tSTR_ASSIGNEDTO_P4_1_LEVEL,\n\
+  \tSTR_ASSIGNEDTO_P4_2_LEVEL,\n\tSTR_ASSIGNEDTO_P4_3_LEVEL,\n\tSTR_ASSIGNMENT_GROUP,\n\
+  \tSTR_ASSIGNMENTGROUP_P4_1_LEVEL,\n\tSTR_ASSIGNMENTGROUP_P4_2_LEVEL,\n\tSTR_ASSIGNMENTGROUP_P4_3_LEVEL,\n\
+  \tSTR_SHORT_DESC,\n\tSTR_ACCEPTANCE_CRITERIA\n) as\n\nWITH\nemp_info as\n(\n   \
+  \   select\n         sys_id,\n         first_name,\n         last_name,\n      \
+  \   dv_u_p4_1_level,\n         dv_u_p4_2_level,\n         dv_u_p4_3_level,\n   \
+  \      name,\n         email\n      from\n         RDS.SURF.U_EMPLOYEE\n),\n\nassignment_grps\
+  \ as\n(\n    select\n        trim(ag.name) as name,\n        ag.sys_id,\n      \
+  \  emp.first_name,\n        emp.last_name,\n        ag.dv_manager,\n        ag.manager,\n\
+  \        ag.dv_u_backup_manager,\n        emp.dv_u_p4_1_level as ag_p4_1_level,\n\
+  \        emp.dv_u_p4_2_level as ag_p4_2_level,\n        emp.dv_u_p4_3_level as ag_p4_3_level,\n\
+  \        ag.dv_parent,\n        ag.email\n    from\n        RDS.SURF.sys_user_group\
+  \ ag\n    inner join\n        emp_info emp\n    on\n        trim(ag.manager) = trim(emp.sys_id)\n\
+  \    where\n        ag.DV_MANAGER IS not NULL\n),\n\ndq_incs as\n(\n    select\n\
+  \        distinct trim(inc.\"IncidentDvUStoryId\") as INC_StoryId,\n    from\n \
+  \       ODS_LS.SURF.INCIDENT inc\n    WHERE\n      (\n         lower(inc.\"IncidentDescription\"\
+  ) LIKE 'random'\n         OR  lower(inc.\"IncidentDescription\") LIKE 'random'\n\
+  \         OR  lower(inc.\"IncidentShortDescription\") LIKE 'random'\n         OR\
+  \  inc.\"IncidentDvCallerId\" like 'random'\n      )\n        and substr(inc.\"\
+  IncidentOpenedAt\", 'random', 'random') >= 'random'--$START_DATE --\n        and\
+  \ inc.\"IncidentDvUStoryId\" IS not NULL\n),\n\nstr_total as\n(\n    select\n  \
+  \      str.\"StrNumber\" as Str_Number,\n        str.\"StrDV_Sprint\" as Str_Sprint,\n\
+  \        empcb.name as Str_Created_By,\n        empcb.dv_u_p4_1_level as Str_CreatedBy_P4_1_level,\n\
+  \        empcb.dv_u_p4_2_level as Str_CreatedBy_P4_2_level,\n        empcb.dv_u_p4_3_level\
+  \ as Str_CreatedBy_P4_3_level,\n        str.\"StrSys_Created_On\" as Str_Created_On,\n\
+  \        str.\"StrDV_Status\" as Str_Status,\n        str.\"StrDV_State\" as Str_State,\n\
+  \        str.\"StrDV_Priority\" as Str_Priority,\n        str.\"StrDV_Classification\"\
+  \ as Str_Classification,\n        str.\"StrDV_Type\" as Str_Type,\n        empat.name\
+  \ as Str_Assigned_To,\n        empat.dv_u_p4_1_level as Str_AssignedTo_P4_1_level,\n\
+  \        empat.dv_u_p4_2_level as Str_AssignedTo_P4_2_level,\n        empat.dv_u_p4_3_level\
+  \ as Str_AssignedTo_P4_3_level,\n        ag.name as Str_Assignment_Group,\n    \
+  \    ag.ag_p4_1_level as Str_AssignmentGroup_P4_1_level,\n        ag.ag_p4_2_level\
+  \ as Str_AssignmentGroup_P4_2_level,\n        ag.ag_p4_3_level as Str_AssignmentGroup_P4_3_level,\n\
+  \        str.\"StrShort_Description\" as Str_Short_Desc,\n        str.\"StrAcceptance_Criteria\"\
+  \ as Str_Acceptance_Criteria\n    from\n        ods_ls.surf.rm_story str\n    left\
+  \ join\n        assignment_grps ag\n    on\n        trim(str.\"StrDV_Assignment_Group\"\
+  ) = trim(ag.name)\n    left join\n        emp_info empat\n    on\n        trim(str.\"\
+  StrAssigned_To\") = trim(empat.sys_id)\n    left join\n        emp_info empcb\n\
+  \    on\n        trim(str.\"StrSys_Created_By\") = trim(empcb.sys_id)\n    where\n\
+  \            substr(trim(\"StrSys_Created_On\"), 'random', 'random') >= 'random'\n\
+  \        -- and trim(str.\"StrNumber\") in (select distinct INC_StoryId from dq_incs)\n\
+  )\n\nselect * from str_total;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

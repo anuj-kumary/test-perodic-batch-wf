@@ -1,0 +1,113 @@
+name: table_1348
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1348
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1348.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view USAGE_LICENSE(\n\t\"AccountName\",\n\t\"\
+  AccountNumber\",\n\t\"InstanceName\",\n\t\"ProductName\",\n\t\"ApplicationName\"\
+  ,\n\t\"UsageDefinitionID\",\n\t\"ESMFamily1\",\n\t\"ESMFamily2\",\n\t\"ESMName\"\
+  ,\n\t\"UsageType\",\n\t\"UsageStatus\",\n\t\"LicensedStatus\",\n\t\"MostRecentUsageScanDate\"\
+  ,\n\t\"MostRecentUsageValue\",\n\t\"SecondMostRecentUsageScanDate\",\n\t\"SecondMostRecentUsageValue\"\
+  ,\n\t\"UsageIndicator\",\n\t\"LicensedIndicator\",\n\t\"UsageScanDateWithin60Days\"\
+  ,\n\t\"UsageScanDateWithin180Days\",\n\t\"Trend\"\n) as\nselect a.*,\n       IFF(\"\
+  SecondMostRecentUsageValue\"!='random', (\"MostRecentUsageValue\"-\"SecondMostRecentUsageValue\"\
+  )/\"SecondMostRecentUsageValue\"*'random', 'random') as \"Trend\"\nfrom\n  (SELECT\
+  \ \"ACCOUNT_NAME\" as \"AccountName\",\n          \"U_NUMBER\" as \"AccountNumber\"\
+  ,\n          \"DV_U_INSTANCE_AHA_SUMMARY\" as \"InstanceName\",\n          \"U_PRODUCT_NAME\"\
+  \ as \"ProductName\",\n          \"APPLICATIONNAME\" as \"ApplicationName\",\n \
+  \         \"USAGE_DEFINITION\" as \"UsageDefinitionID\",\n          \"U_ESM_FAMILY1\"\
+  \ as \"ESMFamily1\",\n          \"U_ESM_FAMILY2\" as \"ESMFamily2\",\n         \
+  \ \"U_ESM_NAME\" as \"ESMName\",\n          \"USAGE_TYPE\" as \"UsageType\",\n \
+  \         \"USAGE_STATUS\" as \"UsageStatus\",\n          \"LICENSED_STATUS\" as\
+  \ \"LicensedStatus\",\n          MIN(\"MOST_RECENT_USAGE_DATE\") as \"MostRecentUsageScanDate\"\
+  ,\n          SUM(\"MOST_RECENT_USAGE_VALUE\") as \"MostRecentUsageValue\",\n   \
+  \       MIN(\"SECOND_MOST_RECENT_DATE\") as \"SecondMostRecentUsageScanDate\",\n\
+  \          SUM(\"2ND_RECENT_USAGE_VALUE\") as \"SecondMostRecentUsageValue\",\n\
+  \          SUM(\"USAGE_INDICATOR\") as \"UsageIndicator\",\n          SUM(\"LICENSED_INDICATOR\"\
+  ) as \"LicensedIndicator\", --SUM(IFF(\"SecondMostRecentUsageValue\"!=0, (\"MostRecentUsageValue\"\
+  -\"SecondMostRecentUsageValue\")/\"SecondMostRecentUsageValue\"*100,0)) as \"Trend\"\
+  ,\n IFF((DATEDIFF(day, \"MostRecentUsageScanDate\", CURRENT_TIMESTAMP)<='random')\
+  \ ,'random', 'random') as \"UsageScanDateWithin60Days\",\n IFF((DATEDIFF(day, \"\
+  MostRecentUsageScanDate\", CURRENT_TIMESTAMP)<='random') ,'random', 'random') as\
+  \ \"UsageScanDateWithin180Days\"\n   FROM\n     (SELECT \"Projection_1\".\"ACCOUNT_NAME\"\
+  \ as \"ACCOUNT_NAME\",\n             \"Projection_1\".\"U_NUMBER\" as \"U_NUMBER\"\
+  ,\n             \"Projection_2\".\"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n             \"Projection_2\".\"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n   \
+  \          \"Projection_2\".\"APPLICATIONNAME\" as \"APPLICATIONNAME\",\n      \
+  \       \"Projection_2\".\"USAGE_DEFINITION\" as \"USAGE_DEFINITION\",\n       \
+  \      \"Projection_2\".\"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\",\n             \"\
+  Projection_2\".\"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n             \"Projection_2\"\
+  .\"U_ESM_NAME\" as \"U_ESM_NAME\",\n             \"Projection_2\".\"USAGE_TYPE\"\
+  \ as \"USAGE_TYPE\",\n             \"Projection_2\".\"USAGE_STATUS\" as \"USAGE_STATUS\"\
+  ,\n             \"Projection_2\".\"LICENSED_STATUS\" as \"LICENSED_STATUS\",\n \
+  \            \"Projection_2\".\"MOST_RECENT_USAGE_DATE\" as \"MOST_RECENT_USAGE_DATE\"\
+  ,\n             \"Projection_2\".\"MOST_RECENT_USAGE_VALUE\" as \"MOST_RECENT_USAGE_VALUE\"\
+  ,\n             \"Projection_2\".\"SECOND_MOST_RECENT_DATE\" as \"SECOND_MOST_RECENT_DATE\"\
+  ,\n             \"Projection_2\".\"2ND_RECENT_USAGE_VALUE\" as \"2ND_RECENT_USAGE_VALUE\"\
+  ,\n             \"Projection_2\".\"USAGE_INDICATOR\" as \"USAGE_INDICATOR\",\n \
+  \            \"Projection_2\".\"LICENSED_INDICATOR\" as \"LICENSED_INDICATOR\"\n\
+  \      FROM\n        (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n                \"ACCOUNT_NAME\"\
+  \ as \"ACCOUNT_NAME\",\n                \"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n                \"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n                \"\
+  APPLICATIONNAME\" as \"APPLICATIONNAME\",\n                \"USAGE_DEFINITION\"\
+  \ as \"USAGE_DEFINITION\",\n                \"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\"\
+  ,\n                \"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n                \"U_ESM_NAME\"\
+  \ as \"U_ESM_NAME\",\n                \"USAGE_TYPE\" as \"USAGE_TYPE\",\n      \
+  \          \"USAGE_STATUS\" as \"USAGE_STATUS\",\n                \"LICENSED_STATUS\"\
+  \ as \"LICENSED_STATUS\",\n                \"DAYS_BETWEEN_FLAG\" as \"DAYS_BETWEEN_FLAG\"\
+  ,\n                \"DAYS_BETWEEN_FLAG_180DAYS\" as \"DAYS_BETWEEN_FLAG_180DAYS\"\
+  ,\n                \"MOST_RECENT_USAGE_DATE\" as \"MOST_RECENT_USAGE_DATE\",\n \
+  \               \"MOST_RECENT_USAGE_VALUE\" as \"MOST_RECENT_USAGE_VALUE\",\n  \
+  \              \"SECOND_MOST_RECENT_DATE\" as \"SECOND_MOST_RECENT_DATE\",\n   \
+  \             \"2ND_RECENT_USAGE_VALUE\" as \"2ND_RECENT_USAGE_VALUE\",\n      \
+  \          \"USAGE_INDICATOR\" as \"USAGE_INDICATOR\",\n                \"LICENSED_INDICATOR\"\
+  \ as \"LICENSED_INDICATOR\",\n                \"TREND\" as \"TREND\"\n         FROM\
+  \ \"EDW_LS\".\"CUSTOMER_EM\".\"USAGE_LICENSE_PREP\")\"Projection_2\"\n      RIGHT\
+  \ JOIN\n        (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n                \"ACCOUNT_NAME\"\
+  \ as \"ACCOUNT_NAME\"\n         FROM \"EDW_LS\".\"CUSTOMER_EM\".\"VW_ACCOUNT\")\"\
+  Projection_1\" ON \"Projection_2\".\"U_NUMBER\" = \"Projection_1\".\"U_NUMBER\"\
+  )Join_4\n   GROUP BY \"AccountName\",\n            \"AccountNumber\",\n        \
+  \    \"InstanceName\",\n            \"ProductName\",\n            \"ApplicationName\"\
+  ,\n            \"UsageDefinitionID\",\n            \"ESMFamily1\",\n           \
+  \ \"ESMFamily2\",\n            \"ESMName\",\n            \"UsageType\",\n      \
+  \      \"UsageStatus\",\n            \"LicensedStatus\") a;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,77 @@
+name: table_1352
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1352
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1352.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PIPELINE_DAILY_PREDICTION_D(\n\
+  \tDATE_ID,\n\tTERRITORY_ID,\n\tBU_GROUP_ID,\n\tSNAPSHOT_DT,\n\tQUARTER_YYQQ,\n\t\
+  GEO_ID,\n\tBU_GROUP,\n\tREPORTING_QUARTER,\n\tHIST_ABILITY_AVG_INP,\n\tHIST_QTR_DESIRABILITY_AVG,\n\
+  \tNNACV_OPEN_WEIGHT_AVG_INP_USD_CY_FX,\n\tNNACV_OPEN_WEIGHT_STD_DEV_INP,\n\tCURRENT_QTR_DESIRABILITY,\n\
+  \tNNACV_CURRENT_USD_CY_FX,\n\tQUOTA_CURRENT_USD,\n\tNNACV_CURRENT_WEIGHTED_USD_CY_FX,\n\
+  \tNNACV_CURRENT_OPEN_WEIGHT_INP_USD_CY_FX,\n\tNNACV_CURRENT_CLOSED_USD_CY_FX,\n\t\
+  CURRENT_EXPECT_USD,\n\tCURRENT_UPSIDE_USD,\n\tCURRENT_COMMIT_USD,\n\tWEIGHT_PROBABILITY_INP,\n\
+  \tNNACV_WEIGHT_FACTOR_INP,\n\tQUOTA_PULL_INP,\n\tNNACV_PREDICTED_INP_USD_CY_FX,\n\
+  \tBENCHMARK_TARGET,\n\tNNACV_OPEN_USD_CY_FX,\n\tNNACV_OPEN_COVERAGE_INP,\n\tACTUAL_QUOTA_USD,\n\
+  \tTARGET_COVERAGE_INP,\n\tTERRITORY_SYSID\n) as\n\n/*New view developed as part\
+  \ of PBI Migration by Prabhat on 16th May*/\n\nSELECT\n\nto_char(\"SnapshotDate\"\
+  ,'random')::NUMBER   AS DATE_ID, ---(--PK)\n---TERR.TERRITORY_ID, ---(PK)\nHASH(\"\
+  TerritorySysID\") AS TERRITORY_ID,\nHASH(IFNULL(\"PLSBUGroup\",'random'))  AS BU_GROUP_ID,\
+  \ --(--PK)\n\"SnapshotDate\" AS SNAPSHOT_DT,\nDT.QUARTER_YYQQ,\nTERR.GEO_ID,\n---\"\
+  BUWorkFlow\" AS BU_WORKFLOW,\n\"PLSBUGroup\"  AS BU_GROUP,\n\"ReportingQuarter\"\
+  \  AS REPORTING_QUARTER,\n\"HistoricalAbility_Average\"  AS HIST_ABILITY_AVG_INP,\n\
+  \"HistoricalQtrDesirability_Average\"  AS HIST_QTR_DESIRABILITY_AVG,\n\"AverageOpenPipelineWeight\"\
+  \  AS NNACV_OPEN_WEIGHT_AVG_INP_USD_CY_FX,\n\"StdDevOpenPipelineWeight\"  AS NNACV_OPEN_WEIGHT_STD_DEV_INP,\n\
+  \"CurrentQtrDesirability\"  AS CURRENT_QTR_DESIRABILITY,\n\"CurrentPipeline\"  AS\
+  \ NNACV_CURRENT_USD_CY_FX,\n\"CurrentQuota\"  AS QUOTA_CURRENT_USD,\n\"CurrentWeightedPipeline\"\
+  \  AS NNACV_CURRENT_WEIGHTED_USD_CY_FX,\n\"CurrentOpenPipelineWeight\"  AS NNACV_CURRENT_OPEN_WEIGHT_INP_USD_CY_FX,\n\
+  \"CurrentClosed\"  AS NNACV_CURRENT_CLOSED_USD_CY_FX,\n\"CurrentExpect\"  AS CURRENT_EXPECT_USD,\n\
+  \"CurrentUpside\"  AS CURRENT_UPSIDE_USD,\n\"CurrentCommit\"  AS CURRENT_COMMIT_USD,\n\
+  \"WeightProbability\"  AS WEIGHT_PROBABILITY_INP,\n\"PipelineWeightFactor\"  AS\
+  \ NNACV_WEIGHT_FACTOR_INP,\n\"Quota Pull\"  AS QUOTA_PULL_INP,\n\"FinalPredictedNNACV\"\
+  \  AS NNACV_PREDICTED_INP_USD_CY_FX,\n\"BenchmarkTarget\"  AS BENCHMARK_TARGET,\n\
+  \"OpenPipeline\"  AS NNACV_OPEN_USD_CY_FX,\n\"OpenPipelineCoverage\"  AS NNACV_OPEN_COVERAGE_INP,\n\
+  \"ActualQuota\"  AS ACTUAL_QUOTA_USD,\n\"TargetCoverage\"  AS TARGET_COVERAGE_INP,\n\
+  TERR.TERRITORY_SYSID\nFROM\nEDW_LS.SALES_EM.PREDICTION_DRILLDOWN  PD\nLEFT JOIN\n\
+  EDW.ENTERPRISE.DIM_TERRITORY TERR\nON PD.\"TerritorySysID\"=TERR.TERRITORY_SYSID\n\
+  LEFT JOIN\nEDW.ENTERPRISE.DIM_DATE DT\nON\nto_char(PD.\"SnapshotDate\",'random')::NUMBER\
+  \ = DT.DATE_ID\n\nwhere \"RecordType\"='random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

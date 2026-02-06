@@ -1,0 +1,127 @@
+name: table_1343
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1343
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1343.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view USAGE_LICENSE_MOST_RECENT(\n\tU_NUMBER,\n\
+  \tDV_U_INSTANCE_AHA_SUMMARY,\n\tMOST_RECENT_USAGE_DATE,\n\tMOST_RECENT_USAGE_VALUE,\n\
+  \tUSAGE_DEFINITION,\n\tU_ESM_FAMILY1,\n\tU_ESM_FAMILY2,\n\tU_ESM_NAME,\n\tU_PRODUCT_NAME,\n\
+  \tUSAGE_TYPE,\n\tAPPLICATIONNAME\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"U_NUMBER\"\
+  \ as \"U_NUMBER\",\n       \"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n       MAX(\"MOST_RECENT_USAGE_DATE\") as \"MOST_RECENT_USAGE_DATE\",\n     \
+  \  SUM(\"MOST_RECENT_USAGE_VALUE\") as \"MOST_RECENT_USAGE_VALUE\",\n       \"USAGE_DEFINITION\"\
+  \ as \"USAGE_DEFINITION\",\n       \"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\",\n   \
+  \    \"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n       \"U_ESM_NAME\" as \"U_ESM_NAME\"\
+  ,\n       \"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n       \"USAGE_TYPE\" as \"\
+  USAGE_TYPE\",\n       \"APPLICATIONNAME\" as \"APPLICATIONNAME\"\nFROM\n  (SELECT\
+  \ \"U_NUMBER\" as \"U_NUMBER\",\n          \"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n          \"MOST_RECENT_USAGE_DATE\" as \"MOST_RECENT_USAGE_DATE\",\n       \
+  \   \"MOST_RECENT_USAGE_VALUE\" as \"MOST_RECENT_USAGE_VALUE\",\n          \"USAGE_DEFINITION\"\
+  \ as \"USAGE_DEFINITION\",\n          \"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\",\n\
+  \          \"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n          \"U_ESM_NAME\" as\
+  \ \"U_ESM_NAME\",\n          \"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n       \
+  \   \"USAGE_TYPE\" as \"USAGE_TYPE\",\n          \"APPLICATIONNAME\" as \"APPLICATIONNAME\"\
+  ,\n          \"HTHD_U_VALUE\" as \"HTHD_U_VALUE\",\n          \"CC_DISCOVERY_FLAG\"\
+  \ as \"CC_DISCOVERY_FLAG\",\n          \"CC_DISCOVERY_FILTER_FLAG\" as \"CC_DISCOVERY_FILTER_FLAG\"\
+  \n   FROM\n     (SELECT \"Join_1\".\"U_NUMBER\" as \"U_NUMBER\",\n             \"\
+  Join_1\".\"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\",\n     \
+  \        \"Join_1\".\"MOST_RECENT_USAGE_DATE\" as \"MOST_RECENT_USAGE_DATE\",\n\
+  \             \"Join_1\".\"MOST_RECENT_USAGE_VALUE\" as \"MOST_RECENT_USAGE_VALUE\"\
+  ,\n             \"Join_1\".\"USAGE_DEFINITION\" as \"USAGE_DEFINITION\",\n     \
+  \        \"Join_1\".\"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\",\n             \"Join_1\"\
+  .\"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n             \"Join_1\".\"U_ESM_NAME\"\
+  \ as \"U_ESM_NAME\",\n             \"Join_1\".\"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\"\
+  ,\n             \"Join_1\".\"USAGE_TYPE\" as \"USAGE_TYPE\",\n             \"Join_1\"\
+  .\"APPLICATIONNAME\" as \"APPLICATIONNAME\",\n             \"Projection_3\".\"HTHD_U_VALUE\"\
+  \ as \"HTHD_U_VALUE\",\n             CASE\n                 WHEN \"USAGE_DEFINITION\"\
+  \ IS NULL then 'random'\n                 else IFF(LEFT(\"USAGE_DEFINITION\", 'random')\
+  \ = 'random', 'random', IFF(LEFT(\"USAGE_DEFINITION\", 'random') ='random', 'random',\
+  \ 'random'))\n             END as \"CC_DISCOVERY_FLAG\",\n             \"CC_DISCOVERY_FLAG\"\
+  +\"HTHD_U_VALUE\" as \"CC_DISCOVERY_FILTER_FLAG\"\n      FROM\n        (SELECT \"\
+  Aggregation_1\".\"U_NUMBER\" as \"U_NUMBER\",\n                \"Aggregation_1\"\
+  .\"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\",\n             \
+  \   \"Aggregation_1\".\"MOST_RECENT_USAGE_DATE\" as \"MOST_RECENT_USAGE_DATE\",\n\
+  \                \"Projection_2\".\"USAGE_VALUE\" as \"MOST_RECENT_USAGE_VALUE\"\
+  ,\n                \"Aggregation_1\".\"USAGE_DEFINITION\" as \"USAGE_DEFINITION\"\
+  ,\n                \"Projection_2\".\"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\",\n  \
+  \              \"Projection_2\".\"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n      \
+  \          \"Projection_2\".\"U_ESM_NAME\" as \"U_ESM_NAME\",\n                \"\
+  Projection_2\".\"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n                \"Projection_2\"\
+  .\"USAGE_TYPE\" as \"USAGE_TYPE\",\n                \"Projection_2\".\"APPLICATIONNAME\"\
+  \ as \"APPLICATIONNAME\"\n         FROM\n           (SELECT \"U_NUMBER\" as \"U_NUMBER\"\
+  ,\n                   \"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n                   MAX(\"USAGE_DATE\") as \"MOST_RECENT_USAGE_DATE\",\n     \
+  \              \"USAGE_DEFINITION\" as \"USAGE_DEFINITION\",\n                 \
+  \  \"USAGE_TYPE\" as \"USAGE_TYPE\"\n            FROM\n              (SELECT \"\
+  U_NUMBER\" as \"U_NUMBER\",\n                      \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  \ as \"DV_U_INSTANCE_AHA_SUMMARY\",\n                      \"USAGE_DEFINITION\"\
+  \ as \"USAGE_DEFINITION\",\n                      \"USAGE_DATE\" as \"USAGE_DATE\"\
+  ,\n                      \"USAGE_TYPE\" as \"USAGE_TYPE\"\n               FROM \"\
+  EDW_LS\".\"CUSTOMER_EM\".\"CUST360_USAGESTATS_INSTANCE\")\"Projection_1\"\n    \
+  \        GROUP BY \"U_NUMBER\",\n                     \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n                     \"USAGE_DEFINITION\",\n                     \"USAGE_TYPE\"\
+  )\"Aggregation_1\"\n         LEFT JOIN\n           (SELECT \"U_NUMBER\" as \"U_NUMBER\"\
+  ,\n                   \"DV_U_INSTANCE_AHA_SUMMARY\" as \"DV_U_INSTANCE_AHA_SUMMARY\"\
+  ,\n                   \"U_ESM_FAMILY1\" as \"U_ESM_FAMILY1\",\n                \
+  \   \"U_ESM_FAMILY2\" as \"U_ESM_FAMILY2\",\n                   \"U_ESM_NAME\" as\
+  \ \"U_ESM_NAME\",\n                   \"U_PRODUCT_NAME\" as \"U_PRODUCT_NAME\",\n\
+  \                   \"USAGE_DATE\" as \"USAGE_DATE\",\n                   \"USAGE_VALUE\"\
+  \ as \"USAGE_VALUE\",\n                   \"APPLICATIONNAME\" as \"APPLICATIONNAME\"\
+  ,\n                   \"USAGE_DEFINITION\" as \"USAGE_DEFINITION\",\n          \
+  \         \"USAGE_TYPE\" as \"USAGE_TYPE\"\n            FROM \"EDW_LS\".\"CUSTOMER_EM\"\
+  .\"CUST360_USAGESTATS_INSTANCE\")\"Projection_2\" ON \"Aggregation_1\".\"U_NUMBER\"\
+  \ = \"Projection_2\".\"U_NUMBER\"\n         AND \"Aggregation_1\".\"DV_U_INSTANCE_AHA_SUMMARY\"\
+  \ = \"Projection_2\".\"DV_U_INSTANCE_AHA_SUMMARY\"\n         AND \"Aggregation_1\"\
+  .\"MOST_RECENT_USAGE_DATE\" = \"Projection_2\".\"USAGE_DATE\"\n         AND \"Aggregation_1\"\
+  .\"USAGE_DEFINITION\" = \"Projection_2\".\"USAGE_DEFINITION\")\"Join_1\"\n     \
+  \ LEFT JOIN\n        (SELECT \"CORE_COMPANY_U_NUMBER\" as \"CORE_COMPANY_U_NUMBER\"\
+  ,\n                \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n               \
+  \ \"HTHD_U_VALUE\" as \"HTHD_U_VALUE\"\n         FROM \"CDL_LS\".\"CUSTOMER_RPT\"\
+  .\"DISCOVERY_HTHD\")\"Projection_3\" ON \"Join_1\".\"U_NUMBER\" = \"Projection_3\"\
+  .\"CORE_COMPANY_U_NUMBER\"\n      AND \"Join_1\".\"DV_U_INSTANCE_AHA_SUMMARY\" =\
+  \ \"Projection_3\".\"U_INSTANCE_NAME\")\"Join_2\"\n   WHERE \"CC_DISCOVERY_FILTER_FLAG\"\
+  \ <> 'random'\n     or \"CC_DISCOVERY_FILTER_FLAG\" IS NULL )Projection_4\nGROUP\
+  \ BY \"U_NUMBER\",\n         \"DV_U_INSTANCE_AHA_SUMMARY\",\n         \"USAGE_DEFINITION\"\
+  ,\n         \"U_ESM_FAMILY1\",\n         \"U_ESM_FAMILY2\",\n         \"U_ESM_NAME\"\
+  ,\n         \"U_PRODUCT_NAME\",\n         \"USAGE_TYPE\",\n         \"APPLICATIONNAME\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

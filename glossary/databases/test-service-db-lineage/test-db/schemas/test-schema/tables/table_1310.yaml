@@ -1,0 +1,76 @@
+name: table_1310
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1310
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1310.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_SALES_LATE_RENEWALS(\n\tSALES_QUARTER_ID,\n\
+  \tOPTY_ID,\n\tACCOUNT_ID,\n\tOPTY_GEO_ID,\n\tRENEWAL_GEO_ID,\n\tOPTY_TERRITORY_ID,\n\
+  \tRENEWAL_TERRITORY_ID,\n\tOPTY_NUMBER,\n\tSALES_QUARTER_DT,\n\tSALES_QUARTER_YYQQ,\n\
+  \tCONTRACT_END_DT,\n\tCONTRACT_QUARTER_YYQQ,\n\tPIT_QUARTER_YYQQ,\n\tPQ_OVERDUE_DYNAMIC_QUARTER_YYQQ,\n\
+  \tOPTY_FORECAST_TYPE,\n\tCONTRACT_TYPE,\n\tPQ_PUSHED_LATE_RACV_USD_CY_FX,\n\tCQ_PUSHED_LATE_RACV_USD_CY_FX,\n\
+  \tPQ_OVERDUE_RENEWALS_RACV_CY_FX,\n\tACCOUNT_SYSID,\n\tOPTY_TERRITORY_SYSID,\n\t\
+  RENEWAL_TERRITORY_SYSID\n) as\n    /****************************************************************************************************************************\n\
+  \    CREATE/CHANGE LOG:\n    DATE        \tMODIFIED BY                         \
+  \      DESCRIPTION\n    23/04/24       \tjyoti.gandhi@servicenow.com       Column\
+  \ added: PQ_OVERDUE_DYNAMIC_QUARTER_YYQQ\n    ****************************************************************************************************************************/\n\
+  SELECT\n    QTR.QUARTER_ID AS SALES_QUARTER_ID,\n    OPP.OPTY_ID,\n    OPP.OPTY_ACCOUNT_ID\
+  \ AS ACCOUNT_ID,\n    OPP.GEO_ID AS OPTY_GEO_ID,\n    OPP.GEO_ID AS RENEWAL_GEO_ID,\n\
+  \    OPP.OPTY_TERRITORY_ID,\n    OPP.RENEWAL_TERRITORY_ID,\n    LR.\"OpportunityNumber\"\
+  \ AS OPTY_NUMBER,\n    QTR.QUARTER_DT AS SALES_QUARTER_DT,\n    LR.\"SalesQuarter\"\
+  \ AS SALES_QUARTER_YYQQ,\n    LR.\"OptyContEndDate\" AS CONTRACT_END_DT,\n    LR.\"\
+  ContractEndDateQuarter\" AS CONTRACT_QUARTER_YYQQ,\n    LR.\"DynamicQuarter\" AS\
+  \ PIT_QUARTER_YYQQ,\n    CASE\n        WHEN LR.\"PQOverDueRenewals\" = 'random'\
+  \ THEN LR.\"SalesQuarter\"\n    END AS PQ_OVERDUE_DYNAMIC_QUARTER_YYQQ,\n    LR.\"\
+  OpportunityForeCastType\" AS FORECAST_TYPE,\n    LR.\"ContractType\" AS CONTRACT_TYPE,\n\
+  \    CASE\n        WHEN LR.\"PQPushedLate\" = 'random' THEN LR.\"USDRenewalACV\"\
+  \n        ELSE 'random'\n    END AS PQ_PUSHED_LATE_RACV_USD_CY_FX,\n    CASE\n \
+  \       WHEN LR.\"CQPushedLate\" = 'random' THEN LR.\"USDRenewalACV\"\n        ELSE\
+  \ 'random'\n    END AS CQ_PUSHED_LATE_RACV_USD_CY_FX,\n    CASE\n        WHEN LR.\"\
+  PQOverDueRenewals\" = 'random' THEN LR.\"USDRenewalACV\"\n        ELSE 'random'\n\
+  \    END AS PQ_OVERDUE_RENEWALS_RACV_CY_FX,\n    OPP.OPTY_ACCOUNT_SYSID AS ACCOUNT_SYSID,\n\
+  \    LR.\"TerritorySysID\" AS OPTY_TERRITORY_SYSID,\n    LR.\"RenewalTerritorySysID\"\
+  \ AS RENEWAL_TERRITORY_SYSID\nFROM\n    EDW_LS.SALES_EM.SALES_LATE_RENEWALS LR\n\
+  \    LEFT OUTER JOIN EDW.ENTERPRISE.DIM_QUARTER QTR ON LR.\"DynamicQuarter\" = QTR.QUARTER_YYQQ\n\
+  \    LEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY TERR ON LR.\"TerritorySysID\"\
+  \ = TERR.TERRITORY_SYSID\n    LEFT OUTER JOIN EDW.ENTERPRISE.DIM_OPPORTUNITY OPP\
+  \ ON LR.\"OpportunityNumber\" = OPP.OPTY_NUMBER;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

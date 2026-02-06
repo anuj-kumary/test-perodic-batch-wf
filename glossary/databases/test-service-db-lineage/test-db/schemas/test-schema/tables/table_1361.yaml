@@ -1,0 +1,102 @@
+name: table_1361
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1361
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1361.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_OPTYWEEKLYSNAPSHOT(\n\t\"CurrentWeekRenewalACV\"\
+  ,\n\t\"CurrentWeekRenewalACV_cc\",\n\t\"SOptyWklyLineitemnumber\",\n\t\"SOptyWklyPSEngagementManager\"\
+  ,\n\t\"PSEngagementManagerSysID\",\n\t\"ProductBusinessUnit\",\n\t\"SOptyWklyProductBusinessUnitValue\"\
+  ,\n\t\"SOptyWklyProductFamily1\",\n\t\"SOptyWklyProductFamily2\",\n\t\"SOptyWklyProductFamily3\"\
+  ,\n\t\"QuarterlyTotalRenewalACV\",\n\t\"QuarterlyTotalRenewalACV_cc\",\n\t\"RenewalACV\"\
+  ,\n\t\"RenewalACV_cc\",\n\t\"TerritORyNetNewACV_cc\",\n\t\"TerritoryNetNewACV\"\
+  ,\n\t\"TerritorySysID\",\n\t\"SOptyWklyItemTotalValueAmount_CC\",\n\t\"SOptyWklyItemTotalValueAmount_USD\"\
+  ,\n\tU_NET_NEW_ACV_AMOUNT,\n\t\"SOptyWklyCloseDate\",\n\t\"SOptyWklyCloseWeekOfQtr\"\
+  ,\n\t\"contract_line_acv\",\n\t\"SOptyWklyAccount\",\n\t\"dv_owner\",\n\t\"SOptyWklyPipelineStatus\"\
+  ,\n\t\"SOptyWklyStage\",\n\t\"SOptyWklyType\",\n\t\"dv_u_area\",\n\t\"dv_u_base_currency\"\
+  ,\n\t\"dv_u_district\",\n\t\"dv_u_geo\",\n\t\"dv_u_region\",\n\t\"dv_u_territory\"\
+  ,\n\t\"employee_number\",\n\t\"SOptyWklyExtractDateComp\",\n\t\"SOptyWklyName\"\
+  ,\n\t\"SOptyWklyNumber\",\n\t\"owner\",\n\t\"SOptyWklyCloseDateDimension\",\n\t\"\
+  SOptyWklyQuarterbyYearSURF\",\n\t\"u_renewal_category\",\n\t\"SOptyWklyQuarter\"\
+  ,\n\t\"u_usd_net_new_acv\",\n\t\"u_usd_net_new_acv_cc\",\n\t\"u_usd_weighted_acv\"\
+  ,\n\t\"u_usd_weighted_acv_cc\",\n\t\"SOptyWklyWeekOfQuarter\",\n\t\"SOptyWklyWeightedPercentage\"\
+  ,\n\t\"Dummy\",\n\tDV_U_MAJOR_AREA,\n\t\"PSTerritory\",\n\t\"PSTerritorySysID\"\
+  ,\n\t\"SOptyWklyPSTerritorySysID\",\n\t\"SOptyWklyPSTerritory\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"CurrentWeekRenewalACV\" as \"CurrentWeekRenewalACV\"\
+  ,\n       \"CurrentWeekRenewalACV_cc\" as \"CurrentWeekRenewalACV_cc\",\n      \
+  \ \"LineItemNumber\" as \"SOptyWklyLineitemnumber\",\n       \"PSEngagementManager\"\
+  \ as \"SOptyWklyPSEngagementManager\",\n       \"PSEngagementManagerSysID\" as \"\
+  PSEngagementManagerSysID\",\n       \"ProductBusinessUnit\" as \"ProductBusinessUnit\"\
+  ,\n       \"ProductBusinessUnitValue\" as \"SOptyWklyProductBusinessUnitValue\"\
+  ,\n       \"ProductFamily1\" as \"SOptyWklyProductFamily1\",\n       \"ProductFamily2\"\
+  \ as \"SOptyWklyProductFamily2\",\n       \"ProductFamily3\" as \"SOptyWklyProductFamily3\"\
+  ,\n       \"QuarterlyTotalRenewalACV\" as \"QuarterlyTotalRenewalACV\",\n      \
+  \ \"QuarterlyTotalRenewalACV_cc\" as \"QuarterlyTotalRenewalACV_cc\",\n       \"\
+  RenewalACV\" as \"RenewalACV\",\n       \"RenewalACV_cc\" as \"RenewalACV_cc\",\n\
+  \       \"TerritORyNetNewACV_cc\" as \"TerritORyNetNewACV_cc\",\n       \"TerritoryNetNewACV\"\
+  \ as \"TerritoryNetNewACV\",\n       \"TerritorySysID\" as \"TerritorySysID\",\n\
+  \       \"TotalValueAmount\" as \"SOptyWklyItemTotalValueAmount_CC\",\n       \"\
+  USDTotalValueAmount\" as \"SOptyWklyItemTotalValueAmount_USD\",\n       \"U_NET_NEW_ACV_AMOUNT\"\
+  \ as \"U_NET_NEW_ACV_AMOUNT\",\n       \"close_Date\" as \"SOptyWklyCloseDate\"\
+  ,\n       \"close_week_of_qtr\" as \"SOptyWklyCloseWeekOfQtr\",\n       \"contract_line_acv\"\
+  \ as \"contract_line_acv\",\n       \"dv_account\" as \"SOptyWklyAccount\",\n  \
+  \     \"dv_owner\" as \"dv_owner\",\n       \"dv_pipeline_Status\" as \"SOptyWklyPipelineStatus\"\
+  ,\n       \"dv_stage\" as \"SOptyWklyStage\",\n       \"dv_type\" as \"SOptyWklyType\"\
+  ,\n       \"dv_u_area\" as \"dv_u_area\",\n       \"dv_u_base_currency\" as \"dv_u_base_currency\"\
+  ,\n       \"dv_u_district\" as \"dv_u_district\",\n       \"dv_u_geo\" as \"dv_u_geo\"\
+  ,\n       \"dv_u_region\" as \"dv_u_region\",\n       \"dv_u_territory\" as \"dv_u_territory\"\
+  ,\n       \"employee_number\" as \"employee_number\",\n       \"extract_date_comp\"\
+  \ as \"SOptyWklyExtractDateComp\",\n       \"name\" as \"SOptyWklyName\",\n    \
+  \   \"number\" as \"SOptyWklyNumber\",\n       \"owner\" as \"owner\",\n       \"\
+  u_close_date___date_dimension\" as \"SOptyWklyCloseDateDimension\",\n       \"u_quarter_by_year_surf\"\
+  \ as \"SOptyWklyQuarterbyYearSURF\",\n       \"u_renewal_category\" as \"u_renewal_category\"\
+  ,\n       \"u_sales_quarter\" as \"SOptyWklyQuarter\",\n       \"u_usd_net_new_acv\"\
+  \ as \"u_usd_net_new_acv\",\n       \"u_usd_net_new_acv_cc\" as \"u_usd_net_new_acv_cc\"\
+  ,\n       \"u_usd_weighted_acv\" as \"u_usd_weighted_acv\",\n       \"u_usd_weighted_acv_cc\"\
+  \ as \"u_usd_weighted_acv_cc\",\n       \"u_week_of_quarter\" as \"SOptyWklyWeekOfQuarter\"\
+  ,\n       \"u_weighted_percentage\" as \"SOptyWklyWeightedPercentage\",\n      \
+  \ 'random' as \"Dummy\",\n       \"DV_U_MAJOR_AREA\" as \"DV_U_MAJOR_AREA\",\n \
+  \      \"PSTerritory\" as \"PSTerritory\",\n       \"PSTerritorySysID\" as \"PSTerritorySysID\"\
+  ,\n       IFF(\"SOptyWklyExtractDateComp\"<date('random'), \"PSTerritorySysID\"\
+  , \"TerritorySysID\") as \"SOptyWklyPSTerritorySysID\",\n       IFF(\"SOptyWklyExtractDateComp\"\
+  <date('random'), \"PSTerritory\", \"dv_u_territory\") as \"SOptyWklyPSTerritory\"\
+  \nFROM \"EDW_LS\".\"SALES_EM\".\"ST_OPPTYWEEKLYSNAPSHOT\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,68 @@
+name: table_1292
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1292
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1292.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_TARGETS(\n\tTARGET_ID,\n\tQUARTER_ID,\n\
+  \tQUARTER_DT,\n\tQUARTER_YYQQ,\n\tJOB_FUNCTION,\n\tJOB_LEVEL,\n\tGEO,\n\tUTLIZATION_GATE,\n\
+  \tUTLIZATION_TARGET,\n\tTIME_CARD_SUBMITTED_COMPLIANCE_TARGET,\n\tTIME_CARD_APPROVED_COMPLIANCE_TARGET,\n\
+  \tTIME_CARD_APPROVED_COMPLIANCE_SCORE,\n\tUTLIZATION_SCORE,\n\tTEAM_UTILIZATION_TARGET,\n\
+  \tTEAM_UTILIZATION_GATE,\n\tTEAM_UTILIZATION_SCORE,\n\tRESOURCE_PLAN_ACCURACY_TARGET,\n\
+  \tEXPENSE_REPORTS_COMPLIANCE_SCORE,\n\tEXPENSE_REPORTS_COMPLIANCE_TARGET,\n\tREMAINING_BACKLOG,\n\
+  \tOVERALL_SATISFACTION_TARGET,\n\tSURVEY_RESPONSE_RATE_TARGET\n) as\nSELECT\nHASH(\"\
+  KpiQuarter\"||\"KpiJobFunction\"||\"KPIGeo\"||\"KPIJobLevel\") AS TARGET_ID,\n\"\
+  DIM_QUARTER\".QUARTER_ID as QUARTER_ID,\n\"DIM_QUARTER\".QUARTER_DT as QUARTER_DT,\n\
+  \"DIM_QUARTER\".QUARTER_YYQQ as QUARTER_YYQQ,\n\"KpiJobFunction\" as JOB_FUNCTION,\n\
+  \"KPIJobLevel\" as JOB_LEVEL,\n\"KPIGeo\" as GEO,\n\"KpiUtlizationGate\" as UTLIZATION_GATE,\n\
+  \"KpiUtlizationTarget\" as UTLIZATION_TARGET,\n\"KpiTCSubmittedCompTarget\" as TIME_CARD_SUBMITTED_COMPLIANCE_TARGET,\n\
+  \"KpiTCApprovedComplTarget\" as TIME_CARD_APPROVED_COMPLIANCE_TARGET,\n\"KpiTCApprovedComplScore\"\
+  \ AS TIME_CARD_APPROVED_COMPLIANCE_SCORE,\n\"KpiUtlizationScore\" as UTLIZATION_SCORE,\n\
+  \"KpiTeamUtilizationTarget\" as TEAM_UTILIZATION_TARGET,\n\"KpiTeamUtilizationGate\"\
+  \ as TEAM_UTILIZATION_GATE,\n\"KpiTeamUtilizationScore\" as TEAM_UTILIZATION_SCORE,\n\
+  \"KpiResourcePlanAccuracyTarget\" as RESOURCE_PLAN_ACCURACY_TARGET,\n\"KpiExpenseReportsComplScore\"\
+  \ as EXPENSE_REPORTS_COMPLIANCE_SCORE,\n\"KpiExpenseReportsComplTarget\" as EXPENSE_REPORTS_COMPLIANCE_TARGET,\n\
+  \"KPIRemainingBacklog\" as REMAINING_BACKLOG,\n\"KpiOSATTarget\" as OVERALL_SATISFACTION_TARGET,\n\
+  \"KpiSurveyResponseRateTarget\" as SURVEY_RESPONSE_RATE_TARGET\nFROM\n(SELECT *\
+  \ FROM ODS_LS.\"FLATFILESOURCE\".\"PS_KPITARGETS\"  where left(\"KpiQuarter\",'random')\
+  \ ='random') as \"TRAGET\"\nleft join EDW.ENTERPRISE.DIM_QUARTER as \"DIM_QUARTER\"\
+  \ on right(\"TRAGET\".\"KpiQuarter\",'random')=\"DIM_QUARTER\".QUARTER_YYQQ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,54 @@
+name: table_1281
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1281
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1281.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CM_MDM_SF(\n\tSURF_ID,\n\tCM_OVERRIDE_NAME,\n\
+  \tCREATE_DATE,\n\tCM_OVERRIDE_DUNS_NUMBER,\n\tPARTY_TYPE,\n\tCM_OVERRIDE_EMPL_CNT,\n\
+  \tACCT_INDUSTRY_SEGMENT,\n\tCOMPANY_HIERARCHY_LEVEL,\n\tCM_OVERRIDE_SEGMENT,\n\t\
+  CM_OVERRIDE_ANNUAL_REVENUE,\n\tTOTAL_ACV,\n\tADDR_LN1,\n\tCITY,\n\tSTATE_NM,\n\t\
+  COUNTRY_NM,\n\tCOUNTRY_CD,\n\tCMID,\n\tCOMPANY_CMID,\n\tGP_NMBR,\n\tGP_OVERRIDE_NAME,\n\
+  \tDP_NMBR,\n\tDP_OVERRIDE_NAME,\n\tPUB_SEC_COMPANY_CD,\n\tPARTNER_STATUS,\n\tDUPLICATE_RSN_CD,\n\
+  \tANNUAL_REVENUE\n) as\nselect m.surf_id,m.cm_override_name,m.create_date,m.cm_override_duns_number,m.party_type,m.cm_override_empl_cnt,m.ACCT_INDUSTRY_SEGMENT,m.company_hierarchy_level,m.cm_override_segment,m.cm_override_annual_revenue,m.total_acv,m.addr_ln1,m.city,m.state_nm,m.country_nm,m.country_cd,m.cmid,m.company_cmid,m.gp_nmbr,m.gp_override_name,m.dp_nmbr,m.dp_override_name,m.pub_sec_company_cd,m.partner_status,m.duplicate_rsn_cd,m.annual_revenue\n\
+  from rds.mdm.v_mdm_company m\nwhere m.company_hierarchy_level in ('random','random')\n\
+  AND m.company_active_flag = 'random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

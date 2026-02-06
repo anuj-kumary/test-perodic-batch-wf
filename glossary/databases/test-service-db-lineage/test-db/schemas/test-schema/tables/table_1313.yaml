@@ -1,0 +1,199 @@
+name: table_1313
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1313
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1313.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_SALES_HEADCOUNT_SUMMARY(\n\t\
+  QUARTER_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tQUARTER_YYQQ,\n\tDEPARTMENT_ID,\n\tSTARTING_HEADCOUNT,\n\
+  \tNEW_HIRES,\n\tTERMS,\n\tNET_DEPT_TRANSFERS,\n\tNET_AREA_TRANSFERS,\n\tNET_GEO_TRANSFERS,\n\
+  \tOFFERS_ACCEPTED,\n\tOFFERS_IN_PROCESS,\n\tATTRITION_LEFT_TO_GO_CURRENT_PERIOD,\n\
+  \tLATEST_QUARTER_HEADCOUNT_PLAN,\n\tTA_ADDITIONAL_HIRES_FORECASTED,\n\tOPEN_REQS_YTD,\n\
+  \tATTRITION_FORECAST,\n\tPROJECTED_ENDING_HEADCOUNT,\n\tHEADCOUNT_PLAN_TO_TOTAL_PROJECTED_TILL_END,\n\
+  \tPROJECTED_ENDING_HEADCOUNT_TA,\n\tNEW_HIRES_YTD,\n\tOFFERS_ACCEPTED_YTD,\n\tOFFERS_IN_PROCESS_YTD,\n\
+  \tKPI_NAME,\n\tKPI_VALUE,\n\tTERRITORY_SYSID\n) as\n\t--Below code commented as\
+  \ the columns from these tables aren't required (on 26th Apr 24) and\n\t--also the\
+  \ view name changed from SRC_V_FACT_HEAD_COUNT TO SRC_V_SALES_HEADCOUNT_SUMMARY;\
+  \ Changed by Jyoti(Accenture) on 26th Apr 24\n\t/*with GEO_TOTAL_EMPLOYEE_COUNT\
+  \ as (select * from (\n\t--Previous Quarter Emp counts\n\tselect RIGHT(YEAR(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)) || '-Q' || QUARTER(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)),5) as \"Quarter\", 'Previous Quarter' as \"QuarterFlag\"\
+  ,\n\t\"GEO\", round(avg(\"EmployeeCount\"),0) as \"TotalEmployeeCount\",\n\tNull\
+  \ as \"RegrettableTermCount\"\n\tfrom (select TO_DATE(\"ExtractDate\", 'YYYY-MM-DD')\
+  \ as \"ExtractDate\", \"TerrGeo\" as \"GEO\",\n\tcount(distinct \"EmployeeNumber\"\
+  ) \"EmployeeCount\"\n\tfrom  PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_MONTH_ENDING\
+  \ a\n\tleft outer join ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n\t\t\ton e.\"EmpEmployeeNumber\"\
+  \ = a.\"EmployeeNumber\"\n\tLEFT outer join  ODS_LS.\"SURF\".\"U_ST_TERRITORY\"\
+  \ as st\n\t\t\t\ton st.\"TerrUserSysID\"=e.\"EmpSysID\"\n\tLEFT outer join  ODS_LS.\"\
+  SURF\".\"SALES_TERRITORY\" as stt\n\t\t\t\ton st.\"TerrUserRecSysID\"=stt.\"TerrSysID\"\
+  \n\twhere TO_DATE(\"ExtractDate\", 'YYYY-MM-DD') in ('2023-09-30','2023-08-31','2023-07-31','2023-06-30')\n\
+  \tand \"DepartmentNumber\" = '3000'\n\tand \"TerrGeo\" in ('AMS','APAC','EMEA','JPN')\
+  \ ---ACE and Nulls are also coming; excluding them\n\tgroup by TO_DATE(\"ExtractDate\"\
+  , 'YYYY-MM-DD'), \"TerrGeo\"\n\t)\n\tgroup by \"GEO\"\n\tUNION\n\t--Current Quarter\
+  \ Emp counts from daily snapshot and Previous closed months\n\tselect RIGHT(YEAR(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP())) || '-Q' || QUARTER(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP())),5) as \"Quarter\", 'Current Quarter' as \"QuarterFlag\"\
+  ,\n\t\"GEO\", round(avg(\"EmployeeCount\"),0) as \"TotalEmployeeCount\",\n\tNull\
+  \ as \"RegrettableTermCount\"\n\tfrom (\n\tselect TO_DATE(\"ExtractDate\", 'YYYY-MM-DD')\
+  \ as \"ExtractDate\", \"TerrGeo\" as \"GEO\",\n\tcount(distinct \"EmployeeNumber\"\
+  ) \"EmployeeCount\"\n\tfrom  PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_MONTH_ENDING\
+  \ a\n\tleft outer join ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n\t\t\ton e.\"EmpEmployeeNumber\"\
+  \ = a.\"EmployeeNumber\"\n\tLEFT outer join  ODS_LS.\"SURF\".\"U_ST_TERRITORY\"\
+  \ as st\n\t\t\t\ton st.\"TerrUserSysID\"=e.\"EmpSysID\"\n\tLEFT outer join  ODS_LS.\"\
+  SURF\".\"SALES_TERRITORY\" as stt\n\t\t\t\ton st.\"TerrUserRecSysID\"=stt.\"TerrSysID\"\
+  \n\twhere TO_DATE(\"ExtractDate\", 'YYYY-MM-DD') in ('2023-10-31','2023-09-30')\n\
+  \tand \"DepartmentNumber\" = '3000'\n\tand \"TerrGeo\" in ('AMS','APAC','EMEA','JPN')\
+  \ ---ACE and Nulls are also coming; excluding them\n\tgroup by TO_DATE(\"ExtractDate\"\
+  , 'YYYY-MM-DD'), \"TerrGeo\"\n\tUNION\n\tselect CURRENT_DATE AS \"ExtractDate\"\
+  , \"TerrGeo\" as \"GEO\",\n\tcount(distinct \"EmployeeNumber\") \"EmployeeCount\"\
+  \n\tfrom PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_EES_CWS a    --Current months\
+  \ numbers\n\tleft outer join ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n\t\t\ton e.\"EmpEmployeeNumber\"\
+  \ = a.\"EmployeeNumber\"\n\tLEFT outer join  ODS_LS.\"SURF\".\"U_ST_TERRITORY\"\
+  \ as st\n\t\t\t\ton st.\"TerrUserSysID\"=e.\"EmpSysID\"\n\tLEFT outer join  ODS_LS.\"\
+  SURF\".\"SALES_TERRITORY\" as stt\n\t\t\t\ton st.\"TerrUserRecSysID\"=stt.\"TerrSysID\"\
+  \n\twhere \"DepartmentNumber\" = '3000'\n\tand \"TerrGeo\" in ('AMS','APAC','EMEA','JPN')\
+  \ ---ACE and Nulls are also coming; excluding them\n\tgroup by \"TerrGeo\", CURRENT_DATE\n\
+  \t)\n\tgroup by \"GEO\"\n\tUNION\n\t---Regrettable Terms by Quarter\n\t(select distinct\
+  \ \"TermQuarter\" as \"Quarter\",\n\tcase when \"TermQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)) || '-Q' || QUARTER(\n\t\t\t\t\t\tADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)),5) then 'Previous Quarter'\n\t\t\t\twhen \"TermQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone('America/Los_Angeles', CURRENT_TIMESTAMP())) ||\
+  \ '-Q' || QUARTER(\n\t\t\t\t\t\tconvert_timezone('America/Los_Angeles', CURRENT_TIMESTAMP())),5)\
+  \ then 'Current Quarter'\n\t\t\t\t\t\telse 'TBD' end as \"QuarterFlag\",\n\t\"Geo\"\
+  \ as \"GEO\",\n\tNull as \"TotalEmployeeCount\",\n\t\"RegrettableTermCount\"\n\t\
+  from PEOPLE_NSN_SHARE.NSN_WORKDAY.V_SLS_REGRETTABLE_TERMS_BY_GEO \"emp\"\n\twhere\
+  \ \"Geo\" <> 'All'\n\tunion all\n\t(select \"TermQuarter\" as \"Quarter\",\n\tcase\
+  \ when \"TermQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)) || '-Q' || QUARTER(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)),5) then 'Previous Quarter'\n\twhen \"TermQuarter\" =\
+  \ RIGHT(YEAR(convert_timezone('America/Los_Angeles', CURRENT_TIMESTAMP())) || '-Q'\
+  \ || QUARTER(\n\t\t\t\t\t\tconvert_timezone('America/Los_Angeles', CURRENT_TIMESTAMP())),5)\
+  \ then 'Current Quarter'\n\t\t\t\t\t\telse 'TBD' end as \"QuarterFlag\",\n\t'All'\
+  \ as \"GEO\",\n\tNull as \"TotalEmployeeCount\",\n\t(\"TermCountAllGeo\"-\"TermCount\"\
+  ) as \"RegrettableTermCount\"\n\tfrom  (\n\tselect \"TermQuarter\",\n\tsum(case\
+  \ when \"Geo\" <> 'All' Then \"RegrettableTermCount\" Else 0 end) as \"TermCount\"\
+  ,\n\tsum(case when \"Geo\" = 'All' Then \"RegrettableTermCount\" Else 0 end) as\
+  \ \"TermCountAllGeo\"\n\tfrom PEOPLE_NSN_SHARE.NSN_WORKDAY.V_SLS_REGRETTABLE_TERMS_BY_GEO\
+  \ \"emp\"\n\tgroup by \"TermQuarter\"\n\t--PEOPLE_NSN_SHARE.NSN_WORKDAY.V_SLS_REGRETTABLE_TERMS_BY_GEO\
+  \ \"emp\";\n\t))\n\t)\n\t) \"emp\"\n\tleft outer join\n\t(select distinct \"TerrGeo\"\
+  , \"TerrSysID\" from  ODS_LS.\"SURF\".\"SALES_TERRITORY\"\n\twhere \"TerrName\"\
+  \ = \"TerrGeo\"\n\tunion\n\tselect distinct 'All' as \"TerrGeo\", \"TerrSysID\"\n\
+  \tfrom  ODS_LS.\"SURF\".\"SALES_TERRITORY\"\n\twhere \"TerrName\" = \"TerrGlobal\"\
+  \n\t) \"terr\"\n\ton \"emp\".\"GEO\" = \"terr\".\"TerrGeo\"),\n\n\tACTUAL_EMPLOYED_VS_TARGETED\
+  \ as\n\t(\n\tselect \"GEO\",\"terr\".\"TerrSysID\", \"Quarter\",\"QuarterFlag\"\
+  ,sum(\"EmployedTarget\")EMPLOYED_TARGET,sum(\"ActualsEmployed\")ACTUAL_EMPLOYED\
+  \ from ((select \"GEO\", \"Quarter\", \"QuarterFlag\", sum(target_value) \"EmployedTarget\"\
+  ,\n\tNull as \"ActualsEmployed\"\n\tfrom\n\t(\n\tSelect RIGHT(YEAR(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_DATE)) || '-Q' || QUARTER(convert_timezone('America/Los_Angeles', CURRENT_DATE)),5)\
+  \ as \"Quarter\", 'Current Quarter' as \"QuarterFlag\", max (T.target_value) target_value\
+  \ ,Base.User_Type,Base.GEO,Base.Major_Area,Base.Bu_Name,\n\tBase.Workflow, Base.DT_SKILL_PATH,Base.Taxonomy,Base.Funnel_Stage\n\
+  \tfrom EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY Base\n\
+  \tLEFT JOIN  EDW_LS.GTM_RISEUP.TBL_TARGET_CONSOLIDATED_DATA T --21 feb\n\t\t\tON\
+  \ T.TARGET_KEY = Base.TARGET_KEY --  --21 feb\n\tWHERE 1= 1\n\t\tand SNAPSHOT_DATE\
+  \ = (SELECT MAX(snapshot_date) FROM EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY)\n\
+  \t\tand lower(Base.user_type) ='partner'\n\t\tand Base.FUNNEL_STAGE = 'Demand'\n\
+  \t\tAND IFNULL(TRIM(LOWER(base.FIRST_NAME)),'X') = 'dummy' -- 12 feb\n\t\tand T.TARGET_YEAR\
+  \ = YEAR (SELECT MAX(snapshot_date) FROM EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY)\
+  \ -- 21 feb\n\tgroup by  Base.User_Type,Base.GEO,Base.Major_Area,Base.Bu_Name,Base.Workflow,\
+  \ Base.DT_SKILL_PATH, Base.Taxonomy\n\t, Base.Funnel_Stage\n\tUNION\n\tSelect RIGHT(YEAR(convert_timezone('America/Los_Angeles',\
+  \ add_months(CURRENT_DATE,-3))) || '-Q' || QUARTER(convert_timezone('America/Los_Angeles',\
+  \ add_months(CURRENT_DATE,-3))),5) as \"Quarter\", 'Previous Quarter' as \"QuarterFlag\"\
+  , max (T.target_value) target_value ,Base.User_Type,Base.GEO,Base.Major_Area,Base.Bu_Name,\n\
+  \tBase.Workflow, Base.DT_SKILL_PATH,Base.Taxonomy,Base.Funnel_Stage\n\tfrom EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY\
+  \ Base\n\tLEFT JOIN  EDW_LS.GTM_RISEUP.TBL_TARGET_CONSOLIDATED_DATA T --21 feb\n\
+  \t\t\tON T.TARGET_KEY = Base.TARGET_KEY --  --21 feb\n\tWHERE 1= 1\n\t\tand SNAPSHOT_DATE\
+  \ = (select distinct \"DateDimQuarterEndDate\" from ODS_LS.SURF.DATE_DIMENSION\n\
+  \twhere \"DateDimQuarterByYearSURF\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)) || '-Q' || QUARTER(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)),5))\n\t\tand lower(Base.user_type) ='partner'\n\t\t\
+  and Base.FUNNEL_STAGE = 'Demand'\n\t\tAND IFNULL(TRIM(LOWER(base.FIRST_NAME)),'X')\
+  \ = 'dummy' -- 12 feb\n\t\tand  T.TARGET_YEAR  = YEAR (select distinct \"DateDimQuarterEndDate\"\
+  \ from ODS_LS.SURF.DATE_DIMENSION\n\twhere \"DateDimQuarterByYearSURF\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)) || '-Q' || QUARTER(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)),5)) -- 12 feb\n\tgroup by  Base.User_Type,Base.GEO,Base.Major_Area,Base.Bu_Name,Base.Workflow,\
+  \ Base.DT_SKILL_PATH, Base.Taxonomy\n\t, Base.Funnel_Stage\n\t)\n\tGROUP BY  \"\
+  GEO\", \"Quarter\", \"QuarterFlag\"\n\t)\n\tUNION\n\t-- Headcount\n\t(select \"\
+  GEO\", RIGHT(YEAR(convert_timezone('America/Los_Angeles', CURRENT_TIMESTAMP()))\
+  \ || '-Q' || QUARTER(convert_timezone('America/Los_Angeles', CURRENT_TIMESTAMP())),5)\
+  \ AS \"Quarter\", 'Current Quarter' as \"QuarterFlag\",  Null as \"EmployedTarget\"\
+  \ ,\n\tcount (distinct USER)  \"ActualsEmployed\"\n\tfrom EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY\
+  \ Base\n\tWHERE 1=1\n\tand SNAPSHOT_DATE = (SELECT MAX(snapshot_date) FROM EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY)\n\
+  \tand (BU_name not in ('Exclude') or BU_name is null)\n\tAND FUNNEL_STAGE_RANK =1\
+  \ and FUNNEL_SUB_STAGE_RANK = 1\n\tAND IS_SERVICENOW_EMPLOYEE = 0\n\tAND Trim(lower(user_type))\
+  \ = 'partner'\n\t--AND Trim(lower(Base.FUNNEL_STAGE)) in ('engaged' ,'certified'\
+  \ )\n\tand is_employed = 1\n\tAND IFNULL(TRIM(LOWER(FIRST_NAME)),'X') != 'dummy'\n\
+  \tGROUP BY \"GEO\"\n\tUNION\n\tselect \"GEO\", RIGHT(YEAR(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)) || '-Q' || QUARTER(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)),5) AS \"Quarter\", 'Previous Quarter' as \"QuarterFlag\"\
+  ,  Null as \"EmployedTarget\" ,\n\tcount (distinct USER)  \"ActualsEmployed\"\n\t\
+  from EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY Base\n\
+  \tWHERE 1=1\n\tand SNAPSHOT_DATE = (select distinct \"DateDimQuarterEndDate\" from\
+  \ ODS_LS.SURF.DATE_DIMENSION\n\twhere \"DateDimQuarterByYearSURF\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)) || '-Q' || QUARTER(ADD_MONTHS(convert_timezone('America/Los_Angeles',\
+  \ CURRENT_TIMESTAMP()),-3)),5))\n\tand (BU_name not in ('Exclude') or BU_name is\
+  \ null)\n\tAND FUNNEL_STAGE_RANK =1 and FUNNEL_SUB_STAGE_RANK = 1\n\tAND IS_SERVICENOW_EMPLOYEE\
+  \ = 0\n\tAND Trim(lower(user_type)) = 'partner'\n\t--AND Trim(lower(Base.FUNNEL_STAGE))\
+  \ in ('engaged' ,'certified' )\n\tand is_employed = 1\n\tAND IFNULL(TRIM(LOWER(FIRST_NAME)),'X')\
+  \ != 'dummy'\n\tGROUP BY \"GEO\"\n\t)\n\t) \"partner\"\n\tleft outer join (select\
+  \ distinct \"TerrGeo\", \"TerrSysID\" from  ODS_LS.\"SURF\".\"SALES_TERRITORY\"\n\
+  \twhere \"TerrName\" = \"TerrGeo\") \"terr\"\n\ton \"partner\".\"GEO\" = \"terr\"\
+  .\"TerrGeo\"\n\tgroup by all) */\nSELECT\n\tQUARTER_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\
+  \tHS.\"Quarter\" as QUARTER_YYQQ,\n\t\"DeptCode\" as DEPARTMENT_ID,\n\t\"StartingHC\"\
+  \ as STARTING_HEADCOUNT,\n\t\"NewHires\" as NEW_HIRES,\n\t\"Terms\" as TERMS,\n\t\
+  \"NetDeptTransfers\" as NET_DEPT_TRANSFERS,\n\t\"NetAreaTransfers\" as NET_AREA_TRANSFERS,\n\
+  \t\"NetGeoTransfers\" as NET_GEO_TRANSFERS,\n\t\"OffersAccepted\" as OFFERS_ACCEPTED,\n\
+  \t\"OffersinProcess\" as OFFERS_IN_PROCESS,\n\t\"AttritionLeft-To-GoCurrentPeriod\"\
+  \ as ATTRITION_LEFT_TO_GO_CURRENT_PERIOD,\n\t\"LatestQuarterlyHCPlan\" as LATEST_QUARTER_HEADCOUNT_PLAN,\n\
+  \t\"TA_AddtlHiresForecasted\" as TA_ADDITIONAL_HIRES_FORECASTED,\n\t\"OpenReqsYTD\"\
+  \ as OPEN_REQS_YTD,\n\t\"AttritionForecast\" as ATTRITION_FORECAST,\n\t\"ProjectedEndingHC\"\
+  \ as PROJECTED_ENDING_HEADCOUNT,\n\t\"HCPlanToTotalProjectedEndingHC\" as HEADCOUNT_PLAN_TO_TOTAL_PROJECTED_TILL_END,\n\
+  \t\"ProjectedEndingHC+TA\" as PROJECTED_ENDING_HEADCOUNT_TA,\n\t\"NewHires_YTD\"\
+  \ as NEW_HIRES_YTD,\n\t\"OffersAccepted_YTD\" as OFFERS_ACCEPTED_YTD,\n\t\"OffersinProcess_YTD\"\
+  \ as OFFERS_IN_PROCESS_YTD,\n\t\"KPIName\" as KPI_NAME,\n\t\"KPIValue\" as KPI_VALUE,\n\
+  \t HS.\"TerritorySysID\" as TERRITORY_SYSID\nFROM EDW_LS.\"SALES_EM\".\"SALES_HEADCOUNT_SUMMARY\"\
+  \ HS\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY DT ON HS.\"TerritorySysID\"=DT.TERRITORY_SYSID\n\
+  LEFT OUTER JOIN EDW.ENTERPRISE.DIM_QUARTER DQ ON HS.\"Quarter\"=DQ.QUARTER_YYQQ\n\
+  --Below code commented as columns from these tables aren't required (26th Apr 24)\n\
+  /*left outer join GEO_TOTAL_EMPLOYEE_COUNT gte on gte.\"Quarter\"=hs.\"Quarter\"\
+  \ and gte.\"TerrSysID\"=hs.\"TerritorySysID\"\nleft outer join ACTUAL_EMPLOYED_VS_TARGETED\
+  \ evt on evt.\"Quarter\"=hs.\"Quarter\" and evt.\"TerrSysID\"=hs.\"TerritorySysID\"\
+  \ */;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

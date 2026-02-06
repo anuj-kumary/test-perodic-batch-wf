@@ -1,0 +1,88 @@
+name: table_1355
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1355
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1355.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_PS_TERRITORIES(\n\t\"SPSTerrGeoValue\"\
+  ,\n\t\"SPSTerrAreaValue\",\n\t\"SPSTerrPSTerritory\",\n\t\"SPSTerrPSRegionValue\"\
+  ,\n\t\"SPSTerrActive\",\n\t\"SPSTerrRegion\",\n\t\"SPSExtractDate\",\n\t\"SPSTerrTypeValue\"\
+  ,\n\t\"SPSTerrMajorAreaValue\",\n\t\"SPSTerrSysid\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"SPSTerrGeoValue\" as \"SPSTerrGeoValue\",\n       \"SPSTerrAreaValue\"\
+  \ as \"SPSTerrAreaValue\",\n       \"SPSTerrPSTerritory\" as \"SPSTerrPSTerritory\"\
+  ,\n       \"SPSTerrPSRegionValue\" as \"SPSTerrPSRegionValue\",\n       \"SPSTerrActive\"\
+  \ as \"SPSTerrActive\",\n       \"SPSTerrRegion\" as \"SPSTerrRegion\",\n      \
+  \ \"SPSExtractDate\" as \"SPSExtractDate\",\n       \"SPSTerrTypeValue\" as \"SPSTerrTypeValue\"\
+  ,\n       \"SPSTerrMajorAreaValue\" as \"SPSTerrMajorAreaValue\",\n       \"SPSTerrSysid\"\
+  \ as \"SPSTerrSysid\"\nFROM\n  (SELECT *\n   FROM\n     (SELECT \"STerrGeo\" as\
+  \ \"SPSTerrGeoValue\",\n             \"STerrArea\" as \"SPSTerrAreaValue\",\n  \
+  \           \"STerrName\" as \"SPSTerrPSTerritory\",\n             \"STerrRegion\"\
+  \ as \"SPSTerrPSRegionValue\",\n             \"STerrActive\" as \"SPSTerrActive\"\
+  ,\n             'random' as \"SPSTerrRegion\",\n             \"STerrExtractDate\"\
+  \ as \"SPSExtractDate\",\n             \"STerrTypeValue\" as \"SPSTerrTypeValue\"\
+  ,\n             \"STerrMajorArea\" as \"SPSTerrMajorAreaValue\",\n             \"\
+  STerrSysID\" as \"SPSTerrSysid\"\n      FROM\n        (SELECT \"STerrGeo\" as \"\
+  STerrGeo\",\n                \"STerrArea\" as \"STerrArea\",\n                \"\
+  STerrName\" as \"STerrName\",\n                \"STerrRegion\" as \"STerrRegion\"\
+  ,\n                \"STerrActive\" as \"STerrActive\",\n                \"STerrExtractDate\"\
+  \ as \"STerrExtractDate\",\n                \"STerrTypeValue\" as \"STerrTypeValue\"\
+  ,\n                \"STerrMajorArea\" as \"STerrMajorArea\",\n                \"\
+  STerrSysID\" as \"STerrSysID\"\n         FROM \"ODS_LS\".\"SURF\".\"ST_SALES_TERRITORY\"\
+  \n         WHERE (\"STerrExtractDate\" > 'random') )\"SALES_TERRITORY_AFTER_20210915\"\
+  \n      UNION ALL SELECT \"SPSTerrGeoValue\" as \"SPSTerrGeoValue\",\n         \
+  \              \"SPSTerrAreaValue\" as \"SPSTerrAreaValue\",\n                 \
+  \      \"SPSTerrPSTerritory\" as \"SPSTerrPSTerritory\",\n                     \
+  \  \"SPSTerrPSRegionValue\" as \"SPSTerrPSRegionValue\",\n                     \
+  \  \"SPSTerrActive\" as \"SPSTerrActive\",\n                       \"SPSTerrRegion\"\
+  \ as \"SPSTerrRegion\",\n                       \"SPSExtractDate\" as \"SPSExtractDate\"\
+  ,\n                       \"SPSTerrTypeValue\" as \"SPSTerrTypeValue\",\n      \
+  \                 \"SPSTerrMajorAreaValue\" as \"SPSTerrMajorAreaValue\",\n    \
+  \                   \"SPSTerrSysid\" as \"SPSTerrSysid\"\n      FROM\n        (SELECT\
+  \ \"DV_U_GEO\" as \"SPSTerrGeoValue\",\n                \"DV_U_AREA\" as \"SPSTerrAreaValue\"\
+  ,\n                \"U_PS_TERRITORY\" as \"SPSTerrPSTerritory\",\n             \
+  \   \"SYS_ID\" as \"SPSTerrSysid\",\n                \"DV_U_PS_REGION\" as \"SPSTerrPSRegionValue\"\
+  ,\n                \"U_ACTIVE\" as \"SPSTerrActive\",\n                \"DV_U_REGION\"\
+  \ as \"SPSTerrRegion\",\n                \"EXTRACT_DATE\" as \"SPSExtractDate\"\
+  ,\n                \"DV_U_TYPE\" as \"SPSTerrTypeValue\",\n                \"DV_U_MAJOR_AREA\"\
+  \ as \"SPSTerrMajorAreaValue\"\n         FROM \"RDS\".\"SURF\".\"ST_U_PS_TERRITORIES\"\
+  \n         WHERE \"SPSExtractDate\" <= 'random' )\"PS_TERRITORIES_BEFORE_20210915\"\
+  ))Union_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

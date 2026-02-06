@@ -1,0 +1,114 @@
+name: table_1315
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1315
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1315.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_SALES_LEAD(\n\t\"LeadSysID\",\n\t\"LeadSysUpdatedOn\"\
+  ,\n\t\"LeadExtractDate\",\n\t\"LeadDVCampaign\",\n\t\"LeadCampaign\",\n\t\"LeadStatus\"\
+  ,\n\t\"LeadDVLeadStatus\",\n\t\"LeadNumber\",\n\t\"LeadSysCreatedOn\",\n\t\"LeadContact\"\
+  ,\n\t\"LeadScore\",\n\t\"LeadSourceMostRecentBU\",\n\t\"LeadAccountSysID\",\n\t\"\
+  LeadSource\",\n\t\"LeadJobRole\",\n\t\"LeadJobRoleFunction\",\n\t\"LeadTitle\",\n\
+  \t\"LeadSourceMostRecentDate\",\n\t\"LeadEmail\",\n\t\"LeadDVMeetingForecastStage\"\
+  ,\n\t\"LeadRating\",\n\t\"HotLeadFlag\"\n) as\n\n/* -----------------------------------------------------------------------------------------\n\
+  * REVISION HISTORY:\n*--------------------------------------------------------------------------------------------\n\
+  *   CR#                Date Modified           Modified BY       Brief Description\
+  \ OF CHANGE\n*# STRY2607150         05/06/2024             Naveen Motamarri   Addition\
+  \ of Hot leadflag\n\n************************************************************************************************/\n\
+  \n\n\n\n\n-- SEMANTIC LAYER BEGINS\nSELECT \"LeadSysID\" as \"LeadSysID\",\n\"LeadSysUpdatedOn\"\
+  \ as \"LeadSysUpdatedOn\",\n\"LeadExtractDate\" as \"LeadExtractDate\",\n\"LeadDVCampaign\"\
+  \ as \"LeadDVCampaign\",\n\"LeadCampaign\" as \"LeadCampaign\",\n\"LeadStatus\"\
+  \ as \"LeadStatus\",\n\"LeadDVLeadStatus\" as \"LeadDVLeadStatus\",\n\"LeadNumber\"\
+  \ as \"LeadNumber\",\n\"LeadSysCreatedOn\" as \"LeadSysCreatedOn\",\n\"LeadContact\"\
+  \ as \"LeadContact\",\n\"LeadScore\" as \"LeadScore\",\n\"LeadSourceMostRecentBU\"\
+  \ as \"LeadSourceMostRecentBU\",\n\"LeadAccountSysID\" as \"LeadAccountSysID\",\n\
+  \"LeadSource\" as \"LeadSource\",\n\"LeadJobRole\" as \"LeadJobRole\",\n\"LeadJobRoleFunction\"\
+  \ as \"LeadJobRoleFunction\",\n\"LeadTitle\" as \"LeadTitle\",\n\"LeadSourceMostRecentDate\"\
+  \ as \"LeadSourceMostRecentDate\",\n\"LeadEmail\" as \"LeadEmail\",\n\"LeadDVMeetingForecastStage\"\
+  \ as \"LeadDVMeetingForecastStage\",\n\"LeadRating\",\n\"HotLeadFlag\"\nFROM (\n\
+  SELECT * FROM\n(  SELECT \"LeadSysID\" as \"LeadSysID\",\n\"LeadSysUpdatedOn\" as\
+  \ \"LeadSysUpdatedOn\",\n\"LeadExtractDate\" as \"LeadExtractDate\",\n\"LeadDVCampaign\"\
+  \ as \"LeadDVCampaign\",\n\"LeadCampaign\" as \"LeadCampaign\",\n\"LeadStatus\"\
+  \ as \"LeadStatus\",\n\"LeadDVLeadStatus\" as \"LeadDVLeadStatus\",\n\"LeadNumber\"\
+  \ as \"LeadNumber\",\n\"LeadSysCreatedOn\" as \"LeadSysCreatedOn\",\n\"LeadContact\"\
+  \ as \"LeadContact\",\n\"LeadScore\" as \"LeadScore\",\n\"LeadSourceMostRecentBU\"\
+  \ as \"LeadSourceMostRecentBU\",\n\"LeadAccountSysID\" as \"LeadAccountSysID\",\n\
+  \"LeadSource\" as \"LeadSource\",\n\"LeadJobRole\" as \"LeadJobRole\",\n\"LeadJobRoleFunction\"\
+  \ as \"LeadJobRoleFunction\",\n\"LeadTitle\" as \"LeadTitle\",\n\"LeadSourceMostRecentDate\"\
+  \ as \"LeadSourceMostRecentDate\",\n\"LeadEmail\" as \"LeadEmail\",\n\"LeadDVMeetingForecastStage\"\
+  \ as \"LeadDVMeetingForecastStage\" ,\n\"LeadRating\",\n\"HotLeadFlag\" FROM\n(SELECT\
+  \ \"SYS_ID\" as \"LeadSysID\",\n\"SYS_UPDATED_ON\" as \"LeadSysUpdatedOn\",\n\"\
+  EXTRACT_DATE\" as \"LeadExtractDate\",\n\"DV_U_CAMPAIGN\" as \"LeadDVCampaign\"\
+  ,\n\"U_CAMPAIGN\" as \"LeadCampaign\",\n\"LEAD_STATUS\" as \"LeadStatus\",\n\"DV_LEAD_STATUS\"\
+  \ as \"LeadDVLeadStatus\",\n\"NUMBER\" as \"LeadNumber\",\n\"U_LEAD_SOURCE_MOST_RECENT_BU\"\
+  \ as \"LeadSourceMostRecentBU\",\n\"SYS_CREATED_ON\" as \"LeadSysCreatedOn\",\n\"\
+  CONTACT\" as \"LeadContact\",\n\"U_LEAD_SCORE\" as \"LeadScore\",\n\"ACCOUNT\" as\
+  \ \"LeadAccountSysID\",\n\"DV_LEAD_SOURCE\" as \"LeadSource\",\n\"DV_U_JOB_ROLE\"\
+  \ as \"LeadJobRole\",\n\"DV_U_JOB_ROLE_FUNCTION\" as \"LeadJobRoleFunction\",\n\"\
+  TITLE\" as \"LeadTitle\",\n\"U_LEAD_SOURCE_MOST_RECENT_DATE\" as \"LeadSourceMostRecentDate\"\
+  ,\n\"EMAIL\" as \"LeadEmail\",\n\"DV_U_MEETING_FORECAST_STAGE\" as \"LeadDVMeetingForecastStage\"\
+  ,\n\"DV_U_LEAD_RATING\" as \"LeadRating\",\n\"U_HOT_LEAD\" as \"HotLeadFlag\"\n\
+  \ FROM RDS_SHARE.\"SURF\".\"ST_SALES_LEAD\"\nWHERE \"LeadExtractDate\">='random')\"\
+  Projection_1\"\nUNION ALL\n SELECT \"LeadSysID\" as \"LeadSysID\",\n\"LeadSysUpdatedOn\"\
+  \ as \"LeadSysUpdatedOn\",\n\"LeadExtractDate\" as \"LeadExtractDate\",\n\"LeadDVCampaign\"\
+  \ as \"LeadDVCampaign\",\n\"LeadCampaign\" as \"LeadCampaign\",\n\"LeadStatus\"\
+  \ as \"LeadStatus\",\n\"LeadDVLeadStatus\" as \"LeadDVLeadStatus\",\n\"LeadNumber\"\
+  \ as \"LeadNumber\",\n\"LeadSysCreatedOn\" as \"LeadSysCreatedOn\",\n\"LeadContact\"\
+  \ as \"LeadContact\",\n\"LeadScore\" as \"LeadScore\",\n\"LeadSourceMostRecentBU\"\
+  \ as \"LeadSourceMostRecentBU\",\n\"LeadAccountSysID\" as \"LeadAccountSysID\",\n\
+  \"LeadSource\" as \"LeadSource\",\n\"LeadJobRole\" as \"LeadJobRole\",\n\"LeadJobRoleFunction\"\
+  \ as \"LeadJobRoleFunction\",\n\"LeadTitle\" as \"LeadTitle\",\n\"LeadSourceMostRecentDate\"\
+  \ as \"LeadSourceMostRecentDate\",\n\"LeadEmail\" as \"LeadEmail\",\n\"LeadDVMeetingForecastStage\"\
+  \ as \"LeadDVMeetingForecastStage\",\n\"LeadRating\",\n\"HotLeadFlag\"\nFROM\n(SELECT\
+  \ \"NUMBER\" as \"LeadNumber\",\n\"DV_U_CAMPAIGN\" as \"LeadDVCampaign\",\n\"SYS_ID\"\
+  \ as \"LeadSysID\",\n\"DV_LEAD_STATUS\" as \"LeadDVLeadStatus\",\n\"SYS_UPDATED_ON\"\
+  \ as \"LeadSysUpdatedOn\",\n\"LEAD_STATUS\" as \"LeadStatus\",\n\"U_CAMPAIGN\" as\
+  \ \"LeadCampaign\",\n\"EXTRACT_DATE\" as \"LeadExtractDate\",\n\"U_LEAD_SOURCE_MOST_RECENT_BU\"\
+  \ as \"LeadSourceMostRecentBU\",\n\"SYS_CREATED_ON\" as \"LeadSysCreatedOn\",\n\"\
+  CONTACT\" as \"LeadContact\",\n\"U_LEAD_SCORE\" as \"LeadScore\",\n\"ACCOUNT\" as\
+  \ \"LeadAccountSysID\",\n\"DV_LEAD_SOURCE\" as \"LeadSource\",\n\"DV_U_JOB_ROLE\"\
+  \ as \"LeadJobRole\",\n\"DV_U_JOB_ROLE_FUNCTION\" as \"LeadJobRoleFunction\",\n\"\
+  TITLE\" as \"LeadTitle\",\n\"U_LEAD_SOURCE_MOST_RECENT_DATE\" as \"LeadSourceMostRecentDate\"\
+  ,\n\"EMAIL\" as \"LeadEmail\",\n\"DV_U_MEETING_FORECAST_STAGE\" as \"LeadDVMeetingForecastStage\"\
+  ,\n 'random' as \"LeadRating\",\n 'random' as \"HotLeadFlag\"\nFROM RDS.\"SURF\"\
+  .\"ST_SALES_LEAD_ARCHIVE\"\n\nWHERE \"LeadExtractDate\"<='random')\"Projection_2\"\
+  \ ) )Union_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
