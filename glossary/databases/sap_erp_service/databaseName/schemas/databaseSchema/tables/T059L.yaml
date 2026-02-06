@@ -1,0 +1,129 @@
+name: T059L
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T059L
+description: Regional tax minimum amounts for 1099 reporting
+tableType: Regular
+columns:
+  - name: LAND1
+    displayName: Country Key
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: char(3)
+    description: Country Key
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T059L.LAND1
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T059L.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: QSMBT
+    displayName: Withh.tax min.amount
+    dataType: DECIMAL
+    dataLength: 13
+    precision: 13
+    scale: 2
+    dataTypeDisplay: "curr(13,2)"
+    description: Minimum amounts for 1099 reporting
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T059L.QSMBT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: QSTYP
+    displayName: 1099 reporting type
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: 1099 reporting type
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T059L.QSTYP
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: REGIO
+    displayName: Region
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: char(3)
+    description: "Region (State, Province, County)"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T059L.REGIO
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: WAERS
+    displayName: Currency
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: cuky(5)
+    description: Currency Key
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T059L.WAERS
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: XKREC
+    displayName: Skip K Record
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Creation of K Record for 1099 report (US)
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T059L.XKREC
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - LAND1
+      - MANDT
+      - QSTYP
+      - REGIO
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: ae48b9d9d88bc390e46dc5519c6b3671
+processedLineage: false
+entityStatus: Approved

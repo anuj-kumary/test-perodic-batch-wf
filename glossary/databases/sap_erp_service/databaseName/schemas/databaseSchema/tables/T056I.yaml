@@ -1,0 +1,195 @@
+name: T056I
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I
+description: Time-dep.terms for interest calc.rule
+tableType: Regular
+columns:
+  - name: AMOUNTFROM
+    displayName: Int. amount limit
+    dataType: DECIMAL
+    dataLength: 13
+    precision: 13
+    scale: 2
+    dataTypeDisplay: "curr(13,2)"
+    description: Interest Amount Limit
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.AMOUNTFROM
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: CURR
+    displayName: Currency
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: cuky(5)
+    description: Currency Key
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.CURR
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: DATEFROM
+    displayName: Valid from
+    dataType: CHAR
+    dataLength: 8
+    dataTypeDisplay: char(8)
+    description: Date from which the entry is valid
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.DATEFROM
+    tags: []
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: INDICAT
+    displayName: Debit/Credit ind
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Debit/Credit Indicator
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.INDICAT
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: IRULE
+    displayName: Interest calc.rule
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Interest Calculation Rule
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.IRULE
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: MAXPERCENT
+    displayName: Max. percentage
+    dataType: DECIMAL
+    dataLength: 10
+    precision: 10
+    scale: 7
+    dataTypeDisplay: "dec(10,7)"
+    description: Maximum percentage rate
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.MAXPERCENT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 12
+    children: []
+    customMetrics: []
+  - name: MINPERCENT
+    displayName: Min. percentage
+    dataType: DECIMAL
+    dataLength: 10
+    precision: 10
+    scale: 7
+    dataTypeDisplay: "dec(10,7)"
+    description: Minimum percentage rate
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.MINPERCENT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 11
+    children: []
+    customMetrics: []
+  - name: NUMB
+    displayName: Sequence Number
+    dataType: CHAR
+    dataLength: 15
+    dataTypeDisplay: char(15)
+    description: Sequence Number
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.NUMB
+    tags: []
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: REFERENCE
+    displayName: Ref. interest rate
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Reference Interest Rate
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.REFERENCE
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: SCALE
+    displayName: Am.independent level
+    dataType: CHAR
+    dataLength: 2
+    dataTypeDisplay: char(2)
+    description: Amount-independent levels for interest rate determination
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.SCALE
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: SURCHARGE
+    displayName: Premium or discount
+    dataType: DECIMAL
+    dataLength: 9
+    precision: 9
+    scale: 6
+    dataTypeDisplay: "dec(9,6)"
+    description: Premium or discount on reference interest
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T056I.SURCHARGE
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 10
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - CURR
+      - DATEFROM
+      - INDICAT
+      - IRULE
+      - MANDT
+      - NUMB
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 7dc13ed5fbab69bde9c84d22fc90b86c
+processedLineage: false
+entityStatus: Approved
