@@ -1,0 +1,132 @@
+name: SAMPLE_DATA_TRANSFORMED_DBT
+fullyQualifiedName: hktest2.SAMPLE.PUBLIC.SAMPLE_DATA_TRANSFORMED_DBT
+tableType: Transient
+columns:
+  - name: CUSTOMERID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.SAMPLE_DATA_TRANSFORMED_DBT.CUSTOMERID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.SAMPLE_DATA_TRANSFORMED_DBT.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EMAIL
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.SAMPLE_DATA_TRANSFORMED_DBT.EMAIL
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: COUNTRY
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.SAMPLE_DATA_TRANSFORMED_DBT.COUNTRY
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SIGNUPDATE
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.SAMPLE_DATA_TRANSFORMED_DBT.SIGNUPDATE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: PURCHASEAMOUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 2
+    dataTypeDisplay: "number(38,2)"
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.SAMPLE_DATA_TRANSFORMED_DBT.PURCHASEAMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME_UPPER_DBT
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.SAMPLE_DATA_TRANSFORMED_DBT.NAME_UPPER_DBT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: b57973b3-35b4-4eee-96cc-3836ac51aac0
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: hktest2.SAMPLE.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: 6e98240c-665b-406a-9765-8cf78e076f51
+  type: database
+  name: SAMPLE
+  fullyQualifiedName: hktest2.SAMPLE
+  displayName: SAMPLE
+  deleted: false
+service:
+  id: 75865179-7a07-461c-8b40-d6e08822f13e
+  type: databaseService
+  name: hktest2
+  fullyQualifiedName: hktest2
+  description: ""
+  displayName: hktest2
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+dataModel:
+  modelType: DBT
+  resourceType: model
+  path: models/example/case_change.sql
+  rawSql: |-
+    {{ config(
+        materialized='table',
+        alias='sample_data_transformed_dbt'
+    ) }}
+
+
+    select *,
+           upper(NAME) as NAME_UPPER_DBT
+    from SAMPLE_TABLE
+  sql: |2-
+
+
+
+    select *,
+           upper(NAME) as NAME_UPPER_DBT
+    from SAMPLE_TABLE
+  upstream: []
+  tags: []
+  columns: []
+sourceUrl: https://app.snowflake.com/vcgkhnh/ic95276/#/data/databases/SAMPLE/schemas/PUBLIC/table/SAMPLE_DATA_TRANSFORMED_DBT
+domains: []
+dataProducts: []
+sourceHash: 2720b99661a56fa52fd79e02a7790342
+processedLineage: false
+entityStatus: Approved

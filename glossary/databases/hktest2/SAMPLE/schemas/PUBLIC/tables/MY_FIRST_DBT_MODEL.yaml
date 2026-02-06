@@ -1,0 +1,143 @@
+name: MY_FIRST_DBT_MODEL
+fullyQualifiedName: hktest2.SAMPLE.PUBLIC.MY_FIRST_DBT_MODEL
+description: A starter dbt model
+tableType: Transient
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 1
+    scale: 0
+    dataTypeDisplay: "number(1,0)"
+    description: The primary key for this table
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.MY_FIRST_DBT_MODEL.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: b57973b3-35b4-4eee-96cc-3836ac51aac0
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: hktest2.SAMPLE.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: 6e98240c-665b-406a-9765-8cf78e076f51
+  type: database
+  name: SAMPLE
+  fullyQualifiedName: hktest2.SAMPLE
+  displayName: SAMPLE
+  deleted: false
+service:
+  id: 75865179-7a07-461c-8b40-d6e08822f13e
+  type: databaseService
+  name: hktest2
+  fullyQualifiedName: hktest2
+  description: ""
+  displayName: hktest2
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 3239e620-432d-47ba-b6f7-080ec1e32b6a
+  type: testSuite
+  name: hktest2.SAMPLE.PUBLIC.MY_FIRST_DBT_MODEL.TestSuite
+  fullyQualifiedName: hktest2.SAMPLE.PUBLIC.MY_FIRST_DBT_MODEL.testSuite
+  displayName: hktest2.SAMPLE.PUBLIC.MY_FIRST_DBT_MODEL.TestSuite
+  deleted: false
+dataModel:
+  modelType: DBT
+  resourceType: model
+  description: A starter dbt model
+  path: models/example/my_first_dbt_model.sql
+  rawSql: |-
+    /*
+        Welcome to your first dbt model!
+        Did you know that you can also configure models directly within SQL files?
+        This will override configurations stated in dbt_project.yml
+
+        Try changing "table" to "view" below
+    */
+
+    {{ config(materialized='table') }}
+
+    with source_data as (
+
+        select 1 as id
+        union all
+        select null as id
+
+    )
+
+    select *
+    from source_data
+
+    /*
+        Uncomment the line below to remove records with null `id` values
+    */
+
+    where id is not null
+  sql: |-
+    /*
+        Welcome to your first dbt model!
+        Did you know that you can also configure models directly within SQL files?
+        This will override configurations stated in dbt_project.yml
+
+        Try changing "table" to "view" below
+    */
+
+
+
+    with source_data as (
+
+        select 1 as id
+        union all
+        select null as id
+
+    )
+
+    select *
+    from source_data
+
+    /*
+        Uncomment the line below to remove records with null `id` values
+    */
+
+    where id is not null
+  upstream: []
+  tags: []
+  columns:
+    - name: id
+      dataType: UNKNOWN
+      dataLength: 1
+      description: The primary key for this table
+      tags: []
+      children: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.ID.description
+      newValue: The primary key for this table
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1747743081992
+    columns.ID.description:
+      changedBy: ingestion-bot
+      changedAt: 1747743082266
+sourceUrl: https://app.snowflake.com/vcgkhnh/ic95276/#/data/databases/SAMPLE/schemas/PUBLIC/table/MY_FIRST_DBT_MODEL
+domains: []
+dataProducts: []
+sourceHash: 30d30d60dea78be144d48eff1ea59c44
+processedLineage: false
+entityStatus: Approved
