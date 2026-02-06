@@ -1,0 +1,63 @@
+name: table_164
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_164
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_164.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ENTITLEMENT(\n\t\"EntitlementContactLineItemSysID\"\
+  ,\n\t\"EntitlementContractLineItem\",\n\t\"EntitlementSysID\",\n\t\"EntitlementNumber\"\
+  ,\n\t\"EntitlementSupportModel\",\n\t\"EntitlementStartDate\",\n\t\"EntitlementEndDate\"\
+  ,\n\t\"EntitlementIsValid\",\n\t\"EntitlementSyncedToHI\",\n\t\"EntitlementHISyncStatus\"\
+  ,\n\t\"EntitlementContractInstance\",\n\t\"EntitlementUpdatedOn\",\n\t\"EntitlementContractSysID\"\
+  ,\n\t\"EntitlementProductPrice\",\n\t\"EntitlementCreatedOn\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"U_CONTRACT_LINE_ITEM\" as \"EntitlementContactLineItemSysID\"\
+  ,\n       \"DV_U_CONTRACT_LINE_ITEM\" as \"EntitlementContractLineItem\",\n    \
+  \   \"SYS_ID\" as \"EntitlementSysID\",\n       \"U_NUMBER\" as \"EntitlementNumber\"\
+  ,\n       \"U_SUPPORT_MODEL\" as \"EntitlementSupportModel\",\n       \"U_START_DATE\"\
+  \ as \"EntitlementStartDate\",\n       \"U_END_DATE\" as \"EntitlementEndDate\"\
+  ,\n       \"U_IS_VALID\" as \"EntitlementIsValid\",\n       \"U_SYNCED_TO_HI\" as\
+  \ \"EntitlementSyncedToHI\",\n       \"DV_U_HI_SYNC_STATUS\" as \"EntitlementHISyncStatus\"\
+  ,\n       \"DV_U_CONTRACT_INSTANCE\" as \"EntitlementContractInstance\",\n     \
+  \  \"SYS_UPDATED_ON\" as \"EntitlementUpdatedOn\",\n       \"U_CONTRACT\" as \"\
+  EntitlementContractSysID\",\n       \"DV_U_PRODUCT_PRICE\" as \"EntitlementProductPrice\"\
+  ,\n       \"SYS_CREATED_ON\" as \"EntitlementCreatedOn\"\nFROM \"RDS\".\"SURF\"\
+  .\"U_ENTITLEMENT\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

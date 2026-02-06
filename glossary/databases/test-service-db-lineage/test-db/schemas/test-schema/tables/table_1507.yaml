@@ -1,0 +1,153 @@
+name: table_1507
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1507
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1507.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_UNIFIEDSS_SYSAPPROVAL_APPROVER(\n\t\"\
+  SysAppSysApproval\",\n\t\"SysAppSysID\",\n\t\"SysAppDocumentID\",\n\t\"SysAppState\"\
+  ,\n\t\"SysAppSourceTable\",\n\t\"SysAppApprover\",\n\t\"SysAppApproverSysID\",\n\
+  \t\"SysAppSysUpdatedOn\",\n\t\"SysAppComments\",\n\t\"SysAppApprovedDate\",\n\t\"\
+  SysAppCreatedOn\",\n\t\"SysAppApproverSource\",\n\t\"SysAppApproverCostCenter\"\
+  ,\n\t\"SysAppApprovalBranch\",\n\t\"SysAppApprovalSubmissionDate\",\n\t\"SysAppApprovalSequence\"\
+  ,\n\t\"SysAppApproverID\",\n\t\"SysAppApproverRole\",\n\t\"SysAppApprovalSubmissionDateTimeDisplay\"\
+  ,\n\t\"SysAppOverrideApproval\",\n\t\"SysAppDispositionCriteria\",\n\t\"SysAppActualApprover\"\
+  ,\n\t\"SysAppApprovalOverride\",\n\t\"SysAppApprovalQuoteId\",\n\t\"SysAppApprovalLevel\"\
+  ,\n\t\"SysAppApprovalReasonId\",\n\t\"SysAppApprovalSnQuoteVersion\",\n\t\"SysAppApprovalSnCartResponsibilityActionId\"\
+  ,\n\t\"SysAppApprovalSnCartResponsibilityId\",\n\t\"SysAppApprovalSnFieldValues\"\
+  ,\n\t\"SysAppApprovalResolutionDateTimeDisplay\",\n\t\"SysAppOriginalApproverName\"\
+  ,\n\t\"SysAppOriginalApproverTitle\",\n\t\"SysAppActualApproverName\",\n\t\"SysAppActualApproverTitle\"\
+  ,\n\t\"SysAppApprovalRequestReason\"\n) as -- SEMANTIC LAYER BEGINS\n\n  WITH TAB_EMP_DETAILS\
+  \ AS\n(SELECT   DISTINCT\n\"EmpSysID\" ,\n\"EmpCostCenterValue\"  ,\n\"EmpUserName\"\
+  ,\n\"EmpTitle\",\n\"EmpName\"\nFROM ODS_LS.\"SURF\".\"EMPLOYEE\")\nSELECT \"SysAppSysApproval\"\
+  \ as \"SysAppSysApproval\",\n       \"SysAppSysID\" as \"SysAppSysID\",\n      \
+  \ \"SysAppDocumentID\" as \"SysAppDocumentID\",\n       \"SysAppState\" as \"SysAppState\"\
+  ,\n       \"SysAppSourceTable\" as \"SysAppSourceTable\",\n       \"SysAppApprover\"\
+  \ as \"SysAppApprover\",\n       \"SysAppApproverSysID\" as \"SysAppApproverSysID\"\
+  ,\n       \"SysAppSysUpdatedOn\" as \"SysAppSysUpdatedOn\",\n       \"SysAppComments\"\
+  \ as \"SysAppComments\",\n       \"SysAppApprovedDate\" as \"SysAppApprovedDate\"\
+  ,\n       \"SysAppCreatedOn\" as \"SysAppCreatedOn\",\n       \"SysAppApproverSource\"\
+  \ as \"SysAppApproverSource\",\n       \"EmpCostCenterValue\" as \"SysAppApproverCostCenter\"\
+  ,\n       \"SysAppApprovalBranch\" as \"SysAppApprovalBranch\",\n       \"SysAppApprovalSubmissionDate\"\
+  \ as \"SysAppApprovalSubmissionDate\",\n\t   \"SysAppApprovalSequence\"  as  \"\
+  SysAppApprovalSequence\",\n\t\t\"SysAppApproverID\"  as  \"SysAppApproverID\",\n\
+  \t\t\"SysAppApproverRole\"  as  \"SysAppApproverRole\",\n\t\t\"SysAppApprovalSubmissionDateTimeDisplay\"\
+  \  as  \"SysAppApprovalSubmissionDateTimeDisplay\",\n\t\t\"SysAppOverrideApproval\"\
+  \  as  \"SysAppOverrideApproval\",\n\t\t\"SysAppDispositionCriteria\"  as  \"SysAppDispositionCriteria\"\
+  ,\n\t\t\"SysAppActualApprover\"  as  \"SysAppActualApprover\",\n\t\t\"SysAppApprovalOverride\"\
+  \  as  \"SysAppApprovalOverride\",\n\t\t\"SysAppApprovalQuoteId\"  as  \"SysAppApprovalQuoteId\"\
+  ,\n\t\t\"SysAppApprovalLevel\"  as  \"SysAppApprovalLevel\",\n\t\t\"SysAppApprovalReasonId\"\
+  \  as  \"SysAppApprovalReasonId\",\n\t\t\"SysAppApprovalSnQuoteVersion\"  as  \"\
+  SysAppApprovalSnQuoteVersion\",\n\t\t\"SysAppApprovalSnCartResponsibilityActionId\"\
+  \  as  \"SysAppApprovalSnCartResponsibilityActionId\",\n\t\t\"SysAppApprovalSnCartResponsibilityId\"\
+  \  as  \"SysAppApprovalSnCartResponsibilityId\",\n\t\t\"SysAppApprovalSnFieldValues\"\
+  \  as  \"SysAppApprovalSnFieldValues\",\n\t\t\"SysAppApprovalResolutionDateTimeDisplay\"\
+  \  as  \"SysAppApprovalResolutionDateTimeDisplay\",\n         \"OriginalApproverName\"\
+  \ as \"SysAppOriginalApproverName\",\n         \"OriginalApproverTitle\" as \"SysAppOriginalApproverTitle\"\
+  ,\n         \"ActualApproverName\" as \"SysAppActualApproverName\",\n         \"\
+  ActualApproverTitle\" as \"SysAppActualApproverTitle\",\n       \"SysAppApprovalRequestReason\"\
+  \  as  \"SysAppApprovalRequestReason\"\n\nFROM\n  (SELECT \"Projection_1\".\"SysAppSysApproval\"\
+  \ as \"SysAppSysApproval\",\n          \"Projection_1\".\"SysAppSysID\" as \"SysAppSysID\"\
+  ,\n          \"Projection_1\".\"SysAppDocumentID\" as \"SysAppDocumentID\",\n  \
+  \        \"Projection_1\".\"SysAppState\" as \"SysAppState\",\n          \"Projection_1\"\
+  .\"SysAppSourceTable\" as \"SysAppSourceTable\",\n          \"Projection_1\".\"\
+  SysAppApprover\" as \"SysAppApprover\",\n          \"Projection_1\".\"SysAppApproverSysID\"\
+  \ as \"SysAppApproverSysID\",\n          \"Projection_1\".\"SysAppSysUpdatedOn\"\
+  \ as \"SysAppSysUpdatedOn\",\n          \"Projection_1\".\"SysAppComments\" as \"\
+  SysAppComments\",\n          \"Projection_1\".\"SysAppApprovedDate\" as \"SysAppApprovedDate\"\
+  ,\n          \"Projection_1\".\"SysAppCreatedOn\" as \"SysAppCreatedOn\",\n    \
+  \      \"Projection_1\".\"SysAppApproverSource\" as \"SysAppApproverSource\",\n\
+  \          \"Projection_2\".\"EmpCostCenterValue\" as \"EmpCostCenterValue\",\n\
+  \          \"Projection_1\".\"SysAppApprovalBranch\" as \"SysAppApprovalBranch\"\
+  ,\n          \"Projection_1\".\"SysAppApprovalSubmissionDate\" as \"SysAppApprovalSubmissionDate\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppApprovalSequence\"  as  \"SysAppApprovalSequence\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppApproverID\"  as  \"SysAppApproverID\",\n\t\t\
+  \  \"Projection_1\".\"SysAppApproverRole\"  as  \"SysAppApproverRole\",\n\t\t  \"\
+  Projection_1\".\"SysAppApprovalSubmissionDateTimeDisplay\"  as  \"SysAppApprovalSubmissionDateTimeDisplay\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppOverrideApproval\"  as  \"SysAppOverrideApproval\"\
+  ,\n\t      \"Projection_1\".\"SysAppDispositionCriteria\"  as  \"SysAppDispositionCriteria\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppActualApprover\"  as  \"SysAppActualApprover\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppApprovalOverride\"  as  \"SysAppApprovalOverride\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppApprovalQuoteId\"  as  \"SysAppApprovalQuoteId\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppApprovalLevel\"  as  \"SysAppApprovalLevel\",\n\
+  \t\t  \"Projection_1\".\"SysAppApprovalReasonId\"  as  \"SysAppApprovalReasonId\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppApprovalSnQuoteVersion\"  as  \"SysAppApprovalSnQuoteVersion\"\
+  ,\n\t\t  \"Projection_1\".\"SysAppApprovalSnCartResponsibilityActionId\"  as  \"\
+  SysAppApprovalSnCartResponsibilityActionId\",\n\t\t  \"Projection_1\".\"SysAppApprovalSnCartResponsibilityId\"\
+  \  as  \"SysAppApprovalSnCartResponsibilityId\",\n\t\t  \"Projection_1\".\"SysAppApprovalSnFieldValues\"\
+  \  as  \"SysAppApprovalSnFieldValues\",\n\t\t  \"Projection_1\".\"SysAppApprovalResolutionDateTimeDisplay\"\
+  \  as  \"SysAppApprovalResolutionDateTimeDisplay\",\n          \"Projection_3\"\
+  .\"EmpName\" as  \"OriginalApproverName\",\n          \"Projection_3\".\"EmpTitle\"\
+  \ as  \"OriginalApproverTitle\",\n          \"Projection_4\".\"EmpName\" as  \"\
+  ActualApproverName\",\n          \"Projection_4\".\"EmpTitle\" as  \"ActualApproverTitle\"\
+  ,\n          \"Projection_1\".\"SysAppRequestReason\"  as  \"SysAppApprovalRequestReason\"\
+  \n   FROM\n     (SELECT \"SysAppSysApproval\" as \"SysAppSysApproval\",\n      \
+  \       \"SysAppSysID\" as \"SysAppSysID\",\n             \"SysAppDocumentID\" as\
+  \ \"SysAppDocumentID\",\n             \"SysAppState\" as \"SysAppState\",\n    \
+  \         \"SysAppSourceTable\" as \"SysAppSourceTable\",\n             \"SysAppApprover\"\
+  \ as \"SysAppApprover\",\n             \"SysAppApproverSysID\" as \"SysAppApproverSysID\"\
+  ,\n             \"SysAppSysUpdatedOn\" as \"SysAppSysUpdatedOn\",\n            \
+  \ \"SysAppComments\" as \"SysAppComments\",\n             \"SysAppApprovedDate\"\
+  \ as \"SysAppApprovedDate\",\n             \"SysAppCreatedOn\" as \"SysAppCreatedOn\"\
+  ,\n             \"SysAppApproverSource\" as \"SysAppApproverSource\",\n        \
+  \     \"SysAppApprovalBranch\" as \"SysAppApprovalBranch\",\n             \"SysAppApprovalSubmissionDate\"\
+  \ as \"SysAppApprovalSubmissionDate\",\n\t\t    \"SysAppApprovalSequence\"  as \
+  \ \"SysAppApprovalSequence\",\n\t\t\t\"SysAppApproverID\"  as  \"SysAppApproverID\"\
+  ,\n\t\t\t\"SysAppApproverRole\"  as  \"SysAppApproverRole\",\n\t\t\t\"SysAppApprovalSubmissionDateTimeDisplay\"\
+  \  as  \"SysAppApprovalSubmissionDateTimeDisplay\",\n\t\t\t\"SysAppOverrideApproval\"\
+  \  as  \"SysAppOverrideApproval\",\n\t\t\t\"SysAppDispositionCriteria\"  as  \"\
+  SysAppDispositionCriteria\",\n\t\t\t\"SysAppActualApprover\"  as  \"SysAppActualApprover\"\
+  ,\n\t\t\t\"SysAppApprovalOverride\"  as  \"SysAppApprovalOverride\",\n\t\t\t\"SysAppApprovalQuoteId\"\
+  \  as  \"SysAppApprovalQuoteId\",\n\t\t\t\"SysAppApprovalLevel\"  as  \"SysAppApprovalLevel\"\
+  ,\n\t\t\t\"SysAppApprovalReasonId\"  as  \"SysAppApprovalReasonId\",\n\t\t\t\"SysAppApprovalSnQuoteVersion\"\
+  \  as  \"SysAppApprovalSnQuoteVersion\",\n\t\t\t\"SysAppApprovalSnCartResponsibilityActionId\"\
+  \  as  \"SysAppApprovalSnCartResponsibilityActionId\",\n\t\t\t\"SysAppApprovalSnCartResponsibilityId\"\
+  \  as  \"SysAppApprovalSnCartResponsibilityId\",\n\t\t\t\"SysAppApprovalSnFieldValues\"\
+  \  as  \"SysAppApprovalSnFieldValues\",\n\t\t\t\"SysAppApprovalResolutionDateTimeDisplay\"\
+  \  as  \"SysAppApprovalResolutionDateTimeDisplay\",\n            \"SysAppRequestReason\"\
+  \tas \"SysAppRequestReason\"\n      FROM ODS_LS.\"SURF\".\"SYSAPPROVAL_APPROVER\"\
+  )\"Projection_1\"\n        LEFT JOIN\n     TAB_EMP_DETAILS \"Projection_2\" ON \"\
+  Projection_1\".\"SysAppApproverSysID\" = \"Projection_2\".\"EmpSysID\"\n     LEFT\
+  \ JOIN\n     TAB_EMP_DETAILS  \"Projection_3\" ON \"Projection_1\".\"SysAppApproverID\"\
+  \ = \"Projection_3\".\"EmpUserName\"\n     LEFT JOIN\n     TAB_EMP_DETAILS  \"Projection_4\"\
+  \ ON \"Projection_1\".\"SysAppActualApprover\" = \"Projection_4\".\"EmpUserName\"\
+  \n     )Join_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

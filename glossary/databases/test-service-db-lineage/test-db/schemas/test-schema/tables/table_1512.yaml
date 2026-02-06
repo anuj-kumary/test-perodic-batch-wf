@@ -1,0 +1,117 @@
+name: table_1512
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1512
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1512.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_CUST360_ESCALATIONS_NEW(\n\t\"AccountNumber\"\
+  ,\n\t\"AccountName\",\n\t\"AccountSysId\",\n\t\"AccountKey\",\n\t\"EscalationCategory\"\
+  ,\n\t\"EscalationNumber\",\n\t\"EscalationState\",\n\t\"EscalationActive\",\n\t\"\
+  EscalationType\",\n\t\"Escalations\",\n\t\"EscalatedAt\"\n) as -- SEMANTIC LAYER\
+  \ BEGINS\n\nSELECT \"AccountNumber\" as \"AccountNumber\",\n       \"AccountName\"\
+  \ as \"AccountName\",\n       \"AccountSysId\" as \"AccountSysId\",\n       \"AccountKey\"\
+  \ as \"AccountKey\",\n       \"EscalationCategory\" as \"EscalationCategory\",\n\
+  \       \"EscalationNumber\" as \"EscalationNumber\",\n       \"EscalationState\"\
+  \ as \"EscalationState\",\n       \"EscalationActive\" as \"EscalationActive\",\n\
+  \       \"EscalationType\" as \"EscalationType\",\n       \"Escalations\" as \"\
+  Escalations\",\n       \"EscalatedAt\" as \"EscalatedAt\"\nFROM\n  (SELECT \"A1\"\
+  .*\n   FROM\n     (SELECT \"AccountNumber\" as \"AccountNumber\",\n            \
+  \ \"AccountName\" as \"AccountName\",\n             \"AccountSysId\" as \"AccountSysId\"\
+  ,\n             \"AccountKey\" as \"AccountKey\",\n             \"EscalationCategory\"\
+  \ as \"EscalationCategory\",\n             \"EscalationNumber\" as \"EscalationNumber\"\
+  ,\n             \"EscalationState\" as \"EscalationState\",\n             \"EscalationActive\"\
+  \ as \"EscalationActive\",\n             \"EscalationType\" as \"EscalationType\"\
+  ,\n             \"Escalations\" as \"Escalations\",\n             \"EscSysCreatedOn\"\
+  \ as \"EscalatedAt\"\n      FROM\n        (SELECT \"AccountNumber\" as \"AccountNumber\"\
+  ,\n                \"AccountName\" as \"AccountName\",\n                \"AccountSysId\"\
+  \ as \"AccountSysId\",\n                \"AccountKey\" as \"AccountKey\",\n    \
+  \            \"EscalationCategory\" as \"EscalationCategory\",\n               \
+  \ \"Escalation_Number\" as \"EscalationNumber\",\n                \"EscalationState\"\
+  \ as \"EscalationState\",\n                \"Active\" as \"Active\",\n         \
+  \       \"EscalationType\" as \"EscalationType\",\n                \"Escalations\"\
+  \ as \"Escalations\",\n                \"EscSysCreatedOn\" as \"EscSysCreatedOn\"\
+  ,\n                TO_NUMBER(\"Active\") as \"EscalationActive\"\n         FROM\n\
+  \           (SELECT \"AccountNumber\" as \"AccountNumber\",\n                  \
+  \ \"AccountSysId\" as \"AccountSysId\",\n                   \"AccountName\" as \"\
+  AccountName\",\n                   \"Escalation_Number\" as \"Escalation_Number\"\
+  ,\n                   \"Active\" as \"Active\",\n                   \"EscalationState\"\
+  \ as \"EscalationState\",\n                   \"EscSysCreatedOn\" as \"EscSysCreatedOn\"\
+  ,\n                   'random' as \"EscalationCategory\",\n                   CASE\n\
+  \                       WHEN \"Active\" IS NULL then 'random'\n                \
+  \       else IFF(\"Active\"='random', 'random', IFF(\"Active\"='random', 'random',\
+  \ 'random'))\n                   END as \"EscalationType\",\n                  \
+  \ CONCAT(\"AccountSysId\", \"AccountNumber\") as \"AccountKey\",\n             \
+  \      'random' as \"Escalations\"\n            FROM \"EDW_LS\".\"PRODUCT_GTS_EM\"\
+  .\"TS_EM_ACCOUNT_ESCALATIONS_NEW\"\n            WHERE \"Escalation_Number\" IS not\
+  \ NULL )\"Projection_1\")\"Projection_3\"\n      UNION ALL SELECT \"AccountNumber\"\
+  \ as \"AccountNumber\",\n                       \"AccountName\" as \"AccountName\"\
+  ,\n                       \"AccountSysId\" as \"AccountSysId\",\n              \
+  \         \"AccountKey\" as \"AccountKey\",\n                       \"EscalationCategory\"\
+  \ as \"EscalationCategory\",\n                       \"EscalationNumber\" as \"\
+  EscalationNumber\",\n                       \"EscalationState\" as \"EscalationState\"\
+  ,\n                       \"EscalationActive\" as \"EscalationActive\",\n      \
+  \                 \"EscalationType\" as \"EscalationType\",\n                  \
+  \     \"Escalations\" as \"Escalations\",\n                       \"EscalatedAt\"\
+  \ as \"EscalatedAt\"\n      FROM\n        (SELECT \"AccountNumber\" as \"AccountNumber\"\
+  ,\n                \"AccountName\" as \"AccountName\",\n                \"AcctSysID\"\
+  \ as \"AccountSysId\",\n                \"AccountKey\" as \"AccountKey\",\n    \
+  \            \"EscalationCategory\" as \"EscalationCategory\",\n               \
+  \ \"EscalationNumber\" as \"EscalationNumber\",\n                \"EscalationOpenedAt\"\
+  \ as \"EscalatedAt\",\n                \"EscalationState\" as \"EscalationState\"\
+  ,\n                \"EscalationActive\" as \"EscalationActive\",\n             \
+  \   \"EscalationType\" as \"EscalationType\",\n                \"Escalations\" as\
+  \ \"Escalations\"\n         FROM\n           (SELECT \"AccountNumber\" as \"AccountNumber\"\
+  ,\n                   \"AccountName\" as \"AccountName\",\n                   \"\
+  EscalationNumber\" as \"EscalationNumber\",\n                   \"EscalationOpenedAt\"\
+  \ as \"EscalationOpenedAt\",\n                   \"EscalationActive\" as \"EscalationActive\"\
+  ,\n                   \"AcctSysID\" as \"AcctSysID\",\n                   \"EscalationState\"\
+  \ as \"EscalationState\",\n                   'random' as \"EscalationCategory\"\
+  ,\n                   CASE\n                       WHEN \"EscalationActive\" IS\
+  \ NULL\n                            OR \"EscalationState\" IS NULL then 'random'\n\
+  \                       else IFF((\"EscalationActive\"='random'\n              \
+  \                   and \"EscalationState\"='random') ,'random', IFF((\"EscalationActive\"\
+  ='random'\n                                                                    \
+  \                and \"EscalationState\"='random') ,'random', 'random'))\n     \
+  \              END as \"EscalationType\",\n                   CONCAT(\"AcctSysID\"\
+  , \"AccountNumber\") as \"AccountKey\",\n                   'random' as \"Escalations\"\
+  \n            FROM \"EDW_LS\".\"PRODUCT_GTS_EM\".\"EM_ACCOUNT_CASE_ESCALATIONS\"\
+  )\"Projection_2\")\"Projection_4\")\"A1\")\"Union_1\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

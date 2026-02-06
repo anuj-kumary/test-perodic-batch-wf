@@ -1,0 +1,143 @@
+name: table_1508
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1508
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1508.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_UNIFIEDSS_SERVICES_APPROVALS(\n\t\"ServicesApprovalSysID\"\
+  ,\n\t\"ServicesApprovalOpportunitySysID\",\n\t\"ServicesApprovalRequestor\",\n\t\
+  \"ServicesApprovalNonStandardLegalTerms\",\n\t\"ServicesApprovalState\",\n\t\"ServicesApprovalSOWFormat\"\
+  ,\n\t\"ServicesApprovalNonStandardCommercialTerms\",\n\t\"ServicesApprovalInvoicingMilestones\"\
+  ,\n\t\"ServicesApprovalUSDTotalTMListPrice\",\n\t\"ServicesApprovalUSDTotalTMSalesPrice\"\
+  ,\n\t\"ServicesApprovalUpdated\",\n\t\"ServicesApprovalNumber\",\n\t\"ServicesApprovalRequestDate\"\
+  ,\n\t\"ServicesApprovalProductType\",\n\t\"ServicesApprovalUSDTotalFixedSalesPrice\"\
+  ,\n\t\"ServicesApprovalSalesPrice\",\n\t\"ServicesApprovalTotalHours\",\n\t\"ServicesApprovalCreatedOn\"\
+  ,\n\t\"ServicesApprovalPartnerMargin\",\n\t\"ServicesApprovalMargin\",\n\t\"ServicesApprovalDiscountRate\"\
+  ,\n\t\"ServicesApprovalProjectDuration\",\n\t\"ServicesApprovalCSATRequest\",\n\t\
+  \"ServicesApprovalRequestorRegion\",\n\t\"ServicesApprovalUSDTotalFixedListPrice\"\
+  ,\n\t\"ServicesApprovalLineItem\",\n\t\"ServicesApprovalFixedPricePremium\",\n\t\
+  \"ServicesApprovalSource\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ServicesApprovalSysID\"\
+  \ as \"ServicesApprovalSysID\",\n       \"ServicesApprovalOpportunitySysID\" as\
+  \ \"ServicesApprovalOpportunitySysID\",\n       \"ServicesApprovalRequestor\" as\
+  \ \"ServicesApprovalRequestor\",\n       \"ServicesApprovalNonStandardLegalTerms\"\
+  \ as \"ServicesApprovalNonStandardLegalTerms\",\n       \"ServicesApprovalState\"\
+  \ as \"ServicesApprovalState\",\n       \"ServicesApprovalSOWFormat\" as \"ServicesApprovalSOWFormat\"\
+  ,\n       \"ServicesApprovalNonStandardCommercialTerms\" as \"ServicesApprovalNonStandardCommercialTerms\"\
+  ,\n       \"ServicesApprovalInvoicingMilestones\" as \"ServicesApprovalInvoicingMilestones\"\
+  ,\n       \"ServicesApprovalUSDTotalTMListPrice\" as \"ServicesApprovalUSDTotalTMListPrice\"\
+  ,\n       \"ServicesApprovalUSDTotalTMSalesPrice\" as \"ServicesApprovalUSDTotalTMSalesPrice\"\
+  ,\n       \"ServicesApprovalUpdated\" as \"ServicesApprovalUpdated\",\n       \"\
+  ServicesApprovalNumber\" as \"ServicesApprovalNumber\",\n       \"ServicesApprovalRequestDate\"\
+  \ as \"ServicesApprovalRequestDate\",\n       \"ServicesApprovalProductType\" as\
+  \ \"ServicesApprovalProductType\",\n       \"ServicesApprovalUSDTotalFixedSalesPrice\"\
+  \ as \"ServicesApprovalUSDTotalFixedSalesPrice\",\n       \"ServicesApprovalSalesPrice\"\
+  \ as \"ServicesApprovalSalesPrice\",\n       \"ServicesApprovalTotalHours\" as \"\
+  ServicesApprovalTotalHours\",\n       \"ServicesApprovalCreatedOn\" as \"ServicesApprovalCreatedOn\"\
+  ,\n       \"ServicesApprovalPartnerMargin\" as \"ServicesApprovalPartnerMargin\"\
+  ,\n       \"ServicesApprovalMargin\" as \"ServicesApprovalMargin\",\n       \"ServicesApprovalDiscountRate\"\
+  \ as \"ServicesApprovalDiscountRate\",\n       \"ServicesApprovalProjectDuration\"\
+  \ as \"ServicesApprovalProjectDuration\",\n       \"ServicesApprovalCSATRequest\"\
+  \ as \"ServicesApprovalCSATRequest\",\n       \"EmpRegion\" as \"ServicesApprovalRequestorRegion\"\
+  ,\n       \"ServicesApprovalUSDTotalFixedListPrice\" as \"ServicesApprovalUSDTotalFixedListPrice\"\
+  ,\n        \"ServicesApprovalLineItem\" as \"ServicesApprovalLineItem\",\n     \
+  \  \"ServicesApprovalFixedPricePremium\" as \"ServicesApprovalFixedPricePremium\"\
+  ,\n       \"ServicesApprovalSource\" as \"ServicesApprovalSource\"\nFROM\n  (SELECT\
+  \ \"Projection_1\".\"ServicesApprovalSysID\" as \"ServicesApprovalSysID\",\n   \
+  \       \"Projection_1\".\"ServicesApprovalOpportunitySysID\" as \"ServicesApprovalOpportunitySysID\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalRequestor\" as \"ServicesApprovalRequestor\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalNonStandardLegalTerms\" as \"ServicesApprovalNonStandardLegalTerms\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalState\" as \"ServicesApprovalState\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalSOWFormat\" as \"ServicesApprovalSOWFormat\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalNonStandardCommercialTerms\" as\
+  \ \"ServicesApprovalNonStandardCommercialTerms\",\n          \"Projection_1\".\"\
+  ServicesApprovalInvoicingMilestones\" as \"ServicesApprovalInvoicingMilestones\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalUSDTotalTMListPrice\" as \"ServicesApprovalUSDTotalTMListPrice\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalUSDTotalTMSalesPrice\" as \"ServicesApprovalUSDTotalTMSalesPrice\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalUpdated\" as \"ServicesApprovalUpdated\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalNumber\" as \"ServicesApprovalNumber\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalRequestDate\" as \"ServicesApprovalRequestDate\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalProductType\" as \"ServicesApprovalProductType\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalUSDTotalFixedSalesPrice\" as \"\
+  ServicesApprovalUSDTotalFixedSalesPrice\",\n          \"Projection_1\".\"ServicesApprovalSalesPrice\"\
+  \ as \"ServicesApprovalSalesPrice\",\n          \"Projection_1\".\"ServicesApprovalTotalHours\"\
+  \ as \"ServicesApprovalTotalHours\",\n          \"Projection_1\".\"ServicesApprovalCreatedOn\"\
+  \ as \"ServicesApprovalCreatedOn\",\n          \"Projection_1\".\"ServicesApprovalPartnerMargin\"\
+  \ as \"ServicesApprovalPartnerMargin\",\n          \"Projection_1\".\"ServicesApprovalMargin\"\
+  \ as \"ServicesApprovalMargin\",\n          \"Projection_1\".\"ServicesApprovalDiscountRate\"\
+  \ as \"ServicesApprovalDiscountRate\",\n          \"Projection_1\".\"ServicesApprovalProjectDuration\"\
+  \ as \"ServicesApprovalProjectDuration\",\n          \"Projection_1\".\"ServicesApprovalCSATRequest\"\
+  \ as \"ServicesApprovalCSATRequest\",\n          \"Projection_2\".\"EmpRegion\"\
+  \ as \"EmpRegion\",\n          \"Projection_1\".\"SerApprTotalFixedListPriceUSD\"\
+  \ as \"ServicesApprovalUSDTotalFixedListPrice\",\n          \"Projection_1\".\"\
+  ServicesApprovalLineItem\" as \"ServicesApprovalLineItem\",\n          \"Projection_1\"\
+  .\"ServicesApprovalFixedPricePremium\" as \"ServicesApprovalFixedPricePremium\"\
+  ,\n          \"Projection_1\".\"ServicesApprovalSource\" as \"ServicesApprovalSource\"\
+  \n   FROM\n     (SELECT \"SerApprSysID\" as \"ServicesApprovalSysID\",\n       \
+  \      \"SerApprOpportunitySysID\" as \"ServicesApprovalOpportunitySysID\",\n  \
+  \           \"SerApprRequestor\" as \"ServicesApprovalRequestor\",\n           \
+  \  \"SerApprNonLegalTerms\" as \"ServicesApprovalNonStandardLegalTerms\",\n    \
+  \         \"SerApprState\" as \"ServicesApprovalState\",\n             \"SerApprSOWFormat\"\
+  \ as \"ServicesApprovalSOWFormat\",\n             \"SerApprNonStandardTerms\" as\
+  \ \"ServicesApprovalNonStandardCommercialTerms\",\n             \"SerApprInvoicingMilestones\"\
+  \ as \"ServicesApprovalInvoicingMilestones\",\n             \"SerApprTotalTMListPriceUSD\"\
+  \ as \"ServicesApprovalUSDTotalTMListPrice\",\n             \"SerApprTotalTMPriceUSD\"\
+  \ as \"ServicesApprovalUSDTotalTMSalesPrice\",\n             \"SerApprUpdated\"\
+  \ as \"ServicesApprovalUpdated\",\n             \"SerApprNumber\" as \"ServicesApprovalNumber\"\
+  ,\n             \"SerApprRequestDate\" as \"ServicesApprovalRequestDate\",\n   \
+  \          \"SerApprProductType\" as \"ServicesApprovalProductType\",\n        \
+  \     \"SerApprTotalFixedPriceUSD\" as \"ServicesApprovalUSDTotalFixedSalesPrice\"\
+  ,\n             \"SerApprSalesPrice\" as \"ServicesApprovalSalesPrice\",\n     \
+  \        \"SerApprProductHours\" as \"ServicesApprovalTotalHours\",\n          \
+  \   \"SerApprCreated\" as \"ServicesApprovalCreatedOn\",\n             \"SerApprPartnerMargin\"\
+  \ as \"ServicesApprovalPartnerMargin\",\n             \"SerApprMargin\" as \"ServicesApprovalMargin\"\
+  ,\n             \"SerApprDiscountFromBaseRate\" as \"ServicesApprovalDiscountRate\"\
+  ,\n             \"SerApprProjectDuration\" as \"ServicesApprovalProjectDuration\"\
+  ,\n             \"SerApprCSATRequest\" as \"ServicesApprovalCSATRequest\",\n   \
+  \          \"SerApprRequestorSysID\" as \"SerApprRequestorSysID\",\n           \
+  \  \"SerApprTotalFixedListPriceUSD\" as \"SerApprTotalFixedListPriceUSD\",\n   \
+  \          \"SerApprLineItem\" as \"ServicesApprovalLineItem\",\n             \"\
+  SerApprFixedPricePremium\" as \"ServicesApprovalFixedPricePremium\",\n         \
+  \    \"SerApprSource\" as \"ServicesApprovalSource\"\n      FROM \"ODS_LS\".\"SURF\"\
+  .\"U_SERVICES_APPROVALS\")\"Projection_1\"\n   LEFT JOIN\n     (SELECT \"EmpSysID\"\
+  \ as \"EmpSysID\",\n             \"EmpRegion\" as \"EmpRegion\"\n      FROM \"ODS_LS\"\
+  .\"SURF\".\"EMPLOYEE\")\"Projection_2\" ON \"Projection_1\".\"SerApprRequestorSysID\"\
+  \ = \"Projection_2\".\"EmpSysID\")Join_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

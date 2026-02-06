@@ -1,0 +1,377 @@
+name: table_1467
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1467
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1467.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TEST_RPT_SALES_REP_PIPELINE_PERFORMANCE(\n\
+  \t\"RecordType\",\n\t\"QuarterFlag\",\n\t\"FiscalYear\",\n\t\"R4QRepQuota\",\n\t\
+  \"R4QPipeline\",\n\t\"Pipeline_Last_Week\",\n\t\"STEmpTerrQuarter\",\n\t\"EmployeeName\"\
+  ,\n\t\"TerritorySysID\",\n\t\"BUGroup\",\n\t\"BUWorkFlow\",\n\t\"CQRepQuota\",\n\
+  \t\"CommitValue_RT\",\n\t\"Commit\",\n\t\"Upside\",\n\t\"Closed\",\n\t\"Expect\"\
+  ,\n\t\"Pipeline\",\n\t\"Submitted\",\n\t\"MaturedPipeline\",\n\t\"Weighted\",\n\t\
+  \"OpportunityParentPipelineStatus\",\n\t\"FYPipeline\",\n\t\"FYClosed\",\n\t\"FYQuota\"\
+  ,\n\t\"LQClosed\",\n\t\"CQClosed\",\n\t\"CQBuildACV\",\n\t\"CQ+1BuildACV\",\n\t\"\
+  EmployeeNumber\",\n\t\"R4QWeighted\",\n\t\"CQTechWinACVPctValue\",\n\t\"VPEngages180dCnt\"\
+  ,\n\t\"K24EventAttended\",\n\t\"DemoPctValue\",\n\t\"BuildACV_on_Qtr_StartDay\"\
+  ,\n\t\"BuildACV_Last_Week\",\n\t\"CQClosed_STLW\"\n) as\n/********************************************************************************************************************************\n\
+  \                                * Program  Name      :     Sales Rep Pipeline Performance\n\
+  \                                * Development Request #             :\n       \
+  \                         * Date Created       :            2023-09-10\n       \
+  \                         * Developed By       :     Yash Agarwal\n            \
+  \                    * Brief Description  :      This code is used to find sales\
+  \ rep details across FY and 4RQ\n                                * ---------------------------------------------------------------------------------------------------------------\n\
+  * 2024-05-17 - Added new metrics for PBI Reporting for section \"Target Balance\
+  \ Performance\"  -- Vijay\n********************************************************************************************************************************/\n\
+  \n\nWith cte_dates as (\nselect\nleft(right(year(convert_timezone('random',current_date))\
+  \ ||'random'|| Quarter(convert_timezone('random',current_date)),'random'),'random')\
+  \ as \"CFY\",\nRIGHT(YEAR(convert_timezone('random',ADD_MONTHS(CURRENT_DATE,'random')))\
+  \ ||'random'|| QUARTER(convert_timezone('random',ADD_MONTHS(CURRENT_DATE,'random'))),'random')\
+  \ as \"LQ\",\nRIGHT(YEAR(CONVERT_TIMEZONE('random',current_date)) ||'random'||QUARTER(CONVERT_TIMEZONE('random',CURRENT_DATE)),'random')\
+  \ as \"CQ\",\nRIGHT(YEAR(convert_timezone('random',ADD_MONTHS(CURRENT_DATE,'random')))\
+  \ ||'random'|| QUARTER(convert_timezone('random',ADD_MONTHS(CURRENT_DATE,'random'))),'random')\
+  \ as \"CQ+1\",\nRIGHT(YEAR(convert_timezone('random',ADD_MONTHS(CURRENT_DATE,'random')))\
+  \ ||'random'|| QUARTER(convert_timezone('random',ADD_MONTHS(CURRENT_DATE,'random'))),'random')\
+  \ as \"CQ+2\",\nRIGHT(YEAR(CONVERT_TIMEZONE('random',add_months(CURRENT_DATE,'random')))\
+  \ ||'random'|| Quarter(convert_timezone('random',add_months(CURRENT_DATE,'random'))),'random')\
+  \ as \"CQ+3\"\n)\n\n,anaplan_territory_rep_mapping_src as (\n--below code is to\
+  \ derive the dimensional attributes: Rep and his corresponding patch/territory for\
+  \ CQ, CQ+1, CQ+2, CQ+3\n       SELECT\n \t       distinct\n \t       e.\"EmpName\"\
+  \ as \"EmployeeName\",\n \t       e.\"EmpEmployeeNumber\" as \"EmployeeNumber\"\
+  ,\n \t       e.\"EmpUserName\" as \"EmployeeUserName\",\n \t       e.\"EmpSysID\"\
+  ,\n \t       --st.\"TerrUserRecSysID\" as \"TerritorySysID\",\n           ana.\"\
+  STEmpTerrTerritorySysId\" as \"TerritorySysID\",\n \t       stt.\"TerrName\" as\
+  \ \"TerritoryName\",\n \t       stt.\"TerrReportingTerritoryGeo\" as \"ReportingTerritoryGeo\"\
+  ,\n \t       stt.\"TerrMajorArea\" as \"MajorArea\",\n \t       stt.\"TerrGeo\"\
+  \ as \"Geo\",\n \t       stt.\"TerrArea\" as \"Area\",\n \t       stt.\"TerrRegion\"\
+  \ as \"Region\",\n \t       stt.\"TerrDistrict\" as \"District\",\n \t       stt.\"\
+  TerrMarketSegmentaion\" as \"TerrMarketSegmentation\",\n \t       e.\"EmpStartDate\"\
+  \ as \"EmployeeStartDate\",\n           --Ramped rep being calculated in BI instead\
+  \ of using the mapped value from Anaplan\n \t       ana.\"STEmpTerrRamped\",\n\t\
+  \t   adg.\"TerrQuarter\" AS \"STEmpTerrQuarter\",\n \t       count( ana.\"STEmpTerrEmployeeSysId\"\
+  ) over (partition by adg.\"TerrQuarter\", ana.\"STEmpTerrTerritorySysId\" order\
+  \ by 'random') as \"Cnt\",\n \t       MAX(ana.\"STEmpTerrTenure\") over(partition\
+  \ by ana.\"STEmpTerrEmployeeSysId\") as \"STEmpTerrTenure\"\n     from ODS_LS.\"\
+  ANAPLAN\".\"SALES_EMPLOYEE_TERRITORY_MAPPING\" as ana\n        LEFT join\n     \
+  \     ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n \t   \t   on e.\"EmpSysID\" = ana.\"STEmpTerrEmployeeSysId\"\
+  \n        LEFT outer join  ODS_LS.\"SURF\".\"SALES_TERRITORY\" as stt\n        \
+  \       on stt.\"TerrSysID\"=ana.\"STEmpTerrTerritorySysId\"---switched to Anaplan\
+  \ model\n        left outer join (\n                        select\n           \
+  \                 distinct \"DateDimQuarterByYearSURF\" as \"TerrQuarter\"\n   \
+  \                     from ODS_LS.SURF.DATE_DIMENSION\n                        where\
+  \ \"DateDimQuarterByYearSURF\" >= RIGHT(YEAR(convert_timezone('random', CURRENT_DATE))\
+  \ || 'random' || QUARTER(convert_timezone('random', CURRENT_DATE)),'random')\n \
+  \                           and \"DateDimQuarterByYearSURF\" <= RIGHT(YEAR(CONVERT_TIMEZONE('random',add_months(CURRENT_DATE,\
+  \ 'random'))) || 'random' || Quarter(convert_timezone('random',add_months(CURRENT_DATE,\
+  \ 'random'))),'random')\n                    ) adg on 'random' = 'random'\n    \
+  \     Where e.\"EmpDepartment\" in (SELECT \"Deptname\" FROM ODS_LS.\"SURF\".\"\
+  CMN_DEPARTMENT\"   where \"DeptCostCenter\" in('random','random','random','random'))\n\
+  \         \tand \"STEmpTerrQuarter\" = (select max( \"STEmpTerrQuarter\") from ODS_LS.ANAPLAN.SALES_EMPLOYEE_TERRITORY_MAPPING\
+  \ where \"STEmpTerrRepType\"='random' and \"STEmpQuotaComponent\"='random')\n  \
+  \  \t\tand \"STEmpTerrRepType\"='random'\n \t        and e.\"EmpActive\"='random'\n\
+  \           \tand ana.\"STEmpQuotaComponent\"='random'\n           \tand \"STEmpPlanEndDate\"\
+  > current_date()\n           \tand \"STEmpTerrActive\" = 'random'\n \t        and\
+  \ ana.\"STEmpTerrQuarter\" = RIGHT(YEAR(convert_timezone('random',CURRENT_DATE))\
+  \ ||'random'||QUARTER(convert_timezone('random',CURRENT_DATE)),'random')\n\t\t\t\
+  UNION\n--below code is to derive the dimensional attributes: Rep and his corresponding\
+  \ patch/territory for Previous QTR\n\tSELECT\n \t       distinct\n \t       e.\"\
+  EmpName\" as \"EmployeeName\",\n \t       e.\"EmpEmployeeNumber\" as \"EmployeeNumber\"\
+  ,\n \t       e.\"EmpUserName\" as \"EmployeeUserName\",\n \t       e.\"EmpSysID\"\
+  ,\n \t       --st.\"TerrUserRecSysID\" as \"TerritorySysID\",\n           ana.\"\
+  STEmpTerrTerritorySysId\" as \"TerritorySysID\",\n \t       stt.\"TerrName\" as\
+  \ \"TerritoryName\",\n \t       stt.\"TerrReportingTerritoryGeo\" as \"ReportingTerritoryGeo\"\
+  ,\n \t       stt.\"TerrMajorArea\" as \"MajorArea\",\n \t       stt.\"TerrGeo\"\
+  \ as \"Geo\",\n \t       stt.\"TerrArea\" as \"Area\",\n \t       stt.\"TerrRegion\"\
+  \ as \"Region\",\n \t       stt.\"TerrDistrict\" as \"District\",\n \t       stt.\"\
+  TerrMarketSegmentaion\" as \"TerrMarketSegmentation\",\n \t       e.\"EmpStartDate\"\
+  \ as \"EmployeeStartDate\",\n           --Ramped rep being calculated in BI instead\
+  \ of using the mapped value from Anaplan\n \t       ana.\"STEmpTerrRamped\",\n\t\
+  \t   ana.\"STEmpTerrQuarter\",\n \t       count( ana.\"STEmpTerrEmployeeSysId\"\
+  ) over (partition by ana.\"STEmpTerrTerritorySysId\" order by 'random') as \"Cnt\"\
+  ,\n \t       MAX(ana.\"STEmpTerrTenure\") over(partition by ana.\"STEmpTerrEmployeeSysId\"\
+  ) as \"STEmpTerrTenure\"\n     from ODS_LS.\"ANAPLAN\".\"SALES_EMPLOYEE_TERRITORY_MAPPING\"\
+  \ as ana\n        LEFT join\n          ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n \t  \
+  \ \t   on e.\"EmpSysID\" = ana.\"STEmpTerrEmployeeSysId\"\n        LEFT outer join\
+  \  ODS_LS.\"SURF\".\"SALES_TERRITORY\" as stt\n               on stt.\"TerrSysID\"\
+  =ana.\"STEmpTerrTerritorySysId\"---switched to Anaplan model\n         Where e.\"\
+  EmpDepartment\" in (SELECT \"Deptname\" FROM ODS_LS.\"SURF\".\"CMN_DEPARTMENT\"\
+  \   where \"DeptCostCenter\" in('random','random','random','random'))\n    \t\t\
+  and \"STEmpTerrRepType\"='random'\n \t        and e.\"EmpActive\"='random'\n   \
+  \        \tand ana.\"STEmpQuotaComponent\"='random'\n           \tand \"STEmpPlanEndDate\"\
+  > current_date()\n           \tand \"STEmpTerrActive\" = 'random'\n \t        and\
+  \ ana.\"STEmpTerrQuarter\" = RIGHT(YEAR(CONVERT_TIMEZONE('random',add_months(CURRENT_DATE,\
+  \ 'random'))) || 'random' || Quarter(convert_timezone('random',add_months(CURRENT_DATE,\
+  \ 'random'))),'random')\n)\n\n\n,anaplan_territory_rep_mapping as (\n\tselect *\n\
+  \tfrom anaplan_territory_rep_mapping_src\n\twhere \"Cnt\" = 'random'\n\tunion\n\t\
+  select L.*\n\tfrom anaplan_territory_rep_mapping_src L\n\tJOIN ODS_LS.SURF.U_ST_TERRITORY\
+  \ t\n\t    ON t.\"TerrUserRecSysID\"=L.\"TerritorySysID\"\n\tJOIN ods_ls.surf.employee\
+  \ e\n      \t    ON e.\"EmpSysID\"=t.\"TerrUserSysID\"\n      \t    and L.\"EmployeeNumber\"\
+  \ = e.\"EmpEmployeeNumber\"\n      \tWHERE t.\"TerrUserJobFunctionName\" in ('random')\n\
+  \  \t    AND  t.\"TerrUserPrimaryAssignment\"='random'\n            AND  t.\"TerrUserActive\"\
+  ='random'\n            AND \"Cnt\"='random'\n)\n\n\n\n\n,rep_account_map as (\n\
+  \    select src.\"TerritorySysID\" territory_sys_id,\"AcctNumber\" as acct_number\n\
+  \tfrom anaplan_territory_rep_mapping src\n\tleft join (select distinct f.\"TerritorySysID_CC\"\
+  , f.\"AcctNumber\"\n          from edw_ls.sales_em.em_fixeddataplusquota_rt f\n\
+  \          where f.\"OptySalesQuarter\" between RIGHT(YEAR(convert_timezone('random',CURRENT_DATE))\
+  \ ||'random'||QUARTER(convert_timezone('random',CURRENT_DATE)),'random')\n \t  \
+  \     \t\t\tand RIGHT(YEAR(CONVERT_TIMEZONE('random',add_months(CURRENT_DATE,'random')))\
+  \ ||'random'|| Quarter(convert_timezone('random',add_months(CURRENT_DATE,'random'))),'random')\n\
+  \ \t       ) f\n        on src.\"TerritorySysID\" = \"TerritorySysID_CC\"\n\n)\n\
+  \n,vp_n_ebc_engagement as (\n\tselect account_number\n\t,max(case when interaction_date\
+  \ between dateadd(day, 'random', current_date) and current_date and contact_job_level\
+  \ in ('random','random') then 'random'\n\t     else 'random' end) as vp_engage_flag\n\
+  \t,max(case when interaction_date between dateadd(day, 'random', current_date) and\
+  \ current_date and contact_job_level in ('random','random') then 'random'\n\t  \
+  \   else 'random' end) as vp_engage_180d_flag\n\t,max(case when interaction_quarter\
+  \ between RIGHT(YEAR(CONVERT_TIMEZONE('random',add_months(CURRENT_DATE,'random')))\
+  \ ||'random'|| Quarter(convert_timezone('random',add_months(CURRENT_DATE,'random'))),'random')\
+  \ and RIGHT(YEAR(convert_timezone('random',CURRENT_DATE)) ||'random'||QUARTER(convert_timezone('random',CURRENT_DATE)),'random')\n\
+  \        \t\tand engagement_type in ('random','random') then 'random' else 'random'end\
+  \ ) as ebc_engage_flag\n\t,max(case when interaction_date between dateadd(day, 'random',\
+  \ current_date) and current_date and engagement_type ='random' then 'random' else\
+  \ 'random'end ) as demo_flag\n\t,count(distinct case when interaction_date between\
+  \ dateadd(day, 'random', current_date) and current_date and engagement_type='random'\
+  \ then outlook_id end ) as outlook_meeting_cnt\n\tfrom \"ML_SENSITIVE\".\"MSEXCHANGE_SHARED\"\
+  .tbl_contact_all_interactions_shared src\n\t--where --and account_number='ACCT0142993'\n\
+  \tgroup by all\n\n)\n\n,event_attended_K24 as (\n\n\tSelect Distinct \"AccountNumber\"\
+  \  as account_number\n\tfrom CDL_LS.MARKETING_ER.KNOWLEDGE_REGISTRATION_EXT\n\t\
+  WHERE \"EventName\" = 'random'\n\tAND  \"Registration_Status\" =  'random'\n\tAND\
+  \  \"AccountNumber\" Is Not  'random'\n\tAND  \"TestFlag\" = 'random'\n)\n\n\n,customer_states\
+  \ as (\n\tselect l.territory_sys_id\n\t\t,sum(case when vp.vp_engage_180d_flag='random'\
+  \ then 'random' else 'random' end) as \"VPEngages180dCnt\" --required\n        ,sum(case\
+  \ when vp.demo_flag ='random' then 'random' else 'random' end) as \"DemoPctValue\"\
+  \ --required\n\t,sum(case when eak.account_number IS not NULL then 'random' else\
+  \ 'random' end) as \"K24EventAttended\"  --required\n\tfrom rep_account_map l\n\t\
+  left join vp_n_ebc_engagement vp\n\t\ton l.acct_number = vp.account_number\n\tleft\
+  \ join event_attended_K24 eak\n\t\ton l.acct_number = eak.account_number\n\tgroup\
+  \ by all\n)\n\n\nselect\n    'random' as \"RecordType\",\n    case\n        when\
+  \ \"STEmpTerrQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random', CURRENT_TIMESTAMP()),'random'))\
+  \ || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random', CURRENT_TIMESTAMP()),'random')),'random')\
+  \ then 'random'\n        when \"STEmpTerrQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random') then 'random'\n        when \"STEmpTerrQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random', CURRENT_TIMESTAMP()),'random'))\
+  \ || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random', CURRENT_TIMESTAMP()),'random')),'random')\
+  \ then 'random'\n        when \"STEmpTerrQuarter\" = RIGHT(YEAR(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP())) || 'random' || QUARTER(convert_timezone('random', CURRENT_TIMESTAMP())),'random')\
+  \ then 'random'\n        when \"STEmpTerrQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random') then 'random'\n        when \"STEmpTerrQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random', CURRENT_TIMESTAMP()),'random'))\
+  \ || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random', CURRENT_TIMESTAMP()),'random')),'random')\
+  \ then 'random'\n        when \"STEmpTerrQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random') then 'random'\n        else 'random'\n\
+  \    end AS \"QuarterFlag\",\n    'random' || LEFT(\"STEmpTerrQuarter\",'random')\
+  \ as \"FiscalYear\",\n    \"R4QRepQuota\",\n    \"R4QPipeline\",\n    \"Pipeline_Last_Week\"\
+  ,\n    \"STEmpTerrQuarter\",\n    \"EmployeeName\",\n    dim.\"TerritorySysID\"\
+  ,\n    \"BUGroup\",\n    \"BUWorkFlow\",\n    \"CQRepQuota\",\n    \"CommitValue_RT\"\
+  ,\n    \"Commit\",\n    \"Upside\",\n    \"Closed\",\n    \"Expect\",\n    \"Pipeline\"\
+  ,\n    \"Submitted\",\n    \"MaturedPipeline\",\n    \"Weighted\",\n    \"OpportunityParentPipelineStatus\"\
+  ,\n    \"FYPipeline\",\n    \"FYClosed\",\n    \"FYQuota\",\n\tround(\"LQClosed\"\
+  ,'random') as \"LQClosed\",\n\t\"CQClosed\",\n\tround(\"CQBuildACV\",'random') AS\
+  \ \"CQBuildACV\",\n\tround(\"CQ+1BuildACV\",'random') AS \"CQ+1BuildACV\",\n   \
+  \ \"EmployeeNumber\",\n\t\"R4QWeighted\",\n    (round(\"CQTechWinACVPctValue\",'random'))\
+  \ AS \"CQTechWinACVPctValue\",\n\t\"VPEngages180dCnt\",\n\t\"K24EventAttended\"\
+  ,\n\t\"DemoPctValue\",\n\"BuildACV_on_Qtr_StartDay\",\n    \"BuildACV_Last_Week\"\
+  ,\n\t\"CQClosed_STLW\"\nfrom anaplan_territory_rep_mapping dim\n        left outer\
+  \ join (select \"SRepEmployeeNumber\",\"SRepQuarter\",\"CQRepQuota\",\"FYRepQuota\"\
+  \ as \"FYQuota\" from\n            (select srq.\"SRepEmployeeNumber\",\"SRepQuarter\"\
+  ,sum(\"RepQuota\")\"CQRepQuota\",\"FYRepQuota\"--,sum(\"RepQuota\")\"FYQuota\"\n\
+  \    from EDW_LS.SALES_EM.EM_SALES_REPS_QUOTA_RT srq\n    left join (select \"SRepEmployeeNumber\"\
+  ,sum(\"RepQuota\")\"FYRepQuota\"--,sum(\"RepQuota\")\"FYQuota\"\n    from EDW_LS.SALES_EM.EM_SALES_REPS_QUOTA_RT\
+  \  where left(\"SRepQuarter\",'random') = RIGHT(\n                    YEAR(\n  \
+  \                      convert_timezone('random', CURRENT_DATE)\n              \
+  \      ),\n                    'random') group by all) abc on abc.\"SRepEmployeeNumber\"\
+  =srq.\"SRepEmployeeNumber\"\n    where \"SRepQuarter\" <= RIGHT(\n             \
+  \       YEAR(\n                        CONVERT_TIMEZONE('random', add_months(CURRENT_DATE,\
+  \ 'random'))\n                    ) || 'random' || Quarter(\n                  \
+  \      convert_timezone('random', add_months(CURRENT_DATE, 'random'))\n        \
+  \            ),\n                    'random'\n                ) --RIGHT(YEAR(CONVERT_TIMEZONE('America/Los_Angeles',add_months(CURRENT_DATE,9)))\
+  \ ||'-Q'|| Quarter(convert_timezone('America/Los_Angeles',add_months(CURRENT_DATE,9))),5)\n\
+  \                and \"SRepQuarter\" >= RIGHT(\n                    YEAR(\n    \
+  \                    convert_timezone('random', CURRENT_DATE)\n                \
+  \    ) || 'random','random')  group by all)\n        ) cqrepquota --  RIGHT(YEAR(convert_timezone('America/Los_Angeles',CURRENT_DATE))\
+  \ ||'-Q'||QUARTER(convert_timezone('America/Los_Angeles',CURRENT_DATE)),5)\n   \
+  \     on cqrepquota.\"SRepEmployeeNumber\" = dim.\"EmployeeNumber\"\n       -- and\
+  \ cqrepquota.\"SRepTerritorySysID\" = dim.\"TerritorySysID\"\n        and cqrepquota.\"\
+  SRepQuarter\" = dim.\"STEmpTerrQuarter\"\n        left outer join (\n          \
+  \  SELECT\n                \"TerrName\" as \"TerritoryName\",\n                \"\
+  CommitQuarter\",\n                \"CommitWeekNum\",\n                \"CommitValue\"\
+  \ as \"CommitValue_RT\",\n                \"CommitUpsideValue\" as \"CommitUpsideValue_RT\"\
+  ,\n                \"CommitExpectValue\" as \"CommitExpectValue_RT\",\n        \
+  \        \"TerrSysID\" as \"TerritorySysID\"\n            FROM\n               \
+  \ EDW_LS.\"SALES_EM\".\"EM_SALES_TERRITORY_COMMIT_RT\" as ct\n                LEFT\
+  \ outer join RDS.\"SURF\".\"U_SALES_TERRITORY\" as st on st.sys_id = ct.\"TerrSysID\"\
+  \n            where\n                ct.\"CommitQuarter\" >= RIGHT(\n          \
+  \          YEAR(\n                        convert_timezone('random', CURRENT_DATE)\n\
+  \                    ),\n                    'random'\n                ) || 'random'\n\
+  \                and ct.\"CommitQuarter\" <= RIGHT(\n                    YEAR(\n\
+  \                        CONVERT_TIMEZONE(\n                            'random',\n\
+  \                            add_months(CURRENT_DATE, 'random')\n              \
+  \          )\n                    ) || 'random' || Quarter(\n                  \
+  \      convert_timezone(\n                            'random',\n              \
+  \              add_months(CURRENT_DATE, 'random')\n                        )\n \
+  \                   ),\n                    'random'\n                )\n      \
+  \          and st.dv_u_type = 'random' --RIGHT(YEAR(convert_timezone('America/Los_Angeles',CURRENT_DATE))\
+  \ ||'-Q'||QUARTER(convert_timezone('America/Los_Angeles',CURRENT_DATE)),5)\n   \
+  \     ) adf on adf.\"TerritorySysID\" = dim.\"TerritorySysID\"\n        and adf.\"\
+  CommitQuarter\" = dim.\"STEmpTerrQuarter\"\n        left outer join (\n        \
+  \    select\n                \"SalesQuarter\",\n                \"TerritorySysID\"\
+  ,\n                \"BUGroup\",\n                \"BUWorkFlow\",\n             \
+  \   \"OpportunityParentPipelineStatus\",\n                sum(\"Commit\") \"Commit\"\
+  ,\n                sum(\"Closed\") \"Closed\",\n               /* sum(case when\
+  \ left(\"SalesQuarter\",2)=RIGHT(\n                    YEAR(\n                 \
+  \       convert_timezone('America/Los_Angeles', CURRENT_DATE)\n                \
+  \    ),\n                    2\n                ) then \"Closed\" else 0 end) over\
+  \ (partition by \"TerritorySysID\")\"FYClosed\",\n                sum(case when\
+  \ left(\"SalesQuarter\",2)=RIGHT(\n                    YEAR(\n                 \
+  \       convert_timezone('America/Los_Angeles', CURRENT_DATE)\n                \
+  \    ),\n                    2\n                ) then \"USDNetNewACV\" else 0 end)\
+  \ over(partition by \"TerritorySysID\")\"FYPipeline\",*/\n                sum(\"\
+  Expect\") \"Expect\",\n                sum(\"USDNetNewACV\") \"Pipeline\",\n   \
+  \             sum(\"Submitted\") \"Submitted\",\n                sum(\"MaturedPipeline\"\
+  ) \"MaturedPipeline\",\n                sum(\"USDWeightedACV\") \"Weighted\",\n\
+  \                sum(\"Upside\") \"Upside\",\n\t\t\t\tSUM(iff(FD.\"SalesQuarter\"\
+  =cd.\"LQ\",\"Closed\",'random')) as \"LQClosed\",\n\t\t\t    SUM(iff(FD.\"SalesQuarter\"\
+  =cd.\"CQ\",\"Closed\",'random')) as \"CQClosed\",\n\t\t\t\tSUM(iff(FD.\"SalesQuarter\"\
+  =cd.\"CQ\",case when FD.\"PipelineStatus\" in ('random','random','random','random')\
+  \ then \"USDNetNewACV\" else 'random' end,'random')) as \"CQBuildACV\",\n\t\t\t\t\
+  SUM(iff(FD.\"SalesQuarter\"=cd.\"CQ+1\",case when FD.\"PipelineStatus\" in ('random','random','random','random')\
+  \ then \"USDNetNewACV\" else 'random' end,'random')) as \"CQ+1BuildACV\",\n\t\t\t\
+  \tSUM(iff(FD.\"SalesQuarter\" between cd.\"CQ\" and cd.\"CQ+3\",FD.\"USDWeightedACV\"\
+  ,'random')) \"R4QWeighted\",\n\t\t\t\tSUM(iff(FD.\"SalesQuarter\" between cd.\"\
+  CQ\" and cd.\"CQ+3\",FD.\"USDNetNewACV\",'random')) \"R4QPipeline\",\n\t\t\t\tSUM(iff(FD.\"\
+  SalesQuarter\"=cd.\"CQ\" and left(FD.\"OpportunityStage\",'random')>='random' and\
+  \ dy_opty.\"OpportunitySysID\" IS not NULL, \"USDNetNewACV\" ,'random')) as \"CQTechWinACVPctValue\"\
+  \n\t\t\t\t--SUM(iff(LEFT(FD.\"SalesQuarter\",2)=cd.\"CFY\",FD.\"Closed\",null))\
+  \ as \"FYClosed\",\n\t\t\t\t--SUM(iff(LEFT(FD.\"SalesQuarter\",2)=cd.\"CFY\",FD.\"\
+  USDNetNewACV\",null)) as \"FYPipeline\"\n            from\n                CDL_LS.SALES_RPT.RPT_FIXEDDATAPLUSQUOTA_RT\
+  \ FD\n                left join ODS_LS.\"DYNAMICS365\".\"OPPORTUNITIES\" dy_opty\
+  \ on dy_opty.\"OpportunitySysID\" = FD.\"OptyDynamicsGUID\"\n\t\t\t\tcross join\
+  \ cte_dates cd\n            where\n                \"RecordType\" = 'random'\n\t\
+  \t\t\tand FD.\"SalesQuarter\"<=cd.\"CQ+3\"\n\t\t\t\tand LEFT(FD.\"SalesQuarter\"\
+  ,'random')>=cd.\"CFY\"\n                and \"SalesQuarter\" >= RIGHT(\n       \
+  \             YEAR(\n                        convert_timezone('random', CURRENT_DATE)\n\
+  \                    ),\n                    'random'\n                ) || 'random'\n\
+  \                and \"SalesQuarter\" <= RIGHT(\n                    YEAR(\n   \
+  \                     CONVERT_TIMEZONE(\n                            'random',\n\
+  \                            add_months(CURRENT_DATE, 'random')\n              \
+  \          )\n                    ) || 'random' || Quarter(\n                  \
+  \      convert_timezone(\n                            'random',\n              \
+  \              add_months(CURRENT_DATE, 'random')\n                        )\n \
+  \                   ),\n                    'random'\n                )\n      \
+  \      group by\n                all\n        ) fdprt on fdprt.\"TerritorySysID\"\
+  \ = dim.\"TerritorySysID\"\n        and fdprt.\"SalesQuarter\" = dim.\"STEmpTerrQuarter\"\
+  \n        left join (\n            select\n                \"SRepTerritorySysID\"\
+  ,\n                \"SRepEmployeeNumber\",\n                SUM(\"RepQuota\") as\
+  \ \"R4QRepQuota\"\n            FROM\n                EDW_LS.SALES_EM.EM_SALES_REPS_QUOTA_RT\n\
+  \            where\n                \"SRepQuarter\" <= RIGHT(\n                \
+  \    YEAR(\n                        CONVERT_TIMEZONE('random', add_months(CURRENT_DATE,\
+  \ 'random'))\n                    ) || 'random' || Quarter(\n                  \
+  \      convert_timezone('random', add_months(CURRENT_DATE, 'random'))\n        \
+  \            ),\n                    'random'\n                ) --RIGHT(YEAR(CONVERT_TIMEZONE('America/Los_Angeles',add_months(CURRENT_DATE,9)))\
+  \ ||'-Q'|| Quarter(convert_timezone('America/Los_Angeles',add_months(CURRENT_DATE,9))),5)\n\
+  \                and \"SRepQuarter\" >= RIGHT(\n                    YEAR(\n    \
+  \                    convert_timezone('random', CURRENT_DATE)\n                \
+  \    ) || 'random' || QUARTER(\n                        convert_timezone('random',\
+  \ CURRENT_DATE)\n                    ),\n                    'random'\n        \
+  \        )\n            group by\n                all\n        ) r4qquota on r4qquota.\"\
+  SRepEmployeeNumber\" = dim.\"EmployeeNumber\"\n        and r4qquota.\"SRepTerritorySysID\"\
+  \ = dim.\"TerritorySysID\"\n        left join (\n            select\n          \
+  \      \"TerritorySysID\",\n                sum(\"Pipeline_Last_Week\") \"Pipeline_Last_Week\"\
+  \n            from\n                EDW_LS.SALES_EM.SALES_PIPELINE_STLY_STLQ_STLW_FC\n\
+  \            group by\n                \"TerritorySysID\"\n        ) stlw on stlw.\"\
+  TerritorySysID\" = dim.\"TerritorySysID\"\n         left join (\n            select\n\
+  \                FD2.\"TerritorySysID\",\n                SUM(FD2.\"USDNetNewACV\"\
+  ) \"FYPipeline\",\n                sum(FD2.\"Closed\") \"FYClosed\"\n          \
+  \  from\n                CDL_LS.\"SALES_RPT\".\"RPT_FIXEDDATAPLUSQUOTA_RT\" FD2\n\
+  \            where\n                left(FD2.\"SalesQuarter\",'random') = RIGHT(YEAR(convert_timezone('random',CURRENT_DATE)),'random')\n\
+  \                and \"RecordType\" = 'random'\n            group by all\n     \
+  \          --- FD2.\"TerritorySysID\"\n        ) FY on FY.\"TerritorySysID\" = dim.\"\
+  TerritorySysID\"\n\n\tLEFT JOIN customer_states acct\n\t    on dim.\"TerritorySysID\"\
+  \ = acct.territory_sys_id\n\n\t-----Start of Rep Coverage STLW\n\tLEFT JOIN\n\t\
+  (\n\t\tSELECT\n\t\t    opp.\"STOptyTerritorySysID\" as \"TerritorySysID\",\n\t\t\
+  \    --SUM(case when \"Flag\"='LastWeekDate' then oli.\"SOptyItemNetNewACVUSD\"\
+  \ else 0 end) AS \"Pipeline_Last_Week\",\n            SUM(case when \"Flag\"='random'\
+  \ and opp.\"STOptyPipelineStatus\" in ('random','random','random','random') then\
+  \ oli.\"SOptyItemNetNewACVUSD\" else 'random' end) AS \"BuildACV_on_Qtr_StartDay\"\
+  ,\n            SUM(case when \"Flag\"='random' and opp.\"STOptyPipelineStatus\"\
+  \ in ('random','random','random','random') then oli.\"SOptyItemNetNewACVUSD\" else\
+  \ 'random' end) AS \"BuildACV_Last_Week\",\n\t\t\tSUM(case when \"Flag\"='random'\
+  \ and opp.\"STOptyPipelineStatus\"='random' then oli.\"SOptyItemNetNewACVUSD\" else\
+  \ 'random' end) AS \"CQClosed_STLW\"\n\n\t\tFROM ODS_LS.\"SURF\".\"ST_SALES_OPPORTUNITY\"\
+  \ opp\n\t\tINNER JOIN\n\t\t(\n\t\tSELECT\n\t\t    DISTINCT  \"Date_Last_Week\",\n\
+  \t\t    \"DateDimQuarterByYearSURF\" as u_quarter_by_year_surf,\n\t\t\t\"Flag\"\n\
+  \t\tFROM\n\t\t---Added logic to get STLW data\n\t\t    (\n\t\t     select \"Date_Last_Week\"\
+  , \"SalesQuarter\", \"Flag\" from\n\t\t     (\n             SELECT DISTINCT \"DateDimDate\"\
+  \ as \"Date_Last_Week\",\n\t\t     \"DateDimQuarterByYearSURF\" as \"SalesQuarter\"\
+  ,\n            'random' as \"Flag\"\n\t\t     FROM ODS_LS.\"SURF\".\"DATE_DIMENSION\"\
+  \n\t\t     WHERE \"DateDimDate\" =\n\t\t    (select distinct \"DateDimDate\"\n\t\
+  \t     from ODS_LS.\"SURF\".\"DATE_DIMENSION\"\n\t\t     WHERE  \"DateDimDate\"\
+  =TO_DATE(DATEADD(DAY,'random',convert_timezone( 'random',CURRENT_TIMESTAMP())))\
+  \ )\n\t\t     //AND \"DateDimQuarterByYearSURF\"=right(YEAR(convert_timezone('America/Los_Angeles',\
+  \ current_timestamp)) || '-Q' || QUARTER(convert_timezone('America/Los_Angeles',\
+  \           current_timestamp)), 5)\n\t\t    union\n\n            SELECT DISTINCT\
+  \ \"DateDimQuarterBeginDate\" as \"Date_Last_Week\",\n\t\t     \"DateDimQuarterByYearSURF\"\
+  \ as \"SalesQuarter\",\n             'random' as \"Flag\"\n\t\t     FROM ODS_LS.\"\
+  SURF\".\"DATE_DIMENSION\"\n\t\t     WHERE \"DateDimDate\" =\n\t\t    (select distinct\
+  \ \"DateDimDate\"\n\t\t     from ODS_LS.\"SURF\".\"DATE_DIMENSION\"\n\t\t     WHERE\
+  \  \"DateDimDate\"=TO_DATE(convert_timezone('random',CURRENT_TIMESTAMP)) )\n   \
+  \          )\n\t\t     where \"SalesQuarter\"=right(YEAR(convert_timezone('random',\
+  \ current_timestamp)) || 'random' || QUARTER(convert_timezone('random',        \
+  \   current_timestamp)), 'random')\n            )wtd\n\t\t    LEFT outer join ---added\
+  \ logic to get 4RQ\n\t\t    (\n\t\tSELECT\n\t\t    distinct \"DateDimQuarterByYearSURF\"\
+  \n\t\tFROM ODS_LS.\"SURF\".\"DATE_DIMENSION\"\n\t\twhere\n\t\t    \"DateDimQuarterByYearSURF\"\
+  \ >= RIGHT(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))\n\t\t    ||'random'||QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)),'random')\n\
+  \t\t    and \"DateDimQuarterByYearSURF\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',CURRENT_TIMESTAMP),'random'))\n\
+  \t\t    ||'random'||QUARTER(ADD_MONTHS(convert_timezone('random',CURRENT_TIMESTAMP),'random')),'random')\n\
+  \t\t    )qtr on 'random' = 'random'\n\t\t)dd on opp.\"STExtractDate\" = dd.\"Date_Last_Week\"\
+  \n\t\tand opp.\"STOptySalesQuarter\" = dd.u_quarter_by_year_surf\n\t\tLEFT outer\
+  \ join ODS_LS.\"SURF\".\"ST_SALES_OPPORTUNITY_ITEM\" oli\n\t\ton opp.\"STOptySysID\"\
+  \ = oli.\"SOptyItemOptySysID\"\n\t\tand opp.\"STExtractDate\" = oli.\"SOptyItemExtractDate\"\
+  \n\t\tLEFT outer join ODS_LS.\"SURF\".\"SALES_PRODUCT\" sp\n\t\ton oli.\"SOptyItemProductSysID\"\
+  \ = sp.\"ProductSysID\"\n\t\tWHERE 'random'='random'\n\t\t    AND oli.\"SOptyItemBIFlags\"\
+  \ = 'random'\n\t\t    AND opp.\"STSalesActivePipeline\" = 'random'\n\t\t    AND\
+  \ oli.\"SOptyPriceRestPrimaryLine\" = 'random'\n\t\t    AND IFNULL(\"ProductFamily3Value\"\
+  , 'random') <> 'random'\n\t\tGROUP BY\n\t\t    opp.\"STOptyTerritorySysID\"\n  \
+  \  \t)rwc\n\tON rwc.\"TerritorySysID\" = dim.\"TerritorySysID\"\n\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,82 @@
+name: table_1497
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1497
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1497.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SALES_REQUEST(\n\t\"RequestAccount\",\n\t\
+  \"RequestAccountValue\",\n\t\"RequestSalesSubCategoryValue\",\n\t\"RequestNumber\"\
+  ,\n\t\"RequestSysID\",\n\t\"RequestSysUpdatedOn\",\n\t\"RequestUSDTotalPotentialNNACV\"\
+  ,\n\t\"RequestOpenedAt\",\n\t\"RequestSalesCategoryValue\",\n\t\"RequestClosedAt\"\
+  ,\n\t\"RequestStateValue\",\n\t\"RequestAssignedToSysID\",\n\t\"RequestAssignedTo\"\
+  ,\n\t\"RequestSalesOpportunitySysID\",\n\t\"RequestSalesOpportunity\",\n\t\"RequestAnalysedAt\"\
+  ,\n\t\"RequestSalesAnalyzedBySysID\",\n\t\"RequestSalesAnalyzed\",\n\t\"RequestSalesAnalyzedBy\"\
+  ,\n\t\"RequestSalesCreatedOn\",\n\t\"RequestCreatedBy\",\n\t\"RequestUrgency\",\n\
+  \t\"RequestSalesContract\",\n\t\"RequestUpdatedBy\",\n\t\"RequestOpenedBy\",\n\t\
+  \"RequestCloseReasonCode\",\n\t\"RequestUSDTotalUndeployedBacklog\",\n\t\"RequestUSDTotalUnderSubscribed\"\
+  ,\n\t\"RequestAssignmentGroup\",\n\t\"RequestCreatedQuarter\",\n\t\"RequestPriority\"\
+  ,\n\t\"RequestShortDescription\",\n\t\"RequestSubCategory\",\n\t\"RequestType\"\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SALES_ACCOUNT\" as \"RequestAccount\"\
+  ,\n       \"DV_SALES_ACCOUNT\" as \"RequestAccountValue\",\n       \"DV_SALES_SUBCATEGORY\"\
+  \ as \"RequestSalesSubCategoryValue\",\n       \"NUMBER\" as \"RequestNumber\",\n\
+  \       \"SYS_ID\" as \"RequestSysID\",\n       \"SYS_UPDATED_ON\" as \"RequestSysUpdatedOn\"\
+  ,\n       \"U_USD_TOTAL_POTENTIAL_NNACV\" as \"RequestUSDTotalPotentialNNACV\",\n\
+  \       \"OPENED_AT\" as \"RequestOpenedAt\",\n       \"DV_SALES_CATEGORY\" as \"\
+  RequestSalesCategoryValue\",\n       \"CLOSED_AT\" as \"RequestClosedAt\",\n   \
+  \    \"DV_STATE\" as \"RequestStateValue\",\n       \"ASSIGNED_TO\" as \"RequestAssignedToSysID\"\
+  ,\n       \"DV_ASSIGNED_TO\" as \"RequestAssignedTo\",\n       \"SALES_OPPORTUNITY\"\
+  \ as \"RequestSalesOpportunitySysID\",\n       \"DV_SALES_OPPORTUNITY\" as \"RequestSalesOpportunity\"\
+  ,\n       \"U_ANALYZED_DATE\" as \"RequestAnalysedAt\",\n       \"U_ANALYZED_BY\"\
+  \ as \"RequestSalesAnalyzedBySysID\",\n       \"U_ANALYZED\" as \"RequestSalesAnalyzed\"\
+  ,\n       \"DV_U_ANALYZED_BY\" as \"RequestSalesAnalyzedBy\",\n       \"SYS_CREATED_ON\"\
+  \ as \"RequestSalesCreatedOn\",\n       \"SYS_CREATED_BY\" as \"RequestCreatedBy\"\
+  ,\n       \"URGENCY\" as \"RequestUrgency\",\n       \"DV_SALES_CONTRACT\" as \"\
+  RequestSalesContract\",\n       \"SYS_UPDATED_BY\" as \"RequestUpdatedBy\",\n  \
+  \     \"DV_OPENED_BY\" as \"RequestOpenedBy\",\n       \"DV_U_REASON_CODE\" as \"\
+  RequestCloseReasonCode\",\n       \"U_USD_TOTAL_UNDEPLOYED_BACKLOG\" as \"RequestUSDTotalUndeployedBacklog\"\
+  ,\n       \"U_USD_TOTAL_UNDER_SUBSCRIBED\" as \"RequestUSDTotalUnderSubscribed\"\
+  ,\n       \"DV_ASSIGNMENT_GROUP\" as \"RequestAssignmentGroup\",\n       CAST(right(YEAR(\"\
+  RequestSalesCreatedOn\") ||'random'|| QUARTER(\"RequestSalesCreatedOn\"), 'random')\
+  \ AS VARCHAR('random')) as \"RequestCreatedQuarter\",\n       \"DV_PRIORITY\" as\
+  \ \"RequestPriority\",\n       \"SHORT_DESCRIPTION\" as \"RequestShortDescription\"\
+  ,\n       \"DV_SUBCATEGORY\" as \"RequestSubCategory\",\n       \"DV_TYPE\" as \"\
+  RequestType\"\nFROM \"RDS\".\"SURF\".\"SALES_REQUEST\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

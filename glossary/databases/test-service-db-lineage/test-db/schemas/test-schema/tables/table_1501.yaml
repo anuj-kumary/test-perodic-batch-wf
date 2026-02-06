@@ -1,0 +1,98 @@
+name: table_1501
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1501
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1501.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PPR_RPT_PARTNER_EVALUATION_SP_WI(\n\t\"\
+  ParentPartnerNumber\",\n\t\"ParentPartner\",\n\t\"ParentPartnerType\",\n\t\"BenefitSegment\"\
+  ,\n\t\"CalculatedSegment\",\n\t\"ImpactedSPNNACV\",\n\t\"NetNewLogos\",\n\t\"CTA/CMA\"\
+  ,\n\t\"Pre-sales/SalesResources\",\n\t\"ContractACV(CACV)\",\n\t\"SPInternalUse/Clientzero\"\
+  ,\n\t\"CertifiedImplementationSpecialist(CISITSMand1+CIS-ProductLines)Resources\"\
+  ,\n\t\"CustomerSuccessStories\",\n\t\"SPFoundationalResources\",\n\t\"SPGrossRetentionRate(GRR)\"\
+  \n) as\nwith pivote as\n(\nSELECT  \"ParentPartnerNumber\"\n\t       ,\"ParentPartner\"\
+  \n           ,\"ParentPartnerType\"\n\t       ,\"CurrentProgramSegment\"\n\t   \
+  \    ,\"CalculatedProgramSegment\"\n\t       ,CASE WHEN \"Criteria\" = 'random'\
+  \ THEN \"CriteriaValCompleted12Months_Actual\"  ELSE 'random' END              \
+  \                          AS \"Impacted SP NNACV\"\n\t       ,CASE WHEN \"Criteria\"\
+  \ = 'random' THEN \"CriteriaValCompleted12Months_Actual\"  ELSE 'random' END   \
+  \                                         AS \"Net New Logos\"\n\t       ,CASE WHEN\
+  \ \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"  ELSE 'random'\
+  \ END AS \"Certified Technical Architect/Certified Master Architect\"\n\t      \
+  \ ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                          AS \"Pre-sales/ Sales Accreditations\"\
+  \n\t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                           AS \"Cumulative Contract ACV (CACV)\"\
+  \n\t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                                 AS \"Internal Use/Client zero\"\
+  \n\t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END AS \"Certified Implementation Specialist (CIS ITSM and 1+ CIS-Product\
+  \ Lines) Resources\"\n\t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                                 AS \"Customer Success Stories\"\
+  \n\t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                                AS \"SP Foundational Resources\"\
+  \n\t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                            AS \"SP Gross Retention Rate (GRR)\"\
+  \n\tFROM CDL_LS.PARTNER_RPT.PPR_RPT_INTERNAL_PARTNER_PROGRAM_UNIFIED\n\tWHERE \"\
+  ProgramType\" = 'random'\n)\nSELECT  \"ParentPartnerNumber\"\n       ,\"ParentPartner\"\
+  \n       ,\"ParentPartnerType\"                                                \
+  \                      AS \"ParentPartnerType\"\n       ,\"CurrentProgramSegment\"\
+  \                                                                  AS \"BenefitSegment\"\
+  \n       ,\"CalculatedProgramSegment\"                                         \
+  \                      AS \"CalculatedSegment\"\n       ,MAX(\"Impacted SP NNACV\"\
+  )                                                                 AS \"ImpactedSPNNACV\"\
+  \n       ,MAX(\"Net New Logos\")                                               \
+  \                      AS \"NetNewLogos\"\n       ,MAX(\"Certified Technical Architect/Certified\
+  \ Master Architect\")                          AS \"CTA/CMA\"\n       ,MAX(\"Pre-sales/\
+  \ Sales Accreditations\")                                                   AS \"\
+  Pre-sales/SalesResources\"\n       ,MAX(\"Cumulative Contract ACV (CACV)\")    \
+  \                                                AS \"ContractACV(CACV)\"\n    \
+  \   ,MAX(\"Internal Use/Client zero\")                                         \
+  \                 AS \"SPInternalUse/Clientzero\"\n       ,MAX(\"Certified Implementation\
+  \ Specialist (CIS ITSM and 1+ CIS-Product Lines) Resources\") AS \"CertifiedImplementationSpecialist(CISITSMand1+CIS-ProductLines)Resources\"\
+  \n       ,MAX(\"Customer Success Stories\")                                    \
+  \                      AS \"CustomerSuccessStories\"\n       ,MAX(\"SP Foundational\
+  \ Resources\")                                                         AS \"SPFoundationalResources\"\
+  \n       ,MAX(\"SP Gross Retention Rate (GRR)\")                               \
+  \                      AS \"SPGrossRetentionRate(GRR)\"\nFROM pivote\nGROUP BY \
+  \ \"ParentPartnerNumber\"\n         ,\"ParentPartner\"\n         ,\"ParentPartnerType\"\
+  \n         ,\"CurrentProgramSegment\"\n         ,\"CalculatedProgramSegment\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

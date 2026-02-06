@@ -1,0 +1,65 @@
+name: table_1460
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1460
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1460.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_CX_SURVEY_OUTCOME_METRICS(\n\t\"AcctNumber\"\
+  ,\n\t\"Timeframe\",\n\t\"Metric\",\n\t\"MetricType\",\n\t\"JourneyVertical\",\n\t\
+  \"SurveyType\",\n\t\"ValueNumber\",\n\t\"ValueText\",\n\t\"TerrGeo\",\n\t\"TerrReportingTerritoryGeo\"\
+  ,\n\t\"TerrArea\",\n\t\"TerrMajorArea\",\n\t\"TerrRegion\",\n\t\"TerrCountry\",\n\
+  \t\"TerrDistrict\",\n\t\"AcctNewSegment\",\n\t\"AcctIndustry\",\n\t\"ACVBand\",\n\
+  \t\"ImpactFlag\",\n\t\"Marquee_Flag\",\n\t\"AcctName\",\n\t\"GPName\",\n\tMARQUEE_PRIMARY_FLAG,\n\
+  \t\"TimeOnImpact\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"AcctNumber\" as \"\
+  AcctNumber\",\n       \"Timeframe\" as \"Timeframe\",\n       \"Metric\" as \"Metric\"\
+  ,\n       \"MetricType\" as \"MetricType\",\n       \"JourneyVertical\" as \"JourneyVertical\"\
+  ,\n       \"SurveyType\" as \"SurveyType\",\n       \"ValueNumber\" as \"ValueNumber\"\
+  ,\n       \"ValueText\" as \"ValueText\",\n       \"TerrGeo\" as \"TerrGeo\",\n\
+  \       \"TerrReportingTerritoryGeo\" as \"TerrReportingTerritoryGeo\",\n      \
+  \ \"TerrArea\" as \"TerrArea\",\n       \"TerrMajorArea\" as \"TerrMajorArea\",\n\
+  \       \"TerrRegion\" as \"TerrRegion\",\n       \"TerrCountry\" as \"TerrCountry\"\
+  ,\n       \"TerrDistrict\" as \"TerrDistrict\",\n       \"AcctNewSegment\" as \"\
+  AcctNewSegment\",\n       \"AcctIndustry\" as \"AcctIndustry\",\n       \"ACVBand\"\
+  \ as \"ACVBand\",\n       \"ImpactFlag\" as \"ImpactFlag\",\n\t   \"Marquee_Flag\"\
+  \ as \"Marquee_Flag\",\n\t   \"AcctName\" as \"AcctName\",\n\t   \"GPName\" as \"\
+  GPName\",\n\t   MARQUEE_PRIMARY_FLAG as MARQUEE_PRIMARY_FLAG,\n\t   \"TimeOnImpact\"\
+  \ as \"TimeOnImpact\"\nFROM EDW_LS.CUSTOMER_EM.TBL_CX_SURVEY_OUTCOME_METRICS_DATA;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

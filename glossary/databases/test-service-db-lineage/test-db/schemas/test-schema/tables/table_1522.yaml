@@ -1,0 +1,89 @@
+name: table_1522
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1522
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1522.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PPR_RPT_PARTNER_EVALUATION_RESALE_WI(\n\t\
+  \"ParentPartnerNumber\",\n\t\"ParentPartner\",\n\t\"ParentPartnerType\",\n\t\"BenefitSegment\"\
+  ,\n\t\"CalculatedSegment\",\n\t\"ApprovedDealRegistrations\",\n\t\"ApprovedCustomerSuccessStories\"\
+  ,\n\t\"ImpactedACV\",\n\t\"NNLogoWins\",\n\t\"SkilledPre-salesResources\",\n\t\"\
+  Resources completed Intro to ValueSelling\",\n\t\"SkilledSalesResources\",\n\t\"\
+  SalesAndPre-salesCompetencyAcross#ProductLines\",\n\t\"SourcedRevenuePercentage\"\
+  \n) as\nwith pivote as\n(\nSELECT  \"ParentPartnerNumber\"\n\t       ,\"ParentPartner\"\
+  \n\t       ,\"ParentPartnerType\"\n\t       ,\"CurrentProgramSegment\"\n\t     \
+  \  ,\"CalculatedProgramSegment\"\n\t       ,CASE WHEN \"Criteria\" = 'random' THEN\
+  \ \"CriteriaValCompleted12Months_Actual\"  ELSE 'random' END                   \
+  \      AS \"Approved Deal Registrations\"\n\t       ,CASE WHEN \"Criteria\" = 'random'\
+  \ THEN \"CriteriaValCompleted12Months_Actual\"  ELSE 'random' END              \
+  \              AS \"Customer Success Stories\"\n\t       ,CASE WHEN \"Criteria\"\
+  \ = 'random' THEN \"CriteriaValCompleted12Months_Actual\"  ELSE 'random' END   \
+  \                            AS \"Impacted Resale NNACV\"\n\t       ,CASE WHEN \"\
+  Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"  ELSE 'random'\
+  \ END                                       AS \"Net New Logos\"\n\t       ,CASE\
+  \ WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"  ELSE\
+  \ 'random' END                            AS \"Pre-sales Accreditations\"\n\t  \
+  \     ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                       AS \"Sales & Messaging Foundations\"\n\
+  \t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                                AS \"Sales Accreditations\"\n\
+  \t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END AS \"Sales and Pre-sales competency across product lines\"\n\
+  \t       ,CASE WHEN \"Criteria\" = 'random' THEN \"CriteriaValCompleted12Months_Actual\"\
+  \  ELSE 'random' END                                AS \"Sourced Resale NNACV\"\n\
+  \tFROM CDL_LS.PARTNER_RPT.PPR_RPT_INTERNAL_PARTNER_PROGRAM_UNIFIED\n\tWHERE \"ProgramType\"\
+  \ = 'random'\n)\nSELECT  \"ParentPartnerNumber\"\n       ,\"ParentPartner\"\n  \
+  \     ,\"ParentPartnerType\"                                        AS \"ParentPartnerType\"\
+  \n       ,\"CurrentProgramSegment\"                                    AS \"BenefitSegment\"\
+  \n       ,\"CalculatedProgramSegment\"                                 AS \"CalculatedSegment\"\
+  \n       ,MAX(\"Approved Deal Registrations\")                         AS \"ApprovedDealRegistrations\"\
+  \n       ,MAX(\"Customer Success Stories\")                            AS \"ApprovedCustomerSuccessStories\"\
+  \n       ,MAX(\"Impacted Resale NNACV\")                               AS \"ImpactedACV\"\
+  \n       ,MAX(\"Net New Logos\")                                       AS \"NNLogoWins\"\
+  \n       ,MAX(\"Pre-sales Accreditations\")                            AS \"SkilledPre-salesResources\"\
+  \n       ,MAX(\"Sales & Messaging Foundations\")                       AS \"ResourcesCompletedIntroToValueSelling\"\
+  \n       ,MAX(\"Sales Accreditations\")                                AS \"SkilledSalesResources\"\
+  \n       ,MAX(\"Sales and Pre-sales competency across product lines\") AS \"SalesAndPre-salesCompetencyAcross#ProductLines\"\
+  \n       ,MAX(\"Sourced Resale NNACV\")                                AS \"SourcedRevenuePercentage\"\
+  \nFROM pivote\nGROUP BY  \"ParentPartnerNumber\"\n         ,\"ParentPartner\"\n\
+  \         ,\"ParentPartnerType\"\n         ,\"CurrentProgramSegment\"\n        \
+  \ ,\"CalculatedProgramSegment\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

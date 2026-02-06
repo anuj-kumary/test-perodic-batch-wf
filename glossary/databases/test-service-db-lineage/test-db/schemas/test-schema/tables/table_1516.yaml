@@ -1,0 +1,64 @@
+name: table_1516
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1516
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1516.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_CUST360_CONTRACT_ACCOUNT_JOURNEY(\n\t\
+  \"AcctSysID\",\n\t\"AcctName\",\n\t\"AcctNumber\",\n\t\"Current_Date\",\n\t\"BUCombined\"\
+  ,\n\t\"AccountKey\",\n\t\"Quarter\",\n\t\"NextYearQuarter\",\n\t\"ConItemACV_USD\"\
+  ,\n\t\"ConItemACV\",\n\t\"PS+EdBookings_USD\",\n\t\"PS+EdBookings_Amount\"\n) as\
+  \ -- SEMANTIC LAYER BEGINS\n\nSELECT \"AcctSysID\" as \"AcctSysID\",\n       \"\
+  AcctName\" as \"AcctName\",\n       \"AcctNumber\" as \"AcctNumber\",\n       \"\
+  Current_Date\" as \"Current_Date\",\n       \"BUCombined\" as \"BUCombined\",\n\
+  \       \"AccountKey\" as \"AccountKey\",\n       \"GrowthQuarter\" as \"Quarter\"\
+  ,\n       \"NextYearQuarter\" as \"NextYearQuarter\",\n       \"ConItemACV_USD\"\
+  \ as \"ConItemACV_USD\",\n       \"ConItemACV\" as \"ConItemACV\",\n       \"PS+EdBookings_USD\"\
+  \ as \"PS+EdBookings_USD\",\n       \"PS+EdBookings_Amount\" as \"PS+EdBookings_Amount\"\
+  \nFROM\n  (SELECT \"AcctSysID\" as \"AcctSysID\",\n          \"AcctName\" as \"\
+  AcctName\",\n          \"AcctNumber\" as \"AcctNumber\",\n          \"Current_Date\"\
+  \ as \"Current_Date\",\n          \"BUCombined\" as \"BUCombined\",\n          \"\
+  AccountKey\" as \"AccountKey\",\n          \"GrowthQuarter\" as \"GrowthQuarter\"\
+  ,\n          \"NextYearQuarter\" as \"NextYearQuarter\",\n          \"ConItemACV_USD\"\
+  \ as \"ConItemACV_USD\",\n          \"ConItemACV\" as \"ConItemACV\",\n        \
+  \  \"PS+EdBookings_USD\" as \"PS+EdBookings_USD\",\n          \"PS+EdBookings_Amount\"\
+  \ as \"PS+EdBookings_Amount\"\n   FROM EDW_LS.CUSTOMER_EM.CUSTOMER360_CONTRACT_ACCOUNT_JOURNEY)Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

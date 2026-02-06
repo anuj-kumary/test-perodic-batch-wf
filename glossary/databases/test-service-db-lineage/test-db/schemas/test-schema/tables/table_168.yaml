@@ -1,0 +1,56 @@
+name: table_168
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_168
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_168.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TBLOPTYINQTRALLOCATION(\n\t\"OpportunityNumber\"\
+  ,\n\t\"LineItemNumber\",\n\t\"LineItemSequence\",\n\t\"ProductCode\",\n\t\"ProductSysID\"\
+  ,\n\t\"ProductCodeCRM\",\n\t\"ProductCodeCRMSysID\",\n\t\"OptyCloseQuarter\",\n\t\
+  \"ParentOpportunityNumber\",\n\t\"AllocationPercentage\",\n\t\"AllocatedBU\",\n\t\
+  \"AllocationType\"\n) as\nSELECT\n\tOPPORTUNITY_NUMBER as \"OpportunityNumber\"\
+  ,\n\tLINEITEMNUMBER as \"LineItemNumber\",\n\tLINEITEM_SEQUENCE as \"LineItemSequence\"\
+  ,\n\tALLOC_PRODUCTCODE as \"ProductCode\",\n\tALLOC_PRODUCT_SYSID as \"ProductSysID\"\
+  ,\n\tPRODUCTCODE_CRM as \"ProductCodeCRM\",\n\tPRODUCT_SYSID_CRM as \"ProductCodeCRMSysID\"\
+  ,\n\tCLOSE_QUARTER as \"SalesQuarter\",\n\tOPPORTUNITY_PARENTNUMBER as \"ParentOpportunityNumber\"\
+  ,\n\tALLOCATION_PERCENT as \"AllocationPercentage\",\n\tALLOCATED_BU as \"AllocatedBU\"\
+  ,\n\tALLOCATION_TYPE as \"AllocationType\"\nFROM EDW_LS.SALES_FD_EM.TBLOPTYALLOCATION_LINELVLSPLIT;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

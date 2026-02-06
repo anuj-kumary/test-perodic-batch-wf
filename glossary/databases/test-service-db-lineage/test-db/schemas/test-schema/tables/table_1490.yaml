@@ -1,0 +1,143 @@
+name: table_1490
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1490
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1490.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_WEEKLYPIPELINE_DEALS(\n\t\"OptyNumber\"\
+  ,\n\t\"ParentOptyNumber\",\n\t\"OptyName\",\n\t\"SurvivorOptyAcctNumber\",\n\t\"\
+  SurvivorOptyAcctName\",\n\t\"OptyType\",\n\t\"OptySysID\",\n\t\"OptyStage\",\n\t\
+  \"StageMovemntFlag\",\n\t\"BUCombined\",\n\t\"AcctBUNNACVBridgeFlag\",\n\t\"BaselineBUList\"\
+  ,\n\t\"UpsellBUList\",\n\tFINNNACV_CC,\n\tLWFINNNACV_CC,\n\t\"AcctFINNNACV_CC\"\
+  ,\n\t\"OptyItemRenewalACV_USD\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT IFF((\"\
+  CWOptyNumber\") IS NULL, \"PWOptyNumber\", \"CWOptyNumber\") as \"OptyNumber\",\n\
+  \       \"ParentOptyNumber\" as \"ParentOptyNumber\",\n       \"OptyName\" as \"\
+  OptyName\",\n       \"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\",\n\
+  \       \"SurvivorOptyAcctName\" as \"SurvivorOptyAcctName\",\n       \"OptyType\"\
+  \ as \"OptyType\",\n       \"OptySysID\" as \"OptySysID\",\n       \"OptyStage\"\
+  \ as \"OptyStage\",\n       \"StageMovemntFlag\" as \"StageMovemntFlag\",\n    \
+  \   IFF(\"BUCombined\" IS NULL, \"LWBUCombined\", \"BUCombined\") as \"BUCombined\"\
+  ,\n       \"CWAcctBUNNACVBridgeFlag\" as \"AcctBUNNACVBridgeFlag\",\n       IFF(\"\
+  BaselineBUList\" IS NULL, 'random', \"BaselineBUList\") as \"BaselineBUList\",\n\
+  \       IFF(\"UpsellBUList\" IS NULL, 'random', \"UpsellBUList\") as \"UpsellBUList\"\
+  ,\n       \"FINNNACV_CC\" as \"FINNNACV_CC\",\n       IFF(\"LWFINNNACV_CC\" IS NULL,\
+  \ 'random', \"LWFINNNACV_CC\") as \"LWFINNNACV_CC\",\n       \"AcctFINNNACV_CC\"\
+  \ as \"AcctFINNNACV_CC\",\n       IFF(\"OptyItemRenewalACV_USD\" IS NULL, 'random',\
+  \ \"OptyItemRenewalACV_USD\") as \"OptyItemRenewalACV_USD\" /*\"CWOptyNumber\" as\
+  \ \"CWOptyNumber\",\n\"PWOptyNumber\" as \"PWOptyNumber\",\n\"OptyItemRenewalACV_USD\"\
+  \ as \"CWOptyItemRenewalACV_USD\",\n\"BUCombined\" as \"CWBUCombined\",\n\"LWBUCombined\"\
+  \ as \"LWBUCombined\",\n\"LWFINNNACV_CC\" as \"PWLWFINNNACV_CC\",\n\"BaselineBUList\"\
+  \ as \"CWBaselineBUList\",\n\"UpsellBUList\" as \"CWUpsellBUList\"*/\nFROM\n  (SELECT\
+  \ /*\"A_PW\".\"PWOptyNumber\" as \"CWOptyNumber\",*/ \"A_CW\".\"CWOptyNumber\" as\
+  \ \"CWOptyNumber\",\n                                                       \"A_PW\"\
+  .\"PWOptyNumber\" as \"PWOptyNumber\",\n                                       \
+  \                \"A_CW\".\"SurvivorOptyAcctName\" as \"SurvivorOptyAcctName\",\n\
+  \                                                       \"A_CW\".\"ParentOptyNumber\"\
+  \ as \"ParentOptyNumber\",\n                                                   \
+  \    \"A_CW\".\"OptyName\" as \"OptyName\",\n                                  \
+  \                     \"A_CW\".\"OptyType\" as \"OptyType\",\n                 \
+  \                                      \"A_CW\".\"OptySysID\" as \"OptySysID\",\n\
+  \                                                       \"A_CW\".\"OptyStage\" as\
+  \ \"OptyStage\",\n                                                       \"A_CW\"\
+  .\"StageMovemntFlag\" as \"StageMovemntFlag\", /*\"A_PW\".\"LWBUCombined\" as \"\
+  BUCombined\",*/ \"A_CW\".\"BUCombined\" as \"BUCombined\",\n                   \
+  \                                                                              \
+  \                                                  \"A_CW\".\"AcctBUNNACVBridgeFlag\"\
+  \ as \"CWAcctBUNNACVBridgeFlag\",\n                                            \
+  \                                                                              \
+  \                         \"A_CW\".\"BaselineBUList\" as \"BaselineBUList\",\n \
+  \                                                                              \
+  \                                                                    \"A_CW\".\"\
+  UpsellBUList\" as \"UpsellBUList\",\n                                          \
+  \                                                                              \
+  \                           \"A_CW\".\"FINNNACV_CC\" as \"FINNNACV_CC\",\n     \
+  \                                                                              \
+  \                                                                \"A_CW\".\"AcctFINNNACV_CC\"\
+  \ as \"AcctFINNNACV_CC\",\n                                                    \
+  \                                                                              \
+  \                 \"A_CW\".\"OptyItemRenewalACV_USD\" as \"OptyItemRenewalACV_USD\"\
+  ,\n                                                                            \
+  \                                                                       \"A_CW\"\
+  .\"CurrentQtr\" as \"CurrentQtr\",\n                                           \
+  \                                                                              \
+  \                          \"A_PW\".\"LWBUCombined\" as \"LWBUCombined\",\n    \
+  \                                                                              \
+  \                                                                 \"A_PW\".\"LWFINNNACV_CC\"\
+  \ as \"LWFINNNACV_CC\",\n                                                      \
+  \                                                                              \
+  \               \"A_CW\".\"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\"\
+  \n   FROM\n     (SELECT \"OptyNumber\" as \"CWOptyNumber\",\n             \"SurvivorOptyAcctName\"\
+  \ as \"SurvivorOptyAcctName\",\n             \"ParentOptyNumber\" as \"ParentOptyNumber\"\
+  ,\n             \"OptyName\" as \"OptyName\",\n             \"OptyType\" as \"OptyType\"\
+  ,\n             \"OptySysID\" as \"OptySysID\",\n             \"OptyStage\" as \"\
+  OptyStage\",\n             \"StageMovemntFlag\" as \"StageMovemntFlag\",\n     \
+  \        \"BUCombined\" as \"BUCombined\",\n             \"AcctBUNNACVBridgeFlag\"\
+  \ as \"AcctBUNNACVBridgeFlag\",\n             \"BaselineBUList\" as \"BaselineBUList\"\
+  ,\n             \"UpsellBUList\" as \"UpsellBUList\",\n             SUM(\"FINNNACV_CC\"\
+  ) as \"FINNNACV_CC\",\n             \"AcctFINNNACV_CC\" as \"AcctFINNNACV_CC\",\n\
+  \             SUM(\"OptyItemRenewalACV_USD\") as \"OptyItemRenewalACV_USD\",\n \
+  \            \"OptySalesQuarter\" as \"OptySalesQuarter\",\n             \"SurvivorOptyAcctNumber\"\
+  \ as \"SurvivorOptyAcctNumber\", /*right(YEAR(TO_TIMESTAMP_LTZ(date(CURRENT_TIMESTAMP\
+  \ ))) ||'-Q'|| QUARTER(TO_TIMESTAMP_LTZ(date(CURRENT_TIMESTAMP ))) ,5)  as \"CurrentQtr\"\
+  \ */ right(YEAR(convert_timezone('random',(date(CURRENT_TIMESTAMP)))) ||'random'||\
+  \ QUARTER(convert_timezone('random',(date(CURRENT_TIMESTAMP)))), 'random') as \"\
+  CurrentQtr\"\n      FROM \"CDL_LS\".\"PRODUCT_ER\".\"WOW_PIPELINE_DETAIL\"\n   \
+  \   WHERE ((\"OptySysID\") IS not NULL)\n        and \"OptySalesQuarter\"=\"CurrentQtr\"\
+  \n      GROUP BY \"CWOptyNumber\",\n               \"SurvivorOptyAcctName\",\n \
+  \              \"ParentOptyNumber\",\n               \"OptyName\",\n           \
+  \    \"OptyType\",\n               \"OptySysID\",\n               \"OptyStage\"\
+  ,\n               \"StageMovemntFlag\",\n               \"BUCombined\",\n      \
+  \         \"AcctBUNNACVBridgeFlag\",\n               \"BaselineBUList\",\n     \
+  \          \"UpsellBUList\",\n               \"AcctFINNNACV_CC\",\n            \
+  \   \"OptySalesQuarter\",\n               \"SurvivorOptyAcctNumber\")\"A_CW\"\n\
+  \   FULL OUTER JOIN\n     (SELECT \"OptyNumber\" as \"PWOptyNumber\",\n        \
+  \     \"LWBUCombined\" as \"LWBUCombined\",\n             \"LWCloseQuarter\" as\
+  \ \"LWCloseQuarter\",\n             SUM(\"LWFINNNACV_CC\") as \"LWFINNNACV_CC\"\
+  , /*right(YEAR(TO_TIMESTAMP_LTZ(date(CURRENT_TIMESTAMP ))) ||'-Q'|| QUARTER(TO_TIMESTAMP_LTZ(date(CURRENT_TIMESTAMP\
+  \ ))) ,5)  as \"CurrentQtr\" FROM \"CDL_LS\".\"PRODUCT_ER\".\"WOW_PIPELINE_DETAIL\"\
+  \ */ right(YEAR(convert_timezone('random',(date(CURRENT_TIMESTAMP)))) ||'random'||\
+  \ QUARTER(convert_timezone('random',(date(CURRENT_TIMESTAMP)))), 'random') as \"\
+  CurrentQtr\"\n      FROM \"CDL_LS\".\"PRODUCT_ER\".\"WOW_PIPELINE_DETAIL\"\n   \
+  \   WHERE \"LWCloseQuarter\"=\"CurrentQtr\"\n      GROUP BY \"PWOptyNumber\",\n\
+  \               \"LWBUCombined\",\n               \"LWCloseQuarter\")\"A_PW\" ON\
+  \ \"A_CW\".\"CWOptyNumber\" = \"A_PW\".\"PWOptyNumber\"\n   AND \"A_CW\".\"BUCombined\"\
+  \ = \"A_PW\".\"LWBUCombined\")Join_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

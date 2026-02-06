@@ -1,0 +1,252 @@
+name: table_1473
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1473
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1473.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_OPPORTUNITY_PARENT(\n\tOPTY_ID,\n\
+  \tQUATER_YYQQ,\n\tPARENT_OPTY_NUMBER,\n\tPARENT_OPTY_NAME,\n\tPARENT_OPTY_ACCOUNT_NAME,\n\
+  \tPARENT_OPTY_TYPE,\n\tPARENT_OPTY_STAGE,\n\tPARENT_OPTY_DYNAMICS_GUID,\n\tPARENT_OPTY_MANAGEMENT,\n\
+  \tPARENT_OPTY_PIPELINE_STATUS,\n\tPARENT_OPTY_CLOSE_DT,\n\tPARENT_OPTY_CLOSE_MONTH,\n\
+  \tPARENT_OPTY_CLOSE_MONTH_INT,\n\tPARENT_OPTY_CLOSE_MONTH_QUARTER,\n\tPARENT_OPTY_SYSID,\n\
+  \tPARENT_ACCOUNT_RISK_SCORE_SEVERITY,\n\tPARENT_OPTY_CLOSE_PROBABALILITY,\n\tPARENT_OPTY_JOURNAL_CREATED_DT,\n\
+  \tPARENT_JOURNAL_DT_FLAG,\n\tPARENT_OPTY_ML_PREDICTION_RISK_REASON1,\n\tPARENT_OPTY_NEXT_STEPS,\n\
+  \tPARENT_OPTY_RENEWAL_STATUS,\n\tPARENT_OPTY_ORDER_TERM_START_DT,\n\tPARENT_OPTY_CONTRACT_END_DT,\n\
+  \tPARENT_OPTY_TRANSACTION_TYPE,\n\tPARENT_PARTNER_ACCOUNT_NAME,\n\tPARENT_OPTY_TECHNICAL_WIN_NAME,\n\
+  \tPARENT_OPTY_NOTES,\n\tPARENT_OPTY_NOTES_CREATED_DT,\n\tIS_PARENT_MARQUEE_ACCOUNT,\n\
+  \tPARENT_OPTY_DYNAMICS_DEAL_CHAMPION,\n\tPARENT_ACCOUNT_EXECUTIVE_SPONSOR_NAME,\n\
+  \tPARENT_OPTY_PIPELINE_SOURCE,\n\tPARENT_OPTY_CONTRACT_STATUS\n) as\nwith General_Notes\
+  \ as\n  (select distinct gnm.\"JournalElementID\" as \"JournalElementID\",\n   \
+  \                gnm.\"NotesLastUpdatedDate\" as \"GeneralNotesCreatedOn\",\n  \
+  \                \"GeneralNotes\"\n                 from (\n   (select \"JournalElementID\"\
+  ,\n   MAX(\"JournalCreatedOn\") as \"NotesLastUpdatedDate\"\n    from ODS_LS.\"\
+  SURF\".\"SYS_JOURNAL_FIELD\"\n    where \"JournalElement\" = 'random'\n    group\
+  \ by \"JournalElementID\")gnm\n inner join\n   (select \"JournalElementID\",\n \
+  \  LEFT(TO_VARCHAR(\"JournalValue\"), 'random') as \"GeneralNotes\",\n   \"JournalCreatedOn\"\
+  \n    from ODS_LS.\"SURF\".\"SYS_JOURNAL_FIELD\"\n    where \"JournalElement\" =\
+  \ 'random')gn on IFNULL (gnm.\"JournalElementID\", 'random') = IFNULL(gn.\"JournalElementID\"\
+  , 'random')\n and gnm.\"NotesLastUpdatedDate\" = gn.\"JournalCreatedOn\")),\n\n\
+  EM_OPTY_NOTES_NEXTSTEP as\n  (SELECT \"NextStepsLastUpdatedDate\",\n  \"NextStepsDateFlag\"\
+  ,\n  \"NextStepsLong\" as \"NextSteps\",\n  \"JournalElementID\"\n   FROM EDW_LS.\"\
+  SALES_EM\".\"EM_OPTY_NOTES_NEXTSTEP\"),\n   --added as part of Quarter change\n\
+  --TIME_RANGE as ((select RIGHT(YEAR(convert_timezone('America/Los_Angeles', add_months(CURRENT_DATE,9)))\
+  \ || '-Q' || QUARTER(convert_timezone('America/Los_Angeles', add_months(CURRENT_DATE,9))),5)\
+  \ as \"MaxQuarter\", (Case when QUARTER(convert_timezone('America/Los_Angeles',current_date))='1'\
+  \ then right(YEAR(convert_timezone( 'America/Los_Angeles',CURRENT_TIMESTAMP()))-1,2)||'-Q4'\
+  \ else right(YEAR(convert_timezone( 'America/Los_Angeles',CURRENT_TIMESTAMP())),2)||'-Q1'\
+  \ end) as \"MinQuarter\")),\nTIME_RANGE as ((select RIGHT(YEAR(convert_timezone('random',\
+  \ add_months(CURRENT_DATE,'random'))) || 'random' || QUARTER(convert_timezone('random',\
+  \ add_months(CURRENT_DATE,'random'))),'random') as \"MaxQuarter\", 'random' as \"\
+  MinQuarter\")),\n\nRPT_ACCOUNTS_ATRISK as\n  (select distinct \"AcctNumber\",\n\
+  \   \"Score_Severity_CC\"\n   FROM CDL_LS.\"SALES_RPT\".\"RPT_ACCOUNTS_ATRISK\"\n\
+  \   where \"MetricName\" = 'random'),\n\n\n SYS_JOURNAL_FIELD as\n (select distinct\
+  \ gnm.\"JournalElementID\" as \"JournalElementID\",\n                   gnm.\"NotesLastUpdatedDate\"\
+  \ as \"GeneralNotesCreatedOn\",\n                  \"GeneralNotes\"\n          \
+  \       from (\n   (select \"JournalElementID\",\n   MAX(\"JournalCreatedOn\") as\
+  \ \"NotesLastUpdatedDate\"\n    from ODS_LS.\"SURF\".\"SYS_JOURNAL_FIELD\"\n   \
+  \ where \"JournalElement\" = 'random'\n    group by \"JournalElementID\")gnm\n inner\
+  \ join\n   (select \"JournalElementID\",\n   LEFT(TO_VARCHAR(\"JournalValue\"),\
+  \ 'random') as \"GeneralNotes\",\n   \"JournalCreatedOn\"\n    from ODS_LS.\"SURF\"\
+  .\"SYS_JOURNAL_FIELD\"\n    where \"JournalElement\" = 'random')gn on IFNULL (gnm.\"\
+  JournalElementID\", 'random') = IFNULL(gn.\"JournalElementID\", 'random')\n and\
+  \ gnm.\"NotesLastUpdatedDate\" = gn.\"JournalCreatedOn\"))\n\nSELECT distinct\n\
+  \    HASH(\"OpportunitySysID\") AS OPTY_ID,\n    \"SalesQuarter\" AS QUATER_YYQQ,\n\
+  \tcase\n            when \"SalesQuarter\" = \"ParentQuarter\" then \"OpportunityParentNumber\"\
+  \n\t        Else \"OpportunityNumber\"\n\tend as PARENT_OPTY_NUMBER,\n\tcase\n \
+  \           when \"SalesQuarter\" = \"ParentQuarter\" then \"OpportunityParentName\"\
+  \n\t        Else \"OpportunityName\"\n\tend as PARENT_OPTY_NAME,\n\tcase\n\t   \
+  \     when \"SalesQuarter\" = \"ParentQuarter\" then \"OpportunityParentAccount\"\
+  \n            else \"AccountName\"\n    end as  PARENT_OPTY_ACCOUNT_NAME,\n\tcase\n\
+  \            when \"SalesQuarter\" = \"ParentQuarter\" then \"OpportunityParentType\"\
+  \n\t        Else \"OpportunityType\"\n    end as  PARENT_OPTY_TYPE,\n\tcase\n  \
+  \         when \"SalesQuarter\" = \"ParentQuarter\" then \"OpportunityParentStage\"\
+  \n           else \"OpportunityStage\"\n    end as PARENT_OPTY_STAGE,\n\tcase\n\
+  \           when \"SalesQuarter\" = \"ParentQuarter\" then \"OptyParentDynamicsGUID\"\
+  \n           else \"OptyDynamicsGUID\"\n    end as PARENT_OPTY_DYNAMICS_GUID,\n\t\
+  case\n           when \"SalesQuarter\" = \"ParentQuarter\" then \"OptyParentCOManaged\"\
+  \n           else \"OptyCOManaged\"\n    end as PARENT_OPTY_MANAGEMENT,\n\tcase\n\
+  \           when \"SalesQuarter\" = \"ParentQuarter\" then \"OpportunityParentPipelineStatus\"\
+  \n           else \"PipelineStatus\"\n    end as PARENT_OPTY_PIPELINE_STATUS,\n\t\
+  case\n           when \"SalesQuarter\" = \"ParentQuarter\" then \"OpportunityParentCloseDate\"\
+  \n           else \"OpportunityCloseDate\"\n    end as PARENT_OPTY_CLOSE_DT,\n \
+  \   case\n           when \"SalesQuarter\"  = \"ParentQuarter\" then \"OpportunityParentCloseMonth\"\
+  \n           else \"OpportunityCloseMonth\"\n    end as PARENT_OPTY_CLOSE_MONTH,\n\
+  \    case\n          when \"SalesQuarter\"  = \"ParentQuarter\" then \"OpportunityParentCloseMonthInt\"\
+  \n          else \"OpportunityCloseMonthInt\"\n    end as PARENT_OPTY_CLOSE_MONTH_INT,\n\
+  \tcase\n         when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentPredictedToCloseInQuarter\"\
+  \n         else \"PredictedToCloseInQuarter\"\n    end as PARENT_OPTY_CLOSE_MONTH_QUARTER,\n\
+  \    case\n         when \"SalesQuarter\" = \"ParentQuarter\" then \"OpportunityParentSysID\"\
+  \n         else \"OpportunitySysID\"\n    end as PARENT_OPTY_SYSID,\n    case\n\
+  \           when \"SalesQuarter\" = \"ParentQuarter\" then \"Parent_Score_Severity_CC\"\
+  \n           else \"Score_Severity_CC\"\n    end as PARENT_ACCOUNT_RISK_SCORE_SEVERITY,\n\
+  \    case\n          when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentProbabailityToCloseInQuarter\"\
+  \n         else \"ProbabailityToCloseInQuarter\"\n    end as PARENT_OPTY_CLOSE_PROBABALILITY,\n\
+  \tcase\n\t     when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentJournalCreatedOn\"\
+  \n         else \"JournalCreatedOn\"\n    end as PARENT_OPTY_JOURNAL_CREATED_DT,\n\
+  \tcase\n         when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentJournalDateFlag\"\
+  \n         else \"JournalDateFlag\"\n    end as PARENT_JOURNAL_DT_FLAG,\n\tcase\n\
+  \         when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentOptyReasonCode1\"\
+  \n         else \"OptyReasonCode1\"\n    end AS PARENT_OPTY_ML_PREDICTION_RISK_REASON1,\n\
+  \tcase\n         when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentNextSteps\"\
+  \n         else \"NextSteps\"\n       end AS PARENT_OPTY_NEXT_STEPS,\n\tcase\n \
+  \       when \"SalesQuarter\" = \"ParentQuarter\" then \"OptyParentRenewalStatus\"\
+  \n        else \"RenewalStatus\"\n    end AS PARENT_OPTY_RENEWAL_STATUS,\n    case\n\
+  \           when \"SalesQuarter\" = \"ParentQuarter\" then \"OptyParentOrderTermStartDate\"\
+  \n           else \"OptyOrderTermStartDate\"\n    end as PARENT_OPTY_ORDER_TERM_START_DT,\n\
+  \tcase\n          when \"SalesQuarter\" = \"ParentQuarter\" then \"OptyParentContractEndDate\"\
+  \n         else \"ContractRenewalDate\"\n    end AS PARENT_OPTY_CONTRACT_END_DT,\n\
+  \tcase\n          when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentTransactionType\"\
+  \n          else \"TransactionType\"\n    end AS PARENT_OPTY_TRANSACTION_TYPE,\n\
+  \tcase\n         when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentPartnerAccount\"\
+  \n         else \"ChildPartnerAccount\"\n    end AS PARENT_PARTNER_ACCOUNT_NAME,\n\
+  \tcase\n\t    when \"SalesQuarter\" = \"ParentQuarter\" then \"OptyParentTechnicalWinName\"\
+  \n        else \"OptyTechnicalWinName\"\n    end AS PARENT_OPTY_TECHNICAL_WIN_NAME,\n\
+  \tcase\n\t    when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentGeneralNotes\"\
+  \n        else \"GeneralNotes\"\n    end AS PARENT_OPTY_NOTES,\n    case\n\t   \
+  \ when \"SalesQuarter\" = \"ParentQuarter\" then \"ParentGeneralNotesCreatedOn\"\
+  \n        else \"GeneralNotesCreatedOn\"\n    end AS PARENT_OPTY_NOTES_CREATED_DT,\n\
+  \tCASE\n\t    WHEN \"SalesQuarter\" = \"ParentQuarter\"  then \"ParentMarqueeAccountFlag\"\
+  \n\t\telse   \"MarqueeAccountFlag\"\n\tend  AS IS_PARENT_MARQUEE_ACCOUNT,\n\tCASE\n\
+  \     \tWHEN \"SalesQuarter\" = \"ParentQuarter\"  then \"OptyParentDynamicsDealChampionName\"\
+  \n\t\telse   \"OptyDynamicsDealChampionName\"\n\tend AS PARENT_OPTY_DYNAMICS_DEAL_CHAMPION,\n\
+  \tCASE\n        WHEN \"SalesQuarter\" = \"ParentQuarter\"  then \"ParentAcctExecutiveSponsorName\"\
+  \n\t\telse   \"AcctExecutiveSponsorName\"\n\tend AS PARENT_ACCOUNT_EXECUTIVE_SPONSOR_NAME,\n\
+  \tcase\n           when \"SalesQuarter\" = \"ParentQuarter\" then \"OptyParentPipelineSourced\"\
+  \n           else \"OpportunityPipelineSourced\"\n    end as PARENT_OPTY_PIPELINE_SOURCE,\n\
+  \tcase\n\t       when \"SalesQuarter\"  = \"ParentQuarter\" then \"OptyParentContractStatus\"\
+  \n           else \"OptyContractStatus\"\n    end AS PARENT_OPTY_CONTRACT_STATUS\n\
+  from (\nselect distinct \"SalesQuarter\",\nFD.\"OpportunityName\",\nFD.\"OpportunityParentName\"\
+  ,\nFD.\"OpportunityNumber\",\nFD.\"OpportunityParentNumber\",\nFD.\"OpportunityOwnerName\"\
+  ,\nFD.\"OpportunityParentAccount\",\nFD.\"AccountName\",\nFD.\"OpportunityParentCloseDate\"\
+  ,\nupper(LEFT(MONTHNAME(FD.\"OpportunityParentCloseDate\"), 'random')) AS \"OpportunityParentCloseMonth\"\
+  ,\nMONTH(fd.\"OpportunityParentCloseDate\") AS \"OpportunityParentCloseMonthInt\"\
+  ,\nFD.\"OpportunityCloseDate\",\ncase\n      when FD.\"OpportunityCloseDate\" IS\
+  \ NULL\n      then (case\n      when RIGHT(FD.\"SalesQuarter\", 'random') = 'random'\
+  \ then 'random'\n       when RIGHT(FD.\"SalesQuarter\", 'random') = 'random' then\
+  \ 'random'\n       when RIGHT(FD.\"SalesQuarter\", 'random') = 'random' then 'random'\n\
+  \       else 'random'\n   end)\n      else upper(LEFT(MONTHNAME(FD.\"OpportunityCloseDate\"\
+  ), 'random'))\n  end AS \"OpportunityCloseMonth\",\n MONTH(fd.\"OpportunityCloseDate\"\
+  ) AS \"OpportunityCloseMonthInt\",\nFD.\"OpportunityParentContEndDate\",\nFD.\"\
+  OpportunityParentPipelineStatus\",\nFD.\"PipelineStatus\",\nFD.\"OpportunityParentStage\"\
+  ,\nFD.\"OpportunityStage\",\nFD.\"OpportunityParentType\",\nFD.\"OpportunityType\"\
+  ,\nFD.\"OptyParentSysID\" as \"OpportunityParentSysID\",\nFD.\"OpportunitySysID\"\
+  ,\nFD.\"OptyParentAccountNumber\",\nFD.\"AccountNumber\",\nFD.\"OptyParentCOManaged\"\
+  ,\nFD.\"OptyCOManaged\",\nFD.\"OptyParentDynamicsGUID\",\nFD.\"OptyDynamicsGUID\"\
+  ,\nFD.\"OptyParentOrderTermStartDate\",\nFD.\"OptyOrderTermStartDate\",\nFD.\"OptyParentRenewalStatusValue\"\
+  \ as \"OptyParentRenewalStatus\",\nCASE WHEN trim(FD.\"RenewalStatus\")='random'\
+  \ THEN 'random' ELSE FD.\"RenewalStatus\" END AS \"RenewalStatus\" ,\nFD.\"OpportunityPipelineSourced\"\
+  ,\nFD.\"TerritorySysID\",\nFD.\"OptyParentTerritorySysID\",\n\"OptyItemLineCreatedBy\"\
+  ,\n\"PredictedToCloseInQuarter\",\n\"ParentPredToCloseInQuarter\" AS \"ParentPredictedToCloseInQuarter\"\
+  ,\n pps.\"OptyParentPipelineSourced\",\n prisk.\"Score_Severity_CC\" AS \"Parent_Score_Severity_CC\"\
+  ,\n risk.\"Score_Severity_CC\" AS \"Score_Severity_CC\",\n \"ProbabailityToCloseInQuarter\"\
+  ,\n \"ParentProbToCloseInQuarter\" AS \"ParentProbabailityToCloseInQuarter\",\n\
+  \ \"JournalCreatedOn\",\n \"ParentJournalCreatedOn\",\n \"JournalDateFlag\",\n \"\
+  ParentJournalDateFlag\",\n \"OptyReasonCode1\",\n \"ParentOptyReasonCode1\",\n JF.\"\
+  NextSteps\",\n PJF.\"NextSteps\" AS \"ParentNextSteps\",\n \"ContractEndDate\" AS\
+  \ \"ContractRenewalDate\",\n \"OptyParentContEndDate\" as \"OptyParentContractEndDate\"\
+  ,\n  ext.\"OptyExtnTransactingPartner\"  ,\n  ext.\"OptyExtnChannelTransactionType\"\
+  \ AS \"TransactionType\" ,\n  ext.\"ChildPartnerAccount\",\n  parent_ext.\"ParentPartnerAccount\"\
+  ,\n  parent_ext.\"ParentOptyExtnTransactingPartner\" ,\n  parent_ext.\"ParentOptyExtnChannelTransactionType\"\
+  \ AS \"ParentTransactionType\",\n  PGN.\"GeneralNotes\" as \"ParentGeneralNotes\"\
+  ,\n  PGN.\"GeneralNotesCreatedOn\" as \"ParentGeneralNotesCreatedOn\",\n  GN.\"\
+  GeneralNotes\" as \"GeneralNotes\",\n  GN.\"GeneralNotesCreatedOn\" as \"GeneralNotesCreatedOn\"\
+  ,\n  case when \"MarqueeAccount\"='random' then 'random' else 'random' end as \"\
+  MarqueeAccountFlag\",\ncase when \"ParentMarqueeAccount\"='random' then 'random'\
+  \ else 'random' end \"ParentMarqueeAccountFlag\",\n  case\n      when FD.\"OpportunityParentNumber\"\
+  =FD.\"OpportunityNumber\" then IFNULL(dynopt.\"OptyTechnicalWinName_CC\", 'random')\n\
+  \      else IFNULL(dynopt.\"OptyParentTechnicalWinName_CC\", IFNULL(dynopt_parent.\"\
+  OptyTechnicalWinName_CC\", 'random'))\n  end as \"OptyParentTechnicalWinName\",\n\
+  \  IFNULL(dynopt.\"OptyTechnicalWinName_CC\", 'random') as \"OptyTechnicalWinName\"\
+  ,\n  FD.\"OptyDynamicsDealChampionName\" ,\n  FD.\"OptyParentDynamicsDealChampionName\"\
+  ,\n  FD.\"AcctExecutiveSponsorName\",\n  FD.\"ParentAcctExecutiveSponsorName\",\n\
+  \  FD.\"OptyContractStatus\",\n  FD.\"OptyParentContractStatus\",\nCase\n      \
+  \         when\"OpportunityParentStage\" in ('random',\n                       \
+  \                         'random',\n                                          \
+  \      'random')\n                    or (\"OpportunityParentStage\" = 'random'\n\
+  \                        and \"OpportunityParentType\" in ('random',\n         \
+  \                                               'random')) then'random'\n      \
+  \         else RIGHT(YEAR(\"OpportunityParentCloseDate\") ||'random'|| QUARTER(\"\
+  OpportunityParentCloseDate\"), 'random')\n           end as \"ParentQuarter\"\n\
+  from CDL_LS.SALES_RPT.RPT_FIXEDDATAPLUSQUOTA_RT FD\nleft join (select distinct \"\
+  OptyNumber\",\"OptyPipelineSourced\" as \"OptyParentPipelineSourced\" FROM  ODS_LS.\"\
+  SURF\".\"SALES_OPPORTUNITY\"  \t) pps\non FD.\"OpportunityParentNumber\"=pps.\"\
+  OptyNumber\"\nleft outer join\n       (SELECT * from\n           ( SELECT  \"QuarterByYearSurf\"\
+  , \"PredictedToCloseInQuarter\", \"ProbabailityToCloseInQuarter\", \"OpportunityCloseQuarterWhenScored\"\
+  , \"OpportunityCloseDateWhenScored\", \"LastWeekProbabilityToCloseInQtr\",     \
+  \  \"ProbabilityChangeIndicator\", \"JournalCreatedOn\", \"JournalDateFlag\", \"\
+  ParentPredToCloseInQuarter\", \"ParentProbToCloseInQuarter\", \"ParentLastWeekProbabilityToCloseInQtr\"\
+  , \"ParentProbabilityChangeIndicator\",\"ParentJournalCreatedOn\", \"ParentJournalDateFlag\"\
+  , \"ParentOptyReasonCode1\", \"ParentOptyReasonCode2\", \"ParentOptyReasonCode3\"\
+  , \"ParentOptyReasonCode4\", \"ParentOptyReasonCode5\",\"ParentOptyReasonCode6\"\
+  ,\"OptyReasonCode1\", \"OptyReasonCode2\", \"OptyReasonCode3\", \"OptyReasonCode4\"\
+  , \"OptyReasonCode5\",\"OptyReasonCode6\",\"OptyParentSysID\",\"OpportunityNumber\"\
+  ,\"AccountNumber\"   \"ParentOptyCloseQuarterWhenScored\",\"ParentOptyCloseDateWhenScored\"\
+  ,\"OptyAction\",\"OptyActionCategory\",\"ParentOptyAction\", \"ParentOptyActionCategory\"\
+  ,\n         ROW_NUMBER() OVER (PARTITION BY \"OpportunityNumber\" ORDER BY 'random')\
+  \ as rankrec\nFROM CDL_LS.\"DATASCIENCE_RPT\".\"RPT_PIPELINE_PREDICTION_CURRENT_FINAL\"\
+  ) where rankrec='random') cs  on FD.\"OpportunityNumber\"=cs.\"OpportunityNumber\"\
+  \nleft outer join RPT_ACCOUNTS_ATRISK prisk\nON FD.\"OptyParentAccountNumber\"=prisk.\"\
+  AcctNumber\"\nleft outer join RPT_ACCOUNTS_ATRISK risk\nON FD.\"AccountNumber\"\
+  =risk.\"AcctNumber\"\nleft outer join EM_OPTY_NOTES_NEXTSTEP PJF\n  ON PJF.\"JournalElementID\"\
+  \ = FD.\"OptyParentSysID\"\nleft outer join EM_OPTY_NOTES_NEXTSTEP JF\n  ON JF.\"\
+  JournalElementID\" = FD.\"OpportunitySysID\"\nLEFT outer join\n\t\t\t\t\t      \
+  \ (\n\t\t\t\t\t       \t\tselect  \"OptySysID\",\n\t\t\t\t\t\t\t\t\"OptyExtnTransactingPartner\"\
+  ,\n\t\t\t\t\t\t\t\t\"OptyExtnChannelTransactionType\",\n\t\t\t\t\t\t\t\tLISTAGG(distinct\
+  \ \"PartnerAccount\",'random') as \"ChildPartnerAccount\"\n\t\t\t\t\t\t\tFROM EDW_LS.\"\
+  PARTNER_EM\".\"EM_OPPORTUNITY_PARTNER360_DEAL\"\n\t\t\t\t\t       \t\tgroup by \"\
+  OptySysID\",\n\t\t\t\t\t\t\t\t\"OptyExtnTransactingPartner\",\n\t\t\t\t\t\t\t\t\"\
+  OptyExtnChannelTransactionType\"\n\t\t\t\t\t       ) ext on ext.\"OptySysID\"=FD.\"\
+  OpportunitySysID\"\n-- Child Level join\nLEFT outer join\n\t\t\t\t\t       (\n\t\
+  \t\t\t\t       \t\tselect  \"OptySysID\",\n\t\t\t\t\t\t\t\t\"OptyExtnTransactingPartner\"\
+  \ \"ParentOptyExtnTransactingPartner\" ,\n\t\t\t\t\t\t\t\t\"OptyExtnChannelTransactionType\"\
+  \ \"ParentOptyExtnChannelTransactionType\",\n\t\t\t\t\t\t\t\tIFF(LISTAGG(distinct\
+  \ \"PartnerAccount\",'random') ='random','random', LISTAGG(distinct \"PartnerAccount\"\
+  ,'random')) as \"ParentPartnerAccount\"\n\t\t\t\t\t\t\tFROM EDW_LS.\"PARTNER_EM\"\
+  .\"EM_OPPORTUNITY_PARTNER360_DEAL\"\n\t\t\t\t\t\t\tgroup by \"OptySysID\",\n\t\t\
+  \t\t\t\t\t\"OptyExtnTransactingPartner\",\n\t\t\t\t\t\t\t\"OptyExtnChannelTransactionType\"\
+  \n\t\t\t\t\t       ) parent_ext on parent_ext.\"OptySysID\"=fd.\"OptyParentSysID\"\
+  \nLEFT outer join ODS_LS.\"DYNAMICS365\".\"OPPORTUNITIES\" dynopt\nON FD.\"OptyDynamicsGUID\"\
+  \ = dynopt.\"OpportunitySysID\"\nLEFT outer join ODS_LS.\"DYNAMICS365\".\"OPPORTUNITIES\"\
+  \ dynopt_parent\nON FD.\"OptyParentDynamicsGUID\" = dynopt_parent.\"OpportunitySysID\"\
+  \nLEFT outer join SYS_JOURNAL_FIELD PGN\nON PGN.\"JournalElementID\" = FD.\"OptyParentSysID\"\
+  \nLEFT outer join SYS_JOURNAL_FIELD GN\nON GN.\"JournalElementID\" = FD.\"OpportunitySysID\"\
+  \nwhere \"RecordType\" = 'random'\n);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,90 @@
+name: table_150
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_150
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_150.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TOPLINE_FORECAST_PLAN(\n\t\"Metrics_KPI\"\
+  ,\n\t\"Scenario\",\n\t\"Period\",\n\t\"Entity\",\n\t\"Geo\",\n\tUSD,\n\tLC,\n\t\
+  USD_CC,\n\t\"USD_FX_Adj\",\n\tY_Y_PERCENTAGE,\n\tY_Y_PERCENTAGE_CC,\n\t\"Product\"\
+  ,\n\t\"Hosted_OP\",\n\t\"Source\",\n\t\"Subscription_Services\",\n\t\"Dimension1\"\
+  ,\n\t\"Dimension2\",\n\t\"Dimension3\",\n\t\"Dimension4\",\n\tETL_INSERT_DATE,\n\
+  \tETL_UPDATE_DATE,\n\tETL_DELETE_DATE,\n\t\"DateDimMonthByYearSURF\",\n\t\"DateDimQuarterByYearSURF\"\
+  ,\n\t\"DateDimYearNumber\"\n) as\n\nSELECT\n\"Projection_1\".\"Metrics_KPI\" as\
+  \ \"Metrics_KPI\",\n\"Projection_1\".\"Scenario\" as \"Scenario\",\n\"Projection_1\"\
+  .\"Period\"  as \"Period\",\n\"Projection_1\".\"Entity\" as \"Entity\",\n\"Projection_1\"\
+  .\"Geo\" as \"Geo\",\n\"Projection_1\".\"USD\" as \"USD\",\n\"Projection_1\".\"\
+  LC\" as \"LC\",\n\"Projection_1\".\"USD_CC\" as \"USD_CC\",\n\"Projection_1\".\"\
+  USD_FX_Adj\" as \"USD_FX_Adj\",\n\"Projection_1\".\"Y_Y_PERCENTAGE\" as \"Y_Y_PERCENTAGE\"\
+  ,\n\"Projection_1\".\"Y_Y_PERCENTAGE_CC\" as \"Y_Y_PERCENTAGE_CC\",\n\"Projection_1\"\
+  .\"Product\" as \"Product\",\n\"Projection_1\".\"Hosted_OP\" as \"Hosted_OP\",\n\
+  \"Projection_1\".\"Source\" as \"Source\",\n\"Projection_1\".\"Subscription_Services\"\
+  \ as \"Subscription_Services\",\n\"Projection_1\".\"CURRENCY\" as \"Dimension1\"\
+  ,\n\"Projection_1\".\"Dimension2\" as \"Dimension2\",\n\"Projection_1\".\"Dimension3\"\
+  \ as \"Dimension3\",\n\"Projection_1\".\"Dimension4\" as \"Dimension4\",\n\"Projection_1\"\
+  .ETL_INSERT_DATE as ETL_INSERT_DATE,\n\"Projection_1\".ETL_UPDATE_DATE as ETL_UPDATE_DATE\
+  \ ,\n\"Projection_1\".ETL_DELETE_DATE as ETL_DELETE_DATE,\n\"Projection_2\".\"DateDimMonthByYearSURF\"\
+  \ as \"DateDimMonthByYearSURF\",\nIFF (REGEXP_LIKE (\"Projection_1\".\"Period\"\
+  , 'random'),\"Projection_1\".\"Period\",\"Projection_2\".\"DateDimQuarterByYearSURF\"\
+  ) as \"DateDimQuarterByYearSURF\",\nIFF (REGEXP_LIKE (\"Projection_1\".\"Period\"\
+  , 'random'),'random'||substr(\"Period\",'random','random'),\n(IFF (REGEXP_LIKE (\"\
+  Projection_1\".\"Period\", 'random'),'random'||substr(\"Period\",'random','random'),\"\
+  DateDimYearNumber\"))) as \"DateDimYearNumber\"\nfrom\n(\nSelect\nMETRICS_KPI  as\
+  \ \"Metrics_KPI\",\nSCENARIO  as \"Scenario\",\nPERIOD  as \"Period\",\nENTITY \
+  \ as \"Entity\",\nGEO  as \"Geo\",\nsum(\"USD\") as \"USD\",\nsum(\"LC\") as \"\
+  LC\",\nsum(\"USD_CC\") as \"USD_CC\",\nsum(\"USD_FX_ADJ\") as \"USD_FX_Adj\",\n\
+  Y_Y_PERCENTAGE  as \"Y_Y_PERCENTAGE\",\nY_Y_PERCENTAGE_CC  as \"Y_Y_PERCENTAGE_CC\"\
+  ,\nPRODUCT  as \"Product\",\nHOSTED_OP  as \"Hosted_OP\",\nSOURCE  as \"Source\"\
+  ,\nSUBSCRIPTION_SERVICES  as \"Subscription_Services\",\nCURRENCY  as \"CURRENCY\"\
+  ,\nDIMENSION2  as \"Dimension2\",\nDIMENSION3  as \"Dimension3\",\nDIMENSION4  as\
+  \ \"Dimension4\",\nETL_INSERT_DATE as ETL_INSERT_DATE,\nETL_UPDATE_DATE as ETL_UPDATE_DATE\
+  \ ,\nETL_DELETE_DATE as ETL_DELETE_DATE\nfrom\n\n\nRDS.FLATFILESOURCE.FACT_TOPLINE_FORECAST_PLAN\n\
+  group by\n\"Metrics_KPI\",\n\"Scenario\",\n\"Period\",\n\"Entity\",\n\"Geo\",\n\"\
+  Y_Y_PERCENTAGE\",\n\"Y_Y_PERCENTAGE_CC\",\n\"Product\",\n\"Hosted_OP\",\n\"Source\"\
+  ,\n\"Subscription_Services\",\n\"CURRENCY\",\n\"Dimension2\",\n\"Dimension3\",\n\
+  \"Dimension4\",\nETL_INSERT_DATE ,\nETL_UPDATE_DATE ,\nETL_DELETE_DATE\n) \"Projection_1\"\
+  \nLEFT JOIN (\nSELECT\ndistinct \"DateDimMonthByYearSURF\" as \"DateDimMonthByYearSURF\"\
+  ,\n\"DateDimYearNumber\"  :: VARCHAR ('random') as \"DateDimYearNumber\",\n\"DateDimMonthNameAbbreviation\"\
+  \ as \"DateDimMonthNameAbbreviation\",\n\"DateDimQuarterByYearSURF\" as \"DateDimQuarterByYearSURF\"\
+  ,\nconcat(\nright(\"DateDimYearNumber\", 'random'),\n'random',\n\"DateDimMonthNameAbbreviation\"\
+  \n) as \"Month\"\nFROM\n\"ODS_LS\".\"SURF\".\"DATE_DIMENSION\"\n) \"Projection_2\"\
+  \ ON \"Projection_1\".\"Period\" = \"Projection_2\".\"Month\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

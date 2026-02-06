@@ -1,0 +1,60 @@
+name: table_175
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_175
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_175.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_CRMLINES_SALESCRD_OPTY(\n\t\"STDYNExtractDate\"\
+  ,\n\t\"STDYNRecordType\",\n\t\"STDYNOpportunityNumber\",\n\t\"STDYNSalesQuarter\"\
+  ,\n\t\"STDYNOpportunityStage\",\n\t\"STDYNTerritoryName\",\n\t\"STDYNDistrict\"\
+  ,\n\t\"STDYNRegion\",\n\t\"STDYNArea\",\n\t\"STDYNMajorArea\",\n\t\"STDYNGeo\",\n\
+  \t\"STDYNUSDNetNewACV\",\n\t\"STDYNUSDWeightedACV\",\n\t\"STDYNNetNewACV\",\n\t\"\
+  STDYNWeightedACV\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ST_EXTRACT_DATE\"\
+  \ as \"STDYNExtractDate\",\n       \"RECORD_TYPE\" as \"STDYNRecordType\",\n   \
+  \    \"OPPORTUNITY_NUMBER\" as \"STDYNOpportunityNumber\",\n       \"SALES_QUARTER\"\
+  \ as \"STDYNSalesQuarter\",\n       \"OPPORTUNITY_STAGE\" as \"STDYNOpportunityStage\"\
+  ,\n       \"TERRITORY_NAME\" as \"STDYNTerritoryName\",\n       \"DISTRICT_NAME\"\
+  \ as \"STDYNDistrict\",\n       \"REGION_NAME\" as \"STDYNRegion\",\n       \"AREA_NAME\"\
+  \ as \"STDYNArea\",\n       \"MAJORAREA_NAME\" as \"STDYNMajorArea\",\n       \"\
+  GEONAME\" as \"STDYNGeo\",\n       \"USD_NETNEWACV\" as \"STDYNUSDNetNewACV\",\n\
+  \       \"USD_WEIGHTEDACV\" as \"STDYNUSDWeightedACV\",\n       \"NETNEWACV\" as\
+  \ \"STDYNNetNewACV\",\n       \"WEIGHTEDACV\" as \"STDYNWeightedACV\"\nFROM EDW_LS.SALES_D365_EM.ST_CRMLINES_SALESCRD_OPTY;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

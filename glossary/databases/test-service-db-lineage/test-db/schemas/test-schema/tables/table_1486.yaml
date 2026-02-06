@@ -1,0 +1,455 @@
+name: table_1486
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1486
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1486.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_WOW_PIPELINE_DETAIL(\n\t\"NNACVCustomSKUAllocation\"\
+  ,\n\t\"LWNNACVCustomSKUAllocation\",\n\t\"WeightedNNACVCustomSKUAllocation\",\n\t\
+  \"LWWeightedNNACVCustomSKUAllocation\",\n\t\"ReportDate\",\n\t\"OptyStage_CC\",\n\
+  \t\"OptySalesQuarter_CC\",\n\t\"BUCombined_CC\",\n\t\"ParentOptyNumber_CC\",\n\t\
+  \"AcctBUNNACVBridgeFlag_CC\",\n\t\"AcctNumber\",\n\t\"AcctName\",\n\t\"OptySysID\"\
+  ,\n\t\"OptyName\",\n\t\"OptySalesQuarter\",\n\t\"OptyStage\",\n\t\"OptyRenewalStatus\"\
+  ,\n\t\"OptyType\",\n\t\"ReportingTerritoryGeo_CC\",\n\t\"WeightedFinNNACV_CC\",\n\
+  \t\"AcctBUNNACVBridgeFlag\",\n\t\"StageMovemntFlag\",\n\t\"ProductBusinessUnitValue\"\
+  ,\n\t\"CumulativeNetNewACV\",\n\t\"OptyItemRenewalACV_USD\",\n\t\"ProductFamily3Value\"\
+  ,\n\t\"LWOptyStage\",\n\t\"LWWeightedFinNNACV_CC\",\n\t\"LWAcctBUNNACVBridgeFlag\"\
+  ,\n\t\"LWProductBusinessUnitValue\",\n\t\"LWCumulativeNetNewACV\",\n\t\"LWOptyItemRenewalACV_USD\"\
+  ,\n\t\"LWCloseQuarter\",\n\t\"Planned\",\n\t\"WeekOfQuarter\",\n\t\"WeekNumYear\"\
+  ,\n\tACVALLOCATION_PERCENT,\n\t\"NNACVPAAllocation\",\n\t\"LWNNACVPAAllocation\"\
+  ,\n\t\"WeightedNNACVPAAllocation\",\n\tLWFINNNACV_CC,\n\tFINNNACV_CC,\n\t\"LWWeightedNNACVPAAllocation\"\
+  ,\n\t\"ClosedNNACV\",\n\t\"OpenNNACV\",\n\t\"LWOpenNNACV\",\n\t\"LWClosedNNACV\"\
+  ,\n\t\"CurrentWeekQuarter\",\n\t\"PreviousWeekQuarter\",\n\t\"OptyNumber\",\n\t\"\
+  StandardAllocationBU\",\n\t\"LWPAInAllocationValue\",\n\t\"LWWeightedPAInAllocationValue\"\
+  ,\n\t\"AcctFINNNACV_CC\",\n\t\"BaselineBUList\",\n\t\"UpsellBUList\",\n\t\"CustomAllocationPercentage\"\
+  ,\n\t\"CustSKUFINNNACV_CC\",\n\t\"LWCustSKUFINNNACV_CC\",\n\t\"CustSKUWTNNACV_CC\"\
+  ,\n\t\"LWCustSKUWTNNACV_CC\",\n\t\"PAInAllocationValue\",\n\t\"WeightedPAInAllocationValue\"\
+  ,\n\t\"LWOptyType\",\n\t\"ParentOptyNumber\",\n\t\"BUCombined\",\n\t\"LWBUCombined\"\
+  ,\n\t\"SurvivorOptyAcctName\",\n\t\"SurvivorOptyAcctNumber\",\n\t\"LWParentOptyNumber\"\
+  ,\n\t\"ProductFamily2Value\",\n\t\"AcctCountry\",\n\t\"AllocInPercentage\",\n\t\"\
+  AcctNewSegment\",\n\t\"AccountTotalRenewalOptyACV\",\n\t\"LWAccountTotalRenewalOptyACV\"\
+  ,\n\t\"BUWorkflow\",\n\t\"OptyPipelineStatus\",\n\t\"LWOptyPipelineStatus\",\n\t\
+  \"ClosedNNACVPAAllocation\",\n\t\"LWClosedNNACVPAAllocation\",\n\t\"ClosedPAInAllocationValue\"\
+  ,\n\t\"LWClosedPAInAllocationValue\",\n\t\"CurrentDate\",\n\t\"PrevWeekDate\",\n\
+  \t\"ClosedNNACV_PA\",\n\tNNACV_PA,\n\t\"WeightedNNACVPA_PA\",\n\t\"LWClosedNNACV_PA\"\
+  ,\n\tLWNNACV_PA,\n\t\"LWWeightedNNACVPA_PA\",\n\t\"AcctIndustryCategory\",\n\t\"\
+  SurvivorOpportunityName\",\n\t\"LWSurvivorOpportunityName\",\n\t\"OptyCloseDate\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT IFF((\"ProductFamily3Value\" LIKE'random'),\"\
+  FINNNACV_CC\"*\"CustomAllocationPercentage\", 'random') as \"NNACVCustomSKUAllocation\"\
+  ,\n       IFF((\"ProductFamily3Value\" LIKE'random'),(\"LWFINNNACV_CC\"* \"CustomAllocationPercentage\"\
+  ),'random') as \"LWNNACVCustomSKUAllocation\",\n       IFF((\"ProductFamily3Value\"\
+  \ LIKE'random'),\"WeightedFinNNACV_CC\"* \"CustomAllocationPercentage\", 'random')\
+  \ as \"WeightedNNACVCustomSKUAllocation\",\n       IFF((\"ProductFamily3Value\"\
+  \ LIKE'random'),\"LWWeightedFinNNACV_CC\"* \"CustomAllocationPercentage\", 'random')\
+  \ as \"LWWeightedNNACVCustomSKUAllocation\",\n       TO_DATE(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP)) as \"ReportDate\",\n       IFF((\"OptyStage\") IS NULL, \"\
+  LWOptyStage\", \"OptyStage\") as \"OptyStage_CC\",\n       IFNULL(\"OptySalesQuarter\"\
+  , \"LWCloseQuarter\") as \"OptySalesQuarter_CC\",\n       IFF((\"BUCombined\") IS\
+  \ NULL, \"LWBUCombined\", \"BUCombined\") as \"BUCombined_CC\",\n       IFF((\"\
+  ParentOptyNumber\") IS NULL, \"LWParentOptyNumber\", \"ParentOptyNumber\") as \"\
+  ParentOptyNumber_CC\",\n       IFF((\"AcctBUNNACVBridgeFlag\") IS NULL, \"LWAcctBUNNACVBridgeFlag\"\
+  , \"AcctBUNNACVBridgeFlag\") as \"AcctBUNNACVBridgeFlag_CC\",\n       \"AcctNumber\"\
+  \ as \"AcctNumber\",\n       \"AcctName\" as \"AcctName\",\n       \"OptySysID\"\
+  \ as \"OptySysID\",\n       \"OptyName\" as \"OptyName\",\n       \"OptySalesQuarter\"\
+  \ as \"OptySalesQuarter\",\n       \"OptyStage\" as \"OptyStage\",\n       \"OptyRenewalStatus\"\
+  \ as \"OptyRenewalStatus\",\n       \"OptyType\" as \"OptyType\",\n       \"ReportingTerritoryGeo_CC\"\
+  \ as \"ReportingTerritoryGeo_CC\",\n       \"WeightedFinNNACV_CC\" as \"WeightedFinNNACV_CC\"\
+  ,\n       \"AcctBUNNACVBridgeFlag\" as \"AcctBUNNACVBridgeFlag\",\n       \"StageMovemntFlag\"\
+  \ as \"StageMovemntFlag\",\n       \"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\"\
+  ,\n       \"CumulativeNetNewACV\" as \"CumulativeNetNewACV\",\n       \"OptyItemRenewalACV_USD\"\
+  \ as \"OptyItemRenewalACV_USD\",\n       \"ProductFamily3Value\" as \"ProductFamily3Value\"\
+  ,\n       \"LWOptyStage\" as \"LWOptyStage\",\n       \"LWWeightedFinNNACV_CC\"\
+  \ as \"LWWeightedFinNNACV_CC\",\n       \"LWAcctBUNNACVBridgeFlag\" as \"LWAcctBUNNACVBridgeFlag\"\
+  ,\n       \"LWProductBusinessUnitValue\" as \"LWProductBusinessUnitValue\",\n  \
+  \     \"LWCumulativeNetNewACV\" as \"LWCumulativeNetNewACV\",\n       \"LWOptyItemRenewalACV_USD\"\
+  \ as \"LWOptyItemRenewalACV_USD\",\n       \"LWCloseQuarter\" as \"LWCloseQuarter\"\
+  ,\n       \"Planned\" as \"Planned\",\n       \"WeekOfQuarter\" as \"WeekOfQuarter\"\
+  ,\n       \"WeekNumYear\" as \"WeekNumYear\",\n       \"ACVALLOCATION_PERCENT\"\
+  \ as \"ACVALLOCATION_PERCENT\",\n       \"NNACVPAAllocation\" as \"NNACVPAAllocation\"\
+  ,\n       \"LWNNACVPAAllocation\" as \"LWNNACVPAAllocation\",\n       \"WeightedNNACVPAAllocation\"\
+  \ as \"WeightedNNACVPAAllocation\",\n       \"LWFINNNACV_CC\" as \"LWFINNNACV_CC\"\
+  ,\n       \"FINNNACV_CC\" as \"FINNNACV_CC\",\n       \"LWWeightedNNACVPAAllocation\"\
+  \ as \"LWWeightedNNACVPAAllocation\",\n       \"ClosedNNACV\" as \"ClosedNNACV\"\
+  ,\n       \"OpenNNACV\" as \"OpenNNACV\",\n       \"LWOpenNNACV\" as \"LWOpenNNACV\"\
+  ,\n       \"LWClosedNNACV\" as \"LWClosedNNACV\",\n       \"CurrentWeekQuarter\"\
+  \ as \"CurrentWeekQuarter\",\n       \"PreviousWeekQuarter\" as \"PreviousWeekQuarter\"\
+  ,\n       \"OptyNumber\" as \"OptyNumber\",\n       \"StandardAllocationBU\" as\
+  \ \"StandardAllocationBU\",\n       \"LWPAInAllocationValue\" as \"LWPAInAllocationValue\"\
+  ,\n       \"LWWeightedPAInAllocationValue\" as \"LWWeightedPAInAllocationValue\"\
+  ,\n       \"AcctFINNNACV_CC\" as \"AcctFINNNACV_CC\",\n       \"BaselineBUList\"\
+  \ as \"BaselineBUList\",\n       \"UpsellBUList\" as \"UpsellBUList\",\n       \"\
+  CustomAllocationPercentage\" as \"CustomAllocationPercentage\",\n       \"CustSKUFINNNACV_CC\"\
+  \ as \"CustSKUFINNNACV_CC\",\n       \"LWCustSKUFINNNACV_CC\" as \"LWCustSKUFINNNACV_CC\"\
+  ,\n       \"CustSKUWTNNACV_CC\" as \"CustSKUWTNNACV_CC\",\n       \"LWCustSKUWTNNACV_CC\"\
+  \ as \"LWCustSKUWTNNACV_CC\",\n       \"PAInAllocationValue\" as \"PAInAllocationValue\"\
+  ,\n       \"WeightedPAInAllocationValue\" as \"WeightedPAInAllocationValue\",\n\
+  \       \"LWOptyType\" as \"LWOptyType\",\n       \"ParentOptyNumber\" as \"ParentOptyNumber\"\
+  ,\n       \"BUCombined\" as \"BUCombined\",\n       \"LWBUCombined\" as \"LWBUCombined\"\
+  ,\n       \"SurvivorOptyAcctName\" as \"SurvivorOptyAcctName\",\n       \"SurvivorOptyAcctNumber\"\
+  \ as \"SurvivorOptyAcctNumber\",\n       \"LWParentOptyNumber\" as \"LWParentOptyNumber\"\
+  ,\n       \"ProductFamily2Value\" as \"ProductFamily2Value\",\n       \"AcctCountry\"\
+  \ as \"AcctCountry\",\n       \"AllocInPercentage\" as \"AllocInPercentage\",\n\
+  \       \"AcctNewSegment\" as \"AcctNewSegment\",\n       \"AccountTotalRenewalOptyACV\"\
+  \ as \"AccountTotalRenewalOptyACV\",\n       \"LWAccountTotalRenewalOptyACV\" as\
+  \ \"LWAccountTotalRenewalOptyACV\",\n       \"BUWorkflow\" as \"BUWorkflow\",\n\
+  \       \"OptyPipelineStatus\" as \"OptyPipelineStatus\",\n       \"LWOptyPipelineStatus\"\
+  \ as \"LWOptyPipelineStatus\",\n       \"ClosedNNACVPAAllocation\" as \"ClosedNNACVPAAllocation\"\
+  ,\n       \"LWClosedNNACVPAAllocation\" as \"LWClosedNNACVPAAllocation\",\n    \
+  \   \"ClosedPAInAllocationValue\" as \"ClosedPAInAllocationValue\",\n       \"LWClosedPAInAllocationValue\"\
+  \ as \"LWClosedPAInAllocationValue\",\n       \"CurrentDate\" as \"CurrentDate\"\
+  ,\n       \"PrevWeekDate\" as \"PrevWeekDate\",\n       \"ClosedNNACV_PA\" as \"\
+  ClosedNNACV_PA\",\n       \"NNACV_PA\" as \"NNACV_PA\",\n       \"WeightedNNACVPA_PA\"\
+  \ as \"WeightedNNACVPA_PA\",\n       \"LWClosedNNACV_PA\" as \"LWClosedNNACV_PA\"\
+  ,\n       \"LWNNACV_PA\" as \"LWNNACV_PA\",\n       \"LWWeightedNNACVPA_PA\" as\
+  \ \"LWWeightedNNACVPA_PA\",\n       \"AcctIndustryCategory\" as \"AcctIndustryCategory\"\
+  ,\n       \"SurvivorOpportunityName\" as \"SurvivorOpportunityName\",\n       \"\
+  LWSurvivorOpportunityName\" as \"LWSurvivorOpportunityName\",\n       \"OptyCloseDate\"\
+  \ as \"OptyCloseDate\"\nFROM\n  (SELECT \"Join_2\".\"AcctNumber\" as \"AcctNumber\"\
+  ,\n          \"Join_2\".\"AcctName\" as \"AcctName\",\n          \"Join_2\".\"OptySysID\"\
+  \ as \"OptySysID\",\n          \"Join_2\".\"OptyName\" as \"OptyName\",\n      \
+  \    \"Join_2\".\"OptySalesQuarter\" as \"OptySalesQuarter\",\n          \"Join_2\"\
+  .\"OptyStage\" as \"OptyStage\",\n          \"Join_2\".\"OptyRenewalStatus\" as\
+  \ \"OptyRenewalStatus\",\n          \"Join_2\".\"OptyType\" as \"OptyType\",\n \
+  \         \"Join_2\".\"ReportingTerritoryGeo_CC\" as \"ReportingTerritoryGeo_CC\"\
+  ,\n          \"Join_2\".\"WeightedFinNNACV_CC\" as \"WeightedFinNNACV_CC\",\n  \
+  \        \"Join_2\".\"AcctBUNNACVBridgeFlag\" as \"AcctBUNNACVBridgeFlag\",\n  \
+  \        \"Join_2\".\"StageMovemntFlag\" as \"StageMovemntFlag\",\n          \"\
+  Join_2\".\"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\",\n       \
+  \   \"Join_2\".\"CumulativeNetNewACV\" as \"CumulativeNetNewACV\",\n          \"\
+  Join_2\".\"OptyItemRenewalACV_USD\" as \"OptyItemRenewalACV_USD\",\n          \"\
+  Join_2\".\"ProductFamily3Value\" as \"ProductFamily3Value\",\n          \"Join_2\"\
+  .\"LWOptyStage\" as \"LWOptyStage\",\n          \"Join_2\".\"LWWeightedFinNNACV_CC\"\
+  \ as \"LWWeightedFinNNACV_CC\",\n          \"Join_2\".\"LWAcctBUNNACVBridgeFlag\"\
+  \ as \"LWAcctBUNNACVBridgeFlag\",\n          \"Join_2\".\"LWProductBusinessUnitValue\"\
+  \ as \"LWProductBusinessUnitValue\",\n          \"Join_2\".\"LWCumulativeNetNewACV\"\
+  \ as \"LWCumulativeNetNewACV\",\n          \"Join_2\".\"LWOptyItemRenewalACV_USD\"\
+  \ as \"LWOptyItemRenewalACV_USD\",\n          \"Join_2\".\"LWCloseQuarter\" as \"\
+  LWCloseQuarter\",\n          \"Join_2\".\"Planned\" as \"Planned\",\n          \"\
+  Join_2\".\"WeekOfQuarter\" as \"WeekOfQuarter\",\n          \"Join_2\".\"WeekNumYear\"\
+  \ as \"WeekNumYear\",\n          \"Join_2\".\"ACVALLOCATION_PERCENT\" as \"ACVALLOCATION_PERCENT\"\
+  ,\n          \"Join_2\".\"NNACVPAAllocation\" as \"NNACVPAAllocation\",\n      \
+  \    \"Join_2\".\"LWNNACVPAAllocation\" as \"LWNNACVPAAllocation\",\n          \"\
+  Join_2\".\"WeightedNNACVPAAllocation\" as \"WeightedNNACVPAAllocation\",\n     \
+  \     \"Join_2\".\"LWFINNNACV_CC\" as \"LWFINNNACV_CC\",\n          \"Join_2\".\"\
+  FINNNACV_CC\" as \"FINNNACV_CC\",\n          \"Join_2\".\"LWWeightedNNACVPAAllocation\"\
+  \ as \"LWWeightedNNACVPAAllocation\",\n          \"Join_2\".\"ClosedNNACV\" as \"\
+  ClosedNNACV\",\n          \"Join_2\".\"OpenNNACV\" as \"OpenNNACV\",\n         \
+  \ \"Join_2\".\"LWOpenNNACV\" as \"LWOpenNNACV\",\n          \"Join_2\".\"LWClosedNNACV\"\
+  \ as \"LWClosedNNACV\",\n          \"Join_2\".\"CurrentWeekQuarter\" as \"CurrentWeekQuarter\"\
+  ,\n          \"Join_2\".\"PreviousWeekQuarter\" as \"PreviousWeekQuarter\",\n  \
+  \        \"Join_2\".\"OptyNumber\" as \"OptyNumber\",\n          \"Join_2\".\"StandardAllocationBU\"\
+  \ as \"StandardAllocationBU\",\n          \"Join_2\".\"LWPAInAllocationValue\" as\
+  \ \"LWPAInAllocationValue\",\n          \"Join_2\".\"LWWeightedPAInAllocationValue\"\
+  \ as \"LWWeightedPAInAllocationValue\",\n          \"Join_2\".\"AcctFINNNACV_CC\"\
+  \ as \"AcctFINNNACV_CC\",\n          \"Join_2\".\"BaselineBUList\" as \"BaselineBUList\"\
+  ,\n          \"Join_2\".\"UpsellBUList\" as \"UpsellBUList\",\n          \"Join_2\"\
+  .\"CustomAllocationPercentage\" as \"CustomAllocationPercentage\",\n          \"\
+  Join_2\".\"CustSKUFINNNACV_CC\" as \"CustSKUFINNNACV_CC\",\n          \"Join_2\"\
+  .\"LWCustSKUFINNNACV_CC\" as \"LWCustSKUFINNNACV_CC\",\n          \"Join_2\".\"\
+  CustSKUWTNNACV_CC\" as \"CustSKUWTNNACV_CC\",\n          \"Join_2\".\"LWCustSKUWTNNACV_CC\"\
+  \ as \"LWCustSKUWTNNACV_CC\",\n          \"Join_2\".\"PAInAllocationValue\" as \"\
+  PAInAllocationValue\",\n          \"Join_2\".\"WeightedPAInAllocationValue\" as\
+  \ \"WeightedPAInAllocationValue\",\n          \"Join_2\".\"LWOptyType\" as \"LWOptyType\"\
+  ,\n          \"Join_2\".\"ParentOptyNumber\" as \"ParentOptyNumber\",\n        \
+  \  \"Join_2\".\"BUCombined\" as \"BUCombined\",\n          \"Join_2\".\"LWBUCombined\"\
+  \ as \"LWBUCombined\",\n          \"Join_2\".\"SurvivorOptyAcctName\" as \"SurvivorOptyAcctName\"\
+  ,\n          \"Join_2\".\"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\"\
+  ,\n          \"Join_2\".\"LWParentOptyNumber\" as \"LWParentOptyNumber\",\n    \
+  \      \"Join_2\".\"ProductFamily2Value\" as \"ProductFamily2Value\",\n        \
+  \  \"Join_2\".\"AcctCountry\" as \"AcctCountry\",\n          \"Join_2\".\"AllocInPercentage\"\
+  \ as \"AllocInPercentage\",\n          \"Join_2\".\"AcctNewSegment\" as \"AcctNewSegment\"\
+  ,\n          \"Join_2\".\"AccountTotalRenewalOptyACV\" as \"AccountTotalRenewalOptyACV\"\
+  ,\n          \"Join_2\".\"LWAccountTotalRenewalOptyACV\" as \"LWAccountTotalRenewalOptyACV\"\
+  ,\n          \"Join_2\".\"BUWorkflow\" as \"BUWorkflow\",\n          \"Join_2\"\
+  .\"OptyPipelineStatus\" as \"OptyPipelineStatus\",\n          \"Join_2\".\"LWOptyPipelineStatus\"\
+  \ as \"LWOptyPipelineStatus\",\n          \"Join_2\".\"ClosedNNACVPAAllocation\"\
+  \ as \"ClosedNNACVPAAllocation\",\n          \"Join_2\".\"LWClosedNNACVPAAllocation\"\
+  \ as \"LWClosedNNACVPAAllocation\",\n          \"Join_2\".\"ClosedPAInAllocationValue\"\
+  \ as \"ClosedPAInAllocationValue\",\n          \"Join_2\".\"LWClosedPAInAllocationValue\"\
+  \ as \"LWClosedPAInAllocationValue\",\n          \"Join_2\".\"CurrentDate\" as \"\
+  CurrentDate\",\n          \"Join_2\".\"PrevWeekDate\" as \"PrevWeekDate\",\n   \
+  \       \"Join_2\".\"ClosedNNACV_PA\" as \"ClosedNNACV_PA\",\n          \"Join_2\"\
+  .\"NNACV_PA\" as \"NNACV_PA\",\n          \"Join_2\".\"WeightedNNACVPA_PA\" as \"\
+  WeightedNNACVPA_PA\",\n          \"Join_2\".\"LWClosedNNACV_PA\" as \"LWClosedNNACV_PA\"\
+  ,\n          \"Join_2\".\"LWNNACV_PA\" as \"LWNNACV_PA\",\n          \"Join_2\"\
+  .\"LWWeightedNNACVPA_PA\" as \"LWWeightedNNACVPA_PA\",\n          \"Join_2\".\"\
+  AcctIndustryCategory\" as \"AcctIndustryCategory\",\n          \"Join_2\".\"SurvivorOpportunityName\"\
+  \ as \"SurvivorOpportunityName\",\n          \"Join_2\".\"LWSurvivorOpportunityName\"\
+  \ as \"LWSurvivorOpportunityName\",\n          \"Projection_4\".\"OptyCloseDate\"\
+  \ as \"OptyCloseDate\"\n   FROM\n     (SELECT \"Join_1\".\"AcctNumber\" as \"AcctNumber\"\
+  ,\n             \"Join_1\".\"AcctName\" as \"AcctName\",\n             \"Join_1\"\
+  .\"OptySysID\" as \"OptySysID\",\n             \"Join_1\".\"OptyName\" as \"OptyName\"\
+  ,\n             \"Join_1\".\"OptySalesQuarter\" as \"OptySalesQuarter\",\n     \
+  \        \"Join_1\".\"OptyStage\" as \"OptyStage\",\n             \"Join_1\".\"\
+  OptyRenewalStatus\" as \"OptyRenewalStatus\",\n             \"Join_1\".\"OptyType\"\
+  \ as \"OptyType\",\n             \"Join_1\".\"ReportingTerritoryGeo_CC\" as \"ReportingTerritoryGeo_CC\"\
+  ,\n             \"Join_1\".\"WeightedFinNNACV_CC\" as \"WeightedFinNNACV_CC\",\n\
+  \             \"Join_1\".\"AcctBUNNACVBridgeFlag\" as \"AcctBUNNACVBridgeFlag\"\
+  ,\n             \"Join_1\".\"StageMovemntFlag\" as \"StageMovemntFlag\",\n     \
+  \        \"Join_1\".\"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\"\
+  ,\n             \"Join_1\".\"CumulativeNetNewACV\" as \"CumulativeNetNewACV\",\n\
+  \             \"Join_1\".\"OptyItemRenewalACV_USD\" as \"OptyItemRenewalACV_USD\"\
+  ,\n             \"Join_1\".\"ProductFamily3Value\" as \"ProductFamily3Value\",\n\
+  \             \"Join_1\".\"LWOptyStage\" as \"LWOptyStage\",\n             \"Join_1\"\
+  .\"LWWeightedFinNNACV_CC\" as \"LWWeightedFinNNACV_CC\",\n             \"Join_1\"\
+  .\"LWAcctBUNNACVBridgeFlag\" as \"LWAcctBUNNACVBridgeFlag\",\n             \"Join_1\"\
+  .\"LWProductBusinessUnitValue\" as \"LWProductBusinessUnitValue\",\n           \
+  \  \"Join_1\".\"LWCumulativeNetNewACV\" as \"LWCumulativeNetNewACV\",\n        \
+  \     \"Join_1\".\"LWOptyItemRenewalACV_USD\" as \"LWOptyItemRenewalACV_USD\",\n\
+  \             \"Join_1\".\"LWCloseQuarter\" as \"LWCloseQuarter\",\n           \
+  \  \"Join_1\".\"Planned\" as \"Planned\",\n             \"Join_1\".\"WeekOfQuarter\"\
+  \ as \"WeekOfQuarter\",\n             \"Join_1\".\"WeekNumYear\" as \"WeekNumYear\"\
+  ,\n             \"Join_1\".\"ACVALLOCATION_PERCENT\" as \"ACVALLOCATION_PERCENT\"\
+  ,\n             \"Join_1\".\"NNACVPAAllocation\" as \"NNACVPAAllocation\",\n   \
+  \          \"Join_1\".\"LWNNACVPAAllocation\" as \"LWNNACVPAAllocation\",\n    \
+  \         \"Join_1\".\"WeightedNNACVPAAllocation\" as \"WeightedNNACVPAAllocation\"\
+  ,\n             \"Join_1\".\"LWFINNNACV_CC\" as \"LWFINNNACV_CC\",\n           \
+  \  \"Join_1\".\"FINNNACV_CC\" as \"FINNNACV_CC\",\n             \"Join_1\".\"LWWeightedNNACVPAAllocation\"\
+  \ as \"LWWeightedNNACVPAAllocation\",\n             \"Join_1\".\"ClosedNNACV\" as\
+  \ \"ClosedNNACV\",\n             \"Join_1\".\"OpenNNACV\" as \"OpenNNACV\",\n  \
+  \           \"Join_1\".\"LWOpenNNACV\" as \"LWOpenNNACV\",\n             \"Join_1\"\
+  .\"LWClosedNNACV\" as \"LWClosedNNACV\",\n             \"Join_1\".\"CurrentWeekQuarter\"\
+  \ as \"CurrentWeekQuarter\",\n             \"Join_1\".\"PreviousWeekQuarter\" as\
+  \ \"PreviousWeekQuarter\",\n             \"Join_1\".\"OptyNumber\" as \"OptyNumber\"\
+  ,\n             \"Join_1\".\"StandardAllocationBU\" as \"StandardAllocationBU\"\
+  ,\n             \"Join_1\".\"LWPAInAllocationValue\" as \"LWPAInAllocationValue\"\
+  ,\n             \"Join_1\".\"LWWeightedPAInAllocationValue\" as \"LWWeightedPAInAllocationValue\"\
+  ,\n             \"Join_1\".\"AcctFINNNACV_CC\" as \"AcctFINNNACV_CC\",\n       \
+  \      \"Join_1\".\"BaselineBUList\" as \"BaselineBUList\",\n             \"Join_1\"\
+  .\"UpsellBUList\" as \"UpsellBUList\",\n             \"Join_1\".\"PAInAllocationValue\"\
+  \ as \"PAInAllocationValue\",\n             \"Join_1\".\"WeightedPAInAllocationValue\"\
+  \ as \"WeightedPAInAllocationValue\",\n             \"Join_1\".\"LWOptyType\" as\
+  \ \"LWOptyType\",\n             \"Join_1\".\"ParentOptyNumber\" as \"ParentOptyNumber\"\
+  ,\n             \"Join_1\".\"BUCombined\" as \"BUCombined\",\n             \"Join_1\"\
+  .\"LWBUCombined\" as \"LWBUCombined\",\n             \"Join_1\".\"SurvivorOptyAcctName\"\
+  \ as \"SurvivorOptyAcctName\",\n             \"Join_1\".\"SurvivorOptyAcctNumber\"\
+  \ as \"SurvivorOptyAcctNumber\",\n             \"Join_1\".\"LWParentOptyNumber\"\
+  \ as \"LWParentOptyNumber\",\n             \"Join_1\".\"ProductFamily2Value\" as\
+  \ \"ProductFamily2Value\",\n             \"Join_1\".\"AcctCountry\" as \"AcctCountry\"\
+  ,\n             \"Join_1\".\"AcctNewSegment\" as \"AcctNewSegment\",\n         \
+  \    \"Join_1\".\"AccountTotalRenewalOptyACV\" as \"AccountTotalRenewalOptyACV\"\
+  ,\n             \"Join_1\".\"LWAccountTotalRenewalOptyACV\" as \"LWAccountTotalRenewalOptyACV\"\
+  ,\n             \"Join_1\".\"BUWorkflow\" as \"BUWorkflow\",\n             \"Join_1\"\
+  .\"OptyPipelineStatus\" as \"OptyPipelineStatus\",\n             \"Join_1\".\"LWOptyPipelineStatus\"\
+  \ as \"LWOptyPipelineStatus\",\n             \"Join_1\".\"ClosedNNACVPAAllocation\"\
+  \ as \"ClosedNNACVPAAllocation\",\n             \"Join_1\".\"LWClosedNNACVPAAllocation\"\
+  \ as \"LWClosedNNACVPAAllocation\",\n             \"Join_1\".\"ClosedPAInAllocationValue\"\
+  \ as \"ClosedPAInAllocationValue\",\n             \"Join_1\".\"LWClosedPAInAllocationValue\"\
+  \ as \"LWClosedPAInAllocationValue\",\n             \"Join_1\".\"CurrentDate\" as\
+  \ \"CurrentDate\",\n             \"Join_1\".\"PrevWeekDate\" as \"PrevWeekDate\"\
+  ,\n             \"Join_1\".\"ClosedNNACV_PA\" as \"ClosedNNACV_PA\",\n         \
+  \    \"Join_1\".\"NNACV_PA\" as \"NNACV_PA\",\n             \"Join_1\".\"WeightedNNACVPA_PA\"\
+  \ as \"WeightedNNACVPA_PA\",\n             \"Join_1\".\"LWClosedNNACV_PA\" as \"\
+  LWClosedNNACV_PA\",\n             \"Join_1\".\"LWNNACV_PA\" as \"LWNNACV_PA\",\n\
+  \             \"Join_1\".\"LWWeightedNNACVPA_PA\" as \"LWWeightedNNACVPA_PA\",\n\
+  \             \"Join_1\".\"AcctIndustryCategory\" as \"AcctIndustryCategory\",\n\
+  \             \"Projection_3\".\"CustomAllocationPercentage\" as \"CustomAllocationPercentage\"\
+  ,\n             \"Projection_3\".\"CustSKUFINNNACV_CC\" as \"CustSKUFINNNACV_CC\"\
+  ,\n             \"Projection_3\".\"LWCustSKUFINNNACV_CC\" as \"LWCustSKUFINNNACV_CC\"\
+  ,\n             \"Projection_3\".\"CustSKUWTNNACV_CC\" as \"CustSKUWTNNACV_CC\"\
+  ,\n             \"Projection_3\".\"LWCustSKUWTNNACV_CC\" as \"LWCustSKUWTNNACV_CC\"\
+  ,\n             \"Projection_3\".\"AllocIn%\" as \"AllocInPercentage\",\n      \
+  \       \"Join_1\".\"SurvivorOpportunityName\" as \"SurvivorOpportunityName\",\n\
+  \             \"Join_1\".\"LWSurvivorOpportunityName\" as \"LWSurvivorOpportunityName\"\
+  \n      FROM\n        (SELECT \"Projection_1\".\"AcctNumber\" as \"AcctNumber\"\
+  ,\n                \"Projection_1\".\"AcctName\" as \"AcctName\",\n            \
+  \    \"Projection_1\".\"OptySysID\" as \"OptySysID\",\n                \"Projection_1\"\
+  .\"OptyName\" as \"OptyName\",\n                \"Projection_1\".\"OptySalesQuarter\"\
+  \ as \"OptySalesQuarter\",\n                \"Projection_1\".\"OptyStage\" as \"\
+  OptyStage\",\n                \"Projection_1\".\"OptyRenewalStatus\" as \"OptyRenewalStatus\"\
+  ,\n                \"Projection_1\".\"OptyType\" as \"OptyType\",\n            \
+  \    \"Projection_1\".\"ReportingTerritoryGeo_CC\" as \"ReportingTerritoryGeo_CC\"\
+  ,\n                \"Projection_1\".\"WeightedFinNNACV_CC\" as \"WeightedFinNNACV_CC\"\
+  ,\n                \"Projection_1\".\"AcctBUNNACVBridgeFlag\" as \"AcctBUNNACVBridgeFlag\"\
+  ,\n                \"Projection_1\".\"StageMovemntFlag\" as \"StageMovemntFlag\"\
+  ,\n                \"Projection_1\".\"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\"\
+  ,\n                \"Projection_1\".\"CumulativeNetNewACV\" as \"CumulativeNetNewACV\"\
+  ,\n                \"Projection_1\".\"OptyItemRenewalACV_USD\" as \"OptyItemRenewalACV_USD\"\
+  ,\n                \"Projection_1\".\"ProductFamily3Value\" as \"ProductFamily3Value\"\
+  ,\n                \"Projection_1\".\"LWOptyStage\" as \"LWOptyStage\",\n      \
+  \          \"Projection_1\".\"LWWeightedFinNNACV_CC\" as \"LWWeightedFinNNACV_CC\"\
+  ,\n                \"Projection_1\".\"LWAcctBUNNACVBridgeFlag\" as \"LWAcctBUNNACVBridgeFlag\"\
+  ,\n                \"Projection_1\".\"LWProductBusinessUnitValue\" as \"LWProductBusinessUnitValue\"\
+  ,\n                \"Projection_1\".\"LWCumulativeNetNewACV\" as \"LWCumulativeNetNewACV\"\
+  ,\n                \"Projection_1\".\"LWOptyItemRenewalACV_USD\" as \"LWOptyItemRenewalACV_USD\"\
+  ,\n                \"Projection_1\".\"LWCloseQuarter\" as \"LWCloseQuarter\",\n\
+  \                \"Projection_1\".\"Planned\" as \"Planned\",\n                \"\
+  Projection_1\".\"WeekOfQuarter\" as \"WeekOfQuarter\",\n                \"Projection_1\"\
+  .\"WeekNumYear\" as \"WeekNumYear\",\n                \"Projection_1\".\"ACVALLOCATION_PERCENT\"\
+  \ as \"ACVALLOCATION_PERCENT\",\n                \"Projection_1\".\"NNACVPAAllocation\"\
+  \ as \"NNACVPAAllocation\",\n                \"Projection_1\".\"LWNNACVPAAllocation\"\
+  \ as \"LWNNACVPAAllocation\",\n                \"Projection_1\".\"WeightedNNACVPAAllocation\"\
+  \ as \"WeightedNNACVPAAllocation\",\n                \"Projection_1\".\"LWFINNNACV_CC\"\
+  \ as \"LWFINNNACV_CC\",\n                \"Projection_1\".\"FINNNACV_CC\" as \"\
+  FINNNACV_CC\",\n                \"Projection_1\".\"LWWeightedNNACVPAAllocation\"\
+  \ as \"LWWeightedNNACVPAAllocation\",\n                \"Projection_1\".\"ClosedNNACV\"\
+  \ as \"ClosedNNACV\",\n                \"Projection_1\".\"OpenNNACV\" as \"OpenNNACV\"\
+  ,\n                \"Projection_1\".\"LWOpenNNACV\" as \"LWOpenNNACV\",\n      \
+  \          \"Projection_1\".\"LWClosedNNACV\" as \"LWClosedNNACV\",\n          \
+  \      \"Projection_1\".\"CurrentWeekQuarter\" as \"CurrentWeekQuarter\",\n    \
+  \            \"Projection_1\".\"PreviousWeekQuarter\" as \"PreviousWeekQuarter\"\
+  ,\n                \"Projection_1\".\"OptyNumber\" as \"OptyNumber\",\n        \
+  \        \"Projection_1\".\"StandardAllocationBU\" as \"StandardAllocationBU\",\n\
+  \                \"Projection_1\".\"LWPAInAllocationValue\" as \"LWPAInAllocationValue\"\
+  ,\n                \"Projection_1\".\"LWWeightedPAInAllocationValue\" as \"LWWeightedPAInAllocationValue\"\
+  ,\n                \"Projection_1\".\"PAInAllocationValue\" as \"PAInAllocationValue\"\
+  ,\n                \"Projection_1\".\"WeightedPAInAllocationValue\" as \"WeightedPAInAllocationValue\"\
+  ,\n                \"Projection_1\".\"LWOptyType\" as \"LWOptyType\",\n        \
+  \        \"Projection_1\".\"ParentOptyNumber\" as \"ParentOptyNumber\",\n      \
+  \          \"Projection_1\".\"BUCombined\" as \"BUCombined\",\n                \"\
+  Projection_1\".\"LWBUCombined\" as \"LWBUCombined\",\n                \"Projection_1\"\
+  .\"SurvivorOptyAcctName\" as \"SurvivorOptyAcctName\",\n                \"Projection_1\"\
+  .\"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\",\n                \"Projection_1\"\
+  .\"LWParentOptyNumber\" as \"LWParentOptyNumber\",\n                \"Projection_1\"\
+  .\"ProductFamily2Value\" as \"ProductFamily2Value\",\n                \"Projection_1\"\
+  .\"AcctCountry\" as \"AcctCountry\",\n                \"Projection_1\".\"AcctNewSegment\"\
+  \ as \"AcctNewSegment\",\n                \"Projection_1\".\"AccountTotalRenewalOptyACV\"\
+  \ as \"AccountTotalRenewalOptyACV\",\n                \"Projection_1\".\"LWAccountTotalRenewalOptyACV\"\
+  \ as \"LWAccountTotalRenewalOptyACV\",\n                \"Projection_1\".\"BUWorkflow\"\
+  \ as \"BUWorkflow\",\n                \"Projection_1\".\"OptyPipelineStatus\" as\
+  \ \"OptyPipelineStatus\",\n                \"Projection_1\".\"LWOptyPipelineStatus\"\
+  \ as \"LWOptyPipelineStatus\",\n                \"Projection_1\".\"ClosedNNACVPAAllocation\"\
+  \ as \"ClosedNNACVPAAllocation\",\n                \"Projection_1\".\"LWClosedNNACVPAAllocation\"\
+  \ as \"LWClosedNNACVPAAllocation\",\n                \"Projection_1\".\"ClosedPAInAllocationValue\"\
+  \ as \"ClosedPAInAllocationValue\",\n                \"Projection_1\".\"LWClosedPAInAllocationValue\"\
+  \ as \"LWClosedPAInAllocationValue\",\n                \"Projection_1\".\"CurrentDate\"\
+  \ as \"CurrentDate\",\n                \"Projection_1\".\"PrevWeekDate\" as \"PrevWeekDate\"\
+  ,\n                \"Projection_1\".\"ClosedNNACV_PA\" as \"ClosedNNACV_PA\",\n\
+  \                \"Projection_1\".\"NNACV_PA\" as \"NNACV_PA\",\n              \
+  \  \"Projection_1\".\"WeightedNNACVPA_PA\" as \"WeightedNNACVPA_PA\",\n        \
+  \        \"Projection_1\".\"LWClosedNNACV_PA\" as \"LWClosedNNACV_PA\",\n      \
+  \          \"Projection_1\".\"LWNNACV_PA\" as \"LWNNACV_PA\",\n                \"\
+  Projection_1\".\"LWWeightedNNACVPA_PA\" as \"LWWeightedNNACVPA_PA\",\n         \
+  \       \"Projection_1\".\"AcctIndustryCategory\" as \"AcctIndustryCategory\",\n\
+  \                \"Projection_2\".\"AcctFINNNACV_CC\" as \"AcctFINNNACV_CC\",\n\
+  \                \"Projection_2\".\"BaselineBUList\" as \"BaselineBUList\",\n  \
+  \              \"Projection_2\".\"UpsellBUList\" as \"UpsellBUList\",\n        \
+  \        \"Projection_1\".\"SurvivorOpportunityName\" as \"SurvivorOpportunityName\"\
+  ,\n                \"Projection_1\".\"LWSurvivorOpportunityName\" as \"LWSurvivorOpportunityName\"\
+  \n         FROM\n           (SELECT \"AcctNumber\" as \"AcctNumber\",\n        \
+  \           \"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\",\n        \
+  \           \"AcctName\" as \"AcctName\",\n                   \"OptySalesQuarter\"\
+  \ as \"OptySalesQuarter\",\n                   \"OptyStage\" as \"OptyStage\",\n\
+  \                   \"OptyRenewalStatus\" as \"OptyRenewalStatus\",\n          \
+  \         \"OptyType\" as \"OptyType\",\n                   \"ReportingTerritoryGeo_CC\"\
+  \ as \"ReportingTerritoryGeo_CC\",\n                   \"WeightedFinNNACV_CC\" as\
+  \ \"WeightedFinNNACV_CC\",\n                   \"AcctBUNNACVBridgeFlag\" as \"AcctBUNNACVBridgeFlag\"\
+  ,\n                   \"StageMovemntFlag\" as \"StageMovemntFlag\",\n          \
+  \         \"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\",\n      \
+  \             \"CumulativeNetNewACV\" as \"CumulativeNetNewACV\",\n            \
+  \       \"OptyItemRenewalACV_USD\" as \"OptyItemRenewalACV_USD\",\n            \
+  \       \"ProductFamily3Value\" as \"ProductFamily3Value\",\n                  \
+  \ \"LWOptyStage\" as \"LWOptyStage\",\n                   \"LWWeightedFinNNACV_CC\"\
+  \ as \"LWWeightedFinNNACV_CC\",\n                   \"LWAcctBUNNACVBridgeFlag\"\
+  \ as \"LWAcctBUNNACVBridgeFlag\",\n                   \"LWProductBusinessUnitValue\"\
+  \ as \"LWProductBusinessUnitValue\",\n                   \"LWCumulativeNetNewACV\"\
+  \ as \"LWCumulativeNetNewACV\",\n                   \"LWOptyItemRenewalACV_USD\"\
+  \ as \"LWOptyItemRenewalACV_USD\",\n                   \"LWCloseQuarter\" as \"\
+  LWCloseQuarter\",\n                   \"Planned\" as \"Planned\",\n            \
+  \       \"WeekOfQuarter\" as \"WeekOfQuarter\",\n                   \"WeekNumYear\"\
+  \ as \"WeekNumYear\",\n                   \"ACVALLOCATION_PERCENT\" as \"ACVALLOCATION_PERCENT\"\
+  ,\n                   \"NNACVPAAllocation\" as \"NNACVPAAllocation\",\n        \
+  \           \"LWNNACVPAAllocation\" as \"LWNNACVPAAllocation\",\n              \
+  \     \"WeightedNNACVPAAllocation\" as \"WeightedNNACVPAAllocation\",\n        \
+  \           \"OptySysID\" as \"OptySysID\",\n                   \"OptyName\" as\
+  \ \"OptyName\",\n                   \"LWFINNNACV_CC\" as \"LWFINNNACV_CC\",\n  \
+  \                 \"FINNNACV_CC\" as \"FINNNACV_CC\",\n                   \"LWWeightedNNACVPAAllocation\"\
+  \ as \"LWWeightedNNACVPAAllocation\",\n                   \"ClosedNNACV\" as \"\
+  ClosedNNACV\",\n                   \"OpenNNACV\" as \"OpenNNACV\",\n           \
+  \        \"LWOpenNNACV\" as \"LWOpenNNACV\",\n                   \"LWClosedNNACV\"\
+  \ as \"LWClosedNNACV\",\n                   \"CurrentWeekQuarter\" as \"CurrentWeekQuarter\"\
+  ,\n                   \"PreviousWeekQuarter\" as \"PreviousWeekQuarter\",\n    \
+  \               \"OptyNumber\" as \"OptyNumber\",\n                   \"StandardAllocationBU\"\
+  \ as \"StandardAllocationBU\",\n                   \"LWPAInAllocationValue\" as\
+  \ \"LWPAInAllocationValue\",\n                   \"LWWeightedPAInAllocationValue\"\
+  \ as \"LWWeightedPAInAllocationValue\",\n                   \"PAInAllocationValue\"\
+  \ as \"PAInAllocationValue\",\n                   \"WeightedPAInAllocationValue\"\
+  \ as \"WeightedPAInAllocationValue\",\n                   \"LWOptyType\" as \"LWOptyType\"\
+  ,\n                   \"ParentOptyNumber\" as \"ParentOptyNumber\",\n          \
+  \         \"BUCombined\" as \"BUCombined\",\n                   \"LWBUCombined\"\
+  \ as \"LWBUCombined\",\n                   \"SurvivorOptyAcctName\" as \"SurvivorOptyAcctName\"\
+  ,\n                   \"LWParentOptyNumber\" as \"LWParentOptyNumber\",\n      \
+  \             \"ProductFamily2Value\" as \"ProductFamily2Value\",\n            \
+  \       \"AcctCountry\" as \"AcctCountry\",\n                   \"AcctNewSegment\"\
+  \ as \"AcctNewSegment\",\n                   \"AccountTotalRenewalOptyACV\" as \"\
+  AccountTotalRenewalOptyACV\",\n                   \"LWAccountTotalRenewalOptyACV\"\
+  \ as \"LWAccountTotalRenewalOptyACV\",\n                   \"BUWorkflow\" as \"\
+  BUWorkflow\",\n                   \"OptyPipelineStatus\" as \"OptyPipelineStatus\"\
+  ,\n                   \"LWOptyPipelineStatus\" as \"LWOptyPipelineStatus\",\n  \
+  \                 \"ClosedNNACVPAAllocation\" as \"ClosedNNACVPAAllocation\",\n\
+  \                   \"LWClosedNNACVPAAllocation\" as \"LWClosedNNACVPAAllocation\"\
+  ,\n                   \"ClosedPAInAllocationValue\" as \"ClosedPAInAllocationValue\"\
+  ,\n                   \"LWClosedPAInAllocationValue\" as \"LWClosedPAInAllocationValue\"\
+  ,\n                   \"CurrentDate\" as \"CurrentDate\",\n                   \"\
+  PrevWeekDate\" as \"PrevWeekDate\",\n                   \"ClosedNNACV_PA\" as \"\
+  ClosedNNACV_PA\",\n                   \"NNACV_PA\" as \"NNACV_PA\",\n          \
+  \         \"WeightedNNACVPA_PA\" as \"WeightedNNACVPA_PA\",\n                  \
+  \ \"LWClosedNNACV_PA\" as \"LWClosedNNACV_PA\",\n                   \"LWNNACV_PA\"\
+  \ as \"LWNNACV_PA\",\n                   \"LWWeightedNNACVPA_PA\" as \"LWWeightedNNACVPA_PA\"\
+  ,\n                   \"AcctIndustryCategory\" as \"AcctIndustryCategory\",\n  \
+  \                 \"SurvivorOpportunityName\" as \"SurvivorOpportunityName\",\n\
+  \                   \"LWSurvivorOpportunityName\" as \"LWSurvivorOpportunityName\"\
+  ,\n                   RIGHT(YEAR(TO_DATE(convert_timezone('random', CURRENT_TIMESTAMP)))\
+  \ ||'random'|| QUARTER(TO_DATE(convert_timezone('random', CURRENT_TIMESTAMP))),\
+  \ 'random') as \"CurrentQtr\"\n            FROM \"EDW_LS\".\"PRODUCT_EM\".\"BUWEEKLYPIPELINE\"\
+  )\"Projection_1\"\n         LEFT JOIN\n           (SELECT \"OptySalesQuarter\" as\
+  \ \"OptySalesQuarter\",\n                   \"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\"\
+  ,\n                   \"AcctNumber\" as \"AcctNumber\",\n                   \"OptyNumber\"\
+  \ as \"OptyNumber\",\n                   \"AcctFINNNACV_CC\" as \"AcctFINNNACV_CC\"\
+  ,\n                   \"BaselineBUList\" as \"BaselineBUList\",\n              \
+  \     \"UpsellBUList\" as \"UpsellBUList\"\n            FROM EDW_LS.PRODUCT_EM.WEEKLYPIPELINE_ALLBUS)\"\
+  Projection_2\" ON \"Projection_1\".\"AcctNumber\" = \"Projection_2\".\"AcctNumber\"\
+  \n         AND \"Projection_1\".\"OptyNumber\" = \"Projection_2\".\"OptyNumber\"\
+  \n         AND \"Projection_1\".\"SurvivorOptyAcctNumber\" = \"Projection_2\".\"\
+  SurvivorOptyAcctNumber\"\n         AND \"Projection_1\".\"OptySalesQuarter\" = \"\
+  Projection_2\".\"OptySalesQuarter\")\"Join_1\"\n      LEFT JOIN\n        (SELECT\
+  \ \"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\",\n              \
+  \  \"CustomAllocationPercentage\" as \"CustomAllocationPercentage\",\n         \
+  \       \"AllocIn%\" as \"AllocIn%\",\n                \"CustSKUFINNNACV_CC\" as\
+  \ \"CustSKUFINNNACV_CC\",\n                \"LWCustSKUFINNNACV_CC\" as \"LWCustSKUFINNNACV_CC\"\
+  ,\n                \"CustSKUWTNNACV_CC\" as \"CustSKUWTNNACV_CC\",\n           \
+  \     \"LWCustSKUWTNNACV_CC\" as \"LWCustSKUWTNNACV_CC\"\n         FROM EDW_LS.PRODUCT_EM.WEEKLYPIPELINE_CUSTOMALLOC)\"\
+  Projection_3\" ON \"Join_1\".\"ProductBusinessUnitValue\" = \"Projection_3\".\"\
+  ProductBusinessUnitValue\")\"Join_2\"\n   LEFT JOIN\n     (SELECT \"OptyNumber\"\
+  \ as \"OptyNumber\",\n             \"OptyCloseDate\" as \"OptyCloseDate\"\n    \
+  \  FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\")\"Projection_4\" ON \"Join_2\"\
+  .\"OptyNumber\" = \"Projection_4\".\"OptyNumber\")Join_3;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

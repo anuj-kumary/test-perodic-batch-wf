@@ -1,0 +1,67 @@
+name: table_1504
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1504
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1504.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_CUST360_OPEN_RECV(\n\t\"AcctName\",\n\
+  \t\"AcctSysID\",\n\t\"AccountKey_C\",\n\t\"AccountNumber\",\n\t\"NetDueDate_F\"\
+  ,\n\t\"AgingGrid_Custom\",\n\t\"DocCurrency\",\n\t\"AmountInDocCurr\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"AcctName\" as \"AcctName\",\n       \"AcctSysID\" as\
+  \ \"AcctSysID\",\n       \"AcctSysID\" || \"AccountNumber\" as \"AccountKey_C\"\
+  ,\n       \"AccountNumber\" as \"AccountNumber\",\n       \"NetDueDate_F\" as \"\
+  NetDueDate_F\",\n       \"AgingGrid_Custom\" as \"AgingGrid_Custom\",\n       \"\
+  DocCurrency\" as \"DocCurrency\",\n       \"AmountInDocCurr\" as \"AmountInDocCurr\"\
+  \nFROM\n  (SELECT \"Projection_2\".\"AcctName\" as \"AcctName\",\n          \"Projection_2\"\
+  .\"AcctSysID\" as \"AcctSysID\",\n          \"Projection_1\".\"AccountNumber\" as\
+  \ \"AccountNumber\",\n          \"Projection_1\".\"NetDueDate_F\" as \"NetDueDate_F\"\
+  ,\n          \"Projection_1\".\"AgingGrid_Custom\" as \"AgingGrid_Custom\",\n  \
+  \        \"Projection_1\".\"DocCurrency\" as \"DocCurrency\",\n          \"Projection_1\"\
+  .\"AmountInDocCurr\" as \"AmountInDocCurr\"\n   FROM\n     (SELECT \"AccountNumber\"\
+  \ as \"AccountNumber\",\n             \"NetDueDate_F\" as \"NetDueDate_F\",\n  \
+  \           \"AgingGrid_Custom\" as \"AgingGrid_Custom\",\n             \"DocCurrency\"\
+  \ as \"DocCurrency\",\n             \"AmountInDocCurr\" as \"AmountInDocCurr\"\n\
+  \      FROM EDW_LS.LEGACY_SALES.CUSTOMER_OPEN_RECEIVABLE_ANALYSIS)\"Projection_1\"\
+  \n   LEFT JOIN\n     (SELECT \"AcctName\" as \"AcctName\",\n             \"AcctSysID\"\
+  \ as \"AcctSysID\",\n             \"AcctNumber\" as \"AcctNumber\"\n      FROM \"\
+  ODS_LS\".\"SURF\".\"SALES_ACCOUNT\")\"Projection_2\" ON \"Projection_1\".\"AccountNumber\"\
+  \ = \"Projection_2\".\"AcctNumber\")Join_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

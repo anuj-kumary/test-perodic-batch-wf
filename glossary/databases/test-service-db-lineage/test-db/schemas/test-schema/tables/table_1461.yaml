@@ -1,0 +1,60 @@
+name: table_1461
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1461
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1461.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_NCP_TARGET_TEST4(\n\tQUARTER_ID,\n\
+  \tQUARTER_YYQQ,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tBU_GROUP_ID,\n\tPIPELINE_SOURCE,\n\
+  \tNNACV_PIPELINE_TARGET_USD,\n\tPRORATED_TARGET_USD,\n\tBASE_TARGET_USD,\n\tTERRITORY_SYSID\n\
+  ) as\nSELECT\nDQ.QUARTER_ID,\nDQ.QUARTER_YYQQ,\nCASE WHEN \"TerrSysID\" IS not NULL\
+  \ THEN hash(TGT.\"TerrSysID\") ELSE 'random' END AS TERRITORY_ID,\nDT.GEO_ID,\n\
+  hash(TGT.\"BU\") AS BU_GROUP_ID,\n\"LineCreatedBy\" AS PIPELINE_SOURCE,\nSUM(TGT.\"\
+  CreatedPipeFinalTarget\") AS NNACV_PIPELINE_TARGET_USD,\nSUM(TGT.\"ProratedTarget\"\
+  ) AS PRORATED_TARGET_USD,\nSUM(TGT.\"BaseTarget\") AS BASE_TARGET_USD,\n\"TerrSysID\"\
+  \ AS TERRITORY_SYSID\nFROM EDW_LS.SALES_EM.VW_EM_SALES_NCP_CREATEDPIPE_TARGETS TGT\n\
+  LEFT JOIN EDW.ENTERPRISE.DIM_TERRITORY DT on DT.TERRITORY_SYSID= \"TerrSysID\"\n\
+  LEFT JOIN EDW.ENTERPRISE.DIM_QUARTER DQ on DQ.QUARTER_YYQQ=\"Quarter\"\nWHERE\"\
+  Quarter\" = RIGHT(\n            YEAR(\n                convert_timezone('random',\
+  \ CURRENT_TIMESTAMP())\n            ) || 'random' || QUARTER(\n                convert_timezone('random',\
+  \ CURRENT_TIMESTAMP())\n            ),\n            'random'\n        )\nGROUP BY\
+  \ ALL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

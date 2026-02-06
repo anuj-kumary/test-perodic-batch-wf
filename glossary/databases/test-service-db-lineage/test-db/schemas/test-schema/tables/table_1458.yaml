@@ -1,0 +1,172 @@
+name: table_1458
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1458
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1458.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_FUTURE_EVENTS_REGISTRATION(\n\t\"CampaignNumber\"\
+  ,\n\t\"CampaignName\",\n\t\"EventCity\",\n\t\"EventType\",\n\t\"EventName\",\n\t\
+  \"EventDate\",\n\t\"AccountNumber\",\n\t\"AccountName\",\n\t\"AcctParentName\",\n\
+  \t\"G2KFlag\",\n\t\"AccountType\",\n\t\"AttendeeID\",\n\t\"RegisteringFor\",\n\t\
+  \"LeagalFirstName\",\n\t\"LeagalLastName\",\n\t\"FullName\",\n\t\"BusinessEmail\"\
+  ,\n\t\"BusinessPhone\",\n\t\"Company\",\n\t\"JobTitle\",\n\t\"Country\",\n\t\"State-Province\"\
+  ,\n\t\"JobRole\",\n\t\"JobLevel\",\n\t\"Jobfunction\",\n\t\"Industry\",\n\t\"EventSysID\"\
+  ,\n\t\"Registration_Status\",\n\t\"RegistrationSource\",\n\t\"RegistrationPriceUSD\"\
+  ,\n\t\"WeekNumber\",\n\t\"WeeksToEventNumber\",\n\t\"WeeksToEvent\",\n\t\"Knowledge\"\
+  ,\n\t\"%_of_Target\",\n\t\"__of_Registrations\",\n\t\"RegistrationGoalBU\",\n\t\"\
+  AcctSysID\",\n\t\"AccountKey\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"CampaignNumber\"\
+  \ as \"CampaignNumber\",\n       \"CampaignName\" as \"CampaignName\",\n       \"\
+  EventCity\" as \"EventCity\",\n       \"EventType\" as \"EventType\",\n       \"\
+  EventName\" as \"EventName\",\n       \"EventDate\" as \"EventDate\",\n       \"\
+  AccountNumber\" as \"AccountNumber\",\n       \"AccountName\" as \"AccountName\"\
+  ,\n       \"AcctParentName\" as \"AcctParentName\",\n       \"G2KFlag\" as \"G2KFlag\"\
+  ,\n       \"AccountType\" as \"AccountType\",\n       \"AttendeeID\" as \"AttendeeID\"\
+  ,\n       \"RegisteringFor\" as \"RegisteringFor\",\n       \"LeagalFirstName\"\
+  \ as \"LeagalFirstName\",\n       \"LeagalLastName\" as \"LeagalLastName\",\n  \
+  \     \"FullName\" as \"FullName\",\n       \"BusinessEmail\" as \"BusinessEmail\"\
+  ,\n       \"BusinessPhone\" as \"BusinessPhone\",\n       \"Company\" as \"Company\"\
+  ,\n       \"JobTitle\" as \"JobTitle\",\n       \"Country\" as \"Country\",\n  \
+  \     \"State-Province\" as \"State-Province\",\n       \"JobRole\" as \"JobRole\"\
+  ,\n       \"JobLevel\" as \"JobLevel\",\n       \"Jobfunction\" as \"Jobfunction\"\
+  ,\n       \"Industry\" as \"Industry\",\n       \"EventSysID\" as \"EventSysID\"\
+  ,\n       \"Registration_Status\" as \"Registration_Status\",\n       \"RegistrationSource\"\
+  \ as \"RegistrationSource\",\n       \"RegistrationPriceUSD\" as \"RegistrationPriceUSD\"\
+  ,\n       \"WeekNumber\" as \"WeekNumber\",\n       \"WeeksToEventNumber\" as \"\
+  WeeksToEventNumber\",\n       \"WeeksToEvent\" as \"WeeksToEvent\",\n       \"Knowledge\"\
+  \ as \"Knowledge\",\n       \"%_of_Target\" as \"%_of_Target\",\n       \"__of_Registrations\"\
+  \ as \"__of_Registrations\",\n       \"RegistrationGoalBU\" as \"RegistrationGoalBU\"\
+  ,\n       \"AcctSysID\" as \"AcctSysID\",\n       \"AcctSysID\"||\"AccountName\"\
+  \ as \"AccountKey\"\nFROM\n  (SELECT \"Projection_1\".\"CampaignNumber\" as \"CampaignNumber\"\
+  ,\n          \"Projection_1\".\"CampaignName\" as \"CampaignName\",\n          \"\
+  Projection_1\".\"EventCity\" as \"EventCity\",\n          \"Projection_1\".\"EventType\"\
+  \ as \"EventType\",\n          \"Projection_1\".\"EventName\" as \"EventName\",\n\
+  \          \"Projection_1\".\"EventDate\" as \"EventDate\",\n          \"Projection_1\"\
+  .\"AccountNumber\" as \"AccountNumber\",\n          \"Projection_2\".\"AcctNumber\"\
+  \ as \"AccountName\",\n          \"Projection_1\".\"AcctParentName\" as \"AcctParentName\"\
+  ,\n          \"Projection_1\".\"G2KFlag\" as \"G2KFlag\",\n          \"Projection_1\"\
+  .\"AccountType\" as \"AccountType\",\n          \"Projection_1\".\"AttendeeID\"\
+  \ as \"AttendeeID\",\n          \"Projection_1\".\"RegisteringFor\" as \"RegisteringFor\"\
+  ,\n          \"Projection_1\".\"LeagalFirstName\" as \"LeagalFirstName\",\n    \
+  \      \"Projection_1\".\"LeagalLastName\" as \"LeagalLastName\",\n          \"\
+  Projection_1\".\"FullName\" as \"FullName\",\n          \"Projection_1\".\"BusinessEmail\"\
+  \ as \"BusinessEmail\",\n          \"Projection_1\".\"BusinessPhone\" as \"BusinessPhone\"\
+  ,\n          \"Projection_1\".\"Company\" as \"Company\",\n          \"Projection_1\"\
+  .\"JobTitle\" as \"JobTitle\",\n          \"Projection_1\".\"Country\" as \"Country\"\
+  ,\n          \"Projection_1\".\"State-Province\" as \"State-Province\",\n      \
+  \    \"Projection_1\".\"JobRole\" as \"JobRole\",\n          \"Projection_1\".\"\
+  JobLevel\" as \"JobLevel\",\n          \"Projection_1\".\"Jobfunction\" as \"Jobfunction\"\
+  ,\n          \"Projection_1\".\"Industry\" as \"Industry\",\n          \"Projection_1\"\
+  .\"EventSysID\" as \"EventSysID\",\n          \"Projection_1\".\"Registration_Status\"\
+  \ as \"Registration_Status\",\n          \"Projection_1\".\"RegistrationSource\"\
+  \ as \"RegistrationSource\",\n          \"Projection_1\".\"RegistrationPriceUSD\"\
+  \ as \"RegistrationPriceUSD\",\n          \"Projection_1\".\"WeekNumber\" as \"\
+  WeekNumber\",\n          \"Projection_1\".\"WeeksToEventNumber\" as \"WeeksToEventNumber\"\
+  ,\n          \"Projection_1\".\"WeeksToEvent\" as \"WeeksToEvent\",\n          \"\
+  Projection_1\".\"Knowledge\" as \"Knowledge\",\n          \"Projection_1\".\"%_of_Target\"\
+  \ as \"%_of_Target\",\n          \"Projection_1\".\"__of_Registrations\" as \"__of_Registrations\"\
+  ,\n          \"Projection_1\".\"RegistrationGoalBU\" as \"RegistrationGoalBU\",\n\
+  \          \"Projection_2\".\"AcctSysID\" as \"AcctSysID\"\n   FROM\n     (SELECT\
+  \ \"CampaignNumber\" as \"CampaignNumber\",\n             \"CampaignName\" as \"\
+  CampaignName\",\n             \"EventCity\" as \"EventCity\",\n             \"EventType\"\
+  \ as \"EventType\",\n             \"EventName\" as \"EventName\",\n            \
+  \ \"EventDate\" as \"EventDate\",\n             \"AccountNumber\" as \"AccountNumber\"\
+  ,\n             \"AccountName\" as \"AccountName\",\n             \"AcctParentName\"\
+  \ as \"AcctParentName\",\n             \"AccountGeo\" as \"AccountGeo\",\n     \
+  \        \"AccountRegion\" as \"AccountRegion\",\n             \"AccountArea\" as\
+  \ \"AccountArea\",\n             \"AccountDistrict\" as \"AccountDistrict\",\n \
+  \            \"AccountType\" as \"AccountType\",\n             \"AccountTypeGroup\"\
+  \ as \"AccountTypeGroup\",\n             \"G2KFlag\" as \"G2KFlag\",\n         \
+  \    \"# ofKAccountPasses\" as \"__ofKAccountPasses\",\n             \"AccountIndustry\"\
+  \ as \"AccountIndustry\",\n             \"VendorUserReferenceID\" as \"VendorUserReferenceID\"\
+  ,\n             \"AttendeeID\" as \"AttendeeID\",\n             \"RegisteringFor\"\
+  \ as \"RegisteringFor\",\n             \"RegisteringFor\" as \"RegisteringFor_1\"\
+  ,\n             \"Salutation\" as \"Salutation\",\n             \"LeagalFirstName\"\
+  \ as \"LeagalFirstName\",\n             \"LeagalLastName\" as \"LeagalLastName\"\
+  ,\n             \"FullName\" as \"FullName\",\n             \"PreferredBadgeFirstName\"\
+  \ as \"PreferredBadgeFirstName\",\n             \"BusinessEmail\" as \"BusinessEmail\"\
+  ,\n             \"CCEmail\" as \"CCEmail\",\n             \"BusinessPhone\" as \"\
+  BusinessPhone\",\n             \"Company\" as \"Company\",\n             \"JobTitle\"\
+  \ as \"JobTitle\",\n             \"Country\" as \"Country\",\n             \"State-Province\"\
+  \ as \"State-Province\",\n             \"EmergencyContactFirstLastName\" as \"EmergencyContactFirstLastName\"\
+  ,\n             \"Emergency Contact Phone\" as \"Emergency_Contact_Phone\",\n  \
+  \           \"EmergencyRelationship\" as \"EmergencyRelationship\",\n          \
+  \   \"Accessibility Accomodation\" as \"Accessibility_Accomodation\",\n        \
+  \     \"Dietary Restrictions\" as \"Dietary_Restrictions\",\n             \"JobRole\"\
+  \ as \"JobRole\",\n             \"JobLevel\" as \"JobLevel\",\n             \"Jobfunction\"\
+  \ as \"Jobfunction\",\n             \"Industry\" as \"Industry\",\n            \
+  \ \"InterestedIn\" as \"InterestedIn\",\n             \"RegistrationPackageType\"\
+  \ as \"RegistrationPackageType\",\n             \"RegistrationTypeGroup\" as \"\
+  RegistrationTypeGroup\",\n             \"RegistrationType\" as \"RegistrationType\"\
+  ,\n             \"Registration Package Add-On\" as \"Registration_Package_Add-On\"\
+  ,\n             \"Registration Code\" as \"Registration_Code\",\n             \"\
+  Registration Code Category\" as \"Registration_Code_Category\",\n             \"\
+  Registration Invites Approved\" as \"Registration_Invites_Approved\",\n        \
+  \     \"Registration Invites Flag\" as \"Registration_Invites_Flag\",\n        \
+  \     \"BU\" as \"BU\",\n             \"EventSysID\" as \"EventSysID\",\n      \
+  \       \"Registration DateTime GMT\" as \"Registration_DateTime_GMT\",\n      \
+  \       \"Registered Flag\" as \"Registered_Flag\",\n             \"Invited DateTime\
+  \ GMT\" as \"Invited_DateTime_GMT\",\n             \"Invited Flag\" as \"Invited_Flag\"\
+  ,\n             \"Checked-In DateTime GMT\" as \"Checked-In_DateTime_GMT\",\n  \
+  \           \"Checked-in Flag\" as \"Checked-in_Flag\",\n             \"NoShow Flag\"\
+  \ as \"NoShow_Flag\",\n             \"Declined Invitation DateTime GMT\" as \"Declined_Invitation_DateTime_GMT\"\
+  ,\n             \"Declined Invitation Flag\" as \"Declined_Invitation_Flag\",\n\
+  \             \"Cancelled DateTime GMT\" as \"Cancelled_DateTime_GMT\",\n      \
+  \       \"Cancelled Flag\" as \"Cancelled_Flag\",\n             \"Registration Status\"\
+  \ as \"Registration_Status\",\n             \"RegistrationSource\" as \"RegistrationSource\"\
+  ,\n             \"RegistrationPriceUSD\" as \"RegistrationPriceUSD\",\n        \
+  \     \"RegistrationPlatform\" as \"RegistrationPlatform\",\n             \"RegistrationOS\"\
+  \ as \"RegistrationOS\",\n             \"WeeksToEvent\" as \"WeeksToEvent\",\n \
+  \            \"WeeksToEventNumber\" as \"WeeksToEventNumber\",\n             \"\
+  WeekNumber\" as \"WeekNumber\",\n             \"# of Registrations\" as \"__of_Registrations\"\
+  ,\n             \"% of Target\" as \"%_of_Target\",\n             \"Knowledge\"\
+  \ as \"Knowledge\",\n             \"TestFlag\" as \"TestFlag\",\n             \"\
+  InviteTimeStampUTC\" as \"InviteTimeStampUTC\",\n             \"RegTimeStampUTC\"\
+  \ as \"RegTimeStampUTC\",\n             \"CheckinTimeStampUTC\" as \"CheckinTimeStampUTC\"\
+  ,\n             \"UpdateTimeStampUTC\" as \"UpdateTimeStampUTC\",\n            \
+  \ \"RegistrationTotalGoal\" as \"RegistrationTotalGoal\",\n             \"TargetRegistrationTotalGoal\"\
+  \ as \"TargetRegistrationTotalGoal\",\n             \"RegistrationGoal\" as \"RegistrationGoal\"\
+  ,\n             \"RegistrationGoalBU\" as \"RegistrationGoalBU\"\n      FROM \"\
+  EDW_LS\".\"MARKETING_EM\".\"EM_KNOWLEDGE_EVENT_REGISTRATION\"\n      WHERE \"EventName\"\
+  \ = 'random'\n        AND \"Registration_Status\" = 'random' )\"Projection_1\"\n\
+  \   INNER JOIN\n     (SELECT \"AcctSysID\" as \"AcctSysID\",\n             \"AcctNumber\"\
+  \ as \"AcctNumber\"\n      FROM \"ODS_LS\".\"SURF\".\"SALES_ACCOUNT\")\"Projection_2\"\
+  \ ON \"Projection_1\".\"AccountName\" = \"Projection_2\".\"AcctNumber\")Join_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

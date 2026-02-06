@@ -1,0 +1,59 @@
+name: table_1470
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1470
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1470.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_COMMUNITIES_BLOG(\n\t\"SysCretedOn\"\
+  ,\n\t\"SysUpdatedBy\",\n\t\"Content\",\n\t\"Description\",\n\t\"DvContent\",\n\t\
+  \"SysTags\",\n\t\"SysDomain\",\n\t\"SysDomainPath\",\n\t\"ScheduledTime\",\n\t\"\
+  SysID\",\n\t\"SysCreatedBy\",\n\t\"Title\",\n\t\"TimeZone\",\n\t\"SysUpdatedOn\"\
+  ,\n\t\"SysModCount\",\n\t\"DvSysDomain\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"SYS_CREATED_ON\" as \"SysCretedOn\",\n       \"SYS_UPDATED_BY\" as \"SysUpdatedBy\"\
+  ,\n       \"CONTENT\" as \"Content\",\n       \"DESCRIPTION\" as \"Description\"\
+  ,\n       \"DV_CONTENT\" as \"DvContent\",\n       \"SYS_TAGS\" as \"SysTags\",\n\
+  \       \"SYS_DOMAIN\" as \"SysDomain\",\n       \"SYS_DOMAIN_PATH\" as \"SysDomainPath\"\
+  ,\n       \"SCHEDULED_TIME\" as \"ScheduledTime\",\n       \"SYS_ID\" as \"SysID\"\
+  ,\n       \"SYS_CREATED_BY\" as \"SysCreatedBy\",\n       \"TITLE\" as \"Title\"\
+  ,\n       \"TIME_ZONE\" as \"TimeZone\",\n       \"SYS_UPDATED_ON\" as \"SysUpdatedOn\"\
+  ,\n       \"SYS_MOD_COUNT\" as \"SysModCount\",\n       \"DV_SYS_DOMAIN\" as \"\
+  DvSysDomain\"\nFROM \"RDS\".\"SURF\".\"SN_COMMUNITIES_BLOG\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

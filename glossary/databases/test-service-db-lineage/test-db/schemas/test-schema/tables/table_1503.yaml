@@ -1,0 +1,667 @@
+name: table_1503
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1503
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1503.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_CUST360_PIPELINE_BY_ACCOUNTS(\n\t\"\
+  AccountKey_CC\",\n\t\"Next4Quarter_CC\",\n\t\"Prev4Quarter_CC\",\n\t\"OptyStage\"\
+  ,\n\t\"OptyTerritory\",\n\t\"OptyNumber\",\n\t\"OptyParentNumber\",\n\t\"OptyName\"\
+  ,\n\t\"OptyOwnerName\",\n\t\"OptyType\",\n\t\"MaturedPipeline\",\n\t\"TotalActivePipeline\"\
+  ,\n\t\"TotalClosedWonOpty\",\n\t\"ClosedLostOpty\",\n\t\"TotalRenewal\",\n\t\"OpportunityCloseQuarter\"\
+  ,\n\t\"OpenRenewal\",\n\t\"ClosedRenewal\",\n\t\"MaturedPipelineACV\",\n\t\"TotalActivePipelineACV\"\
+  ,\n\t\"TotalClosedWonOptyACV\",\n\t\"TotalClosedLostOptyACV\",\n\t\"TotalRenewalNNACV\"\
+  ,\n\t\"OpenRenewalACV\",\n\t\"ClosedRenewalACV\",\n\t\"NetNewACV_USD\",\n\t\"RenewalACV_USD\"\
+  ,\n\t\"OptyStatus\",\n\t\"ReasonCode\",\n\t\"SummTotalActivePipelineACV\",\n\t\"\
+  OptySysID\",\n\tG2K_C,\n\t\"CustomerAge_C\",\n\t\"SupportChampion_C\",\n\t\"SolutionConsultant_C\"\
+  ,\n\tADR_C,\n\t\"SupportAccountManager_C\",\n\t\"PSChampion_C\",\n\t\"OptyParentSysID\"\
+  ,\n\t\"OptyParentName\",\n\t\"OptyCloseDate\",\n\t\"ProductFullName\",\n\t\"ProductCode\"\
+  ,\n\t\"RenewalDate\",\n\t\"CurrentDate\",\n\t\"MonthsBtwnRenewalDate\",\n\t\"Segment\"\
+  ,\n\t\"TerrReportingTerritoryGeo\",\n\t\"TerrDistrict\",\n\t\"TerrGeo\",\n\t\"TerrRegion\"\
+  ,\n\t\"TerrCountry\",\n\t\"ConItemQuantity\",\n\t\"ConItemACV_USD\",\n\t\"AcctSysID\"\
+  ,\n\t\"BUCombined\",\n\t\"Industry\",\n\t\"SalesRep\",\n\t\"CustomerSince\",\n\t\
+  \"ScoreColor\",\n\t\"HealthScore\",\n\t\"Severity\",\n\t\"RiskScore\",\n\t\"ContractRenewalDate\"\
+  ,\n\t\"DaytoRenew_C\",\n\t\"LeadNumber\",\n\t\"JourneyPhase\",\n\t\"JourneyColor\"\
+  ,\n\t\"Phase\",\n\t\"ContractACV_USD\",\n\t\"ACVBand\",\n\t\"OptySource\",\n\t\"\
+  AcctNumber\",\n\t\"AcctName\"\n) as WITH Projection_1 AS\n  (SELECT \"AcctName\"\
+  \ as \"AcctName\",\n          \"AcctNewSegment\" as \"Segment\",\n          \"AcctNumber\"\
+  \ as \"AcctNumber\",\n          \"TerrReportingTerritoryGeo\" as \"TerrReportingTerritoryGeo\"\
+  ,\n          \"TerrDistrict\" as \"TerrDistrict\",\n          \"TerrGeo\" as \"\
+  TerrGeo\",\n          \"TerrRegion\" as \"TerrRegion\",\n          \"TerrCountry\"\
+  \ as \"TerrCountry\",\n          \"ConItemQuantity\" as \"ConItemQuantity\",\n \
+  \         \"ConItemACV_USD\" as \"ConItemACV_USD\",\n          \"AcctSysID\" as\
+  \ \"AcctSysID\",\n          \"BUCombined\" as \"BUCombined\",\n          \"IndustryCategory\"\
+  \ as \"IndustryCategory\",\n          \"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\"\
+  ,\n          \"AcctSolutionConsultant\" as \"AcctSolutionConsultant\",\n       \
+  \   \"AcctInsideSalesRep\" as \"AcctInsideSalesRep\",\n          \"AcctSupportChampion\"\
+  \ as \"AcctSupportChampion\",\n          \"AcctCustomerSuccessManager\" as \"AcctCustomerSuccessManager\"\
+  ,\n          \"AcctPSChampion\" as \"AcctPSChampion\",\n          \"AcctCustomerSince\"\
+  \ as \"AcctCustomerSince\",\n          \"ScoreColor\" as \"ScoreColor\",\n     \
+  \     \"HealthScore\" as \"HealthScore\",\n          \"Severity\" as \"Severity\"\
+  ,\n          \"RiskScore\" as \"RiskScore\",\n          \"ContractRenewalDate\"\
+  \ as \"ContractRenewalDate\",\n          \"DaytoRenew_C\" as \"DaytoRenew_C\",\n\
+  \          \"LeadNumber\" as \"LeadNumber\",\n          \"JourneyPhase\" as \"JourneyPhase\"\
+  ,\n          \"JourneyColor\" as \"JourneyColor\",\n          \"Phase\" as \"Phase\"\
+  ,\n          \"AcctG2KParentSysID\" as \"AcctG2KParentSysID\"\n   FROM \"EDW_LS\"\
+  .\"CUSTOMER_EM\".\"EM_CUSTOMER_BU_CROSS\") -- SEMANTIC LAYER BEGINS\n\nSELECT \"\
+  AcctSysID\" || \"AcctNumber\" as \"AccountKey_CC\",\n       IFF((RIGHT(YEAR(DATEADD(DAY,\
+  \ 'random', CURRENT_TIMESTAMP())) ||'random'|| QUARTER(DATEADD(DAY, 'random', CURRENT_TIMESTAMP())),\
+  \ 'random') >\"OpportunityCloseQuarter\"\n            AND \"OpportunityCloseQuarter\"\
+  >= RIGHT(YEAR(CURRENT_TIMESTAMP())||'random'|| QUARTER(CURRENT_TIMESTAMP()), 'random')),\
+  \ 'random', 'random') as \"Next4Quarter_CC\",\n       IFF(DATEADD(DAY, 'random',\
+  \ CURRENT_TIMESTAMP())<\"OptyCloseDate\"\n           AND \"OptyCloseDate\" <= CURRENT_TIMESTAMP,\
+  \ 'random', 'random') as \"Prev4Quarter_CC\",\n       \"OptyStage\" as \"OptyStage\"\
+  ,\n       \"OptyTerritory\" as \"OptyTerritory\",\n       \"OptyNumber\" as \"OptyNumber\"\
+  ,\n       \"OptyParentNumber\" as \"OptyParentNumber\",\n       \"OptyName\" as\
+  \ \"OptyName\",\n       \"OptyOwnerName\" as \"OptyOwnerName\",\n       \"OptyType\"\
+  \ as \"OptyType\",\n       \"MaturedPipeline\" as \"MaturedPipeline\",\n       \"\
+  TotalActivePipeline\" as \"TotalActivePipeline\",\n       \"TotalClosedWonOpty\"\
+  \ as \"TotalClosedWonOpty\",\n       \"ClosedLostOpty\" as \"ClosedLostOpty\",\n\
+  \       \"TotalRenewal\" as \"TotalRenewal\",\n       \"OpportunityCloseQuarter\"\
+  \ as \"OpportunityCloseQuarter\",\n       \"OpenRenewal\" as \"OpenRenewal\",\n\
+  \       \"ClosedRenewal\" as \"ClosedRenewal\",\n       \"MaturedPipelineACV\" as\
+  \ \"MaturedPipelineACV\",\n       \"TotalActivePipelineACV\" as \"TotalActivePipelineACV\"\
+  ,\n       \"TotalClosedWonOptyACV\" as \"TotalClosedWonOptyACV\",\n       \"TotalClosedLostOptyACV\"\
+  \ as \"TotalClosedLostOptyACV\",\n       \"TotalRenewalNNACV\" as \"TotalRenewalNNACV\"\
+  ,\n       \"OpenRenewalACV\" as \"OpenRenewalACV\",\n       \"ClosedRenewalACV\"\
+  \ as \"ClosedRenewalACV\",\n       \"NetNewACV_USD\" as \"NetNewACV_USD\",\n   \
+  \    \"RenewalACV_USD\" as \"RenewalACV_USD\",\n       \"OptyStatus\" as \"OptyStatus\"\
+  ,\n       \"ReasonCode\" as \"ReasonCode\",\n       \"SummTotalActivePipelineACV\"\
+  \ as \"SummTotalActivePipelineACV\",\n       \"OptySysID\" as \"OptySysID\",\n \
+  \      \"G2K_C\" as \"G2K_C\",\n       \"CustomerAge_C\" as \"CustomerAge_C\",\n\
+  \       \"SupportChampion_C\" as \"SupportChampion_C\",\n       \"SolutionConsultant_C\"\
+  \ as \"SolutionConsultant_C\",\n       \"ADR_C\" as \"ADR_C\",\n       \"SupportAccountManager_C\"\
+  \ as \"SupportAccountManager_C\",\n       \"PSChampion_C\" as \"PSChampion_C\",\n\
+  \       \"OptyParentSysID\" as \"OptyParentSysID\",\n       \"OptyParentName\" as\
+  \ \"OptyParentName\",\n       \"OptyCloseDate\" as \"OptyCloseDate\",\n       \"\
+  ProductFullName\" as \"ProductFullName\",\n       \"ProductCode\" as \"ProductCode\"\
+  ,\n       \"RenewalDate\" as \"RenewalDate\",\n       \"CurrentDate\" as \"CurrentDate\"\
+  ,\n       \"MonthsBtwnRenewalDate\" as \"MonthsBtwnRenewalDate\",\n       \"AcctNewSegment\"\
+  \ as \"Segment\",\n       \"TerrReportingTerritoryGeo\" as \"TerrReportingTerritoryGeo\"\
+  ,\n       \"TerrDistrict\" as \"TerrDistrict\",\n       \"TerrGeo\" as \"TerrGeo\"\
+  ,\n       \"TerrRegion\" as \"TerrRegion\",\n       \"TerrCountry\" as \"TerrCountry\"\
+  ,\n       \"ConItemQuantity\" as \"ConItemQuantity\",\n       \"ConItemACV_USD\"\
+  \ as \"ConItemACV_USD\",\n       \"AcctSysID\" as \"AcctSysID\",\n       \"BUCombined\"\
+  \ as \"BUCombined\",\n       \"Industry\" as \"Industry\",\n       \"SalesRep\"\
+  \ as \"SalesRep\",\n       \"AcctCustomerSince\" as \"CustomerSince\",\n       \"\
+  ScoreColor\" as \"ScoreColor\",\n       \"HealthScore\" as \"HealthScore\",\n  \
+  \     \"Severity\" as \"Severity\",\n       \"RiskScore\" as \"RiskScore\",\n  \
+  \     \"ContractRenewalDate\" as \"ContractRenewalDate\",\n       \"DaytoRenew_C\"\
+  \ as \"DaytoRenew_C\",\n       \"LeadNumber\" as \"LeadNumber\",\n       \"JourneyPhase\"\
+  \ as \"JourneyPhase\",\n       \"JourneyColor\" as \"JourneyColor\",\n       \"\
+  Phase\" as \"Phase\",\n       \"ContractACV_USD\" as \"ContractACV_USD\",\n    \
+  \   CASE\n           WHEN \"ContractACV_USD\" IS NULL then 'random'\n          \
+  \ else IFF(\"ContractACV_USD\" >= 'random', 'random', IFF(\"ContractACV_USD\">='random'\n\
+  \                                                             AND \"ContractACV_USD\"\
+  \ < 'random', 'random', IFF(\"ContractACV_USD\" >='random'\n                   \
+  \                                                                              \
+  \               and \"ContractACV_USD\" < 'random', 'random', IFF(\"ContractACV_USD\"\
+  \ >='random'\n                                                                 \
+  \                                                                              \
+  \                      and \"ContractACV_USD\" < 'random', 'random', IFF(\"ContractACV_USD\"\
+  \ >='random'\n                                                                 \
+  \                                                                              \
+  \                                                                            and\
+  \ \"ContractACV_USD\" < 'random', 'random', IFF(\"ContractACV_USD\" >='random'\n\
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                       and \"ContractACV_USD\" < 'random', 'random',\
+  \ IFF((\"ContractACV_USD\") IS NULL\n                                          \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                or \"ContractACV_USD\" < 'random',\
+  \ 'random', 'random')))))))\n       end as \"ACVBand\",\n       \"OptySource\" as\
+  \ \"OptySource\",\n       \"AcctNumber\" as \"AcctNumber\",\n       \"AcctName\"\
+  \ as \"AcctName\"\nFROM\n  (SELECT \"OptyStage\" as \"OptyStage\",\n          \"\
+  OptyTerritory\" as \"OptyTerritory\",\n          \"OptyNumber\" as \"OptyNumber\"\
+  ,\n          \"OptyParentNumber\" as \"OptyParentNumber\",\n          \"OptyName\"\
+  \ as \"OptyName\",\n          \"OptyOwnerName\" as \"OptyOwnerName\",\n        \
+  \  \"OptyType\" as \"OptyType\",\n          \"MaturedPipeline\" as \"MaturedPipeline\"\
+  ,\n          \"TotalActivePipeline\" as \"TotalActivePipeline\",\n          \"TotalClosedWonOpty\"\
+  \ as \"TotalClosedWonOpty\",\n          \"ClosedLostOpty\" as \"ClosedLostOpty\"\
+  ,\n          \"TotalRenewal\" as \"TotalRenewal\",\n          \"OpportunityCloseQuarter\"\
+  \ as \"OpportunityCloseQuarter\",\n          \"OpenRenewal\" as \"OpenRenewal\"\
+  ,\n          \"ClosedRenewal\" as \"ClosedRenewal\",\n          \"MaturedPipelineACV\"\
+  \ as \"MaturedPipelineACV\",\n          \"TotalActivePipelineACV\" as \"TotalActivePipelineACV\"\
+  ,\n          \"TotalClosedWonOptyACV\" as \"TotalClosedWonOptyACV\",\n         \
+  \ \"TotalClosedLostOptyACV\" as \"TotalClosedLostOptyACV\",\n          \"TotalRenewalNNACV\"\
+  \ as \"TotalRenewalNNACV\",\n          \"OpenRenewalACV\" as \"OpenRenewalACV\"\
+  ,\n          \"ClosedRenewalACV\" as \"ClosedRenewalACV\",\n          \"NetNewACV_USD\"\
+  \ as \"NetNewACV_USD\",\n          \"RenewalACV_USD\" as \"RenewalACV_USD\",\n \
+  \         \"OptyStatus\" as \"OptyStatus\",\n          \"ReasonCode\" as \"ReasonCode\"\
+  ,\n          \"SummTotalActivePipelineACV\" as \"SummTotalActivePipelineACV\",\n\
+  \          \"OptySysID\" as \"OptySysID\",\n          \"G2K_C\" as \"G2K_C\",\n\
+  \          \"CustomerAge_C\" as \"CustomerAge_C\",\n          \"SupportChampion_C\"\
+  \ as \"SupportChampion_C\",\n          \"SolutionConsultant_C\" as \"SolutionConsultant_C\"\
+  ,\n          \"ADR_C\" as \"ADR_C\",\n          \"SupportAccountManager_C\" as \"\
+  SupportAccountManager_C\",\n          \"PSChampion_C\" as \"PSChampion_C\",\n  \
+  \        \"OptyParentSysID\" as \"OptyParentSysID\",\n          \"OptyParentName\"\
+  \ as \"OptyParentName\",\n          \"OptyCloseDate\" as \"OptyCloseDate\",\n  \
+  \        \"ProductFullName\" as \"ProductFullName\",\n          \"ProductCode\"\
+  \ as \"ProductCode\",\n          MIN(\"ContractEndDate\") as \"RenewalDate\",\n\
+  \          MIN(\"CurrentDate\") as \"CurrentDate\",\n          \"AcctNewSegment\"\
+  \ as \"AcctNewSegment\",\n          \"TerrReportingTerritoryGeo\" as \"TerrReportingTerritoryGeo\"\
+  ,\n          \"TerrDistrict\" as \"TerrDistrict\",\n          \"TerrGeo\" as \"\
+  TerrGeo\",\n          \"TerrRegion\" as \"TerrRegion\",\n          \"TerrCountry\"\
+  \ as \"TerrCountry\",\n          \"ConItemQuantity\" as \"ConItemQuantity\",\n \
+  \         \"ConItemACV_USD\" as \"ConItemACV_USD\",\n          \"AcctSysID\" as\
+  \ \"AcctSysID\",\n          \"BUCombined\" as \"BUCombined\",\n          \"Industry\"\
+  \ as \"Industry\",\n          \"SalesRep\" as \"SalesRep\",\n          \"AcctCustomerSince\"\
+  \ as \"AcctCustomerSince\",\n          \"ScoreColor\" as \"ScoreColor\",\n     \
+  \     \"HealthScore\" as \"HealthScore\",\n          \"Severity\" as \"Severity\"\
+  ,\n          \"RiskScore\" as \"RiskScore\",\n          \"ContractRenewalDate\"\
+  \ as \"ContractRenewalDate\",\n          \"DaytoRenew_C\" as \"DaytoRenew_C\",\n\
+  \          \"LeadNumber\" as \"LeadNumber\",\n          \"JourneyPhase\" as \"JourneyPhase\"\
+  ,\n          \"JourneyColor\" as \"JourneyColor\",\n          \"Phase\" as \"Phase\"\
+  ,\n          \"ContractACV_USD\" as \"ContractACV_USD\",\n          \"OptySource\"\
+  \ as \"OptySource\",\n          \"AcctName\" as \"AcctName\",\n          \"AcctNumber\"\
+  \ as \"AcctNumber\",\n          (DATEDIFF(day, \"CurrentDate\", \"RenewalDate\"\
+  ) /'random') as \"MonthsBtwnRenewalDate\"\n   FROM\n     (SELECT \"Join_2\".\"OptyStage\"\
+  \ as \"OptyStage\",\n             \"Join_2\".\"OptyTerritory\" as \"OptyTerritory\"\
+  ,\n             \"Join_2\".\"OptyNumber\" as \"OptyNumber\",\n             \"Join_2\"\
+  .\"OptyParentNumber\" as \"OptyParentNumber\",\n             \"Join_2\".\"OptyName\"\
+  \ as \"OptyName\",\n             \"Join_2\".\"OptyOwnerName\" as \"OptyOwnerName\"\
+  ,\n             \"Join_2\".\"OptyType\" as \"OptyType\",\n             \"Join_2\"\
+  .\"MaturedPipeline\" as \"MaturedPipeline\",\n             \"Join_2\".\"TotalActivePipeline\"\
+  \ as \"TotalActivePipeline\",\n             \"Join_2\".\"TotalClosedWonOpty\" as\
+  \ \"TotalClosedWonOpty\",\n             \"Join_2\".\"ClosedLostOpty\" as \"ClosedLostOpty\"\
+  ,\n             \"Join_2\".\"TotalRenewal\" as \"TotalRenewal\",\n             \"\
+  Join_2\".\"OpportunityCloseQuarter\" as \"OpportunityCloseQuarter\",\n         \
+  \    \"Join_2\".\"OpenRenewal\" as \"OpenRenewal\",\n             \"Join_2\".\"\
+  ClosedRenewal\" as \"ClosedRenewal\",\n             \"Join_2\".\"MaturedPipelineACV\"\
+  \ as \"MaturedPipelineACV\",\n             \"Join_2\".\"TotalActivePipelineACV\"\
+  \ as \"TotalActivePipelineACV\",\n             \"Join_2\".\"TotalClosedWonOptyACV\"\
+  \ as \"TotalClosedWonOptyACV\",\n             \"Join_2\".\"TotalClosedLostOptyACV\"\
+  \ as \"TotalClosedLostOptyACV\",\n             \"Join_2\".\"TotalRenewalNNACV\"\
+  \ as \"TotalRenewalNNACV\",\n             \"Join_2\".\"OpenRenewalACV\" as \"OpenRenewalACV\"\
+  ,\n             \"Join_2\".\"ClosedRenewalACV\" as \"ClosedRenewalACV\",\n     \
+  \        \"Join_2\".\"NetNewACV_USD\" as \"NetNewACV_USD\",\n             \"Join_2\"\
+  .\"RenewalACV_USD\" as \"RenewalACV_USD\",\n             \"Join_2\".\"OptyStatus\"\
+  \ as \"OptyStatus\",\n             \"Join_2\".\"ReasonCode\" as \"ReasonCode\",\n\
+  \             \"Join_2\".\"SummTotalActivePipelineACV\" as \"SummTotalActivePipelineACV\"\
+  ,\n             \"Join_2\".\"OptySysID\" as \"OptySysID\",\n             \"Join_2\"\
+  .\"G2K_C\" as \"G2K_C\",\n             \"Join_2\".\"CustomerAge_C\" as \"CustomerAge_C\"\
+  ,\n             \"Join_2\".\"SupportChampion_C\" as \"SupportChampion_C\",\n   \
+  \          \"Join_2\".\"SolutionConsultant_C\" as \"SolutionConsultant_C\",\n  \
+  \           \"Join_2\".\"ADR_C\" as \"ADR_C\",\n             \"Join_2\".\"SupportAccountManager_C\"\
+  \ as \"SupportAccountManager_C\",\n             \"Join_2\".\"PSChampion_C\" as \"\
+  PSChampion_C\",\n             \"Join_2\".\"OptyParentSysID\" as \"OptyParentSysID\"\
+  ,\n             \"Join_2\".\"OptyParentName\" as \"OptyParentName\",\n         \
+  \    \"Join_2\".\"OptyCloseDate\" as \"OptyCloseDate\",\n             \"Join_2\"\
+  .\"ProductFullName\" as \"ProductFullName\",\n             \"Join_2\".\"ProductCode\"\
+  \ as \"ProductCode\",\n             \"Projection_3\".\"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n             \"Join_2\".\"AcctNewSegment\" as \"AcctNewSegment\",\n         \
+  \    \"Join_2\".\"TerrReportingTerritoryGeo\" as \"TerrReportingTerritoryGeo\",\n\
+  \             \"Join_2\".\"TerrDistrict\" as \"TerrDistrict\",\n             \"\
+  Join_2\".\"TerrGeo\" as \"TerrGeo\",\n             \"Join_2\".\"TerrRegion\" as\
+  \ \"TerrRegion\",\n             \"Join_2\".\"TerrCountry\" as \"TerrCountry\",\n\
+  \             \"Join_2\".\"ConItemQuantity\" as \"ConItemQuantity\",\n         \
+  \    \"Join_2\".\"ConItemACV_USD\" as \"ConItemACV_USD\",\n             \"Join_2\"\
+  .\"AcctSysID\" as \"AcctSysID\",\n             \"Join_2\".\"BUCombined\" as \"BUCombined\"\
+  ,\n             \"Join_2\".\"Industry\" as \"Industry\",\n             \"Join_2\"\
+  .\"SalesRep\" as \"SalesRep\",\n             \"Join_2\".\"AcctCustomerSince\" as\
+  \ \"AcctCustomerSince\",\n             \"Join_2\".\"ScoreColor\" as \"ScoreColor\"\
+  ,\n             \"Join_2\".\"HealthScore\" as \"HealthScore\",\n             \"\
+  Join_2\".\"Severity\" as \"Severity\",\n             \"Join_2\".\"RiskScore\" as\
+  \ \"RiskScore\",\n             \"Join_2\".\"ContractRenewalDate\" as \"ContractRenewalDate\"\
+  ,\n             \"Join_2\".\"DaytoRenew_C\" as \"DaytoRenew_C\",\n             \"\
+  Join_2\".\"LeadNumber\" as \"LeadNumber\",\n             \"Join_2\".\"JourneyPhase\"\
+  \ as \"JourneyPhase\",\n             \"Join_2\".\"JourneyColor\" as \"JourneyColor\"\
+  ,\n             \"Join_2\".\"Phase\" as \"Phase\",\n             \"Join_2\".\"ContractACV_USD\"\
+  \ as \"ContractACV_USD\",\n             \"Join_2\".\"OptySource\" as \"OptySource\"\
+  ,\n             \"Join_2\".\"AcctName\" as \"AcctName\",\n             \"Join_2\"\
+  .\"AcctNumber\" as \"AcctNumber\",\n             CURRENT_TIMESTAMP as \"CurrentDate\"\
+  \n      FROM\n        (SELECT \"Join_1\".\"OptyStage\" as \"OptyStage\",\n     \
+  \           \"Join_1\".\"OptyTerritory\" as \"OptyTerritory\",\n               \
+  \ \"Join_1\".\"OptyNumber\" as \"OptyNumber\",\n                \"Join_1\".\"OptyParentNumber\"\
+  \ as \"OptyParentNumber\",\n                \"Join_1\".\"OptyName\" as \"OptyName\"\
+  ,\n                \"Join_1\".\"OptyOwnerName\" as \"OptyOwnerName\",\n        \
+  \        \"Join_1\".\"OptyType\" as \"OptyType\",\n                \"Join_1\".\"\
+  MaturedPipeline\" as \"MaturedPipeline\",\n                \"Join_1\".\"TotalActivePipeline\"\
+  \ as \"TotalActivePipeline\",\n                \"Join_1\".\"TotalClosedWonOpty\"\
+  \ as \"TotalClosedWonOpty\",\n                \"Join_1\".\"ClosedLostOpty\" as \"\
+  ClosedLostOpty\",\n                \"Join_1\".\"TotalRenewal\" as \"TotalRenewal\"\
+  ,\n                \"Join_1\".\"OpportunityCloseQuarter\" as \"OpportunityCloseQuarter\"\
+  ,\n                \"Join_1\".\"OpenRenewal\" as \"OpenRenewal\",\n            \
+  \    \"Join_1\".\"ClosedRenewal\" as \"ClosedRenewal\",\n                \"Join_1\"\
+  .\"MaturedPipelineACV\" as \"MaturedPipelineACV\",\n                \"Join_1\".\"\
+  TotalActivePipelineACV\" as \"TotalActivePipelineACV\",\n                \"Join_1\"\
+  .\"TotalClosedWonOptyACV\" as \"TotalClosedWonOptyACV\",\n                \"Join_1\"\
+  .\"TotalClosedLostOptyACV\" as \"TotalClosedLostOptyACV\",\n                \"Join_1\"\
+  .\"TotalRenewalNNACV\" as \"TotalRenewalNNACV\",\n                \"Join_1\".\"\
+  OpenRenewalACV\" as \"OpenRenewalACV\",\n                \"Join_1\".\"ClosedRenewalACV\"\
+  \ as \"ClosedRenewalACV\",\n                \"Join_1\".\"NetNewACV_USD\" as \"NetNewACV_USD\"\
+  ,\n                \"Join_1\".\"RenewalACV_USD\" as \"RenewalACV_USD\",\n      \
+  \          \"Join_1\".\"OptyStatus\" as \"OptyStatus\",\n                \"Join_1\"\
+  .\"ReasonCode\" as \"ReasonCode\",\n                \"Aggregation_3\".\"TotalActivePipelineACV\"\
+  \ as \"SummTotalActivePipelineACV\",\n                \"Join_1\".\"OptySysID\" as\
+  \ \"OptySysID\",\n                \"Join_1\".\"G2K_C\" as \"G2K_C\",\n         \
+  \       \"Join_1\".\"CustomerAge_C\" as \"CustomerAge_C\",\n                \"Join_1\"\
+  .\"SupportChampion_C\" as \"SupportChampion_C\",\n                \"Join_1\".\"\
+  SolutionConsultant_C\" as \"SolutionConsultant_C\",\n                \"Join_1\"\
+  .\"ADR_C\" as \"ADR_C\",\n                \"Join_1\".\"SupportAccountManager_C\"\
+  \ as \"SupportAccountManager_C\",\n                \"Join_1\".\"PSChampion_C\" as\
+  \ \"PSChampion_C\",\n                \"Join_1\".\"OptyParentSysID\" as \"OptyParentSysID\"\
+  ,\n                \"Join_1\".\"OptyParentName\" as \"OptyParentName\",\n      \
+  \          \"Join_1\".\"OptyCloseDate\" as \"OptyCloseDate\",\n                \"\
+  Join_1\".\"ProductFullName\" as \"ProductFullName\",\n                \"Join_1\"\
+  .\"ProductCode\" as \"ProductCode\",\n                \"Join_1\".\"AcctNewSegment\"\
+  \ as \"AcctNewSegment\",\n                \"Join_1\".\"TerrReportingTerritoryGeo\"\
+  \ as \"TerrReportingTerritoryGeo\",\n                \"Join_1\".\"TerrDistrict\"\
+  \ as \"TerrDistrict\",\n                \"Join_1\".\"TerrGeo\" as \"TerrGeo\",\n\
+  \                \"Join_1\".\"TerrRegion\" as \"TerrRegion\",\n                \"\
+  Join_1\".\"TerrCountry\" as \"TerrCountry\",\n                \"Join_1\".\"ConItemQuantity\"\
+  \ as \"ConItemQuantity\",\n                \"Join_1\".\"ConItemACV_USD\" as \"ConItemACV_USD\"\
+  ,\n                \"Join_1\".\"AcctSysID\" as \"AcctSysID\",\n                \"\
+  Join_1\".\"BUCombined\" as \"BUCombined\",\n                \"Join_1\".\"Industry\"\
+  \ as \"Industry\",\n                \"Join_1\".\"SalesRep\" as \"SalesRep\",\n \
+  \               \"Join_1\".\"AcctCustomerSince\" as \"AcctCustomerSince\",\n   \
+  \             \"Join_1\".\"ScoreColor\" as \"ScoreColor\",\n                \"Join_1\"\
+  .\"HealthScore\" as \"HealthScore\",\n                \"Join_1\".\"Severity\" as\
+  \ \"Severity\",\n                \"Join_1\".\"RiskScore\" as \"RiskScore\",\n  \
+  \              \"Join_1\".\"ContractRenewalDate\" as \"ContractRenewalDate\",\n\
+  \                \"Join_1\".\"DaytoRenew_C\" as \"DaytoRenew_C\",\n            \
+  \    \"Join_1\".\"LeadNumber\" as \"LeadNumber\",\n                \"Join_1\".\"\
+  JourneyPhase\" as \"JourneyPhase\",\n                \"Join_1\".\"JourneyColor\"\
+  \ as \"JourneyColor\",\n                \"Join_1\".\"Phase\" as \"Phase\",\n   \
+  \             \"Join_1\".\"AcctG2KParentSysID\" as \"AcctG2KParentSysID\",\n   \
+  \             \"Join_1\".\"ContractACV_USD\" as \"ContractACV_USD\",\n         \
+  \       \"Join_1\".\"OptySource\" as \"OptySource\",\n                \"Join_1\"\
+  .\"AcctName\" as \"AcctName\",\n                \"Join_1\".\"AcctNumber\" as \"\
+  AcctNumber\"\n         FROM\n           (SELECT \"Aggregation_2\".\"OptyStage\"\
+  \ as \"OptyStage\",\n                   \"Aggregation_2\".\"OptyTerritory\" as \"\
+  OptyTerritory\",\n                   \"Aggregation_2\".\"OptyNumber\" as \"OptyNumber\"\
+  ,\n                   \"Aggregation_2\".\"OptyParentNumber\" as \"OptyParentNumber\"\
+  ,\n                   \"Aggregation_2\".\"OptyName\" as \"OptyName\",\n        \
+  \           \"Aggregation_2\".\"OptyOwnerName\" as \"OptyOwnerName\",\n        \
+  \           \"Aggregation_2\".\"OptyType\" as \"OptyType\",\n                  \
+  \ \"Aggregation_2\".\"MaturedPipeline\" as \"MaturedPipeline\",\n              \
+  \     \"Aggregation_2\".\"TotalActivePipeline\" as \"TotalActivePipeline\",\n  \
+  \                 \"Aggregation_2\".\"TotalClosedWonOpty\" as \"TotalClosedWonOpty\"\
+  ,\n                   \"Aggregation_2\".\"ClosedLostOpty\" as \"ClosedLostOpty\"\
+  ,\n                   \"Aggregation_2\".\"TotalRenewal\" as \"TotalRenewal\",\n\
+  \                   \"Aggregation_2\".\"OpportunityCloseQuarter\" as \"OpportunityCloseQuarter\"\
+  ,\n                   \"Aggregation_2\".\"OpenRenewal\" as \"OpenRenewal\",\n  \
+  \                 \"Aggregation_2\".\"ClosedRenewal\" as \"ClosedRenewal\",\n  \
+  \                 \"Aggregation_2\".\"MaturedPipelineACV\" as \"MaturedPipelineACV\"\
+  ,\n                   \"Aggregation_2\".\"TotalActivePipelineACV\" as \"TotalActivePipelineACV\"\
+  ,\n                   \"Aggregation_2\".\"TotalClosedWonOptyACV\" as \"TotalClosedWonOptyACV\"\
+  ,\n                   \"Aggregation_2\".\"TotalClosedLostOptyACV\" as \"TotalClosedLostOptyACV\"\
+  ,\n                   \"Aggregation_2\".\"TotalRenewalNNACV\" as \"TotalRenewalNNACV\"\
+  ,\n                   \"Aggregation_2\".\"OpenRenewalACV\" as \"OpenRenewalACV\"\
+  ,\n                   \"Aggregation_2\".\"ClosedRenewalACV\" as \"ClosedRenewalACV\"\
+  ,\n                   \"Aggregation_2\".\"NetNewACV_USD\" as \"NetNewACV_USD\",\n\
+  \                   \"Aggregation_2\".\"RenewalACV_USD\" as \"RenewalACV_USD\",\n\
+  \                   \"Aggregation_2\".\"OptyStatus\" as \"OptyStatus\",\n      \
+  \             \"Aggregation_2\".\"ReasonCode\" as \"ReasonCode\",\n            \
+  \       \"Aggregation_2\".\"OptySysID\" as \"OptySysID\",\n                   \"\
+  Aggregation_2\".\"OptyParentSysID\" as \"OptyParentSysID\",\n                  \
+  \ \"Aggregation_2\".\"OptyParentName\" as \"OptyParentName\",\n                \
+  \   \"Aggregation_2\".\"OptyCloseDate\" as \"OptyCloseDate\",\n                \
+  \   \"Aggregation_2\".\"ProductFullName\" as \"ProductFullName\",\n            \
+  \       \"Aggregation_2\".\"ProductCode\" as \"ProductCode\",\n                \
+  \   \"Join_4\".\"AcctNewSegment\" as \"AcctNewSegment\",\n                   \"\
+  Join_4\".\"TerrReportingTerritoryGeo\" as \"TerrReportingTerritoryGeo\",\n     \
+  \              \"Join_4\".\"TerrDistrict\" as \"TerrDistrict\",\n              \
+  \     \"Join_4\".\"TerrGeo\" as \"TerrGeo\",\n                   \"Join_4\".\"TerrRegion\"\
+  \ as \"TerrRegion\",\n                   \"Join_4\".\"TerrCountry\" as \"TerrCountry\"\
+  ,\n                   \"Join_4\".\"ConItemQuantity\" as \"ConItemQuantity\",\n \
+  \                  \"Join_4\".\"ConItemACV_USD\" as \"ConItemACV_USD\",\n      \
+  \             \"Aggregation_2\".\"OptyAccountSysID\" as \"AcctSysID\",\n       \
+  \            \"Aggregation_2\".\"BUCombined_CC\" as \"BUCombined\",\n          \
+  \         \"Join_4\".\"IndustryCategory\" as \"Industry\",\n                   \"\
+  Join_4\".\"AcctPrimarySalesRep\" as \"SalesRep\",\n                   \"Join_4\"\
+  .\"AcctSolutionConsultant\" as \"SolutionConsultant\",\n                   \"Join_4\"\
+  .\"AcctInsideSalesRep\" as \"ADR\",\n                   \"Join_4\".\"AcctSupportChampion\"\
+  \ as \"SupportChampion\",\n                   \"Join_4\".\"AcctCustomerSuccessManager\"\
+  \ as \"SupportAccountManager\",\n                   \"Join_4\".\"AcctPSChampion\"\
+  \ as \"PSChampion\",\n                   \"Join_4\".\"AcctCustomerSince\" as \"\
+  AcctCustomerSince\",\n                   \"Join_4\".\"ScoreColor\" as \"ScoreColor\"\
+  ,\n                   \"Join_4\".\"HealthScore\" as \"HealthScore\",\n         \
+  \          \"Join_4\".\"Severity\" as \"Severity\",\n                   \"Join_4\"\
+  .\"RiskScore\" as \"RiskScore\",\n                   \"Join_4\".\"ContractRenewalDate\"\
+  \ as \"ContractRenewalDate\",\n                   \"Join_4\".\"DaytoRenew_C\" as\
+  \ \"DaytoRenew_C\",\n                   \"Join_4\".\"LeadNumber\" as \"LeadNumber\"\
+  ,\n                   \"Join_4\".\"JourneyPhase\" as \"JourneyPhase\",\n       \
+  \            \"Join_4\".\"JourneyColor\" as \"JourneyColor\",\n                \
+  \   \"Join_4\".\"Phase\" as \"Phase\",\n                   \"Join_4\".\"AcctG2KParentSysID\"\
+  \ as \"AcctG2KParentSysID\",\n                   \"Join_4\".\"ContractACV_USD\"\
+  \ as \"ContractACV_USD\",\n                   \"Aggregation_2\".\"OptySource\" as\
+  \ \"OptySource\",\n                   \"Aggregation_2\".\"OpportunityAccount\" as\
+  \ \"AcctName\",\n                   \"Aggregation_2\".\"AcctNumber\" as \"AcctNumber\"\
+  ,\n                   IFF(\"AcctG2KParentSysID\" IS not NULL, 'random', 'random')\
+  \ as \"G2K_C\",\n                   DATEDIFF(day, \"AcctCustomerSince\", CURRENT_TIMESTAMP)\
+  \ /'random' as \"CustomerAge_C\",\n                   IFF((\"SupportChampion\")\
+  \ IS NULL , 'random', \"SupportChampion\") as \"SupportChampion_C\",\n         \
+  \          IFF((\"SolutionConsultant\") IS NULL , 'random', \"SolutionConsultant\"\
+  ) as \"SolutionConsultant_C\",\n                   IFF((\"ADR\") IS NULL , 'random',\
+  \ \"ADR\") as \"ADR_C\",\n                   IFF((\"SupportAccountManager\") IS\
+  \ NULL , 'random', \"SupportAccountManager\") as \"SupportAccountManager_C\",\n\
+  \                   IFF((\"PSChampion\") IS NULL , 'random', \"PSChampion\") as\
+  \ \"PSChampion_C\"\n            FROM\n              (SELECT \"Aggregation_1\".\"\
+  AcctName\" as \"AcctName\",\n                      \"Aggregation_1\".\"AcctNewSegment\"\
+  \ as \"AcctNewSegment\",\n                      \"Aggregation_1\".\"AcctNumber\"\
+  \ as \"AcctNumber\",\n                      \"Aggregation_1\".\"TerrReportingTerritoryGeo\"\
+  \ as \"TerrReportingTerritoryGeo\",\n                      \"Aggregation_1\".\"\
+  TerrDistrict\" as \"TerrDistrict\",\n                      \"Aggregation_1\".\"\
+  TerrGeo\" as \"TerrGeo\",\n                      \"Aggregation_1\".\"TerrRegion\"\
+  \ as \"TerrRegion\",\n                      \"Aggregation_1\".\"TerrCountry\" as\
+  \ \"TerrCountry\",\n                      \"Aggregation_1\".\"ConItemQuantity\"\
+  \ as \"ConItemQuantity\",\n                      \"Aggregation_1\".\"ConItemACV_USD\"\
+  \ as \"ConItemACV_USD\",\n                      \"Aggregation_5\".\"AcctSysID\"\
+  \ as \"AcctSysID\",\n                      \"Aggregation_1\".\"BUCombined\" as \"\
+  BUCombined\",\n                      \"Aggregation_1\".\"IndustryCategory\" as \"\
+  IndustryCategory\",\n                      \"Aggregation_1\".\"AcctPrimarySalesRep\"\
+  \ as \"AcctPrimarySalesRep\",\n                      \"Aggregation_1\".\"AcctSolutionConsultant\"\
+  \ as \"AcctSolutionConsultant\",\n                      \"Aggregation_1\".\"AcctInsideSalesRep\"\
+  \ as \"AcctInsideSalesRep\",\n                      \"Aggregation_1\".\"AcctSupportChampion\"\
+  \ as \"AcctSupportChampion\",\n                      \"Aggregation_1\".\"AcctCustomerSuccessManager\"\
+  \ as \"AcctCustomerSuccessManager\",\n                      \"Aggregation_1\".\"\
+  AcctPSChampion\" as \"AcctPSChampion\",\n                      \"Aggregation_1\"\
+  .\"AcctCustomerSince\" as \"AcctCustomerSince\",\n                      \"Aggregation_1\"\
+  .\"ScoreColor\" as \"ScoreColor\",\n                      \"Aggregation_1\".\"HealthScore\"\
+  \ as \"HealthScore\",\n                      \"Aggregation_1\".\"Severity\" as \"\
+  Severity\",\n                      \"Aggregation_1\".\"RiskScore\" as \"RiskScore\"\
+  ,\n                      \"Aggregation_1\".\"ContractRenewalDate\" as \"ContractRenewalDate\"\
+  ,\n                      \"Aggregation_1\".\"DaytoRenew_C\" as \"DaytoRenew_C\"\
+  ,\n                      \"Aggregation_1\".\"LeadNumber\" as \"LeadNumber\",\n \
+  \                     \"Aggregation_1\".\"JourneyPhase\" as \"JourneyPhase\",\n\
+  \                      \"Aggregation_1\".\"JourneyColor\" as \"JourneyColor\",\n\
+  \                      \"Aggregation_1\".\"Phase\" as \"Phase\",\n             \
+  \         \"Aggregation_1\".\"AcctG2KParentSysID\" as \"AcctG2KParentSysID\",\n\
+  \                      \"Aggregation_5\".\"ContractACV_USD\" as \"ContractACV_USD\"\
+  \n               FROM\n                 (SELECT \"AcctName\" as \"AcctName\",\n\
+  \                         \"Segment\" as \"AcctNewSegment\",\n                 \
+  \        \"AcctNumber\" as \"AcctNumber\",\n                         \"TerrReportingTerritoryGeo\"\
+  \ as \"TerrReportingTerritoryGeo\",\n                         \"TerrDistrict\" as\
+  \ \"TerrDistrict\",\n                         \"TerrGeo\" as \"TerrGeo\",\n    \
+  \                     \"TerrRegion\" as \"TerrRegion\",\n                      \
+  \   \"TerrCountry\" as \"TerrCountry\",\n                         SUM(\"ConItemQuantity\"\
+  ) as \"ConItemQuantity\",\n                         SUM(\"ConItemACV_USD\") as \"\
+  ConItemACV_USD\",\n                         \"AcctSysID\" as \"AcctSysID\",\n  \
+  \                       \"BUCombined\" as \"BUCombined\",\n                    \
+  \     \"IndustryCategory\" as \"IndustryCategory\",\n                         \"\
+  AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\",\n                         \"AcctSolutionConsultant\"\
+  \ as \"AcctSolutionConsultant\",\n                         \"AcctInsideSalesRep\"\
+  \ as \"AcctInsideSalesRep\",\n                         \"AcctSupportChampion\" as\
+  \ \"AcctSupportChampion\",\n                         \"AcctCustomerSuccessManager\"\
+  \ as \"AcctCustomerSuccessManager\",\n                         \"AcctPSChampion\"\
+  \ as \"AcctPSChampion\",\n                         \"AcctCustomerSince\" as \"AcctCustomerSince\"\
+  ,\n                         \"ScoreColor\" as \"ScoreColor\",\n                \
+  \         \"HealthScore\" as \"HealthScore\",\n                         \"Severity\"\
+  \ as \"Severity\",\n                         \"RiskScore\" as \"RiskScore\",\n \
+  \                        \"ContractRenewalDate\" as \"ContractRenewalDate\",\n \
+  \                        \"DaytoRenew_C\" as \"DaytoRenew_C\",\n               \
+  \          \"LeadNumber\" as \"LeadNumber\",\n                         \"JourneyPhase\"\
+  \ as \"JourneyPhase\",\n                         \"JourneyColor\" as \"JourneyColor\"\
+  ,\n                         \"Phase\" as \"Phase\",\n                         \"\
+  AcctG2KParentSysID\" as \"AcctG2KParentSysID\"\n                  FROM Projection_1\n\
+  \                  GROUP BY \"AcctName\",\n                           \"AcctNewSegment\"\
+  ,\n                           \"AcctNumber\",\n                           \"TerrReportingTerritoryGeo\"\
+  ,\n                           \"TerrDistrict\",\n                           \"TerrGeo\"\
+  ,\n                           \"TerrRegion\",\n                           \"TerrCountry\"\
+  ,\n                           \"AcctSysID\",\n                           \"BUCombined\"\
+  ,\n                           \"IndustryCategory\",\n                          \
+  \ \"AcctPrimarySalesRep\",\n                           \"AcctSolutionConsultant\"\
+  ,\n                           \"AcctInsideSalesRep\",\n                        \
+  \   \"AcctSupportChampion\",\n                           \"AcctCustomerSuccessManager\"\
+  ,\n                           \"AcctPSChampion\",\n                           \"\
+  AcctCustomerSince\",\n                           \"ScoreColor\",\n             \
+  \              \"HealthScore\",\n                           \"Severity\",\n    \
+  \                       \"RiskScore\",\n                           \"ContractRenewalDate\"\
+  ,\n                           \"DaytoRenew_C\",\n                           \"LeadNumber\"\
+  ,\n                           \"JourneyPhase\",\n                           \"JourneyColor\"\
+  ,\n                           \"Phase\",\n                           \"AcctG2KParentSysID\"\
+  )\"Aggregation_1\"\n               INNER JOIN\n                 (SELECT \"AcctSysID\"\
+  \ as \"AcctSysID\",\n                         SUM(\"ConItemACV_USD\") as \"ContractACV_USD\"\
+  \n                  FROM Projection_1\n                  GROUP BY \"AcctSysID\"\
+  )\"Aggregation_5\" ON \"Aggregation_1\".\"AcctSysID\" = \"Aggregation_5\".\"AcctSysID\"\
+  )\"Join_4\"\n            RIGHT JOIN\n              (SELECT \"OptyStage\" as \"OptyStage\"\
+  ,\n                      \"OpportunityAccount\" as \"OpportunityAccount\",\n   \
+  \                   \"OptyTerritory\" as \"OptyTerritory\",\n                  \
+  \    \"OptyAccountSysID\" as \"OptyAccountSysID\",\n                      sum(\"\
+  FinanceNetNewACV_USD\") as \"FinanceNetNewACV_USD\", --\"FinanceNetNewACV_USD\"\
+  \ as \"FinanceNetNewACV_USD\",\n\"MaturedPipeline\" as \"MaturedPipeline\",\n  \
+  \                                                                              \
+  \                                                \"TotalActivePipeline\" as \"TotalActivePipeline\"\
+  ,\n                                                                            \
+  \                                                    \"TotalClosedWonOpty\" as \"\
+  TotalClosedWonOpty\",\n                                                        \
+  \                                                                        \"ClosedLostOpty\"\
+  \ as \"ClosedLostOpty\",\n                                                     \
+  \                                                                           \"TotalRenewal\"\
+  \ as \"TotalRenewal\",\n                                                       \
+  \                                                                         \"OpenRenewal\"\
+  \ as \"OpenRenewal\",\n                                                        \
+  \                                                                        \"ClosedRenewal\"\
+  \ as \"ClosedRenewal\",\n                                                      \
+  \                                                                          SUM(\"\
+  MaturedPipelineACV\") as \"MaturedPipelineACV\",\n                             \
+  \                                                                              \
+  \                     SUM(\"TotalActivePipelineACV\") as \"TotalActivePipelineACV\"\
+  ,\n                                                                            \
+  \                                                    SUM(\"TotalClosedWonOptyACV\"\
+  ) as \"TotalClosedWonOptyACV\",\n                                              \
+  \                                                                              \
+  \    SUM(\"TotalClosedLostOptyACV\") as \"TotalClosedLostOptyACV\",\n          \
+  \                                                                              \
+  \                                        SUM(\"TotalRenewalNNACV\") as \"TotalRenewalNNACV\"\
+  ,\n                                                                            \
+  \                                                    SUM(\"OpenRenewalACV\") as\
+  \ \"OpenRenewalACV\",\n                                                        \
+  \                                                                        SUM(\"\
+  ClosedRenewalACV\") as \"ClosedRenewalACV\",\n                                 \
+  \                                                                              \
+  \                 SUM(\"NetNewACV_USD\") as \"NetNewACV_USD\",\n               \
+  \                                                                              \
+  \                                   SUM(\"RenewalACV_USD\") as \"RenewalACV_USD\"\
+  ,\n                                                                            \
+  \                                                    \"OptyNumber\" as \"OptyNumber\"\
+  ,\n                                                                            \
+  \                                                    \"OptyParentNumber\" as \"\
+  OptyParentNumber\",\n                                                          \
+  \                                                                      \"OptyName\"\
+  \ as \"OptyName\",\n                                                           \
+  \                                                                     \"OptyOwnerName\"\
+  \ as \"OptyOwnerName\",\n                                                      \
+  \                                                                          \"OptyType\"\
+  \ as \"OptyType\",\n                                                           \
+  \                                                                     \"OpportunityCloseQuarter\"\
+  \ as \"OpportunityCloseQuarter\",\n                                            \
+  \                                                                              \
+  \      \"BUCombined_CC\" as \"BUCombined_CC\",\n                               \
+  \                                                                              \
+  \                   \"ReasonCode\" as \"ReasonCode\",\n                        \
+  \                                                                              \
+  \                          \"OptySysID\" as \"OptySysID\",\n                   \
+  \                                                                              \
+  \                               \"OptyParentSysID\" as \"OptyParentSysID\",\n  \
+  \                                                                              \
+  \                                                \"OptyParentName\" as \"OptyParentName\"\
+  ,\n                                                                            \
+  \                                                    \"OptyCloseDate\" as \"OptyCloseDate\"\
+  ,\n                                                                            \
+  \                                                    \"ProductFullName\" as \"ProductFullName\"\
+  ,\n                                                                            \
+  \                                                    \"ProductCode\" as \"ProductCode\"\
+  ,\n                                                                            \
+  \                                                    \"OptySource\" as \"OptySource\"\
+  ,\n                                                                            \
+  \                                                    \"AcctNumber\" as \"AcctNumber\"\
+  ,\n                                                                            \
+  \                                                    CASE\n                    \
+  \                                                                              \
+  \                                  WHEN \"OptyStage\" IS NULL\n                \
+  \                                                                              \
+  \                                           or \"OptyStage\"='random' then 'random'\n\
+  \                                                                              \
+  \                                                      else IFF(\"OptyStage\" =\
+  \ 'random', 'random', IFF(\"OptyStage\" = 'random', 'random', 'random'))\n     \
+  \                                                                              \
+  \                                             END as \"OptyStatus\"\n          \
+  \     FROM\n                 (SELECT \"MaturedPipelineACV\" as \"MaturedPipelineACV\"\
+  ,\n                         \"TotalActivePipelineACV\" as \"TotalActivePipelineACV\"\
+  ,\n                         \"TotalClosedWonOptyACV\" as \"TotalClosedWonOptyACV\"\
+  ,\n                         \"TotalClosedLostOptyACV\" as \"TotalClosedLostOptyACV\"\
+  ,\n                         \"TotalRenewalNNACV\" as \"TotalRenewalNNACV\",\n  \
+  \                       \"OpenRenewalACV\" as \"OpenRenewalACV\",\n            \
+  \             \"ClosedRenewalACV\" as \"ClosedRenewalACV\",\n                  \
+  \       \"MaturedPipeline\" as \"MaturedPipeline\",\n                         \"\
+  TotalActivePipeline\" as \"TotalActivePipeline\",\n                         \"TotalClosedWonOpty\"\
+  \ as \"TotalClosedWonOpty\",\n                         \"ClosedLostOpty\" as \"\
+  ClosedLostOpty\",\n                         \"TotalRenewal\" as \"TotalRenewal\"\
+  ,\n                         \"OpenRenewal\" as \"OpenRenewal\",\n              \
+  \           \"ClosedRenewal\" as \"ClosedRenewal\",\n                         \"\
+  NetNewACV_USD\" as \"NetNewACV_USD\",\n                         \"RenewalACV_USD\"\
+  \ as \"RenewalACV_USD\",\n                         \"OptyStage\" as \"OptyStage\"\
+  ,\n                         \"OpportunityAccount\" as \"OpportunityAccount\",\n\
+  \                         \"OptyTerritory\" as \"OptyTerritory\",\n            \
+  \             \"OptyAccountSysID\" as \"OptyAccountSysID\",\n                  \
+  \       \"FinanceNetNewACV_USD\" as \"FinanceNetNewACV_USD\",\n                \
+  \         \"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\",\n      \
+  \                   \"OptyNumber\" as \"OptyNumber\",\n                        \
+  \ \"OptyParentNumber\" as \"OptyParentNumber\",\n                         \"OptyName\"\
+  \ as \"OptyName\",\n                         \"OptyOwnerName\" as \"OptyOwnerName\"\
+  ,\n                         \"OptyType\" as \"OptyType\",\n                    \
+  \     \"OpportunityCloseQuarter\" as \"OpportunityCloseQuarter\",\n            \
+  \             \"BUCombined_CC\" as \"BUCombined_CC\",\n                        \
+  \ \"ReasonCode\" as \"ReasonCode\",\n                         \"OptySysID\" as \"\
+  OptySysID\",\n                         \"OptyParentSysID\" as \"OptyParentSysID\"\
+  ,\n                         \"OptyParentName\" as \"OptyParentName\",\n        \
+  \                 \"OptyCloseDate\" as \"OptyCloseDate\",\n                    \
+  \     \"ProductFullName\" as \"ProductFullName\",\n                         \"ProductCode\"\
+  \ as \"ProductCode\",\n                         \"OptySource\" as \"OptySource\"\
+  ,\n                         \"AcctNumber\" as \"AcctNumber\"\n                 \
+  \ FROM \"EDW_LS\".\"PRODUCT_EM\".\"EM_PROD360_PIPELINE\")\"Projection_2\"\n    \
+  \           GROUP BY \"OptyStage\",\n                        \"OpportunityAccount\"\
+  ,\n                        \"OptyTerritory\",\n                        \"OptyAccountSysID\"\
+  , ---\"FinanceNetNewACV_USD\",\n\"MaturedPipeline\",\n                         \
+  \                                             \"TotalActivePipeline\",\n       \
+  \                                                               \"TotalClosedWonOpty\"\
+  ,\n                                                                      \"ClosedLostOpty\"\
+  ,\n                                                                      \"TotalRenewal\"\
+  ,\n                                                                      \"OpenRenewal\"\
+  ,\n                                                                      \"ClosedRenewal\"\
+  ,\n                                                                      \"OptyNumber\"\
+  ,\n                                                                      \"OptyParentNumber\"\
+  ,\n                                                                      \"OptyName\"\
+  ,\n                                                                      \"OptyOwnerName\"\
+  ,\n                                                                      \"OptyType\"\
+  ,\n                                                                      \"OpportunityCloseQuarter\"\
+  ,\n                                                                      \"BUCombined_CC\"\
+  ,\n                                                                      \"ReasonCode\"\
+  ,\n                                                                      \"OptySysID\"\
+  ,\n                                                                      \"OptyParentSysID\"\
+  ,\n                                                                      \"OptyParentName\"\
+  ,\n                                                                      \"OptyCloseDate\"\
+  ,\n                                                                      \"ProductFullName\"\
+  ,\n                                                                      \"ProductCode\"\
+  ,\n                                                                      \"OptySource\"\
+  ,\n                                                                      \"AcctNumber\"\
+  )\"Aggregation_2\" ON \"Join_4\".\"AcctSysID\" = \"Aggregation_2\".\"OptyAccountSysID\"\
+  \n            AND \"Join_4\".\"BUCombined\" = \"Aggregation_2\".\"BUCombined_CC\"\
+  )\"Join_1\"\n         LEFT JOIN\n           (SELECT \"BUCombined_CC\" as \"BUCombined_CC\"\
+  ,\n                   \"OptyAccountSysID\" as \"OptyAccountSysID\",\n          \
+  \         \"OpportunityAccount\" as \"OpportunityAccount\",\n                  \
+  \ SUM(\"TotalActivePipelineACV\") as \"TotalActivePipelineACV\"\n            FROM\n\
+  \              (SELECT \"BUCombined_CC\" as \"BUCombined_CC\",\n               \
+  \       \"TotalActivePipelineACV\" as \"TotalActivePipelineACV\",\n            \
+  \          \"TotalActivePipeline\" as \"TotalActivePipeline\",\n               \
+  \       \"TotalClosedWonOpty\" as \"TotalClosedWonOpty\",\n                    \
+  \  \"ClosedLostOpty\" as \"ClosedLostOpty\",\n                      \"OpportunityAccount\"\
+  \ as \"OpportunityAccount\",\n                      \"OptyAccountSysID\" as \"OptyAccountSysID\"\
+  ,\n                      \"OpportunityCloseQuarter\" as \"OpportunityCloseQuarter\"\
+  ,\n                      \"OptySource\" as \"OptySource\",\n                   \
+  \   IFF((RIGHT(YEAR(DATEADD(DAY, 'random', CURRENT_TIMESTAMP())) ||'random'|| QUARTER(DATEADD(DAY,\
+  \ 'random', CURRENT_TIMESTAMP())), 'random') >\"OpportunityCloseQuarter\"\n    \
+  \                       AND \"OpportunityCloseQuarter\">= RIGHT(YEAR(CURRENT_TIMESTAMP)||'random'||QUARTER(CURRENT_TIMESTAMP),\
+  \ 'random')) , 'random', 'random') as \"Next4Quarter\"\n               FROM \"EDW_LS\"\
+  .\"PRODUCT_EM\".\"EM_PROD360_PIPELINE\"\n               WHERE \"TotalActivePipeline\"\
+  \ = 'random'\n                 AND \"TotalClosedWonOpty\" IS NULL\n            \
+  \     AND \"ClosedLostOpty\" IS NULL\n                 AND \"OptySource\" = 'random'\n\
+  \                 AND \"Next4Quarter\" = 'random' )\"CopyOfProjection_2\"\n    \
+  \        GROUP BY \"BUCombined_CC\",\n                     \"OptyAccountSysID\"\
+  ,\n                     \"OpportunityAccount\")\"Aggregation_3\" ON \"Join_1\".\"\
+  AcctSysID\" = \"Aggregation_3\".\"OptyAccountSysID\"\n         AND \"Join_1\".\"\
+  BUCombined\" = \"Aggregation_3\".\"BUCombined_CC\")\"Join_2\"\n      LEFT JOIN\n\
+  \        (SELECT \"ContractNumber\" as \"ContractNumber\",\n                \"ContractEndDate\"\
+  \ as \"ContractEndDate\",\n                \"ContractAccountSysID\" as \"ContractAccountSysID\"\
+  ,\n                \"ContractTypeValue\" as \"ContractTypeValue\",\n           \
+  \     \"ContractActive\" as \"ContractActive\",\n                \"ContractRenewalDate\"\
+  \ as \"ContractRenewalDate\",\n                \"ContractRenewalStatus\" as \"ContractRenewalStatus\"\
+  ,\n                CASE\n                    WHEN \"ContractTypeValue\" IS NULL\n\
+  \                         or \"ContractTypeValue\"='random' then 'random'\n    \
+  \                else IFF(\"ContractTypeValue\" not IN ('random', 'random'), 'random',\
+  \ 'random')\n                END as \"AppStoreCheck\"\n         FROM \"ODS_LS\"\
+  .\"SURF\".\"SALES_CONTRACT\"\n         WHERE \"ContractActive\" = 'random'\n   \
+  \        AND \"ContractRenewalStatus\" !='random'\n           AND \"AppStoreCheck\"\
+  \ = 'random')\"Projection_3\" ON \"Join_2\".\"AcctSysID\" = \"Projection_3\".\"\
+  ContractAccountSysID\")\"Join_3\"\n   GROUP BY \"OptyStage\",\n            \"OptyTerritory\"\
+  ,\n            \"OptyNumber\",\n            \"OptyParentNumber\",\n            \"\
+  OptyName\",\n            \"OptyOwnerName\",\n            \"OptyType\",\n       \
+  \     \"MaturedPipeline\",\n            \"TotalActivePipeline\",\n            \"\
+  TotalClosedWonOpty\",\n            \"ClosedLostOpty\",\n            \"TotalRenewal\"\
+  ,\n            \"OpportunityCloseQuarter\",\n            \"OpenRenewal\",\n    \
+  \        \"ClosedRenewal\",\n            \"MaturedPipelineACV\",\n            \"\
+  TotalActivePipelineACV\",\n            \"TotalClosedWonOptyACV\",\n            \"\
+  TotalClosedLostOptyACV\",\n            \"TotalRenewalNNACV\",\n            \"OpenRenewalACV\"\
+  ,\n            \"ClosedRenewalACV\",\n            \"NetNewACV_USD\",\n         \
+  \   \"RenewalACV_USD\",\n            \"OptyStatus\",\n            \"ReasonCode\"\
+  ,\n            \"SummTotalActivePipelineACV\",\n            \"OptySysID\",\n   \
+  \         \"G2K_C\",\n            \"CustomerAge_C\",\n            \"SupportChampion_C\"\
+  ,\n            \"SolutionConsultant_C\",\n            \"ADR_C\",\n            \"\
+  SupportAccountManager_C\",\n            \"PSChampion_C\",\n            \"OptyParentSysID\"\
+  ,\n            \"OptyParentName\",\n            \"OptyCloseDate\",\n           \
+  \ \"ProductFullName\",\n            \"ProductCode\",\n            \"AcctNewSegment\"\
+  ,\n            \"TerrReportingTerritoryGeo\",\n            \"TerrDistrict\",\n \
+  \           \"TerrGeo\",\n            \"TerrRegion\",\n            \"TerrCountry\"\
+  ,\n            \"ConItemQuantity\",\n            \"ConItemACV_USD\",\n         \
+  \   \"AcctSysID\",\n            \"BUCombined\",\n            \"Industry\",\n   \
+  \         \"SalesRep\",\n            \"AcctCustomerSince\",\n            \"ScoreColor\"\
+  ,\n            \"HealthScore\",\n            \"Severity\",\n            \"RiskScore\"\
+  ,\n            \"ContractRenewalDate\",\n            \"DaytoRenew_C\",\n       \
+  \     \"LeadNumber\",\n            \"JourneyPhase\",\n            \"JourneyColor\"\
+  ,\n            \"Phase\",\n            \"ContractACV_USD\",\n            \"OptySource\"\
+  ,\n            \"AcctName\",\n            \"AcctNumber\",\n            \"CurrentDate\"\
+  )Aggregation_4;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

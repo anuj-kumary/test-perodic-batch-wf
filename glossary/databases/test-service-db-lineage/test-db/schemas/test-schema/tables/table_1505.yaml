@@ -1,0 +1,141 @@
+name: table_1505
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1505
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1505.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_OPPORTUNITY_ITEM_STY(\n\tOPTY_ID,\n\
+  \tOPTY_ITEM_ID,\n\tPRODUCT_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tBOOKING_BRIDGE_FLAGS_ID,\n\
+  \tOPTY_ITEM_NUMBER,\n\tOPTY_ITEM_FLAGGED_AS,\n\tOPTY_ITEM_ORIGIN,\n\tOPTY_ITEM_REPLACES_LINE,\n\
+  \tOPTY_ITEM_REV_REC_TYPE,\n\tOPTY_ITEM_SOURCE_SYSTEM,\n\tOPTY_ITEM_TERM_MONTHS_AND_DAYS,\n\
+  \tIS_OPTY_ITEM_ACTIVE,\n\tIS_QUOTE_ITEM_MAIN,\n\tIS_NOW_ASSIST,\n\tOPTY_CONTRACT_LINE_REFERENCE,\n\
+  \tPRICE_RESET_PRIMARY_LINE,\n\tTE_EXCEPTION_REASON,\n\tSFW_APP_FLAG,\n\tOPTY_ITEM_SYSID,\n\
+  \tOPPORTUNITY_SYSID,\n\tQUOTE_SYSID,\n\tOPTY_ITEM_START_TS,\n\tOPTY_ITEM_END_TS,\n\
+  \tOPTY_ITEM_CREATED_TS,\n\tOPTY_ITEM_UPDATED_TS,\n\tUSAGE_TRUEUP_PROGRAM_FLAG,\n\
+  \tOT_FLAG,\n\tERP_FLAG\n) as\n\n\n\nselect distinct\n\n    HASH(OLI.'random') as\
+  \ OPTY_ID,\n    HASH(FD.'random') as OPTY_ITEM_ID,\n    HASH(FD.'random') as PRODUCT_ID,\n\
+  \    HASH(SO.'random') as TERRITORY_ID,\n    HASH(TERR.'random') AS GEO_ID,\n  \
+  \  HASH(BKGS.'random',\n         BKGS.'random',\n         BKGS.'random',\n     \
+  \    BKGS.'random',\n         BKGS.'random',\n         BKGS.'random',\n        \
+  \ BKGS.'random',\n         BKGS.'random',\n         BKGS.'random',\n         BKGS.'random',\n\
+  \         BKGS.'random',\n         BKGS.'random',\n         BKGS.'random',\n   \
+  \      BKGS.'random',\n         BKGS.'random',\n         BKGS.'random',\n      \
+  \   BKGS.'random',\n         BKGS.'random',\n         RNWL.'random',\n         RNWL.'random',\n\
+  \         RNWL.'random',\n\n         RNWL.'random',\n         RNWL.'random',\n \
+  \        RNWL.'random',\n         RNWL.'random',\n         RNWL.'random',\n    \
+  \     RNWL.'random'\n        ) as BOOKING_BRIDGE_FLAGS_ID,\n    FD.'random' as OPTY_ITEM_NUMBER,\n\
+  \    OLI.'random' as OPTY_ITEM_FLAGGED_AS,\n    OLI.'random' as OPTY_ITEM_ORIGIN,\n\
+  \    OLI.'random' as OPTY_ITEM_REPLACES_LINE,\n    OLI.'random' as OPTY_ITEM_REV_REC_TYPE,\n\
+  \    OLI.'random' as OPTY_ITEM_SOURCE_SYSTEM,\n    OLI.'random' as OPTY_ITEM_TERM_MONTHS_AND_DAYS,\n\
+  \n    'random' as IS_OPTY_ITEM_ACTIVE,\n    CASE\n        WHEN LOWER(OLI.'random')\
+  \ = 'random' THEN 'random'\n        ELSE 'random'\n    END as IS_QUOTE_ITEM_MAIN,\n\
+  \    coalesce(genAI.'random','random') as IS_NOW_ASSIST,\n    OLI.'random' as OPTY_CONTRACT_LINE_REFERENCE,\n\
+  \    OLI.'random' as PRICE_RESET_PRIMARY_LINE,\n    OLI.'random' as TE_EXCEPTION_REASON,\n\
+  \n    FD.'random' as SFW_APP_FLAG,\n    OLI.'random' as OPTY_ITEM_SYSID,\n    OLI.'random'\
+  \ as OPPORTUNITY_SYSID,\n    OLI.'random' as QUOTE_SYSID,\n    OLI.'random' as OPTY_ITEM_START_TS,\n\
+  \    OLI.'random' as OPTY_ITEM_END_TS,\n    OLI.'random' as OPTY_ITEM_CREATED_TS,\n\
+  \    OLI.'random' as OPTY_ITEM_UPDATED_TS,\n\n\tiff(PdProgram.'random' is not NULL,'random','random')\
+  \ AS USAGE_TRUEUP_PROGRAM_FLAG,\n    case when hpd.horizontal_product = 'random'\
+  \ then 'random' else 'random' end as OT_FLAG,\n    case when hpd.horizontal_product\
+  \ = 'random' then 'random' else 'random' end as ERP_FLAG\n\n\nfrom CDL_LS.SALES_RPT.RPT_FIXEDDATAPLUSQUOTA_RT\
+  \ FD\nLEFT JOIN ODS_LS.SURF.SALES_OPPORTUNITY_ITEM OLI ON FD.'random' = OLI.'random'\n\
+  LEFT JOIN ODS_LS.SURF.SALES_OPPORTUNITY SO ON OLI.'random' = SO.'random'\nLEFT JOIN\
+  \ ODS_LS.SURF.SALES_TERRITORY_ALL TERR ON SO.'random' = TERR.'random'\nLEFT JOIN\
+  \ CDL_LS.FINANCE_FPA_RPT.BOOKINGS_ADHOC BKGS ON FD.'random' = BKGS.'random'\nLEFT\
+  \ JOIN CDL_LS.FINANCE_FPA_RPT.BOOKINGS_RENEWAL RNWL ON BKGS.'random' = RNWL.'random'\n\
+  LEFT JOIN (SELECT 'random','random','random'\n               FROM ODS_LS.SURF.SALES_PRODUCT\n\
+  \              ) PD ON OLI.'random' = PD.'random'\nLEFT JOIN EDW_LS.PRODUCT_EM.EM_PRODUCT_GEN_AI\
+  \ genAI ON genAI.'random' = FD.'random'\n\nLEFT JOIN (select distinct horizontal_product,LINE_ITEM_NUMBER\n\
+  \             from EDW_LS.product_em.v_em_horizontal_products\n            where\
+  \ record_type = 'random'\n              and horizontal_product in ('random','random')\n\
+  \              and sales_active_pipeline_flag = 'random' ) hpd on hpd.LINE_ITEM_NUMBER=FD.'random'\n\
+  \nLEFT JOIN\n(\nSELECT DISTINCT  item.'random'\n            \tFROM EDW_LS.sales_d365_em.em_programs\
+  \ p\n            \tJOIN (\n            \t\t\tSELECT\n            \t\t\t\tU_DYNAMICS_GUID,\n\
+  \            \t\t\t\tvalue as 'random'\n            \t\t\tFROM\n            \t\t\
+  \t\tRDS.SURF.'random' T1,\n            \t\t\t\tLATERAL Split_to_table(T1.u_contributing_surf_oportunity_lines,\
+  \ 'random')\n            \t\t\tWHERE\n            \t\t\t\tT1.u_contributing_surf_oportunity_lines\
+  \ is not NULL\n            \t\t\t\tand T1.U_DYNAMICS_GUID is not NULL\n        \
+  \    \t\t) top_level_line\n            \t\tON LOWER(p.'random') = LOWER(top_level_line.U_DYNAMICS_GUID)\n\
+  \            \tJOIN ODS_LS.surf.sales_opportunity_item item\n            \tON item.'random'=top_level_line.'random'\n\
+  \            \tWHERE p.'random' = 'random'\n)PdProgram\nON FD.'random'=PdProgram.'random'\n\
+  \nWHERE FD.'random' IS NOT NULL\n\nUNION\n\n\n\nselect distinct\n    HASH(OLI.'random')\
+  \ as OPTY_ID,\n    HASH(OLI.'random') as OPTY_ITEM_ID,\n    HASH(OLI.'random') as\
+  \ PRODUCT_ID,\n    HASH(SO.'random') as TERRITORY_ID,\n    HASH(TERR.'random') AS\
+  \ GEO_ID,\n    NULL as BOOKING_BRIDGE_FLAGS_ID,\n    OLI.'random' as OPTY_ITEM_NUMBER,\n\
+  \    OLI.'random' as OPTY_ITEM_FLAGGED_AS,\n    OLI.'random' as OPTY_ITEM_ORIGIN,\n\
+  \    OLI.'random' as OPTY_ITEM_REPLACES_LINE,\n    OLI.'random' as OPTY_ITEM_REV_REC_TYPE,\n\
+  \    OLI.'random' as OPTY_ITEM_SOURCE_SYSTEM,\n    OLI.'random' as OPTY_ITEM_TERM_MONTHS_AND_DAYS,\n\
+  \n    CASE WHEN FD.'random' IS NOT NULL and FD.'random' = OLI.'random' THEN 'random'\
+  \ ELSE 'random' END as IS_OPTY_ITEM_ACTIVE,\n    CASE\n        WHEN LOWER(OLI.'random')\
+  \ = 'random' THEN 'random'\n        ELSE 'random'\n    END as IS_QUOTE_ITEM_MAIN,\n\
+  \    coalesce(genAI.'random','random') as IS_NOW_ASSIST,\n    OLI.'random' as OPTY_CONTRACT_LINE_REFERENCE,\n\
+  \    OLI.'random' as PRICE_RESET_PRIMARY_LINE,\n    OLI.'random' as TE_EXCEPTION_REASON,\n\
+  \    NULL as SFWAppFlag,\n    OLI.'random' as OPTY_ITEM_SYSID,\n    OLI.'random'\
+  \ as OPPORTUNITY_SYSID,\n    OLI.'random' as QUOTE_SYSID,\n    OLI.'random' as OPTY_ITEM_START_TS,\n\
+  \    OLI.'random' as OPTY_ITEM_END_TS,\n    OLI.'random' as OPTY_ITEM_CREATED_TS,\n\
+  \    OLI.'random' as OPTY_ITEM_UPDATED_TS,\n\n\tiff(PdProgram.'random' is not NULL,'random','random')\
+  \ AS USAGE_TRUEUP_PROGRAM_FLAG,\n    case when hpd.horizontal_product = 'random'\
+  \ then 'random' else 'random' end as OT_FLAG,\n    case when hpd.horizontal_product\
+  \ = 'random' then 'random' else 'random' end as ERP_FLAG\n\n\nfrom ODS_LS.SURF.SALES_OPPORTUNITY_ITEM\
+  \ OLI\nLEFT JOIN CDL_LS.SALES_RPT.RPT_FIXEDDATAPLUSQUOTA_RT FD  ON FD.'random' =\
+  \ OLI.'random'\nLEFT JOIN ODS_LS.SURF.SALES_OPPORTUNITY SO ON OLI.'random' = SO.'random'\n\
+  LEFT JOIN (SELECT 'random' as 'random',\n        'random' as 'random',\n       \
+  \ max('random') as 'random'\nFROM ODS_LS.'random'.'random'\nGROUP BY 'random',\n\
+  \          'random') ocb on ocb.'random'=OLI.'random' and ocb.'random'=so.'random'\n\
+  LEFT JOIN ODS_LS.SURF.SALES_TERRITORY_ALL TERR ON SO.'random' = TERR.'random'\n\
+  LEFT JOIN (SELECT 'random','random','random'\n               FROM ODS_LS.SURF.SALES_PRODUCT\n\
+  \              ) PD ON OLI.'random' = PD.'random'\nLEFT JOIN EDW_LS.PRODUCT_EM.EM_PRODUCT_GEN_AI\
+  \ genAI ON genAI.'random' = OLI.'random'\n\nLEFT JOIN (select distinct horizontal_product,LINE_ITEM_NUMBER\n\
+  \             from EDW_LS.product_em.v_em_horizontal_products\n            where\
+  \ record_type = 'random'\n              and horizontal_product in ('random','random')\n\
+  \              and sales_active_pipeline_flag = 'random' ) hpd on hpd.LINE_ITEM_NUMBER=FD.'random'\n\
+  \nLEFT JOIN\n(\nSELECT DISTINCT  item.'random'\n            \tFROM EDW_LS.sales_d365_em.em_programs\
+  \ p\n            \tJOIN (\n            \t\t\tSELECT\n            \t\t\t\tU_DYNAMICS_GUID,\n\
+  \            \t\t\t\tvalue as 'random'\n            \t\t\tFROM\n            \t\t\
+  \t\tRDS.SURF.'random' T1,\n            \t\t\t\tLATERAL Split_to_table(T1.u_contributing_surf_oportunity_lines,\
+  \ 'random')\n            \t\t\tWHERE\n            \t\t\t\tT1.u_contributing_surf_oportunity_lines\
+  \ is not NULL\n            \t\t\t\tand T1.U_DYNAMICS_GUID is not NULL\n        \
+  \    \t\t) top_level_line\n            \t\tON LOWER(p.'random') = LOWER(top_level_line.U_DYNAMICS_GUID)\n\
+  \            \tJOIN ODS_LS.surf.sales_opportunity_item item\n            \tON item.'random'=top_level_line.'random'\n\
+  \            \tWHERE p.'random' = 'random'\n)PdProgram\nON OLI.'random' =PdProgram.'random'\n\
+  \nwhere OLI.'random' not in (select distinct 'random' from CDL_LS.SALES_RPT.RPT_FIXEDDATAPLUSQUOTA_RT\
+  \  where 'random' is not null)\nand OLI.'random' IS NOT NULL\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

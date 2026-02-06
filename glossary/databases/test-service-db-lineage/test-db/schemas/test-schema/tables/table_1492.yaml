@@ -1,0 +1,206 @@
+name: table_1492
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1492
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1492.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_HEAD_COUNT(\n\tQUARTER_ID,\n\t\
+  TERRITORY_ID,\n\tGEO_ID,\n\tQUARTER_YYQQ,\n\tDEPT_NAME,\n\tTERRITORY_SYSID,\n\t\
+  DEPT_CODE,\n\tSALES_HIERARCHY,\n\tCOST_CENTER,\n\tSTARTING_HC,\n\tNEW_HIRES,\n\t\
+  TERMS,\n\tNET_DEPT_TRANSFERS,\n\tNET_AREA_TRANSFERS,\n\tNET_GEO_TRANSFERS,\n\tOFFERS_ACCEPTED,\n\
+  \tOFFERS_IN_PROCESS,\n\tPROJECTED_ENDING_HC,\n\tNET_HC_ADDED,\n\tATTRITION_CURRENT_PERIOD,\n\
+  \tLATEST_QUARTERLY_HC_PLAN,\n\tHC_PLAN_COMMITED_GAP,\n\tTA_ADDITIONAL_HIRES_FORECASTED,\n\
+  \tPROJECTED_ENDING_HC_TA,\n\tHC_PLAN_TO_TOTAL_PROJECTED_TILL_END,\n\tOPEN_REQS,\n\
+  \tOPEN_REQS_YTD,\n\tPERCENTAGE_EOQ_FORECASTED_TO_PLAN,\n\tATTRITION_FORCAST,\n\t\
+  ATTRITION_ACTUAL_FORECAST,\n\tNEW_HIRES_YTD,\n\tOFFERS_ACCEPTED_YTD,\n\tOFFERS_IN_PROCESS_YTD,\n\
+  \tOFFERS_ACCEPTED_AND_INPROCESS,\n\tKPI_NAME,\n\tKPI_VALUE,\n\tOPEN_REQUEST_FUTURE_QTR,\n\
+  \tALL_OFFERS_FUTURE_QTR,\n\tSUB_CATEGORY,\n\tTYPE,\n\tTOTAL_EMPLOYEE_COUNT,\n\t\
+  REGRETTABLE_TERM_COUNT,\n\tEMPLOYED_TARGET,\n\tACTUAL_EMPLOYED\n) as (\nwith GEO_TOTAL_EMPLOYEE_COUNT\
+  \ as (select * from (\n--Previous Quarter Emp counts\nselect RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random') as \"Quarter\", 'random' as \"QuarterFlag\"\
+  ,\n\"GEO\", round(avg(\"EmployeeCount\"),'random') as \"TotalEmployeeCount\",\n\
+  'random' as \"RegrettableTermCount\"\nfrom (select TO_DATE(\"ExtractDate\", 'random')\
+  \ as \"ExtractDate\", \"TerrGeo\" as \"GEO\",\ncount(distinct \"EmployeeNumber\"\
+  ) \"EmployeeCount\"\nfrom  PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_MONTH_ENDING\
+  \ a\nleft outer join ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n \t   \t   on e.\"EmpEmployeeNumber\"\
+  \ = a.\"EmployeeNumber\"\n LEFT outer join  ODS_LS.\"SURF\".\"U_ST_TERRITORY\" as\
+  \ st\n        \t   on st.\"TerrUserSysID\"=e.\"EmpSysID\"\nLEFT outer join  ODS_LS.\"\
+  SURF\".\"SALES_TERRITORY\" as stt\n        \t   on st.\"TerrUserRecSysID\"=stt.\"\
+  TerrSysID\"\nwhere TO_DATE(\"ExtractDate\", 'random') in ('random','random','random','random')\n\
+  and \"DepartmentNumber\" = 'random'\nand \"TerrGeo\" in ('random','random','random','random')\
+  \ ---ACE and Nulls are also coming; excluding them\ngroup by TO_DATE(\"ExtractDate\"\
+  , 'random'), \"TerrGeo\"\n)\ngroup by \"GEO\"\nUNION\n--Current Quarter Emp counts\
+  \ from daily snapshot and Previous closed months\nselect RIGHT(YEAR(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP())) || 'random' || QUARTER(convert_timezone('random', CURRENT_TIMESTAMP())),'random')\
+  \ as \"Quarter\", 'random' as \"QuarterFlag\",\n\"GEO\", round(avg(\"EmployeeCount\"\
+  ),'random') as \"TotalEmployeeCount\",\n'random' as \"RegrettableTermCount\"\nfrom\
+  \ (\nselect TO_DATE(\"ExtractDate\", 'random') as \"ExtractDate\", \"TerrGeo\" as\
+  \ \"GEO\",\ncount(distinct \"EmployeeNumber\") \"EmployeeCount\"\nfrom  PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_MONTH_ENDING\
+  \ a\nleft outer join ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n \t   \t   on e.\"EmpEmployeeNumber\"\
+  \ = a.\"EmployeeNumber\"\n LEFT outer join  ODS_LS.\"SURF\".\"U_ST_TERRITORY\" as\
+  \ st\n        \t   on st.\"TerrUserSysID\"=e.\"EmpSysID\"\nLEFT outer join  ODS_LS.\"\
+  SURF\".\"SALES_TERRITORY\" as stt\n        \t   on st.\"TerrUserRecSysID\"=stt.\"\
+  TerrSysID\"\nwhere TO_DATE(\"ExtractDate\", 'random') in ('random','random')\nand\
+  \ \"DepartmentNumber\" = 'random'\nand \"TerrGeo\" in ('random','random','random','random')\
+  \ ---ACE and Nulls are also coming; excluding them\ngroup by TO_DATE(\"ExtractDate\"\
+  , 'random'), \"TerrGeo\"\nUNION\nselect CURRENT_DATE AS \"ExtractDate\", \"TerrGeo\"\
+  \ as \"GEO\",\ncount(distinct \"EmployeeNumber\") \"EmployeeCount\"\nfrom PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_EES_CWS\
+  \ a    --Current months numbers\nleft outer join ODS_LS.\"SURF\".\"EMPLOYEE\" as\
+  \ e\n \t   \t   on e.\"EmpEmployeeNumber\" = a.\"EmployeeNumber\"\n LEFT outer join\
+  \  ODS_LS.\"SURF\".\"U_ST_TERRITORY\" as st\n        \t   on st.\"TerrUserSysID\"\
+  =e.\"EmpSysID\"\nLEFT outer join  ODS_LS.\"SURF\".\"SALES_TERRITORY\" as stt\n \
+  \       \t   on st.\"TerrUserRecSysID\"=stt.\"TerrSysID\"\nwhere \"DepartmentNumber\"\
+  \ = 'random'\nand \"TerrGeo\" in ('random','random','random','random') ---ACE and\
+  \ Nulls are also coming; excluding them\ngroup by \"TerrGeo\", CURRENT_DATE\n)\n\
+  group by \"GEO\"\nUNION\n---Regrettable Terms by Quarter\n(select distinct \"TermQuarter\"\
+  \ as \"Quarter\",\ncase when \"TermQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(\n                    ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random') then 'random'\n            when \"TermQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone('random', CURRENT_TIMESTAMP())) || 'random' || QUARTER(\n\
+  \                    convert_timezone('random', CURRENT_TIMESTAMP())),'random')\
+  \ then 'random'\n                    else 'random' end as \"QuarterFlag\",\n\"Geo\"\
+  \ as \"GEO\",\n'random' as \"TotalEmployeeCount\",\n\"RegrettableTermCount\"\nfrom\
+  \ PEOPLE_NSN_SHARE.NSN_WORKDAY.V_SLS_REGRETTABLE_TERMS_BY_GEO \"emp\"\nwhere \"\
+  Geo\" <> 'random'\nunion all\n(select \"TermQuarter\" as \"Quarter\",\ncase when\
+  \ \"TermQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random', CURRENT_TIMESTAMP()),'random'))\
+  \ || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random', CURRENT_TIMESTAMP()),'random')),'random')\
+  \ then 'random'\nwhen \"TermQuarter\" = RIGHT(YEAR(convert_timezone('random', CURRENT_TIMESTAMP()))\
+  \ || 'random' || QUARTER(\n                    convert_timezone('random', CURRENT_TIMESTAMP())),'random')\
+  \ then 'random'\n                    else 'random' end as \"QuarterFlag\",\n'random'\
+  \ as \"GEO\",\n'random' as \"TotalEmployeeCount\",\n(\"TermCountAllGeo\"-\"TermCount\"\
+  ) as \"RegrettableTermCount\"\nfrom  (\nselect \"TermQuarter\",\nsum(case when \"\
+  Geo\" <> 'random' Then \"RegrettableTermCount\" Else 'random' end) as \"TermCount\"\
+  ,\nsum(case when \"Geo\" = 'random' Then \"RegrettableTermCount\" Else 'random'\
+  \ end) as \"TermCountAllGeo\"\nfrom PEOPLE_NSN_SHARE.NSN_WORKDAY.V_SLS_REGRETTABLE_TERMS_BY_GEO\
+  \ \"emp\"\ngroup by \"TermQuarter\"\n--PEOPLE_NSN_SHARE.NSN_WORKDAY.V_SLS_REGRETTABLE_TERMS_BY_GEO\
+  \ \"emp\";\n))\n)\n) \"emp\"\nleft outer join\n(select distinct \"TerrGeo\", \"\
+  TerrSysID\" from  ODS_LS.\"SURF\".\"SALES_TERRITORY\"\nwhere \"TerrName\" = \"TerrGeo\"\
+  \nunion\nselect distinct 'random' as \"TerrGeo\", \"TerrSysID\"\nfrom  ODS_LS.\"\
+  SURF\".\"SALES_TERRITORY\"\nwhere \"TerrName\" = \"TerrGlobal\"\n) \"terr\"\non\
+  \ \"emp\".\"GEO\" = \"terr\".\"TerrGeo\"),\n\nACTUAL_EMPLOYED_VS_TARGETED as\n(\n\
+  select \"GEO\",\"terr\".\"TerrSysID\", \"Quarter\",\"QuarterFlag\",sum(\"EmployedTarget\"\
+  )EMPLOYED_TARGET,sum(\"ActualsEmployed\")ACTUAL_EMPLOYED from ((select \"GEO\",\
+  \ \"Quarter\", \"QuarterFlag\", sum(target_value) \"EmployedTarget\",\n'random'\
+  \ as \"ActualsEmployed\"\nfrom\n(\nSelect RIGHT(YEAR(convert_timezone('random',\
+  \ CURRENT_DATE)) || 'random' || QUARTER(convert_timezone('random', CURRENT_DATE)),'random')\
+  \ as \"Quarter\", 'random' as \"QuarterFlag\", max (T.target_value) target_value\
+  \ ,Base.User_Type,Base.GEO,Base.Major_Area,Base.Bu_Name,\nBase.Workflow, Base.DT_SKILL_PATH,Base.Taxonomy,Base.Funnel_Stage\n\
+  from EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY Base\n\
+  LEFT JOIN  EDW_LS.GTM_RISEUP.TBL_TARGET_CONSOLIDATED_DATA T --21 feb\n         ON\
+  \ T.TARGET_KEY = Base.TARGET_KEY --  --21 feb\nWHERE 'random'= 'random'\n    and\
+  \ SNAPSHOT_DATE = (SELECT MAX(snapshot_date) FROM EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY)\n\
+  \    and lower(Base.user_type) ='random'\n    and Base.FUNNEL_STAGE = 'random'\n\
+  \    AND IFNULL(TRIM(LOWER(base.FIRST_NAME)),'random') = 'random' -- 12 feb\n  \
+  \  and T.TARGET_YEAR = YEAR (SELECT MAX(snapshot_date) FROM EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY)\
+  \ -- 21 feb\ngroup by  Base.User_Type,Base.GEO,Base.Major_Area,Base.Bu_Name,Base.Workflow,\
+  \ Base.DT_SKILL_PATH, Base.Taxonomy\n, Base.Funnel_Stage\nUNION\nSelect RIGHT(YEAR(convert_timezone('random',\
+  \ add_months(CURRENT_DATE,'random'))) || 'random' || QUARTER(convert_timezone('random',\
+  \ add_months(CURRENT_DATE,'random'))),'random') as \"Quarter\", 'random' as \"QuarterFlag\"\
+  , max (T.target_value) target_value ,Base.User_Type,Base.GEO,Base.Major_Area,Base.Bu_Name,\n\
+  Base.Workflow, Base.DT_SKILL_PATH,Base.Taxonomy,Base.Funnel_Stage\nfrom EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY\
+  \ Base\nLEFT JOIN  EDW_LS.GTM_RISEUP.TBL_TARGET_CONSOLIDATED_DATA T --21 feb\n \
+  \        ON T.TARGET_KEY = Base.TARGET_KEY --  --21 feb\nWHERE 'random'= 'random'\n\
+  \    and SNAPSHOT_DATE = (select distinct \"DateDimQuarterEndDate\" from ODS_LS.SURF.DATE_DIMENSION\n\
+  where \"DateDimQuarterByYearSURF\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random'))\n    and lower(Base.user_type) ='random'\n\
+  \    and Base.FUNNEL_STAGE = 'random'\n    AND IFNULL(TRIM(LOWER(base.FIRST_NAME)),'random')\
+  \ = 'random' -- 12 feb\n    and  T.TARGET_YEAR  = YEAR (select distinct \"DateDimQuarterEndDate\"\
+  \ from ODS_LS.SURF.DATE_DIMENSION\nwhere \"DateDimQuarterByYearSURF\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random')) -- 12 feb\ngroup by  Base.User_Type,Base.GEO,Base.Major_Area,Base.Bu_Name,Base.Workflow,\
+  \ Base.DT_SKILL_PATH, Base.Taxonomy\n, Base.Funnel_Stage\n)\nGROUP BY  \"GEO\",\
+  \ \"Quarter\", \"QuarterFlag\"\n)\nUNION\n-- Headcount\n(select \"GEO\", RIGHT(YEAR(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP())) || 'random' || QUARTER(convert_timezone('random', CURRENT_TIMESTAMP())),'random')\
+  \ AS \"Quarter\", 'random' as \"QuarterFlag\",  'random' as \"EmployedTarget\" ,\n\
+  count (distinct USER)  \"ActualsEmployed\"\nfrom EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY\
+  \ Base\nWHERE 'random'='random'\nand SNAPSHOT_DATE = (SELECT MAX(snapshot_date)\
+  \ FROM EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY)\n\
+  and (BU_name not in ('random') or BU_name IS NULL)\nAND FUNNEL_STAGE_RANK ='random'\
+  \ and FUNNEL_SUB_STAGE_RANK = 'random'\nAND IS_SERVICENOW_EMPLOYEE = 'random'\n\
+  AND Trim(lower(user_type)) = 'random'\n--AND Trim(lower(Base.FUNNEL_STAGE)) in ('engaged'\
+  \ ,'certified' )\nand is_employed = 'random'\nAND IFNULL(TRIM(LOWER(FIRST_NAME)),'random')\
+  \ != 'random'\nGROUP BY \"GEO\"\nUNION\nselect \"GEO\", RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random') AS \"Quarter\", 'random' as \"QuarterFlag\"\
+  ,  'random' as \"EmployedTarget\" ,\ncount (distinct USER)  \"ActualsEmployed\"\n\
+  from EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY Base\n\
+  WHERE 'random'='random'\nand SNAPSHOT_DATE = (select distinct \"DateDimQuarterEndDate\"\
+  \ from ODS_LS.SURF.DATE_DIMENSION\nwhere \"DateDimQuarterByYearSURF\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')) || 'random' || QUARTER(ADD_MONTHS(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP()),'random')),'random'))\nand (BU_name not in ('random') or\
+  \ BU_name IS NULL)\nAND FUNNEL_STAGE_RANK ='random' and FUNNEL_SUB_STAGE_RANK =\
+  \ 'random'\nAND IS_SERVICENOW_EMPLOYEE = 'random'\nAND Trim(lower(user_type)) =\
+  \ 'random'\n--AND Trim(lower(Base.FUNNEL_STAGE)) in ('engaged' ,'certified' )\n\
+  and is_employed = 'random'\nAND IFNULL(TRIM(LOWER(FIRST_NAME)),'random') != 'random'\n\
+  GROUP BY \"GEO\"\n)\n) \"partner\"\nleft outer join (select distinct \"TerrGeo\"\
+  , \"TerrSysID\" from  ODS_LS.\"SURF\".\"SALES_TERRITORY\"\nwhere \"TerrName\" =\
+  \ \"TerrGeo\") \"terr\"\non \"partner\".\"GEO\" = \"terr\".\"TerrGeo\"\ngroup by\
+  \ all)\n\nSELECT\n\tQUARTER_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\ths.\"Quarter\" as\
+  \ QUARTER_YYQQ,\n\t\"DeptName\" as DEPT_NAME,\n\ths.\"TerritorySysID\" as TERRITORY_SYSID,\n\
+  \t\"DeptCode\" as DEPT_CODE,\n\t\"SalesHierarchy\" as SALES_HIERARCHY,\n\t\"CostCenter\"\
+  \ as COST_CENTER,\n\t\"StartingHC\" as STARTING_HC,\n\t\"NewHires\" as NEW_HIRES,\n\
+  \t\"Terms\" as TERMS,\n\t\"NetDeptTransfers\" as NET_DEPT_TRANSFERS,\n\t\"NetAreaTransfers\"\
+  \ as NET_AREA_TRANSFERS,\n\t\"NetGeoTransfers\" as NET_GEO_TRANSFERS,\n\t\"OffersAccepted\"\
+  \ as OFFERS_ACCEPTED,\n\t\"OffersinProcess\" as OFFERS_IN_PROCESS,\n\t\"ProjectedEndingHC\"\
+  \ as PROJECTED_ENDING_HC,\n\t\"NetHCAdded\" as NET_HC_ADDED,\n\t\"AttritionLeft-To-GoCurrentPeriod\"\
+  \ as ATTRITION_CURRENT_PERIOD,\n\t\"LatestQuarterlyHCPlan\" as LATEST_QUARTERLY_HC_PLAN,\n\
+  \t\"HCPlanToCommiteedGap\" as HC_PLAN_COMMITED_GAP,\n\t\"TA_AddtlHiresForecasted\"\
+  \ as TA_ADDITIONAL_HIRES_FORECASTED,\n\t\"ProjectedEndingHC+TA\" as PROJECTED_ENDING_HC_TA,\n\
+  \t\"HCPlanToTotalProjectedEndingHC\" as HC_PLAN_TO_TOTAL_PROJECTED_TILL_END,\n\t\
+  \"OpenReqs\" as OPEN_REQS,\n\t\"OpenReqsYTD\" as OPEN_REQS_YTD,\n\t\"End_of_Quarter_F'cast_to_Plan_(%)\"\
+  \ as PERCENTAGE_EOQ_FORECASTED_TO_PLAN,\n\t\"AttritionForecast\" as ATTRITION_FORCAST,\n\
+  \t\"Attrition(Actual+Forecast)\" as ATTRITION_ACTUAL_FORECAST,\n\t\"NewHires_YTD\"\
+  \ as NEW_HIRES_YTD,\n\t\"OffersAccepted_YTD\" as OFFERS_ACCEPTED_YTD,\n\t\"OffersinProcess_YTD\"\
+  \ as OFFERS_IN_PROCESS_YTD,\n\t\"OffersAccepted&Inprocess\" as OFFERS_ACCEPTED_AND_INPROCESS,\n\
+  \t\"KPIName\" as KPI_NAME,\n\t\"KPIValue\" as KPI_VALUE,\n\t\"Open_Reqs_Future_QTR\"\
+  \ as OPEN_REQUEST_FUTURE_QTR,\n\t\"All_Offers_Future_QTR\" as ALL_OFFERS_FUTURE_QTR,\n\
+  \t\"Sub_Category\" as SUB_CATEGORY,\n\t\"Type\" as TYPE,\n\t\"TotalEmployeeCount\"\
+  \ as TOTAL_EMPLOYEE_COUNT,\n\t\"RegrettableTermCount\" as REGRETTABLE_TERM_COUNT,\n\
+  \tEMPLOYED_TARGET,\n\tACTUAL_EMPLOYED\nFROM EDW_LS.\"SALES_EM\".\"SALES_HEADCOUNT_SUMMARY\"\
+  \ hs\nleft outer join edw.enterprise.dim_territory dt on hs.\"TerritorySysID\"=dt.territory_sysid\n\
+  left outer join edw.enterprise.dim_quarter dq on hs.\"Quarter\"=dq.quarter_yyqq\n\
+  left outer join GEO_TOTAL_EMPLOYEE_COUNT gte on gte.\"Quarter\"=hs.\"Quarter\" and\
+  \ gte.\"TerrSysID\"=hs.\"TerritorySysID\"\nleft outer join ACTUAL_EMPLOYED_VS_TARGETED\
+  \ evt on evt.\"Quarter\"=hs.\"Quarter\" and evt.\"TerrSysID\"=hs.\"TerritorySysID\"\
+  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

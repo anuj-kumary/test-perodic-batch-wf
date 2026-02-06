@@ -1,0 +1,77 @@
+name: table_1480
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1480
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1480.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_CUSTOMERS_PER_PLATFORM_FAMILY(\n\t\"\
+  AcctNumber\",\n\t\"AcctName\",\n\t\"MonthYear\",\n\t\"InstanceName\",\n\t\"HostType\"\
+  ,\n\t\"AssignedVersion\",\n\t\"ProductionType\",\n\t\"InstanceSKU\",\n\t\"SnapshotDate\"\
+  ,\n\t\"InstanceRegTime\",\n\t\"InstanceCreatedOn\",\n\t\"PlatformFamily\",\n\t\"\
+  PartnerType\",\n\t\"ImplementationPartner\",\n\t\"InstanceAge\",\n\t\"FamilyReleaseDate\"\
+  ,\n\t\"DummyCount\",\n\t\"UpgrateDate\",\n\t\"DaystoUpgrade\",\n\t\"Ranking\",\n\
+  \t\"AccountKey\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ACCOUNT\" as \"AcctNumber\"\
+  ,\n       \"COMPANY\" as \"AcctName\",\n       \"MONTH_YEAR\" as \"MonthYear\",\n\
+  \       \"INSTANCE_NAME\" as \"InstanceName\",\n       \"HOST_TYPE\" as \"HostType\"\
+  ,\n       \"ASSIGNED_VERSION\" as \"AssignedVersion\",\n       \"PRODUCTION_TYPE\"\
+  \ as \"ProductionType\",\n       \"INSTANCE_SKU\" as \"InstanceSKU\",\n       \"\
+  EXTRACT_DATE\" as \"SnapshotDate\",\n       \"INSTANCE_REG_TIME\" as \"InstanceRegTime\"\
+  ,\n       \"InstanceCreatedOn\" as \"InstanceCreatedOn\",\n       \"FAMILY\" as\
+  \ \"PlatformFamily\",\n       \"PartnerType\" as \"PartnerType\",\n       \"IMPLEMENTATION_PARTNER\"\
+  \ as \"ImplementationPartner\",\n       \"InstanceAge\" as \"InstanceAge\",\n  \
+  \     \"DC_RELEASE_DATE\" as \"FamilyReleaseDate\",\n       \"DUMMY_COUNT\" as \"\
+  DummyCount\",\n       \"UpgrateDate\" as \"UpgrateDate\",\n       \"DaystoUpgrade\"\
+  \ as \"DaystoUpgrade\",\n       \"Ranking\" as \"Ranking\",\n       \"AccountKey\"\
+  \ as \"AccountKey\"\nFROM\n  (SELECT \"INSTANCE_NAME\" as \"INSTANCE_NAME\",\n \
+  \         \"COMPANY\" as \"COMPANY\",\n          \"HOST_TYPE\" as \"HOST_TYPE\"\
+  ,\n          \"ASSIGNED_VERSION\" as \"ASSIGNED_VERSION\",\n          \"PRODUCTION_TYPE\"\
+  \ as \"PRODUCTION_TYPE\",\n          \"INSTANCE_SKU\" as \"INSTANCE_SKU\",\n   \
+  \       \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n          \"INSTANCE_REG_TIME\" as\
+  \ \"INSTANCE_REG_TIME\",\n          \"InstanceCreatedOn\" as \"InstanceCreatedOn\"\
+  ,\n          \"FAMILY\" as \"FAMILY\",\n          \"MONTH_YEAR\" as \"MONTH_YEAR\"\
+  ,\n          \"ACCOUNT\" as \"ACCOUNT\",\n          \"PartnerType\" as \"PartnerType\"\
+  ,\n          \"IMPLEMENTATION_PARTNER\" as \"IMPLEMENTATION_PARTNER\",\n       \
+  \   \"InstanceAge\" as \"InstanceAge\",\n          \"DC_RELEASE_DATE\" as \"DC_RELEASE_DATE\"\
+  ,\n          \"DUMMY_COUNT\" as \"DUMMY_COUNT\",\n          \"UpgrateDate\" as \"\
+  UpgrateDate\",\n          \"DaystoUpgrade\" as \"DaystoUpgrade\",\n          \"\
+  Ranking\" as \"Ranking\",\n          \"AccountKey\" as \"AccountKey\"\n   FROM \"\
+  EDW_LS\".\"CUSTOMER_EM\".\"CUSTOMERS_PER_PLATFORM_VERSION\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

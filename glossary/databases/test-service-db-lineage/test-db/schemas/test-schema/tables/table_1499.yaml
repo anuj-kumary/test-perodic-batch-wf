@@ -1,0 +1,80 @@
+name: table_1499
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1499
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1499.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SALES_QUOTE_TERMS(\n\t\"QuoteTermSysId\"\
+  ,\n\t\"QuoteTermCustomSpecial\",\n\t\"QuoteTermSpecialTerms\",\n\t\"QuoteTermOverrideText\"\
+  ,\n\t\"QuoteTermNumber\",\n\t\"QuoteTermSalesQuote\",\n\t\"QuoteTermSection\",\n\
+  \t\"QuoteTermSectionValue\",\n\t\"QuoteTermOverrideReason\",\n\t\"QuoteTermStandardTermsAndConditions\"\
+  ,\n\t\"QuoteTermLineNumber\",\n\t\"QuoteTermStandard\",\n\t\"QuoteTermAndConditionsNumber\"\
+  ,\n\t\"QuoteTermOverrideReasonNotes\",\n\t\"QuoteTermSpecialTermName\",\n\t\"QuoteTermCreatedOn\"\
+  ,\n\t\"QuoteTermCreatedBy\",\n\t\"QuoteTermsAndConditionsName\",\n\tDV_SALES_QUOTE\n\
+  ) as\n\n-- SEMANTIC LAYER BEGINS\nSELECT \"SYS_ID\" as \"QuoteTermSysId\",\n   \
+  \    \"U_CUSTOM_SPECIAL_TEXT\" as \"QuoteTermCustomSpecial\",\n       \"U_SPECIAL_TERMS\"\
+  \ as \"QuoteTermSpecialTerms\",\n       \"OVERRIDE_TEXT\" as \"QuoteTermOverrideText\"\
+  ,\n       \"NUMBER\" as \"QuoteTermNumber\",\n       \"SALES_QUOTE\" as \"QuoteTermSalesQuote\"\
+  ,\n       \"U_SECTION\" as \"QuoteTermSection\",\n       \"DV_U_SECTION\" as \"\
+  QuoteTermSectionValue\",\n       \"DV_OVERRIDE_REASON\" as \"QuoteTermOverrideReason\"\
+  ,\n       \"DV_SALES_TERM\" as \"QuoteTermStandardTermsAndConditions\",\n      \
+  \ \"LINE_NUMBER\" as \"QuoteTermLineNumber\",\n       \"STANDARD\" as \"QuoteTermStandard\"\
+  ,\n       \"U_TERMS_CONDITIONS_NUMBER\" as \"QuoteTermAndConditionsNumber\",\n \
+  \      \"QuoteTermsOverrideReasonNotes\" as \"QuoteTermOverrideReasonNotes\",\n\
+  \       \"QuoteTermSpecialTermName\" as \"QuoteTermSpecialTermName\",\n       \"\
+  SYS_CREATED_ON\" as \"QuoteTermCreatedOn\",\n       \"SYS_CREATED_BY\" as \"QuoteTermCreatedBy\"\
+  ,\n       \"U_TERMS_NAME\" as \"QuoteTermsAndConditionsName\",\n       \"DV_SALES_QUOTE\"\
+  \ as \"DV_SALES_QUOTE\"\nFROM\n  (SELECT \"SYS_ID\" as \"SYS_ID\",\n          \"\
+  U_CUSTOM_SPECIAL_TEXT\" as \"U_CUSTOM_SPECIAL_TEXT\",\n          \"U_SPECIAL_TERMS\"\
+  \ as \"U_SPECIAL_TERMS\",\n          \"OVERRIDE_TEXT\" as \"OVERRIDE_TEXT\",\n \
+  \         \"NUMBER\" as \"NUMBER\",\n          \"SALES_QUOTE\" as \"SALES_QUOTE\"\
+  ,\n          \"U_SECTION\" as \"U_SECTION\",\n          \"DV_U_SECTION\" as \"DV_U_SECTION\"\
+  ,\n          \"DV_OVERRIDE_REASON\" as \"DV_OVERRIDE_REASON\",\n          \"DV_SALES_TERM\"\
+  \ as \"DV_SALES_TERM\",\n          \"U_NOTES\" as \"U_NOTES\",\n          \"LINE_NUMBER\"\
+  \ as \"LINE_NUMBER\",\n          \"STANDARD\" as \"STANDARD\",\n          \"DV_U_NAME\"\
+  \ as \"DV_U_NAME\",\n          \"U_TERMS_CONDITIONS_NUMBER\" as \"U_TERMS_CONDITIONS_NUMBER\"\
+  ,\n          \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n          \"SYS_CREATED_BY\"\
+  \ as \"SYS_CREATED_BY\",\n          \"U_TERMS_NAME\" as \"U_TERMS_NAME\",\n    \
+  \      \"DV_SALES_QUOTE\" as \"DV_SALES_QUOTE\",\n          LEFT(\"U_NOTES\", 'random')\
+  \ as \"QuoteTermsOverrideReasonNotes\",\n          LEFT(\"DV_U_NAME\", 'random')\
+  \ as \"QuoteTermSpecialTermName\"\n   FROM \"RDS\".\"SURF\".\"SALES_QUOTE_TERMS\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

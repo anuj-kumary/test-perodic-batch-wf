@@ -1,0 +1,79 @@
+name: table_1476
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1476
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1476.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SHAILJA_TEST(\n\t\"OptySalesQuarter\",\n\
+  \t\"TerrSysID_CC\",\n\t\"BUGroup\",\n\t\"OptyTerrGeo\",\n\t\"OptyTerrMajorArea\"\
+  ,\n\t\"OptyTerrArea\",\n\t\"OptyTerrRegion\",\n\t\"OptyTerrDistrict\",\n\t\"OpenPipeline\"\
+  ,\n\t\"Closed\",\n\t\"HistoricalAbility_Average\",\n\t\"PipelineWeightFactor\",\n\
+  \t\"QuotaPullNNACV\",\n\t\"PredictedClosed_Marquee\",\n\t\"CompanyOpenPipeline\"\
+  \n) as\n(SELECT fd.\"OptySalesQuarter\", fd.\"TerrSysID_CC\", fd.\"BUGroup\",\n\
+  \         fd.\"OptyTerrGeo\", fd.\"OptyTerrMajorArea\", fd.\"OptyTerrArea\", fd.\"\
+  OptyTerrRegion\", fd.\"OptyTerrDistrict\",\n         fd.\"OpenPipeline\" , fd.\"\
+  Closed\", r.\"HistoricalAbility_Average\" , r.\"PipelineWeightFactor\", r.\"QuotaPullNNACV\"\
+  ,\n ((NVL(fd.\"OpenPipeline\",'random') * NVL(r.\"HistoricalAbility_Average\",'random')\
+  \ * NVL(r.\"PipelineWeightFactor\",'random')) + NVL(fd.\"Closed\",'random')) as\
+  \ \"PredictedClosed_Marquee\",\"CompanyOpenPipeline\"\n FROM\n     (select f.\"\
+  OptySalesQuarter\", f.\"BUGroup\", f.\"OptyTerrGeo\", f.\"OptyTerrMajorArea\", f.\"\
+  OptyTerrArea\", f.\"OptyTerrRegion\", f.\"OptyTerrDistrict\",\n             iff(f.\"\
+  MarqueeAccount\" = 'random', sum(f.\"OpenPipeline\"), 'random') as \"OpenPipeline\"\
+  \  ,\n               //check\n             sum(f.\"OpenPipeline\") as \"CompanyOpenPipeline\"\
+  ,\n             iff(f.\"MarqueeAccount\" = 'random', sum(f.\"Closed\"), 'random')\
+  \ as \"Closed\" ,\n    /* Added below line to get pipeline data at district level\
+  \ to join with EM_SALES_PLS_PIPELINE_CONVERSION_RT who's granuality is at district\
+  \ */\n             case when t.\"TerrTypeValue\"<> 'random' then t.\"TerrSysID\"\
+  \ else T.\"TerrDistrictSysID\" end as \"TerrSysID_CC\"\n\t\t from EDW_LS.SALES_EM.EM_FIXEDDATAPLUSQUOTA_RT\
+  \ f\n   left join ODS_LS.SURF.SALES_TERRITORY_ALL t on f.\"TerritorySysID_CC\"=t.\"\
+  TerrSysID\"\n       where\n             f.\"OptySalesQuarter\"=RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'||\n                                \
+  \     QUARTER(convert_timezone('random',CURRENT_TIMESTAMP())), 'random')\n    group\
+  \ by f.\"OptySalesQuarter\", f.\"BUGroup\",\n             f.\"OptyTerrGeo\", f.\"\
+  OptyTerrMajorArea\", f.\"OptyTerrArea\", f.\"OptyTerrRegion\", f.\"OptyTerrDistrict\"\
+  , t.\"TerrTypeValue\",\n             t.\"TerrSysID\", T.\"TerrDistrictSysID\", f.\"\
+  MarqueeAccount\"\n      ) fd\nLEFT JOIN (select \"Quarter\", \"TerritorySysID\"\
+  , \"PLSBUGroup\", \"Geo\", \"MajorArea\", \"Area\", \"Region\", \"District\",\n\
+  \                  \"HistoricalAbility_Average\", \"PipelineWeightFactor\", \"QuotaPullNNACV\"\
+  \n             from EDW_LS.SALES_EM.EM_SALES_PLS_PIPELINE_CONVERSION_RT ) r\n  \
+  \     ON r.\"PLSBUGroup\" = fd.\"BUGroup\" AND FD.\"OptySalesQuarter\"=R.\"Quarter\"\
+  \ and r.\"TerritorySysID\" = fd.\"TerrSysID_CC\");"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,102 @@
+name: table_169
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_169
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_169.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_SN_COMMIT(\n\t\"SCommitUpsideValue\"\
+  ,\n\t\"SCommitExpectValue\",\n\t\"SCommitSalesRepSysID\",\n\t\"SCommitTerritorySysID\"\
+  ,\n\t\"SCommitWeekNum\",\n\t\"SCommitType\",\n\t\"SCommitQuarter\",\n\t\"SCommitSysID\"\
+  ,\n\t\"SCommitValue\",\n\t\"SCommitWeekDate\",\n\t\"SCommitTerritory\",\n\t\"SCommitSalesRep\"\
+  ,\n\t\"SCommitSysUpdatedOn\",\n\t\"SCommitExtractDate\",\n\t\"SCommitMonthly\",\n\
+  \t\"SCommitExpectMonthly\",\n\t\"SCommitUpsideMonthly\",\n\t\"SCommitMonth\",\n\t\
+  \"SCommitTerritoryGUID\",\n\t\"SCommitSurfTerritorySysID\"\n) as\n-- SEMANTIC LAYER\
+  \ BEGINS\n\nSELECT \"U_UPSIDE_CC\" as \"SCommitUpsideValue\",\n       \"U_EXPECT_CC\"\
+  \ as \"SCommitExpectValue\",\n       \"U_SALES_REP\" as \"SCommitSalesRepSysID\"\
+  ,\n       \"U_TERRITORY\" as \"SCommitTerritorySysID\",\n       \"U_WEEK_NUM\" as\
+  \ \"SCommitWeekNum\",\n       \"U_COMMIT_TYPE\" as \"SCommitType\",\n       \"U_PERIOD\"\
+  \ as \"SCommitQuarter\",\n       --\"U_WEEK_DATE_DIMENSION\" as \"SCommitWeekDateDimensionSysID\"\
+  ,\n       \"SYS_ID\" as \"SCommitSysID\",\n       \"U_COMMIT_CC\" as \"SCommitValue\"\
+  ,\n       \"U_WEEK\" as \"SCommitWeekDate\",\n       \"DV_U_TERRITORY\" as \"SCommitTerritory\"\
+  ,\n       \"DV_U_SALES_REP\" as \"SCommitSalesRep\",\n       \"SYS_UPDATED_ON\"\
+  \ as \"SCommitSysUpdatedOn\",\n       \"EXTRACT_DATE\" as \"SCommitExtractDate\"\
+  ,\n       \"U_COMMIT_MONTH_\" as \"SCommitMonthly\",\n       \"U_EXPECT_MONTH_\"\
+  \ as \"SCommitExpectMonthly\",\n       \"U_UPSIDE_MONTH_\" as \"SCommitUpsideMonthly\"\
+  ,\n       \"U_MONTH\" as \"SCommitMonth\",\n       \"TerritoryGUID\" as  \"SCommitTerritoryGUID\"\
+  ,\n       \"TerritorySysID\" as \"SCommitSurfTerritorySysID\"\nFROM\n  (SELECT \"\
+  SN_UPSIDEQUARTER\" as \"U_UPSIDE\",\n          \"SN_EXPECTQUARTER\" as \"U_EXPECT\"\
+  ,\n          \"OWNERID\" as \"U_SALES_REP\",\n          \"SN_TERRITORY\" as \"U_TERRITORY\"\
+  ,\n          \"SN_WEEKNUMBER\" as \"U_WEEK_NUM\",\n          \"SN_OWNERTYPENAME\"\
+  \ as \"U_COMMIT_TYPE\",\n          \"SN_PERIOD\" as \"U_PERIOD\",\n          --\"\
+  U_WEEK_DATE_DIMENSION\" as \"U_WEEK_DATE_DIMENSION\",\n          \"SN_SURFSYSID\"\
+  \ as \"SYS_ID\",\n          \"SN_COMMITQUARTER\" as \"U_COMMIT\",\n          \"\
+  SN_WEEK\" as \"U_WEEK\",\n          \"SN_TERRITORYNAME\" as \"DV_U_TERRITORY\",\n\
+  \          \"OWNERIDNAME\" as \"DV_U_SALES_REP\",\n          \"MODIFIEDON\" as \"\
+  SYS_UPDATED_ON\",\n          \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n          \"\
+  SN_UPSIDEQUARTER\" as \"U_UPSIDE_CC\",\n          \"SN_EXPECTQUARTER\" as \"U_EXPECT_CC\"\
+  ,\n          \"SN_COMMITQUARTER\" as \"U_COMMIT_CC\",\n          \"SN_COMMITMONTH\"\
+  \ as \"U_COMMIT_MONTH_\",\n          \"SN_EXPECTMONTH\" as \"U_EXPECT_MONTH_\",\n\
+  \          \"SN_UPSIDEMONTH\" as \"U_UPSIDE_MONTH_\",\n          \"SN_MONTH\" as\
+  \ \"U_MONTH\",\n          T.\"TerritorySysID\" as \"TerritoryGUID\",\n         \
+  \ ST.\"TerrSysID\" AS \"TerritorySysID\"\n   FROM \"RDS\".\"DYNAMICS365\".\"ST_SN_COMMITS\"\
+  \ C\n\n   LEFT JOIN \"ODS_LS\".\"DYNAMICS365\".\"TERRITORIES\" T\n   ON C.\"SN_TERRITORY\"\
+  \ = T.\"TerritorySysID\"\n\n   LEFT JOIN \"ODS_LS\".\"SURF\".\"SALES_TERRITORY\"\
+  \ ST\n   ON ST.\"TerrMDMTerritoryID\" = T.\"TerritoryMDMID\"\n   AND \"TerritoryActive\"\
+  \ = 'random'\n   AND \"TerritoryTypeID\" = 'random'\n   where \"TerritoryActive\"\
+  ='random'\n\n\n   AND ((\"U_WEEK_NUM\") IS not NULL)\n     AND ((\"U_PERIOD\") IS\
+  \ not NULL)\n     AND \"U_COMMIT_TYPE\" IN ('random','random')\n     AND \"EXTRACT_DATE\"\
+  \ >= 'random'\n\n\n\n     UNION ALL\n\n\n     SELECT \"U_UPSIDE\" as \"U_UPSIDE\"\
+  ,\n          \"U_EXPECT\" as \"U_EXPECT\",\n          \"U_SALES_REP\" as \"U_SALES_REP\"\
+  ,\n          \"U_TERRITORY\" as \"U_TERRITORY\",\n          \"U_WEEK_NUM\" as \"\
+  U_WEEK_NUM\",\n          \"U_COMMIT_TYPE\" as \"U_COMMIT_TYPE\",\n          \"U_PERIOD\"\
+  \ as \"U_PERIOD\",\n          --\"U_WEEK_DATE_DIMENSION\" as \"U_WEEK_DATE_DIMENSION\"\
+  ,\n          \"SYS_ID\" as \"SYS_ID\",\n          \"U_COMMIT\" as \"U_COMMIT\",\n\
+  \          \"U_WEEK\" as \"U_WEEK\",\n          \"DV_U_TERRITORY\" as \"DV_U_TERRITORY\"\
+  ,\n          \"DV_U_SALES_REP\" as \"DV_U_SALES_REP\",\n          \"SYS_UPDATED_ON\"\
+  \ as \"SYS_UPDATED_ON\",\n          \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n    \
+  \      \"U_UPSIDE\" as \"U_UPSIDE_CC\",\n          \"U_EXPECT\" as \"U_EXPECT_CC\"\
+  ,\n          \"U_COMMIT\" as \"U_COMMIT_CC\",\n          \"U_COMMIT_MONTH_\",\n\
+  \          \"U_EXPECT_MONTH_\",\n          \"U_UPSIDE_MONTH_\",\n          \"U_MONTH\"\
+  ,\n          'random' as \"TerritoryGUID\",\n          \"U_TERRITORY\" AS \"TerritorySysID\"\
+  \n   FROM \"RDS\".\"SURF\".\"ST_U_COMMIT\"\n   WHERE ((\"U_WEEK_NUM\") IS not NULL)\n\
+  \     AND ((\"U_PERIOD\") IS not NULL)\n     AND \"U_COMMIT_TYPE\" IN ('random','random')\n\
+  \     AND \"EXTRACT_DATE\" < 'random'\n     )Projection_1\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

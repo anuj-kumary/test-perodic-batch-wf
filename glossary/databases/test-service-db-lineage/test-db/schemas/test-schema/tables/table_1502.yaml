@@ -1,0 +1,80 @@
+name: table_1502
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1502
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1502.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_UNIFIEDSS_VALUE_PROMPTER(\n\t\"ValuePrompterNumber\"\
+  ,\n\t\"ValuePrompterContactName\",\n\t\"MasterValuePrompter\",\n\t\"ValuePrompterInfluencerRole\"\
+  ,\n\t\"ValuePrompterBusinessValue\",\n\t\"ValuePrompterSolution\",\n\t\"ValuePrompterlPersonalValue\"\
+  ,\n\t\"ValuePrompterPower\",\n\t\"ValuePrompterPlanTaskName\",\n\t\"ValuePrompterBusinessIssue\"\
+  ,\n\t\"ValuePrompterProblem\",\n\t\"ValuePrompterOpportunitySysID\",\n\t\"ValuePrompterActive\"\
+  ,\n\t\"ValuePrompterUpdatedOn\",\n\t\"ValuePrompterCreatedOn\",\n\t\"RecordTypeVP\"\
+  ,\n\t\"ValuSellSysID\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ValuePrompterNumber\"\
+  \ as \"ValuePrompterNumber\",\n       \"ValuePrompterContactName\" as \"ValuePrompterContactName\"\
+  ,\n       \"MasterValuePrompter\" as \"MasterValuePrompter\",\n       \"ValuePrompterInfluencerRole\"\
+  \ as \"ValuePrompterInfluencerRole\",\n       \"ValuePrompterBusinessValue\" as\
+  \ \"ValuePrompterBusinessValue\",\n       \"ValuePrompterSolution\" as \"ValuePrompterSolution\"\
+  ,\n       \"ValuePrompterlPersonalValue\" as \"ValuePrompterlPersonalValue\",\n\
+  \       \"ValuePrompterPower\" as \"ValuePrompterPower\",\n       \"ValuePrompterPlanTaskName\"\
+  \ as \"ValuePrompterPlanTaskName\",\n       \"ValuePrompterBusinessIssue\" as \"\
+  ValuePrompterBusinessIssue\",\n       \"ValuePrompterProblem\" as \"ValuePrompterProblem\"\
+  ,\n       \"ValuePrompterOpportunitySysID\" as \"ValuePrompterOpportunitySysID\"\
+  ,\n       \"ValueSellActive\" as \"ValuePrompterActive\",\n       \"ValuePrompterUpdatedOn\"\
+  \ as \"ValuePrompterUpdatedOn\",\n       \"ValueSellCreatedOn\" as \"ValuePrompterCreatedOn\"\
+  ,\n       \"RecordTypeVP\" as \"RecordTypeVP\",\n       \"ValuSellSysID\" as \"\
+  ValuSellSysID\"\nFROM\n  (SELECT LEFT(\"ValueSellNumber\", 'random') as \"ValuePrompterNumber\"\
+  ,\n          \"ValueSellContactName\" as \"ValuePrompterContactName\",\n       \
+  \   \"ValueSellUMaster\" as \"MasterValuePrompter\",\n          \"VPInfluencerRole\"\
+  \ as \"ValuePrompterInfluencerRole\",\n          LEFT(\"ValueSellBusinessValue\"\
+  , 'random') as \"ValuePrompterBusinessValue\",\n          LEFT(\"ValueSellDifferentiatedProblem\"\
+  , 'random') as \"ValuePrompterProblem\",\n          LEFT(\"ValueSellDifferentiatedSolution\"\
+  , 'random') as \"ValuePrompterSolution\",\n          LEFT(\"ValueSellPersonalValue\"\
+  , 'random') as \"ValuePrompterlPersonalValue\",\n          LEFT(\"ValueSellPower\"\
+  , 'random') as \"ValuePrompterPower\",\n          \"ValueSellPlanTaskName\" as \"\
+  ValuePrompterPlanTaskName\",\n          LEFT(\"ValuesellBusinessIssue\", 'random')\
+  \ as \"ValuePrompterBusinessIssue\",\n          \"OptySysID\" as \"ValuePrompterOpportunitySysID\"\
+  ,\n          \"ValueSellActive\" as \"ValueSellActive\",\n          \"ValuePrompterUpdatedOn\"\
+  \ as \"ValuePrompterUpdatedOn\",\n          \"ValueSellCreatedOn\" as \"ValueSellCreatedOn\"\
+  ,\n          \"RecordTypeVP\" as \"RecordTypeVP\",\n          \"ValuSellSysID\"\
+  \ as \"ValuSellSysID\"\n   FROM \"EDW_LS\".\"SALES_D365_EM\".\"EM_VALUE_PROMPTERS\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

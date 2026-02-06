@@ -1,0 +1,646 @@
+name: table_1521
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1521
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1521.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PPR_RPT_PARTNER_EVALUATION_SP(\n\t\"ParentPartnerSysID\"\
+  ,\n\t\"ParentPartner\",\n\t\"ParentPartnerNumber\",\n\t\"ProgramType\",\n\t\"ParentPartnerPublicSectorFlag\"\
+  ,\n\t\"ParentPartnerPublicSectorFlagFuture\",\n\t\"3C\",\n\t\"CriteriaSysId\",\n\
+  \t\"Criteria\",\n\t\"CriteriaValCompletedDaily\",\n\t\"PSCriteriaValCompletedDaily\"\
+  ,\n\t\"PotentialCriteriaSegment\",\n\t\"CriteriaThresholdLowerLimit\",\n\t\"FutureGap\"\
+  ,\n\t\"PSGap\",\n\t\"CriteriaValCompleted12Months_Actual\",\n\t\"PSCriteriaValCompleted12Months_Actual\"\
+  ,\n\t\"WTCriteriaValCompleted12Months_Actual\",\n\t\"CriteriaValCompleted12Months\"\
+  ,\n\t\"PSCriteriaValCompleted12Months\",\n\t\"WTCriteriaValCompleted12Months\",\n\
+  \t\"CurrentCriteriaSegment\",\n\t\"Gap\",\n\t\"PSFutureGap\",\n\t\"MonthlyProgramEvaluatedDate\"\
+  ,\n\t\"DailyChangeFlag\",\n\t\"DeleteFlagMonthly\",\n\t\"DeletedDateMonthly\",\n\
+  \t\"WaivedUntil\",\n\t\"WTIdentifier\",\n\t\"PSIdentifier\"\n) as\n-- WHERE \"ParentPartnerNumber\"\
+  ='ACCT0157841'\n/* Comments retained from HANA input file */\n\n /*********************************************************************************************************************\n\
+  \ \t\t* Project  Name              :     Partner Program Redesign\n \t\t* Project\
+  \ \t\t\t\t\t :\n \t\t* Object Name \t\t\t\t :      CDL_LS.PARTNER_RPT.PPR_RPT_PARTNER_EVALUATION_SP\n\
+  \ \t\t* Development Request # \t :\n \t\t* Brief Description          : \t   Data\
+  \ Out View for Partner Portal\n \t\t* Developed By               :     Vaidehi Shah\n\
+  \ \t\t* Date Created               : \t   2023-02-10\n \t\t* ---------------------------------------------------------------------------------------------------------------\n\
+  \ \t\t* REVISION HISTORY:\n \t\t*\n \t\t*\n           *SFSTRY0091234 -  01-06-2023\
+  \     Vaidehi         Data Fix for missing parentpartner due to null parentpartnercategory\n\
+  \           Change in criteria names for CTA /CMA CIS -SP AND PRODUCTLINES and Internal\
+  \ Use Client Zero\n           INC0966932:-Updated the condition for CTA/CMA criteria\
+  \ in PAR_PARTNERS_ALLDATA cte\n        * SFSTRY0102990\t    Dec-06-2023\t   Pruthviraj\
+  \      Added Current Program Segments for all programs : SP/CIPP/Resale/GE/Build\n\
+  \ \t\t    * SFSTRY0133351     2024-07-04     sreeja O V   Switching the 3C rules\
+  \ static  table  to partner portal table\n\t\t    * SFSTRY0162268     2024-11-13\
+  \     Anil         Criteria Assessment change from 3x12 to 1X12.\n\n        *----------------------------------------------------------------------------------------------------------------\n\
+  \n ********************************************************************************************************************************/\n\
+  \nWITH SNAPSHOT_TABLE AS\n(\n\tSELECT  S.*\n\t       ,R.\"ParentCriteriaName\"\n\
+  \t       ,R.\"CriteriaSysId\"\n\t       ,\n\tFROM\n\t((\n\t\tSELECT  \"ParentPartnerSysID\"\
+  \n\t\t       ,\"ParentPartner\"\n\t\t       ,\"ParentPartnerNumber\"\n\t\t     \
+  \  ,\"ProgramType\"\n\t\t       ,\"ParentPartnerPublicSectorFlag\"\n\t\t       ,\"\
+  ParentPartnerPublicSectorFlagFuture\"\n\t\t       ,\"Category_3C\"\n\t\t       ,\"\
+  Criteria\"\n\t\t       ,\"CriteriaValCompletedDaily\"\n\t\t       ,\"PSCriteriaValCompletedDaily\"\
+  \n\t\t       ,\"PotentialCriteriaSegment\"\n\t\t       ,\"CriteriaThresholdLowerLimit\"\
+  \n\t\t       ,\"FutureGap\"\n\t\t       ,\"PSGap\"\n\t\t       ,\"CriteriaValCompleted12Months_Actual\"\
+  \n\t\t       ,\"PSCriteriaValCompleted12Months_Actual\"\n\t\t       ,\"CriteriaValCompleted12Months\"\
+  \n\t\t       ,\"PSCriteriaValCompleted12Months\"\n\t\t       ,\"CurrentCriteriaSegment\"\
+  \n\t\t       ,\"Gap\"\n\t\t       ,\"PSFutureGap\"\n\t\t       ,\"MonthlyProgramEvaluatedDate\"\
+  \n\t\t       ,\"DailyChangeFlag\"\n\t\t       ,\"DeleteFlagMonthly\"\n\t\t     \
+  \  ,\"DeletedDateMonthly\"\n\t\t       ,\"PSIdentifier\"\n\t\t       ,ETL_INSERT_DATE\n\
+  \t\tFROM EDW_LS.PARTNER_EM.ST_PPR_RPT_PARTNER_PROGRAM_EVALUATION_UNIFIED\n\t\tWHERE\
+  \ \"ProgramType\" = 'random'\n\t\tAND \"CurrentCriteriaSegment\" <> 'random' ) S\n\
+  \t\tLEFT JOIN\n\t\t(\n\t\t\tSELECT  DISTINCT \"ParentCriteriaName\"\n\t\t\t    \
+  \   ,\"CriteriaName\"\n\t\t\t       ,\"CriteriaSysId\"\n\t\t\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \t\t\tWHERE \"ProgramType\" = 'random'\n\t\t\tAND \"Active\" = 'random'\n\t\t)R\n\
+  \t\tON S.\"Criteria\" = R.\"CriteriaName\"\n\t)\n) , C_RULES AS\n(\n\n\tSELECT \
+  \ DISTINCT \"ProgramType\"\n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\
+  \n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\
+  \n\t       ,\"Competency_SkillSysID\"\n\t       ,\"CriteriaDefinition\"\n\t    \
+  \   ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\n\t       ,\"CriteriaMinimumRequirementThreshold\"\
+  \n\t       ,\"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdUpperLimit\"\
+  \n\t       ,\"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\n\t\
+  \       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\t\
+  \       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"ProgramType\" = 'random'\n\tAND \"Active\" = 'random'\n\tUNION ALL\n\t\
+  -- SP Customer Success Stories\n\tSELECT  \"ProgramType\"\n\t       ,\"3C_Category\"\
+  \n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\
+  \n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\n\t       ,\"\
+  CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* SP Customer Success Stories' */  )\n\t\
+  AND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Gross Retention Rate (GRR)\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                       AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Gross Retention Rate (GRR)' */  )\n\t\
+  AND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Net New Logos (NN Logos)\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Net New Logos (NN Logos)' */  )\n\tAND\
+  \ \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Lifetime Contract ACV (CACV)\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Lifetime Contract ACV (CACV)' */  )\n\t\
+  AND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Impacted SP ACV (NNACV)\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Impacted SP ACV (NNACV)' */  )\n\tAND\
+  \ \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\tSELECT  \"ProgramType\"\n\t       ,\"3C_Category\"\n\
+  \t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\
+  \n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\n\t       ,\"\
+  CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* SP Internal Use/Client Zero' */  )\n\t\
+  AND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- SP Foundational Resources\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* SP Foundational Resources' */  )\n\tAND\
+  \ \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Certified Implementation Specialist (CIS ITSM AND\
+  \ 1+ CIS-Product Lines) Resources\n\tSELECT  \"ProgramType\"\n\t       ,\"3C_Category\"\
+  \n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\
+  \n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\n\t       ,\"\
+  CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* CIS ITSM and CIS - Product Lines' */ \
+  \ )\n\tAND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND\
+  \ \"3C_Category\" = 'random'\n\tUNION ALL\n\t-- CTA/ CMA\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                       AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"\
+  ValidFrom\"\n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\
+  \n\t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* CTA/ CMA' */  )\n\tAND \"ProgramSegment\"\
+  \ = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\" = 'random'\n\
+  \tUNION ALL\n\t-- Presales/Sales Resources\n\tSELECT  \"ProgramType\"\n\t      \
+  \ ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Presales/Sales Resources' */  )\n\tAND\
+  \ \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Presales/Sales Resources\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* CIS SP' */  )\n\tAND \"ProgramSegment\"\
+  \ = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\" = 'random'\n\
+  ) , C_RULES_ALLDATA AS\n(\n\n\tSELECT  DISTINCT \"ProgramType\"\n\t       ,\"3C_Category\"\
+  \n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\
+  \n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\n\t       ,\"\
+  CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \n\t       ,\"CriteriaThresholdUpperLimit\"\n\t       ,\"ProgramSegment\"\n\t  \
+  \     ,\"Active\"\n\t       ,\"ValidFrom\"\n\t       ,\"ValidTo\"\n\t       ,\"\
+  UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\t       ,\"PublicSectorMultiplier\"\
+  \n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"ProgramType\" = 'random'\n\tUNION ALL\n\t-- SP Customer Success Stories\n\
+  \tSELECT  \"ProgramType\"\n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\
+  \n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\
+  \n\t       ,\"Competency_SkillSysID\"\n\t       ,\"CriteriaDefinition\"\n\t    \
+  \   ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\n\t       ,\"CriteriaMinimumRequirementThreshold\"\
+  \n\t       ,'random'                                 AS \"CriteriaThresholdLowerLimit\"\
+  \n\t       ,\"CriteriaThresholdLowerLimit\" - 'random' AS \"CriteriaThresholdUpperLimit\"\
+  \n\t       ,'random'                                AS \"ProgramSegment\"\n\t  \
+  \     ,\"Active\"\n\t       ,\"ValidFrom\"\n\t       ,\"ValidTo\"\n\t       ,\"\
+  UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\t       ,\"PublicSectorMultiplier\"\
+  \n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* SP Customer Success Stories' */  )\n\t\
+  AND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Gross Retention Rate (GRR)\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                       AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Gross Retention Rate (GRR)' */  )\n\t\
+  AND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Net New Logos (NN Logos)\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Net New Logos (NN Logos)' */  )\n\tAND\
+  \ \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Lifetime Contract ACV (CACV)\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Lifetime Contract ACV (CACV)' */  )\n\t\
+  AND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Impacted SP ACV (NNACV)\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Impacted SP ACV (NNACV)' */  )\n\tAND\
+  \ \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random' /*(Competency SP Foundational Resources Competency Certified Implementation\
+  \ Specialist (CIS ITSM AND 1+ CIS-Product Lines) Resources Competency CTA/ CMA Competency\
+  \ Presales/Sales Resources*/\n\tUNION ALL\n\t-- SP Foundational Resources\n\tSELECT\
+  \  \"ProgramType\"\n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t \
+  \      ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\
+  \n\t       ,\"Competency_SkillSysID\"\n\t       ,\"CriteriaDefinition\"\n\t    \
+  \   ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\n\t       ,\"CriteriaMinimumRequirementThreshold\"\
+  \n\t       ,'random'                                 AS \"CriteriaThresholdLowerLimit\"\
+  \n\t       ,\"CriteriaThresholdLowerLimit\" - 'random' AS \"CriteriaThresholdUpperLimit\"\
+  \n\t       ,'random'                                AS \"ProgramSegment\"\n\t  \
+  \     ,\"Active\"\n\t       ,\"ValidFrom\"\n\t       ,\"ValidTo\"\n\t       ,\"\
+  UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\t       ,\"PublicSectorMultiplier\"\
+  \n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* SP Foundational Resources' */  )\n\tAND\
+  \ \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\t-- Certified Implementation Specialist (CIS ITSM AND\
+  \ 1+ CIS-Product Lines) Resources\n\tSELECT  \"ProgramType\"\n\t       ,\"3C_Category\"\
+  \n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\
+  \n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\n\t       ,\"\
+  CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* CIS ITSM and CIS - Product Lines' */ \
+  \ )\n\tAND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND\
+  \ \"3C_Category\" = 'random'\n\tUNION ALL\n\t-- CTA/ CMA\n\tSELECT  \"ProgramType\"\
+  \n\t       ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                       AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"\
+  ValidFrom\"\n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\
+  \n\t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* CTA/ CMA' */  )\n\tAND \"ProgramSegment\"\
+  \ = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\" = 'random'\n\
+  \tUNION ALL\n\t-- Presales/Sales Resources\n\tSELECT  \"ProgramType\"\n\t      \
+  \ ,\"3C_Category\"\n\t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\
+  \n\t       ,\"CriteriaName\"\n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\
+  \n\t       ,\"CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* Presales/Sales Resources' */  )\n\tAND\
+  \ \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\tSELECT  \"ProgramType\"\n\t       ,\"3C_Category\"\n\
+  \t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\
+  \n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\n\t       ,\"\
+  CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* SP Internal Use/Client Zero' */  )\n\t\
+  AND \"ProgramSegment\" = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\"\
+  \ = 'random'\n\tUNION ALL\n\tSELECT  \"ProgramType\"\n\t       ,\"3C_Category\"\n\
+  \t       ,\"CriteriaSysId\"\n\t       ,\"ParentCriteriaName\"\n\t       ,\"CriteriaName\"\
+  \n\t       ,\"CriteriaDetails\"\n\t       ,\"Competency_SkillSysID\"\n\t       ,\"\
+  CriteriaDefinition\"\n\t       ,\"Operator\"\n\t       ,\"CriteriaMinimumRequirement\"\
+  \n\t       ,\"CriteriaMinimumRequirementThreshold\"\n\t       ,'random'        \
+  \                         AS \"CriteriaThresholdLowerLimit\"\n\t       ,\"CriteriaThresholdLowerLimit\"\
+  \ - 'random' AS \"CriteriaThresholdUpperLimit\"\n\t       ,'random'            \
+  \                    AS \"ProgramSegment\"\n\t       ,\"Active\"\n\t       ,\"ValidFrom\"\
+  \n\t       ,\"ValidTo\"\n\t       ,\"UpdatedDate\"\n\t       ,\"UpdatedByUser\"\n\
+  \t       ,\"PublicSectorMultiplier\"\n\t       ,\"WaivedUntil\"\n\tFROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \tWHERE \"CriteriaSysId\" in( 'random' /* CIS SP' */  )\n\tAND \"ProgramSegment\"\
+  \ = 'random'\n\tAND \"ProgramType\" = 'random'\n\tAND \"3C_Category\" = 'random'\
+  \ )\n , PAR_PARTNERS_ALLDATA AS (\n\n\tSELECT  DISTINCT *\n\tFROM\n\t(\n\t\tSELECT\
+  \  DISTINCT PR.*\n\t           ,\"CriteriaSysId\"\n\t\t       ,\"ParentCriteriaName\"\
+  \n\t\t       ,\"CriteriaName\"\n\t\t       ,\"CriteriaThresholdLowerLimit\"\n\t\t\
+  \       ,\"ProgramSegment\"\n\t\t       ,\"WaivedUntil\"\n\t\tFROM\n\t\t(\n\t\t\t\
+  SELECT  *\n\t\t\tFROM \"EDW_LS\".\"PARTNER_EM\".\"PARENTPARTNERS\"\n\t\t\tWHERE\
+  \ \"ParentPartnerCategory\" != 'random' OR \"ParentPartnerCategory\" IS NULL\n\t\
+  \t)PR\n\t\tLEFT JOIN\n\t\t(\n\t\t\tSELECT  DISTINCT *\n\t\t\tFROM C_RULES_ALLDATA\n\
+  \t\t\tWHERE \"ProgramType\" = 'random'\n\t\t)RULES\n\t\tON \"ProgramType\" = 'random'\
+  \ AND CASE WHEN RULES.\"CriteriaSysId\" in( 'random' /* CTA/ CMA' */  ) THEN 'random'\
+  \ ELSE --INC0966932\n IFNULL(\"SP_Segment\", 'random') END = \"RULES\".\"ProgramSegment\"\
+  \n\t) ) , SUBSIDIARY_SP AS\n\t(\n\t\tSELECT  *\n\t\tFROM EDW_LS.PARTNER_EM.PPR_PARTNER_SUBSIDIARY_DETAIL_SP_12MONTHS\n\
+  \t), SUBSIDIARY_SP_PS AS\n\t(\n\t\tSELECT  DISTINCT \"ParentPartnerNumber\"\n\t\t\
+  \       ,\"ParentPartner\" --, \"CriteriaName\"\n\t\t       ,IFF( \"WINDOW_COUNT\"\
+  \ = 'random','random' ,'random') AS \"ParentPartnerPublicSectorFlag\"\n\t\tFROM\n\
+  \t\t(\n\t\t\tSELECT  DISTINCT \"ParentPartnerNumber\"\n\t\t\t       ,\"ParentPartner\"\
+  \n\t\t\t       ,\"PartnerNumber\"\n\t\t\t       ,\"Partner\"\n\t               ,\"\
+  CriteriaSysId\"\n\t\t\t       ,\"Criteria\"\n                   , \"PartnerPublicSectorFlag\"\
+  \n\t\t\t       ,CASE WHEN \"PartnerPublicSectorFlag\" = 'random' THEN 'random' \
+  \ ELSE 'random' END                                                         AS \"\
+  CNT\"\n\t\t\t       ,SUM(\"CNT\") OVER (PARTITION BY \"ParentPartner\",\"ParentPartnerNumber\"\
+  \ ORDER BY  \"ParentPartner\",\"ParentPartnerNumber\") AS \"WINDOW_COUNT\"\n\t\t\
+  \tFROM SUBSIDIARY_SP\n\t\t\tWHERE \"CriteriaSysId\" IN ( 'random' /* Impacted SP\
+  \ ACV (NNACV)' */\n            ,  'random' /* Lifetime Contract ACV (CACV)' */ )\n\
+  \t\t)\n\t), PAR_PARTNERS AS\n\t(\n\t\tSELECT  DISTINCT PP.\"ParentPartnerSysID\"\
+  \n\t\t       ,PP.\"ParentPartner\"\n\t\t       ,PP.\"ParentPartnerNumber\"\n\t\t\
+  \       ,\"ParentPartnerGeo\"\n\t\t       ,\"ParentPartnerCountry\"\n\t\t      \
+  \ ,IFF( \"WINDOW_COUNT\" = 'random','random' ,'random') AS \"ParentPartnerServiceProviderFlag\"\
+  \n\t\tFROM PAR_PARTNERS_ALLDATA PP\n\t\tINNER JOIN\n\t\t(\n\t\t\tSELECT  \"ParentPartnerNumber\"\
+  \n\t\t\t       ,\"ParentPartner\"\n\t\t\t       ,\"PartnerNumber\"\n\t\t\t     \
+  \  ,\"Partner\"\n\t\t\t       ,\"PartnerPublicSectorFlag\"\n\t\t\t       ,CASE WHEN\
+  \ \"PartnerServiceProviderFlag\" = 'random' THEN 'random'  ELSE 'random' END   \
+  \                                                      AS \"SP_CNT\"\n\t\t\t   \
+  \    ,SUM(\"SP_CNT\") OVER (PARTITION BY \"ParentPartner\",\"ParentPartnerNumber\"\
+  \ ORDER BY  \"ParentPartner\",\"ParentPartnerNumber\") AS \"WINDOW_COUNT\"\n\t\t\
+  \tFROM \"EDW_LS\".\"PARTNER_EM\".\"PARTNERS\"\n\t\t) P\n\t\tON P.\"ParentPartnerNumber\"\
+  \ = PP.\"ParentPartnerNumber\"\n\t) , EVAL_DATA_INTER AS\n\t(\n\t\tSELECT  *\n\t\
+  \tFROM\n\t\t(\n\t\t\tSELECT  *\n\t\t\t       ,MAX(\"CurrentCriteriaSegment_Val_Priority_1\"\
+  ) OVER (PARTITION BY \"ParentPartnerNumber\",\"ProgramType\",\"Criteria\" ORDER\
+  \ BY  \"ParentPartnerNumber\",\"Criteria\" ) AS \"Max_Segment_Val\"\n\t\t\t    \
+  \   ,CASE WHEN \"Max_Segment_Val\" = 'random' THEN 'random'\n\t\t\t            \
+  \ WHEN \"Max_Segment_Val\" = 'random' THEN 'random'\n\t\t\t             WHEN \"\
+  Max_Segment_Val\" = 'random' THEN 'random'\n\t\t\t             WHEN \"Max_Segment_Val\"\
+  \ = 'random' THEN 'random'\n\t\t\t             WHEN \"Max_Segment_Val\" = 'random'\
+  \ THEN 'random'\n\t\t\t             WHEN \"Max_Segment_Val\" = 'random' THEN 'random'\
+  \  ELSE 'random' END AS \"CurrentCriteriaSegment_Calculated\"\n\t\t\tFROM\n\t\t\t\
+  (\n\t\t\t\tSELECT  *\n\t\t\t\t       ,CASE WHEN \"CurrentCriteriaSegment_Val_COUNT\"\
+  \ >= 'random' AND \"CurrentCriteriaSegment_Val\" = 'random' THEN 'random'\n\t\t\t\
+  \t             WHEN \"CurrentCriteriaSegment_Val_COUNT\" >= 'random' AND \"CurrentCriteriaSegment_Val\"\
+  \ = 'random' THEN 'random'\n\t\t\t\t             WHEN \"CurrentCriteriaSegment_Val_COUNT\"\
+  \ >= 'random' AND\"CurrentCriteriaSegment_Val\" = 'random' THEN 'random'\n\t\t\t\
+  \t             WHEN \"CurrentCriteriaSegment_Val_COUNT\" >= 'random' AND\"CurrentCriteriaSegment_Val\"\
+  \ = 'random' THEN 'random'\n\t\t\t\t             WHEN \"CurrentCriteriaSegment_Val_COUNT\"\
+  \ >= 'random' AND\"CurrentCriteriaSegment_Val\" = 'random' THEN 'random'\n\t\t\t\
+  \t             WHEN \"CurrentCriteriaSegment_Val_COUNT\" >= 'random' AND\"CurrentCriteriaSegment_Val\"\
+  \ = 'random' THEN 'random'  ELSE 'random' END AS \"CurrentCriteriaSegment_Priority\"\
+  \n\t\t\t\t       ,CASE WHEN \"CurrentCriteriaSegment_Priority\" = 'random' THEN\
+  \ 'random'::INT\n\t\t\t\t             WHEN \"CurrentCriteriaSegment_Priority\" =\
+  \ 'random' THEN 'random'::INT\n\t\t\t\t             WHEN \"CurrentCriteriaSegment_Priority\"\
+  \ = 'random' THEN 'random'::INT\n\t\t\t\t             WHEN \"CurrentCriteriaSegment_Priority\"\
+  \ = 'random' THEN 'random'::INT\n\t\t\t\t             WHEN \"CurrentCriteriaSegment\"\
+  \ = 'random' THEN 'random'::INT  ELSE 'random'::INT END                        \
+  \                                 AS \"CurrentCriteriaSegment_Val_Priority_1\"\n\
+  \t\t\t\tFROM\n\t\t\t\t(\n\n\t\t\t\t\tSELECT  *\n\t\t\t\t\tFROM EDW_LS.PARTNER_EM.TBL_PPR_PARTNER_EVALUATION_SP\n\
+  \t\t\t\t)\n\t\t\t)\n\t\t)WHERE \"ETL_INSERT_DATE\" = (\n\t\tSELECT  MAX( \"ETL_INSERT_DATE\"\
+  \ )\n\t\tFROM EDW_LS.PARTNER_EM.TBL_PPR_PARTNER_EVALUATION_SP)\n\t) , WAIVE_OFF\
+  \ AS\n\t(\n\t\tSELECT  DISTINCT EVALUATION_DATA.\"ParentPartnerSysID\"\n\t\t   \
+  \    ,EVALUATION_DATA.\"ParentPartner\"\n\t\t       ,EVALUATION_DATA.\"ParentPartnerNumber\"\
+  \n\t\t       ,EVALUATION_DATA.\"ProgramType\"\n\t\t       ,EVALUATION_DATA.\"ParentPartnerPublicSectorFlag\"\
+  \n\t\t       ,EVALUATION_DATA.\"ParentPartnerPublicSectorFlagFuture\"\n\t\t    \
+  \   ,EVALUATION_DATA.\"3C\"\n\t           ,PRN.\"CriteriaSysId\"\n\t\t       ,PRN.\"\
+  CriteriaName\" AS \"Criteria\"\n\t\t       ,EVALUATION_DATA.\"CriteriaValCompletedDaily\"\
+  \n\t\t       ,EVALUATION_DATA.\"PSCriteriaValCompletedDaily\"\n\t\t       ,EVALUATION_DATA.\"\
+  PotentialCriteriaSegment\"\n\t\t       ,CASE WHEN EVALUATION_DATA.\"CriteriaThresholdLowerLimit\"\
+  \ = 'random' THEN 'random'::VARCHAR('random')\n\t\t             WHEN PRN.\"ParentPartnerCategory\"\
+  \ = 'random' THEN 'random'::VARCHAR('random')  ELSE ROUND(PRN.\"CriteriaThresholdLowerLimit\"\
+  ,'random')::VARCHAR('random') END AS \"CriteriaThresholdLowerLimit\"\n\t\t     \
+  \  ,EVALUATION_DATA.\"FutureGap\"\n\t\t       ,EVALUATION_DATA.\"PSGap\"\n\t\t \
+  \      ,EVALUATION_DATA.\"CriteriaValCompleted12Months_Actual\"\n\t\t       ,EVALUATION_DATA.\"\
+  PSCriteriaValCompleted12Months_Actual\"\n\t\t       ,EVALUATION_DATA.\"WTCriteriaValCompleted12Months_Actual\"\
+  \n\t\t       ,EVALUATION_DATA.\"CriteriaValCompleted12Months\"\n\t\t       ,EVALUATION_DATA.\"\
+  PSCriteriaValCompleted12Months\"\n\t\t       ,EVALUATION_DATA.\"WTCriteriaValCompleted12Months\"\
+  \n\t\t       ,CASE WHEN PRN.\"CriteriaSysId\" =  'random' /* CTA/ CMA' */\n    \
+  \           AND ((\"ParentPartnerCountry\" not LIKE 'random' AND \"ParentPartnerGeo\"\
+  \ = 'random') OR (\"ParentPartnerGeo\" != 'random')) AND EVALUATION_DATA.\"CurrentCriteriaSegment\"\
+  \ = 'random' THEN 'random'\n\t\t             WHEN PRN.\"CriteriaSysId\" =  'random'\
+  \ /* CTA/ CMA' */\n                     AND \"ParentPartnerGeo\" = 'random' AND\
+  \ \"ParentPartnerCountry\" LIKE 'random' THEN 'random'  ELSE EVALUATION_DATA.\"\
+  CurrentCriteriaSegment\" END AS \"CurrentCriteriaSegment\"\n\t\t       ,EVALUATION_DATA.\"\
+  Gap\"\n\t\t       ,EVALUATION_DATA.\"PSFutureGap\"\n\t\t       ,EVALUATION_DATA.\"\
+  MonthlyProgramEvaluatedDate\"\n\t\t       ,EVALUATION_DATA.\"DailyChangeFlag\"\n\
+  \t\t       ,EVALUATION_DATA.\"DeleteFlagMonthly\"\n\t\t       ,EVALUATION_DATA.\"\
+  DeletedDateMonthly\"\n\t\t       ,PRN.\"WaivedUntil\"\n\t\tFROM\n\t\t(\n\t\t\tSELECT\
+  \  DISTINCT \"ParentPartnerNumber\"\n            ,\"CriteriaSysId\"\n\t\t\t    \
+  \   ,\"ParentCriteriaName\"\n\t\t\t       ,\"CriteriaName\"\n\t\t\t       ,\"SP_Segment\"\
+  \ AS \"ParentPartnerCategory\"\n\t\t\t       ,\"CriteriaThresholdLowerLimit\"\n\t\
+  \t\t       ,\"ParentPartnerGeo\"\n\t\t\t       ,\"ParentPartnerCountry\"\n\t\t\t\
+  \       ,\"WaivedUntil\"\n\t\t\tFROM PAR_PARTNERS_ALLDATA\n\t\t) PRN\n\t\tINNER\
+  \ JOIN\n\t\t(\n\t\t\tSELECT  DISTINCT \"ParentPartnerSysID\"\n\t\t\t       ,\"ParentPartner\"\
+  \n\t\t\t       ,\"ParentPartnerNumber\"\n\t\t\t       ,\"ProgramType\"\n\t\t\t \
+  \      ,IFF(\"WINDOW_COUNT\" = 'random','random' ,'random')                    \
+  \                                                                              \
+  \           AS \"ParentPartnerPublicSectorFlag\"\n\t\t\t       ,\"ParentPartnerPublicSectorFlagFuture\"\
+  \n\t\t\t       ,\"3C\"\n                   ,\"CriteriaSysId\"\n\t\t\t       ,\"\
+  Criteria\"\n\t\t\t       ,\"CriteriaValCompletedDaily\"\n\t\t\t       ,\"PSCriteriaValCompletedDaily\"\
+  \n\t\t\t       ,\"PotentialCriteriaSegment\"\n\t\t\t       ,CASE WHEN TRIM(\"CriteriaThresholdLowerLimit\"\
+  ) = ROUND(TRIM('random'),'random') THEN 'random'::VARCHAR('random') ELSE ROUND(\"\
+  CriteriaThresholdLowerLimit\",'random')::VARCHAR('random') END AS \"CriteriaThresholdLowerLimit\"\
+  \n\t\t\t       ,\"FutureGap\"\n\t\t\t       ,\"PSGap\"\n\t\t\t       ,CASE WHEN\
+  \ TRIM(\"CriteriaValCompleted12Months\") = TRIM('random') THEN 'random'::VARCHAR('random')\n\
+  \                         ELSE IFF(\"CriteriaSysId\" IN ( 'random' /* Lifetime Contract\
+  \ ACV (CACV)' */ , 'random' /* Impacted SP ACV (NNACV)' */ , 'random' /* Gross Retention\
+  \ Rate (GRR)' */ )\n                           ,ROUND(\"CriteriaValCompleted12Months_Actual\"\
+  ,'random')::VARCHAR('random'),ROUND(\"CriteriaValCompleted12Months_Actual\",'random')::VARCHAR('random'))\n\
+  \                           END AS \"CriteriaValCompleted12Months_Actual\"\n\t\t\
+  \t       ,CASE WHEN TRIM(\"CriteriaValCompleted12Months\") = TRIM('random')\n  \
+  \                            THEN 'random'::VARCHAR('random')\n                \
+  \                    ELSE IFF(\"CriteriaSysId\" IN ( 'random' /* Lifetime Contract\
+  \ ACV (CACV)' */ , 'random' /* Impacted SP ACV (NNACV)' */ ),ROUND(\"PSCriteriaValCompleted12Months_Actual\"\
+  ,'random')::VARCHAR('random') ,ROUND(\"PSCriteriaValCompleted12Months_Actual\",'random')::VARCHAR('random'))\
+  \ END AS \"PSCriteriaValCompleted12Months_Actual\"\n\t\t\t       ,CASE WHEN TRIM(\"\
+  CriteriaValCompleted12Months\") = TRIM('random')\n                             \
+  \ THEN 'random'::VARCHAR('random')\n                                    ELSE IFF(\"\
+  CriteriaSysId\" IN ( 'random' /* Lifetime Contract ACV (CACV)' */ , 'random' /*\
+  \ Impacted SP ACV (NNACV)' */ ),ROUND(\"WTCriteriaValCompleted12Months_Actual\"\
+  ,'random')::VARCHAR('random') ,ROUND(\"WTCriteriaValCompleted12Months_Actual\",'random')::VARCHAR('random'))\
+  \ END AS \"WTCriteriaValCompleted12Months_Actual\"\n\t\t\t       ,CASE WHEN TRIM(\"\
+  CriteriaValCompleted12Months\") = TRIM('random')\n                             \
+  \ THEN 'random'::VARCHAR('random')\n                                    ELSE IFF(\"\
+  CriteriaSysId\" IN ( 'random' /* Lifetime Contract ACV (CACV)' */ , 'random' /*\
+  \ Impacted SP ACV (NNACV)' */ , 'random' /* Gross Retention Rate (GRR)' */ ),ROUND(\"\
+  CriteriaValCompleted12Months\",'random')::VARCHAR('random') ,ROUND(\"CriteriaValCompleted12Months\"\
+  ,'random')::VARCHAR('random')) END AS \"CriteriaValCompleted12Months\"\n\t\t\t \
+  \      ,CASE WHEN TRIM(\"CriteriaValCompleted12Months\") = TRIM('random')\n    \
+  \                          THEN 'random'::VARCHAR('random')\n                  \
+  \                  ELSE IFF(\"CriteriaSysId\" IN ( 'random' /* Lifetime Contract\
+  \ ACV (CACV)' */ , 'random' /* Impacted SP ACV (NNACV)' */ ),ROUND(\"PSCriteriaValCompleted12Months\"\
+  ,'random')::VARCHAR('random') ,ROUND(\"PSCriteriaValCompleted12Months\",'random')::VARCHAR('random'))\
+  \ END AS \"PSCriteriaValCompleted12Months\"\n\t\t\t       ,CASE WHEN TRIM(\"CriteriaValCompleted12Months\"\
+  ) = TRIM('random')\n                              THEN 'random'::VARCHAR('random')\n\
+  \                                    ELSE IFF(\"CriteriaSysId\" IN ( 'random' /*\
+  \ Lifetime Contract ACV (CACV)' */ , 'random' /* Impacted SP ACV (NNACV)' */ ),ROUND(\"\
+  WTCriteriaValCompleted12Months\",'random')::VARCHAR('random') ,ROUND(\"WTCriteriaValCompleted12Months\"\
+  ,'random')::VARCHAR('random')) END AS \"WTCriteriaValCompleted12Months\"\n\t\t\t\
+  \       ,CASE WHEN TRIM(\"CriteriaValCompleted12Months\") = TRIM('random')\n   \
+  \                           THEN 'random'::VARCHAR('random')\n                 \
+  \                   ELSE \"CurrentCriteriaSegment_Calculated\"::VARCHAR('random')\
+  \ END AS \"CurrentCriteriaSegment\"\n\t\t\t       ,CASE WHEN TRIM(\"CriteriaValCompleted12Months\"\
+  ) = TRIM('random')\n                              THEN 'random'::VARCHAR('random')\n\
+  \                                    ELSE IFF(\"CriteriaSysId\" IN ( 'random' /*\
+  \ Lifetime Contract ACV (CACV)' */ , 'random' /* Impacted SP ACV (NNACV)' */ ),ROUND(\"\
+  Gap\",'random')::VARCHAR('random') ,ROUND(\"Gap\",'random')::VARCHAR('random'))\
+  \ END AS \"Gap\"\n\t\t\t       ,\"PSFutureGap\"\n\t\t\t       ,\"MonthlyProgramEvaluatedDate\"\
+  \n\t\t\t       ,\"DailyChangeFlag\"\n\t\t\t       ,\"DeleteFlagMonthly\"\n\t\t\t\
+  \       ,\"DeletedDateMonthly\"\n\t\t\tFROM\n\t\t\t(\n\t\t\t\tSELECT  *\n\t\t\t\t\
+  \       ,CASE WHEN \"ParentPartnerPublicSectorFlag\" = 'random' THEN 'random'  ELSE\
+  \ 'random' END                                                   AS \"CNT\"\n\t\t\
+  \t\t       ,SUM(\"CNT\") OVER (PARTITION BY \"ParentPartner\",\"ParentPartnerNumber\"\
+  \ ORDER BY  \"ParentPartner\",\"ParentPartnerNumber\") AS \"WINDOW_COUNT\"\n\t\t\
+  \t\tFROM\n\t\t\t\t(\n\t\t\t\t\tSELECT  DISTINCT P.\"ParentPartnerSysID\"\n\t\t\t\
+  \t\t       ,P.\"ParentPartner\"\n\t\t\t\t\t       ,P.\"ParentPartnerNumber\"\n\t\
+  \t\t\t\t       ,P.\"ProgramType\"\n\t\t\t\t\t       ,NVL(E.\"ParentPartnerPublicSectorFlag\"\
+  ,'random')                           AS \"ParentPartnerPublicSectorFlag\"\n\t\t\t\
+  \t\t       ,E.\"ParentPartnerPublicSectorFlagFuture\"\n\t\t\t\t\t       ,P.\"3C\"\
+  \n                           ,P.\"CriteriaSysId\"\n\t\t\t\t\t       ,P.\"ParentCriteriaName\"\
+  \                                               AS \"Criteria\"\n\t\t\t\t\t    \
+  \   ,E.\"CriteriaValCompletedDaily\"\n\t\t\t\t\t       ,E.\"PSCriteriaValCompletedDaily\"\
+  \n\t\t\t\t\t       ,E.\"PotentialCriteriaSegment\"\n\t\t\t\t\t       ,E.\"CriteriaThresholdLowerLimit\"\
+  \n\t\t\t\t\t       ,E.\"FutureGap\"\n\t\t\t\t\t       ,E.\"PSGap\"\n\t\t\t\t\t--\
+  \ NVL(E.\"CriteriaValCompleted12Months_Actual\", 0) AS \"CriteriaValCompleted12Months_Actual\"\
+  \n\t\t\t\t\t       ,CASE WHEN P.\"CriteriaSysId\" NOT IN ( 'random' /* SP Internal\
+  \ Use/Client Zero' */ ) THEN NVL(E.\"CriteriaValCompleted12Months_Actual\",'random')\n\
+  \t\t\t\t\t             WHEN (P.\"CriteriaSysId\") IN ( 'random' /* SP Internal Use/Client\
+  \ Zero' */ ) AND NVL(E.\"CriteriaValCompleted12Months_Actual\",'random') > 'random'\
+  \ THEN 'random'\n\t\t\t\t\t             WHEN (P.\"CriteriaSysId\") IN ( 'random'\
+  \ /* SP Internal Use/Client Zero' */ ) AND NVL(E.\"CriteriaValCompleted12Months_Actual\"\
+  ,'random') = 'random' THEN 'random'\n\t\t\t\t\t             WHEN ((P.\"CriteriaSysId\"\
+  ) IN ( 'random' /* Gross Retention Rate (GRR)' */ ) ) AND NVL(E.\"CriteriaValCompleted12Months\"\
+  ,'random') = 'random' THEN 'random'  ELSE ROUND(NVL(E.\"CriteriaValCompleted12Months_Actual\"\
+  ,'random'),'random') END AS \"CriteriaValCompleted12Months_Actual\"\n\t\t\t\t\t\
+  \       ,CASE WHEN (P.\"CriteriaSysId\" IN ( 'random' /* Gross Retention Rate (GRR)'\
+  \ */ ) ) AND NVL(E.\"CriteriaValCompleted12Months\",'random') = 'random' THEN 'random'\
+  \  ELSE NVL(E.\"PSCriteriaValCompleted12Months_Actual\",'random') END AS \"PSCriteriaValCompleted12Months_Actual\"\
+  \n\t\t\t\t\t       ,CASE WHEN (P.\"CriteriaSysId\" IN ( 'random' /* Gross Retention\
+  \ Rate (GRR)' */ ) ) AND NVL(E.\"CriteriaValCompleted12Months\",'random') = 'random'\
+  \ THEN 'random'  ELSE NVL(E.\"WTCriteriaValCompleted12Months_Actual\",'random')\
+  \ END AS \"WTCriteriaValCompleted12Months_Actual\"\n\t\t\t\t\t       ,CASE WHEN\
+  \ P.\"CriteriaSysId\" NOT IN ( 'random' /* SP Internal Use/Client Zero' */ ) THEN\
+  \ NVL(E.\"CriteriaValCompleted12Months\",'random')\n\t\t\t\t\t             WHEN\
+  \ P.\"CriteriaSysId\" IN ( 'random' /* SP Internal Use/Client Zero' */ ) AND NVL(E.\"\
+  CriteriaValCompleted12Months_Calculated\",'random') > 'random' THEN 'random'\n\t\
+  \t\t\t\t             WHEN P.\"CriteriaSysId\" IN ( 'random' /* SP Internal Use/Client\
+  \ Zero' */ ) AND NVL(E.\"CriteriaValCompleted12Months_Calculated\",'random') = 'random'\
+  \ THEN 'random'\n\t\t\t\t\t             WHEN (P.\"CriteriaSysId\" IN ( 'random'\
+  \ /* Gross Retention Rate (GRR)' */ ) ) AND NVL(E.\"CriteriaValCompleted12Months_Calculated\"\
+  ,'random') = 'random'\n\t\t\t\t\t-- Gross Retention Rate (GRR)\n THEN 'random'\n\
+  \t\t\t\t\t             ELSE NVL(E.\"CriteriaValCompleted12Months_Calculated\",'random')\
+  \ END     AS \"CriteriaValCompleted12Months\"\n\t\t\t\t\t       ,CASE WHEN (P.\"\
+  CriteriaSysId\" IN ( 'random' /* Gross Retention Rate (GRR)' */ ) ) AND NVL(E.\"\
+  CriteriaValCompleted12Months\",'random') = 'random' THEN 'random'  ELSE NVL(E.\"\
+  PSCriteriaValCompleted12Months\",'random') END AS \"PSCriteriaValCompleted12Months\"\
+  \n\t\t\t\t\t       ,CASE WHEN (P.\"CriteriaSysId\" IN ( 'random' /* Gross Retention\
+  \ Rate (GRR)' */ ) ) AND NVL(E.\"CriteriaValCompleted12Months\",'random') = 'random'\
+  \ THEN 'random'  ELSE NVL(E.\"WTCriteriaValCompleted12Months\",'random') END AS\
+  \ \"WTCriteriaValCompleted12Months\"\n\t\t\t\t\t       ,NVL(E.\"CurrentCriteriaSegment_Calculated\"\
+  ,'random')              AS \"CurrentCriteriaSegment_Calculated\"\n\t\t\t\t\t   \
+  \    ,NVL(E.\"Gap\",'random')                                                  \
+  \     AS \"Gap\"\n\t\t\t\t\t       ,E.\"PSFutureGap\"\n\t\t\t\t\t       ,E.\"MonthlyProgramEvaluatedDate\"\
+  \n\t\t\t\t\t       ,E.\"DailyChangeFlag\"\n\t\t\t\t\t       ,E.\"DeleteFlagMonthly\"\
+  \n\t\t\t\t\t       ,E.\"DeletedDateMonthly\"\n\t\t\t\t\tFROM\n\t\t\t\t\t(\n\t\t\t\
+  \t\t\tSELECT  DISTINCT PA.\"ParentPartner\"\n\t\t\t\t\t\t       ,PP.\"ParentPartnerSysID\"\
+  \n\t\t\t\t\t\t       ,PA.\"ParentPartnerNumber\"\n\t\t\t\t\t\t       ,R.\"ProgramType\"\
+  \n\t\t\t\t\t\t       ,R.\"ParentCriteriaName\"\n\t\t\t\t\t\t       ,\"3C_Category\"\
+  \ AS \"3C\"\n                               ,\"CriteriaSysId\"\n\t\t\t\t\t\tFROM\
+  \ \"EDW_LS\".\"PARTNER_EM\".\"PARTNERS\" PA\n\t\t\t\t\t\tINNER JOIN \"EDW_LS\".\"\
+  PARTNER_EM\".\"PARENTPARTNERS\" PP\n\t\t\t\t\t\tON PA.\"ParentPartnerNumber\" =\
+  \ PP.\"ParentPartnerNumber\"\n\t\t\t\t\t\tINNER JOIN C_RULES R\n\t\t\t\t\t\tON R.\"\
+  ProgramType\" = 'random'\n\t\t\t\t\t\tWHERE PA.\"PartnerServiceProviderFlag\" =\
+  \ 'random'\n\t\t\t\t\t)P\n\t\t\t\t\tLEFT JOIN\n\t\t\t\t\t(\n\t\t\t\t\t\tSELECT \
+  \ *\n\t\t\t\t\t\tFROM EVAL_DATA_INTER\n\t\t\t\t\t)E\n\t\t\t\t\tON E.\"ParentPartnerNumber\"\
+  \ = P.\"ParentPartnerNumber\" AND P.\"ParentCriteriaName\" = E.\"Criteria\"\n\t\t\
+  \t\t)\n\t\t\t)\n\t\t)EVALUATION_DATA\n\t\tON UPPER(TRIM(EVALUATION_DATA.\"ParentPartnerNumber\"\
+  )) = UPPER(TRIM(PRN.\"ParentPartnerNumber\")) AND UPPER(TRIM(EVALUATION_DATA.\"\
+  Criteria\")) = UPPER(TRIM(PRN.\"ParentCriteriaName\"))\n\t)\n\tSELECT  DISTINCT\
+  \ \"ParentPartnerSysID\"\n\t       ,\"ParentPartner\"\n\t       ,\"ParentPartnerNumber\"\
+  \n\t       ,\"ProgramType\"\n\t       ,\"ParentPartnerPublicSectorFlag\"\n\t   \
+  \    ,\"ParentPartnerPublicSectorFlagFuture\"\n\t       ,\"3C\"\n           ,\"\
+  CriteriaSysId\"\n\t       ,\"Criteria\"\n\t       ,\"CriteriaValCompletedDaily\"\
+  \n\t       ,\"PSCriteriaValCompletedDaily\"\n\t       ,\"PotentialCriteriaSegment\"\
+  \n\t       ,\"CriteriaThresholdLowerLimit\"\n\t       ,\"FutureGap\"\n\t       ,\"\
+  PSGap\"\n\t       ,\"CriteriaValCompleted12Months_Actual\"\n\t       ,\"PSCriteriaValCompleted12Months_Actual\"\
+  \n\t       ,\"WTCriteriaValCompleted12Months_Actual\"\n\t       ,\"CriteriaValCompleted12Months\"\
+  \n\t       ,\"PSCriteriaValCompleted12Months\"\n\t       ,\"WTCriteriaValCompleted12Months\"\
+  \n\t       ,\"CurrentCriteriaSegment\"\n\t       ,\"Gap\"\n\t       ,\"PSFutureGap\"\
+  \n\t       ,\"MonthlyProgramEvaluatedDate\"\n\t       ,\"DailyChangeFlag\"\n\t \
+  \      ,\"DeleteFlagMonthly\"\n\t       ,\"DeletedDateMonthly\"\n\t       ,\"WaivedUntil\"\
+  \n\t       ,\"FINAL_WT\" AS \"WTIdentifier\"\n\t       ,\"FINAL_PS\" AS \"PSIdentifier\"\
+  \n\tFROM\n\t(\n\t\tSELECT  DISTINCT *\n\t\t       ,CASE WHEN (\"CriteriaSysId\"\
+  \ =  'random' /* Impacted SP ACV (NNACV)' */  AND \"PSCriteriaValCompleted12Months1\"\
+  ::INT >= \"WTCriteriaValCompleted12Months1\"::INT AND \"CriteriaValCompleted12Months_Actual1\"\
+  ::INT <> \"CriteriaValCompleted12Months1\"::INT) THEN 'random' END AS \"PS_Prev\"\
+  \n\t\t       ,CASE WHEN \"CriteriaSysId\" =  'random' /* Impacted SP ACV (NNACV)'\
+  \ */  AND \"PSCriteriaValCompleted12Months1\"::INT < \"WTCriteriaValCompleted12Months1\"\
+  ::INT AND \"CriteriaValCompleted12Months_Actual1\"::INT <> \"CriteriaValCompleted12Months1\"\
+  \ ::INT THEN 'random' END AS \"WT_Prev\"\n\t\t       ,MAX(\"WT_Prev\") OVER (PARTITION\
+  \ BY \"ParentPartnerNumber\",\"ProgramType\")                                  \
+  \            AS \"MAX_WT\"\n\t\t       ,MAX(\"PS_Prev\") OVER (PARTITION BY \"ParentPartnerNumber\"\
+  ,\"ProgramType\")                                              AS \"MAX_PS\"\n\t\
+  \t       ,MAX(\"PSCriteriaValCompleted12Months1\"::INT) OVER (PARTITION BY \"ParentPartnerNumber\"\
+  ,\"ProgramType\",\"Criteria\")      AS \"PSMAX\"\n\t\t       ,MAX(\"WTCriteriaValCompleted12Months1\"\
+  ::INT) OVER (PARTITION BY \"ParentPartnerNumber\",\"ProgramType\",\"Criteria\")\
+  \      AS \"WTMAX\"\n\t\t       ,MAX(\"CriteriaValCompleted12Months_Actual1\"::INT)\
+  \ OVER (PARTITION BY \"ParentPartnerNumber\",\"ProgramType\",\"Criteria\") AS \"\
+  MAX_Act\"\n\t\t       ,MAX(\"CriteriaValCompleted12Months1\"::INT) OVER (PARTITION\
+  \ BY \"ParentPartnerNumber\",\"ProgramType\",\"Criteria\")        AS \"MAX_Act_F\"\
+  \n\t\t       ,CASE WHEN \"MAX_WT\" = 'random' AND \"MAX_Act\" <> \"MAX_Act_F\" THEN\
+  \ 'random'  ELSE 'random' END                                          AS \"FINAL_WT\"\
+  \n\t\t       ,CASE WHEN \"MAX_PS\" = 'random' AND \"MAX_Act\" <> \"MAX_Act_F\" THEN\
+  \ 'random'  ELSE 'random' END                                          AS \"FINAL_PS\"\
+  \n\t\tFROM\n\t\t(\n\t\t\tSELECT  *\n\t\t\t       ,CASE WHEN \"PSCriteriaValCompleted12Months\"\
+  \ = 'random' THEN 'random'  ELSE \"PSCriteriaValCompleted12Months\" END        \
+  \   AS \"PSCriteriaValCompleted12Months1\"\n\t\t\t       ,CASE WHEN \"CriteriaValCompleted12Months\"\
+  \ = 'random' THEN 'random'  ELSE \"CriteriaValCompleted12Months\" END          \
+  \     AS \"CriteriaValCompleted12Months1\"\n\t\t\t       ,CASE WHEN \"CriteriaValCompleted12Months_Actual\"\
+  \ = 'random' THEN 'random'  ELSE \"CriteriaValCompleted12Months_Actual\" END AS\
+  \ \"CriteriaValCompleted12Months_Actual1\"\n\t\t\t       ,CASE WHEN \"WTCriteriaValCompleted12Months\"\
+  \ = 'random' THEN 'random'  ELSE \"WTCriteriaValCompleted12Months\" END        \
+  \   AS \"WTCriteriaValCompleted12Months1\"\n\t\t\tFROM WAIVE_OFF\n\t\t)\n\t);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,1385 @@
+name: table_1498
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1498
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1498.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PPR_RPT_PARTNER_FUTURE12MONTHS_EVALUATION_BUILD(\n\
+  \t\"ParentPartnerSysID\",\n\t\"ParentPartner\",\n\t\"ParentPartnerNumber\",\n\t\"\
+  ProgramType\",\n\t\"ParentPartnerPublicSectorFlag\",\n\t\"ParentPartnerPublicSectorFlagFuture\"\
+  ,\n\t\"3C\",\n\t\"Criteria\",\n\t\"CriteriaValCompletedDaily\",\n\t\"PSCriteriaValCompletedDaily\"\
+  ,\n\t\"PotentialCriteriaSegment\",\n\t\"CriteriaThresholdLowerLimit\",\n\t\"FutureGap\"\
+  ,\n\t\"PSGap\",\n\t\"CriteriaValCompleted12Months_Actual\",\n\t\"PSCriteriaValCompleted12Months_Actual\"\
+  ,\n\t\"WTCriteriaValCompleted12Months_Actual\",\n\t\"CriteriaValCompleted12Months\"\
+  ,\n\t\"PSCriteriaValCompleted12Months\",\n\t\"WTCriteriaValCompleted12Months\",\n\
+  \t\"CurrentCriteriaSegment\",\n\t\"Gap\",\n\t\"PSFutureGap\",\n\t\"MonthlyProgramEvaluatedDate\"\
+  ,\n\t\"DailyChangeFlag\",\n\t\"DeleteFlagMonthly\",\n\t\"DeletedDateMonthly\",\n\
+  \t\"WaivedUntil\"\n) as\n\n/*\n\n/*********************************************************************************\n\
+  \ \t\t* Project  Name              :     Partner Points 3c Dashboard\n \t\t* Project\
+  \ \t\t\t\t\t :\n \t\t* Object Name \t\t\t\t :     EDW_LS.PARTNER_EM.PPR_RPT_PARTNER_EVALUATION_BUILD\
+  \ ( )\n \t\t* Development Request # \t :\n \t\t* Brief Description          : \t\
+  \   Get the list of all the Parent Partners\n \t\t* Developed By               :\
+  \     Pruthvi\n \t\t* Date Created               :\n \t\t* ---------------------------------------------------------------------------------------------------------------\n\
+  \ \t\t* REVISION HISTORY:\n \t\t* SFSTRY0082759\tStrategic Platform Program Type\
+  \ for 3C Dashboard- Phase - 2\n          INC0966932:-Updating criterianame as artner\
+  \ Developer: Build Partner Developer Journey in RULES cte\n        * SFSTRY0102990\t\
+  \    Dec-06-2023\t   Pruthviraj      Added Current Program Segments for all programs\
+  \ : SP/CIPP/Resale/GE/Build\n \t\t* SFSTRY0133351     2024-07-04     sreeja O V\
+  \   Switching the 3C rules static  table  to partner portal table and Criteria name\
+  \ join change to CriteriaSysID\n        *----------------------------------------------------------------------------------------------------------------\n\
+  \nCriteriaSysId-ParentCriteriaName-CriteriaName\n9b460e5b1b1bb514534ffd115b4bcb85\
+  \  -  Application listed in the SN Store  -  Applications\nd3460e5b1b1bb514534ffd115b4bcb81\
+  \  -  Application Revenue Share (Net New ACV)  -  Sourced Store NNACV (Rev Share)\n\
+  5f460e5b1b1bb514534ffd115b4bcb84  -  Approved Deal Registrations  -  Approved Deal\
+  \ Reg\nd7460e5b1b1bb514534ffd115b4bcb84  -  Impacted Build NNACV  -  Impacted Build\
+  \ NNACV\n17460e5b1b1bb514534ffd115b4bcb85  -  Integration listed in SN Store  -\
+  \  Integrations\n9f460e5b1b1bb514534ffd115b4bcb94  -  Micro-Certification - Welcome\
+  \ to ServiceNow (1 hr)  -  Micro-Certification - Welcome to ServiceNow\n5f460e5b1b1bb514534ffd115b4bcba3\
+  \  -  Partner Developer: Build Partner Developer Journey  -  Partner Developer:\
+  \ Build Partner Developer Journey\n5f460e5b1b1bb514534ffd115b4bcba4  -  ServiceNow\
+  \ Sales & Messaging Foundations  -  Sales and Messaging Foundations\n1b460e5b1b1bb514534ffd115b4bcb94\
+  \  -  Welcome to ServiceNow (3 hrs)  -  Welcome to ServiceNow\n5b460e5b1b1bb514534ffd115b4bcb81\
+  \  -  Customer install from the SN Store  -  Customer Installs (SN store)\ndf460e5b1b1bb514534ffd115b4bcb81\
+  \  -  Customer review on SN Store  -  Customer reviews (SN store)\n57460e5b1b1bb514534ffd115b4bcb82\
+  \  -  Customer Success Stories  -  Customer Success Stories\n\n\n\n *******************************************************************************************************************************\n\
+  \n --\n*/\nWITH C_RULES AS(\n    SELECT\n        DISTINCT \"ProgramType\",\n   \
+  \     \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdUpperLimit\",\n        \"ProgramSegment\",\n     \
+  \   \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"UpdatedDate\"\
+  ,\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\
+  \n    FROM\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    WHERE\n    \
+  \    \"ProgramType\" = 'random'\n        and \"Active\" = 'random'\n    union all\n\
+  \    select\n        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\"\
+  ,\n        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Customer Success Stories')\n        and \"ProgramSegment\" = 'random'\n \
+  \       and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- --SFSTRY0082759\tStrategic Platform Program Type for\
+  \ 3C Dashboard- Phase - 2\n    select\n        \"ProgramType\",\n        \"3C_Category\"\
+  ,\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Customer Success Stories')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- Customer review\
+  \ on SN Store\n    select\n        \"ProgramType\",\n        \"3C_Category\",\n\
+  \        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Customer review on\
+  \ SN Store')\n        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\"\
+  \ = 'random'\n        and \"3C_Category\" = 'random'\n    union all\n        --\
+  \ Customer install from the SN Store\n    select\n        \"ProgramType\",\n   \
+  \     \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Customer install from\
+  \ the SN Store')\n        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\"\
+  \ = 'random'\n        and \"3C_Category\" = 'random'\n    union all\n        --\
+  \ --SFSTRY0082759\tStrategic Platform Program Type for 3C Dashboard- Phase - 2\n\
+  \        -- Customer install from the SN Store-Strategic Platform\n    select\n\
+  \        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Customer install from the SN Store')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- Approved Deal Registrations\n    select\n        \"ProgramType\"\
+  ,\n        \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Approved Deal Registrations')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- Impacted Build\
+  \ NNACV\n    select\n        \"ProgramType\",\n        \"3C_Category\",\n      \
+  \  \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Impacted Build NNACV')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- --SFSTRY0082759\t\
+  Strategic Platform Program Type for 3C Dashboard- Phase - 2\n        -- Impacted\
+  \ Build NNACV-Strategic Platform\n    select\n        \"ProgramType\",\n       \
+  \ \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n\
+  \        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Impacted Build NNACV')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- Application Revenue\
+  \ Share (Net New ACV)\n    select\n        \"ProgramType\",\n        \"3C_Category\"\
+  ,\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Application Revenue\
+  \ Share (Net New ACV)')\n        and \"ProgramSegment\" = 'random'\n        and\
+  \ \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n    union\
+  \ all\n        -- ServiceNow Application Developer Core Skills (1hr)\n    select\n\
+  \        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Partner Developer: Build Partner Developer Journey')\n        and \"ProgramSegment\"\
+  \ = 'random'\n        and \"ProgramType\" = 'random'\n        and \"3C_Category\"\
+  \ = 'random'\n    union all\n        -- --SFSTRY0082759\tStrategic Platform Program\
+  \ Type for 3C Dashboard- Phase - 2\n        -- ServiceNow Application Developer\
+  \ Core Skills (1hr)-Strategic Platform\n    select\n        \"ProgramType\",\n \
+  \       \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Partner Developer:\
+  \ Build Partner Developer Journey')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- ServiceNow Sales & Messaging Foundations\n    select\n\
+  \        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('ServiceNow Sales & Messaging Foundations')\n        and \"ProgramSegment\"\
+  \ = 'random'\n        and \"ProgramType\" = 'random'\n        and \"3C_Category\"\
+  \ = 'random'\n    union all\n        -- --SFSTRY0082759\tStrategic Platform Program\
+  \ Type for 3C Dashboard- Phase - 2\n        -- ServiceNow Sales & Messaging Foundations-Strategic\
+  \ Platform\n    select\n        \"ProgramType\",\n        \"3C_Category\",\n   \
+  \     \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('ServiceNow Sales &\
+  \ Messaging Foundations')\n        and \"ProgramSegment\" = 'random'\n        and\
+  \ \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n    union\
+  \ all\n        -- Micro-Certification - Welcome to ServiceNow (1 hr)\n    select\n\
+  \        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Micro-Certification - Welcome to ServiceNow (1 hr)')\n        and \"ProgramSegment\"\
+  \ = 'random'\n        and \"ProgramType\" = 'random'\n        and \"3C_Category\"\
+  \ = 'random'\n    union all\n        -- --SFSTRY0082759\tStrategic Platform Program\
+  \ Type for 3C Dashboard- Phase - 2\n        -- Micro-Certification - Welcome to\
+  \ ServiceNow (1 hr)-Strategic Platform\n    select\n        \"ProgramType\",\n \
+  \       \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Micro-Certification\
+  \ - Welcome to ServiceNow (1 hr)')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- Welcome to ServiceNow (3 hrs)\n    select\n        \"\
+  ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n        \"\
+  ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n\
+  \        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n        \"\
+  Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Welcome to ServiceNow (3 hrs)')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- --SFSTRY0082759\tStrategic Platform Program Type for\
+  \ 3C Dashboard- Phase - 2\n        -- Welcome to ServiceNow (3 hrs)-Strategic\n\
+  \    select\n        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\"\
+  ,\n        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Welcome to ServiceNow (3 hrs)')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  ) --AND SELECT\n,\nC_RULES_ALLDATA AS(\n    SELECT\n        DISTINCT \"ProgramType\"\
+  ,\n        \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdUpperLimit\",\n        \"ProgramSegment\",\n     \
+  \   \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"UpdatedDate\"\
+  ,\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\
+  \n    FROM\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    WHERE\n    \
+  \    \"ProgramType\" = 'random'\n    union all\n    select\n        \"ProgramType\"\
+  ,\n        \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Customer Success Stories')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- --SFSTRY0082759\t\
+  Strategic Platform Program Type for 3C Dashboard- Phase - 2\n        --Strategic\
+  \ Platform\n    select\n        \"ProgramType\",\n        \"3C_Category\",\n   \
+  \     \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Customer Success Stories')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- Customer review\
+  \ on SN Store\n    select\n        \"ProgramType\",\n        \"3C_Category\",\n\
+  \        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Customer review on\
+  \ SN Store')\n        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\"\
+  \ = 'random'\n        and \"3C_Category\" = 'random'\n    union all\n        --\
+  \ Customer install from the SN Store\n    select\n        \"ProgramType\",\n   \
+  \     \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Customer install from\
+  \ the SN Store')\n        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\"\
+  \ = 'random'\n        and \"3C_Category\" = 'random'\n    union all\n        --\
+  \ --SFSTRY0082759\tStrategic Platform Program Type for 3C Dashboard- Phase - 2\n\
+  \        -- Customer install from the SN Store-Strategic Platform\n    select\n\
+  \        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Customer install from the SN Store')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- Approved Deal Registrations\n    select\n        \"ProgramType\"\
+  ,\n        \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Approved Deal Registrations')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- Impacted Build\
+  \ NNACV\n    select\n        \"ProgramType\",\n        \"3C_Category\",\n      \
+  \  \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Impacted Build NNACV')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- --SFSTRY0082759\t\
+  Strategic Platform Program Type for 3C Dashboard- Phase - 2\n        -- Impacted\
+  \ Build NNACV-Strategic Platform\n    select\n        \"ProgramType\",\n       \
+  \ \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n\
+  \        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Impacted Build NNACV')\n\
+  \        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\" = 'random'\n\
+  \        and \"3C_Category\" = 'random'\n    union all\n        -- Application Revenue\
+  \ Share (Net New ACV)\n    select\n        \"ProgramType\",\n        \"3C_Category\"\
+  ,\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Application Revenue\
+  \ Share (Net New ACV)')\n        and \"ProgramSegment\" = 'random'\n        and\
+  \ \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n    union\
+  \ all\n        -- ServiceNow Application Developer Core Skills (1hr)\n    select\n\
+  \        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Partner Developer: Build Partner Developer Journey')\n        and \"ProgramSegment\"\
+  \ = 'random'\n        and \"ProgramType\" = 'random'\n        and \"3C_Category\"\
+  \ = 'random'\n    union all\n        -- --SFSTRY0082759\tStrategic Platform Program\
+  \ Type for 3C Dashboard- Phase - 2\n        -- ServiceNow Application Developer\
+  \ Core Skills (1hr)\n    select\n        \"ProgramType\",\n        \"3C_Category\"\
+  ,\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Partner Developer:\
+  \ Build Partner Developer Journey')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \        and \"Operator\" = 'random'\n    union all\n        -- ServiceNow Sales\
+  \ & Messaging Foundations\n    select\n        \"ProgramType\",\n        \"3C_Category\"\
+  ,\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('ServiceNow Sales &\
+  \ Messaging Foundations')\n        and \"ProgramSegment\" = 'random'\n        and\
+  \ \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n    union\
+  \ all\n        -- --SFSTRY0082759\tStrategic Platform Program Type for 3C Dashboard-\
+  \ Phase - 2\n        -- ServiceNow Sales & Messaging Foundations\n    select\n \
+  \       \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('ServiceNow Sales & Messaging Foundations')\n        and \"ProgramSegment\"\
+  \ = 'random'\n        and \"ProgramType\" = 'random'\n        and \"3C_Category\"\
+  \ = 'random'\n        and \"Operator\" = 'random'\n    union all\n        -- Micro-Certification\
+  \ - Welcome to ServiceNow (1 hr)\n    select\n        \"ProgramType\",\n       \
+  \ \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n\
+  \        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Micro-Certification\
+  \ - Welcome to ServiceNow (1 hr)')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- --SFSTRY0082759\tStrategic Platform Program Type for\
+  \ 3C Dashboard- Phase - 2\n        -- Micro-Certification - Welcome to ServiceNow\
+  \ (1 hr)\n    select\n        \"ProgramType\",\n        \"3C_Category\",\n     \
+  \   \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Micro-Certification\
+  \ - Welcome to ServiceNow (1 hr)')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \        and \"Operator\" = 'random'\n    union all\n        -- Welcome to ServiceNow\
+  \ (3 hrs)\n    select\n        \"ProgramType\",\n        \"3C_Category\",\n    \
+  \    \"CriteriaSysId\",\n        \"ParentCriteriaName\",\n        \"CriteriaName\"\
+  ,\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\",\n        \"\
+  CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Welcome to ServiceNow\
+  \ (3 hrs)')\n        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\"\
+  \ = 'random'\n        and \"3C_Category\" = 'random'\n    union all\n        --\
+  \ --SFSTRY0082759\tStrategic Platform Program Type for 3C Dashboard- Phase - 2\n\
+  \        -- Welcome to ServiceNow (3 hrs)\n    select\n        \"ProgramType\",\n\
+  \        \"3C_Category\",\n        \"CriteriaSysId\",\n        \"ParentCriteriaName\"\
+  ,\n        \"CriteriaName\",\n        \"CriteriaDetails\",\n        \"Competency_SkillSysID\"\
+  ,\n        \"CriteriaDefinition\",\n        \"Operator\",\n        \"CriteriaMinimumRequirement\"\
+  ,\n        \"CriteriaMinimumRequirementThreshold\",\n        'random' as \"CriteriaThresholdLowerLimit\"\
+  ,\n        \"CriteriaThresholdLowerLimit\" - 'random' as \"CriteriaThresholdUpperLimit\"\
+  ,\n        'random' as \"ProgramSegment\",\n        \"Active\",\n        \"ValidFrom\"\
+  ,\n        \"ValidTo\",\n        \"UpdatedDate\",\n        \"UpdatedByUser\",\n\
+  \        \"PublicSectorMultiplier\",\n        \"WaivedUntil\"\n    from\n      \
+  \  ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n    where\n        \"CriteriaSysId\"\
+  \ in ('random')\n        --TRIM(\"ParentCriteriaName\") in ('Welcome to ServiceNow\
+  \ (3 hrs)')\n        and \"ProgramSegment\" = 'random'\n        and \"ProgramType\"\
+  \ = 'random'\n        and \"3C_Category\" = 'random'\n        and \"Operator\" =\
+  \ 'random'\n    union all\n        -- Integration listed in SN Store\n    select\n\
+  \        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Integration listed in SN Store')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- Integration listed in SN Store-- Strategic Platform\n\
+  \    select\n        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\"\
+  ,\n        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('Integration listed in SN Store')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- Paid application listed in the SN Store\n    select\n\
+  \        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\",\n\
+  \        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n        \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('application listed in the SN Store')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  \    union all\n        -- Paid application listed in the SN Store-Strategic Platform\n\
+  \    select\n        \"ProgramType\",\n        \"3C_Category\",\n        \"CriteriaSysId\"\
+  ,\n        \"ParentCriteriaName\",\n        \"CriteriaName\",\n        \"CriteriaDetails\"\
+  ,\n        \"Competency_SkillSysID\",\n        \"CriteriaDefinition\",\n       \
+  \ \"Operator\",\n        \"CriteriaMinimumRequirement\",\n        \"CriteriaMinimumRequirementThreshold\"\
+  ,\n        'random' as \"CriteriaThresholdLowerLimit\",\n        \"CriteriaThresholdLowerLimit\"\
+  \ - 'random' as \"CriteriaThresholdUpperLimit\",\n        'random' as \"ProgramSegment\"\
+  ,\n        \"Active\",\n        \"ValidFrom\",\n        \"ValidTo\",\n        \"\
+  UpdatedDate\",\n        \"UpdatedByUser\",\n        \"PublicSectorMultiplier\",\n\
+  \        \"WaivedUntil\"\n    from\n        ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\n\
+  \    where\n    \"CriteriaSysId\" in ('random')\n        --TRIM(\"ParentCriteriaName\"\
+  ) in ('application listed in the SN Store')\n        and \"ProgramSegment\" = 'random'\n\
+  \        and \"ProgramType\" = 'random'\n        and \"3C_Category\" = 'random'\n\
+  ),\nPAR_PARTNERS_ALLDATA AS (\n    SELECT\n        DISTINCT *\n    FROM\n      \
+  \  (\n            SELECT\n                DISTINCT PR.*,\n                \"ParentCriteriaName\"\
+  ,\n                \"CriteriaName\",\n                \"CriteriaThresholdLowerLimit\"\
+  ::VARCHAR('random') AS \"CriteriaThresholdLowerLimit\",\n                \"ProgramSegment\"\
+  ,\n                \"WaivedUntil\"\n            FROM\n                (\n      \
+  \              SELECT\n                        *,CASE\n                        \
+  \    WHEN \"BuildSegment\" IN ('random') THEN 'random'\n                       \
+  \     WHEN \"BuildSegment\" IN ('random', 'random') THEN 'random'\n            \
+  \                WHEN \"BuildSegment\" IN ('random') THEN 'random'\n           \
+  \                 ELSE 'random'\n                        END AS \"ParentPartnerCategory_New\"\
+  ,\n                        ROUND(\n                            DATEDIFF (\n    \
+  \                            DAYS,\n                                \"ParentPartnerServicesDate\"\
+  ,\n                                TO_date (\n                                 \
+  \   convert_timezone(\n                                        'random',\n     \
+  \                                   LAST_DAY(DATEADD(MONTH, 'random', CURRENT_DATE),\
+  \ 'random')\n                                    )\n                           \
+  \     )\n                            ) / 'random',\n                           \
+  \ 'random'\n                        ) AS \"NumOfOnboardedMonths\"\n            \
+  \        FROM\n                        EDW_LS.\"PARTNER_EM\".\"PARENTPARTNERS\"\n\
+  \                    WHERE\n                        \"ParentPartnerCategory\" !=\
+  \ 'random'\n                        OR \"ParentPartnerCategory\" IS NULL\n     \
+  \           ) PR\n                LEFT JOIN (\n                    SELECT\n    \
+  \                    DISTINCT *\n                    FROM\n                    \
+  \    C_RULES_ALLDATA\n                    WHERE\n                        \"ProgramType\"\
+  \ = 'random'\n                ) RULES ON \"ProgramType\" = 'random'\n          \
+  \      AND \"ParentPartnerCategory_New\" = \"RULES\".\"ProgramSegment\"\n      \
+  \  )\n),\nPAR_PARTNERS AS (\n    SELECT\n        DISTINCT \"ParentPartnerSysID\"\
+  ,\n        \"ParentPartner\",\n        \"ParentPartnerNumber\",\n        \"ParentPartnerOnBoardedDate\"\
+  ,\n        \"ParentPartnerServiceTierLevel\",\n        \"BuildSegment\"\n    FROM\n\
+  \        PAR_PARTNERS_ALLDATA\n) -- --SFSTRY0082759\tStrategic Platform Program\
+  \ Type for 3C Dashboard- Phase - 2\nSELECT\n    DISTINCT \"ParentPartnerSysID\"\
+  ,\n    \"ParentPartner\",\n    \"ParentPartnerNumber\",\n    \"ProgramType\",\n\
+  \    \"ParentPartnerPublicSectorFlag\",\n    \"ParentPartnerPublicSectorFlagFuture\"\
+  ,\n    \"3C\",\n    \"Criteria\",\n    \"CriteriaValCompletedDaily\",\n    \"PSCriteriaValCompletedDaily\"\
+  ,\n    \"PotentialCriteriaSegment\",\n    --\"CriteriaThresholdLowerLimit\",\n \
+  \   CASE\n        WHEN \"BuildSegment\" = 'random'\n        AND \"CurrentCriteriaSegment\"\
+  \ = 'random' THEN 'random'::VARCHAR('random') --MAIN_CODE.\"ParentPartnerNumber\"\
+  \ in ('ACCT0110889','ACCT0092250')\n        WHEN \"BuildSegment\" = 'random'\n \
+  \       AND \"CurrentCriteriaSegment\" = 'random' THEN ROUND(\"RCriteriaThresholdLowerLimit\"\
+  , 'random')::VARCHAR('random')\n        ELSE \"CriteriaThresholdLowerLimit\"::VARCHAR('random')\n\
+  \    END AS \"CriteriaThresholdLowerLimit\",\n    \"FutureGap\",\n    \"PSGap\"\
+  ,\n    \"CriteriaValCompleted12Months_Actual\",\n    \"PSCriteriaValCompleted12Months_Actual\"\
+  ,\n    \"WTCriteriaValCompleted12Months_Actual\",\n    \"CriteriaValCompleted12Months\"\
+  ,\n    \"PSCriteriaValCompleted12Months\",\n    \"WTCriteriaValCompleted12Months\"\
+  ,\n    \"CurrentCriteriaSegment\",\n    \"Gap\",\n    \"PSFutureGap\",\n    \"MonthlyProgramEvaluatedDate\"\
+  ,\n    \"DailyChangeFlag\",\n    \"DeleteFlagMonthly\",\n    \"DeletedDateMonthly\"\
+  ,\n    \"WaivedUntil\"\nFROM\n    (\n        SELECT\n            DISTINCT CASE\n\
+  \                WHEN \"BuildSegment\" = 'random' then case\n                  \
+  \  when MAIN_CODE.\"CriteriaSysId\" in ('random','random')\n                   \
+  \ --\"Criteria\" IN ('Applications', 'Integrations')\n                    AND \"\
+  CriteriaValCompleted12Months\" > 'random' THEN 'random'\n                    ELSE\
+  \ 'random'\n                END\n                else 'random'\n            end\
+  \ AS \"CalculatedSegmentPaid1\",\n            CASE\n                WHEN MAIN_CODE.\"\
+  CriteriaSysId\" in ('random','random')\n                --\"Criteria\" IN ('Applications',\
+  \ 'Integrations')\n                THEN MAX(\"CalculatedSegmentPaid1\") OVER (\n\
+  \                    PARTITION BY MAIN_CODE.\"ParentPartnerSysID\",\n          \
+  \          MAIN_CODE.\"ParentPartner\",\n                    MAIN_CODE.\"ParentPartnerNumber\"\
+  ,\n                    MAIN_CODE.\"ProgramType\"\n                )\n          \
+  \  END AS \"CalculatedSegmentPaid\",\n            CASE\n                WHEN \"\
+  BuildSegment\" = 'random' then CASE\n                    WHEN \"CalculatedSegmentPaid\"\
+  \ = 'random' then 'random'\n                    WHEN \"CalculatedSegmentPaid\" =\
+  \ 'random' THEN 'random'\n                    ELSE 'random'\n                END\n\
+  \                else 'random'\n            end AS \"CalculatedSegmentPaid_New\"\
+  ,\n            MAIN_CODE.\"ParentPartnerSysID\",\n            MAIN_CODE.\"ParentPartner\"\
+  ,\n            MAIN_CODE.\"ParentPartnerNumber\",\n            MAIN_CODE.\"ProgramType\"\
+  ,\n            MAIN_CODE.\"ParentPartnerPublicSectorFlag\",\n            MAIN_CODE.\"\
+  ParentPartnerPublicSectorFlagFuture\",\n            MAIN_CODE.\"3C\",\n        \
+  \    MAIN_CODE.\"CriteriaSysId\",\n            MAIN_CODE.\"Criteria\",\n       \
+  \     MAIN_CODE.\"CriteriaValCompletedDaily\",\n            MAIN_CODE.\"PSCriteriaValCompletedDaily\"\
+  ,\n            MAIN_CODE.\"PotentialCriteriaSegment\",\n            --\tMAIN_CODE.\"\
+  CriteriaThresholdLowerLimit\",\n            MAIN_CODE.\"FutureGap\",\n         \
+  \   MAIN_CODE.\"PSGap\",\n            MAIN_CODE.\"CriteriaValCompleted12Months_Actual\"\
+  ,\n            MAIN_CODE.\"PSCriteriaValCompleted12Months_Actual\",\n          \
+  \  MAIN_CODE.\"WTCriteriaValCompleted12Months_Actual\",\n            MAIN_CODE.\"\
+  CriteriaValCompleted12Months\",\n            MAIN_CODE.\"PSCriteriaValCompleted12Months\"\
+  ,\n            MAIN_CODE.\"WTCriteriaValCompleted12Months\",\n            CASE\n\
+  \                WHEN MAIN_CODE.\"BuildSegment\" = 'random'\n                AND\
+  \ MAIN_CODE.\"CriteriaSysId\" in ('random','random')\n                --\"Criteria\"\
+  \ NOT IN ('Applications', 'Integrations')\n                --MAIN_CODE.\"ParentPartnerNumber\"\
+  \ in ('ACCT0110889','ACCT0092250')-- --SFSTRY0082759\tStrategic Platform Program\
+  \ Type for 3C Dashboard- Phase - 2\n                THEN R.\"ProgramSegment\"\n\
+  \                WHEN MAIN_CODE.\"BuildSegment\" = 'random'\n                AND\
+  \ MAIN_CODE.\"CriteriaSysId\" in ('random','random')\n                --\"Criteria\"\
+  \ IN ('Applications', 'Integrations')\n                THEN \"CalculatedSegmentPaid_New\"\
+  \n                WHEN (\n                    \"Criteria\" LIKE 'random'\n     \
+  \               OR \"Criteria\" LIKE 'random'\n                )\n             \
+  \   AND MAIN_CODE.\"CurrentCriteriaSegment\" = 'random' THEN 'random'\n        \
+  \        ELSE MAIN_CODE.\"CurrentCriteriaSegment\"\n            END AS \"CurrentCriteriaSegment\"\
+  ,\n            MAIN_CODE.\"BuildSegment\" AS \"BuildSegment\",\n            R.\"\
+  CriteriaThresholdLowerLimit\" AS \"RCriteriaThresholdLowerLimit\",\n           \
+  \ R.\"CriteriaThresholdUpperLimit\" AS \"RCriteriaThresholdUpperLimit\",\n     \
+  \       R.\"ProgramSegment\" AS \"RProgramSegment\",\n            -- --SFSTRY0082759\t\
+  Strategic Platform Program Type for 3C Dashboard- Phase - 2\n            CASE\n\
+  \                WHEN MAIN_CODE.\"BuildSegment\" = 'random' THEN CASE\n        \
+  \            WHEN (\n                        (\n                            \"CriteriaValCompleted12Months\"\
+  \ >= R.\"CriteriaThresholdLowerLimit\"\n                            and \"CriteriaValCompleted12Months\"\
+  \ <= R.\"CriteriaThresholdUpperLimit\"\n                        )\n            \
+  \            AND \"CriteriaThresholdUpperLimit\" IS not NULL\n                 \
+  \   ) THEN ROUND(\n                        (R.\"CriteriaThresholdUpperLimit\" +\
+  \ 'random') - \"CriteriaValCompleted12Months\",\n                        'random'\n\
+  \                    )\n                    ELSE 'random'\n                END\n\
+  \                ELSE MAIN_CODE.\"Gap\"\n            END AS \"Gap\",\n         \
+  \   -- MAIN_CODE.\"Gap\",\n            MAIN_CODE.\"PSFutureGap\",\n            MAIN_CODE.\"\
+  MonthlyProgramEvaluatedDate\",\n            MAIN_CODE.\"DailyChangeFlag\",\n   \
+  \         MAIN_CODE.\"DeleteFlagMonthly\",\n            MAIN_CODE.\"DeletedDateMonthly\"\
+  ,\n            CASE\n                WHEN MAIN_CODE.\"BuildSegment\" = 'random'\n\
+  \                AND \"CurrentCriteriaSegment\" = 'random' THEN 'random'::VARCHAR('random')\
+  \ --MAIN_CODE.\"ParentPartnerNumber\" in ('ACCT0110889','ACCT0092250')\n       \
+  \         WHEN MAIN_CODE.\"BuildSegment\" = 'random'\n                AND \"CurrentCriteriaSegment\"\
+  \ = 'random' THEN ROUND(R.\"CriteriaThresholdLowerLimit\", 'random')::VARCHAR('random')\n\
+  \                ELSE MAIN_CODE.\"CriteriaThresholdLowerLimit\"::VARCHAR('random')\n\
+  \            END AS \"CriteriaThresholdLowerLimit\",\n            MAIN_CODE.\"WaivedUntil\"\
+  \n        from\n            (\n                SELECT\n                    DISTINCT\
+  \ EVALUATION_DATA.\"ParentPartnerSysID\",\n                    EVALUATION_DATA.\"\
+  ParentPartner\",\n                    EVALUATION_DATA.\"ParentPartnerNumber\",\n\
+  \                    EVALUATION_DATA.\"ProgramType\",\n                    EVALUATION_DATA.\"\
+  ParentPartnerPublicSectorFlag\",\n                    EVALUATION_DATA.\"ParentPartnerPublicSectorFlagFuture\"\
+  ,\n                    EVALUATION_DATA.\"3C\",\n                    EVALUATION_DATA.\"\
+  CriteriaSysId\",\n                    PRN.\"CriteriaName\" AS \"Criteria\",\n  \
+  \                  EVALUATION_DATA.\"CriteriaValCompletedDaily\",\n            \
+  \        EVALUATION_DATA.\"PSCriteriaValCompletedDaily\",\n                    EVALUATION_DATA.\"\
+  PotentialCriteriaSegment\",\n                    CASE\n                        WHEN\
+  \ EVALUATION_DATA.\"CriteriaThresholdLowerLimit\"::VARCHAR('random') = 'random'\
+  \ THEN 'random'::VARCHAR('random')\n                        WHEN PRN.\"ParentPartnerCategory\"\
+  \ = 'random' THEN 'random'::VARCHAR('random')\n                        WHEN \"Criteria\"\
+  \ = 'random' THEN ROUND(PRN.\"CriteriaThresholdLowerLimit\", 'random')::VARCHAR('random')\n\
+  \                        ELSE ROUND(PRN.\"CriteriaThresholdLowerLimit\", 'random')::VARCHAR('random')\n\
+  \                    END AS \"CriteriaThresholdLowerLimit\",\n                 \
+  \   EVALUATION_DATA.\"FutureGap\",\n                    EVALUATION_DATA.\"PSGap\"\
+  ,\n                    EVALUATION_DATA.\"CriteriaValCompleted12Months_Actual\",\n\
+  \                    EVALUATION_DATA.\"PSCriteriaValCompleted12Months_Actual\",\n\
+  \                    EVALUATION_DATA.\"WTCriteriaValCompleted12Months_Actual\",\n\
+  \                    EVALUATION_DATA.\"CriteriaValCompleted12Months\",\n       \
+  \             EVALUATION_DATA.\"PSCriteriaValCompleted12Months\",\n            \
+  \        EVALUATION_DATA.\"WTCriteriaValCompleted12Months\",\n                 \
+  \   EVALUATION_DATA.\"CurrentCriteriaSegment\",\n                    NVL(EVALUATION_DATA.\"\
+  Gap\", 'random') AS \"Gap\",\n                    EVALUATION_DATA.\"PSFutureGap\"\
+  ,\n                    EVALUATION_DATA.\"MonthlyProgramEvaluatedDate\",\n      \
+  \              EVALUATION_DATA.\"DailyChangeFlag\",\n                    EVALUATION_DATA.\"\
+  DeleteFlagMonthly\",\n                    EVALUATION_DATA.\"DeletedDateMonthly\"\
+  \ --, EVALUATION_DATA.\"Operator\"\n,\n                    PRN.\"BuildSegment\"\
+  ,\n                    PRN.\"WaivedUntil\"\n                FROM\n             \
+  \       (\n                        SELECT\n                            DISTINCT\
+  \ \"ParentPartnerNumber\",\n                            \"ParentCriteriaName\",\n\
+  \                            \"CriteriaName\",\n                            \"BuildSegment\"\
+  \ AS \"ParentPartnerCategory\",\n                            \"CriteriaThresholdLowerLimit\"\
+  ::VARCHAR('random') AS \"CriteriaThresholdLowerLimit\",\n                      \
+  \      \"BuildSegment\",\n                            \"WaivedUntil\"\n        \
+  \                from\n                            PAR_PARTNERS_ALLDATA\n      \
+  \              ) PRN\n                    INNER JOIN (\n                       \
+  \ SELECT\n                            DISTINCT P.\"ParentPartnerSysID\",\n     \
+  \                       P.\"ParentPartner\",\n                            P.\"ParentPartnerNumber\"\
+  ,\n                            P.\"ProgramType\",\n                            NVL(E.\"\
+  ParentPartnerPublicSectorFlag\", 'random') AS \"ParentPartnerPublicSectorFlag\"\
+  ,\n                            E.\"ParentPartnerPublicSectorFlagFuture\",\n    \
+  \                        P.\"3C\",\n                            P.\"CriteriaSysId\"\
+  \ AS \"CriteriaSysId\",\n                            P.\"ParentCriteriaName\" AS\
+  \ \"Criteria\",\n                            E.\"CriteriaValCompletedDaily\",\n\
+  \                            E.\"PSCriteriaValCompletedDaily\",\n              \
+  \              E.\"PotentialCriteriaSegment\",\n                            E.\"\
+  CriteriaThresholdLowerLimit\",\n                            E.\"FutureGap\",\n \
+  \                           E.\"PSGap\",\n                            NVL(E.\"CriteriaValCompleted12Months_Actual\"\
+  , 'random') AS \"CriteriaValCompleted12Months_Actual\",\n                      \
+  \      NVL(E.\"PSCriteriaValCompleted12Months_Actual\", 'random') AS \"PSCriteriaValCompleted12Months_Actual\"\
+  ,\n                            NVL(E.\"WTCriteriaValCompleted12Months_Actual\",\
+  \ 'random') AS \"WTCriteriaValCompleted12Months_Actual\",\n                    \
+  \        NVL(E.\"CriteriaValCompleted12Months\", 'random') AS \"CriteriaValCompleted12Months\"\
+  ,\n                            NVL(E.\"PSCriteriaValCompleted12Months\", 'random')\
+  \ AS \"PSCriteriaValCompleted12Months\",\n                            NVL(E.\"WTCriteriaValCompleted12Months\"\
+  , 'random') AS \"WTCriteriaValCompleted12Months\",\n                           \
+  \ NVL(E.\"CurrentCriteriaSegment\", 'random') AS \"CurrentCriteriaSegment\",\n \
+  \                           E.\"Gap\" AS \"Gap\",\n                            E.\"\
+  PSFutureGap\",\n                            E.\"MonthlyProgramEvaluatedDate\",\n\
+  \                            E.\"DailyChangeFlag\",\n                          \
+  \  E.\"DeleteFlagMonthly\",\n                            E.\"DeletedDateMonthly\"\
+  \ --,\"Operator\"\n                        FROM(\n                             \
+  \   SELECT\n                                    DISTINCT PA.\"ParentPartner\",\n\
+  \                                    PP.\"ParentPartnerSysID\",\n              \
+  \                      PA.\"ParentPartnerNumber\",\n                           \
+  \         R.\"ProgramType\",\n                                    R.\"ParentCriteriaName\"\
+  ,\n                                    \"3C_Category\" AS \"3C\",\n            \
+  \                        R.\"CriteriaSysId\" AS \"CriteriaSysId\"\n            \
+  \                    FROM\n                                    EDW_LS.\"PARTNER_EM\"\
+  .\"PARTNERS\" PA\n                                    INNER JOIN EDW_LS.\"PARTNER_EM\"\
+  .\"PARENTPARTNERS\" PP ON PA.\"ParentPartnerNumber\" = PP.\"ParentPartnerNumber\"\
+  \n                                    INNER JOIN C_RULES R ON R.\"ProgramType\"\
+  \ = 'random'\n                                WHERE\n                          \
+  \          PA.\"PartnerTechnologyTierLevel\" = 'random'\n                      \
+  \      ) P\n                            LEFT JOIN (\n                          \
+  \      SELECT\n                                    \"ParentPartnerSysID\",\n   \
+  \                                 \"ParentPartner\",\n                         \
+  \           \"ParentPartnerNumber\",\n                                    \"ProgramType\"\
+  ,\n                                    \"ParentPartnerPublicSectorFlag\",\n    \
+  \                                \"ParentPartnerPublicSectorFlagFuture\",\n    \
+  \                                \"3C\",\n                                    \"\
+  CriteriaSysId\",\n                                    \"Criteria\",\n          \
+  \                          \"CriteriaValCompletedDaily\",\n                    \
+  \                \"PSCriteriaValCompletedDaily\",\n                            \
+  \        \"PotentialCriteriaSegment\",\n                                    \"CriteriaThresholdLowerLimit\"\
+  ,\n                                    --\"CriteriaThresholdUpperLimit\",\n    \
+  \                                \"FutureGap\",\n                              \
+  \      \"PSGap\",\n                                    CASE\n                  \
+  \                      WHEN \"CriteriaSysId\" in ('random','random')\n         \
+  \                               --\"Criteria\" in ('Application Revenue Share (Net\
+  \ New ACV)','Impacted Build NNACV')\n                                        THEN\
+  \ ROUND(\"CriteriaValCompleted12Months_Actual\", 'random')\n                   \
+  \                     ELSE ROUND(\"CriteriaValCompleted12Months_Actual\", 'random')\n\
+  \                                    END AS \"CriteriaValCompleted12Months_Actual\"\
+  ,\n                                    CASE\n                                  \
+  \      WHEN \"CriteriaSysId\" in ('random','random')\n                         \
+  \               --\"Criteria\" in ('Application Revenue Share (Net New ACV)','Impacted\
+  \ Build NNACV')\n                                        THEN ROUND(\"PSCriteriaValCompleted12Months_Actual\"\
+  , 'random')\n                                        ELSE ROUND(\"PSCriteriaValCompleted12Months_Actual\"\
+  , 'random')\n                                    END AS \"PSCriteriaValCompleted12Months_Actual\"\
+  ,\n                                    CASE\n                                  \
+  \      WHEN \"CriteriaSysId\" in ('random','random')\n                         \
+  \               --\"Criteria\" in ('Application Revenue Share (Net New ACV)','Impacted\
+  \ Build NNACV')\n                                        THEN ROUND(\"WTCriteriaValCompleted12Months_Actual\"\
+  , 'random')\n                                        ELSE ROUND(\"WTCriteriaValCompleted12Months_Actual\"\
+  , 'random')\n                                    END AS \"WTCriteriaValCompleted12Months_Actual\"\
+  ,\n                                    CASE\n                                  \
+  \      WHEN \"CriteriaSysId\" in ('random','random')\n                         \
+  \               --\"Criteria\" in ('Application Revenue Share (Net New ACV)','Impacted\
+  \ Build NNACV')\n                                        THEN ROUND(\"CriteriaValCompleted12Months\"\
+  , 'random')\n                                        ELSE ROUND(\"CriteriaValCompleted12Months\"\
+  , 'random')\n                                    END AS \"CriteriaValCompleted12Months\"\
+  ,\n                                    CASE\n                                  \
+  \      WHEN \"CriteriaSysId\" in ('random','random')\n                         \
+  \               --\"Criteria\" in ('Application Revenue Share (Net New ACV)','Impacted\
+  \ Build NNACV')\n                                        THEN ROUND(\"PSCriteriaValCompleted12Months\"\
+  , 'random')\n                                        ELSE ROUND(\"PSCriteriaValCompleted12Months\"\
+  , 'random')\n                                    END AS \"PSCriteriaValCompleted12Months\"\
+  ,\n                                    CASE\n                                  \
+  \      WHEN \"CriteriaSysId\" in ('random','random')\n                         \
+  \               --\"Criteria\" in ('Application Revenue Share (Net New ACV)','Impacted\
+  \ Build NNACV')\n                                        THEN ROUND(\"WTCriteriaValCompleted12Months\"\
+  , 'random')\n                                        ELSE ROUND(\"WTCriteriaValCompleted12Months\"\
+  , 'random')\n                                    END AS \"WTCriteriaValCompleted12Months\"\
+  ,\n                                    \"CurrentCriteriaSegment\",\n           \
+  \                         CASE\n                                        WHEN \"\
+  CriteriaSysId\" in ('random','random')\n                                       \
+  \ --\"Criteria\" in ('Application Revenue Share (Net New ACV)','Impacted Build NNACV')\n\
+  \                                        THEN ROUND(\"Gap\", 'random')\n       \
+  \                                 ELSE ROUND(\"Gap\", 'random')\n              \
+  \                      END AS \"Gap\",\n                                    \"PSFutureGap\"\
+  ,\n                                    \"MonthlyProgramEvaluatedDate\",\n      \
+  \                              \"DailyChangeFlag\",\n                          \
+  \          \"DeleteFlagMonthly\",\n                                    \"DeletedDateMonthly\"\
+  ,\n                                    \"Filterdata\" --,\"Operator\"\n        \
+  \                        FROM\n                                    (\n         \
+  \                               SELECT\n                                       \
+  \     DISTINCT \"ParentPartnerSysID\",\n                                       \
+  \     \"ParentPartner\",\n                                            \"ParentPartnerNumber\"\
+  ,\n                                            \"ProgramType\",\n              \
+  \                              \"ParentPartnerPublicSectorFlag\",\n            \
+  \                                \"ParentPartnerPublicSectorFlagFuture\",\n    \
+  \                                        \"3C\",\n                             \
+  \               \"CriteriaSysId\",\n                                           \
+  \ \"Criteria\",\n                                            \"CriteriaValCompletedDaily\"\
+  ,\n                                            \"PSCriteriaValCompletedDaily\",\n\
+  \                                            \"PotentialCriteriaSegment\",\n   \
+  \                                         \"CriteriaThresholdLowerLimit\",\n   \
+  \                                         --\"CriteriaThresholdUpperLimit\",\n \
+  \                                           \"FutureGap\",\n                   \
+  \                         \"PSGap\",\n                                         \
+  \   \"CriteriaValCompleted12Months_Actual\",\n                                 \
+  \           \"PSCriteriaValCompleted12Months_Actual\",\n                       \
+  \                     \"WTCriteriaValCompleted12Months_Actual\",\n             \
+  \                               \"CriteriaValCompleted12Months\",\n            \
+  \                                \"PSCriteriaValCompleted12Months\",\n         \
+  \                                   \"WTCriteriaValCompleted12Months\",\n      \
+  \                                      \"CurrentCriteriaSegment\",\n           \
+  \                                 \"Gap\",\n                                   \
+  \         \"PSFutureGap\",\n                                            \"MonthlyProgramEvaluatedDate\"\
+  ,\n                                            \"DailyChangeFlag\",\n          \
+  \                                  \"DeleteFlagMonthly\",\n                    \
+  \                        \"DeletedDateMonthly\",\n                             \
+  \               CASE\n                                                WHEN \"CriteriaSysId\"\
+  \ IN ('random','random','random','random','random','random')\n                 \
+  \                       --\"Criteria\" IN ('Application Revenue Share (Net New ACV)','Impacted\
+  \ Build NNACV','Customer review on SN Store','Customer install from the SN Store','application\
+  \ listed in the SN Store','Integration listed in SN Store')\n                  \
+  \                              THEN CASE\n                                     \
+  \               WHEN \"CurrentCriteriaSegment\" = 'random'\n                   \
+  \                                 OR \"CurrentCriteriaSegment\" = 'random' THEN\
+  \ MIN(\"CriteriaThresholdLowerLimit\") OVER (\n                                \
+  \                        PARTITION BY \"ParentPartnerSysID\",\n                \
+  \                                        \"ParentPartner\",\n                  \
+  \                                      \"ParentPartnerNumber\",\n              \
+  \                                          \"ProgramType\",\n                  \
+  \                                      \"Criteria\"\n                          \
+  \                          )\n                                                 \
+  \   WHEN \"CurrentCriteriaSegment\" = 'random' THEN MAX(\"CriteriaThresholdLowerLimit\"\
+  ) OVER (\n                                                        PARTITION BY \"\
+  ParentPartnerSysID\",\n                                                        \"\
+  ParentPartner\",\n                                                        \"ParentPartnerNumber\"\
+  ,\n                                                        \"ProgramType\",\n  \
+  \                                                      \"Criteria\"\n          \
+  \                                          )\n                                 \
+  \                   ELSE MIN(\"CriteriaThresholdLowerLimit\") OVER (\n         \
+  \                                               PARTITION BY \"ParentPartnerSysID\"\
+  ,\n                                                        \"ParentPartner\",\n\
+  \                                                        \"ParentPartnerNumber\"\
+  ,\n                                                        \"ProgramType\",\n  \
+  \                                                      \"Criteria\"\n          \
+  \                                          )\n                                 \
+  \               END\n                                                ELSE 'random'\n\
+  \                                            END AS \"Filterdata\"\n           \
+  \                             FROM\n                                           \
+  \ (\n                                                SELECT\n                  \
+  \                                  DISTINCT \"ParentPartnerSysID\",\n          \
+  \                                          \"ParentPartner\",\n                \
+  \                                    \"ParentPartnerNumber\",\n                \
+  \                                    \"ProgramType\",\n                        \
+  \                            \"ParentPartnerPublicSectorFlag\",\n              \
+  \                                      'random' as \"ParentPartnerPublicSectorFlagFuture\"\
+  ,\n                                                    \"3C\",\n               \
+  \                                     \"CriteriaSysId\",\n                     \
+  \                               \"Criteria\",\n                                \
+  \                    'random' as \"CriteriaValCompletedDaily\",\n              \
+  \                                      'random' as \"PSCriteriaValCompletedDaily\"\
+  ,\n                                                    'random' as \"PotentialCriteriaSegment\"\
+  ,\n                                                    \"CriteriaThresholdLowerLimit\"\
+  ,\n                                                    \"CriteriaThresholdUpperLimit\"\
+  ,\n                                                    'random' as \"FutureGap\"\
+  ,\n                                                    'random' as \"PSGap\",\n\
+  \                                                    \"CriteriaValCompleted12Months_Actual\"\
+  ,\n                                                    'random' AS \"PSCriteriaValCompleted12Months_Actual\"\
+  ,\n                                                    \"WTCriteriaValCompleted12Months\"\
+  \ AS \"WTCriteriaValCompleted12Months_Actual\",\n                              \
+  \                      \"CriteriaValCompleted12Months\",\n                     \
+  \                               'random' as \"PSCriteriaValCompleted12Months\",\n\
+  \                                                    \"WTCalculatedValue\" AS \"\
+  WTCriteriaValCompleted12Months\",\n                                            \
+  \        CASE\n                                                        (\n     \
+  \                                                       CASE\n                 \
+  \                                               WHEN \"CriteriaSysId\" in ('random')\n\
+  \                                                                --\"Criteria\"\
+  \ in ('Application Revenue Share (Net New ACV)')\n                             \
+  \                                   AND (\n                                    \
+  \                                (\n                                           \
+  \                             \"CriteriaValCompleted12Months\" >= \"CriteriaThresholdLowerLimit\"\
+  \n                                                                        and \"\
+  CriteriaValCompleted12Months\" <= \"CriteriaThresholdUpperLimit\"\n            \
+  \                                                        )\n                   \
+  \                                                 or (\n                       \
+  \                                                 \"CriteriaValCompleted12Months\"\
+  \ >= \"CriteriaThresholdLowerLimit\"\n                                         \
+  \                               and \"CriteriaThresholdUpperLimit\" IS NULL\n  \
+  \                                                                  )\n         \
+  \                                                       ) THEN \"ProgramSegment\"\
+  \n                                                                ELSE 'random'\n\
+  \                                                            END\n             \
+  \                                           )\n                                \
+  \                        WHEN 'random' THEN 'random'\n                         \
+  \                               WHEN 'random' THEN 'random'\n                  \
+  \                                      ELSE 'random'\n                         \
+  \                           END AS \"PrevCalculatedAppACV\",\n                 \
+  \                                   MAX(\"PrevCalculatedAppACV\") OVER(\n      \
+  \                                                  PARTITION BY \"ParentPartnerSysID\"\
+  ,\n                                                        \"ParentPartner\",\n\
+  \                                                        \"ParentPartnerNumber\"\
+  ,\n                                                        \"ProgramType\"\n   \
+  \                                                 ) AS \"CalculatedAppACV\",\n \
+  \                                                   CASE\n                     \
+  \                                   (\n                                        \
+  \                    CASE\n                                                    \
+  \            WHEN \"CriteriaSysId\" in ('random')\n                            \
+  \                                    --\"Criteria\" in ('Impacted Build NNACV')\n\
+  \                                                                AND (\n       \
+  \                                                             (\n              \
+  \                                                          \"CriteriaValCompleted12Months\"\
+  \ >= \"CriteriaThresholdLowerLimit\"\n                                         \
+  \                               and \"CriteriaValCompleted12Months\" <= \"CriteriaThresholdUpperLimit\"\
+  \n                                                                    )\n      \
+  \                                                              or (\n          \
+  \                                                              \"CriteriaValCompleted12Months\"\
+  \ >= \"CriteriaThresholdLowerLimit\"\n                                         \
+  \                               and \"CriteriaThresholdUpperLimit\" IS NULL\n  \
+  \                                                                  )\n         \
+  \                                                       ) THEN \"ProgramSegment\"\
+  \n                                                                ELSE 'random'\n\
+  \                                                            END\n             \
+  \                                           )\n                                \
+  \                        WHEN 'random' THEN 'random'\n                         \
+  \                               WHEN 'random' THEN 'random'\n                  \
+  \                                      ELSE 'random'\n                         \
+  \                           END AS \"PrevCalculatedImpactedACV\",\n            \
+  \                                        MAX(\"PrevCalculatedImpactedACV\") OVER(\n\
+  \                                                        PARTITION BY \"ParentPartnerSysID\"\
+  ,\n                                                        \"ParentPartner\",\n\
+  \                                                        \"ParentPartnerNumber\"\
+  ,\n                                                        \"ProgramType\"\n   \
+  \                                                 ) AS \"CalculatedImpactedACV\"\
+  ,\n                                                    CASE\n                  \
+  \                                      when \"CalculatedAppACV\" - \"CalculatedImpactedACV\"\
+  \ = 'random' THEN \"CalculatedAppACV\"\n                                       \
+  \                 WHEN \"CalculatedAppACV\" - \"CalculatedImpactedACV\" < 'random'\
+  \ THEN \"CalculatedImpactedACV\"\n                                             \
+  \           WHEN \"CalculatedAppACV\" - \"CalculatedImpactedACV\" > 'random' THEN\
+  \ \"CalculatedAppACV\"\n                                                       \
+  \ ELSE \"CalculatedAppACV\"\n                                                  \
+  \  END AS \"CalculatedSegment\",\n                                             \
+  \       CASE\n                                                        (\n      \
+  \                                                      CASE\n                  \
+  \                                              WHEN \"CriteriaSysId\" in ('random')\n\
+  \                                                                --\"Criteria\"\
+  \ in ('Customer install from the SN Store')\n                                  \
+  \                              AND (\n                                         \
+  \                           (\n                                                \
+  \                        \"CriteriaValCompleted12Months\" >= \"CriteriaThresholdLowerLimit\"\
+  \n                                                                        and \"\
+  CriteriaValCompleted12Months\" <= \"CriteriaThresholdUpperLimit\"\n            \
+  \                                                        )\n                   \
+  \                                                 or (\n                       \
+  \                                                 \"CriteriaValCompleted12Months\"\
+  \ >= \"CriteriaThresholdLowerLimit\"\n                                         \
+  \                               and \"CriteriaThresholdUpperLimit\" IS NULL\n  \
+  \                                                                  )\n         \
+  \                                                       ) THEN \"ProgramSegment\"\
+  \n                                                                ELSE 'random'\n\
+  \                                                            END\n             \
+  \                                           )\n                                \
+  \                        WHEN 'random' THEN 'random'\n                         \
+  \                               WHEN 'random' THEN 'random'\n                  \
+  \                                      ELSE 'random'\n                         \
+  \                           END AS \"PrevCalculatedAppSNInstall\",\n           \
+  \                                         MAX(\"PrevCalculatedAppSNInstall\") OVER(\n\
+  \                                                        PARTITION BY \"ParentPartnerSysID\"\
+  ,\n                                                        \"ParentPartner\",\n\
+  \                                                        \"ParentPartnerNumber\"\
+  ,\n                                                        \"ProgramType\"\n   \
+  \                                                 ) AS \"CalculatedAppSNInstall\"\
+  ,\n                                                    CASE\n                  \
+  \                                      (\n                                     \
+  \                       CASE\n                                                 \
+  \               WHEN \"CriteriaSysId\" in ('random')\n                         \
+  \                                       --\"Criteria\" in ('Customer review on SN\
+  \ Store')\n                                                                AND (\n\
+  \                                                                    (\n       \
+  \                                                                 \"CriteriaValCompleted12Months\"\
+  \ >= \"CriteriaThresholdLowerLimit\"\n                                         \
+  \                               and \"CriteriaValCompleted12Months\" <= \"CriteriaThresholdUpperLimit\"\
+  \n                                                                    )\n      \
+  \                                                              or (\n          \
+  \                                                              \"CriteriaValCompleted12Months\"\
+  \ >= \"CriteriaThresholdLowerLimit\"\n                                         \
+  \                               and \"CriteriaThresholdUpperLimit\" IS NULL\n  \
+  \                                                                  )\n         \
+  \                                                       ) THEN \"ProgramSegment\"\
+  \n                                                                ELSE 'random'\n\
+  \                                                            END\n             \
+  \                                           )\n                                \
+  \                        WHEN 'random' THEN 'random'\n                         \
+  \                               WHEN 'random' THEN 'random'\n                  \
+  \                                      ELSE 'random'\n                         \
+  \                           END AS \"PrevCalculatedAppSNReview\",\n            \
+  \                                        MAX(\"PrevCalculatedAppSNReview\") OVER(\n\
+  \                                                        PARTITION BY \"ParentPartnerSysID\"\
+  ,\n                                                        \"ParentPartner\",\n\
+  \                                                        \"ParentPartnerNumber\"\
+  ,\n                                                        \"ProgramType\"\n   \
+  \                                                 ) AS \"CalculatedAppSNReview\"\
+  ,\n                                                    /*,\n                   \
+  \                                      CASE when \"CalculatedAppSNInstall\"-\"CalculatedAppSNReview\"\
+  =0\n                                                                THEN \"CalculatedAppSNInstall\"\
+  \ WHEN \"CalculatedAppSNInstall\"-\"CalculatedAppSNReview\"<0\n                \
+  \                                                THEN \"CalculatedAppSNReview\"\
+  \ WHEN \"CalculatedAppSNInstall\"-\"CalculatedAppSNReview\">0\n                \
+  \                                                THEN \"CalculatedAppSNInstall\"\
+  \n                                                                ELSE \"CalculatedAppSNInstall\"\
+  \n                                                                END AS \"CalculatedSegmentSN\"\
+  */\n                                                    --Waiving of app install\
+  \ with acv start\n                                                    CASE\n   \
+  \                                                     WHEN \"CalculatedAppSNInstall\"\
+  \ = 'random' THEN CASE\n                                                       \
+  \     WHEN \"CalculatedSegment\" <> 'random' THEN 'random'\n                   \
+  \                                     END\n                                    \
+  \                    ELSE \"CalculatedAppSNInstall\"\n                         \
+  \                           END AS \"CalculatedAppSNInstallCalculated\",\n     \
+  \                                               ----Waiving of app install with\
+  \ acv end\n                                                    --Waiving of app\
+  \ review with acv start\n                                                    CASE\n\
+  \                                                        WHEN \"CalculatedAppSNReview\"\
+  \ = 'random' THEN CASE\n                                                       \
+  \     WHEN \"CalculatedSegment\" <> 'random' THEN 'random'\n                   \
+  \                                     END\n                                    \
+  \                    ELSE \"CalculatedAppSNReview\"\n                          \
+  \                          END AS \"CalculatedAppSNReviewCalculated\" --Waiving\
+  \ of app review with acv end\n,\n                                              \
+  \      --Waiving of acv  with app review and app install\n                     \
+  \                               CASE\n                                         \
+  \               WHEN \"CalculatedSegment\" = 'random'\n                        \
+  \                                AND \"CalculatedAppSNInstall\" <> 'random'\n  \
+  \                                                      AND \"CalculatedAppSNReview\"\
+  \ <> 'random' THEN 'random'\n                                                  \
+  \      ELSE \"CalculatedSegment\"\n                                            \
+  \        END AS \"CalculatedSegmentACV\",\n                                    \
+  \                CASE\n                                                        WHEN\
+  \ \"CalculatedSegmentACV\" = 'random' then 'random'\n                          \
+  \                              WHEN \"CalculatedSegmentACV\" = 'random' then 'random'\n\
+  \                                                        ELSE 'random'\n       \
+  \                                             END AS \"CalculatedSegmentACV_New\"\
+  ,\n                                                    CASE\n                  \
+  \                                      WHEN \"CalculatedAppSNInstallCalculated\"\
+  \ = 'random' then 'random'\n                                                   \
+  \     WHEN \"CalculatedAppSNInstallCalculated\" = 'random' then 'random'\n     \
+  \                                                   ELSE 'random'\n            \
+  \                                        END AS \"CalculatedAppSNInstallCalculated_New\"\
+  ,\n                                                    CASE\n                  \
+  \                                      WHEN \"CalculatedAppSNReviewCalculated\"\
+  \ = 'random' then 'random'\n                                                   \
+  \     WHEN \"CalculatedAppSNReviewCalculated\" = 'random' then 'random'\n      \
+  \                                                  ELSE 'random'\n             \
+  \                                       END AS \"CalculatedAppSNReviewCalculated_New\"\
+  ,\n                                                    case\n                  \
+  \                                      when \"CriteriaSysId\" in ('random')\n  \
+  \                                                      --\"Criteria\" in ('Customer\
+  \ review on SN Store')\n                                                       \
+  \ THEN \"CalculatedAppSNReviewCalculated_New\"\n                               \
+  \                         when \"CriteriaSysId\" in ('random')\n               \
+  \                                         --\"Criteria\" in ('Customer install from\
+  \ the SN Store')\n                                                        THEN \"\
+  CalculatedAppSNInstallCalculated_New\"\n                                       \
+  \                 when \"CriteriaSysId\" in ('random','random')\n              \
+  \                                          --\"Criteria\" in ('Application Revenue\
+  \ Share (Net New ACV)','Impacted Build NNACV')\n                               \
+  \                         THEN \"CalculatedSegmentACV_New\"\n                  \
+  \                                      when \"CriteriaSysId\" in ('random','random')\n\
+  \                                                        --\"Criteria\" in ('application\
+  \ listed in the SN Store','Integration listed in SN Store')\n                  \
+  \                                      THEN \"CalculatedSegmentPaid_New\"\n    \
+  \                                                    ELSE CASE\n               \
+  \                                             WHEN (\n                         \
+  \                                       (\n                                    \
+  \                                \"CriteriaValCompleted12Months\" >= \"CriteriaThresholdLowerLimit\"\
+  \n                                                                    and \"CriteriaValCompleted12Months\"\
+  \ <= \"CriteriaThresholdUpperLimit\"\n                                         \
+  \                       )\n                                                    \
+  \            or (\n                                                            \
+  \        \"CriteriaValCompleted12Months\" >= \"CriteriaThresholdLowerLimit\"\n \
+  \                                                                   and \"CriteriaThresholdUpperLimit\"\
+  \ IS NULL\n                                                                )\n \
+  \                                                           ) then \"ProgramSegment\"\
+  \n                                                            ELSE 'random'\n  \
+  \                                                      end\n                   \
+  \                                 END as \"CurrentCriteriaSegment\",\n         \
+  \                                           CASE\n                             \
+  \                           WHEN (\n                                           \
+  \                 (\n                                                          \
+  \      \"CriteriaValCompleted12Months\" >= \"CriteriaThresholdLowerLimit\"\n   \
+  \                                                             and \"CriteriaValCompleted12Months\"\
+  \ <= \"CriteriaThresholdUpperLimit\"\n                                         \
+  \                   )\n                                                        \
+  \    AND \"CriteriaThresholdUpperLimit\" IS not NULL\n                         \
+  \                               ) THEN (\"CriteriaThresholdUpperLimit\" + 'random')\
+  \ - \"CriteriaValCompleted12Months\"\n                                         \
+  \               ELSE 'random'\n                                                \
+  \    END as \"Gap\",\n                                                    'random'\
+  \ as \"PSFutureGap\",\n                                                    'random'\
+  \ as \"MonthlyProgramEvaluatedDate\",\n                                        \
+  \            'random' as \"DailyChangeFlag\",\n                                \
+  \                    'random' as \"DeleteFlagMonthly\",\n                      \
+  \                              'random' as \"DeletedDateMonthly\",\n           \
+  \                                         \"BProgramSegment\" --\"Operator\"\n \
+  \                                               FROM\n                         \
+  \                           --WITH C_RULES AS(SELECT DISTINCT * FROM ODS_LS.PARTNER.X_SNC_4C_PARTNER_F_3C_RULES\
+  \ WHERE \"ProgramType\"='Build' and \"Active\"='Yes')\n                        \
+  \                            (\n                                               \
+  \         SELECT\n                                                            DISTINCT\
+  \ A.*,\n                                                            --,B.\"Operator\"\
+  ,\n                                                            B.\"ProgramSegment\"\
+  \ AS \"BProgramSegment\",\n                                                    \
+  \        A.\"CriteriaActual\" AS \"CriteriaValCompleted12Months_Actual\",\n    \
+  \                                                        \"CriteriaThresholdLowerLimit\"\
+  ,\n                                                            \"CriteriaThresholdUpperLimit\"\
+  ,\n                                                            \"ProgramSegment\"\
+  ,\n                                                            --0 - Registered\
+  \ 1- platform 2- advanced\n                                                    \
+  \        --'Paid application listed in the SN Store', 'Integration listed in SN\
+  \ Store'\n                                                            /*\n     \
+  \                                                       CASE WHEN \"Criteria\" IN\
+  \ ('Paid application listed in the SN Store',\n                                \
+  \                                 'Integration listed in SN Store')\n          \
+  \                                                                  AND \"CriteriaValCompleted12Months\"\
+  >0\n                                                                           \
+  \ THEN 2\n                                                                     \
+  \       ELSE 0\n                                                               \
+  \             END AS \"CalculatedSegmentPaid\",*/\n                            \
+  \                                CASE\n                                        \
+  \                        WHEN A.\"CriteriaSysId\" in ('random','random')\n     \
+  \                                                           --\"Criteria\" IN ('application\
+  \ listed in the SN Store','Integration listed in SN Store')\n                  \
+  \                                              AND \"CriteriaValCompleted12Months\"\
+  \ > 'random' THEN 'random'\n                                                   \
+  \             ELSE 'random'\n                                                  \
+  \          END AS \"CalculatedSegmentPaid1\",\n                                \
+  \                            CASE\n                                            \
+  \                    WHEN A.\"CriteriaSysId\" in ('random','random')\n         \
+  \                                                       --\"Criteria\" IN ('application\
+  \ listed in the SN Store','Integration listed in SN Store')\n                  \
+  \                                                  THEN MAX(\"CalculatedSegmentPaid1\"\
+  ) OVER (\n                                                                    PARTITION\
+  \ BY \"ParentPartnerSysID\",\n                                                 \
+  \                   \"ParentPartner\",\n                                       \
+  \                             \"ParentPartnerNumber\",\n                       \
+  \                                             B.\"ProgramType\"\n              \
+  \                                                  )\n                         \
+  \                                   END AS \"CalculatedSegmentPaid\",\n        \
+  \                                                    /*,\n                     \
+  \                                            CASE WHEN \"CalculatedSegmentACV\"\
+  \ = 2\n                                                                        \
+  \    then 'Advanced Platform' WHEN \"CalculatedSegmentACV\" = 1\n              \
+  \                                                              then 'Platform'\n\
+  \                                                                            ELSE\
+  \ 'Registered'\n                                                               \
+  \             END AS \"CalculatedSegmentACV_New\",\n                           \
+  \                                      CASE WHEN \"CalculatedAppSNInstallCalculated\"\
+  \ = 2\n                                                                        \
+  \    then 'Advanced Platform' WHEN \"CalculatedAppSNInstallCalculated\" = 1\n  \
+  \                                                                          then\
+  \ 'Platform'\n                                                                 \
+  \           ELSE 'Registered'\n                                                \
+  \                            END AS \"CalculatedAppSNInstallCalculated_New\",\n\
+  \                                                                 CASE WHEN \"CalculatedAppSNReviewCalculated\"\
+  \ = 2\n                                                                        \
+  \    then 'Advanced Platform' WHEN \"CalculatedAppSNReviewCalculated\" = 1\n   \
+  \                                                                         then 'Platform'\n\
+  \                                                                            ELSE\
+  \ 'Registered'\n                                                               \
+  \             END AS \"CalculatedAppSNReviewCalculated_New\",\n                \
+  \                                                */\n                          \
+  \                                  CASE\n                                      \
+  \                          WHEN \"CalculatedSegmentPaid\" = 'random' then 'random'\n\
+  \                                                                WHEN \"CalculatedSegmentPaid\"\
+  \ = 'random' then 'random'\n                                                   \
+  \             ELSE 'random'\n                                                  \
+  \          END AS \"CalculatedSegmentPaid_New\"\n                              \
+  \                          FROM(\n                                             \
+  \                   SELECT\n                                                   \
+  \                 DISTINCT P.\"ParentPartnerSysID\",\n                         \
+  \                                           P.\"ParentPartner\",\n             \
+  \                                                       P.\"ParentPartnerNumber\"\
+  ,\n                                                                    P.\"ProgramType\"\
+  ,\n                                                                    E.\"CriteriaValCompleted12Months_Actual\"\
+  \ AS \"CriteriaActual\",\n                                                     \
+  \               E.\"CriteriaValCompleted12Months\",\n                          \
+  \                                          E.\"PSCriteriaValCompleted12Months\"\
+  ,\n                                                                    E.\"WTCriteriaValCompleted12Months\"\
+  ,\n                                                                    E.\"WTCalculatedValue\"\
+  ,\n                                                                    E.\"ParentPartnerPublicSectorFlag\"\
+  ,\n                                                                    P.\"3C\"\
+  ,\n                                                                    P.\"CriteriaSysId\"\
+  \ AS \"CriteriaSysId\",\n                                                      \
+  \              P.\"ParentCriteriaName\" AS \"Criteria\"\n                      \
+  \                                          FROM\n                              \
+  \                                      (\n                                     \
+  \                                   SELECT\n                                   \
+  \                                         DISTINCT PA.\"ParentPartner\",\n     \
+  \                                                                       PP.\"ParentPartnerSysID\"\
+  ,\n                                                                            PA.\"\
+  ParentPartnerNumber\",\n                                                       \
+  \                     R.\"ProgramType\",\n                                     \
+  \                                       R.\"ParentCriteriaName\",\n            \
+  \                                                                \"3C_Category\"\
+  \ AS \"3C\",\n                                                                 \
+  \           R.\"CriteriaSysId\" AS \"CriteriaSysId\"\n                         \
+  \                                               FROM\n                         \
+  \                                                   EDW_LS.\"PARTNER_EM\".\"PARTNERS\"\
+  \ PA\n                                                                         \
+  \   INNER JOIN EDW_LS.\"PARTNER_EM\".\"PARENTPARTNERS\" PP ON PA.\"ParentPartnerNumber\"\
+  \ = PP.\"ParentPartnerNumber\"\n                                               \
+  \                             INNER JOIN C_RULES R ON R.\"ProgramType\" = 'random'\n\
+  \                                                                        WHERE\n\
+  \                                                                            PA.\"\
+  PartnerTechnologyTierLevel\" = 'random'\n                                      \
+  \                              ) P\n                                           \
+  \                         LEFT JOIN (\n                                        \
+  \                                SELECT\n                                      \
+  \                                      DISTINCT *\n                            \
+  \                                            FROM\n                            \
+  \                                                EDW_LS.PARTNER_EM.PPR_PARTNER_FUTURE12MONTHS_EVALUATION_BUILD_INTERMEDIATE_VW\n\
+  \                                                                    ) E ON E.\"\
+  ParentPartnerNumber\" = P.\"ParentPartnerNumber\"\n                            \
+  \                                        AND E.\"Criteria\" = P.\"ParentCriteriaName\"\
+  \n                                                            ) A\n            \
+  \                                                INNER JOIN C_RULES B ON\n     \
+  \                                                       B.\"CriteriaSysId\" = A.\"\
+  CriteriaSysId\"\n                                                            --UPPER(TRIM(B.\"\
+  ParentCriteriaName\")) = UPPER(TRIM(A.\"Criteria\"))\n                         \
+  \                           ) --WHERE \"ParentPartnerNumber\"= 'ACCT0026654'\n \
+  \                                                   --Keeping data as is for 5 criteria\
+  \ which is having interdependency and filtering data for rest criteria\n       \
+  \                                         HAVING\n                             \
+  \                       CASE\n                                                 \
+  \       WHEN \"CriteriaSysId\" NOT IN ('random','random','random','random','random','random')\n\
+  \                                                        --\"Criteria\" NOT IN ('Application\
+  \ Revenue Share (Net New ACV)','Impacted Build NNACV','Customer review on SN Store','Customer\
+  \ install from the SN Store','application listed in the SN Store','Integration listed\
+  \ in SN Store')\n                                                        --checking\
+  \ for data which is not having segment as strategic platform\n\n               \
+  \                                         AND (\n                              \
+  \                              \"BProgramSegment\" not in ('random', 'random')\n\
+  \                                                        ) --SFSTRY0082759\tStrategic\
+  \ Platform Program Type for 3C Dashboard- Phase - 2\n                          \
+  \                              THEN (\n                                        \
+  \                    (\n                                                       \
+  \         \"CriteriaValCompleted12Months\" >= \"CriteriaThresholdLowerLimit\"\n\
+  \                                                                and \"CriteriaValCompleted12Months\"\
+  \ <= \"CriteriaThresholdUpperLimit\"\n                                         \
+  \                   )\n                                                        \
+  \    or (\n                                                                \"CriteriaValCompleted12Months\"\
+  \ >= \"CriteriaThresholdLowerLimit\"\n                                         \
+  \                       and \"CriteriaThresholdUpperLimit\" IS NULL\n          \
+  \                                                  )\n                         \
+  \                               ) --checking for data which is not having segment\
+  \ as strategic platform\n                                                      \
+  \  ELSE (\n                                                            \"BProgramSegment\"\
+  \ not in ('random', 'random')\n                                                \
+  \        )\n                                                        AND --SFSTRY0082759\t\
+  Strategic Platform Program Type for 3C Dashboard- Phase - 2\n                  \
+  \                                      'random' = 'random'\n                   \
+  \                                 END\n                                        \
+  \    ) --WHERE \"ParentPartnerNumber\"='ACCT0092250'\n                         \
+  \           ) --ACCT0092250\n                                WHERE\n           \
+  \                         --Filtering out data with duplicate rows for 5 criteria\
+  \ which is having interdependency\n                                    CASE\n  \
+  \                                      WHEN \"CriteriaSysId\" IN ('random','random','random','random','random','random')\n\
+  \                                        --\"Criteria\" IN ('Application Revenue\
+  \ Share (Net New ACV)','Impacted Build NNACV','Customer review on SN Store','Customer\
+  \ install from the SN Store','application listed in the SN Store','Integration listed\
+  \ in SN Store')\n                                            THEN \"Filterdata\"\
+  \ = \"CriteriaThresholdLowerLimit\"\n                                        WHEN\
+  \ \"CriteriaSysId\" NOT IN ('random','random','random','random','random','random')\n\
+  \                                        --\"Criteria\" NOT IN ('Application Revenue\
+  \ Share (Net New ACV)','Impacted Build NNACV','Customer review on SN Store','Customer\
+  \ install from the SN Store','application listed in the SN Store','Integration listed\
+  \ in SN Store')\n                                         THEN \"Filterdata\" IS\
+  \ NULL\n                                        ELSE 'random' = 'random'\n     \
+  \                               END\n                            ) E ON E.\"ParentPartnerNumber\"\
+  \ = P.\"ParentPartnerNumber\"\n                            AND E.\"Criteria\" =\
+  \ P.\"ParentCriteriaName\" --WHERE P.\"ParentPartnerNumber\"='ACCT0092250'\n   \
+  \                 ) EVALUATION_DATA ON UPPER(TRIM(EVALUATION_DATA.\"ParentPartnerNumber\"\
+  )) = UPPER(TRIM(PRN.\"ParentPartnerNumber\"))\n                    AND UPPER(TRIM(EVALUATION_DATA.\"\
+  Criteria\")) = UPPER(TRIM(PRN.\"ParentCriteriaName\"))\n            ) MAIN_CODE\n\
+  \            LEFT JOIN C_RULES R ON UPPER(TRIM(R.\"CriteriaName\")) = UPPER(TRIM(MAIN_CODE.\"\
+  Criteria\"))\n            AND CASE\n                WHEN MAIN_CODE.\"BuildSegment\"\
+  \ = 'random' --SFSTRY0082759\tStrategic Platform Program Type for 3C Dashboard-\
+  \ Phase - 2\n                --CASE WHEN \"ParentPartnerNumber\" not in ('ACCT0110889','ACCT0092250')\n\
+  \                then (\n                    R.\"ProgramSegment\" = 'random'\n \
+  \                   or R.\"ProgramSegment\" = 'random'\n                ) --SFSTRY0082759\t\
+  Strategic Platform Program Type for 3C Dashboard- Phase - 2\n                else\
+  \ R.\"ProgramSegment\" = MAIN_CODE.\"CurrentCriteriaSegment\"\n            end\n\
+  \        where\n            CASE\n                WHEN \"BuildSegment\" = 'random'\
+  \ --SFSTRY0082759\tStrategic Platform Program Type for 3C Dashboard- Phase - 2\n\
+  \                then(\n                    \"RProgramSegment\" = 'random'\n   \
+  \                 or \"RProgramSegment\" = 'random'\n                )\n       \
+  \         AND CASE\n                    WHEN MAIN_CODE.\"CriteriaSysId\" IN ('random','random')\n\
+  \                    --\"Criteria\" NOT IN ('Applications', 'Integrations')\n  \
+  \                  THEN (\n                        (\n                         \
+  \   \"CriteriaValCompleted12Months\" >= \"RCriteriaThresholdLowerLimit\"\n     \
+  \                       and \"CriteriaValCompleted12Months\" <= \"RCriteriaThresholdUpperLimit\"\
+  \n                        )\n                        or (\n                    \
+  \        \"CriteriaValCompleted12Months\" >= \"RCriteriaThresholdLowerLimit\"\n\
+  \                            and \"RCriteriaThresholdUpperLimit\" IS NULL\n    \
+  \                    )\n                    )\n                    else 'random'\
+  \ = 'random'\n                end\n                else 'random' = 'random'\n  \
+  \          end\n    ) PAID_APPS_STRATEGIC;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

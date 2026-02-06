@@ -1,0 +1,122 @@
+name: table_1488
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1488
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1488.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_WEEKLYPIPELINE_LINEARITY(\n\t\"Metric\"\
+  ,\n\t\"DateDimDate\",\n\t\"Planned\",\n\t\"BUCombined\",\n\t\"SalesActivePipeline\"\
+  ,\n\tPREVIOUSYRQTR,\n\tPREVIOUSQTR,\n\t\"CurrentWkNbr\",\n\t\"WeekOfQuarter\",\n\
+  \t\"CloseQuarter\",\n\t\"CurrentWeekOfQuarter\",\n\t\"CurrentQuarter\",\n\t\"ProductBusinessUnitValue\"\
+  ,\n\t\"PlannedRenewal\",\n\t\"Workflow\",\n\t\"PipelineNNACV\",\n\t\"ClosedNNACV\"\
+  ,\n\t\"ClosedRenewalACV\",\n\t\"WeightedPipeline\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"Metric\" as \"Metric\",\n       \"DateDimDate\" as \"DateDimDate\",\n\
+  \       \"Planned\" as \"Planned\",\n       \"BUCombined\" as \"BUCombined\",\n\
+  \       \"SalesActivePipeline\" as \"SalesActivePipeline\",\n       \"PREVIOUSYRQTR\"\
+  \ as \"PREVIOUSYRQTR\",\n       \"PREVIOUSQTR\" as \"PREVIOUSQTR\",\n       \"CurrentWkNbr\"\
+  \ as \"CurrentWkNbr\",\n       \"WeekOfQuarter\" as \"WeekOfQuarter\",\n       \"\
+  CloseQuarter\" as \"CloseQuarter\",\n       \"CurrentWeekOfQuarter\" as \"CurrentWeekOfQuarter\"\
+  ,\n       \"CurrentQuarter\" as \"CurrentQuarter\",\n       \"ProductBusinessUnitValue\"\
+  \ as \"ProductBusinessUnitValue\",\n       \"PlannedRenewal\" as \"PlannedRenewal\"\
+  ,\n       \"Workflow\" as \"Workflow\",\n       SUM(\"PipelineNNACV\") as \"PipelineNNACV\"\
+  ,\n       SUM(\"ClosedNNACV\") as \"ClosedNNACV\",\n       SUM(\"ClosedRenewalACV\"\
+  ) as \"ClosedRenewalACV\",\n       SUM(\"WeightedPipeline_CC\") as \"WeightedPipeline\"\
+  \nFROM\n  (SELECT \"WeightedPipeline\" as \"WeightedPipeline\",\n          \"PipelineNNACV\"\
+  \ as \"PipelineNNACV\",\n          \"Metric\" as \"Metric\",\n          \"DateDimDate\"\
+  \ as \"DateDimDate\",\n          \"Planned\" as \"Planned\",\n          \"BUCombined\"\
+  \ as \"BUCombined\",\n          \"SalesActivePipeline\" as \"SalesActivePipeline\"\
+  ,\n          \"PREVIOUSYRQTR\" as \"PREVIOUSYRQTR\",\n          \"PREVIOUSQTR\"\
+  \ as \"PREVIOUSQTR\",\n          \"CurrentWkNbr\" as \"CurrentWkNbr\",\n       \
+  \   \"WeekOfQuarter\" as \"WeekOfQuarter\",\n          \"CloseQuarter\" as \"CloseQuarter\"\
+  ,\n          \"CurrentWeekOfQuarter\" as \"CurrentWeekOfQuarter\",\n          \"\
+  CurrentQuarter\" as \"CurrentQuarter\",\n          \"ProductBusinessUnitValue\"\
+  \ as \"ProductBusinessUnitValue\",\n          \"ClosedNNACV_CC\" as \"ClosedNNACV_CC\"\
+  ,\n          \"DateDimQuarterEndDate\" as \"DateDimQuarterEndDate\",\n         \
+  \ \"PlannedRenewal\" as \"PlannedRenewal\",\n          \"i_ClosedRenewalACV\" as\
+  \ \"i_ClosedRenewalACV\",\n          \"Workflow\" as \"Workflow\",\n          IFF(\"\
+  CurrentQuarter\"!=\"CloseQuarter\"\n              and \"DateDimDate\"=\"DateDimQuarterEndDate\"\
+  , 'random', 'random') as \"Flag\",\n          IFF(\"Flag\"='random', \"Planned\"\
+  , \"ClosedNNACV_CC\") as \"ClosedNNACV\",\n          IFF(\"Flag\"='random', \"PlannedRenewal\"\
+  , \"i_ClosedRenewalACV\") as \"ClosedRenewalACV\",\n          IFF(\"Flag\"='random',\
+  \ \"Planned\", \"WeightedPipeline\") as \"WeightedPipeline_CC\"\n   FROM\n     (SELECT\
+  \ \"Projection_1\".\"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\"\
+  ,\n             \"Projection_1\".\"CurrentQuarter\" as \"CurrentQuarter\",\n   \
+  \          \"Projection_1\".\"CurrentWeekOfQuarter\" as \"CurrentWeekOfQuarter\"\
+  ,\n             \"Projection_1\".\"CloseQuarter\" as \"CloseQuarter\",\n       \
+  \      \"Projection_1\".\"WeekOfQuarter\" as \"WeekOfQuarter\",\n             \"\
+  Projection_1\".\"CurrentWkNbr\" as \"CurrentWkNbr\",\n             \"Projection_1\"\
+  .\"PREVIOUSQTR\" as \"PREVIOUSQTR\",\n             \"Projection_1\".\"PREVIOUSYRQTR\"\
+  \ as \"PREVIOUSYRQTR\",\n             \"Projection_1\".\"SalesActivePipeline\" as\
+  \ \"SalesActivePipeline\",\n             \"Projection_1\".\"BUCombined\" as \"BUCombined\"\
+  ,\n             \"Projection_1\".\"Planned\" as \"Planned\",\n             \"Projection_1\"\
+  .\"DateDimDate\" as \"DateDimDate\",\n             \"Projection_1\".\"Metric\" as\
+  \ \"Metric\",\n             \"Projection_1\".\"PipelineNNACV\" as \"PipelineNNACV\"\
+  ,\n             \"Projection_1\".\"WeightedPipeline\" as \"WeightedPipeline\",\n\
+  \             \"Projection_2\".\"DateDimQuarterEndDate\" as \"DateDimQuarterEndDate\"\
+  ,\n             \"Projection_1\".\"ClosedNNACV\" as \"ClosedNNACV_CC\",\n      \
+  \       \"Projection_1\".\"PlannedRenewal\" as \"PlannedRenewal\",\n           \
+  \  \"Projection_1\".\"i_ClosedRenewalACV\" as \"i_ClosedRenewalACV\",\n        \
+  \     \"Projection_1\".\"Workflow\" as \"Workflow\"\n      FROM\n        (SELECT\
+  \ \"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\",\n              \
+  \  \"CurrentQuarter\" as \"CurrentQuarter\",\n                \"CurrentWeekOfQuarter\"\
+  \ as \"CurrentWeekOfQuarter\",\n                \"CloseQuarter\" as \"CloseQuarter\"\
+  ,\n                \"WeekOfQuarter\" as \"WeekOfQuarter\",\n                \"CurrentWkNbr\"\
+  \ as \"CurrentWkNbr\",\n                \"PREVIOUSQTR\" as \"PREVIOUSQTR\",\n  \
+  \              \"PREVIOUSYRQTR\" as \"PREVIOUSYRQTR\",\n                \"SalesActivePipeline\"\
+  \ as \"SalesActivePipeline\",\n                \"BUCombined\" as \"BUCombined\"\
+  ,\n                \"Planned\" as \"Planned\",\n                \"PipelineNNACV\"\
+  \ as \"PipelineNNACV\",\n                \"ClosedNNACV\" as \"ClosedNNACV\",\n \
+  \               \"DateDimDate\" as \"DateDimDate\",\n                \"WeightedPipeline\"\
+  \ as \"WeightedPipeline\",\n                \"Metric\" as \"Metric\",\n        \
+  \        \"PlannedRenewal\" as \"PlannedRenewal\",\n                \"ClosedRenewalACV\"\
+  \ as \"i_ClosedRenewalACV\",\n                \"Workflow\" as \"Workflow\"\n   \
+  \      FROM EDW_LS.PRODUCT_EM.WEEKLYPIPELINE_LINEARITY)\"Projection_1\"\n      LEFT\
+  \ JOIN\n        (SELECT \"DateDimDate\" as \"DateDimDate\",\n                \"\
+  DateDimQuarterEndDate\" as \"DateDimQuarterEndDate\"\n         FROM \"EDW_LS\".\"\
+  PRODUCT_EM\".\"EM_DATE_DIMENSION\")\"Projection_2\" ON \"Projection_1\".\"DateDimDate\"\
+  \ = \"Projection_2\".\"DateDimDate\")\"Join_1\")Projection_3\nGROUP BY \"Metric\"\
+  ,\n         \"DateDimDate\",\n         \"Planned\",\n         \"BUCombined\",\n\
+  \         \"SalesActivePipeline\",\n         \"PREVIOUSYRQTR\",\n         \"PREVIOUSQTR\"\
+  ,\n         \"CurrentWkNbr\",\n         \"WeekOfQuarter\",\n         \"CloseQuarter\"\
+  ,\n         \"CurrentWeekOfQuarter\",\n         \"CurrentQuarter\",\n         \"\
+  ProductBusinessUnitValue\",\n         \"PlannedRenewal\",\n         \"Workflow\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

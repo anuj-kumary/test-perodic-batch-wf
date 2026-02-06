@@ -1,0 +1,269 @@
+name: table_1517
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1517
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1517.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_UNIFIEDSS_SALES_TERRITORY(\n\t\"TerritoryCountry\"\
+  ,\n\t\"TerritoryRegion\",\n\t\"TerritoryGeo\",\n\t\"TerritoryPriceBandApprover_CRM\"\
+  ,\n\t\"TerritoryArea\",\n\t\"TerritoryGlobal\",\n\t\"TerritoryName\",\n\t\"TerritoryType\"\
+  ,\n\t\"TerritorySysID\",\n\t\"TerritoryActiveFlag\",\n\t\"TerritoryParent\",\n\t\
+  \"TerritoryDistrict\",\n\t\"TerritorySalesOperations\",\n\t\"TerritoryRenewalOperations\"\
+  ,\n\t\"TerritoryMajorArea\",\n\t\"TerritoryMarketSegmentation\",\n\t\"ReportingTerritoryGeo\"\
+  ,\n\t\"TerritoryMarketSegmentationFlag\",\n\t\"TerritoryDealDesk\",\n\t\"TerritoryRevenueContact\"\
+  ,\n\t\"TerritoryLegalSupport\",\n\t\"TerritoryPriceBandApprover_Derived\",\n\t\"\
+  RegionPriceBandApprover_Derived\",\n\t\"AreaPriceBandApprover_Derived\",\n\t\"MajorAreaPriceBandApprover_Derived\"\
+  ,\n\t\"TerritoryPSDealDesk\",\n\t\"TerrPSFinance\",\n\t\"TerrProposalManager\",\n\
+  \t\"TerrRMLead\",\n\t\"TerrRateBook\",\n\t\"TerrGeoCustomerDeliveryLeader\",\n\t\
+  \"TerrDeliveryManager\",\n\t\"TerrTerritoryManager\",\n\t\"TerrSalesOperationsValue\"\
+  ,\n\t\"TerrRenewalsValue\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"TerritoryCountry\"\
+  \ as \"TerritoryCountry\",\n       \"TerritoryRegion\" as \"TerritoryRegion\",\n\
+  \       \"TerritoryGeo\" as \"TerritoryGeo\",\n       \"TerritoryPriceBandApprover_CRM\"\
+  \ as \"TerritoryPriceBandApprover_CRM\",\n       \"TerritoryArea\" as \"TerritoryArea\"\
+  ,\n       \"TerritoryGlobal\" as \"TerritoryGlobal\",\n       \"TerritoryName\"\
+  \ as \"TerritoryName\",\n       \"TerritoryType\" as \"TerritoryType\",\n      \
+  \ \"TerritorySysID\" as \"TerritorySysID\",\n       \"TerritoryActiveFlag\" as \"\
+  TerritoryActiveFlag\",\n       \"TerritoryParent\" as \"TerritoryParent\",\n   \
+  \    \"TerritoryDistrict\" as \"TerritoryDistrict\",\n       \"TerritorySalesOperations\"\
+  \ as \"TerritorySalesOperations\",\n       \"TerritoryRenewalOperations\" as \"\
+  TerritoryRenewalOperations\",\n       \"TerritoryMajorArea\" as \"TerritoryMajorArea\"\
+  ,\n       \"TerritoryMarketSegmentation\" as \"TerritoryMarketSegmentation\",\n\
+  \       \"ReportingTerritoryGeo\" as \"ReportingTerritoryGeo\",\n       \"TerritoryMarketSegmentationFlag\"\
+  \ as \"TerritoryMarketSegmentationFlag\",\n       \"TerritoryDealDesk\" as \"TerritoryDealDesk\"\
+  ,\n       \"TerritoryRevenueContact\" as \"TerritoryRevenueContact\",\n       \"\
+  TerritoryLegalSupport\" as \"TerritoryLegalSupport\",\n       \"TerritoryPriceBandApprover_Derived\"\
+  \ as \"TerritoryPriceBandApprover_Derived\",\n       \"RegionPriceBandApprover_Derived\"\
+  \ as \"RegionPriceBandApprover_Derived\",\n       \"AreaPriceBandApprover_Derived\"\
+  \ as \"AreaPriceBandApprover_Derived\",\n       \"MajorAreaPriceBandApprover_Derived\"\
+  \ as \"MajorAreaPriceBandApprover_Derived\",\n       \"TerritoryPSDealDesk\" as\
+  \ \"TerritoryPSDealDesk\",\n       \"TerrPSFinance\" as \"TerrPSFinance\",\n   \
+  \    \"TerrProposalManager\" as \"TerrProposalManager\",\n       \"TerrRMLead\"\
+  \ as \"TerrRMLead\",\n       \"TerrRateBook\" as \"TerrRateBook\",\n       \"TerrGeoCustomerDeliveryLeader\"\
+  \ as \"TerrGeoCustomerDeliveryLeader\",\n       \"TerrDeliveryManager\" as \"TerrDeliveryManager\"\
+  ,\n       \"TerrTerritoryManager\" as \"TerrTerritoryManager\",\n       \"TerrSalesOperationsValue\"\
+  \ as \"TerrSalesOperationsValue\",\n       \"TerrRenewalsValue\" as \"TerrRenewalsValue\"\
+  \nFROM\n  (SELECT \"Join_AreaApprv\".\"TerritoryLegalSupport\" as \"TerritoryLegalSupport\"\
+  ,\n          \"Join_AreaApprv\".\"TerritoryRevenueContact\" as \"TerritoryRevenueContact\"\
+  ,\n          \"Join_AreaApprv\".\"TerritoryDealDesk\" as \"TerritoryDealDesk\",\n\
+  \          \"Join_AreaApprv\".\"TerritoryMarketSegmentationFlag\" as \"TerritoryMarketSegmentationFlag\"\
+  ,\n          \"Join_AreaApprv\".\"ReportingTerritoryGeo\" as \"ReportingTerritoryGeo\"\
+  ,\n          \"Join_AreaApprv\".\"TerritoryMarketSegmentation\" as \"TerritoryMarketSegmentation\"\
+  ,\n          \"Join_AreaApprv\".\"TerritoryMajorArea\" as \"TerritoryMajorArea\"\
+  ,\n          \"Join_AreaApprv\".\"TerritoryRenewalOperations\" as \"TerritoryRenewalOperations\"\
+  ,\n          \"Join_AreaApprv\".\"TerritorySalesOperations\" as \"TerritorySalesOperations\"\
+  ,\n          \"Join_AreaApprv\".\"TerritoryDistrict\" as \"TerritoryDistrict\",\n\
+  \          \"Join_AreaApprv\".\"TerritoryParent\" as \"TerritoryParent\",\n    \
+  \      \"Join_AreaApprv\".\"TerritoryActiveFlag\" as \"TerritoryActiveFlag\",\n\
+  \          \"Join_AreaApprv\".\"TerritorySysID\" as \"TerritorySysID\",\n      \
+  \    \"Join_AreaApprv\".\"TerritoryType\" as \"TerritoryType\",\n          \"Join_AreaApprv\"\
+  .\"TerritoryName\" as \"TerritoryName\",\n          \"Join_AreaApprv\".\"TerritoryGlobal\"\
+  \ as \"TerritoryGlobal\",\n          \"Join_AreaApprv\".\"TerritoryArea\" as \"\
+  TerritoryArea\",\n          \"Join_AreaApprv\".\"TerritoryPriceBandApprover_CRM\"\
+  \ as \"TerritoryPriceBandApprover_CRM\",\n          \"Join_AreaApprv\".\"TerritoryGeo\"\
+  \ as \"TerritoryGeo\",\n          \"Join_AreaApprv\".\"TerritoryRegion\" as \"TerritoryRegion\"\
+  ,\n          \"Join_AreaApprv\".\"TerritoryCountry\" as \"TerritoryCountry\",\n\
+  \          \"Join_AreaApprv\".\"TerritoryPriceBandApprover_Derived\" as \"TerritoryPriceBandApprover_Derived\"\
+  ,\n          \"Join_AreaApprv\".\"RegionPriceBandApprover_Derived\" as \"RegionPriceBandApprover_Derived\"\
+  ,\n          \"Join_AreaApprv\".\"AreaPriceBandApprover_Derived\" as \"AreaPriceBandApprover_Derived\"\
+  ,\n          \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\".\"TerrPriceBandApprover\"\
+  \ as \"MajorAreaPriceBandApprover_Derived\",\n          \"Join_AreaApprv\".\"TerrMajorAreaSysID\"\
+  \ as \"TerrMajorAreaSysID\",\n          \"Join_AreaApprv\".\"TerritoryPSDealDesk\"\
+  \ as \"TerritoryPSDealDesk\",\n          \"Join_AreaApprv\".\"TerrPSFinance\" as\
+  \ \"TerrPSFinance\",\n          \"Join_AreaApprv\".\"TerrProposalManager\" as \"\
+  TerrProposalManager\",\n          \"Join_AreaApprv\".\"TerrRMLead\" as \"TerrRMLead\"\
+  ,\n          \"Join_AreaApprv\".\"TerrRateBook\" as \"TerrRateBook\",\n        \
+  \  \"Join_AreaApprv\".\"TerrGeoCustomerDeliveryLeader\" as \"TerrGeoCustomerDeliveryLeader\"\
+  ,\n          \"Join_AreaApprv\".\"TerrDeliveryManager\" as \"TerrDeliveryManager\"\
+  ,\n          \"Join_AreaApprv\".\"TerrTerritoryManager\" as \"TerrTerritoryManager\"\
+  ,\n          \"Join_AreaApprv\".\"TerrSalesOperationsValue\" as \"TerrSalesOperationsValue\"\
+  ,\n          \"Join_AreaApprv\".\"TerrRenewalsValue\" as \"TerrRenewalsValue\"\n\
+  \   FROM\n     (SELECT \"Join_RegApprv\".\"TerritoryCountry\" as \"TerritoryCountry\"\
+  ,\n             \"Join_RegApprv\".\"TerritoryRegion\" as \"TerritoryRegion\",\n\
+  \             \"Join_RegApprv\".\"TerritoryGeo\" as \"TerritoryGeo\",\n        \
+  \     \"Join_RegApprv\".\"TerritoryPriceBandApprover_CRM\" as \"TerritoryPriceBandApprover_CRM\"\
+  ,\n             \"Join_RegApprv\".\"TerritoryArea\" as \"TerritoryArea\",\n    \
+  \         \"Join_RegApprv\".\"TerritoryGlobal\" as \"TerritoryGlobal\",\n      \
+  \       \"Join_RegApprv\".\"TerritoryName\" as \"TerritoryName\",\n            \
+  \ \"Join_RegApprv\".\"TerritoryType\" as \"TerritoryType\",\n             \"Join_RegApprv\"\
+  .\"TerritorySysID\" as \"TerritorySysID\",\n             \"Join_RegApprv\".\"TerritoryActiveFlag\"\
+  \ as \"TerritoryActiveFlag\",\n             \"Join_RegApprv\".\"TerritoryParent\"\
+  \ as \"TerritoryParent\",\n             \"Join_RegApprv\".\"TerritoryDistrict\"\
+  \ as \"TerritoryDistrict\",\n             \"Join_RegApprv\".\"TerritorySalesOperations\"\
+  \ as \"TerritorySalesOperations\",\n             \"Join_RegApprv\".\"TerritoryRenewalOperations\"\
+  \ as \"TerritoryRenewalOperations\",\n             \"Join_RegApprv\".\"TerritoryMajorArea\"\
+  \ as \"TerritoryMajorArea\",\n             \"Join_RegApprv\".\"TerritoryMarketSegmentation\"\
+  \ as \"TerritoryMarketSegmentation\",\n             \"Join_RegApprv\".\"ReportingTerritoryGeo\"\
+  \ as \"ReportingTerritoryGeo\",\n             \"Join_RegApprv\".\"TerritoryMarketSegmentationFlag\"\
+  \ as \"TerritoryMarketSegmentationFlag\",\n             \"Join_RegApprv\".\"TerritoryDealDesk\"\
+  \ as \"TerritoryDealDesk\",\n             \"Join_RegApprv\".\"TerritoryRevenueContact\"\
+  \ as \"TerritoryRevenueContact\",\n             \"Join_RegApprv\".\"TerritoryLegalSupport\"\
+  \ as \"TerritoryLegalSupport\",\n             \"Join_RegApprv\".\"TerritoryPriceBandApprover_Derived\"\
+  \ as \"TerritoryPriceBandApprover_Derived\",\n             \"Join_RegApprv\".\"\
+  RegionPriceBandApprover_Derived\" as \"RegionPriceBandApprover_Derived\",\n    \
+  \         \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\".\"TerrPriceBandApprover\"\
+  \ as \"AreaPriceBandApprover_Derived\",\n             \"Join_RegApprv\".\"TerrMajorAreaSysID\"\
+  \ as \"TerrMajorAreaSysID\",\n             \"Join_RegApprv\".\"TerrAreaSysID\" as\
+  \ \"TerrAreaSysID\",\n             \"Join_RegApprv\".\"TerritoryPSDealDesk\" as\
+  \ \"TerritoryPSDealDesk\",\n             \"Join_RegApprv\".\"TerrPSFinance\" as\
+  \ \"TerrPSFinance\",\n             \"Join_RegApprv\".\"TerrProposalManager\" as\
+  \ \"TerrProposalManager\",\n             \"Join_RegApprv\".\"TerrRMLead\" as \"\
+  TerrRMLead\",\n             \"Join_RegApprv\".\"TerrRateBook\" as \"TerrRateBook\"\
+  ,\n             \"Join_RegApprv\".\"TerrGeoCustomerDeliveryLeader\" as \"TerrGeoCustomerDeliveryLeader\"\
+  ,\n             \"Join_RegApprv\".\"TerrDeliveryManager\" as \"TerrDeliveryManager\"\
+  ,\n             \"Join_RegApprv\".\"TerrTerritoryManager\" as \"TerrTerritoryManager\"\
+  ,\n             \"Join_RegApprv\".\"TerrSalesOperationsValue\" as \"TerrSalesOperationsValue\"\
+  ,\n             \"Join_RegApprv\".\"TerrRenewalsValue\" as \"TerrRenewalsValue\"\
+  \n      FROM\n        (SELECT \"Join_TerrApprv\".\"TerritoryCountry\" as \"TerritoryCountry\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryRegion\" as \"TerritoryRegion\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryGeo\" as \"TerritoryGeo\",\n  \
+  \              \"Join_TerrApprv\".\"TerritoryPriceBandApprover\" as \"TerritoryPriceBandApprover_CRM\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryArea\" as \"TerritoryArea\",\n\
+  \                \"Join_TerrApprv\".\"TerritoryGlobal\" as \"TerritoryGlobal\",\n\
+  \                \"Join_TerrApprv\".\"TerritoryName\" as \"TerritoryName\",\n  \
+  \              \"Join_TerrApprv\".\"TerritoryType\" as \"TerritoryType\",\n    \
+  \            \"Join_TerrApprv\".\"TerritorySysID\" as \"TerritorySysID\",\n    \
+  \            \"Join_TerrApprv\".\"TerritoryActiveFlag\" as \"TerritoryActiveFlag\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryParent\" as \"TerritoryParent\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryDistrict\" as \"TerritoryDistrict\"\
+  ,\n                \"Join_TerrApprv\".\"TerritorySalesOperations\" as \"TerritorySalesOperations\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryRenewalOperations\" as \"TerritoryRenewalOperations\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryMajorArea\" as \"TerritoryMajorArea\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryMarketSegmentation\" as \"TerritoryMarketSegmentation\"\
+  ,\n                \"Join_TerrApprv\".\"ReportingTerritoryGeo\" as \"ReportingTerritoryGeo\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryMarketSegmentationFlag\" as \"\
+  TerritoryMarketSegmentationFlag\",\n                \"Join_TerrApprv\".\"TerritoryDealDesk\"\
+  \ as \"TerritoryDealDesk\",\n                \"Join_TerrApprv\".\"TerritoryRevenueContact\"\
+  \ as \"TerritoryRevenueContact\",\n                \"Join_TerrApprv\".\"TerritoryLegalSupport\"\
+  \ as \"TerritoryLegalSupport\",\n                \"Join_TerrApprv\".\"TerritoryPriceBandApprover_Derived\"\
+  \ as \"TerritoryPriceBandApprover_Derived\",\n                \"Join_TerrApprv\"\
+  .\"TerrAreaSysID\" as \"TerrAreaSysID\",\n                \"Join_TerrApprv\".\"\
+  TerrMajorAreaSysID\" as \"TerrMajorAreaSysID\",\n                \"ODS_LS\".\"SURF\"\
+  .\"SALES_TERRITORY_ALL\".\"TerrPriceBandApprover\" as \"RegionPriceBandApprover_Derived\"\
+  ,\n                \"Join_TerrApprv\".\"TerrRegionSysID\" as \"TerrRegionSysID\"\
+  ,\n                \"Join_TerrApprv\".\"TerrRegionSysID\" as \"TerrRegionSysID_1\"\
+  ,\n                \"Join_TerrApprv\".\"TerritoryPSDealDesk\" as \"TerritoryPSDealDesk\"\
+  ,\n                \"Join_TerrApprv\".\"TerrPSFinance\" as \"TerrPSFinance\",\n\
+  \                \"Join_TerrApprv\".\"TerrProposalManager\" as \"TerrProposalManager\"\
+  ,\n                \"Join_TerrApprv\".\"TerrRMLead\" as \"TerrRMLead\",\n      \
+  \          \"Join_TerrApprv\".\"TerrRateBook\" as \"TerrRateBook\",\n          \
+  \      \"Join_TerrApprv\".\"TerrGeoCustomerDeliveryLeader\" as \"TerrGeoCustomerDeliveryLeader\"\
+  ,\n                \"Join_TerrApprv\".\"TerrDeliveryManager\" as \"TerrDeliveryManager\"\
+  ,\n                \"Join_TerrApprv\".\"TerrTerritoryManager\" as \"TerrTerritoryManager\"\
+  ,\n                \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\".\"TerrSalesOperationsValue\"\
+  \ as \"TerrSalesOperationsValue\",\n                \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\"\
+  .\"TerrRenewalsValue\" as \"TerrRenewalsValue\"\n         FROM\n           (SELECT\
+  \ \"Projection_1\".\"TerrCountry\" as \"TerritoryCountry\",\n                  \
+  \ \"Projection_1\".\"TerrRegion\" as \"TerritoryRegion\",\n                   \"\
+  Projection_1\".\"TerrGeo\" as \"TerritoryGeo\",\n                   \"Projection_1\"\
+  .\"TerrPriceBandApprover\" as \"TerritoryPriceBandApprover\",\n                \
+  \   \"Projection_1\".\"TerrArea\" as \"TerritoryArea\",\n                   \"Projection_1\"\
+  .\"TerrGlobal\" as \"TerritoryGlobal\",\n                   \"Projection_1\".\"\
+  TerrName\" as \"TerritoryName\",\n                   \"Projection_1\".\"TerrTypeValue\"\
+  \ as \"TerritoryType\",\n                   \"Projection_1\".\"TerrSysID\" as \"\
+  TerritorySysID\",\n                   \"Projection_1\".\"TerrActive\" as \"TerritoryActiveFlag\"\
+  ,\n                   \"Projection_1\".\"TerrParentSysID\" as \"TerritoryParent\"\
+  ,\n                   \"Projection_1\".\"TerrDistrict\" as \"TerritoryDistrict\"\
+  ,\n                   \"Projection_1\".\"TerrSalesOperationsValue\" as \"TerritorySalesOperations\"\
+  ,\n                   \"Projection_1\".\"TerrRenewalsValue\" as \"TerritoryRenewalOperations\"\
+  ,\n                   \"Projection_1\".\"TerrMajorArea\" as \"TerritoryMajorArea\"\
+  ,\n                   \"Projection_1\".\"TerrMarketSegmentation\" as \"TerritoryMarketSegmentation\"\
+  ,\n                   \"Projection_1\".\"ReportingTerritoryGeo\" as \"ReportingTerritoryGeo\"\
+  ,\n                   \"Projection_1\".\"TerrMarketSegmentation_Flag\" as \"TerritoryMarketSegmentationFlag\"\
+  ,\n                   \"Projection_1\".\"TerrDealDesk\" as \"TerritoryDealDesk\"\
+  ,\n                   \"Projection_1\".\"TerrRevenueContact\" as \"TerritoryRevenueContact\"\
+  ,\n                   \"Projection_1\".\"TerrLegalSupport\" as \"TerritoryLegalSupport\"\
+  ,\n                   \"Projection_1\".\"TerrAreaSysID\" as \"TerrAreaSysID\",\n\
+  \                   \"Projection_1\".\"TerrDistrictSysID\" as \"TerrDistrictSysID\"\
+  ,\n                   \"Projection_1\".\"TerrMajorAreaSysID\" as \"TerrMajorAreaSysID\"\
+  ,\n                   \"Projection_1\".\"TerrRegionSysID\" as \"TerrRegionSysID\"\
+  ,\n                   \"Projection_2\".\"TerrPriceBandApprover\" as \"TerritoryPriceBandApprover_Derived\"\
+  ,\n                   \"Projection_1\".\"TerrPSDealDesk\" as \"TerritoryPSDealDesk\"\
+  ,\n                   \"Projection_1\".\"TerrPSFinance\" as \"TerrPSFinance\",\n\
+  \                   \"Projection_1\".\"TerrProposalManager\" as \"TerrProposalManager\"\
+  ,\n                   \"Projection_1\".\"TerrRMLead\" as \"TerrRMLead\",\n     \
+  \              \"Projection_1\".\"TerrRateBook\" as \"TerrRateBook\",\n        \
+  \           \"Projection_1\".\"TerrGeoCustomerDeliveryLeader\" as \"TerrGeoCustomerDeliveryLeader\"\
+  ,\n                   \"Projection_1\".\"TerrDeliveryManager\" as \"TerrDeliveryManager\"\
+  ,\n                   \"Projection_1\".\"TerrTerritoryManager\" as \"TerrTerritoryManager\"\
+  \n            FROM\n              (SELECT \"TerrGeoSysID\" as \"TerrGeoSysID\",\n\
+  \                      \"TerrCountry\" as \"TerrCountry\",\n                   \
+  \   \"TerrPriceBandApproverSysID\" as \"TerrPriceBandApproverSysID\",\n        \
+  \              \"TerrRegion\" as \"TerrRegion\",\n                      \"TerrGeo\"\
+  \ as \"TerrGeo\",\n                      \"TerrPriceBandApprover\" as \"TerrPriceBandApprover\"\
+  ,\n                      \"TerrArea\" as \"TerrArea\",\n                      \"\
+  TerrGlobal\" as \"TerrGlobal\",\n                      \"TerrName\" as \"TerrName\"\
+  ,\n                      \"TerrCountrySysID\" as \"TerrCountrySysID\",\n       \
+  \               \"TerrGlobalSysID\" as \"TerrGlobalSysID\",\n                  \
+  \    \"TerrRegionSysID\" as \"TerrRegionSysID\",\n                      \"TerrTypeValue\"\
+  \ as \"TerrTypeValue\",\n                      \"TerrSysID\" as \"TerrSysID\",\n\
+  \                      \"TerrActive\" as \"TerrActive\",\n                     \
+  \ \"TerrAreaSysID\" as \"TerrAreaSysID\",\n                      \"TerrParentSysID\"\
+  \ as \"TerrParentSysID\",\n                      \"TerrDistrictSysID\" as \"TerrDistrictSysID\"\
+  ,\n                      \"TerrDistrict\" as \"TerrDistrict\",\n               \
+  \       \"TerrMajorAreaSysID\" as \"TerrMajorAreaSysID\",\n                    \
+  \  \"TerrMajorArea\" as \"TerrMajorArea\",\n                      \"TerrMarketSegmentation\"\
+  \ as \"TerrMarketSegmentation\",\n                      \"TerrSalesOperationsValue\"\
+  \ as \"TerrSalesOperationsValue\",\n                      \"TerrRenewalsValue\"\
+  \ as \"TerrRenewalsValue\",\n                      \"TerrReportingTerritoryGeo\"\
+  \ as \"ReportingTerritoryGeo\",\n                      \"TerrMarketSegmentation_Flag\"\
+  \ as \"TerrMarketSegmentation_Flag\",\n                      \"TerrDealDesk\" as\
+  \ \"TerrDealDesk\",\n                      \"TerrRevenueContact\" as \"TerrRevenueContact\"\
+  ,\n                      \"TerrLegalSupport\" as \"TerrLegalSupport\",\n       \
+  \               \"TerrPSDealDesk\" as \"TerrPSDealDesk\",\n                    \
+  \  \"TerrPSFinance\" as \"TerrPSFinance\",\n                      \"TerrProposalManager\"\
+  \ as \"TerrProposalManager\",\n                      \"TerrRMLead\" as \"TerrRMLead\"\
+  ,\n                      \"TerrRateBook\" as \"TerrRateBook\",\n               \
+  \       \"TerrGeoCustomerDeliveryLeader\" as \"TerrGeoCustomerDeliveryLeader\",\n\
+  \                      \"TerrDeliveryManager\" as \"TerrDeliveryManager\",\n   \
+  \                   \"TerrTerritoryManager\" as \"TerrTerritoryManager\"\n     \
+  \          FROM \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\") \"Projection_1\"\n\
+  \            LEFT JOIN\n              (SELECT \"TerrPriceBandApprover\" as \"TerrPriceBandApprover\"\
+  ,\n                      \"TerrSysID\" as \"TerrSysID\"\n               FROM \"\
+  ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\") \"Projection_2\" ON \"Projection_1\"\
+  .\"TerrSysID\" = \"Projection_2\".\"TerrSysID\") \"Join_TerrApprv\"\n         LEFT\
+  \ JOIN \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\" ON \"Join_TerrApprv\".\"TerrRegionSysID\"\
+  \ = \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\".\"TerrSysID\") \"Join_RegApprv\"\
+  \n      LEFT JOIN \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\" ON \"Join_RegApprv\"\
+  .\"TerrAreaSysID\" = \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\".\"TerrSysID\")\
+  \ \"Join_AreaApprv\"\n   LEFT JOIN \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\" ON\
+  \ \"Join_AreaApprv\".\"TerrMajorAreaSysID\" = \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\"\
+  .\"TerrSysID\") Join_MajAreaApprv;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

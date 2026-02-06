@@ -1,0 +1,59 @@
+name: table_1494
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1494
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1494.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SALES_TERMS_AND_CONDITIONS(\n\t\"StcNumber\"\
+  ,\n\t\"StcName\",\n\t\"StcSection\",\n\t\"StcSectionValue\",\n\t\"StcExecutionOrder\"\
+  ,\n\t\"StcStatus\",\n\t\"StcActive\",\n\t\"StcText\",\n\t\"StcUpdatedOn\",\n\t\"\
+  StcUpdatedBy\",\n\t\"StcDescription\",\n\t\"StcComments\",\n\t\"StcStartDate\",\n\
+  \t\"StcEndDate\",\n\t\"StcCreatedOn\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"\
+  NUMBER\" as \"StcNumber\",\n       \"NAME\" as \"StcName\",\n       \"SECTION\"\
+  \ as \"StcSection\",\n       \"DV_SECTION\" as \"StcSectionValue\",\n       \"ORDER\"\
+  \ as \"StcExecutionOrder\",\n       \"STATUS\" as \"StcStatus\",\n       \"ACTIVE\"\
+  \ as \"StcActive\",\n       \"TEXT\" as \"StcText\",\n       \"SYS_UPDATED_ON\"\
+  \ as \"StcUpdatedOn\",\n       \"SYS_UPDATED_BY\" as \"StcUpdatedBy\",\n       \"\
+  DESCRIPTION\" as \"StcDescription\",\n       \"COMMENTS\" as \"StcComments\",\n\
+  \       \"U_START_DATE\" as \"StcStartDate\",\n       \"U_END_DATE\" as \"StcEndDate\"\
+  ,\n       \"SYS_CREATED_ON\" as \"StcCreatedOn\"\nFROM \"RDS\".\"SURF\".\"SALES_TERMS_AND_CONDITIONS\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

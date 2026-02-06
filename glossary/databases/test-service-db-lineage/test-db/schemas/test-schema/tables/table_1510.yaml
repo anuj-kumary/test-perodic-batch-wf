@@ -1,0 +1,76 @@
+name: table_1510
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1510
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1510.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_UNIFIEDSS_SALESREPQUOTA_RT(\n\t\"TerrRegion\"\
+  ,\n\t\"TerrArea\",\n\t\"TerrName\",\n\t\"TerrSysID\",\n\t\"TerrDistrict\",\n\t\"\
+  TerrGeo\",\n\t\"TerrGlobal\",\n\t\"TerrMajorArea\",\n\t\"TerrMarketSegmentaion\"\
+  ,\n\t\"EmpDepartment\",\n\t\"EmpSysID\",\n\t\"EmpName\",\n\t\"EmpActive\",\n\t\"\
+  SRepQuarter\",\n\t\"SRepEmployeeNumber\",\n\t\"SRepAdjustedQuota\",\n\t\"SRepPlanType\"\
+  ,\n\t\"SRepQuotaComponent\",\n\t\"SRepQuotaValue\"\n) as\nselect\n\"TerrRegion\"\
+  ,\n\"TerrArea\",\n\"TerrName\",\n\"TerrSysID\",\n\"TerrDistrict\",\n\"TerrGeo\"\
+  ,\n\"TerrGlobal\",\n\"TerrMajorArea\",\n\"TerrMarketSegmentaion\",\n\"EmpDepartment\"\
+  ,--\n\"EmpSysID\",--\n\"EmpName\",--\n\"EmpActive\",--\n\"SRepQuarter\",\n\"SRepEmployeeNumber\"\
+  ,\n\"SRepAdjustedQuota\",\n\"SRepPlanType\",\n\"SRepQuotaComponent\",\n\"SRepQuotaValue\"\
+  \n\nfrom\n\n\n(select\n\"EmpDepartment\",--\n\"EmpSysID\",--\n\"EmpName\",--\n\"\
+  EmpActive\",--\n\"SRepCountry\",\n\"SRepQuarter\",\n\"SRepEmployeeNumber\",\n\"\
+  SRepAdjustedQuota\",\n\"SRepPlanType\",\n\"SRepQuotaComponent\",\n\"SRepQuotaValue\"\
+  \nfrom\n(select\n \"COUNTRY\" as \"SRepCountry\",\n \"QUARTER\" as \"SRepQuarter\"\
+  ,\n \"EMPLOYEE_NUMBER\" as \"SRepEmployeeNumber\",\n \"SRepQuotaValue\",\n \"SRepAdjustedQuota\"\
+  ,\n \"PlanType\" as \"SRepPlanType\",\n \"QUOTACOMPONENT\" as \"SRepQuotaComponent\"\
+  \n from\n (select\n \"EMPLOYEE_NUMBER\",\n \"GEO\",\n \"AREA\",\n \"COUNTRY\",\n\
+  \ \"REGION\",\n \"QUARTER\",\n sum(\"QUOTA\") as \"SRepQuotaValue\",\n \"TERRITORYSYSID\"\
+  ,\n \"PlanType\",\n sum(\"ADJUSTEDREPQUOTA\") as \"SRepAdjustedQuota\",\n \"QUOTACOMPONENT\"\
+  \nfrom EDW_LS.SALES_EM.TBLREPQUOTA\ngroup by\n\"ADJUSTEDREPQUOTA\",\n\"PlanType\"\
+  ,\n\"TERRITORYSYSID\",\n\"EMPLOYEE_NUMBER\",\n\"GEO\",\n\"AREA\",\n\"REGION\",\n\
+  \"COUNTRY\",\n\"QUARTER\",\n\"QUOTA\",\n\"QUOTACOMPONENT\")) C\n\ninner join\n\n\
+  (select\n\"EmpDepartment\",--\n\"EmpSysID\",--\n\"EmpName\",--\n\"EmpActive\",--\n\
+  \"EmpEmployeeNumber\"--\nfrom ODS_LS.SURF.EMPLOYEE A\ninner join\nODS_LS.SURF.CMN_DEPARTMENT\
+  \ B on A.\"EmpDepartmentSysID\"=B.\"DeptSysID\"\nwhere \"DeptCostCenter\" in ('random','random','random','random')\n\
+  and \"DeptActive\"='random' and \"EmpActive\"='random') D\non D.\"EmpEmployeeNumber\"\
+  =C.\"SRepEmployeeNumber\") Q\n\nleft outer join\n\n(select\n\"DateDimQuarterByYearSURF\"\
+  ,\n\"TerrRegion\",\n\"TerrArea\",\n\"TerrName\",\n\"TerrSysID\",\n\"TerrDistrict\"\
+  ,\n\"TerrCountry\",\n\"TerrGeo\",\n\"TerrGlobal\",\n\"TerrMajorArea\",\n\"TerrMarketSegmentaion\"\
+  \nfrom EDW_LS.SALES_EM.EM_SALES_TERRITORY_RT) G on Q.\"SRepCountry\"=G.\"TerrCountry\"\
+  \ and Q.\"SRepQuarter\"=G.\"DateDimQuarterByYearSURF\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

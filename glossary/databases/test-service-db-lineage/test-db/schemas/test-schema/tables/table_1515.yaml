@@ -1,0 +1,62 @@
+name: table_1515
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1515
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1515.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_CUST360_CSAT_SCORE(\n\t\"AcctNumber\"\
+  ,\n\t\"AcctName\",\n\t\"AccountKey\",\n\t\"NPS_Score\",\n\t\"NPS_Survey_Qtr\",\n\
+  \t\"Engagement_Score\",\n\t\"Engagement_Survey_Qtr\",\n\t\"Support_Score\",\n\t\"\
+  Support_Survey_Qtr\",\n\t\"CSAT_Score\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"AcctNumber\" as \"AcctNumber\",\n       \"AcctName\" as \"AcctName\",\n    \
+  \   \"AccountKey\" as \"AccountKey\",\n       \"NPS_Score\" as \"NPS_Score\",\n\
+  \       \"NPS_Survey_Qtr\" as \"NPS_Survey_Qtr\",\n       \"Engagement_Score\" as\
+  \ \"Engagement_Score\",\n       \"Engagement_Survey_Qtr\" as \"Engagement_Survey_Qtr\"\
+  ,\n       \"Support_Score\" as \"Support_Score\",\n       \"Support_Survey_Qtr\"\
+  \ as \"Support_Survey_Qtr\",\n       \"CSAT_Score\" as \"CSAT_Score\"\nFROM\n  (SELECT\
+  \ \"AcctNumber\" as \"AcctNumber\",\n          \"AcctName\" as \"AcctName\",\n \
+  \         \"AccountKey\" as \"AccountKey\",\n          \"NPS Score\" as \"NPS_Score\"\
+  ,\n          \"NPS Survey Qtr\" as \"NPS_Survey_Qtr\",\n          \"Engagement Score\"\
+  \ as \"Engagement_Score\",\n          \"Engagement Survey Qtr\" as \"Engagement_Survey_Qtr\"\
+  ,\n          \"Support Score\" as \"Support_Score\",\n          \"Support Survey\
+  \ Qtr\" as \"Support_Survey_Qtr\",\n          \"CSAT Score\" as \"CSAT_Score\"\n\
+  \   FROM \"EDW_LS\".\"CUSTOMER_EM\".\"CUSTOMER360_CSATSCORE\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

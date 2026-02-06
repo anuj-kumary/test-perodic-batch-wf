@@ -1,0 +1,147 @@
+name: table_1509
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1509
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1509.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_CUST360_IMPLEMENTATIONS(\n\t\"DplyImplType\"\
+  ,\n\t\"AccountKey\",\n\t\"DplySysID\",\n\t\"DplyNumber\",\n\t\"DplyState\",\n\t\"\
+  DplyEndDate\",\n\t\"DplyStartDate\",\n\t\"DplyAccountSysID\",\n\t\"AcctName\",\n\
+  \t\"AcctNumber\",\n\t\"DplyActive\",\n\t\"DplyGoLiveDate\",\n\t\"DplyImplementationPartnerSysID\"\
+  ,\n\t\"DplyImplPartner\",\n\t\"DplyType\",\n\t\"DplyAppApplicationSysID\",\n\t\"\
+  DplyAppApplication\",\n\t\"DplyAppImplementationStatus\",\n\t\"DplyPartnerSOW\"\
+  ,\n\t\"DplyCategory\",\n\t\"SurveyNumber\",\n\t\"RespondentName\",\n\t\"RespondentRole\"\
+  ,\n\t\"SurveyDate\",\n\t\"ImplementationDoneBy\",\n\t\"SurveyQuarter\",\n\t\"OverallSatisfaction\"\
+  ,\n\t\"TimeframeMetExpectations\",\n\t\"RecommendTeamAvg\",\n\t\"EngagementSurveyURL\"\
+  \n) as -- SEMANTIC LAYER BEGINS  sf -- 205,684 rows   hana 205 204\n with cte_deployments\
+  \ as\n  (SELECT \"DplySysID\" as \"DplySysID\",\n          \"DplyNumber\" as \"\
+  DplyNumber\",\n          \"DplyState\" as \"DplyState\",\n          \"DplyEndDate\"\
+  \ as \"DplyEndDate\",\n          \"DplyStartDate\" as \"DplyStartDate\",\n     \
+  \     \"DplyAccountSysID\" as \"DplyAccountSysID\",\n          \"AcctName\" as \"\
+  AcctName\",\n          \"AcctNumber\" as \"AcctNumber\",\n          \"DplyActive\"\
+  \ as \"DplyActive\",\n          \"DplyGoLiveDate\" as \"DplyGoLiveDate\",\n    \
+  \      \"DplyImplementationPartnerSysID\" as \"DplyImplementationPartnerSysID\"\
+  ,\n          \"DplyImplPartner\" as \"DplyImplPartner\",\n          \"DplyType\"\
+  \ as \"DplyType\",\n          \"DplyPartnerSOW\" as \"DplyPartnerSOW\",\n      \
+  \    \"DplyCategory\" as \"DplyCategory\"\n   FROM EDW_LS.\"CUSTOMER_PSANEW_EM\"\
+  .\"EM_DEPLOYMENT_DETAILS\"\n   WHERE not ((\"DplyAccountSysID\") IS NULL)\n    \
+  \ AND (\"DplyState\" = 'random'\n          OR \"DplyState\" = 'random'\n       \
+  \   OR \"DplyState\"= 'random'\n          OR \"DplyState\" = 'random'\n        \
+  \  OR \"DplyState\" = 'random') ) -- sf 70,493 rows   hana  70,493 rows  -- Matching\n\
+  ,\n      cte_applns as\n  (SELECT \"DplyAppDeployment\" as \"DplyAppDeployment\"\
+  ,\n          \"DplyAppApplication\" as \"DplyAppApplication\",\n          \"DplyAppDeploymentSysID\"\
+  \ as \"DplyAppDeploymentSysID\",\n          \"DplyAppApplicationSysID\" as \"DplyAppApplicationSysID\"\
+  ,\n          \"DplyAppImplementationStatus\" as \"DplyAppImplementationStatus\"\n\
+  \   FROM ODS_LS.\"SURF\".\"U_M2M_DEPLOYMENT_APPLICATIONS\") -- sf 157,621 rows \
+  \ hana - 157621\n,\n      cte_survey as\n  (SELECT \"SurveyNumber\" as \"SurveyNumber\"\
+  ,\n          \"DeploymentNumber\" as \"DeploymentNumber\",\n          \"RespondentName\"\
+  \ as \"RespondentName\",\n          \"RespondentRole\" as \"RespondentRole\",\n\
+  \          \"SurveyDate\" as \"SurveyDate\",\n          \"ImplementationDoneBy\"\
+  \ as \"ImplementationDoneBy\",\n          \"SurveyQuarter\" as \"SurveyQuarter\"\
+  ,\n          \"OverallSatisfaction\" as \"OverallSatisfaction\",\n          \"TimeframeMetExpectations\"\
+  \ as \"TimeframeMetExpectations\",\n          \"RecommendTeamAvg\" as \"RecommendTeamAvg\"\
+  ,\n          \"EngagementSurveyURL\" as \"EngagementSurveyURL\"\n   FROM CDL_LS.\"\
+  CUSTOMER_RPT\".\"ENGAGEMENT_SURVEY\" --sf 168,556 rows ,  hana -- 168,356\n)\nSELECT\
+  \ IFF(\"DplyPartnerSOW\" = 'random', 'random', 'random') as \"DplyImplType\",\n\
+  \       IFF(\"AcctNumber\" IS NULL, \"DplyAccountSysID\", IFF(\"DplyAccountSysID\"\
+  \ IS NULL, \"AcctNumber\", (\"DplyAccountSysID\" || \"AcctNumber\"))) as \"AccountKey\"\
+  ,\n       \"DplySysID\" as \"DplySysID\",\n       \"DplyNumber\" as \"DplyNumber\"\
+  ,\n       \"DplyState\" as \"DplyState\",\n       \"DplyEndDate\" as \"DplyEndDate\"\
+  ,\n       \"DplyStartDate\" as \"DplyStartDate\",\n       \"DplyAccountSysID\" as\
+  \ \"DplyAccountSysID\",\n       \"AcctName\" as \"AcctName\",\n       \"AcctNumber\"\
+  \ as \"AcctNumber\",\n       \"DplyActive\" as \"DplyActive\",\n       \"DplyGoLiveDate\"\
+  \ as \"DplyGoLiveDate\",\n       \"DplyImplementationPartnerSysID\" as \"DplyImplementationPartnerSysID\"\
+  ,\n       \"DplyImplPartner\" as \"DplyImplPartner\",\n       \"DplyType\" as \"\
+  DplyType\",\n       \"DplyAppApplicationSysID\" as \"DplyAppApplicationSysID\",\n\
+  \       \"DplyAppApplication\" as \"DplyAppApplication\",\n       \"DplyAppImplementationStatus\"\
+  \ as \"DplyAppImplementationStatus\",\n       \"DplyPartnerSOW\" as \"DplyPartnerSOW\"\
+  ,\n       \"DplyCategory\" as \"DplyCategory\",\n       \"SurveyNumber\" as \"SurveyNumber\"\
+  ,\n       \"RespondentName\" as \"RespondentName\",\n       \"RespondentRole\" as\
+  \ \"RespondentRole\",\n       \"SurveyDate\" as \"SurveyDate\",\n       \"ImplementationDoneBy\"\
+  \ as \"ImplementationDoneBy\",\n       \"SurveyQuarter\" as \"SurveyQuarter\",\n\
+  \       \"OverallSatisfaction\" as \"OverallSatisfaction\",\n       \"TimeframeMetExpectations\"\
+  \ as \"TimeframeMetExpectations\",\n       \"RecommendTeamAvg\" as \"RecommendTeamAvg\"\
+  ,\n       \"EngagementSurveyURL\" as \"EngagementSurveyURL\"\nFROM\n  (SELECT \"\
+  DplyApplications\".\"DplySysID\" as \"DplySysID\",\n          \"DplyApplications\"\
+  .\"DplyNumber\" as \"DplyNumber\",\n          \"DplyApplications\".\"DplyState\"\
+  \ as \"DplyState\",\n          \"DplyApplications\".\"DplyEndDate\" as \"DplyEndDate\"\
+  ,\n          \"DplyApplications\".\"DplyStartDate\" as \"DplyStartDate\",\n    \
+  \      \"DplyApplications\".\"DplyAccountSysID\" as \"DplyAccountSysID\",\n    \
+  \      \"DplyApplications\".\"AcctName\" as \"AcctName\",\n          \"DplyApplications\"\
+  .\"AcctNumber\" as \"AcctNumber\",\n          \"DplyApplications\".\"DplyActive\"\
+  \ as \"DplyActive\",\n          \"DplyApplications\".\"DplyGoLiveDate\" as \"DplyGoLiveDate\"\
+  ,\n          \"DplyApplications\".\"DplyImplementationPartnerSysID\" as \"DplyImplementationPartnerSysID\"\
+  ,\n          \"DplyApplications\".\"DplyImplPartner\" as \"DplyImplPartner\",\n\
+  \          \"DplyApplications\".\"DplyType\" as \"DplyType\",\n          \"DplyApplications\"\
+  .\"DplyAppApplicationSysID\" as \"DplyAppApplicationSysID\",\n          \"DplyApplications\"\
+  .\"DplyAppApplication\" as \"DplyAppApplication\",\n          \"DplyApplications\"\
+  .\"DplyAppImplementationStatus\" as \"DplyAppImplementationStatus\",\n         \
+  \ \"DplyApplications\".\"DplyPartnerSOW\" as \"DplyPartnerSOW\",\n          \"DplyApplications\"\
+  .\"DplyCategory\" as \"DplyCategory\",\n          \"EgmtSurvey\".\"SurveyNumber\"\
+  \ as \"SurveyNumber\",\n          \"EgmtSurvey\".\"RespondentName\" as \"RespondentName\"\
+  ,\n          \"EgmtSurvey\".\"RespondentRole\" as \"RespondentRole\",\n        \
+  \  \"EgmtSurvey\".\"SurveyDate\" as \"SurveyDate\",\n          \"EgmtSurvey\".\"\
+  ImplementationDoneBy\" as \"ImplementationDoneBy\",\n          \"EgmtSurvey\".\"\
+  SurveyQuarter\" as \"SurveyQuarter\",\n          \"EgmtSurvey\".\"OverallSatisfaction\"\
+  \ as \"OverallSatisfaction\",\n          \"EgmtSurvey\".\"TimeframeMetExpectations\"\
+  \ as \"TimeframeMetExpectations\",\n          \"EgmtSurvey\".\"RecommendTeamAvg\"\
+  \ as \"RecommendTeamAvg\",\n          \"EgmtSurvey\".\"EngagementSurveyURL\" as\
+  \ \"EngagementSurveyURL\"\n   FROM\n     (SELECT \"Deployments\".\"DplySysID\" as\
+  \ \"DplySysID\",\n             \"Deployments\".\"DplyNumber\" as \"DplyNumber\"\
+  ,\n             \"Deployments\".\"DplyState\" as \"DplyState\",\n             \"\
+  Deployments\".\"DplyEndDate\" as \"DplyEndDate\",\n             \"Deployments\"\
+  .\"DplyStartDate\" as \"DplyStartDate\",\n             \"Deployments\".\"DplyAccountSysID\"\
+  \ as \"DplyAccountSysID\",\n             \"Deployments\".\"AcctName\" as \"AcctName\"\
+  ,\n             \"Deployments\".\"AcctNumber\" as \"AcctNumber\",\n            \
+  \ \"Deployments\".\"DplyActive\" as \"DplyActive\",\n             \"Deployments\"\
+  .\"DplyGoLiveDate\" as \"DplyGoLiveDate\",\n             \"Deployments\".\"DplyImplementationPartnerSysID\"\
+  \ as \"DplyImplementationPartnerSysID\",\n             \"Deployments\".\"DplyImplPartner\"\
+  \ as \"DplyImplPartner\",\n             \"Deployments\".\"DplyType\" as \"DplyType\"\
+  ,\n             \"Applications\".\"DplyAppApplicationSysID\" as \"DplyAppApplicationSysID\"\
+  ,\n             \"Applications\".\"DplyAppApplication\" as \"DplyAppApplication\"\
+  ,\n             \"Applications\".\"DplyAppImplementationStatus\" as \"DplyAppImplementationStatus\"\
+  ,\n             \"Deployments\".\"DplyPartnerSOW\" as \"DplyPartnerSOW\",\n    \
+  \         \"Deployments\".\"DplyCategory\" as \"DplyCategory\"\n      FROM cte_deployments\
+  \ as \"Deployments\"\n      LEFT JOIN cte_applns \"Applications\" ON \"Deployments\"\
+  .\"DplySysID\" = \"Applications\".\"DplyAppDeploymentSysID\") \"DplyApplications\"\
+  \n   LEFT JOIN cte_survey as \"EgmtSurvey\" ON \"DplyApplications\".\"DplyNumber\"\
+  \ = \"EgmtSurvey\".\"DeploymentNumber\")DplySurveyDetails;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
