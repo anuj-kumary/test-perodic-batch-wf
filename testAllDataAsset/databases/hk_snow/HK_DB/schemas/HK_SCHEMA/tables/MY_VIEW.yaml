@@ -1,0 +1,80 @@
+name: MY_VIEW
+fullyQualifiedName: hk_snow.HK_DB.HK_SCHEMA.MY_VIEW
+tableType: View
+columns:
+  - name: UPPER_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hk_snow.HK_DB.HK_SCHEMA.MY_VIEW.UPPER_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 0cad9b22-fd4f-45ae-b31a-8c055cab33ca
+  type: databaseSchema
+  name: HK_SCHEMA
+  fullyQualifiedName: hk_snow.HK_DB.HK_SCHEMA
+  displayName: HK_SCHEMA
+  deleted: false
+database:
+  id: 62ef8353-a1d0-42f6-9734-99d4a51091f4
+  type: database
+  name: HK_DB
+  fullyQualifiedName: hk_snow.HK_DB
+  displayName: HK_DB
+  deleted: false
+service:
+  id: 89ad4fb4-b82f-407d-846a-6669b40ab0d6
+  type: databaseService
+  name: hk_snow
+  fullyQualifiedName: hk_snow
+  description: ""
+  displayName: hk_snow
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "CREATE OR REPLACE VIEW my_view AS\nSELECT \n    UPPER(name) AS\
+  \ UPPER_name\nFROM \n    sample_table;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: d2d62a33-4fb4-4d2b-9f7e-5a408580f24d
+  type: testSuite
+  name: hk_snow.HK_DB.HK_SCHEMA.MY_VIEW.testSuite
+  fullyQualifiedName: hk_snow.HK_DB.HK_SCHEMA.MY_VIEW.testSuite
+  displayName: hk_snow.HK_DB.HK_SCHEMA.MY_VIEW.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: tags
+      oldValue: "[{\"tagFQN\":\"hk gloss 2.hk gloss 2\",\"name\":\"hk gloss 2\",\"\
+        displayName\":\"\",\"description\":\"<p>hk gloss 2</p>\",\"style\":{},\"source\"\
+        :\"Glossary\",\"labelType\":\"Propagated\",\"state\":\"Suggested\",\"appliedAt\"\
+        :\"2026-01-09T14:36:36.000000Z\",\"appliedBy\":\"admin\"}]"
+  previousVersion: 0.8
+  changeSummary:
+    owners:
+      changedBy: himanshu
+      changedAt: 1766149206625
+    description:
+      changedBy: himanshu
+      changedAt: 1766149206625
+    columns.UPPER_NAME.description:
+      changedBy: himanshu
+      changedAt: 1766149206625
+sourceUrl: https://app.snowflake.com/rmpftce/eh21932/#/data/databases/HK_DB/schemas/HK_SCHEMA/view/MY_VIEW
+domains: []
+dataProducts: []
+sourceHash: a8362b6c181133206fa29a5a2a0ab0cd
+processedLineage: true
+entityStatus: Unprocessed

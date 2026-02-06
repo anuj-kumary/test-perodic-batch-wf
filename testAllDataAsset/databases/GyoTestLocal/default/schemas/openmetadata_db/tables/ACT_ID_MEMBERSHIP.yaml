@@ -1,0 +1,67 @@
+name: ACT_ID_MEMBERSHIP
+fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_ID_MEMBERSHIP
+tableType: Regular
+columns:
+  - name: USER_ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_ID_MEMBERSHIP.USER_ID_
+    tags: []
+    children: []
+    customMetrics: []
+  - name: GROUP_ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_ID_MEMBERSHIP.GROUP_ID_
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - USER_ID_
+      - GROUP_ID_
+  - constraintType: FOREIGN_KEY
+    columns:
+      - GROUP_ID_
+    referredColumns:
+      - GyoTestLocal.default.openmetadata_db.ACT_ID_GROUP.ID_
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: f48d00b8-dd4f-4116-89d1-04aefa5bb9b5
+  type: databaseSchema
+  name: openmetadata_db
+  fullyQualifiedName: GyoTestLocal.default.openmetadata_db
+  displayName: openmetadata_db
+  deleted: false
+database:
+  id: e284e784-9db4-41f2-99a2-be1fc95fc674
+  type: database
+  name: default
+  fullyQualifiedName: GyoTestLocal.default
+  displayName: default
+  deleted: false
+service:
+  id: fc33c634-c86c-4744-b5b9-31265788cd04
+  type: databaseService
+  name: GyoTestLocal
+  fullyQualifiedName: GyoTestLocal
+  description: ""
+  displayName: GyoTestLocal
+  deleted: false
+serviceType: Mysql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 2e7657edfc2a72e329852be512e45271
+processedLineage: false
+entityStatus: Approved

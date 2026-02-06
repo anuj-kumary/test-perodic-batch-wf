@@ -1,0 +1,83 @@
+name: ACT_ID_PRIV_MAPPING
+fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_ID_PRIV_MAPPING
+tableType: Regular
+columns:
+  - name: ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_ID_PRIV_MAPPING.ID_
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: PRIV_ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_ID_PRIV_MAPPING.PRIV_ID_
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: USER_ID_
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: varchar(255)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_ID_PRIV_MAPPING.USER_ID_
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: GROUP_ID_
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: varchar(255)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_ID_PRIV_MAPPING.GROUP_ID_
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - PRIV_ID_
+    referredColumns:
+      - GyoTestLocal.default.openmetadata_db.ACT_ID_PRIV.ID_
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: f48d00b8-dd4f-4116-89d1-04aefa5bb9b5
+  type: databaseSchema
+  name: openmetadata_db
+  fullyQualifiedName: GyoTestLocal.default.openmetadata_db
+  displayName: openmetadata_db
+  deleted: false
+database:
+  id: e284e784-9db4-41f2-99a2-be1fc95fc674
+  type: database
+  name: default
+  fullyQualifiedName: GyoTestLocal.default
+  displayName: default
+  deleted: false
+service:
+  id: fc33c634-c86c-4744-b5b9-31265788cd04
+  type: databaseService
+  name: GyoTestLocal
+  fullyQualifiedName: GyoTestLocal
+  description: ""
+  displayName: GyoTestLocal
+  deleted: false
+serviceType: Mysql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 6ae6202039c9339e65df894bb9859aef
+processedLineage: false
+entityStatus: Approved

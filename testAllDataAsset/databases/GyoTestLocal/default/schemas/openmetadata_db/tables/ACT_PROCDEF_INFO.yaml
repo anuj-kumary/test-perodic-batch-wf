@@ -1,0 +1,83 @@
+name: ACT_PROCDEF_INFO
+fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_PROCDEF_INFO
+tableType: Regular
+columns:
+  - name: ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_PROCDEF_INFO.ID_
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: PROC_DEF_ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_PROCDEF_INFO.PROC_DEF_ID_
+    tags: []
+    constraint: UNIQUE
+    children: []
+    customMetrics: []
+  - name: REV_
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_PROCDEF_INFO.REV_
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: INFO_JSON_ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: GyoTestLocal.default.openmetadata_db.ACT_PROCDEF_INFO.INFO_JSON_ID_
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - INFO_JSON_ID_
+    referredColumns:
+      - GyoTestLocal.default.openmetadata_db.ACT_GE_BYTEARRAY.ID_
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: f48d00b8-dd4f-4116-89d1-04aefa5bb9b5
+  type: databaseSchema
+  name: openmetadata_db
+  fullyQualifiedName: GyoTestLocal.default.openmetadata_db
+  displayName: openmetadata_db
+  deleted: false
+database:
+  id: e284e784-9db4-41f2-99a2-be1fc95fc674
+  type: database
+  name: default
+  fullyQualifiedName: GyoTestLocal.default
+  displayName: default
+  deleted: false
+service:
+  id: fc33c634-c86c-4744-b5b9-31265788cd04
+  type: databaseService
+  name: GyoTestLocal
+  fullyQualifiedName: GyoTestLocal
+  description: ""
+  displayName: GyoTestLocal
+  deleted: false
+serviceType: Mysql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: e0433920970b40b7e9fc37226882ff08
+processedLineage: false
+entityStatus: Approved
