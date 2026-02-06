@@ -1,0 +1,724 @@
+name: cdb_autotask_task
+fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task
+tableType: View
+columns:
+  - name: client_name
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Name of the Automated Maintenance client
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.client_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: task_name
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Name of the maintenance task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.task_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: task_target_type
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Type of target of the maintenance task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.task_target_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: task_target_name
+    dataType: VARCHAR
+    dataLength: 513
+    dataTypeDisplay: varchar2(513)
+    description: Name of the maintenance task target
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.task_target_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: operation_name
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Operation being performed by the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.operation_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: attributes
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Task attributes
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.attributes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: task_priority
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: "Task priority, relative to other tasks for this Client"
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.task_priority
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: priority_override
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Task priority as overridden by the user
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.priority_override
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: varchar2(8)
+    description: Current status of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: deferred_window_name
+    dataType: VARCHAR
+    dataLength: 65
+    dataTypeDisplay: varchar2(65)
+    description: Name of the window to which execution of this task is deferred
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.deferred_window_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: current_job_name
+    dataType: VARCHAR
+    dataLength: 65
+    dataTypeDisplay: varchar2(65)
+    description: Job name associated with the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.current_job_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: job_scheduler_status
+    dataType: VARCHAR
+    dataLength: 15
+    dataTypeDisplay: varchar2(15)
+    description: Job status
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.job_scheduler_status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: estimate_type
+    dataType: VARCHAR
+    dataLength: 7
+    dataTypeDisplay: varchar2(7)
+    description: Type of resource estimates applied
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.estimate_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: estimated_weight
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Weight of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.estimated_weight
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: estimated_duration
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Estimated elapsed time for the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.estimated_duration
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: estimated_cpu_time
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Estimated CPU utilization for the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.estimated_cpu_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: estimated_temp
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Estimated temp space usage for the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.estimated_temp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: estimated_dop
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Estimated Degree of Parallelism for the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.estimated_dop
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: estimated_io_rate
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Estimated I/O Rate for the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.estimated_io_rate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: estimated_undo_rate
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Estimated UNDO generation rate  for the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.estimated_undo_rate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: retry_count
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Numbe rof failed attempts to execute the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.retry_count
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_date
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6) with time zone
+    description: Date/time of the last successful execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_priority
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Task priority during the last successful execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_priority
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_duration
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Elapsed time of the last successful execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_duration
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_cpu_time
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: CPU time used during the last successful execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_cpu_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_temp
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Peak temp space used during last successful execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_temp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_dop
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Parallelsism during last successful execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_dop
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_io_rate
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Mean I/O rate during last successful execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_io_rate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_undo_rate
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Mean UNDO rate during last successful execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_undo_rate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_cpu_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Total time spent waiting for CPU during last good run
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_cpu_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_io_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Total time spent waiting for I/O during last good run
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_io_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_undo_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Total time spent waiting for UNDO during last good run
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_undo_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_temp_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Total time spent waiting for Temp Space during last good run
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_temp_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_concurrency
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Total time in concurrency wait during last good run
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_concurrency
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_good_contention
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Total time in contention  wait during last good run
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_good_contention
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: next_try_date
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6) with time zone
+    description: Next projected start date/time for the deferred maintenance window
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.next_try_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_date
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6) with time zone
+    description: Date/Time of the last executon of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_priority
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Priority of the task at the time of the last execution
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_priority
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_result
+    dataType: VARCHAR
+    dataLength: 36
+    dataTypeDisplay: varchar2(36)
+    description: Result code of the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_result
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_duration
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Elapsed time of the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_duration
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_cpu_time
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: CPU time consumed during last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_cpu_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_temp
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Peak Temp space usage during the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_temp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_dop
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Degree of parallelism of the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_dop
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_io_rate
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: I/O rate during the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_io_rate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_undo_rate
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: UNDO generation rate during the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_undo_rate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_cpu_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Time spent waiting for CPU during the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_cpu_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_io_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Time spent waiting for I/O during the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_io_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_undo_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Time spent waiting for UNDO during the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_undo_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_temp_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Time spent waiting for Temp Space during the last execution of the
+      task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_temp_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_concurrency
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Time spent in concurrency wait during the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_concurrency
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_try_contention
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Time spent in contention wait during the last execution of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.last_try_contention
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_duration
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average elapsed time for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_duration
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_cpu_time
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average CPU usage for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_cpu_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_temp
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average peak temp space usage for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_temp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_dop
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average degree or parallelism for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_dop
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_io
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average I/O rate for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_io
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_undo
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average Undo generation rate for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_undo
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_cpu_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average CPU wait time for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_cpu_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_io_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average I/O wait time for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_io_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_undo_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average Undo wait time for successful executions of the task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_undo_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_temp_wait
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average wait time for Temp space for successful executions of the
+      task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_temp_wait
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_concurrency
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average time in concurrency wait for successful executions of the
+      task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_concurrency
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mean_good_contention
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Average time in contention wait for successful executions of the
+      task
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.mean_good_contention
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: info_field_1
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Additional information field
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.info_field_1
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: info_field_2
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: Additional information field
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.info_field_2
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: info_field_3
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Additional Client information field
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.info_field_3
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: info_field_4
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Additional Client information field
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.info_field_4
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: con_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: container id
+    fullyQualifiedName: oracle_test.default.sys.cdb_autotask_task.con_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 657115d27ffb7088c308b6a6f514de18
+processedLineage: false
+entityStatus: Approved

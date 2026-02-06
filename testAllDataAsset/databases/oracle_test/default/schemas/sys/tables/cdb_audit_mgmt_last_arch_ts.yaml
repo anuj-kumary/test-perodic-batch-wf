@@ -1,0 +1,102 @@
+name: cdb_audit_mgmt_last_arch_ts
+fullyQualifiedName: oracle_test.default.sys.cdb_audit_mgmt_last_arch_ts
+tableType: View
+columns:
+  - name: audit_trail
+    dataType: VARCHAR
+    dataLength: 20
+    dataTypeDisplay: varchar2(20)
+    description: The Audit Trail for which the Last Archive Timestamp applies
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_mgmt_last_arch_ts.audit_trail
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rac_instance
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The RAC Instance Number for which the Last Archive Timestamp applies.
+      Zero implies 'Not Applicable'
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_mgmt_last_arch_ts.rac_instance
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_archive_ts
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6) with time zone
+    description: The Timestamp of the last audit record or audit file that has been
+      archived
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_mgmt_last_arch_ts.last_archive_ts
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: database_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: "The Database ID of the audit records, if purging old audit data"
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_mgmt_last_arch_ts.database_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: container_guid
+    dataType: VARCHAR
+    dataLength: 33
+    dataTypeDisplay: varchar2(33)
+    description: "The Container GUID of the audit records, if purging old audit data"
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_mgmt_last_arch_ts.container_guid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: con_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: container id
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_mgmt_last_arch_ts.con_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 436d5e6e775f6156e95e63193d95c2df
+processedLineage: false
+entityStatus: Approved

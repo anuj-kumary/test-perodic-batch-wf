@@ -1,0 +1,511 @@
+name: cdb_audit_trail
+fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail
+tableType: View
+columns:
+  - name: os_username
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: varchar2(255)
+    description: Operating System logon user name of the user whose actions were audited
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.os_username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: username
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the logged in user whose actions were audited
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: userhost
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Client host machine name
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.userhost
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: terminal
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: varchar2(255)
+    description: Identifier for the user's terminal
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.terminal
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: timestamp
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date/Time of the creation of the audit trail entry (Date/Time of
+      the user's logon for entries created by AUDIT SESSION) in session's time zone
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.timestamp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Creator of object affected by the action
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.owner
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: obj_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the object affected by the action
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.obj_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: action
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: "Numeric action type code.  The corresponding name of the action\
+      \ type (CREATE TABLE, INSERT, etc.) is in the column ACTION_NAME"
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.action
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: action_name
+    dataType: VARCHAR
+    dataLength: 28
+    dataTypeDisplay: varchar2(28)
+    description: Name of the action type corresponding to the numeric code in ACTION
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.action_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: new_owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The owner of the object named in the NEW_NAME column
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.new_owner
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: new_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: "New name of object after RENAME, or name of underlying object (e.g.\
+      \ CREATE INDEX owner.obj_name ON new_owner.new_name)"
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.new_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: obj_privilege
+    dataType: VARCHAR
+    dataLength: 32
+    dataTypeDisplay: varchar2(32)
+    description: Object privileges granted/revoked by a GRANT/REVOKE statement
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.obj_privilege
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sys_privilege
+    dataType: VARCHAR
+    dataLength: 40
+    dataTypeDisplay: varchar2(40)
+    description: System privileges granted/revoked by a GRANT/REVOKE statement
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.sys_privilege
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: admin_option
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "If role/sys_priv was granted WITH ADMIN OPTON, A/- or WITH DELEGATE\
+      \ OPTION, D/-"
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.admin_option
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: grantee
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The name of the grantee specified in a GRANT/REVOKE statement
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.grantee
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: audit_option
+    dataType: VARCHAR
+    dataLength: 40
+    dataTypeDisplay: varchar2(40)
+    description: Auditing option set with the audit statement
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.audit_option
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ses_actions
+    dataType: VARCHAR
+    dataLength: 19
+    dataTypeDisplay: varchar2(19)
+    description: "Session summary.  A string of 12 characters, one for each action\
+      \ type, in thisorder: Alter, Audit, Comment, Delete, Grant, Index, Insert, Lock,\
+      \ Rename, Select, Update, Flashback.  Values:  \"-\" = None, \"S\" = Success,\
+      \ \"F\" = Failure, \"B\" = Both"
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.ses_actions
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: logoff_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Timestamp for user logoff
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.logoff_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: logoff_lread
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Logical reads for the session
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.logoff_lread
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: logoff_pread
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Physical reads for the session
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.logoff_pread
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: logoff_lwrite
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Logical writes for the session
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.logoff_lwrite
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: logoff_dlock
+    dataType: VARCHAR
+    dataLength: 40
+    dataTypeDisplay: varchar2(40)
+    description: Deadlocks detected during the session
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.logoff_dlock
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: comment_text
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: |-
+      Text comment on the audit trail entry.
+      Also indicates how the user was authenticated. The method can be one of the
+      following:
+      1. "DATABASE" - authentication was done by password.
+      2. "NETWORK"  - authentication was done by Net8 or the Advanced Networking
+         Option.
+      3. "PROXY"    - the client was authenticated by another user. The name of the
+         proxy user follows the method type.
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.comment_text
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sessionid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Numeric ID for each Oracle session
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.sessionid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: entryid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Numeric ID for each audit trail entry in the session
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.entryid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: statementid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Numeric ID for each statement run (a statement may cause many actions)
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.statementid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: returncode
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Oracle error code generated by the action.  Zero if the action succeeded
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.returncode
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: priv_used
+    dataType: VARCHAR
+    dataLength: 40
+    dataTypeDisplay: varchar2(40)
+    description: System privilege used to execute the action
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.priv_used
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: client_id
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Client identifier in each Oracle session
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.client_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: econtext_id
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Execution Context Identifier for each action
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.econtext_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: session_cpu
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Amount of cpu time used by each Oracle session
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.session_cpu
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: extended_timestamp
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6) with time zone
+    description: Timestamp of the creation of audit trail entry (Timestamp of the
+      user's logon for entries created by AUDIT SESSION) in session's time zone
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.extended_timestamp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: proxy_sessionid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: "Proxy session serial number, if enterprise user has logged through\
+      \ proxy mechanism"
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.proxy_sessionid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: global_uid
+    dataType: VARCHAR
+    dataLength: 32
+    dataTypeDisplay: varchar2(32)
+    description: "Global user identifier for the user, if the user had logged in as\
+      \ enterprise user"
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.global_uid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: instance_number
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Instance number as specified in the initialization parameter file
+      'init.ora'
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.instance_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: os_process
+    dataType: VARCHAR
+    dataLength: 16
+    dataTypeDisplay: varchar2(16)
+    description: Operating System process identifier of the Oracle server process
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.os_process
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: transactionid
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: raw
+    description: Transaction identifier of the transaction in which the object is
+      accessed or modified
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.transactionid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: scn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: SCN (System Change Number) of the query
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.scn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sql_bind
+    dataType: VARCHAR
+    dataLength: 2000
+    dataTypeDisplay: nvarchar2(2000)
+    description: Bind variable data of the query
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.sql_bind
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sql_text
+    dataType: VARCHAR
+    dataLength: 2000
+    dataTypeDisplay: nvarchar2(2000)
+    description: SQL text of the query
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.sql_text
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: obj_edition_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Edition containing audited object
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.obj_edition_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dbid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Database Identifier of the audited database
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.dbid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rls_info
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: RLS predicates along with the RLS policy names used for the object
+      accessed
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.rls_info
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: current_user
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Effective user for the statement execution
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.current_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: con_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: container id
+    fullyQualifiedName: oracle_test.default.sys.cdb_audit_trail.con_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: de63c5c8d6aac8f58d6c7c8761edc4d0
+processedLineage: false
+entityStatus: Approved
