@@ -1,0 +1,88 @@
+name: top_5_product_categories_market_share
+fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_5_product_categories_market_share
+tableType: View
+columns:
+  - name: category
+    dataType: TEXT
+    dataLength: 1
+    dataTypeDisplay: text
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_5_product_categories_market_share.category
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_sales
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 38
+    scale: 2
+    dataTypeDisplay: "numeric(38,2)"
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_5_product_categories_market_share.total_sales
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: market_share_percent
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 38
+    scale: 20
+    dataTypeDisplay: "numeric(38,20)"
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_5_product_categories_market_share.market_share_percent
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 61510722-b00c-4bee-974b-368008066e9f
+  type: databaseSchema
+  name: dbt_tmontiel
+  fullyQualifiedName: red-pere.dev.dbt_tmontiel
+  displayName: dbt_tmontiel
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW dbt_tmontiel.top_5_product_categories_market_share\
+  \ AS  SELECT top_categories.category, top_categories.total_sales, top_categories.market_share_percent\n\
+  \   FROM ( SELECT category_sales.category, category_sales.total_sales, category_sales.total_sales::numeric(18,2)\
+  \ / \n                CASE\n                    WHEN total_sales_sum.overall_sales\
+  \ = 0::numeric THEN NULL::numeric\n                    ELSE total_sales_sum.overall_sales\n\
+  \                END * 100::numeric AS market_share_percent\n           FROM ( SELECT\
+  \ lower(p.category::text) AS category, sum(o.quantity::numeric * o.price) AS total_sales\n\
+  \                   FROM shoes_retail.orders o\n              JOIN shoes_retail.products\
+  \ p ON o.product_id = p.product_id\n             GROUP BY lower(p.category::text))\
+  \ category_sales, ( SELECT sum(category_sales.total_sales) AS overall_sales\n  \
+  \                 FROM ( SELECT lower(p.category::text) AS category, sum(o.quantity::numeric\
+  \ * o.price) AS total_sales\n                           FROM shoes_retail.orders\
+  \ o\n                      JOIN shoes_retail.products p ON o.product_id = p.product_id\n\
+  \                     GROUP BY lower(p.category::text)) category_sales) total_sales_sum\n\
+  \          ORDER BY category_sales.total_sales DESC NULLS LAST\n         LIMIT 5)\
+  \ top_categories\n  ORDER BY top_categories.total_sales DESC NULLS LAST\n LIMIT\
+  \ 50;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 05d7ad38c34a6264298c002aeef7e7c2
+processedLineage: false
+entityStatus: Unprocessed

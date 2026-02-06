@@ -1,0 +1,91 @@
+name: activity
+fullyQualifiedName: red-pere.dev.ecommerce_test.activity
+description: Click-stream and session events from web and mobile apps.
+tableType: Regular
+columns:
+  - name: activity_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: activity_id integer PK
+    fullyQualifiedName: red-pere.dev.ecommerce_test.activity.activity_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: user_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: user_id integer FK → customers
+    fullyQualifiedName: red-pere.dev.ecommerce_test.activity.user_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: page
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: character varying(512)
+    description: URL path
+    fullyQualifiedName: red-pere.dev.ecommerce_test.activity.page
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: timestamp
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: event time
+    fullyQualifiedName: red-pere.dev.ecommerce_test.activity.timestamp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: session_id
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: character varying(255)
+    description: visit key
+    fullyQualifiedName: red-pere.dev.ecommerce_test.activity.session_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 41e4fd35-4814-4737-8553-b369496746d8
+  type: databaseSchema
+  name: ecommerce_test
+  fullyQualifiedName: red-pere.dev.ecommerce_test
+  displayName: ecommerce_test
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 9c0c954adab88ec08eafc642ec45cec6
+processedLineage: false
+entityStatus: Unprocessed

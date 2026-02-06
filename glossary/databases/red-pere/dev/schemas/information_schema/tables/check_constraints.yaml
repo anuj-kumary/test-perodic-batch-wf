@@ -1,0 +1,82 @@
+name: check_constraints
+fullyQualifiedName: red-pere.dev.information_schema.check_constraints
+tableType: View
+columns:
+  - name: constraint_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.check_constraints.constraint_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: constraint_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.check_constraints.constraint_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: constraint_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.check_constraints.constraint_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: check_clause
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.check_constraints.check_clause
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW information_schema.check_constraints AS  SELECT current_database()::information_schema.sql_identifier AS constraint_catalog, rs.nspname::information_schema.sql_identifier AS constraint_schema, con.conname::information_schema.sql_identifier AS constraint_name, "substring"(pg_get_constraintdef(con.oid), 7)::information_schema.character_data AS check_clause
+     FROM pg_namespace rs, pg_constraint con
+     LEFT JOIN pg_class c ON c.oid = con.conrelid
+     LEFT JOIN pg_type t ON t.oid = con.contypid, pg_user u
+    WHERE rs.oid = con.connamespace AND u.usesysid = COALESCE(c.relowner, t.typowner) AND u.usename = "current_user"()::name AND con.contype = 'c'::"char";
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5ac8e6f5693712917669f4f956f37900
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,138 @@
+name: table_constraints
+fullyQualifiedName: red-pere.dev.information_schema.table_constraints
+tableType: View
+columns:
+  - name: constraint_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.constraint_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: constraint_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.constraint_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: constraint_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.constraint_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.table_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.table_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.table_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: constraint_type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.constraint_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_deferrable
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.is_deferrable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: initially_deferred
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.table_constraints.initially_deferred
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW information_schema.table_constraints AS  SELECT current_database()::information_schema.sql_identifier\
+  \ AS constraint_catalog, nc.nspname::information_schema.sql_identifier AS constraint_schema,\
+  \ c.conname::information_schema.sql_identifier AS constraint_name, current_database()::information_schema.sql_identifier\
+  \ AS table_catalog, nr.nspname::information_schema.sql_identifier AS table_schema,\
+  \ r.relname::information_schema.sql_identifier AS table_name, \n        CASE\n \
+  \           WHEN c.contype = 'c'::\"char\" THEN 'CHECK'::text\n            WHEN\
+  \ c.contype = 'f'::\"char\" THEN 'FOREIGN KEY'::text\n            WHEN c.contype\
+  \ = 'p'::\"char\" THEN 'PRIMARY KEY'::text\n            WHEN c.contype = 'u'::\"\
+  char\" THEN 'UNIQUE'::text\n            ELSE NULL::text\n        END::information_schema.character_data\
+  \ AS constraint_type, \n        CASE\n            WHEN c.condeferrable THEN 'YES'::text\n\
+  \            ELSE 'NO'::text\n        END::information_schema.character_data AS\
+  \ is_deferrable, \n        CASE\n            WHEN c.condeferred THEN 'YES'::text\n\
+  \            ELSE 'NO'::text\n        END::information_schema.character_data AS\
+  \ initially_deferred\n   FROM pg_namespace nc, pg_namespace nr, pg_constraint c,\
+  \ pg_class r, pg_user u\n  WHERE nc.oid = c.connamespace AND nr.oid = r.relnamespace\
+  \ AND c.conrelid = r.oid AND r.relowner = u.usesysid AND r.relkind = 'r'::\"char\"\
+  \ AND u.usename = \"current_user\"()::name;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 9ee283f01bdc4e3fd76b8bf06c16066e
+processedLineage: false
+entityStatus: Unprocessed

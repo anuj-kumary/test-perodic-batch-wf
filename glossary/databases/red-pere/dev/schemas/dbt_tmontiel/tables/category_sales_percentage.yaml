@@ -1,0 +1,73 @@
+name: category_sales_percentage
+fullyQualifiedName: red-pere.dev.dbt_tmontiel.category_sales_percentage
+tableType: View
+columns:
+  - name: category
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: character varying(255)
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.category_sales_percentage.category
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: percentage_share
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 38
+    scale: 26
+    dataTypeDisplay: "numeric(38,26)"
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.category_sales_percentage.percentage_share
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 61510722-b00c-4bee-974b-368008066e9f
+  type: databaseSchema
+  name: dbt_tmontiel
+  fullyQualifiedName: red-pere.dev.dbt_tmontiel
+  displayName: dbt_tmontiel
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_tmontiel.category_sales_percentage AS  SELECT cq.category, cq.total_quantity::numeric::numeric(18,6) / tqs.grand_total::numeric * 100::numeric AS percentage_share
+     FROM ( SELECT p.category, sum(o.quantity) AS total_quantity
+             FROM shoes_retail.orders o
+        JOIN shoes_retail.products p ON o.product_id = p.product_id
+       GROUP BY p.category) cq
+    CROSS JOIN ( SELECT sum(category_quantity.total_quantity) AS grand_total
+             FROM ( SELECT p.category, sum(o.quantity) AS total_quantity
+                     FROM shoes_retail.orders o
+                JOIN shoes_retail.products p ON o.product_id = p.product_id
+               GROUP BY p.category) category_quantity) tqs
+    ORDER BY cq.total_quantity::numeric::numeric(18,6) / tqs.grand_total::numeric * 100::numeric DESC
+   LIMIT 5;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 74b743bf2abf75070a0aba0cc290475f
+processedLineage: false
+entityStatus: Unprocessed

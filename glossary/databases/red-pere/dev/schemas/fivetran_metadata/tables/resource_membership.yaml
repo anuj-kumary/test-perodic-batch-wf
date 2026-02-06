@@ -1,0 +1,171 @@
+name: resource_membership
+fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership
+tableType: Regular
+columns:
+  - name: id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: role_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.role_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: team_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.team_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.user_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: account_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.account_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: destination_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.destination_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: connector_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.connector_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: organization_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.organization_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: created_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.created_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _fivetran_deleted
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership._fivetran_deleted
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _fivetran_synced
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership._fivetran_synced
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: connection_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.resource_membership.connection_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - connector_id
+    referredColumns:
+      - red-pere.dev.fivetran_metadata.connector.connector_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: SORT_KEY
+    columns:
+      - role_id
+  - constraintType: DIST_KEY
+    columns:
+      - id
+owners: []
+databaseSchema:
+  id: 6d6f798b-3ee3-474b-a2f5-457bae18426e
+  type: databaseSchema
+  name: fivetran_metadata
+  fullyQualifiedName: red-pere.dev.fivetran_metadata
+  displayName: fivetran_metadata
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1721723606872}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1721723606872
+sourceHash: 63a198a72d2b5f65061b78c2c753f5db
+processedLineage: false
+entityStatus: Unprocessed

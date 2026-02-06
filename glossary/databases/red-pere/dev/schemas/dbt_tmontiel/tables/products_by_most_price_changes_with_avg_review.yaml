@@ -1,0 +1,86 @@
+name: products_by_most_price_changes_with_avg_review
+fullyQualifiedName: red-pere.dev.dbt_tmontiel.products_by_most_price_changes_with_avg_review
+tableType: View
+columns:
+  - name: name
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: character varying(255)
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.products_by_most_price_changes_with_avg_review.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: num_price_changes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.products_by_most_price_changes_with_avg_review.num_price_changes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: avg_rating
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 38
+    scale: 2
+    dataTypeDisplay: "numeric(38,2)"
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.products_by_most_price_changes_with_avg_review.avg_rating
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 61510722-b00c-4bee-974b-368008066e9f
+  type: databaseSchema
+  name: dbt_tmontiel
+  fullyQualifiedName: red-pere.dev.dbt_tmontiel
+  displayName: dbt_tmontiel
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW dbt_tmontiel.products_by_most_price_changes_with_avg_review\
+  \ AS  SELECT ranked_products.name, ranked_products.num_price_changes, ranked_products.avg_rating\n\
+  \   FROM ( SELECT p.product_id, p.name, pc.num_price_changes, ar.avg_rating, pg_catalog.row_number()\n\
+  \          OVER( \n          ORDER BY pc.num_price_changes DESC, p.product_id) AS\
+  \ rn\n           FROM ( SELECT t.product_id, count(*) - 1 AS num_price_changes\n\
+  \                   FROM ( SELECT pricing_history.product_id, pricing_history.price,\
+  \ lead(pricing_history.price)\n                          OVER( \n              \
+  \            PARTITION BY pricing_history.product_id\n                         \
+  \ ORDER BY pricing_history.effective_date DESC) AS prev_price\n                \
+  \           FROM shoes_retail.pricing_history) t\n                  WHERE t.prev_price\
+  \ IS NULL OR t.price <> t.prev_price\n                  GROUP BY t.product_id) pc\n\
+  \      JOIN shoes_retail.products p ON p.product_id = pc.product_id\n   LEFT JOIN\
+  \ ( SELECT product_reviews.product_id, avg(product_reviews.rating::numeric::numeric(5,2))\
+  \ AS avg_rating\n              FROM shoes_retail.product_reviews\n             GROUP\
+  \ BY product_reviews.product_id) ar ON ar.product_id = p.product_id) ranked_products\n\
+  \  WHERE ranked_products.rn <= 5\n  ORDER BY ranked_products.num_price_changes DESC,\
+  \ ranked_products.name\n LIMIT 5;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b8454f5b8f877a0eadb93e7e54688627
+processedLineage: false
+entityStatus: Unprocessed

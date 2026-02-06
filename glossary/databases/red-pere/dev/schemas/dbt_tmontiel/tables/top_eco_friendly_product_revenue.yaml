@@ -1,0 +1,80 @@
+name: top_eco_friendly_product_revenue
+fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_eco_friendly_product_revenue
+tableType: View
+columns:
+  - name: product_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_eco_friendly_product_revenue.product_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_eco_friendly_product_revenue.product_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_revenue
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 38
+    scale: 4
+    dataTypeDisplay: "numeric(38,4)"
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_eco_friendly_product_revenue.total_revenue
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 61510722-b00c-4bee-974b-368008066e9f
+  type: databaseSchema
+  name: dbt_tmontiel
+  fullyQualifiedName: red-pere.dev.dbt_tmontiel
+  displayName: dbt_tmontiel
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_tmontiel.top_eco_friendly_product_revenue AS  SELECT p.product_id, p.product_name, pr.total_revenue
+     FROM collate_shop.products p
+     JOIN ( SELECT oi.product_id, sum(oi.quantity::numeric::numeric(18,2) * oi.unit_price) AS total_revenue
+             FROM collate_shop.order_items oi
+        JOIN ( SELECT p.product_id, p.product_name
+                     FROM collate_shop.products p
+                    WHERE p.eco_friendly = true) ep ON oi.product_id = ep.product_id
+       GROUP BY oi.product_id) pr ON p.product_id = pr.product_id
+    ORDER BY pr.total_revenue DESC NULLS LAST
+   LIMIT 3;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b11657a0899dcf9d9e933014bebe087f
+processedLineage: false
+entityStatus: Unprocessed

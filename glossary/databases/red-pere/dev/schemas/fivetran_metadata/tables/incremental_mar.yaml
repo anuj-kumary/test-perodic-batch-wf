@@ -1,0 +1,146 @@
+name: incremental_mar
+fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar
+tableType: Regular
+columns:
+  - name: connector_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.connector_name
+    tags: []
+    children: []
+    customMetrics: []
+  - name: destination_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.destination_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: measured_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.measured_date
+    tags: []
+    children: []
+    customMetrics: []
+  - name: schema_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.schema_name
+    tags: []
+    children: []
+    customMetrics: []
+  - name: sync_type
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.sync_type
+    tags: []
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.table_name
+    tags: []
+    children: []
+    customMetrics: []
+  - name: free_type
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.free_type
+    tags: []
+    children: []
+    customMetrics: []
+  - name: updated_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.updated_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: incremental_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar.incremental_rows
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _fivetran_synced
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: red-pere.dev.fivetran_metadata.incremental_mar._fivetran_synced
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - connector_name
+      - destination_id
+      - free_type
+      - measured_date
+      - schema_name
+      - sync_type
+      - table_name
+  - constraintType: DIST_KEY
+    columns:
+      - destination_id
+owners: []
+databaseSchema:
+  id: 6d6f798b-3ee3-474b-a2f5-457bae18426e
+  type: databaseSchema
+  name: fivetran_metadata
+  fullyQualifiedName: red-pere.dev.fivetran_metadata
+  displayName: fivetran_metadata
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1721723604888}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1721723604888
+sourceHash: 31f4cb6b3dbcb32c95a6652efcb31a21
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,117 @@
+name: shipments
+fullyQualifiedName: red-pere.dev.ecommerce_test.shipments
+description: Outbound shipments linked to orders.
+tableType: Regular
+columns:
+  - name: shipment_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: shipment_id integer PK
+    fullyQualifiedName: red-pere.dev.ecommerce_test.shipments.shipment_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: order_id integer FK → orders
+    fullyQualifiedName: red-pere.dev.ecommerce_test.shipments.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: carrier
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    description: carrier
+    fullyQualifiedName: red-pere.dev.ecommerce_test.shipments.carrier
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: tracking_number
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: character varying(255)
+    description: tracking number
+    fullyQualifiedName: red-pere.dev.ecommerce_test.shipments.tracking_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: shipped_at
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: shipped at
+    fullyQualifiedName: red-pere.dev.ecommerce_test.shipments.shipped_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: delivered_at
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: delivered at
+    fullyQualifiedName: red-pere.dev.ecommerce_test.shipments.delivered_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    description: status
+    fullyQualifiedName: red-pere.dev.ecommerce_test.shipments.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - order_id
+    referredColumns:
+      - red-pere.dev.ecommerce_test.orders.order_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 41e4fd35-4814-4737-8553-b369496746d8
+  type: databaseSchema
+  name: ecommerce_test
+  fullyQualifiedName: red-pere.dev.ecommerce_test
+  displayName: ecommerce_test
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: a6e88d78e7a9a16ce5ecdccdef3e5a55
+processedLineage: false
+entityStatus: Unprocessed

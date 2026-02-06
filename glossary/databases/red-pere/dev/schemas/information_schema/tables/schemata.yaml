@@ -1,0 +1,107 @@
+name: schemata
+fullyQualifiedName: red-pere.dev.information_schema.schemata
+tableType: View
+columns:
+  - name: catalog_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.schemata.catalog_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: schema_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.schemata.schema_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: schema_owner
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.schemata.schema_owner
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_character_set_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.schemata.default_character_set_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_character_set_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.schemata.default_character_set_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_character_set_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.schemata.default_character_set_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sql_path
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.schemata.sql_path
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW information_schema.schemata AS  SELECT current_database()::information_schema.sql_identifier AS catalog_name, n.nspname::information_schema.sql_identifier AS schema_name, u.usename::information_schema.sql_identifier AS schema_owner, NULL::information_schema.sql_identifier::information_schema.sql_identifier AS default_character_set_catalog, NULL::information_schema.sql_identifier::information_schema.sql_identifier AS default_character_set_schema, NULL::information_schema.sql_identifier::information_schema.sql_identifier AS default_character_set_name, NULL::information_schema.character_data::information_schema.character_data AS sql_path
+     FROM pg_namespace n, pg_user u
+    WHERE n.nspowner = u.usesysid AND u.usename = "current_user"()::name;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 968f6c876abd60d065eb26fdb3ddc9d5
+processedLineage: false
+entityStatus: Unprocessed
