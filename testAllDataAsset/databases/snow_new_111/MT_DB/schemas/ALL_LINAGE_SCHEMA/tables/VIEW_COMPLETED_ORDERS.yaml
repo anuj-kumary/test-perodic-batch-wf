@@ -1,0 +1,95 @@
+name: VIEW_COMPLETED_ORDERS
+fullyQualifiedName: snow_new_111.MT_DB.ALL_LINAGE_SCHEMA.VIEW_COMPLETED_ORDERS
+tableType: View
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.MT_DB.ALL_LINAGE_SCHEMA.VIEW_COMPLETED_ORDERS.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CUSTOMER_NAME
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: text(100)
+    fullyQualifiedName: snow_new_111.MT_DB.ALL_LINAGE_SCHEMA.VIEW_COMPLETED_ORDERS.CUSTOMER_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ORDER_DATE
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: snow_new_111.MT_DB.ALL_LINAGE_SCHEMA.VIEW_COMPLETED_ORDERS.ORDER_DATE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: AMOUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 10
+    scale: 2
+    dataTypeDisplay: "number(10,2)"
+    fullyQualifiedName: snow_new_111.MT_DB.ALL_LINAGE_SCHEMA.VIEW_COMPLETED_ORDERS.AMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CREATED_AT
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: snow_new_111.MT_DB.ALL_LINAGE_SCHEMA.VIEW_COMPLETED_ORDERS.CREATED_AT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 63d5f443-de51-41bf-9259-d1c593e6d2ca
+  type: databaseSchema
+  name: ALL_LINAGE_SCHEMA
+  fullyQualifiedName: snow_new_111.MT_DB.ALL_LINAGE_SCHEMA
+  displayName: ALL_LINAGE_SCHEMA
+  deleted: false
+database:
+  id: 1e7c1343-0deb-4d2b-ba1c-0c6b69547886
+  type: database
+  name: MT_DB
+  fullyQualifiedName: snow_new_111.MT_DB
+  description: This is a testing database
+  displayName: MT_DB
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "CREATE OR REPLACE VIEW VIEW_COMPLETED_ORDERS AS\nSELECT \n    id,\n\
+  \    customer_name,\n    order_date,\n    amount,\n    created_at\nFROM SOURCE_TABLE_1\n\
+  WHERE status = 'COMPLETED';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/MT_DB/schemas/ALL_LINAGE_SCHEMA/view/VIEW_COMPLETED_ORDERS
+domains: []
+dataProducts: []
+sourceHash: 47747baee82fc882fa608685818b4e5c
+processedLineage: false
+entityStatus: Unprocessed
