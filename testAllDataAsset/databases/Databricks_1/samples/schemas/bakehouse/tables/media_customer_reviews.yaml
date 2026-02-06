@@ -1,0 +1,350 @@
+name: media_customer_reviews
+displayName: ""
+fullyQualifiedName: Databricks 1.samples.bakehouse.media_customer_reviews
+description: "<p>This table stores customer reviews for various franchises, capturing\
+  \ insights through review content and timestamps, enabling businesses to analyze\
+  \ customer feedback and improve their services.</p><p></p><p>uPDATE DESCRIPTION</p><p>update</p><div\
+  \ data-type=\"file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/5a25ef8f-be0d-47e4-8e82-9ce7359c01c2/download?direct=true\"\
+  \ data-filename=\"sample-png-files-sample_640x426.png\" data-filesize=\"534283\"\
+  \ data-mimetype=\"image/png\" data-uploading=\"false\" data-upload-progress=\"100\"\
+  \ data-is-image=\"true\" data-alt=\"sample-png-files-sample_640x426.png\"></div><p></p><div\
+  \ data-type=\"file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/ce379bd2-6c20-4a00-bf8f-7c81511cea98/download?direct=true\"\
+  \ data-filename=\"SCR-20250306-sepf (1).png\" data-filesize=\"1234927\" data-mimetype=\"\
+  image/png\" data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"\
+  true\" data-alt=\"SCR-20250306-sepf (1).png\"></div><p></p><div data-type=\"file-attachment\"\
+  \ data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/22301b1f-7b7f-48cc-8b35-e14c0eda2713/download?direct=true\"\
+  \ data-filename=\"585-KB.png\" data-filesize=\"599762\" data-mimetype=\"image/png\"\
+  \ data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"true\" data-alt=\"\
+  585-KB.png\"></div><div data-type=\"file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/23f4fc63-4cdb-4345-be29-4a5552c5871b/download?direct=true\"\
+  \ data-filename=\"SCR-20250316-pqpw.png\" data-filesize=\"22967\" data-mimetype=\"\
+  image/png\" data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"\
+  true\" data-alt=\"SCR-20250316-pqpw.png\"></div><p></p><div data-type=\"file-attachment\"\
+  \ data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/6889e8b8-0e79-49c4-b4a9-280065809d20/download?direct=true\"\
+  \ data-filename=\"585-KB.png\" data-filesize=\"599762\" data-mimetype=\"image/png\"\
+  \ data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"true\" data-alt=\"\
+  585-KB.png\"></div><p></p>"
+tableType: Regular
+columns:
+  - name: review
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The review column contains the text of the customer review. It captures
+      the feedback and opinions of customers regarding their experiences with the
+      franchise.
+    fullyQualifiedName: Databricks 1.samples.bakehouse.media_customer_reviews.review
+    tags:
+      - tagFQN: '"Test.tag&1".test&tag&&11'
+        name: test&tag&&11
+        displayName: ""
+        description: test&tag&&11
+        style:
+          color: "#e19a37"
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: KnowledgeCenter.HowToGuide
+        name: HowToGuide
+        description: How To Guide Quick Link or Article Tag.
+        style:
+          color: "#25d80e"
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: dbtTags.tags_column_one
+        name: tags_column_one
+        description: dbt Tags
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: franchiseID
+    displayName: ""
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The franchiseID column is used to identify the specific franchise
+      associated with the customer review. It helps in categorizing reviews based
+      on different franchise locations.
+    fullyQualifiedName: Databricks 1.samples.bakehouse.media_customer_reviews.franchiseID
+    tags:
+      - tagFQN: aaaabc.xyz
+        name: xyz
+        description: DATABRICKS TAG
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: review_date
+    displayName: ""
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    description: The review_date column records the timestamp of when the review was
+      submitted. This information is crucial for tracking the recency of reviews and
+      analyzing trends over time.
+    fullyQualifiedName: Databricks 1.samples.bakehouse.media_customer_reviews.review_date
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: new_id
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: The new_id column serves as a unique identifier for each review entry.
+      This allows for easy referencing and management of individual reviews within
+      the database.
+    fullyQualifiedName: Databricks 1.samples.bakehouse.media_customer_reviews.new_id
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - franchiseID
+      - new_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - review
+    referredColumns:
+      - Databricks 1.hive_metastore.default.notif_person_base_lifetime_new.user_id
+    relationshipType: MANY_TO_ONE
+owners:
+  - id: 1d17752e-dc86-4185-9173-a32a7e94a159
+    type: team
+    name: Accounting
+    fullyQualifiedName: Accounting
+    description: ""
+    displayName: Accounting
+    deleted: false
+databaseSchema:
+  id: b869a5f3-1f9c-44e7-a17d-02fdd10cfbcb
+  type: databaseSchema
+  name: bakehouse
+  fullyQualifiedName: Databricks 1.samples.bakehouse
+  displayName: bakehouse
+  deleted: false
+database:
+  id: 4ea0611c-ab5e-4724-97d7-84ff79b67fdc
+  type: database
+  name: samples
+  fullyQualifiedName: Databricks 1.samples
+  displayName: samples
+  deleted: false
+service:
+  id: aed8be03-c783-454d-bae1-0bd8c2680c9e
+  type: databaseService
+  name: Databricks 1
+  fullyQualifiedName: Databricks 1
+  description: ""
+  displayName: DatabricKS
+  deleted: false
+serviceType: Databricks
+locationPath: s3://system-tables-prod-us-east-2-uc-metastore-bucket/metastore/b622f329-0f39-444f-9dbb-5733ba3e2021/tables/c4835ddc-b80f-4a9f-ba27-a62cea51c938
+tags:
+  - tagFQN: Tier.Tier1
+    name: Tier1
+    description: |-
+      **Critical Source of Truth business data assets of an organization**
+
+      - Used in critical metrics and dashboards to drive business and product decisions
+
+      - Used in critical compliance reporting to regulators, govt entities, and third party
+
+      - Used in brand or revenue impacting online user-facing experiences (search results, advertisement, promotions, and experimentation)
+
+      - Other high impact use, such as ML models and fraud detection
+
+      - Source used to derive other critical Tier-1 datasets
+    style:
+      color: "#ec1313"
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: '`custom`.tag1'
+    name: tag1
+    displayName: tag1
+    description: <p>tag1</p>
+    style:
+      color: "#fd3f3f"
+      iconURL: https://cdn-icons-png.flaticon.com/512/9029/9029931.png
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: databricks.diamonds
+    name: diamonds
+    description: DATABRICKS TAG
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: ba280f9a-5072-49ad-913d-34560d0a4bc7
+  type: testSuite
+  name: Databricks 1.samples.bakehouse.media_customer_reviews.testSuite
+  fullyQualifiedName: Databricks 1.samples.bakehouse.media_customer_reviews.testSuite
+  displayName: Databricks 1.samples.bakehouse.media_customer_reviews.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: description
+      oldValue: "<p>This table stores customer reviews for various franchises, capturing\
+        \ insights through review content and timestamps, enabling businesses to analyze\
+        \ customer feedback and improve their services.</p><p></p><p>uPDATE DESCRIPTION</p><p></p><div\
+        \ data-type=\"file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/5a25ef8f-be0d-47e4-8e82-9ce7359c01c2/download?direct=true\"\
+        \ data-filename=\"sample-png-files-sample_640x426.png\" data-filesize=\"534283\"\
+        \ data-mimetype=\"image/png\" data-uploading=\"false\" data-upload-progress=\"\
+        100\" data-is-image=\"true\" data-alt=\"sample-png-files-sample_640x426.png\"\
+        ></div><p></p><div data-type=\"file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/ce379bd2-6c20-4a00-bf8f-7c81511cea98/download?direct=true\"\
+        \ data-filename=\"SCR-20250306-sepf (1).png\" data-filesize=\"1234927\" data-mimetype=\"\
+        image/png\" data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"\
+        true\" data-alt=\"SCR-20250306-sepf (1).png\"></div><p></p><div data-type=\"\
+        file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/22301b1f-7b7f-48cc-8b35-e14c0eda2713/download?direct=true\"\
+        \ data-filename=\"585-KB.png\" data-filesize=\"599762\" data-mimetype=\"image/png\"\
+        \ data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"true\"\
+        \ data-alt=\"585-KB.png\"></div><div data-type=\"file-attachment\" data-url=\"\
+        http://sandbox-beta.open-metadata.org/api/v1/attachments/23f4fc63-4cdb-4345-be29-4a5552c5871b/download?direct=true\"\
+        \ data-filename=\"SCR-20250316-pqpw.png\" data-filesize=\"22967\" data-mimetype=\"\
+        image/png\" data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"\
+        true\" data-alt=\"SCR-20250316-pqpw.png\"></div><p></p><div data-type=\"file-attachment\"\
+        \ data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/6889e8b8-0e79-49c4-b4a9-280065809d20/download?direct=true\"\
+        \ data-filename=\"585-KB.png\" data-filesize=\"599762\" data-mimetype=\"image/png\"\
+        \ data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"true\"\
+        \ data-alt=\"585-KB.png\"></div><p></p>"
+      newValue: "<p>This table stores customer reviews for various franchises, capturing\
+        \ insights through review content and timestamps, enabling businesses to analyze\
+        \ customer feedback and improve their services.</p><p></p><p>uPDATE DESCRIPTION</p><p>update</p><div\
+        \ data-type=\"file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/5a25ef8f-be0d-47e4-8e82-9ce7359c01c2/download?direct=true\"\
+        \ data-filename=\"sample-png-files-sample_640x426.png\" data-filesize=\"534283\"\
+        \ data-mimetype=\"image/png\" data-uploading=\"false\" data-upload-progress=\"\
+        100\" data-is-image=\"true\" data-alt=\"sample-png-files-sample_640x426.png\"\
+        ></div><p></p><div data-type=\"file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/ce379bd2-6c20-4a00-bf8f-7c81511cea98/download?direct=true\"\
+        \ data-filename=\"SCR-20250306-sepf (1).png\" data-filesize=\"1234927\" data-mimetype=\"\
+        image/png\" data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"\
+        true\" data-alt=\"SCR-20250306-sepf (1).png\"></div><p></p><div data-type=\"\
+        file-attachment\" data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/22301b1f-7b7f-48cc-8b35-e14c0eda2713/download?direct=true\"\
+        \ data-filename=\"585-KB.png\" data-filesize=\"599762\" data-mimetype=\"image/png\"\
+        \ data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"true\"\
+        \ data-alt=\"585-KB.png\"></div><div data-type=\"file-attachment\" data-url=\"\
+        http://sandbox-beta.open-metadata.org/api/v1/attachments/23f4fc63-4cdb-4345-be29-4a5552c5871b/download?direct=true\"\
+        \ data-filename=\"SCR-20250316-pqpw.png\" data-filesize=\"22967\" data-mimetype=\"\
+        image/png\" data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"\
+        true\" data-alt=\"SCR-20250316-pqpw.png\"></div><p></p><div data-type=\"file-attachment\"\
+        \ data-url=\"http://sandbox-beta.open-metadata.org/api/v1/attachments/6889e8b8-0e79-49c4-b4a9-280065809d20/download?direct=true\"\
+        \ data-filename=\"585-KB.png\" data-filesize=\"599762\" data-mimetype=\"image/png\"\
+        \ data-uploading=\"false\" data-upload-progress=\"100\" data-is-image=\"true\"\
+        \ data-alt=\"585-KB.png\"></div><p></p>"
+  fieldsDeleted: []
+  previousVersion: 2.1
+  changeSummary:
+    owners:
+      changedBy: reethika
+      changedAt: 1754462938503
+    description:
+      changedBy: dhruv.p
+      changedAt: 1766582059395
+    columns.new_id.description:
+      changeSource: Suggested
+      changedBy: joseph
+      changedAt: 1744146539421
+    columns.review.description:
+      changeSource: Suggested
+      changedBy: joseph
+      changedAt: 1744146539421
+    columns.franchiseID.description:
+      changeSource: Suggested
+      changedBy: joseph
+      changedAt: 1744146539421
+    columns.review_date.description:
+      changeSource: Suggested
+      changedBy: joseph
+      changedAt: 1744146539421
+retentionPeriod: 1 Year
+extension:
+  aanew:
+    - id: 1eb7eb26-21da-42d7-b0ed-8812f04f4ca4
+      name: ayush
+      type: user
+      deleted: false
+      displayName: Ayush Shah
+      fullyQualifiedName: ayush
+  duration: e3
+  enumCustomProperty:
+    - prop13
+  mlModel:
+    id: 6ef964b1-edb7-4d7c-85f1-51845197206c
+    name: eta_predictions
+    type: mlmodel
+    deleted: false
+    description: ETA Predictions Model
+    displayName: ETA Predictions
+    fullyQualifiedName: mlflow_svc.eta_predictions
+sourceUrl: ""
+domains:
+  - id: ef10e521-d8c5-4d84-b039-549e8d1d8aaf
+    type: domain
+    name: Customer Domain
+    fullyQualifiedName: Customer Domain
+    description: <p>Customer Domain</p>
+    displayName: Customer
+  - id: 46a38dc6-805a-42bf-90ce-bbf641e75f35
+    type: domain
+    name: Domain Pere
+    fullyQualifiedName: Domain Pere
+    description: asd
+    displayName: Domain Pere
+dataProducts:
+  - id: d3fa8a0c-b894-43d8-b0b7-0a8f4ab6a0bf
+    type: dataProduct
+    name: Customer 360
+    fullyQualifiedName: Customer 360
+    description: <p>Master customer table </p>
+    displayName: C360
+certification:
+  tagLabel:
+    tagFQN: Certification.Gold
+    name: Gold
+    description: Gold certified Data Asset.
+    style:
+      color: "#FFCE00"
+      iconURL: GoldCertification.svg
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+  appliedDate: 1760699921760
+  expiryDate: 1763291921760
+sourceHash: fc4bdb1feb3fff47fd37251741f3205b
+processedLineage: false
+entityStatus: Approved

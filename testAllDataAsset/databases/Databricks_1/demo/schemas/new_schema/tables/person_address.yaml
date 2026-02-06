@@ -1,0 +1,168 @@
+name: person_address
+fullyQualifiedName: Databricks 1.demo.new_schema.person_address
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Unique identifier
+    fullyQualifiedName: Databricks 1.demo.new_schema.person_address.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the person
+    fullyQualifiedName: Databricks 1.demo.new_schema.person_address.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: STRUCT
+    dataTypeDisplay: "struct<street:string,city:string,state:string,postal_code:string,country:string,coordinates:struct<latitude:double,longitude:double,elevation:struct<level:int,unit:string>>>"
+    description: Address information
+    fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address
+    tags: []
+    children:
+      - name: street
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.street
+        tags: []
+        children: []
+      - name: city
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.city
+        tags: []
+        children: []
+      - name: state
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.state
+        tags: []
+        children: []
+      - name: postal_code
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.postal_code
+        tags: []
+        children: []
+      - name: country
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.country
+        tags: []
+        children: []
+      - name: coordinates
+        dataType: STRUCT
+        dataTypeDisplay: "struct<latitude:double,longitude:double,elevation:struct<level:int,unit:string>>"
+        fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.coordinates
+        tags: []
+        children:
+          - name: latitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.coordinates.latitude
+            tags: []
+            children: []
+          - name: longitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.coordinates.longitude
+            tags: []
+            children: []
+          - name: elevation
+            dataType: STRUCT
+            dataTypeDisplay: "struct<level:int,unit:string>"
+            fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.coordinates.elevation
+            tags: []
+            children:
+              - name: level
+                dataType: INT
+                dataTypeDisplay: int
+                fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.coordinates.elevation.level
+                tags: []
+                children: []
+              - name: unit
+                dataType: STRING
+                dataTypeDisplay: string
+                fullyQualifiedName: Databricks 1.demo.new_schema.person_address.address.coordinates.elevation.unit
+                tags: []
+                children: []
+    customMetrics: []
+  - name: phone_numbers
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: List of phone numbers
+    fullyQualifiedName: Databricks 1.demo.new_schema.person_address.phone_numbers
+    tags: []
+    children: []
+    customMetrics: []
+  - name: preferences
+    dataType: MAP
+    dataTypeDisplay: "map<string,string>"
+    description: User preferences
+    fullyQualifiedName: Databricks 1.demo.new_schema.person_address.preferences
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a466c261-e057-4c82-93b9-64099a58dfba
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: Databricks 1.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: 9946200d-d277-474e-ba59-210b4665ed32
+  type: database
+  name: demo
+  fullyQualifiedName: Databricks 1.demo
+  displayName: demo
+  deleted: false
+service:
+  id: aed8be03-c783-454d-bae1-0bd8c2680c9e
+  type: databaseService
+  name: Databricks 1
+  fullyQualifiedName: Databricks 1
+  description: ""
+  displayName: DatabricKS
+  deleted: false
+serviceType: Databricks
+locationPath: s3://awsdatalake-testing/databricks-new-metastore/3849887a-24ae-4b8e-a470-9d953589f80e/tables/78756f64-38f2-4fc2-8f4e-09d3fde0e92a
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: deleted
+      oldValue: true
+      newValue: false
+  fieldsDeleted: []
+  previousVersion: 0.2
+domains:
+  - id: c5953260-03a0-47dc-a602-7431689b0a3e
+    type: domain
+    name: testing-rbac-sub-domain
+    fullyQualifiedName: Design.testing-rbac-sub-domain
+    description: Testing RBAC SUB DOMAIN
+    displayName: Testing RBAC SUB DOMAIN
+    inherited: true
+dataProducts: []
+sourceHash: 6ac43bb003a2192a8fe978a5f4525a41
+processedLineage: false
+entityStatus: Approved
