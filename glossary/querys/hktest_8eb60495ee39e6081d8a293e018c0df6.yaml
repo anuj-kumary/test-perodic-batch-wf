@@ -1,0 +1,36 @@
+name: 8eb60495ee39e6081d8a293e018c0df6
+fullyQualifiedName: hktest.8eb60495ee39e6081d8a293e018c0df6
+owners: []
+duration: 74.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"PREVIOUS_YTD_VIEWS_C\"\
+  \ AS \"PREVIOUS_YTD_VIEWS_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  PREVIOUS_YTD_VIEWS_C\" AS \"PREVIOUS_YTD_VIEWS_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(\"PREVIOUS_YTD_VIEWS_C\") AS mean, count(\"PREVIOUS_YTD_VIEWS_C\")\
+  \ AS \"valuesCount\", count(DISTINCT \"PREVIOUS_YTD_VIEWS_C\") AS \"distinctCount\"\
+  , MIN(\"PREVIOUS_YTD_VIEWS_C\") AS min, MAX(\"PREVIOUS_YTD_VIEWS_C\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"PREVIOUS_YTD_VIEWS_C\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\",\
+  \ STDDEV_POP(\"PREVIOUS_YTD_VIEWS_C\") AS stddev, SUM(\"PREVIOUS_YTD_VIEWS_C\")\
+  \ AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT ?"
+checksum: 8eb60495ee39e6081d8a293e018c0df6
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

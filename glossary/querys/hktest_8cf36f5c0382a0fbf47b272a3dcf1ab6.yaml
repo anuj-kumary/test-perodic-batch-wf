@@ -1,0 +1,32 @@
+name: 8cf36f5c0382a0fbf47b272a3dcf1ab6
+fullyQualifiedName: hktest.8cf36f5c0382a0fbf47b272a3dcf1ab6
+owners: []
+duration: 65.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_TERM_TRANS_DATE\"\
+  \ AS \"CONT_TERM_TRANS_DATE\" \nFROM \"CURATED\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_TERM_TRANS_DATE\" AS \"CONT_TERM_TRANS_DATE\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_TERM_TRANS_DATE\"\
+  ) ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_TERM_TRANS_DATE\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_TERM_TRANS_DATE\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\n\
+  \ LIMIT ?"
+checksum: 8cf36f5c0382a0fbf47b272a3dcf1ab6
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

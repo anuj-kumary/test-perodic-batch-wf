@@ -1,0 +1,29 @@
+name: 8d141433ae60692507aa4363e4027cb9
+fullyQualifiedName: hktest.8d141433ae60692507aa4363e4027cb9
+owners: []
+duration: 393.0
+users: []
+query: "SELECT avg(\"S_SUPPKEY\") AS mean, count(\"S_SUPPKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"S_SUPPKEY\") AS \"distinctCount\", MIN(\"S_SUPPKEY\") AS min,\
+  \ MAX(\"S_SUPPKEY\") AS max, coalesce(SUM(CASE WHEN (\"S_SUPPKEY\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"S_SUPPKEY\") AS stddev, SUM(\"\
+  S_SUPPKEY\") AS sum \nFROM \"TPCH_SF10\".\"SUPPLIER\"\n LIMIT ?"
+checksum: 8d141433ae60692507aa4363e4027cb9
+queryDate: 1752364800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ceb86caf-d57c-49fb-8952-eac20aa5e03a
+    type: table
+    name: SUPPLIER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER
+    description: Supplier data as defined by TPC-H
+    displayName: SUPPLIER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,29 @@
+name: 8a1994c4c70ef9aeda869bbf54dd6a29
+fullyQualifiedName: hktest.8a1994c4c70ef9aeda869bbf54dd6a29
+owners: []
+duration: 73.0
+users: []
+query: "SELECT avg(LEN(\"INCOME_DOC\")) AS mean, count(\"INCOME_DOC\") AS \"valuesCount\"\
+  , count(DISTINCT \"INCOME_DOC\") AS \"distinctCount\", MIN(LEN(\"INCOME_DOC\"))\
+  \ AS min, MAX(LEN(\"INCOME_DOC\")) AS max, coalesce(SUM(CASE WHEN (\"INCOME_DOC\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"INCOME_DOC\"))\
+  \ AS stddev, SUM(LEN(\"INCOME_DOC\")) AS sum \nFROM \"CURATED\".\"CNTRCT\"\n LIMIT\
+  \ ?"
+checksum: 8a1994c4c70ef9aeda869bbf54dd6a29
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

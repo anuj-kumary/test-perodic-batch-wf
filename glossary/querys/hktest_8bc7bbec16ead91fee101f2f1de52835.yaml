@@ -1,0 +1,34 @@
+name: 8bc7bbec16ead91fee101f2f1de52835
+fullyQualifiedName: hktest.8bc7bbec16ead91fee101f2f1de52835
+owners: []
+duration: 477.0
+users: []
+query: "WITH \"534e5b12fce522f81d9c91fd466b84a9_rnd\" AS \n(SELECT \"STORE_SALES_1\"\
+  .\"SS_PROMO_SK\" AS \"SS_PROMO_SK\" \nFROM \"TPCDS_SF10TCL\".\"STORE_SALES\" AS\
+  \ \"STORE_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"534e5b12fce522f81d9c91fd466b84a9_sample\"\
+  \ AS \n(SELECT \"534e5b12fce522f81d9c91fd466b84a9_rnd\".\"SS_PROMO_SK\" AS \"SS_PROMO_SK\"\
+  \ \nFROM \"534e5b12fce522f81d9c91fd466b84a9_rnd\")\n SELECT count(CASE WHEN (\"\
+  SS_PROMO_SK\" >= ? AND \"SS_PROMO_SK\" < ?) THEN \"SS_PROMO_SK\" END) AS \"68.000\
+  \ to 584.752\", count(CASE WHEN (\"SS_PROMO_SK\" >= ? AND \"SS_PROMO_SK\" < ?) THEN\
+  \ \"SS_PROMO_SK\" END) AS \"584.752 to 1.102K\", count(CASE WHEN (\"SS_PROMO_SK\"\
+  \ >= ? AND \"SS_PROMO_SK\" < ?) THEN \"SS_PROMO_SK\" END) AS \"1.102K to 1.618K\"\
+  , count(CASE WHEN (\"SS_PROMO_SK\" >= ?) THEN \"SS_PROMO_SK\" END) AS \"1.618K and\
+  \ up\" \nFROM \"534e5b12fce522f81d9c91fd466b84a9_sample\"\n LIMIT ?"
+checksum: 8bc7bbec16ead91fee101f2f1de52835
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 56c7b35b-10b9-406e-8fb5-9324de94e5a1
+    type: table
+    name: STORE_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.STORE_SALES
+    displayName: STORE_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,38 @@
+name: 8c0ca5352df911720f8f96713e02a09b
+fullyQualifiedName: hktest.8c0ca5352df911720f8f96713e02a09b
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"d121e49b-a72f-4cb2-a739-b4f79f844a69\",\"type\":\"table\"\
+        ,\"name\":\"NATION\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.NATION\"\
+        ,\"description\":\"Nation data as defined by TPC-H\",\"displayName\":\"NATION\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 42.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"N_REGIONKEY\") AS\
+  \ count_1 \nFROM \"TPCH_SF1\".\"NATION\" GROUP BY \"N_REGIONKEY\" \nHAVING count(\"\
+  N_REGIONKEY\") = ?) AS only_once\n LIMIT ?"
+checksum: 8c0ca5352df911720f8f96713e02a09b
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d121e49b-a72f-4cb2-a739-b4f79f844a69
+    type: table
+    name: NATION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.NATION
+    description: Nation data as defined by TPC-H
+    displayName: NATION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

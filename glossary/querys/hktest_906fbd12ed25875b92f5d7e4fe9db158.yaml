@@ -1,0 +1,32 @@
+name: 906fbd12ed25875b92f5d7e4fe9db158
+fullyQualifiedName: hktest.906fbd12ed25875b92f5d7e4fe9db158
+owners: []
+duration: 94.0
+users: []
+query: "WITH c9a70e63510b664d91c87d56c823d0ce_rnd AS \n(SELECT \"WEB_SITE_1\".\"WEB_STREET_NAME\"\
+  \ AS \"WEB_STREET_NAME\" \nFROM \"TPCDS_SF100TCL\".\"WEB_SITE\" AS \"WEB_SITE_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc9a70e63510b664d91c87d56c823d0ce_sample AS \n(SELECT\
+  \ c9a70e63510b664d91c87d56c823d0ce_rnd.\"WEB_STREET_NAME\" AS \"WEB_STREET_NAME\"\
+  \ \nFROM c9a70e63510b664d91c87d56c823d0ce_rnd)\n SELECT percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"WEB_STREET_NAME\") ASC) AS median, percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"WEB_STREET_NAME\") ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"WEB_STREET_NAME\") ASC) AS \"thirdQuartile\" \nFROM\
+  \ c9a70e63510b664d91c87d56c823d0ce_sample\n LIMIT ?"
+checksum: 906fbd12ed25875b92f5d7e4fe9db158
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 19098f0b-68e4-4139-8413-0b3e3cec98ee
+    type: table
+    name: WEB_SITE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SITE
+    displayName: WEB_SITE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

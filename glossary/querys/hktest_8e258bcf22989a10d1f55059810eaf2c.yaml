@@ -1,0 +1,33 @@
+name: 8e258bcf22989a10d1f55059810eaf2c
+fullyQualifiedName: hktest.8e258bcf22989a10d1f55059810eaf2c
+owners: []
+duration: 143.0
+users: []
+query: "WITH \"15e219364c9158944561b60284e81c87_rnd\" AS \n(SELECT \"DATE_DIM_1\"\
+  .\"D_LAST_DOM\" AS \"D_LAST_DOM\" \nFROM \"TPCDS_SF100TCL\".\"DATE_DIM\" AS \"DATE_DIM_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"15e219364c9158944561b60284e81c87_sample\" AS \n\
+  (SELECT \"15e219364c9158944561b60284e81c87_rnd\".\"D_LAST_DOM\" AS \"D_LAST_DOM\"\
+  \ \nFROM \"15e219364c9158944561b60284e81c87_rnd\")\n SELECT avg(\"D_LAST_DOM\")\
+  \ AS mean, count(\"D_LAST_DOM\") AS \"valuesCount\", count(DISTINCT \"D_LAST_DOM\"\
+  ) AS \"distinctCount\", MIN(\"D_LAST_DOM\") AS min, MAX(\"D_LAST_DOM\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"D_LAST_DOM\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(\"D_LAST_DOM\") AS stddev, SUM(\"D_LAST_DOM\") AS sum \nFROM \"15e219364c9158944561b60284e81c87_sample\"\
+  \n LIMIT ?"
+checksum: 8e258bcf22989a10d1f55059810eaf2c
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 31e5520d-ab7b-465c-9eee-1849572de9b7
+    type: table
+    name: DATE_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.DATE_DIM
+    displayName: DATE_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

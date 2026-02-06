@@ -1,0 +1,35 @@
+name: 8c9da01d92cec412caff86af5b80e2c0
+fullyQualifiedName: hktest.8c9da01d92cec412caff86af5b80e2c0
+owners: []
+duration: 106.0
+users: []
+query: "WITH c9a70e63510b664d91c87d56c823d0ce_rnd AS \n(SELECT \"WEB_SITE_1\".\"WEB_COMPANY_NAME\"\
+  \ AS \"WEB_COMPANY_NAME\" \nFROM \"TPCDS_SF100TCL\".\"WEB_SITE\" AS \"WEB_SITE_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc9a70e63510b664d91c87d56c823d0ce_sample AS \n(SELECT\
+  \ c9a70e63510b664d91c87d56c823d0ce_rnd.\"WEB_COMPANY_NAME\" AS \"WEB_COMPANY_NAME\"\
+  \ \nFROM c9a70e63510b664d91c87d56c823d0ce_rnd)\n SELECT count(CASE WHEN (LEN(\"\
+  WEB_COMPANY_NAME\") >= ? AND LEN(\"WEB_COMPANY_NAME\") < ?) THEN LEN(\"WEB_COMPANY_NAME\"\
+  ) END) AS \"3.000 to 3.547\", count(CASE WHEN (LEN(\"WEB_COMPANY_NAME\") >= ? AND\
+  \ LEN(\"WEB_COMPANY_NAME\") < ?) THEN LEN(\"WEB_COMPANY_NAME\") END) AS \"3.547\
+  \ to 4.093\", count(CASE WHEN (LEN(\"WEB_COMPANY_NAME\") >= ? AND LEN(\"WEB_COMPANY_NAME\"\
+  ) < ?) THEN LEN(\"WEB_COMPANY_NAME\") END) AS \"4.093 to 4.640\", count(CASE WHEN\
+  \ (LEN(\"WEB_COMPANY_NAME\") >= ?) THEN LEN(\"WEB_COMPANY_NAME\") END) AS \"4.640\
+  \ and up\" \nFROM c9a70e63510b664d91c87d56c823d0ce_sample\n LIMIT ?"
+checksum: 8c9da01d92cec412caff86af5b80e2c0
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 19098f0b-68e4-4139-8413-0b3e3cec98ee
+    type: table
+    name: WEB_SITE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SITE
+    displayName: WEB_SITE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

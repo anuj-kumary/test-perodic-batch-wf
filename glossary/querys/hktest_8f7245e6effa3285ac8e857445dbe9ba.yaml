@@ -1,0 +1,53 @@
+name: 8f7245e6effa3285ac8e857445dbe9ba
+fullyQualifiedName: hktest.8f7245e6effa3285ac8e857445dbe9ba
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"49ed908c-886f-4af7-bb76-f93d3d974e9b\",\"type\":\"table\"\
+        ,\"name\":\"METRICS_ANOMALY_SCORE\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.METRICS_ANOMALY_SCORE\"\
+        ,\"displayName\":\"METRICS_ANOMALY_SCORE\",\"deleted\":false}]"
+  previousVersion: 0.7
+  changeSummary: {}
+owners: []
+duration: 278.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "create or replace   view dbt_db.DBT_SAMPLE_elementary.anomaly_threshold_sensitivity\n\
+  \  \n   as (\n    \n\nwith metrics_anomaly_score as (\n\n    select * from dbt_db.DBT_SAMPLE_elementary.metrics_anomaly_score\n\
+  \n),\n\nscore_sensitivity as (\n\n    select\n        full_table_name,\n       \
+  \ column_name,\n        metric_name,\n        latest_metric_value,\n        training_avg\
+  \ as metric_avg,\n        training_stddev as metric_stddev,\n        anomaly_score,\n\
+  \        case when abs(anomaly_score) >= ? then ? else ? end as \"is_anomaly_1_5\"\
+  ,\n        case when abs(anomaly_score) >= ? then ? else ? end as \"is_anomaly_2\"\
+  ,\n        case when abs(anomaly_score) >= ? then ? else ? end as \"is_anomaly_2_5\"\
+  ,\n        case when abs(anomaly_score) >= ? then ? else ? end as \"is_anomaly_3\"\
+  ,\n        case when abs(anomaly_score) >= ? then ? else ? end as \"is_anomaly_3_5\"\
+  ,\n        case when abs(anomaly_score) >= ? then ? else ? end as \"is_anomaly_4\"\
+  ,\n        case when abs(anomaly_score) >= ? then ? else ? end as \"is_anomaly_4_5\"\
+  \n    from metrics_anomaly_score\n    where abs(anomaly_score) >= ?\n\n)\n\nselect\
+  \ * from score_sensitivity\n  );"
+checksum: 8f7245e6effa3285ac8e857445dbe9ba
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 60558335-1b4a-4547-b627-1988977e8ccc
+    type: table
+    name: ANOMALY_THRESHOLD_SENSITIVITY
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.ANOMALY_THRESHOLD_SENSITIVITY
+    displayName: ANOMALY_THRESHOLD_SENSITIVITY
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

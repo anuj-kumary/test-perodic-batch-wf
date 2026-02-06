@@ -1,0 +1,36 @@
+name: 8d69eb6466000ec393968fbc4de587ad
+fullyQualifiedName: hktest.8d69eb6466000ec393968fbc4de587ad
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b9575673-6097-446e-9dd0-c6556d064a78\",\"type\":\"table\"\
+        ,\"name\":\"JOBS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.JOBS\"\
+        ,\"displayName\":\"JOBS\",\"deleted\":false}]"
+  previousVersion: 1.2
+  changeSummary: {}
+owners: []
+duration: 81.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"E2E_TESTMAX_SALARY\"\
+  ) AS count_1 \nFROM \"E2E_TEST\".\"JOBS\" GROUP BY \"E2E_TESTMAX_SALARY\" \nHAVING\
+  \ count(\"E2E_TESTMAX_SALARY\") = ?) AS only_once\n LIMIT ?"
+checksum: 8d69eb6466000ec393968fbc4de587ad
+queryDate: 1752537600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b9575673-6097-446e-9dd0-c6556d064a78
+    type: table
+    name: JOBS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.JOBS
+    displayName: JOBS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,36 @@
+name: 8b3e5c6cdebb6cb9c3b03562d7f56a84
+fullyQualifiedName: hktest.8b3e5c6cdebb6cb9c3b03562d7f56a84
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f3f7adf0-5934-40b1-9c34-71aa27a03cd6\",\"type\":\"table\"\
+        ,\"name\":\"CNTRCT\",\"fullyQualifiedName\":\"hktest.INDIVIDUAL.CURATED.CNTRCT\"\
+        ,\"displayName\":\"CNTRCT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 64.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"ENT_OWN_OCCPATN_PRD_NM\"\
+  ) AS count_1 \nFROM \"CURATED\".\"CNTRCT\" GROUP BY \"ENT_OWN_OCCPATN_PRD_NM\" \n\
+  HAVING count(\"ENT_OWN_OCCPATN_PRD_NM\") = ?) AS only_once\n LIMIT ?"
+checksum: 8b3e5c6cdebb6cb9c3b03562d7f56a84
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

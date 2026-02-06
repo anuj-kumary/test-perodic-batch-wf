@@ -1,0 +1,30 @@
+name: 90b16f188db82902de3e30dd36d8945e
+fullyQualifiedName: hktest.90b16f188db82902de3e30dd36d8945e
+owners: []
+duration: 6914.0
+users: []
+query: "SELECT avg(LEN(\"O_ORDERPRIORITY\")) AS mean, count(\"O_ORDERPRIORITY\") AS\
+  \ \"valuesCount\", count(DISTINCT \"O_ORDERPRIORITY\") AS \"distinctCount\", MIN(LEN(\"\
+  O_ORDERPRIORITY\")) AS min, MAX(LEN(\"O_ORDERPRIORITY\")) AS max, coalesce(SUM(CASE\
+  \ WHEN (\"O_ORDERPRIORITY\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  O_ORDERPRIORITY\")) AS stddev, SUM(LEN(\"O_ORDERPRIORITY\")) AS sum \nFROM \"TPCH_SF100\"\
+  .\"ORDERS\"\n LIMIT ?"
+checksum: 90b16f188db82902de3e30dd36d8945e
+queryDate: 1752105600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 1f508427-80b3-49cc-a1fe-0eb4dee09b71
+    type: table
+    name: ORDERS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.ORDERS
+    description: Orders data as defined by TPC-H
+    displayName: ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

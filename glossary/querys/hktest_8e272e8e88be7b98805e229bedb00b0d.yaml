@@ -1,0 +1,34 @@
+name: 8e272e8e88be7b98805e229bedb00b0d
+fullyQualifiedName: hktest.8e272e8e88be7b98805e229bedb00b0d
+owners: []
+duration: 437.0
+users: []
+query: "WITH \"251d5be6c2243ba771425aa88477c04d_rnd\" AS \n(SELECT \"PARTSUPP_1\"\
+  .\"PS_COMMENT\" AS \"PS_COMMENT\" \nFROM \"TPCH_SF1\".\"PARTSUPP\" AS \"PARTSUPP_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"251d5be6c2243ba771425aa88477c04d_sample\" AS \n\
+  (SELECT \"251d5be6c2243ba771425aa88477c04d_rnd\".\"PS_COMMENT\" AS \"PS_COMMENT\"\
+  \ \nFROM \"251d5be6c2243ba771425aa88477c04d_rnd\")\n SELECT avg(LEN(\"PS_COMMENT\"\
+  )) AS mean, count(\"PS_COMMENT\") AS \"valuesCount\", count(DISTINCT \"PS_COMMENT\"\
+  ) AS \"distinctCount\", MIN(LEN(\"PS_COMMENT\")) AS min, MAX(LEN(\"PS_COMMENT\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"PS_COMMENT\" IS ?) THEN ? ELSE ? END), ?) AS\
+  \ \"nullCount\", STDDEV_POP(LEN(\"PS_COMMENT\")) AS stddev, SUM(LEN(\"PS_COMMENT\"\
+  )) AS sum \nFROM \"251d5be6c2243ba771425aa88477c04d_sample\"\n LIMIT ?"
+checksum: 8e272e8e88be7b98805e229bedb00b0d
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ba0b673e-2967-483d-bf95-f4f3b99305c6
+    type: table
+    name: PARTSUPP
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PARTSUPP
+    description: Partsupp data as defined by TPC-H
+    displayName: PARTSUPP
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

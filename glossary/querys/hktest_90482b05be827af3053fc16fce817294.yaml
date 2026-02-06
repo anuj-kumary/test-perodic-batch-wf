@@ -1,0 +1,27 @@
+name: 90482b05be827af3053fc16fce817294
+fullyQualifiedName: hktest.90482b05be827af3053fc16fce817294
+owners: []
+duration: 71.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"EMAIL\") AS count_1\
+  \ \nFROM \"HK_SCHEMA\".\"SAMPLE_CUSTOMERS\" GROUP BY \"EMAIL\" \nHAVING count(\"\
+  EMAIL\") = ?) AS only_once\n LIMIT ?"
+checksum: 90482b05be827af3053fc16fce817294
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d78f1c3b-6d80-4343-986b-64af362d9f05
+    type: table
+    name: SAMPLE_CUSTOMERS
+    fullyQualifiedName: hktest.HK_DB.HK_SCHEMA.SAMPLE_CUSTOMERS
+    description: <p>This is a test description</p>
+    displayName: SAMPLE_CUSTOMERS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

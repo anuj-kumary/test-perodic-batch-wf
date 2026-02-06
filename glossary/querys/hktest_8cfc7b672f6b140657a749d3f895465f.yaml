@@ -1,0 +1,30 @@
+name: 8cfc7b672f6b140657a749d3f895465f
+fullyQualifiedName: hktest.8cfc7b672f6b140657a749d3f895465f
+owners: []
+duration: 109.0
+users: []
+query: "WITH \"3cfba54f6873dfd55b0b09d32910b20e_rnd\" AS \n(SELECT \"STORE_1\".\"\
+  S_STATE\" AS \"S_STATE\" \nFROM \"TPCDS_SF100TCL\".\"STORE\" AS \"STORE_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"3cfba54f6873dfd55b0b09d32910b20e_sample\" AS \n(SELECT \"3cfba54f6873dfd55b0b09d32910b20e_rnd\"\
+  .\"S_STATE\" AS \"S_STATE\" \nFROM \"3cfba54f6873dfd55b0b09d32910b20e_rnd\")\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"S_STATE\") AS count_1 \nFROM\
+  \ \"3cfba54f6873dfd55b0b09d32910b20e_sample\" GROUP BY \"S_STATE\" \nHAVING count(\"\
+  S_STATE\") = ?) AS only_once\n LIMIT ?"
+checksum: 8cfc7b672f6b140657a749d3f895465f
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 43356b28-b302-4890-b93c-3f7d6771f9e5
+    type: table
+    name: STORE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE
+    displayName: STORE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

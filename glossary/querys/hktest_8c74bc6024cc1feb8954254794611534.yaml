@@ -1,0 +1,33 @@
+name: 8c74bc6024cc1feb8954254794611534
+fullyQualifiedName: hktest.8c74bc6024cc1feb8954254794611534
+owners: []
+duration: 1220.0
+users: []
+query: "WITH \"979ee13f032c02b4652a4e3c3928d90b_rnd\" AS \n(SELECT \"CUSTOMER_1\"\
+  .\"C_PHONE\" AS \"C_PHONE\" \nFROM \"TPCH_SF1000\".\"CUSTOMER\" AS \"CUSTOMER_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"979ee13f032c02b4652a4e3c3928d90b_sample\" AS \n\
+  (SELECT \"979ee13f032c02b4652a4e3c3928d90b_rnd\".\"C_PHONE\" AS \"C_PHONE\" \nFROM\
+  \ \"979ee13f032c02b4652a4e3c3928d90b_rnd\")\n SELECT percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"C_PHONE\") ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER\
+  \ BY LEN(\"C_PHONE\") ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"C_PHONE\") ASC) AS \"thirdQuartile\" \nFROM \"979ee13f032c02b4652a4e3c3928d90b_sample\"\
+  \n LIMIT ?"
+checksum: 8c74bc6024cc1feb8954254794611534
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 4a092d7f-9f82-4396-984e-a1dce870cfbe
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

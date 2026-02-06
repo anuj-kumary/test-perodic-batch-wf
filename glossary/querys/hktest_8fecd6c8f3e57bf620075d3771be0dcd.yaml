@@ -1,0 +1,33 @@
+name: 8fecd6c8f3e57bf620075d3771be0dcd
+fullyQualifiedName: hktest.8fecd6c8f3e57bf620075d3771be0dcd
+owners: []
+duration: 73.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_YRT_PREM\"\
+  \ AS \"CONT_YRT_PREM\" \nFROM \"CURATED\".\"CONT\" AS \"CONT_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_YRT_PREM\" AS \"CONT_YRT_PREM\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT avg(LEN(\"CONT_YRT_PREM\")) AS mean, count(\"CONT_YRT_PREM\") AS \"valuesCount\"\
+  , count(DISTINCT \"CONT_YRT_PREM\") AS \"distinctCount\", MIN(LEN(\"CONT_YRT_PREM\"\
+  )) AS min, MAX(LEN(\"CONT_YRT_PREM\")) AS max, coalesce(SUM(CASE WHEN (\"CONT_YRT_PREM\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"CONT_YRT_PREM\"\
+  )) AS stddev, SUM(LEN(\"CONT_YRT_PREM\")) AS sum \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\
+  \n LIMIT ?"
+checksum: 8fecd6c8f3e57bf620075d3771be0dcd
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

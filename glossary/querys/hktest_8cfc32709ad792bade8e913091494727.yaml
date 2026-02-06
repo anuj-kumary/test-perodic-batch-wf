@@ -1,0 +1,31 @@
+name: 8cfc32709ad792bade8e913091494727
+fullyQualifiedName: hktest.8cfc32709ad792bade8e913091494727
+owners: []
+duration: 684.0
+users: []
+query: "WITH \"534e5b12fce522f81d9c91fd466b84a9_rnd\" AS \n(SELECT \"STORE_SALES_1\"\
+  .\"SS_CUSTOMER_SK\" AS \"SS_CUSTOMER_SK\" \nFROM \"TPCDS_SF100TCL\".\"STORE_SALES\"\
+  \ AS \"STORE_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"534e5b12fce522f81d9c91fd466b84a9_sample\"\
+  \ AS \n(SELECT \"534e5b12fce522f81d9c91fd466b84a9_rnd\".\"SS_CUSTOMER_SK\" AS \"\
+  SS_CUSTOMER_SK\" \nFROM \"534e5b12fce522f81d9c91fd466b84a9_rnd\")\n SELECT count(*)\
+  \ AS \"uniqueCount\" \nFROM (SELECT count(\"SS_CUSTOMER_SK\") AS count_1 \nFROM\
+  \ \"534e5b12fce522f81d9c91fd466b84a9_sample\" GROUP BY \"SS_CUSTOMER_SK\" \nHAVING\
+  \ count(\"SS_CUSTOMER_SK\") = ?) AS only_once\n LIMIT ?"
+checksum: 8cfc32709ad792bade8e913091494727
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8ac2014f-2667-4186-a6c8-8754e351d4ef
+    type: table
+    name: STORE_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE_SALES
+    displayName: STORE_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

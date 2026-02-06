@@ -1,0 +1,37 @@
+name: 8a615ab70ac58e17dac314fa3462603d
+fullyQualifiedName: hktest.8a615ab70ac58e17dac314fa3462603d
+owners: []
+duration: 812.0
+users: []
+query: "WITH \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\" AS \n(SELECT \"INVENTORY_1\"\
+  .\"INV_WAREHOUSE_SK\" AS \"INV_WAREHOUSE_SK\" \nFROM \"TPCDS_SF10TCL\".\"INVENTORY\"\
+  \ AS \"INVENTORY_1\" TABLESAMPLE ROW(? ROWS)), \n\"23c6d3d8dee11d726d3c9e52099b7d02_sample\"\
+  \ AS \n(SELECT \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\".\"INV_WAREHOUSE_SK\" AS\
+  \ \"INV_WAREHOUSE_SK\" \nFROM \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\")\n SELECT\
+  \ count(CASE WHEN (\"INV_WAREHOUSE_SK\" >= ? AND \"INV_WAREHOUSE_SK\" < ?) THEN\
+  \ \"INV_WAREHOUSE_SK\" END) AS \"1.000 to 6.293\", count(CASE WHEN (\"INV_WAREHOUSE_SK\"\
+  \ >= ? AND \"INV_WAREHOUSE_SK\" < ?) THEN \"INV_WAREHOUSE_SK\" END) AS \"6.293 to\
+  \ 11.586\", count(CASE WHEN (\"INV_WAREHOUSE_SK\" >= ? AND \"INV_WAREHOUSE_SK\"\
+  \ < ?) THEN \"INV_WAREHOUSE_SK\" END) AS \"11.586 to 16.879\", count(CASE WHEN (\"\
+  INV_WAREHOUSE_SK\" >= ? AND \"INV_WAREHOUSE_SK\" < ?) THEN \"INV_WAREHOUSE_SK\"\
+  \ END) AS \"16.879 to 22.172\", count(CASE WHEN (\"INV_WAREHOUSE_SK\" >= ?) THEN\
+  \ \"INV_WAREHOUSE_SK\" END) AS \"22.172 and up\" \nFROM \"23c6d3d8dee11d726d3c9e52099b7d02_sample\"\
+  \n LIMIT ?"
+checksum: 8a615ab70ac58e17dac314fa3462603d
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ffea4f28-c8ee-464d-89d2-8e1f32caad82
+    type: table
+    name: INVENTORY
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.INVENTORY
+    displayName: INVENTORY
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

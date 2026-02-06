@@ -1,0 +1,53 @@
+name: 8b4df23a669269526825b5b4da03bf7b
+fullyQualifiedName: hktest.8b4df23a669269526825b5b4da03bf7b
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"dadd6b4a-93b0-4a0f-9b97-daa761a9438d\",\"type\":\"table\"\
+        ,\"name\":\"DBT_SEEDS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SEEDS\"\
+        ,\"displayName\":\"DBT_SEEDS\",\"deleted\":false}]"
+  previousVersion: 1.4
+  changeSummary: {}
+owners: []
+duration: 547.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "create or replace   view dbt_db.DBT_SAMPLE_elementary.seed_run_results\n \
+  \ \n   as (\n    \n\nwith dbt_run_results as (\n    select * from dbt_db.DBT_SAMPLE_elementary.dbt_run_results\n\
+  ),\n\ndbt_seeds as (\n    select * from dbt_db.DBT_SAMPLE_elementary.dbt_seeds\n\
+  )\n\nSELECT\n    run_results.model_execution_id,\n    run_results.unique_id,\n \
+  \   run_results.invocation_id,\n    run_results.query_id,\n    run_results.name,\n\
+  \    run_results.generated_at,\n    run_results.status,\n    run_results.full_refresh,\n\
+  \    run_results.message,\n    run_results.execution_time,\n    run_results.execute_started_at,\n\
+  \    run_results.execute_completed_at,\n    run_results.compile_started_at,\n  \
+  \  run_results.compile_completed_at,\n    run_results.compiled_code,\n    run_results.adapter_response,\n\
+  \    run_results.thread_id,\n    seeds.database_name,\n    seeds.schema_name,\n\
+  \    run_results.materialization,\n    seeds.tags,\n    seeds.package_name,\n  \
+  \  seeds.path,\n    seeds.original_path,\n    seeds.owner,\n    seeds.alias\nFROM\
+  \ dbt_run_results run_results\nJOIN dbt_seeds seeds ON run_results.unique_id = seeds.unique_id\n\
+  \  );"
+checksum: 8b4df23a669269526825b5b4da03bf7b
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 71f3b29a-0599-4623-b7e2-1e721ace56c4
+    type: table
+    name: SEED_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SEED_RUN_RESULTS
+    displayName: SEED_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
