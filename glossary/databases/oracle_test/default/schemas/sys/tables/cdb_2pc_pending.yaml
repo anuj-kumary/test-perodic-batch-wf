@@ -1,0 +1,191 @@
+name: cdb_2pc_pending
+fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending
+tableType: View
+columns:
+  - name: local_tran_id
+    dataType: VARCHAR
+    dataLength: 22
+    dataTypeDisplay: varchar2(22)
+    description: "string of form: n.n.n, n a number"
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.local_tran_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: global_tran_id
+    dataType: VARCHAR
+    dataLength: 169
+    dataTypeDisplay: varchar2(169)
+    description: globally unique transaction id
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.global_tran_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: state
+    dataType: VARCHAR
+    dataLength: 16
+    dataTypeDisplay: varchar2(16)
+    description: "collecting, prepared, committed, forced commit, or forced rollback"
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.state
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: mixed
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: yes => part of the transaction committed and part rolled back (commit
+      or rollback with the FORCE option was used)
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.mixed
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: advice
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "C for commit, R for rollback, else null"
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.advice
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: tran_comment
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: varchar2(255)
+    description: text for "commit work comment <text>"
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.tran_comment
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: fail_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: value of SYSDATE when the row was inserted (tx or system recovery)
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.fail_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: force_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: time of manual force decision (null if not forced locally)
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.force_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: retry_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: time automatic recovery (RECO) last tried to recover the transaction
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.retry_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: os_user
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: operating system specific name for the end-user
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.os_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: os_terminal
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: varchar2(255)
+    description: operating system specific name for the end-user terminal
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.os_terminal
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: host
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: name of the host machine for the end-user
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.host
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: db_user
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Oracle user name of the end-user at the topmost database
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.db_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: COMMIT#
+    dataType: VARCHAR
+    dataLength: 16
+    dataTypeDisplay: varchar2(16)
+    description: global commit number for committed transactions
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.COMMIT#
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: con_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: container id
+    fullyQualifiedName: oracle_test.default.sys.cdb_2pc_pending.con_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b0db179412cbf25b29fc80f342df61bf
+processedLineage: false
+entityStatus: Approved
