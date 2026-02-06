@@ -1,0 +1,92 @@
+name: comments_test
+fullyQualifiedName: testunitycatalog.demo.new_schema.comments_test
+description: "The 'comments_test' table is designed to hold data related to user comments\
+  \ on various test items. It includes information such as the unique identifier of\
+  \ each comment and a complex column that stores additional data related to the comment.\
+  \ This table can be useful for analyzing user feedback on tests, identifying common\
+  \ issues or areas of improvement, and tracking changes over time in user comments."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: new comm
+    fullyQualifiedName: testunitycatalog.demo.new_schema.comments_test.id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: complex_col
+    dataType: STRUCT
+    dataLength: 1
+    dataTypeDisplay: "struct<b1:int,b2:struct<b11:int>>"
+    description: demo com
+    fullyQualifiedName: testunitycatalog.demo.new_schema.comments_test.complex_col
+    tags: []
+    children:
+      - name: b1
+        dataType: INT
+        dataTypeDisplay: int
+        description: inner comment 11
+        fullyQualifiedName: testunitycatalog.demo.new_schema.comments_test.complex_col.b1
+        tags: []
+        children: []
+      - name: b2
+        dataType: STRUCT
+        dataTypeDisplay: struct<b11:int>
+        description: inner comment 12
+        fullyQualifiedName: testunitycatalog.demo.new_schema.comments_test.complex_col.b2
+        tags: []
+        children:
+          - name: b11
+            dataType: INT
+            dataTypeDisplay: int
+            description: inner comment 21
+            fullyQualifiedName: testunitycatalog.demo.new_schema.comments_test.complex_col.b2.b11
+            tags: []
+            children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: b6f4865e-8002-4e4f-8610-8100eaad51cd
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: testunitycatalog.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: 2f3a2f0e-8b66-418a-98b9-5a9ca1c51848
+  type: database
+  name: demo
+  fullyQualifiedName: testunitycatalog.demo
+  displayName: demo
+  deleted: false
+service:
+  id: fd3d5144-3617-4ec5-9cdc-43b78edbe578
+  type: databaseService
+  name: testunitycatalog
+  fullyQualifiedName: testunitycatalog
+  description: ""
+  displayName: testunitycatalog
+  deleted: false
+serviceType: UnityCatalog
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 8d856656-0de0-47b4-9931-deab13271c1c
+  type: testSuite
+  name: testunitycatalog.demo.new_schema.comments_test.testSuite
+  fullyQualifiedName: testunitycatalog.demo.new_schema.comments_test.testSuite
+  displayName: testunitycatalog.demo.new_schema.comments_test.testSuite
+  deleted: false
+domains: []
+dataProducts: []
+sourceHash: 31032af92c125da100c7f087b31944e2
+processedLineage: false
+entityStatus: Approved

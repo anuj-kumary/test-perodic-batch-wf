@@ -1,0 +1,226 @@
+name: person_address
+fullyQualifiedName: testunitycatalog.demo.new_schema.person_address
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Unique identifier
+    fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the person
+    fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.name
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: STRUCT
+    dataLength: 1
+    dataTypeDisplay: "struct<street:string,city:string,state:string,postal_code:string,country:string,coordinates:struct<latitude:double,longitude:double,elevation:struct<level:int,unit:string>>>"
+    description: Address information
+    fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address
+    tags:
+      - tagFQN: General.Location
+        name: Location
+        description: "Name of politically or geographically defined location (cities,\
+          \ provinces, countries, international regions, bodies of water, mountains."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    children:
+      - name: street
+        dataType: STRING
+        dataTypeDisplay: string
+        description: Street name
+        fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.street
+        tags: []
+        children: []
+      - name: city
+        dataType: STRING
+        dataTypeDisplay: string
+        description: City name
+        fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.city
+        tags: []
+        children: []
+      - name: state
+        dataType: STRING
+        dataTypeDisplay: string
+        description: State name
+        fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.state
+        tags: []
+        children: []
+      - name: postal_code
+        dataType: STRING
+        dataTypeDisplay: string
+        description: Postal code
+        fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.postal_code
+        tags: []
+        children: []
+      - name: country
+        dataType: STRING
+        dataTypeDisplay: string
+        description: Country name
+        fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.country
+        tags: []
+        children: []
+      - name: coordinates
+        dataType: STRUCT
+        dataTypeDisplay: "struct<latitude:double,longitude:double,elevation:struct<level:int,unit:string>>"
+        fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.coordinates
+        tags: []
+        children:
+          - name: latitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            description: Latitude coordinate
+            fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.coordinates.latitude
+            tags: []
+            children: []
+          - name: longitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            description: Longitude coordinate
+            fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.coordinates.longitude
+            tags: []
+            children: []
+          - name: elevation
+            dataType: STRUCT
+            dataTypeDisplay: "struct<level:int,unit:string>"
+            fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.coordinates.elevation
+            tags: []
+            children:
+              - name: level
+                dataType: INT
+                dataTypeDisplay: int
+                description: Elevation level
+                fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.coordinates.elevation.level
+                tags: []
+                children: []
+              - name: unit
+                dataType: STRING
+                dataTypeDisplay: string
+                description: Elevation unit
+                fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.address.coordinates.elevation.unit
+                tags: []
+                children: []
+    customMetrics: []
+  - name: phone_numbers
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataLength: 1
+    dataTypeDisplay: array<string>
+    description: List of phone numbers
+    fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.phone_numbers
+    tags: []
+    children: []
+    customMetrics: []
+  - name: preferences
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string,string>"
+    description: User preferences
+    fullyQualifiedName: testunitycatalog.demo.new_schema.person_address.preferences
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: b6f4865e-8002-4e4f-8610-8100eaad51cd
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: testunitycatalog.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: 2f3a2f0e-8b66-418a-98b9-5a9ca1c51848
+  type: database
+  name: demo
+  fullyQualifiedName: testunitycatalog.demo
+  displayName: demo
+  deleted: false
+service:
+  id: fd3d5144-3617-4ec5-9cdc-43b78edbe578
+  type: databaseService
+  name: testunitycatalog
+  fullyQualifiedName: testunitycatalog
+  description: ""
+  displayName: testunitycatalog
+  deleted: false
+serviceType: UnityCatalog
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.name.tags
+      newValue: "[{\"tagFQN\":\"General.Person\",\"name\":\"Person\",\"description\"\
+        :\"A full person name, which can include first names, middle names or initials,\
+        \ and last names.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\"\
+        ,\"description\":\"PII which if lost, compromised, or disclosed without authorization,\
+        \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\"}]"
+    - name: columns.address.tags
+      newValue: "[{\"tagFQN\":\"General.Location\",\"name\":\"Location\",\"description\"\
+        :\"Name of politically or geographically defined location (cities, provinces,\
+        \ countries, international regions, bodies of water, mountains.\",\"source\"\
+        :\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"\
+        tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\":\"\
+        PII which is easily accessible from public sources and can include zip code,\
+        \ race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: 479dd6bd543f476019b167bcde645c9f
+processedLineage: false
+entityStatus: Approved

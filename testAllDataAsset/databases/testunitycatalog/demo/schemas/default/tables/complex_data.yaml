@@ -1,0 +1,148 @@
+name: complex_data
+fullyQualifiedName: testunitycatalog.demo.default.complex_data
+description: <description>aaa
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: testunitycatalog.demo.default.complex_data.id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: array_data
+    dataType: ARRAY
+    arrayDataType: INT
+    dataLength: 1
+    dataTypeDisplay: array<int>
+    fullyQualifiedName: testunitycatalog.demo.default.complex_data.array_data
+    tags: []
+    children: []
+    customMetrics: []
+  - name: map_data
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string,int>"
+    fullyQualifiedName: testunitycatalog.demo.default.complex_data.map_data
+    tags: []
+    children: []
+    customMetrics: []
+  - name: struct_data
+    dataType: STRUCT
+    dataLength: 1
+    dataTypeDisplay: "struct<a:int,b:string,c:array<string>,d:struct<abc:int>>"
+    fullyQualifiedName: testunitycatalog.demo.default.complex_data.struct_data
+    tags:
+      - tagFQN: General.DriverLicense
+        name: DriverLicense
+        description: Person's driver's license image or number.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    children:
+      - name: a
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: testunitycatalog.demo.default.complex_data.struct_data.a
+        tags: []
+        children: []
+      - name: b
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: testunitycatalog.demo.default.complex_data.struct_data.b
+        tags: []
+        children: []
+      - name: c
+        dataType: ARRAY
+        arrayDataType: STRING
+        dataTypeDisplay: array<string>
+        fullyQualifiedName: testunitycatalog.demo.default.complex_data.struct_data.c
+        tags: []
+        children: []
+      - name: d
+        dataType: STRUCT
+        dataTypeDisplay: struct<abc:int>
+        fullyQualifiedName: testunitycatalog.demo.default.complex_data.struct_data.d
+        tags: []
+        children:
+          - name: abc
+            dataType: INT
+            dataTypeDisplay: int
+            fullyQualifiedName: testunitycatalog.demo.default.complex_data.struct_data.d.abc
+            tags: []
+            children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 6f780acb-493a-40d2-ac4b-b92f5119f2e5
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: testunitycatalog.demo.default
+  displayName: default
+  deleted: false
+database:
+  id: 2f3a2f0e-8b66-418a-98b9-5a9ca1c51848
+  type: database
+  name: demo
+  fullyQualifiedName: testunitycatalog.demo
+  displayName: demo
+  deleted: false
+service:
+  id: fd3d5144-3617-4ec5-9cdc-43b78edbe578
+  type: databaseService
+  name: testunitycatalog
+  fullyQualifiedName: testunitycatalog
+  description: ""
+  displayName: testunitycatalog
+  deleted: false
+serviceType: UnityCatalog
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 53faabfe-19f2-442b-a996-a2827f358210
+  type: testSuite
+  name: testunitycatalog.demo.default.complex_data.testSuite
+  fullyQualifiedName: testunitycatalog.demo.default.complex_data.testSuite
+  displayName: testunitycatalog.demo.default.complex_data.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.struct_data.tags
+      newValue: "[{\"tagFQN\":\"General.DriverLicense\",\"name\":\"DriverLicense\"\
+        ,\"description\":\"Person's driver's license image or number.\",\"source\"\
+        :\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"\
+        tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\",\"description\":\"PII which\
+        \ if lost, compromised, or disclosed without authorization, could result in\
+        \ substantial harm, embarrassment, inconvenience, or unfairness to an individual.\"\
+        ,\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\",\"labelType\"\
+        :\"Generated\",\"state\":\"Suggested\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: dec181337db7d2d6a616eeecddc49f32
+processedLineage: false
+entityStatus: Approved

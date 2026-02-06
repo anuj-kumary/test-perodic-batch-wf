@@ -1,0 +1,159 @@
+name: customerlogin
+fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer.customerlogin
+tableType: Regular
+columns:
+  - name: loginid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer.customerlogin.loginid
+    tags: []
+    children: []
+    customMetrics: []
+  - name: username
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer.customerlogin.username
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    children: []
+    customMetrics: []
+  - name: passwordhash
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer.customerlogin.passwordhash
+    tags: []
+    children: []
+    customMetrics: []
+  - name: customerid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer.customerlogin.customerid
+    tags: []
+    children: []
+    customMetrics: []
+  - name: _fivetran_deleted
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer.customerlogin._fivetran_deleted
+    tags: []
+    children: []
+    customMetrics: []
+  - name: _fivetran_synced
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer.customerlogin._fivetran_synced
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f4504e9e-ba46-45a2-879a-fd1caf39dcea
+  type: databaseSchema
+  name: mssqlbanking_customer
+  fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer
+  displayName: mssqlbanking_customer
+  deleted: false
+database:
+  id: 2f3a2f0e-8b66-418a-98b9-5a9ca1c51848
+  type: database
+  name: demo
+  fullyQualifiedName: testunitycatalog.demo
+  displayName: demo
+  deleted: false
+service:
+  id: fd3d5144-3617-4ec5-9cdc-43b78edbe578
+  type: databaseService
+  name: testunitycatalog
+  fullyQualifiedName: testunitycatalog
+  description: ""
+  displayName: testunitycatalog
+  deleted: false
+serviceType: UnityCatalog
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 3dd5ad36-953e-405c-b9f5-9b7f0a7b8065
+  type: testSuite
+  name: testunitycatalog.demo.mssqlbanking_customer.customerlogin.testSuite
+  fullyQualifiedName: testunitycatalog.demo.mssqlbanking_customer.customerlogin.testSuite
+  displayName: testunitycatalog.demo.mssqlbanking_customer.customerlogin.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.username.tags
+      newValue: "[{\"tagFQN\":\"General.Person\",\"name\":\"Person\",\"description\"\
+        :\"A full person name, which can include first names, middle names or initials,\
+        \ and last names.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\"\
+        ,\"description\":\"PII which if lost, compromised, or disclosed without authorization,\
+        \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\"}]"
+    - name: columns._fivetran_synced.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: 1ecc3556dcf13cc30232337249478a46
+processedLineage: false
+entityStatus: Approved

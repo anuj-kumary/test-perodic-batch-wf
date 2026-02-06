@@ -1,0 +1,151 @@
+name: table_two
+fullyQualifiedName: testunitycatalog.demo.new_schema.table_two
+description: Table with complex datatypes
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Unique identifier
+    fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the person
+    fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.name
+    tags: []
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: STRUCT
+    dataLength: 1
+    dataTypeDisplay: "struct<street:string,city:string,state:string,postal_code:string,country:string,coordinates:struct<latitude:double,longitude:double>>"
+    description: Address information
+    fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address
+    tags: []
+    children:
+      - name: street
+        dataType: STRING
+        dataTypeDisplay: string
+        description: Street name
+        fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address.street
+        tags: []
+        children: []
+      - name: city
+        dataType: STRING
+        dataTypeDisplay: string
+        description: City name
+        fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address.city
+        tags: []
+        children: []
+      - name: state
+        dataType: STRING
+        dataTypeDisplay: string
+        description: State name
+        fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address.state
+        tags: []
+        children: []
+      - name: postal_code
+        dataType: STRING
+        dataTypeDisplay: string
+        description: Postal code
+        fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address.postal_code
+        tags: []
+        children: []
+      - name: country
+        dataType: STRING
+        dataTypeDisplay: string
+        description: Country name
+        fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address.country
+        tags: []
+        children: []
+      - name: coordinates
+        dataType: STRUCT
+        dataTypeDisplay: "struct<latitude:double,longitude:double>"
+        description: Geographic coordinates including latitude and longitude
+        fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address.coordinates
+        tags: []
+        children:
+          - name: latitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            description: Latitude coordinate
+            fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address.coordinates.latitude
+            tags: []
+            children: []
+          - name: longitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            description: Longitude coordinate
+            fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.address.coordinates.longitude
+            tags: []
+            children: []
+    customMetrics: []
+  - name: phone_numbers
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataLength: 1
+    dataTypeDisplay: array<string>
+    description: List of phone numbers
+    fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.phone_numbers
+    tags: []
+    children: []
+    customMetrics: []
+  - name: preferences
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string,struct<key1:string,key2:int>>"
+    description: User preferences with nested struct
+    fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.preferences
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: b6f4865e-8002-4e4f-8610-8100eaad51cd
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: testunitycatalog.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: 2f3a2f0e-8b66-418a-98b9-5a9ca1c51848
+  type: database
+  name: demo
+  fullyQualifiedName: testunitycatalog.demo
+  displayName: demo
+  deleted: false
+service:
+  id: fd3d5144-3617-4ec5-9cdc-43b78edbe578
+  type: databaseService
+  name: testunitycatalog
+  fullyQualifiedName: testunitycatalog
+  description: ""
+  displayName: testunitycatalog
+  deleted: false
+serviceType: UnityCatalog
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 98964b60-c94d-4cde-914b-9324905dcd70
+  type: testSuite
+  name: testunitycatalog.demo.new_schema.table_two.testSuite
+  fullyQualifiedName: testunitycatalog.demo.new_schema.table_two.testSuite
+  displayName: testunitycatalog.demo.new_schema.table_two.testSuite
+  deleted: false
+domains: []
+dataProducts: []
+sourceHash: ab6db6ff0f9748372ce2f08405efa418
+processedLineage: false
+entityStatus: Approved
