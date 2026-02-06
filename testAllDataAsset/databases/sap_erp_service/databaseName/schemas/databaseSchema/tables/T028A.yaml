@@ -1,0 +1,179 @@
+name: T028A
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A
+description: Bank Statement Table
+tableType: Regular
+columns:
+  - name: ASALD
+    displayName: Opening balance
+    dataType: DECIMAL
+    dataLength: 13
+    precision: 13
+    scale: 2
+    dataTypeDisplay: "curr(13,2)"
+    description: Beginning Balance
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.ASALD
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: AZDAT
+    displayName: Statement Date
+    dataType: DATE
+    dataLength: 8
+    dataTypeDisplay: dats(8)
+    description: Statement Date
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.AZDAT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: AZNUM
+    displayName: Statement number
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: numc(5)
+    description: Statement number
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.AZNUM
+    tags: []
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: BUKRS
+    displayName: Company Code
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Company Code
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.BUKRS
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: ESALD
+    displayName: Closing balance
+    dataType: DECIMAL
+    dataLength: 13
+    precision: 13
+    scale: 2
+    dataTypeDisplay: "curr(13,2)"
+    description: Closing balance
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.ESALD
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: HKONT
+    displayName: G/L Account
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: General Ledger Account
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.HKONT
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: JAHR
+    displayName: Statement year
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: numc(4)
+    description: Bank statement year
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.JAHR
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: VADAT
+    displayName: Processing date
+    dataType: DATE
+    dataLength: 8
+    dataTypeDisplay: dats(8)
+    description: Processing date
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.VADAT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 11
+    children: []
+    customMetrics: []
+  - name: VSTAT
+    displayName: Processing status
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Processing status
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.VSTAT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 10
+    children: []
+    customMetrics: []
+  - name: WAERS
+    displayName: Currency
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: cuky(5)
+    description: Currency Key
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028A.WAERS
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - AZNUM
+      - BUKRS
+      - HKONT
+      - JAHR
+      - MANDT
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 3d7c1c4e0bfd48089ab46350f2230f1f
+processedLineage: false
+entityStatus: Approved

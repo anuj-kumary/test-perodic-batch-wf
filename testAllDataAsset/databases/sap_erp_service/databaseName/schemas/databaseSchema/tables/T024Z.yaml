@@ -1,0 +1,139 @@
+name: T024Z
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z
+description: Purchasing Organizations
+tableType: Regular
+columns:
+  - name: EKABR
+    displayName: Contr. Release Order
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Contract Release Order
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z.EKABR
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: EKINF
+    displayName: Info Record
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Read Info Record
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z.EKINF
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: EKINM
+    displayName: Own info record
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Read info record only if own info record does not exist
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z.EKINM
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: EKKON
+    displayName: Conditions allowed
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Conditions allowed
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z.EKKON
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: EKLIF
+    displayName: Vendor master
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Read vendor master record
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z.EKLIF
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: EKORG
+    displayName: Purch. Organization
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Purchasing Organization
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z.EKORG
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: EKORZ
+    displayName: Reference Purchasing Org.
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Reference Purchasing Organization
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z.EKORZ
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T024Z.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - EKORG
+      - EKORZ
+      - MANDT
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 6014687fc472f6cd34023dd885e84abe
+processedLineage: false
+entityStatus: Approved
