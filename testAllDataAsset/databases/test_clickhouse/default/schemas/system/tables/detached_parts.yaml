@@ -1,0 +1,168 @@
+name: detached_parts
+fullyQualifiedName: test_clickhouse.default.system.detached_parts
+description: Contains a list of all parts which are being found in /detached directory
+  along with a reason why it was detached. ClickHouse server doesn't use such parts
+  anyhow.
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the database this part belongs to.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the table this part belongs to.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: partition_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: The identifier of the partition this part belongs to.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.partition_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the part.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: bytes_on_disk
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of all the data part files in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.bytes_on_disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: modification_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time the directory with the data part was modified. This usually
+      corresponds to the time when detach happened.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.modification_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: disk
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the disk that stores this data part.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The path of the disk to the file of this data part.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: reason
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: The explanation why this part was detached.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.reason
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: min_block_number
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<int64>
+    description: The minimum number of data parts that make up the current part after
+      merging.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.min_block_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_block_number
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<int64>
+    description: The maximum number of data parts that make up the current part after
+      merging.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.max_block_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: level
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint32>
+    description: Depth of the merge tree. Zero means that the current part was created
+      by insert rather than by merging other parts.
+    fullyQualifiedName: test_clickhouse.default.system.detached_parts.level
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 308208b19e31a9a44309c3b0088eb9b3
+processedLineage: false
+entityStatus: Unprocessed

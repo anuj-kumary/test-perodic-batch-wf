@@ -1,0 +1,114 @@
+name: dropped_tables
+fullyQualifiedName: test_clickhouse.default.system.dropped_tables
+description: Contains a list of tables which were dropped from Atomic databases but
+  not completely removed yet.
+tableType: Regular
+columns:
+  - name: index
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Index in marked_dropped_tables queue.
+    fullyQualifiedName: test_clickhouse.default.system.dropped_tables.index
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Database name.
+    fullyQualifiedName: test_clickhouse.default.system.dropped_tables.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Table name.
+    fullyQualifiedName: test_clickhouse.default.system.dropped_tables.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: uuid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: Table UUID.
+    fullyQualifiedName: test_clickhouse.default.system.dropped_tables.uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: engine
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Table engine name.
+    fullyQualifiedName: test_clickhouse.default.system.dropped_tables.engine
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: metadata_dropped_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path of table's metadata file in metadata_dropped directory.
+    fullyQualifiedName: test_clickhouse.default.system.dropped_tables.metadata_dropped_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table_dropped_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time when the next attempt to remove table's data is scheduled
+      on. Usually it's the table when the table was dropped plus `database_atomic_delay_before_drop_table_sec`.
+    fullyQualifiedName: test_clickhouse.default.system.dropped_tables.table_dropped_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: a2f57bd3fdcf87783dbbe706dc7c91c0
+processedLineage: false
+entityStatus: Unprocessed

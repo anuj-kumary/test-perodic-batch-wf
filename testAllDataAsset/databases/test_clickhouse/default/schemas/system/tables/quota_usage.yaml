@@ -1,0 +1,330 @@
+name: quota_usage
+fullyQualifiedName: test_clickhouse.default.system.quota_usage
+description: "Contains quota usage by the current user: how much is used and how much\
+  \ is left."
+tableType: Regular
+columns:
+  - name: quota_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Quota name.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.quota_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: quota_key
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Key value.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.quota_key
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: Start time for calculating resource consumption.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.start_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: end_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: End time for calculating resource consumption.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.end_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: duration
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint32>
+    description: "Length of the time interval for calculating resource consumption,\
+      \ in seconds."
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.duration
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: queries
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current number of executed queries.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.queries
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_queries
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum allowed number of queries of all types allowed to be
+      executed.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_queries
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query_selects
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current number of executed SELECT queries.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.query_selects
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_query_selects
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum allowed number of SELECT queries allowed to be executed.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_query_selects
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query_inserts
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current number of executed INSERT queries.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.query_inserts
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_query_inserts
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum allowed number of INSERT queries allowed to be executed.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_query_inserts
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: errors
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current number of queries resulted in an error.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_errors
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum number of queries resulted in an error allowed within
+      the specified period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: result_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current total number of rows in the result set of all queries
+      within the current period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.result_rows
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_result_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum total number of rows in the result set of all queries
+      allowed within the specified period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_result_rows
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: result_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current total number of bytes in the result set of all queries
+      within the current period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.result_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_result_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum total number of bytes in the result set of all queries
+      allowed within the specified period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_result_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: read_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current total number of rows read during execution of all queries
+      within the current period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.read_rows
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_read_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum number of rows to read during execution of all queries
+      allowed within the specified period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_read_rows
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: read_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current total number of bytes read during execution of all queries
+      within the current period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.read_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_read_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum number of bytes to read during execution of all queries
+      allowed within the specified period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_read_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: execution_time
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: nullable<float64>
+    description: The current total amount of time (in nanoseconds) spent to execute
+      queries within the current period of time
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.execution_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_execution_time
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: nullable<float64>
+    description: The maximum amount of time (in nanoseconds) allowed for all queries
+      to execute within the specified period of time
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_execution_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: written_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current total number of bytes written during execution of all
+      queries within the current period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.written_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_written_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum number of bytes to written during execution of all queries
+      allowed within the specified period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_written_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: failed_sequential_authentications
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The current number of consecutive authentication failures within
+      the current period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.failed_sequential_authentications
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max_failed_sequential_authentications
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: The maximum number of consecutive authentication failures allowed
+      within the specified period of time.
+    fullyQualifiedName: test_clickhouse.default.system.quota_usage.max_failed_sequential_authentications
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 8f4c79da7a4d64d785ebc407c210f5c4
+processedLineage: false
+entityStatus: Unprocessed

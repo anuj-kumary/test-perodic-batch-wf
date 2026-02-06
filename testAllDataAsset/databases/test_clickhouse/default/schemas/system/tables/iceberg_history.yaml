@@ -1,0 +1,104 @@
+name: iceberg_history
+fullyQualifiedName: test_clickhouse.default.system.iceberg_history
+description: Displays the history of an iceberg table similar to the Spark history
+  table
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Database name.
+    fullyQualifiedName: test_clickhouse.default.system.iceberg_history.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Table name.
+    fullyQualifiedName: test_clickhouse.default.system.iceberg_history.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: made_current_at
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime64<3>>
+    description: Date & time when this snapshot was made current snapshot
+    fullyQualifiedName: test_clickhouse.default.system.iceberg_history.made_current_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: snapshot_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Snapshot id which is used to identify a snapshot.
+    fullyQualifiedName: test_clickhouse.default.system.iceberg_history.snapshot_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Parent id of this snapshot.
+    fullyQualifiedName: test_clickhouse.default.system.iceberg_history.parent_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_current_ancestor
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag that indicates if this snapshot is an ancestor of the current
+      snapshot.
+    fullyQualifiedName: test_clickhouse.default.system.iceberg_history.is_current_ancestor
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 787f2fe1ddc9578ec727cbb1eb2132a6
+processedLineage: false
+entityStatus: Unprocessed

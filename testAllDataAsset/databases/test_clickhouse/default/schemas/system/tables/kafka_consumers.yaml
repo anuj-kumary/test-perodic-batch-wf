@@ -1,0 +1,230 @@
+name: kafka_consumers
+fullyQualifiedName: test_clickhouse.default.system.kafka_consumers
+description: Contains information about Kafka consumers. Applicable for Kafka table
+  engine (native ClickHouse integration).
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Database of the table with Kafka Engine.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table with Kafka Engine.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: consumer_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Kafka consumer identifier. Note, that a table can have many consumers.\
+      \ Specified by `kafka_num_consumers` parameter."
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.consumer_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: assignments.topic
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Kafka topic.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers."assignments.topic"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: assignments.partition_id
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<int32>
+    description: "Kafka partition id. Note, that only one consumer can be assigned\
+      \ to a partition."
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers."assignments.partition_id"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: assignments.current_offset
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<int64>
+    description: Current offset.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers."assignments.current_offset"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: assignments.intent_size
+    dataType: ARRAY
+    arrayDataType: UNKNOWN
+    dataTypeDisplay: array<nullable<int64>>
+    description: "The number of pushed, but not yet committed messages in new StorageKafka."
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers."assignments.intent_size"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: exceptions.time
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: Timestamp when the 10 most recent exceptions were generated.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers."exceptions.time"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: exceptions.text
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Text of 10 most recent exceptions.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers."exceptions.text"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: last_poll_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Timestamp of the most recent poll.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.last_poll_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: num_messages_read
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of messages read by the consumer.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.num_messages_read
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_commit_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Timestamp of the most recent poll.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.last_commit_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: num_commits
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total number of commits for the consumer.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.num_commits
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_rebalance_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Timestamp of the most recent Kafka rebalance.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.last_rebalance_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: num_rebalance_revocations
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of times the consumer was revoked its partitions.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.num_rebalance_revocations
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: num_rebalance_assignments
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of times the consumer was assigned to Kafka cluster.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.num_rebalance_assignments
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_currently_used
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The flag which shows whether the consumer is in use.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.is_currently_used
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_used
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime64<6>
+    description: The last time this consumer was in use.
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.last_used
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rdkafka_stat
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Library internal statistic. Set statistics_interval_ms to 0 disable,\
+      \ default is 3000 (once in three seconds)."
+    fullyQualifiedName: test_clickhouse.default.system.kafka_consumers.rdkafka_stat
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: c8a29f658505d57e39fb909d6204ace1
+processedLineage: false
+entityStatus: Unprocessed

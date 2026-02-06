@@ -1,0 +1,284 @@
+name: processors_profile_log
+fullyQualifiedName: test_clickhouse.default.system.processors_profile_log
+description: |-
+  Contains profiling information on processors level (building blocks for a pipeline for query execution.
+
+  It is safe to truncate or drop this table at any time.
+tableType: Regular
+columns:
+  - name: hostname
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Hostname of the server executing the query.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The date when the event happened.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.event_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The date and time when the event happened.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.event_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time_microseconds
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime64<6>
+    description: The date and time with microseconds precision when the event happened.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.event_time_microseconds
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: ID of processor.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_ids
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    description: Parent processors IDs.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.parent_ids
+    tags: []
+    children: []
+    customMetrics: []
+  - name: plan_step
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: ID of the query plan step which created this processor. The value
+      is zero if the processor was not added from any step.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.plan_step
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: plan_step_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the query plan step which created this processor. The value
+      is empty if the processor was not added from any step.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.plan_step_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: plan_step_description
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Description of the query plan step which created this processor.
+      The value is empty if the processor was not added from any step.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.plan_step_description
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: plan_group
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Group of the processor if it was created by query plan step. A group
+      is a logical partitioning of processors added from the same query plan step.
+      Group is used only for beautifying the result of EXPLAIN PIPELINE result.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.plan_group
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_query_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the initial query (for distributed query execution).
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.initial_query_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the query.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.query_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Name of the processor.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: elapsed_us
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of microseconds this processor was executed.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.elapsed_us
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: input_wait_elapsed_us
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of microseconds this processor was waiting for data (from
+      other processor).
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.input_wait_elapsed_us
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: output_wait_elapsed_us
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of microseconds this processor was waiting because output
+      port was full.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.output_wait_elapsed_us
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: input_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of rows consumed by processor.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.input_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: input_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of bytes consumed by processor.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.input_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: output_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of rows generated by processor.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.output_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: output_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of bytes generated by processor.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.output_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: processor_uniq_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The uniq processor id in pipeline.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.processor_uniq_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: step_uniq_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The uniq step id in plan.
+    fullyQualifiedName: test_clickhouse.default.system.processors_profile_log.step_uniq_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"observability-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+sourceHash: 4926bb51955a37ead8c638e0065dbf5f
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,330 @@
+name: dictionaries
+fullyQualifiedName: test_clickhouse.default.system.dictionaries
+description: Contains information about dictionaries.
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the database containing the dictionary created by DDL query.
+      Empty string for other dictionaries.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Dictionary name.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: uuid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: Dictionary UUID.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: ENUM
+    dataLength: 1
+    dataTypeDisplay: "enum8<'not_loaded' = 0, 'loaded' = 1, 'failed' = 2, 'loading'\
+      \ = 3, 'failed_and_reloading' = 4, 'loaded_and_reloading' = 5, 'not_exist' =\
+      \ 6>"
+    description: "Dictionary status. Possible values: NOT_LOADED — Dictionary was\
+      \ not loaded because it was not used, LOADED — Dictionary loaded successfully,\
+      \ FAILED — Unable to load the dictionary as a result of an error, LOADING —\
+      \ Dictionary is loading now, LOADED_AND_RELOADING — Dictionary is loaded successfully,\
+      \ and is being reloaded right now (frequent reasons: SYSTEM RELOAD DICTIONARY\
+      \ query, timeout, dictionary config has changed), FAILED_AND_RELOADING — Could\
+      \ not load the dictionary as a result of an error and is loading now."
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.status
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: origin
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path to the configuration file that describes the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.origin
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Type of a dictionary allocation. Storing Dictionaries in Memory.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: key.names
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Array of key names provided by the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries."key.names"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: key.types
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Corresponding array of key types provided by the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries."key.types"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: attribute.names
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Array of attribute names provided by the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries."attribute.names"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: attribute.types
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Corresponding array of attribute types provided by the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries."attribute.types"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: bytes_allocated
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Amount of RAM allocated for the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.bytes_allocated
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: hierarchical_index_bytes_allocated
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Amount of RAM allocated for hierarchical index.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.hierarchical_index_bytes_allocated
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_count
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of queries since the dictionary was loaded or since the last
+      successful reboot.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.query_count
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: hit_rate
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: "For cache dictionaries, the percentage of uses for which the value\
+      \ was in the cache."
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.hit_rate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: found_rate
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: The percentage of uses for which the value was found.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.found_rate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: element_count
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of items stored in the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.element_count
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: load_factor
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: "Percentage filled in the dictionary (for a hashed dictionary, the\
+      \ percentage filled in the hash table)."
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.load_factor
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: source
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Text describing the data source for the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.source
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: lifetime_min
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Minimum lifetime of the dictionary in memory, after which ClickHouse\
+      \ tries to reload the dictionary (if invalidate_query is set, then only if it\
+      \ has changed). Set in seconds."
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.lifetime_min
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: lifetime_max
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Maximum lifetime of the dictionary in memory, after which ClickHouse\
+      \ tries to reload the dictionary (if invalidate_query is set, then only if it\
+      \ has changed). Set in seconds."
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.lifetime_max
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: loading_start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Start time for loading the dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.loading_start_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_successful_update_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: End time for loading or updating the dictionary. Helps to monitor
+      some troubles with dictionary sources and investigate the causes.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.last_successful_update_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: error_count
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of errors since last successful loading. Helps to monitor
+      some troubles with dictionary sources and investigate the causes.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.error_count
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: loading_duration
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float32
+    description: Duration of a dictionary loading.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.loading_duration
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Text of the error that occurs when creating or reloading the dictionary
+      if the dictionary couldn't be created.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.last_exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: comment
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Text of the comment to dictionary.
+    fullyQualifiedName: test_clickhouse.default.system.dictionaries.comment
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"operator-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: operator-internal
+sourceHash: 6266b716516a5b65205d527fdeb17678
+processedLineage: false
+entityStatus: Unprocessed

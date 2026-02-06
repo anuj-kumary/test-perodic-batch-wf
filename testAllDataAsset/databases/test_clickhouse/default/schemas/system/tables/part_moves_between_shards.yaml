@@ -1,0 +1,183 @@
+name: part_moves_between_shards
+fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards
+description: Contains information about parts which are currently in a process of
+  moving between shards and their progress.
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the database where move is performed.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the table where move is performed.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: task_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the moving task.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.task_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: task_uuid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: The identifier of the moving task.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.task_uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: create_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time when the task was created.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.create_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the part which is in a process of moving.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.part_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_uuid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: The UUID of the part which is in a process of moving.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.part_uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: to_shard
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the destination shard.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.to_shard
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dst_part_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The result part name.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.dst_part_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: update_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The last time update was performed.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.update_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: state
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The current state of the move.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.state
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rollback
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The flag which indicated whether the operation was rolled back.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.rollback
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: num_tries
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of tries to complete the operation.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.num_tries
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The last exception name if any.
+    fullyQualifiedName: test_clickhouse.default.system.part_moves_between_shards.last_exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 70d04e5a2a7f196ebecb6822a48b0b11
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,136 @@
+name: clickpipes_log
+fullyQualifiedName: test_clickhouse.default.system.clickpipes_log
+tableType: Regular
+columns:
+  - name: event_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.event_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.event_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time_microseconds
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime64<6>
+    description: Query starting time with microseconds precision.
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.event_time_microseconds
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_level
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.log_level
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: message
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.message
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: error
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.error
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: error_type
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.error_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: metadata
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string, string>"
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.metadata
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: clickpipe_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    fullyQualifiedName: test_clickhouse.default.system.clickpipes_log.clickpipe_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"observability-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+sourceHash: bb089d1cbd4e9d4bf1f030115fa0ed2d
+processedLineage: false
+entityStatus: Unprocessed

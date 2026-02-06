@@ -1,0 +1,223 @@
+name: mutations
+fullyQualifiedName: test_clickhouse.default.system.mutations
+description: Contains a list of mutations and their progress. Each mutation command
+  is represented by a single row.
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the database to which the mutation was applied.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the table to which the mutation was applied.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: mutation_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The ID of the mutation. For replicated tables these IDs correspond
+      to znode names in the <table_path_in_clickhouse_keeper>/mutations/ directory
+      in ClickHouse Keeper. For non-replicated tables the IDs correspond to file names
+      in the data directory of the table.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.mutation_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: command
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The mutation command string (the part of the query after ALTER TABLE\
+      \ [db.]table)."
+    fullyQualifiedName: test_clickhouse.default.system.mutations.command
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: create_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time when the mutation command was submitted for execution.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.create_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: block_numbers.partition_id
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: "For mutations of replicated tables, the array contains the partitions'\
+      \ IDs (one record for each partition). For mutations of non-replicated tables\
+      \ the array is empty."
+    fullyQualifiedName: test_clickhouse.default.system.mutations."block_numbers.partition_id"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: block_numbers.number
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<int64>
+    description: "For mutations of replicated tables, the array contains one record\
+      \ for each partition, with the block number that was acquired by the mutation.\
+      \ Only parts that contain blocks with numbers less than this number will be\
+      \ mutated in the partition.In non-replicated tables, block numbers in all partitions\
+      \ form a single sequence. This means that for mutations of non-replicated tables,\
+      \ the column will contain one record with a single block number acquired by\
+      \ the mutation."
+    fullyQualifiedName: test_clickhouse.default.system.mutations."block_numbers.number"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: parts_to_do_names
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: An array of names of data parts that need to be mutated for the mutation
+      to complete.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.parts_to_do_names
+    tags: []
+    children: []
+    customMetrics: []
+  - name: parts_to_do
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: The number of data parts that need to be mutated for the mutation
+      to complete.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.parts_to_do
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_done
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "The flag whether the mutation is done or not. Possible values: 1\
+      \ if the mutation is completed, 0 if the mutation is still in process. "
+    fullyQualifiedName: test_clickhouse.default.system.mutations.is_done
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_killed
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Indicates whether a mutation has been killed. Only available in\
+      \ ClickHouse Cloud.Note: is_killed=1 does not necessarily mean the mutation\
+      \ is completely finalized.It is possible for a mutation to remain in a state\
+      \ where is_killed=1 and is_done=0 for an extended period.This can occur if another\
+      \ long-running mutation is blocking the killed mutation. This is a normal situation."
+    fullyQualifiedName: test_clickhouse.default.system.mutations.is_killed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: latest_failed_part
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the most recent part that could not be mutated.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.latest_failed_part
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: latest_fail_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The date and time of the most recent part mutation failure.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.latest_fail_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: latest_fail_reason
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The exception message that caused the most recent part mutation failure.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.latest_fail_reason
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: latest_fail_error_code_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The error code of the exception that caused the most recent part
+      mutation failure.
+    fullyQualifiedName: test_clickhouse.default.system.mutations.latest_fail_error_code_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"observability-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+sourceHash: b4a51dad2c33b0cb1c65175b0d9dc3b1
+processedLineage: false
+entityStatus: Unprocessed

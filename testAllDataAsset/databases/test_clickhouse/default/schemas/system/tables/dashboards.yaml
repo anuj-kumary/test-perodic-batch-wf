@@ -1,0 +1,74 @@
+name: dashboards
+fullyQualifiedName: test_clickhouse.default.system.dashboards
+description: Contains queries used by /dashboard page accessible though HTTP interface.
+  This table can be useful for monitoring and troubleshooting. The table contains
+  a row for every chart in a dashboard.
+tableType: Regular
+columns:
+  - name: dashboard
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The dashboard name.
+    fullyQualifiedName: test_clickhouse.default.system.dashboards.dashboard
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: title
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The title of a chart.
+    fullyQualifiedName: test_clickhouse.default.system.dashboards.title
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The query to obtain data to be displayed.
+    fullyQualifiedName: test_clickhouse.default.system.dashboards.query
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 322639b31975359ac74c98311a36d4f5
+processedLineage: false
+entityStatus: Unprocessed

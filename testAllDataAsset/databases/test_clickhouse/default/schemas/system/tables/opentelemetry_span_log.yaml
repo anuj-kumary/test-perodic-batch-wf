@@ -1,0 +1,170 @@
+name: opentelemetry_span_log
+fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log
+description: |-
+  Contains information about trace spans for executed queries.
+
+  It is safe to truncate or drop this table at any time.
+tableType: Regular
+columns:
+  - name: hostname
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: The hostname where this span was captured.
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: trace_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: ID of the trace for executed query.
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.trace_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: span_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: ID of the trace span.
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.span_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_span_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: ID of the parent trace span.
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.parent_span_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: operation_name
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: The name of the operation.
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.operation_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: kind
+    dataType: ENUM
+    dataLength: 1
+    dataTypeDisplay: "enum8<'internal' = 0, 'server' = 1, 'client' = 2, 'producer'\
+      \ = 3, 'consumer' = 4>"
+    description: "The SpanKind of the span. INTERNAL — Indicates that the span represents\
+      \ an internal operation within an application. SERVER — Indicates that the span\
+      \ covers server-side handling of a synchronous RPC or other remote request.\
+      \ CLIENT — Indicates that the span describes a request to some remote service.\
+      \ PRODUCER — Indicates that the span describes the initiators of an asynchronous\
+      \ request. This parent span will often end before the corresponding child CONSUMER\
+      \ span, possibly even before the child span starts. CONSUMER - Indicates that\
+      \ the span describes a child of an asynchronous PRODUCER request."
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: start_time_us
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The start time of the trace span (in microseconds).
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.start_time_us
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: finish_time_us
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The finish time of the trace span (in microseconds).
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.finish_time_us
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: finish_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The finish date of the trace span.
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.finish_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: attribute
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<lowcardinality<string>, string>"
+    description: Attribute depending on the trace span. They are filled in according
+      to the recommendations in the OpenTelemetry standard.
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log.attribute
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: attribute.names
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log."attribute.names"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: attribute.values
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    fullyQualifiedName: test_clickhouse.default.system.opentelemetry_span_log."attribute.values"
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: a07e4f9c1d27416793f0f2f8f20b8ac0
+processedLineage: false
+entityStatus: Unprocessed

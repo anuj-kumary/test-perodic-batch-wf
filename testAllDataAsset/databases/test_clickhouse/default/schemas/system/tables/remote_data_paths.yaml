@@ -1,0 +1,123 @@
+name: remote_data_paths
+fullyQualifiedName: test_clickhouse.default.system.remote_data_paths
+description: Contains a mapping from a filename on local filesystem to a blob name
+  inside object storage.
+tableType: Regular
+columns:
+  - name: disk_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Disk name.
+    fullyQualifiedName: test_clickhouse.default.system.remote_data_paths.disk_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Disk path.
+    fullyQualifiedName: test_clickhouse.default.system.remote_data_paths.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_base_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Base directory of cache files.
+    fullyQualifiedName: test_clickhouse.default.system.remote_data_paths.cache_base_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: local_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Path of ClickHouse file, also used as metadata path."
+    fullyQualifiedName: test_clickhouse.default.system.remote_data_paths.local_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: remote_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Blob path in object storage, with which ClickHouse file is associated\
+      \ with."
+    fullyQualifiedName: test_clickhouse.default.system.remote_data_paths.remote_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Size of the file (compressed).
+    fullyQualifiedName: test_clickhouse.default.system.remote_data_paths.size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: common_prefix_for_blobs
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Common prefix for blobs in object storage.
+    fullyQualifiedName: test_clickhouse.default.system.remote_data_paths.common_prefix_for_blobs
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_paths
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Cache files for corresponding blob.
+    fullyQualifiedName: test_clickhouse.default.system.remote_data_paths.cache_paths
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 0de894b2971538e9d45f290039fc1f88
+processedLineage: false
+entityStatus: Unprocessed

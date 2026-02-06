@@ -1,0 +1,297 @@
+name: columns
+fullyQualifiedName: test_clickhouse.default.system.columns
+description: Lists all columns from all tables of the current server.
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Database name.
+    fullyQualifiedName: test_clickhouse.default.system.columns.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Table name.
+    fullyQualifiedName: test_clickhouse.default.system.columns.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Column name.
+    fullyQualifiedName: test_clickhouse.default.system.columns.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Column type.
+    fullyQualifiedName: test_clickhouse.default.system.columns.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: position
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Ordinal position of a column in a table starting with 1.
+    fullyQualifiedName: test_clickhouse.default.system.columns.position
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default_kind
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Expression type (DEFAULT, MATERIALIZED, ALIAS) for the default value,\
+      \ or an empty string if it is not defined."
+    fullyQualifiedName: test_clickhouse.default.system.columns.default_kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default_expression
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Expression for the default value, or an empty string if it is not\
+      \ defined."
+    fullyQualifiedName: test_clickhouse.default.system.columns.default_expression
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The size of compressed data, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.columns.data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_uncompressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The size of decompressed data, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.columns.data_uncompressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The size of marks, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.columns.marks_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: comment
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Comment on the column, or an empty string if it is not defined."
+    fullyQualifiedName: test_clickhouse.default.system.columns.comment
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_in_partition_key
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag that indicates whether the column is in the partition expression.
+    fullyQualifiedName: test_clickhouse.default.system.columns.is_in_partition_key
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_in_sorting_key
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag that indicates whether the column is in the sorting key expression.
+    fullyQualifiedName: test_clickhouse.default.system.columns.is_in_sorting_key
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_in_primary_key
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag that indicates whether the column is in the primary key expression.
+    fullyQualifiedName: test_clickhouse.default.system.columns.is_in_primary_key
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_in_sampling_key
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag that indicates whether the column is in the sampling key expression.
+    fullyQualifiedName: test_clickhouse.default.system.columns.is_in_sampling_key
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: compression_codec
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Compression codec name.
+    fullyQualifiedName: test_clickhouse.default.system.columns.compression_codec
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: character_octet_length
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: "Maximum length in bytes for binary data, character data, or text\
+      \ data and images. In ClickHouse makes sense only for FixedString data type.\
+      \ Otherwise, the NULL value is returned."
+    fullyQualifiedName: test_clickhouse.default.system.columns.character_octet_length
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: numeric_precision
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: "Accuracy of approximate numeric data, exact numeric data, integer\
+      \ data, or monetary data. In ClickHouse it is bit width for integer types and\
+      \ decimal precision for Decimal types. Otherwise, the NULL value is returned."
+    fullyQualifiedName: test_clickhouse.default.system.columns.numeric_precision
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: numeric_precision_radix
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: "The base of the number system is the accuracy of approximate numeric\
+      \ data, exact numeric data, integer data or monetary data. In ClickHouse it's\
+      \ 2 for integer types and 10 for Decimal types. Otherwise, the NULL value is\
+      \ returned."
+    fullyQualifiedName: test_clickhouse.default.system.columns.numeric_precision_radix
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: numeric_scale
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: "The scale of approximate numeric data, exact numeric data, integer\
+      \ data, or monetary data. In ClickHouse makes sense only for Decimal types.\
+      \ Otherwise, the NULL value is returned."
+    fullyQualifiedName: test_clickhouse.default.system.columns.numeric_scale
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: datetime_precision
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: "Decimal precision of DateTime64 data type. For other data types,\
+      \ the NULL value is returned."
+    fullyQualifiedName: test_clickhouse.default.system.columns.datetime_precision
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: serialization_hint
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: A hint for column to choose serialization on inserts according to
+      statistics.
+    fullyQualifiedName: test_clickhouse.default.system.columns.serialization_hint
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: column
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.columns.column
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"sql-console:ulixiusthegreat@gmail.com\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: sql-console:ulixiusthegreat@gmail.com
+sourceHash: 5d40b7b8202079f3ea319d021de892a5
+processedLineage: false
+entityStatus: Unprocessed

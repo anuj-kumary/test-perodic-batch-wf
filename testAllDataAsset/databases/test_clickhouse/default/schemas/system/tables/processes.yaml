@@ -1,0 +1,514 @@
+name: processes
+fullyQualifiedName: test_clickhouse.default.system.processes
+description: Contains a list of currently executing processes (queries) with their
+  progress.
+tableType: Regular
+columns:
+  - name: is_initial_query
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Whether this query comes directly from user or was issues by ClickHouse
+      server in a scope of distributed query execution.
+    fullyQualifiedName: test_clickhouse.default.system.processes.is_initial_query
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: user
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The user who made the query. Keep in mind that for distributed processing,\
+      \ queries are sent to remote servers under the default user. The field contains\
+      \ the username for a specific query, not for a query that this query initiated."
+    fullyQualifiedName: test_clickhouse.default.system.processes.user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Query ID, if defined."
+    fullyQualifiedName: test_clickhouse.default.system.processes.query_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: IPV6
+    dataLength: 1
+    dataTypeDisplay: ipv6
+    description: "The IP address the query was made from. The same for distributed\
+      \ processing. To track where a distributed query was originally made from, look\
+      \ at system.processes on the query requestor server."
+    fullyQualifiedName: test_clickhouse.default.system.processes.address
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: port
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint16
+    description: The client port the query was made from.
+    fullyQualifiedName: test_clickhouse.default.system.processes.port
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_user
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the user who ran the initial query (for distributed query
+      execution).
+    fullyQualifiedName: test_clickhouse.default.system.processes.initial_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_query_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the initial query (for distributed query execution).
+    fullyQualifiedName: test_clickhouse.default.system.processes.initial_query_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_address
+    dataType: IPV6
+    dataLength: 1
+    dataTypeDisplay: ipv6
+    description: IP address that the parent query was launched from.
+    fullyQualifiedName: test_clickhouse.default.system.processes.initial_address
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_port
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint16
+    description: The client port that was used to make the parent query.
+    fullyQualifiedName: test_clickhouse.default.system.processes.initial_port
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: interface
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "The interface which was used to send the query. TCP = 1, HTTP =\
+      \ 2, GRPC = 3, MYSQL = 4, POSTGRESQL = 5, LOCAL = 6, TCP_INTERSERVER = 7."
+    fullyQualifiedName: test_clickhouse.default.system.processes.interface
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: os_user
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Operating system username who runs clickhouse-client.
+    fullyQualifiedName: test_clickhouse.default.system.processes.os_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_hostname
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Hostname of the client machine where the clickhouse-client or another
+      TCP client is run.
+    fullyQualifiedName: test_clickhouse.default.system.processes.client_hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The clickhouse-client or another TCP client name.
+    fullyQualifiedName: test_clickhouse.default.system.processes.client_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_revision
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Revision of the clickhouse-client or another TCP client.
+    fullyQualifiedName: test_clickhouse.default.system.processes.client_revision
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_version_major
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Major version of the clickhouse-client or another TCP client.
+    fullyQualifiedName: test_clickhouse.default.system.processes.client_version_major
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_version_minor
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Minor version of the clickhouse-client or another TCP client.
+    fullyQualifiedName: test_clickhouse.default.system.processes.client_version_minor
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_version_patch
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Patch component of the clickhouse-client or another TCP client version.
+    fullyQualifiedName: test_clickhouse.default.system.processes.client_version_patch
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: http_method
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "HTTP method that initiated the query. Possible values: 0 — The query\
+      \ was launched from the TCP interface. 1 — GET method was used. 2 — POST method\
+      \ was used."
+    fullyQualifiedName: test_clickhouse.default.system.processes.http_method
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: http_user_agent
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: HTTP header UserAgent passed in the HTTP query.
+    fullyQualifiedName: test_clickhouse.default.system.processes.http_user_agent
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: http_referer
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: HTTP header Referer passed in the HTTP query (contains an absolute
+      or partial address of the page making the query).
+    fullyQualifiedName: test_clickhouse.default.system.processes.http_referer
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: forwarded_for
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: HTTP header X-Forwarded-For passed in the HTTP query.
+    fullyQualifiedName: test_clickhouse.default.system.processes.forwarded_for
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: quota_key
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The quota key specified in the quotas setting (see keyed).
+    fullyQualifiedName: test_clickhouse.default.system.processes.quota_key
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: distributed_depth
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of times query was retransmitted between server nodes
+      internally.
+    fullyQualifiedName: test_clickhouse.default.system.processes.distributed_depth
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: elapsed
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: The time in seconds since request execution started.
+    fullyQualifiedName: test_clickhouse.default.system.processes.elapsed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_cancelled
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Was query cancelled.
+    fullyQualifiedName: test_clickhouse.default.system.processes.is_cancelled
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_all_data_sent
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Was all data sent to the client (in other words query had been finished
+      on the server).
+    fullyQualifiedName: test_clickhouse.default.system.processes.is_all_data_sent
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: read_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The number of rows read from the table. For distributed processing,\
+      \ on the requestor server, this is the total for all remote servers."
+    fullyQualifiedName: test_clickhouse.default.system.processes.read_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: read_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The number of uncompressed bytes read from the table. For distributed\
+      \ processing, on the requestor server, this is the total for all remote servers."
+    fullyQualifiedName: test_clickhouse.default.system.processes.read_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: total_rows_approx
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The approximation of the total number of rows that should be read.\
+      \ For distributed processing, on the requestor server, this is the total for\
+      \ all remote servers. It can be updated during request processing, when new\
+      \ sources to process become known."
+    fullyQualifiedName: test_clickhouse.default.system.processes.total_rows_approx
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: written_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The amount of rows written to the storage.
+    fullyQualifiedName: test_clickhouse.default.system.processes.written_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: written_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The amount of bytes written to the storage.
+    fullyQualifiedName: test_clickhouse.default.system.processes.written_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: memory_usage
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: Amount of RAM the query uses. It might not include some types of
+      dedicated memory
+    fullyQualifiedName: test_clickhouse.default.system.processes.memory_usage
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: peak_memory_usage
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: The current peak of memory usage.
+    fullyQualifiedName: test_clickhouse.default.system.processes.peak_memory_usage
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The query text. For INSERT, it does not include the data to insert."
+    fullyQualifiedName: test_clickhouse.default.system.processes.query
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: normalized_query_hash
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "A numeric hash value, such as it is identical for queries differ\
+      \ only by values of literals."
+    fullyQualifiedName: test_clickhouse.default.system.processes.normalized_query_hash
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_kind
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The type of the query - SELECT, INSERT, etc."
+    fullyQualifiedName: test_clickhouse.default.system.processes.query_kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: thread_ids
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    description: The list of identifiers of all threads which participated in this
+      query.
+    fullyQualifiedName: test_clickhouse.default.system.processes.thread_ids
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ProfileEvents
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string, uint64>"
+    description: ProfileEvents calculated for this query.
+    fullyQualifiedName: test_clickhouse.default.system.processes.ProfileEvents
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Settings
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string, string>"
+    description: The list of modified user-level settings.
+    fullyQualifiedName: test_clickhouse.default.system.processes.Settings
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: current_database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the current database.
+    fullyQualifiedName: test_clickhouse.default.system.processes.current_database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ProfileEvents.Names
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    fullyQualifiedName: test_clickhouse.default.system.processes."ProfileEvents.Names"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ProfileEvents.Values
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    fullyQualifiedName: test_clickhouse.default.system.processes."ProfileEvents.Values"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: Settings.Names
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    fullyQualifiedName: test_clickhouse.default.system.processes."Settings.Names"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: Settings.Values
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    fullyQualifiedName: test_clickhouse.default.system.processes."Settings.Values"
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"observability-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains:
+  - id: ef10e521-d8c5-4d84-b039-549e8d1d8aaf
+    type: domain
+    name: Customer Domain
+    fullyQualifiedName: Customer Domain
+    description: <p>Customer Domain</p>
+    displayName: Customer
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+sourceHash: cc009a71265e7fca5b24c12f13e48bb9
+processedLineage: false
+entityStatus: Unprocessed

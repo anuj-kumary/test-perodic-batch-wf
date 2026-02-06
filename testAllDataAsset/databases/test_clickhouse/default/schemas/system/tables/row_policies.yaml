@@ -1,0 +1,156 @@
+name: row_policies
+fullyQualifiedName: test_clickhouse.default.system.row_policies
+description: "Contains filters for one particular table, as well as a list of roles\
+  \ and/or users which should use this row policy."
+tableType: Regular
+columns:
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of a row policy.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: short_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Short name of a row policy. Names of row policies are compound,\
+      \ for example: myfilter ON mydb.mytable. Here 'myfilter ON mydb.mytable' is\
+      \ the name of the row policy, 'myfilter' is it's short name."
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.short_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Database name.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Table name. Empty if policy for database.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: Row policy ID.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: storage
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the directory where the row policy is stored.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.storage
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: select_filter
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Expression which is used for filtering in SELECT queries.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.select_filter
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_restrictive
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Shows whether the row policy restricts access to rows. Value: •\
+      \ 0 — The row policy is defined with `AS PERMISSIVE` clause, • 1 — The row policy\
+      \ is defined with AS RESTRICTIVE clause."
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.is_restrictive
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: apply_to_all
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Shows that the row policies set for all roles and/or users.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.apply_to_all
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: apply_to_list
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: List of the roles and/or users to which the row policies is applied.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.apply_to_list
+    tags: []
+    children: []
+    customMetrics: []
+  - name: apply_to_except
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: The row policies is applied to all roles and/or users excepting of
+      the listed ones.
+    fullyQualifiedName: test_clickhouse.default.system.row_policies.apply_to_except
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b68ab3ad8b645cf4c76329eebee42dcc
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,601 @@
+name: parts_columns
+fullyQualifiedName: test_clickhouse.default.system.parts_columns
+description: Contains a list of columns of all currently existing parts of all MergeTree
+  tables. Each column is represented by a single row.
+tableType: Regular
+columns:
+  - name: partition
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The partition name.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.partition
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the data part.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: uuid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: The parts UUID.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The data part storing format. Possible values: Wide — Each column\
+      \ is stored in a separate file in a filesystem, Compact — All columns are stored\
+      \ in one file in a filesystem."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.part_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: active
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Flag that indicates whether the data part is active. If a data part\
+      \ is active, it's used in a table. Otherwise, it's deleted. Inactive data parts\
+      \ remain after merging."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.active
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The number of marks. To get the approximate number of rows in a\
+      \ data part, multiply marks by the index granularity (usually 8192) (this hint\
+      \ does not work for adaptive granularity)."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.marks
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of rows.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: bytes_on_disk
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of all the data part files in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.bytes_on_disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of compressed data in the data part. All the auxiliary\
+      \ files (for example, files with marks) are not included."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_uncompressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of uncompressed data in the data part. All the auxiliary\
+      \ files (for example, files with marks) are not included."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.data_uncompressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The size of the file with marks.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.marks_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: modification_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time the directory with the data part was modified. This usually
+      corresponds to the time of data part creation.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.modification_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: remove_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time when the data part became inactive.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.remove_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: refcount
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of places where the data part is used. A value greater
+      than 2 indicates that the data part is used in queries or merges.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.refcount
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The minimum value for the Date column if that is included in the
+      partition key.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.min_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The maximum value for the Date column if that is included in the
+      partition key.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.max_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The minimum value for the DateTime column if that is included in
+      the partition key.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.min_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The maximum value for the DateTime column if that is included in
+      the partition key.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.max_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: partition_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the partition.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.partition_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_block_number
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: The minimum number of data parts that make up the current part after
+      merging.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.min_block_number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_block_number
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: The maximum number of data parts that make up the current part after
+      merging.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.max_block_number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: level
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Depth of the merge tree. Zero means that the current part was created
+      by insert rather than by merging other parts.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.level
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_version
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number that is used to determine which mutations should be applied
+      to the data part (mutations with a version higher than data_version).
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.data_version
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: primary_key_bytes_in_memory
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The amount of memory (in bytes) used by primary key values.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.primary_key_bytes_in_memory
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: primary_key_bytes_in_memory_allocated
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The amount of memory (in bytes) reserved for primary key values.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.primary_key_bytes_in_memory_allocated
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the database.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: engine
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table engine without parameters.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.engine
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: disk_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of a disk that stores the data part.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.disk_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Absolute path to the folder with data part files.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the column.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Column type.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_position
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Ordinal position of a column in a table starting with 1.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column_position
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default_kind
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Expression type (DEFAULT, MATERIALIZED, ALIAS) for the default value,\
+      \ or an empty string if it is not defined."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.default_kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default_expression
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Expression for the default value, or an empty string if it is not\
+      \ defined."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.default_expression
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_bytes_on_disk
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of the column in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column_bytes_on_disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of the compressed data in the column, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column_data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_data_uncompressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of the decompressed data in the column, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column_data_uncompressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_marks_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The size of the marks for column, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column_marks_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_modification_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: The last time the column was modified.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column_modification_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: column_ttl_min
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: The minimum value of the calculated TTL expression of the column.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column_ttl_min
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: column_ttl_max
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: The maximum value of the calculated TTL expression of the column.
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.column_ttl_max
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: serialization_kind
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Kind of serialization of a column
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.serialization_kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: substreams
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Names of substreams to which column is serialized
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.substreams
+    tags: []
+    children: []
+    customMetrics: []
+  - name: filenames
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Names of files for each substream of a column respectively
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.filenames
+    tags: []
+    children: []
+    customMetrics: []
+  - name: subcolumns.names
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Names of subcolumns of a column
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns."subcolumns.names"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: subcolumns.types
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Types of subcolumns of a column
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns."subcolumns.types"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: subcolumns.serializations
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Kinds of serialization of subcolumns of a column
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns."subcolumns.serializations"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: subcolumns.bytes_on_disk
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    description: Sizes in bytes for each subcolumn
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns."subcolumns.bytes_on_disk"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: subcolumns.data_compressed_bytes
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    description: "Sizes of the compressed data for each subcolumn, in bytes"
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns."subcolumns.data_compressed_bytes"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: subcolumns.data_uncompressed_bytes
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    description: "Sizes of the decompressed data for each subcolumn, in bytes"
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns."subcolumns.data_uncompressed_bytes"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: subcolumns.marks_bytes
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    description: "Sizes of the marks for each subcolumn of a column, in bytes"
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns."subcolumns.marks_bytes"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.marks_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.parts_columns.part_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5a0609a59e59bdefe7fac7585d5cd131
+processedLineage: false
+entityStatus: Unprocessed

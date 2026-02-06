@@ -1,0 +1,909 @@
+name: query_log
+fullyQualifiedName: test_clickhouse.default.system.query_log
+description: |-
+  Contains information about executed queries, for example, start time, duration of processing, error messages.
+
+  It is safe to truncate or drop this table at any time.
+tableType: Regular
+columns:
+  - name: hostname
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Hostname of the server executing the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: ENUM
+    dataLength: 1
+    dataTypeDisplay: "enum8<'querystart' = 1, 'queryfinish' = 2, 'exceptionbeforestart'\
+      \ = 3, 'exceptionwhileprocessing' = 4>"
+    description: Type of an event that occurred when executing the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Query starting date.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.event_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Query starting time.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.event_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time_microseconds
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime64<6>
+    description: Query starting time with microseconds precision.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.event_time_microseconds
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Start time of query execution.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.query_start_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_start_time_microseconds
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime64<6>
+    description: Start time of query execution with microsecond precision.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.query_start_time_microseconds
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_duration_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Duration of query execution in milliseconds.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.query_duration_ms
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: read_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total number of rows read from all tables and table functions participated\
+      \ in query. It includes usual subqueries, subqueries for IN and JOIN. For distributed\
+      \ queries read_rows includes the total number of rows read at all replicas.\
+      \ Each replica sends it's read_rows value, and the server-initiator of the query\
+      \ summarizes all received and local values. The cache volumes do not affect\
+      \ this value."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.read_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: read_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total number of bytes read from all tables and table functions participated\
+      \ in query. It includes usual subqueries, subqueries for IN and JOIN. For distributed\
+      \ queries read_bytes includes the total number of rows read at all replicas.\
+      \ Each replica sends it's read_bytes value, and the server-initiator of the\
+      \ query summarizes all received and local values. The cache volumes do not affect\
+      \ this value."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.read_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: written_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "For INSERT queries, the number of written rows. For other queries,\
+      \ the column value is 0."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.written_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: written_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "For INSERT queries, the number of written bytes (uncompressed).\
+      \ For other queries, the column value is 0."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.written_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: result_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Number of rows in a result of the SELECT query, or a number of rows\
+      \ in the INSERT query."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.result_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: result_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: RAM volume in bytes used to store a query result.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.result_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: memory_usage
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Memory consumption by the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.memory_usage
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: current_database
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Name of the current database.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.current_database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ' Query string.'
+    fullyQualifiedName: test_clickhouse.default.system.query_log.query
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: formatted_query
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Formatted query string.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.formatted_query
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: normalized_query_hash
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "A numeric hash value, such as it is identical for queries differ\
+      \ only by values of literals."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.normalized_query_hash
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_kind
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Type of the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.query_kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: databases
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: Names of the databases present in the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.databases
+    tags: []
+    children: []
+    customMetrics: []
+  - name: tables
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: Names of the tables present in the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.tables
+    tags: []
+    children: []
+    customMetrics: []
+  - name: columns
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: Names of the columns present in the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.columns
+    tags: []
+    children: []
+    customMetrics: []
+  - name: partitions
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: Names of the partitions present in the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.partitions
+    tags: []
+    children: []
+    customMetrics: []
+  - name: projections
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: Names of the projections used during the query execution.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.projections
+    tags: []
+    children: []
+    customMetrics: []
+  - name: views
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: Names of the (materialized or live) views present in the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.views
+    tags: []
+    children: []
+    customMetrics: []
+  - name: exception_code
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int32
+    description: Code of an exception.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.exception_code
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Exception message.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: stack_trace
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Stack trace. An empty string, if the query was completed successfully."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.stack_trace
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_initial_query
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Query type. Possible values: 1 — query was initiated by the client,\
+      \ 0 — query was initiated by another query as part of distributed query execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.is_initial_query
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: user
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Name of the user who initiated the current query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.query_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: IPV6
+    dataLength: 1
+    dataTypeDisplay: ipv6
+    description: IP address that was used to make the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.address
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: port
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint16
+    description: The client port that was used to make the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.port
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_user
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Name of the user who ran the initial query (for distributed query
+      execution).
+    fullyQualifiedName: test_clickhouse.default.system.query_log.initial_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_query_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the initial query (for distributed query execution).
+    fullyQualifiedName: test_clickhouse.default.system.query_log.initial_query_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_address
+    dataType: IPV6
+    dataLength: 1
+    dataTypeDisplay: ipv6
+    description: IP address that the parent query was launched from.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.initial_address
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_port
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint16
+    description: The client port that was used to make the parent query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.initial_port
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_query_start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Initial query starting time (for distributed query execution).
+    fullyQualifiedName: test_clickhouse.default.system.query_log.initial_query_start_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: initial_query_start_time_microseconds
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime64<6>
+    description: Initial query starting time with microseconds precision (for distributed
+      query execution).
+    fullyQualifiedName: test_clickhouse.default.system.query_log.initial_query_start_time_microseconds
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: interface
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Interface that the query was initiated from. Possible values: 1\
+      \ — TCP, 2 — HTTP."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.interface
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_secure
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The flag whether a query was executed over a secure interface
+    fullyQualifiedName: test_clickhouse.default.system.query_log.is_secure
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: os_user
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Operating system username who runs clickhouse-client.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.os_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_hostname
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Hostname of the client machine where the clickhouse-client or another
+      TCP client is run.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.client_hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_name
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: The clickhouse-client or another TCP client name.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.client_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_revision
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Revision of the clickhouse-client or another TCP client.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.client_revision
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_version_major
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Major version of the clickhouse-client or another TCP client.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.client_version_major
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_version_minor
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Minor version of the clickhouse-client or another TCP client.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.client_version_minor
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: client_version_patch
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Patch component of the clickhouse-client or another TCP client version.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.client_version_patch
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: script_query_number
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The query number in a script with multiple queries for clickhouse-client.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.script_query_number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: script_line_number
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The line number of the query start in a script with multiple queries
+      for clickhouse-client.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.script_line_number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: http_method
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "HTTP method that initiated the query. Possible values: 0 — The query\
+      \ was launched from the TCP interface, 1 — GET method was used, 2 — POST method\
+      \ was used."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.http_method
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: http_user_agent
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: HTTP header UserAgent passed in the HTTP query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.http_user_agent
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: http_referer
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: HTTP header Referer passed in the HTTP query (contains an absolute
+      or partial address of the page making the query).
+    fullyQualifiedName: test_clickhouse.default.system.query_log.http_referer
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: forwarded_for
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: HTTP header X-Forwarded-For passed in the HTTP query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.forwarded_for
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: quota_key
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The quota key specified in the quotas setting (see keyed).
+    fullyQualifiedName: test_clickhouse.default.system.query_log.quota_key
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: distributed_depth
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: How many times a query was forwarded between servers.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.distributed_depth
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: revision
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: ClickHouse revision.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.revision
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_comment
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Log comment. It can be set to arbitrary string no longer than max_query_size.
+      An empty string if it is not defined.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.log_comment
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: thread_ids
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    description: Thread ids that are participating in query execution. These threads
+      may not have run simultaneously.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.thread_ids
+    tags: []
+    children: []
+    customMetrics: []
+  - name: peak_threads_usage
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Maximum count of simultaneous threads executing the query.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.peak_threads_usage
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ProfileEvents
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<lowcardinality<string>, uint64>"
+    description: ProfileEvents that measure different metrics. The description of
+      them could be found in the table system.events
+    fullyQualifiedName: test_clickhouse.default.system.query_log.ProfileEvents
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Settings
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<lowcardinality<string>, lowcardinality<string>>"
+    description: "Settings that were changed when the client ran the query. To enable\
+      \ logging changes to settings, set the log_query_settings parameter to 1."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.Settings
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: used_aggregate_functions
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of aggregate functions, which were used during query\
+      \ execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_aggregate_functions
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_aggregate_function_combinators
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of aggregate functions combinators, which were used\
+      \ during query execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_aggregate_function_combinators
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_database_engines
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of database engines, which were used during query\
+      \ execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_database_engines
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_data_type_families
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of data type families, which were used during query\
+      \ execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_data_type_families
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_dictionaries
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of dictionaries, which were used during query execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_dictionaries
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_formats
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of formats, which were used during query execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_formats
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_functions
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of functions, which were used during query execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_functions
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_storages
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of storages, which were used during query execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_storages
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_table_functions
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of table functions, which were used during query\
+      \ execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_table_functions
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_executable_user_defined_functions
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of executable user defined functions, which were\
+      \ used during query execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_executable_user_defined_functions
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_sql_user_defined_functions
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: "Canonical names of sql user defined functions, which were used during\
+      \ query execution."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_sql_user_defined_functions
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_row_policies
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: The list of row policies names that were used during query execution.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_row_policies
+    tags: []
+    children: []
+    customMetrics: []
+  - name: used_privileges
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: Privileges which were successfully checked during query execution.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.used_privileges
+    tags: []
+    children: []
+    customMetrics: []
+  - name: missing_privileges
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    description: Privileges that are missing during query execution.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.missing_privileges
+    tags: []
+    children: []
+    customMetrics: []
+  - name: transaction_id
+    dataType: TUPLE
+    dataLength: 1
+    dataTypeDisplay: "tuple<uint64, uint64, uuid>"
+    description: The identifier of the transaction in scope of which this query was
+      executed.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.transaction_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query_cache_usage
+    dataType: ENUM
+    dataLength: 1
+    dataTypeDisplay: "enum8<'unknown' = 0, 'none' = 1, 'write' = 2, 'read' = 3>"
+    description: "Usage of the query cache during query execution. Values: 'Unknown'\
+      \ = Status unknown, 'None' = The query result was neither written into nor read\
+      \ from the query result cache, 'Write' = The query result was written into the\
+      \ query result cache, 'Read' = The query result was read from the query result\
+      \ cache."
+    fullyQualifiedName: test_clickhouse.default.system.query_log.query_cache_usage
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: asynchronous_read_counters
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<lowcardinality<string>, uint64>"
+    description: Metrics for asynchronous reading.
+    fullyQualifiedName: test_clickhouse.default.system.query_log.asynchronous_read_counters
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ProfileEvents.Names
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    fullyQualifiedName: test_clickhouse.default.system.query_log."ProfileEvents.Names"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ProfileEvents.Values
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    fullyQualifiedName: test_clickhouse.default.system.query_log."ProfileEvents.Values"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: Settings.Names
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    fullyQualifiedName: test_clickhouse.default.system.query_log."Settings.Names"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: Settings.Values
+    dataType: ARRAY
+    arrayDataType: LOWCARDINALITY
+    dataTypeDisplay: array<lowcardinality<string>>
+    fullyQualifiedName: test_clickhouse.default.system.query_log."Settings.Values"
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"monitoring-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: monitoring-internal
+sourceHash: 03ca6c60738c8142f7f4442f2abad204
+processedLineage: false
+entityStatus: Unprocessed

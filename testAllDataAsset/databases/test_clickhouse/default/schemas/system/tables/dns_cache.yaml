@@ -1,0 +1,82 @@
+name: dns_cache
+fullyQualifiedName: test_clickhouse.default.system.dns_cache
+description: Contains information about cached DNS records.
+tableType: Regular
+columns:
+  - name: hostname
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Hostname.
+    fullyQualifiedName: test_clickhouse.default.system.dns_cache.hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ip_address
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: IP address.
+    fullyQualifiedName: test_clickhouse.default.system.dns_cache.ip_address
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ip_family
+    dataType: ENUM
+    dataLength: 1
+    dataTypeDisplay: "enum8<'ipv4' = 0, 'ipv6' = 1, 'unix_local' = 2>"
+    description: IP address family.
+    fullyQualifiedName: test_clickhouse.default.system.dns_cache.ip_family
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cached_at
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Record cached timestamp.
+    fullyQualifiedName: test_clickhouse.default.system.dns_cache.cached_at
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 7498309b2c5f8a66f459c4f3c5b64d17
+processedLineage: false
+entityStatus: Unprocessed

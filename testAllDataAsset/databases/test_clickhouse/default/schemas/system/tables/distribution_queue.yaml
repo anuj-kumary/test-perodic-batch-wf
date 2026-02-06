@@ -1,0 +1,154 @@
+name: distribution_queue
+fullyQualifiedName: test_clickhouse.default.system.distribution_queue
+description: Contains information about local files that are in the queue to be sent
+  to the shards. These local files contain new parts that are created by inserting
+  new data into the Distributed table in asynchronous mode.
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the database.
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table.
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path to the folder with local files.
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.data_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_blocked
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag indicates whether sending local files to the server is blocked.
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.is_blocked
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: error_count
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of errors.
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.error_count
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_files
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of local files in a folder.
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.data_files
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Size of compressed data in local files, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: broken_data_files
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of files that has been marked as broken (due to an error).
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.broken_data_files
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: broken_data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Size of compressed data in broken files, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.broken_data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Text message about the last error that occurred (if any).
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.last_exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_exception_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Time when last exception occurred.
+    fullyQualifiedName: test_clickhouse.default.system.distribution_queue.last_exception_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 4bd42aad86d730ab436ac04630d66886
+processedLineage: false
+entityStatus: Unprocessed

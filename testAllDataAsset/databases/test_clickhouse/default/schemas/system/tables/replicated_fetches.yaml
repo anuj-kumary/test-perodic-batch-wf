@@ -1,0 +1,206 @@
+name: replicated_fetches
+fullyQualifiedName: test_clickhouse.default.system.replicated_fetches
+description: Contains information about currently running background fetches.
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the database.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: elapsed
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: The time elapsed (in seconds) since showing currently running background
+      fetches started.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.elapsed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: progress
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: The percentage of completed work from 0 to 1.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.progress
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: result_part_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the part that will be formed as the result of showing
+      currently running background fetches.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.result_part_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: result_part_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Absolute path to the part that will be formed as the result of showing
+      currently running background fetches.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.result_part_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: partition_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the partition.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.partition_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: total_size_bytes_compressed
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The total size (in bytes) of the compressed data in the result part.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.total_size_bytes_compressed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: bytes_read_compressed
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of compressed bytes read from the result part.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.bytes_read_compressed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: source_replica_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Absolute path to the source replica.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.source_replica_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: source_replica_hostname
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Hostname of the source replica.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.source_replica_hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: source_replica_port
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint16
+    description: Port number of the source replica.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.source_replica_port
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: interserver_scheme
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the interserver scheme.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.interserver_scheme
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: URI
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Uniform resource identifier.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.URI
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: to_detached
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The flag indicates whether the currently running background fetch
+      is being performed using the TO DETACHED expression.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.to_detached
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: thread_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Thread identifier.
+    fullyQualifiedName: test_clickhouse.default.system.replicated_fetches.thread_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 99f0bfdded17fedd7a0ff8518f116c32
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,202 @@
+name: disks
+fullyQualifiedName: test_clickhouse.default.system.disks
+description: Contains information about disks defined in the server configuration.
+tableType: Regular
+columns:
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of a disk in the server configuration.
+    fullyQualifiedName: test_clickhouse.default.system.disks.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path to the mount point in the file system.
+    fullyQualifiedName: test_clickhouse.default.system.disks.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: free_space
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Free space on disk in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.disks.free_space
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: total_space
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Disk volume in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.disks.total_space
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: unreserved_space
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Free space which is not taken by reservations (free_space minus\
+      \ the size of reservations taken by merges, inserts, and other disk write operations\
+      \ currently running)."
+    fullyQualifiedName: test_clickhouse.default.system.disks.unreserved_space
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: keep_free_space
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Amount of disk space that should stay free on disk in bytes. Defined
+      in the keep_free_space_bytes parameter of disk configuration.
+    fullyQualifiedName: test_clickhouse.default.system.disks.keep_free_space
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The disk type which tells where this disk stores the data - RAM,\
+      \ local drive or remote storage."
+    fullyQualifiedName: test_clickhouse.default.system.disks.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: object_storage_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Type of object storage if disk type is object_storage
+    fullyQualifiedName: test_clickhouse.default.system.disks.object_storage_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: metadata_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Type of metadata storage if disk type is object_storage
+    fullyQualifiedName: test_clickhouse.default.system.disks.metadata_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_encrypted
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: 'Flag which shows whether this disk ecrypts the underlying data. '
+    fullyQualifiedName: test_clickhouse.default.system.disks.is_encrypted
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_read_only
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag which indicates that you can only perform read operations with
+      this disk.
+    fullyQualifiedName: test_clickhouse.default.system.disks.is_read_only
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_write_once
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Flag which indicates if disk is write-once. Which means that it\
+      \ does support BACKUP to this disk, but does not support INSERT into MergeTree\
+      \ table on this disk."
+    fullyQualifiedName: test_clickhouse.default.system.disks.is_write_once
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_remote
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag which indicated what operations with this disk involve network
+      interaction.
+    fullyQualifiedName: test_clickhouse.default.system.disks.is_remote
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_broken
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag which indicates if disk is broken. Broken disks will have 0
+      space and cannot be used.
+    fullyQualifiedName: test_clickhouse.default.system.disks.is_broken
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The path to the cache directory on local drive in case when the disk
+      supports caching.
+    fullyQualifiedName: test_clickhouse.default.system.disks.cache_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5d454566e9cb6844b5e2d136bdd5fb51
+processedLineage: false
+entityStatus: Unprocessed

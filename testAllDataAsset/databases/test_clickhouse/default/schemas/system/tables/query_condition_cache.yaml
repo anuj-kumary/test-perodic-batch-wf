@@ -1,0 +1,104 @@
+name: query_condition_cache
+fullyQualifiedName: test_clickhouse.default.system.query_condition_cache
+description: Contains information about all entries inside query condition cache in
+  server's memory.
+tableType: Regular
+columns:
+  - name: table_uuid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: The table UUID.
+    fullyQualifiedName: test_clickhouse.default.system.query_condition_cache.table_uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The part name.
+    fullyQualifiedName: test_clickhouse.default.system.query_condition_cache.part_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: condition
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The hashed filter condition. Only set if setting query_condition_cache_store_conditions_as_plaintext
+      = true.
+    fullyQualifiedName: test_clickhouse.default.system.query_condition_cache.condition
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: condition_hash
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The hash of the filter condition.
+    fullyQualifiedName: test_clickhouse.default.system.query_condition_cache.condition_hash
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: entry_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The size of the entry in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.query_condition_cache.entry_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: matching_marks
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Matching marks.
+    fullyQualifiedName: test_clickhouse.default.system.query_condition_cache.matching_marks
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: feab1d24cc7ed45dd9c770de7d747b52
+processedLineage: false
+entityStatus: Unprocessed

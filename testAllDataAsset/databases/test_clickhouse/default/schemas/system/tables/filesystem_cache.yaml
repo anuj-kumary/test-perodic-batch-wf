@@ -1,0 +1,210 @@
+name: filesystem_cache
+fullyQualifiedName: test_clickhouse.default.system.filesystem_cache
+description: Contains information about all entries inside filesystem cache for remote
+  objects.
+tableType: Regular
+columns:
+  - name: cache_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Name of the cache object. Can be used in `SYSTEM DESCRIBE FILESYSTEM\
+      \ CACHE <name>`, `SYSTEM DROP FILESYSTEM CACHE <name>` commands"
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.cache_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_base_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path to the base directory where all caches files (of a cache identidied
+      by `cache_name`) are stored.
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.cache_base_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Path to a particular cache file, corresponding to a file segment\
+      \ in a source file"
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.cache_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: key
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Cache key of the file segment
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.key
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_segment_range_begin
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Offset corresponding to the beginning of the file segment range
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.file_segment_range_begin
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_segment_range_end
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Offset corresponding to the (including) end of the file segment range
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.file_segment_range_end
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Size of the file segment
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: state
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "File segment state (DOWNLOADED, DOWNLOADING, PARTIALLY_DOWNLOADED,\
+      \ ...)"
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.state
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: finished_download_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Time when file segment finished downloading.
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.finished_download_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_hits
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of cache hits of corresponding file segment
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.cache_hits
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: references
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of references to corresponding file segment. Value 1 means
+      that nobody uses it at the moment (the only existing reference is in cache storage
+      itself)
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.references
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: downloaded_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Downloaded size of the file segment
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.downloaded_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: kind
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: File segment kind (used to distringuish between file segments added
+      as a part of 'Temporary data in cache')
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: unbound
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Internal implementation flag
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.unbound
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: user_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: User id of the user which created the file segment
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.user_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    description: File size of the file to which current file segment belongs
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache.file_size
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: f835437d016e85f00bc25b072582951a
+processedLineage: false
+entityStatus: Unprocessed

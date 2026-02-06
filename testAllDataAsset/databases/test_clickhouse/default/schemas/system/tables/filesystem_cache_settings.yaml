@@ -1,0 +1,317 @@
+name: filesystem_cache_settings
+fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings
+description: Contains information about all filesystem cache settings
+tableType: Regular
+columns:
+  - name: cache_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Cache name
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.cache_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Cache directory path
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Maximum cache size
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.max_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_elements
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Maximum number of cache elements, e.g. file segments (limits number\
+      \ of files on filesystem)"
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.max_elements
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_file_segment_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Maximum size of a single file segment
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.max_file_segment_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: boundary_alignment
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: File segment alignment
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.boundary_alignment
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_on_write_operations
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Enables write-through cache (cache on INSERT and MERGE)
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.cache_on_write_operations
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_policy
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Cache eviction policy
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.cache_policy
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: slru_size_ratio
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: SLRU cache policy size ratio of protected to probationary elements
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.slru_size_ratio
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: background_download_threads
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of background download threads. Value 0 disables background
+      download
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.background_download_threads
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: background_download_queue_size_limit
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Size of background download queue. Value 0 disables background download
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.background_download_queue_size_limit
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: background_download_max_file_segment_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Maximum size which can be downloaded in background download
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.background_download_max_file_segment_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: load_metadata_threads
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of threads to load cache metadata at server startup. Value
+      0 disables asynchronous loading of metadata
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.load_metadata_threads
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: load_metadata_asynchronously
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Enables asynchronous loading of metadata on server startup
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.load_metadata_asynchronously
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: keep_free_space_size_ratio
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: A ratio of free space which cache would try to uphold in the background
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.keep_free_space_size_ratio
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: keep_free_space_elements_ratio
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: A ratio of free elements which cache would try to uphold in the background
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.keep_free_space_elements_ratio
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: keep_free_space_remove_batch
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: A remove batch size of cache elements made by background thread which
+      upholds free space/elements ratio
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.keep_free_space_remove_batch
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: enable_filesystem_query_cache_limit
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Enable limiting maximum size of cache which can be written within
+      a query
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.enable_filesystem_query_cache_limit
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_hits_threshold
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of cache hits required to cache corresponding file segment
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.cache_hits_threshold
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: enable_bypass_cache_with_threshold
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Undocumented. Not recommended for use
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.enable_bypass_cache_with_threshold
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: bypass_cache_threshold
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Undocumented. Not recommended for use
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.bypass_cache_threshold
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: write_cache_per_user_id_directory
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Internal ClickHouse Cloud setting
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.write_cache_per_user_id_directory
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: allow_dynamic_cache_resize
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Allow dynamic resize of filesystem cache
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.allow_dynamic_cache_resize
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_size_ratio_to_total_space
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: Ratio of `max_size` to total disk space
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.max_size_ratio_to_total_space
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_initialized
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Indicates whether cache was successfully initialized
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.is_initialized
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: current_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Current cache size
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.current_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: current_elements_num
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Current cache elements (file segments) number
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_settings.current_elements_num
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: a3a57a993dc1b06d085a26bc42a853ca
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,192 @@
+name: merge_tree_settings
+fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings
+description: "Contains a list of all MergeTree engine specific settings, their current\
+  \ and default values along with descriptions. You may change any of them in SETTINGS\
+  \ section in CREATE query."
+tableType: Regular
+columns:
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Setting name.
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: value
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Setting value.
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.value
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Setting default value.
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.default
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: changed
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: 1 if the setting was explicitly defined in the config or explicitly
+      changed.
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.changed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Setting description.
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.description
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: "Minimum value of the setting, if any is set via constraints. If\
+      \ the setting has no minimum value, contains NULL."
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.min
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: max
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: "Maximum value of the setting, if any is set via constraints. If\
+      \ the setting has no maximum value, contains NULL."
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.max
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: disallowed_values
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: List of disallowed values
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.disallowed_values
+    tags: []
+    children: []
+    customMetrics: []
+  - name: readonly
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Shows whether the current user can change the setting: 0 — Current\
+      \ user can change the setting, 1 — Current user can't change the setting."
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.readonly
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Setting type (implementation specific string value).
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_obsolete
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Shows whether a setting is obsolete.
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.is_obsolete
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: tier
+    dataType: ENUM
+    dataLength: 1
+    dataTypeDisplay: "enum8<'production' = 0, 'obsolete' = 4, 'experimental' = 8,\
+      \ 'beta' = 12>"
+    description: |2
+
+      Support level for this feature. ClickHouse features are organized in tiers, varying depending on the current status of their
+      development and the expectations one might have when using them:
+      * PRODUCTION: The feature is stable, safe to use and does not have issues interacting with other PRODUCTION features.
+      * BETA: The feature is stable and safe. The outcome of using it together with other features is unknown and correctness is not guaranteed. Testing and reports are welcome.
+      * EXPERIMENTAL: The feature is under development. Only intended for developers and ClickHouse enthusiasts. The feature might or might not work and could be removed at any time.
+      * OBSOLETE: No longer supported. Either it is already removed or it will be removed in future releases.
+    fullyQualifiedName: test_clickhouse.default.system.merge_tree_settings.tier
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"updated\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"observability-internal\"},\"accessed\":{\"timestamp\":1768521600000,\"\
+        accessedByAProcess\":\"observability-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  updated:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+sourceHash: 5a466049c7091d2d93efa412732b3d4f
+processedLineage: false
+entityStatus: Unprocessed

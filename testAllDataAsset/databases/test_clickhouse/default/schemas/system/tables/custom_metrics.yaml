@@ -1,0 +1,90 @@
+name: custom_metrics
+fullyQualifiedName: test_clickhouse.default.system.custom_metrics
+tableType: View
+columns:
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.custom_metrics.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: value
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    fullyQualifiedName: test_clickhouse.default.system.custom_metrics.value
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: help
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.custom_metrics.help
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: labels
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string, string>"
+    fullyQualifiedName: test_clickhouse.default.system.custom_metrics.labels
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.custom_metrics.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+schemaDefinition: "CREATE VIEW system.custom_metrics (`name` String, `value` Float64,\
+  \ `help` String, `labels` Map(String, String), `type` String) AS SELECT * FROM merge(system,\
+  \ '^_custom_metrics_view_.*') UNION ALL SELECT name, value, help, JSONExtract(labels_serialized,\
+  \ 'Map(String, String)') AS labels, type FROM merge(system, '^_custom_metrics_dictionary_.*')"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5b8a2020611c4de1892546c17c9654d9
+processedLineage: false
+entityStatus: Unprocessed

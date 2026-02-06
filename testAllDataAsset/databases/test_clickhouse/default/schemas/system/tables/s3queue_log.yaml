@@ -1,0 +1,218 @@
+name: s3queue_log
+fullyQualifiedName: test_clickhouse.default.system.s3queue_log
+description: |-
+  Contains logging entries with the information files processes by S3Queue engine.
+
+  It is safe to truncate or drop this table at any time.
+tableType: Regular
+columns:
+  - name: hostname
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Hostname
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Event date of writing this log row
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.event_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Event time of writing this log row
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.event_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of a database where current S3Queue table lives.
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of S3Queue table.
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: uuid
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The UUID of S3Queue table
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: File name of the processing file
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.file_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rows_processed
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of processed rows
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.rows_processed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: ENUM
+    dataLength: 1
+    dataTypeDisplay: "enum8<'processed' = 0, 'failed' = 1>"
+    description: Status of the processing file
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.status
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: processing_start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: Time of the start of processing the file
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.processing_start_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: processing_end_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: Time of the end of processing the file
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.processing_end_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Exception message if happened
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: commit_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Id of the transaction in which this file was committed
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.commit_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: commit_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Time of committing file in keeper (as either failed or processed)
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.commit_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: transaction_start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Time when the whole processing transaction started
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.transaction_start_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: get_object_time_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Time which took us to find the object in s3
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log.get_object_time_ms
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"observability-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+sourceHash: 8826672361f18b114e52e16a753861f8
+processedLineage: false
+entityStatus: Unprocessed

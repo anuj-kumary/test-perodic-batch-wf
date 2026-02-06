@@ -1,0 +1,154 @@
+name: distributed_cache_registry
+fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry
+description: "A system table, which allows to see available distributed cache servers\
+  \ and information about them."
+tableType: Regular
+columns:
+  - name: distributed_cache_server
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The identifier of the distributed cache server.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.distributed_cache_server
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: availability_zone
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The availability zone where this server is deployed.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.availability_zone
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: total_space
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The total amount of disk space available under this server.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.total_space
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ips
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Which hosts does this server listen to.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.ips
+    tags: []
+    children: []
+    customMetrics: []
+  - name: hostname
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Hostname of the server.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: port
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint16
+    description: The port which the cache server listens to.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.port
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: from_current_availability_zone
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The flag which shows whether the cache server is from the same availability
+      zone as ClickHouse server.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.from_current_availability_zone
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: unallowed_ips
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: "Which hosts does this server listen to, but were not marked as allowed\
+      \ in the client."
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.unallowed_ips
+    tags: []
+    children: []
+    customMetrics: []
+  - name: certificate
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: TLS certificate of the node.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.certificate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: signature
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Signature data validating authenticity of this registry entry.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.signature
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: available
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Whether server can be picked for certain ranges, i.e. whether there\
+      \ is active backoff because of previous failed connection attempts to it."
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache_registry.available
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 38e0e626cfdb0728f330293e472c911e
+processedLineage: false
+entityStatus: Unprocessed

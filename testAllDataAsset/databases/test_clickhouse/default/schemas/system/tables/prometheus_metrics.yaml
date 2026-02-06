@@ -1,0 +1,98 @@
+name: prometheus_metrics
+fullyQualifiedName: test_clickhouse.default.system.prometheus_metrics
+tableType: View
+columns:
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.prometheus_metrics.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: value
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    fullyQualifiedName: test_clickhouse.default.system.prometheus_metrics.value
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: help
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.prometheus_metrics.help
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: labels
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string, string>"
+    fullyQualifiedName: test_clickhouse.default.system.prometheus_metrics.labels
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.prometheus_metrics.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+schemaDefinition: "CREATE VIEW system.prometheus_metrics (`name` String, `value` Float64,\
+  \ `help` String, `labels` Map(String, String), `type` String) AS SELECT concat('ClickHouse_',\
+  \ event) AS name, toFloat64(value) AS value, description AS help, map('hostname',\
+  \ hostName(), 'table', 'system.events') AS labels, 'counter' AS type FROM clusterAllReplicas('default',\
+  \ 'system.events') SETTINGS skip_unavailable_shards = 1 UNION ALL SELECT concat('ClickHouse_',\
+  \ metric) AS name, toFloat64(value) AS value, description AS help, map('hostname',\
+  \ hostName(), 'table', 'system.metrics') AS labels, 'gauge' AS type FROM clusterAllReplicas('default',\
+  \ 'system.metrics') SETTINGS skip_unavailable_shards = 1 UNION ALL SELECT concat('ClickHouse_',\
+  \ replaceRegexpAll(metric, '[.-]', '_')) AS name, toFloat64(value), description\
+  \ AS help, map('hostname', hostName(), 'table', 'system.asynchronous_metrics') AS\
+  \ labels, 'gauge' AS type FROM clusterAllReplicas('default', 'system.asynchronous_metrics')\
+  \ SETTINGS skip_unavailable_shards = 1"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 0ae719aa7526016dd4c9929e8dd13d6a
+processedLineage: false
+entityStatus: Unprocessed

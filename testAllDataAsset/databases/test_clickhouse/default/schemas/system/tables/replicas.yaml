@@ -1,0 +1,519 @@
+name: replicas
+fullyQualifiedName: test_clickhouse.default.system.replicas
+description: Contains information and status of all table replicas on current server.
+  Each replica is represented by a single row.
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Database name.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Table name.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: engine
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Table engine name.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.engine
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_leader
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Whether the replica is the leader. Multiple replicas can be leaders\
+      \ at the same time. A replica can be prevented from becoming a leader using\
+      \ the merge_tree setting replicated_can_become_leader. The leaders are responsible\
+      \ for scheduling background merges. Note that writes can be performed to any\
+      \ replica that is available and has a session in ZK, regardless of whether it\
+      \ is a leader."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.is_leader
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_parts_update_leader
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: 'Whether the replica is the parts update leader. Can be set only
+      for SharedMergeTree. '
+    fullyQualifiedName: test_clickhouse.default.system.replicas.is_parts_update_leader
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: merge_coordinator_replica
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: 'The current known merge coordinator for this replica. '
+    fullyQualifiedName: test_clickhouse.default.system.replicas.merge_coordinator_replica
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: merge_coordinator_proposal
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: 'The current known merge coordinator proposal for this replica. '
+    fullyQualifiedName: test_clickhouse.default.system.replicas.merge_coordinator_proposal
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: can_become_leader
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Whether the replica can be a leader.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.can_become_leader
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_readonly
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Whether the replica is in read-only mode. This mode is turned on\
+      \ if the config does not have sections with ClickHouse Keeper, if an unknown\
+      \ error occurred when reinitializing sessions in ClickHouse Keeper, and during\
+      \ session reinitialization in ClickHouse Keeper."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.is_readonly
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: readonly_start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: The timestamp when the replica transitioned into readonly mode. Null
+      if the replica is not in readonly mode.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.readonly_start_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_session_expired
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Whether the session with ClickHouse Keeper has expired. Basically
+      the same as `is_readonly`.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.is_session_expired
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: future_parts
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of data parts that will appear as the result of INSERTs
+      or merges that haven't been done yet.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.future_parts
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parts_to_check
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of data parts in the queue for verification. A part is
+      put in the verification queue if there is suspicion that it might be damaged.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.parts_to_check
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: zookeeper_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The name of the the [Zoo]Keeper cluster (possibly auxiliary one)\
+      \ where the table's metadata is stored"
+    fullyQualifiedName: test_clickhouse.default.system.replicas.zookeeper_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: zookeeper_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path to table data in ClickHouse Keeper.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.zookeeper_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: replica_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Replica name in ClickHouse Keeper. Different replicas of the same
+      table have different names.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.replica_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: replica_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path to replica data in ClickHouse Keeper. The same as concatenating
+      'zookeeper_path/replicas/replica_path'.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.replica_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: columns_version
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int32
+    description: "Version number of the table structure. Indicates how many times\
+      \ ALTER was performed. If replicas have different versions, it means some replicas\
+      \ haven't made all of the ALTERs yet."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.columns_version
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: queue_size
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: "Size of the queue for operations waiting to be performed. Operations\
+      \ include inserting blocks of data, merges, and certain other actions. It usually\
+      \ coincides with future_parts."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.queue_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: inserts_in_queue
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: "Number of inserts of blocks of data that need to be made. Insertions\
+      \ are usually replicated fairly quickly. If this number is large, it means something\
+      \ is wrong."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.inserts_in_queue
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: merges_in_queue
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: "The number of merges waiting to be made. Sometimes merges are lengthy,\
+      \ so this value may be greater than zero for a long time."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.merges_in_queue
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_mutations_in_queue
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of mutations waiting to be made.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.part_mutations_in_queue
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: queue_oldest_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: "If `queue_size` greater than 0, shows when the oldest operation\
+      \ was added to the queue."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.queue_oldest_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: inserts_oldest_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: See `queue_oldest_time`.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.inserts_oldest_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: merges_oldest_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: See `queue_oldest_time`.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.merges_oldest_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_mutations_oldest_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: See `queue_oldest_time`.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.part_mutations_oldest_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: oldest_part_to_get
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the part to fetch from other replicas obtained from the
+      oldest GET_PARTS entry in the replication queue.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.oldest_part_to_get
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: oldest_part_to_merge_to
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The result part name to merge to obtained from the oldest MERGE_PARTS
+      entry in the replication queue.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.oldest_part_to_merge_to
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: oldest_part_to_mutate_to
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The result part name to mutate to obtained from the oldest MUTATE_PARTS
+      entry in the replication queue.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.oldest_part_to_mutate_to
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_max_index
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Maximum entry number in the log of general activity.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.log_max_index
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_pointer
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Maximum entry number in the log of general activity that the replica\
+      \ copied to its execution queue, plus one. If log_pointer is much smaller than\
+      \ log_max_index, something is wrong."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.log_pointer
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_queue_update
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: When the queue was updated last time.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.last_queue_update
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: absolute_delay
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: How big lag in seconds the current replica has.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.absolute_delay
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: total_replicas
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The total number of known replicas of this table.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.total_replicas
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: active_replicas
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: "The number of replicas of this table that have a session in ClickHouse\
+      \ Keeper (i.e., the number of functioning replicas)."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.active_replicas
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: lost_part_count
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of data parts lost in the table by all replicas in total
+      since table creation. Value is persisted in ClickHouse Keeper and can only increase.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.lost_part_count
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_queue_update_exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: When the queue contains broken entries. Especially important when
+      ClickHouse breaks backward compatibility between versions and log entries written
+      by newer versions aren't parseable by old versions.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.last_queue_update_exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: zookeeper_exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The last exception message, got if the error happened when fetching\
+      \ the info from ClickHouse Keeper."
+    fullyQualifiedName: test_clickhouse.default.system.replicas.zookeeper_exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: replica_is_active
+    dataType: MAP
+    dataLength: 1
+    dataTypeDisplay: "map<string, uint8>"
+    description: Map between replica name and is replica active.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.replica_is_active
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: virtual_parts_last_update_delay_from_now
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: Age of virtual parts from current moment in time.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.virtual_parts_last_update_delay_from_now
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: virtual_parts_last_update_delay_from_last_change
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: Age of virtual parts from the last change which happened with them.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.virtual_parts_last_update_delay_from_last_change
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: outdated_parts_in_keeper
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: How many outdated part records stored in keeper.
+    fullyQualifiedName: test_clickhouse.default.system.replicas.outdated_parts_in_keeper
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: readonly_duration
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: nullable<uint64>
+    fullyQualifiedName: test_clickhouse.default.system.replicas.readonly_duration
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"operator-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: operator-internal
+sourceHash: ac62479e98063a492d96e2890c30a15c
+processedLineage: false
+entityStatus: Unprocessed

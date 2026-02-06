@@ -1,0 +1,564 @@
+name: projection_parts_columns
+fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns
+description: Contains a list of columns of all currently existing projection parts
+  of all MergeTree tables. Each column is represented by a single row.
+tableType: Regular
+columns:
+  - name: partition
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: 'The partition name. '
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.partition
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The data part storing format.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.part_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_uuid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: The UUID of the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_part_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The source (parent) data part storing format.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_part_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: active
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Flag that indicates whether the data part is active
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.active
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of marks.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.marks
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of rows.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: bytes_on_disk
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of all the data part files in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.bytes_on_disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of compressed data in the data part. All the auxiliary\
+      \ files (for example, files with marks) are not included."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_uncompressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of uncompressed data in the data part. All the auxiliary\
+      \ files (for example, files with marks) are not included."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.data_uncompressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The size of the file with marks.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.marks_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_marks
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of marks in the source (parent) part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_marks
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of rows in the source (parent) part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_bytes_on_disk
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of all the source (parent) data part files in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_bytes_on_disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of compressed data in the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_data_uncompressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of uncompressed data in the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_data_uncompressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_marks_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The size of the file with marks in the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.parent_marks_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: modification_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time the directory with the data part was modified. This usually
+      corresponds to the time of data part creation.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.modification_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: remove_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time when the data part became inactive.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.remove_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: refcount
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of places where the data part is used. A value greater
+      than 2 indicates that the data part is used in queries or merges.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.refcount
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The minimum value for the Date column if that is included in the
+      partition key.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.min_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The maximum value for the Date column if that is included in the
+      partition key.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.max_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The minimum value for the DateTime column if that is included in
+      the partition key.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.min_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The maximum value for the DateTime column if that is included in
+      the partition key.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.max_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: partition_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the partition.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.partition_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_block_number
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: The minimum number of data parts that make up the current part after
+      merging.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.min_block_number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_block_number
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: The maximum number of data parts that make up the current part after
+      merging.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.max_block_number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: level
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Depth of the merge tree. Zero means that the current part was created
+      by insert rather than by merging other parts.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.level
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_version
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number that is used to determine which mutations should be applied
+      to the data part (mutations with a version higher than data_version).
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.data_version
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: primary_key_bytes_in_memory
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The amount of memory (in bytes) used by primary key values.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.primary_key_bytes_in_memory
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: primary_key_bytes_in_memory_allocated
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The amount of memory (in bytes) reserved for primary key values.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.primary_key_bytes_in_memory_allocated
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the database.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: engine
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table engine without parameters.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.engine
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: disk_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of a disk that stores the data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.disk_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Absolute path to the folder with data part files.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the column.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.column
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Column type.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_position
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Ordinal position of a column in a table starting with 1.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.column_position
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default_kind
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Expression type (DEFAULT, MATERIALIZED, ALIAS) for the default value,\
+      \ or an empty string if it is not defined."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.default_kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default_expression
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Expression for the default value, or an empty string if it is not\
+      \ defined."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.default_expression
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_bytes_on_disk
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of the column in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.column_bytes_on_disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of compressed data in the column, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.column_data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_data_uncompressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of the decompressed data in the column, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.column_data_uncompressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_marks_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The size of the column with marks, in bytes."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.column_marks_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_modification_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: The last time the column was modified.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.column_modification_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.marks_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts_columns.part_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 1194580e724040e0e7189ad5bbf529f5
+processedLineage: false
+entityStatus: Unprocessed

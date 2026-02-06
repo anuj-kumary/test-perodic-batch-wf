@@ -1,0 +1,128 @@
+name: error_log
+fullyQualifiedName: test_clickhouse.default.system.error_log
+description: |-
+  Contains history of error values from table system.errors, periodically flushed to disk.
+
+  It is safe to truncate or drop this table at any time.
+tableType: Regular
+columns:
+  - name: hostname
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Hostname of the server executing the query.
+    fullyQualifiedName: test_clickhouse.default.system.error_log.hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Event date.
+    fullyQualifiedName: test_clickhouse.default.system.error_log.event_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Event time.
+    fullyQualifiedName: test_clickhouse.default.system.error_log.event_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: code
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int32
+    description: Error code.
+    fullyQualifiedName: test_clickhouse.default.system.error_log.code
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: error
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Error name.
+    fullyQualifiedName: test_clickhouse.default.system.error_log.error
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: value
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of errors happened in time interval.
+    fullyQualifiedName: test_clickhouse.default.system.error_log.value
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: remote
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Remote exception (i.e. received during one of the distributed queries).
+    fullyQualifiedName: test_clickhouse.default.system.error_log.remote
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"observability-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+sourceHash: cd0ee23ad609c17917fd4394bde5ce59
+processedLineage: false
+entityStatus: Unprocessed

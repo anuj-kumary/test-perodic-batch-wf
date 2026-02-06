@@ -1,0 +1,159 @@
+name: distributed_cache
+fullyQualifiedName: test_clickhouse.default.system.distributed_cache
+description: "A system table, which works the same as system.filesystem_cache system\
+  \ table, but reads cache information from a distributed cache"
+tableType: Regular
+columns:
+  - name: distributed_cache_server
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the cache server where the file resides.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.distributed_cache_server
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Path to a particular cache file, corresponding to a file segment\
+      \ in a source file"
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_segment_range_begin
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Offset corresponding to the beginning of the file segment range
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.file_segment_range_begin
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_segment_range_end
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Offset corresponding to the (including) end of the file segment range
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.file_segment_range_end
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: state
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "File segment state (DOWNLOADED, DOWNLOADING, PARTIALLY_DOWNLOADED,\
+      \ ...)"
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.state
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Size of the file segment
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: downloaded_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Downloaded size of the file segment. It might be smaller or equal
+      to the `size`.
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.downloaded_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_hits
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of cache hits of corresponding file segment
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.cache_hits
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: references
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number of references to corresponding file segment. Value 1 means
+      that nobody uses it at the moment (the only existing reference is in cache storage
+      itself)
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.references
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: kind
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: File segment kind (used to distinguish between file segments added
+      as a part of 'Temporary data in cache')
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.kind
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: unbound
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Internal implementation flag
+    fullyQualifiedName: test_clickhouse.default.system.distributed_cache.unbound
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: c3ffeef25e50f81819920b44b27602e2
+processedLineage: false
+entityStatus: Unprocessed

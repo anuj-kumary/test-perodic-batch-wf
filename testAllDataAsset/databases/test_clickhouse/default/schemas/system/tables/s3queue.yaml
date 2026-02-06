@@ -1,0 +1,123 @@
+name: s3queue
+fullyQualifiedName: test_clickhouse.default.system.s3queue
+description: Contains in-memory state of S3Queue metadata and currently processed
+  rows per file.
+tableType: Regular
+columns:
+  - name: zookeeper_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path in zookeeper to metadata
+    fullyQualifiedName: test_clickhouse.default.system.s3queue.zookeeper_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: File path of a file which is being processed
+    fullyQualifiedName: test_clickhouse.default.system.s3queue.file_path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: File name of a file which is being processed
+    fullyQualifiedName: test_clickhouse.default.system.s3queue.file_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rows_processed
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Currently processed number of rows
+    fullyQualifiedName: test_clickhouse.default.system.s3queue.rows_processed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Status of processing: Processed, Processing, Failed"
+    fullyQualifiedName: test_clickhouse.default.system.s3queue.status
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: processing_start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: Time at which processing of the file started
+    fullyQualifiedName: test_clickhouse.default.system.s3queue.processing_start_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: processing_end_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: nullable<datetime>
+    description: Time at which processing of the file ended
+    fullyQualifiedName: test_clickhouse.default.system.s3queue.processing_end_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Exception which happened during processing
+    fullyQualifiedName: test_clickhouse.default.system.s3queue.exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b9c80c39e7f8c9d791e73f3524eb44dc
+processedLineage: false
+entityStatus: Unprocessed

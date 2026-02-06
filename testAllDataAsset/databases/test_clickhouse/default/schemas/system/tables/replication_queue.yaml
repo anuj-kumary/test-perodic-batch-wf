@@ -1,0 +1,265 @@
+name: replication_queue
+fullyQualifiedName: test_clickhouse.default.system.replication_queue
+description: "Contains information about tasks from replication queues stored in ClickHouse\
+  \ Keeper, or ZooKeeper, for each table replica."
+tableType: Regular
+columns:
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the database.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: replica_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Replica name in ClickHouse Keeper. Different replicas of the same
+      table have different names.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.replica_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: position
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Position of the task in the queue.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.position
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: node_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Node name in ClickHouse Keeper.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.node_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Type of the task in the queue, one of: • GET_PART — Get the part\
+      \ from another replica, • ATTACH_PART — Attach the part, possibly from our own\
+      \ replica (if found in the detached folder). You may think of it as a GET_PART\
+      \ with some optimizations as they're nearly identical, • MERGE_PARTS — Merge\
+      \ the parts, • DROP_RANGE — Delete the parts in the specified partition in the\
+      \ specified number range. • CLEAR_COLUMN — NOTE: Deprecated. Drop specific column\
+      \ from specified partition. • CLEAR_INDEX — NOTE: Deprecated. Drop specific\
+      \ index from specified partition. • REPLACE_RANGE — Drop a certain range of\
+      \ parts and replace them with new ones. • MUTATE_PART — Apply one or several\
+      \ mutations to the part. • ALTER_METADATA — Apply alter modification according\
+      \ to global /metadata and /columns paths."
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: create_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time when the task was submitted for execution.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.create_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: required_quorum
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of replicas waiting for the task to complete with confirmation
+      of completion. This column is only relevant for the GET_PARTS task.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.required_quorum
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: source_replica
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the source replica.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.source_replica
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: new_part_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the new part.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.new_part_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parts_to_merge
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Names of parts to merge or update.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.parts_to_merge
+    tags: []
+    children: []
+    customMetrics: []
+  - name: is_detach
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The flag indicates whether the DETACH_PARTS task is in the queue.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.is_detach
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_currently_executing
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The flag indicates whether a specific task is being performed right
+      now.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.is_currently_executing
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: num_tries
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of failed attempts to complete the task.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.num_tries
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Text message about the last error that occurred (if any).
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.last_exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_exception_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time when the last error occurred.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.last_exception_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_attempt_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time when the task was last attempted.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.last_attempt_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: num_postponed
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of postponed tasks.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.num_postponed
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: postpone_reason
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The reason why the task was postponed.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.postpone_reason
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_postpone_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time when the task was last postponed.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.last_postpone_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: merge_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Type of the current merge. Empty if it's a mutation.
+    fullyQualifiedName: test_clickhouse.default.system.replication_queue.merge_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: fc0258c0caa332a9de9b1492726df9f2
+processedLineage: false
+entityStatus: Unprocessed

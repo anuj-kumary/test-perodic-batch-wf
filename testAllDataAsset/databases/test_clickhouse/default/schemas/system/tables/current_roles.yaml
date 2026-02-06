@@ -1,0 +1,73 @@
+name: current_roles
+fullyQualifiedName: test_clickhouse.default.system.current_roles
+description: Contains active roles of a current user. SET ROLE changes the contents
+  of this table.
+tableType: Regular
+columns:
+  - name: role_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Role name.
+    fullyQualifiedName: test_clickhouse.default.system.current_roles.role_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: with_admin_option
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: 1 if the role has ADMIN OPTION privilege.
+    fullyQualifiedName: test_clickhouse.default.system.current_roles.with_admin_option
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_default
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: 1 if role is set to be a default.
+    fullyQualifiedName: test_clickhouse.default.system.current_roles.is_default
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 4cd3470bb5742970d6d9cac5d600ed6a
+processedLineage: false
+entityStatus: Unprocessed

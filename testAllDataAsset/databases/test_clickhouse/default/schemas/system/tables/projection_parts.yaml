@@ -1,0 +1,682 @@
+name: projection_parts
+fullyQualifiedName: test_clickhouse.default.system.projection_parts
+description: Contains a list of currently existing projection parts (a copy of some
+  part containing aggregated data or just sorted in different order) created for all
+  the projections for all tables within a cluster.
+tableType: Regular
+columns:
+  - name: partition
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The partition name.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.partition
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The data part storing format. Possible Values: Wide (a file per\
+      \ column) and Compact (a single file for all columns)."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.part_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_uuid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uuid
+    description: The UUID of the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_uuid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_part_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The source (parent) data part storing format.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_part_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: active
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Flag that indicates whether the data part is active. If a data part\
+      \ is active, it's used in a table. Otherwise, it's about to be deleted. Inactive\
+      \ data parts appear after merging and mutating operations."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.active
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "The number of marks. To get the approximate number of rows in a\
+      \ data part, multiply marks by the index granularity (usually 8192) (this hint\
+      \ does not work for adaptive granularity)."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.marks
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of rows.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: bytes_on_disk
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of all the data part files in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.bytes_on_disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of compressed data in the data part. All the auxiliary\
+      \ files (for example, files with marks) are not included."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_uncompressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: "Total size of uncompressed data in the data part. All the auxiliary\
+      \ files (for example, files with marks) are not included."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.data_uncompressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The size of the file with marks.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.marks_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_marks
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of marks in the source (parent) part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_marks
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The number of rows in the source (parent) part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_rows
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_bytes_on_disk
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of all the source (parent) data part files in bytes.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_bytes_on_disk
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_data_compressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of compressed data in the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_data_compressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_data_uncompressed_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total size of uncompressed data in the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_data_uncompressed_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_marks_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The size of the file with marks in the source (parent) data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.parent_marks_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: modification_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time the directory with the data part was modified. This usually
+      corresponds to the time of data part creation.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.modification_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: remove_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The time when the data part became inactive.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.remove_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: refcount
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: The number of places where the data part is used. A value greater
+      than 2 indicates that the data part is used in queries or merges.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.refcount
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The minimum value of the date key in the data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.min_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The maximum value of the date key in the data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.max_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The minimum value of the date and time key in the data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.min_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The maximum value of the date and time key in the data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.max_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: partition_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the partition.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.partition_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: min_block_number
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: The minimum number of data parts that make up the current part after
+      merging.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.min_block_number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: max_block_number
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: The maximum number of data parts that make up the current part after
+      merging.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.max_block_number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: level
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: uint32
+    description: Depth of the merge tree. Zero means that the current part was created
+      by insert rather than by merging other parts.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.level
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: data_version
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Number that is used to determine which mutations should be applied
+      to the data part (mutations with a version higher than data_version).
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.data_version
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: primary_key_bytes_in_memory
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The amount of memory (in bytes) used by primary key values.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.primary_key_bytes_in_memory
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: primary_key_bytes_in_memory_allocated
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The amount of memory (in bytes) reserved for primary key values.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.primary_key_bytes_in_memory_allocated
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_frozen
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Flag that shows that a partition data backup exists. 1, the backup\
+      \ exists. 0, the backup does not exist. "
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.is_frozen
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the database.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: engine
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the table engine without parameters.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.engine
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: disk_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of a disk that stores the data part.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.disk_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Absolute path to the folder with data part files.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: hash_of_all_files
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: sipHash128 of compressed files.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.hash_of_all_files
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: hash_of_uncompressed_files
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "sipHash128 of uncompressed files (files with marks, index file etc.)."
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.hash_of_uncompressed_files
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: uncompressed_hash_of_compressed_files
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: sipHash128 of data in the compressed files as if they were uncompressed.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.uncompressed_hash_of_compressed_files
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: delete_ttl_info_min
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The minimum value of the date and time key for TTL DELETE rule.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.delete_ttl_info_min
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: delete_ttl_info_max
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: The maximum value of the date and time key for TTL DELETE rule.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.delete_ttl_info_max
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: move_ttl_info.expression
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Array of expressions. Each expression defines a TTL MOVE rule.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."move_ttl_info.expression"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: move_ttl_info.min
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: Array of date and time values. Each element describes the minimum
+      key value for a TTL MOVE rule.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."move_ttl_info.min"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: move_ttl_info.max
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: Array of date and time values. Each element describes the maximum
+      key value for a TTL MOVE rule.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."move_ttl_info.max"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: default_compression_codec
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the codec used to compress this data part (in case when
+      there is no explicit codec for columns).
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.default_compression_codec
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: recompression_ttl_info.expression
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: The TTL expression.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."recompression_ttl_info.expression"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: recompression_ttl_info.min
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: The minimum value of the calculated TTL expression within this part.
+      Used to understand whether we have at least one row with expired TTL.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."recompression_ttl_info.min"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: recompression_ttl_info.max
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: The maximum value of the calculated TTL expression within this part.
+      Used to understand whether we have all rows with expired TTL.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."recompression_ttl_info.max"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: group_by_ttl_info.expression
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: The TTL expression.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."group_by_ttl_info.expression"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: group_by_ttl_info.min
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: The minimum value of the calculated TTL expression within this part.
+      Used to understand whether we have at least one row with expired TTL.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."group_by_ttl_info.min"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: group_by_ttl_info.max
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: The maximum value of the calculated TTL expression within this part.
+      Used to understand whether we have all rows with expired TTL.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."group_by_ttl_info.max"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: rows_where_ttl_info.expression
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: The TTL expression.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."rows_where_ttl_info.expression"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: rows_where_ttl_info.min
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: The minimum value of the calculated TTL expression within this part.
+      Used to understand whether we have at least one row with expired TTL.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."rows_where_ttl_info.min"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: rows_where_ttl_info.max
+    dataType: ARRAY
+    arrayDataType: DATETIME
+    dataTypeDisplay: array<datetime>
+    description: The maximum value of the calculated TTL expression within this part.
+      Used to understand whether we have all rows with expired TTL.
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts."rows_where_ttl_info.max"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: is_broken
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Whether projection part is broken
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.is_broken
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: exception_code
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int32
+    description: Exception message explaining broken state of the projection part
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.exception_code
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: exception
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Exception code explaining broken state of the projection part
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.exception
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: marks_size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.marks_size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: part_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.projection_parts.part_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: bb523b86989900262a57aeab3bd84f88
+processedLineage: false
+entityStatus: Unprocessed

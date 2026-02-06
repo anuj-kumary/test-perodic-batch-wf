@@ -1,0 +1,145 @@
+name: graphite_retentions
+fullyQualifiedName: test_clickhouse.default.system.graphite_retentions
+description: Contains information about parameters graphite_rollup which are used
+  in tables with *GraphiteMergeTree engines.
+tableType: Regular
+columns:
+  - name: config_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: graphite_rollup parameter name.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions.config_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rule_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The rule type. Possible values: RuleTypeAll = 0 - default, with\
+      \ regex, compatible with old scheme; RuleTypePlain = 1 - plain metrics, with\
+      \ regex, compatible with old scheme; RuleTypeTagged = 2 - tagged metrics, with\
+      \ regex, compatible with old scheme; RuleTypeTagList = 3 - tagged metrics, with\
+      \ regex (converted to  RuleTypeTagged from string like 'retention=10min ; env=(staging|prod)')"
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions.rule_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: regexp
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A pattern for the metric name.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions.regexp
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: function
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the aggregating function.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions.function
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: age
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: The minimum age of the data in seconds.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions.age
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: precision
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: How precisely to define the age of the data in seconds.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions.precision
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: priority
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint16
+    description: Pattern priority.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions.priority
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_default
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Whether the pattern is the default.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions.is_default
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Tables.database
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Array of names of database tables that use the `config_name` parameter.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions."Tables.database"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: Tables.table
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Array of table names that use the `config_name` parameter.
+    fullyQualifiedName: test_clickhouse.default.system.graphite_retentions."Tables.table"
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 65e3216d2d70587d111591382b0b94fe
+processedLineage: false
+entityStatus: Unprocessed

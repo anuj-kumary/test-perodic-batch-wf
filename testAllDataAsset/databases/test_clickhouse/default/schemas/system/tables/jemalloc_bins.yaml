@@ -1,0 +1,94 @@
+name: jemalloc_bins
+fullyQualifiedName: test_clickhouse.default.system.jemalloc_bins
+description: Contains information about memory allocations done via jemalloc allocator
+  in different size classes (bins) aggregated from all arenas. These statistics might
+  not be absolutely accurate because of thread local caching in jemalloc.
+tableType: Regular
+columns:
+  - name: index
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint16
+    description: Index of the bin ordered by size.
+    fullyQualifiedName: test_clickhouse.default.system.jemalloc_bins.index
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: large
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: True for large allocations and False for small.
+    fullyQualifiedName: test_clickhouse.default.system.jemalloc_bins.large
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: size
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Size of allocations in this bin.
+    fullyQualifiedName: test_clickhouse.default.system.jemalloc_bins.size
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: allocations
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: Number of allocations.
+    fullyQualifiedName: test_clickhouse.default.system.jemalloc_bins.allocations
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: deallocations
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: int64
+    description: Number of deallocations.
+    fullyQualifiedName: test_clickhouse.default.system.jemalloc_bins.deallocations
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 93484c9972b2c88b6833fa0c24193307
+processedLineage: false
+entityStatus: Unprocessed

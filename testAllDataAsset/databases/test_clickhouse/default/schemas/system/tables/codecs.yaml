@@ -1,0 +1,123 @@
+name: codecs
+fullyQualifiedName: test_clickhouse.default.system.codecs
+description: Contains information about system codecs.
+tableType: Regular
+columns:
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Codec name.
+    fullyQualifiedName: test_clickhouse.default.system.codecs.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: method_byte
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Byte which indicates codec in compressed file.
+    fullyQualifiedName: test_clickhouse.default.system.codecs.method_byte
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_compression
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: True if this codec compresses something. Otherwise it can be just
+      a transformation that helps compression.
+    fullyQualifiedName: test_clickhouse.default.system.codecs.is_compression
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_generic_compression
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "The codec is a generic compression algorithm like lz4, zstd."
+    fullyQualifiedName: test_clickhouse.default.system.codecs.is_generic_compression
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_encryption
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The codec encrypts.
+    fullyQualifiedName: test_clickhouse.default.system.codecs.is_encryption
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_timeseries_codec
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The codec is for floating point timeseries codec.
+    fullyQualifiedName: test_clickhouse.default.system.codecs.is_timeseries_codec
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_experimental
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: The codec is experimental.
+    fullyQualifiedName: test_clickhouse.default.system.codecs.is_experimental
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: A high-level description of the codec.
+    fullyQualifiedName: test_clickhouse.default.system.codecs.description
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: c2af7c6cb0f7e6355ed268b54cbb2cf3
+processedLineage: false
+entityStatus: Unprocessed

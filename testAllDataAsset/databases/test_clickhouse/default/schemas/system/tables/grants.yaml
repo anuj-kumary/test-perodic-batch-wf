@@ -1,0 +1,209 @@
+name: grants
+fullyQualifiedName: test_clickhouse.default.system.grants
+description: Contains the information about privileges granted to ClickHouse user
+  accounts.
+tableType: Regular
+columns:
+  - name: user_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: User name.
+    fullyQualifiedName: test_clickhouse.default.system.grants.user_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: role_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Role assigned to user account.
+    fullyQualifiedName: test_clickhouse.default.system.grants.role_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: access_type
+    dataType: ENUM
+    dataLength: 1
+    dataTypeDisplay: "enum16<'show databases' = 0, 'show tables' = 1, 'check' = 2,\
+      \ 'show columns' = 3, 'show dictionaries' = 4, 'show' = 5, 'show filesystem\
+      \ caches' = 6, 'select' = 7, 'insert' = 8, 'alter update' = 9, 'alter delete'\
+      \ = 10, 'alter add column' = 11, 'alter modify column' = 12, 'alter drop column'\
+      \ = 13, 'alter comment column' = 14, 'alter clear column' = 15, 'alter rename\
+      \ column' = 16, 'alter materialize column' = 17, 'alter column' = 18, 'alter\
+      \ modify comment' = 19, 'alter modify database comment' = 20, 'alter order by'\
+      \ = 21, 'alter sample by' = 22, 'alter add index' = 23, 'alter drop index' =\
+      \ 24, 'alter materialize index' = 25, 'alter clear index' = 26, 'alter index'\
+      \ = 27, 'alter add statistics' = 28, 'alter drop statistics' = 29, 'alter modify\
+      \ statistics' = 30, 'alter materialize statistics' = 31, 'alter statistics'\
+      \ = 32, 'alter add projection' = 33, 'alter drop projection' = 34, 'alter materialize\
+      \ projection' = 35, 'alter clear projection' = 36, 'alter projection' = 37,\
+      \ 'alter add constraint' = 38, 'alter drop constraint' = 39, 'alter constraint'\
+      \ = 40, 'alter ttl' = 41, 'alter materialize ttl' = 42, 'alter settings' = 43,\
+      \ 'alter move partition' = 44, 'alter fetch partition' = 45, 'alter freeze partition'\
+      \ = 46, 'alter unlock snapshot' = 47, 'alter database settings' = 48, 'alter\
+      \ named collection' = 49, 'alter table' = 50, 'alter database' = 51, 'alter\
+      \ view modify query' = 52, 'alter view modify refresh' = 53, 'alter view modify\
+      \ sql security' = 54, 'alter view' = 55, 'alter' = 56, 'create database' = 57,\
+      \ 'create table' = 58, 'create view' = 59, 'create dictionary' = 60, 'create\
+      \ temporary table' = 61, 'create arbitrary temporary table' = 62, 'create function'\
+      \ = 63, 'create workload' = 64, 'create resource' = 65, 'create named collection'\
+      \ = 66, 'create' = 67, 'drop database' = 68, 'drop table' = 69, 'drop view'\
+      \ = 70, 'drop dictionary' = 71, 'drop function' = 72, 'drop workload' = 73,\
+      \ 'drop resource' = 74, 'drop named collection' = 75, 'drop' = 76, 'undrop table'\
+      \ = 77, 'truncate' = 78, 'optimize' = 79, 'backup' = 80, 'kill query' = 81,\
+      \ 'kill transaction' = 82, 'move partition between shards' = 83, 'create user'\
+      \ = 84, 'alter user' = 85, 'drop user' = 86, 'create role' = 87, 'alter role'\
+      \ = 88, 'drop role' = 89, 'role admin' = 90, 'create row policy' = 91, 'alter\
+      \ row policy' = 92, 'drop row policy' = 93, 'create quota' = 94, 'alter quota'\
+      \ = 95, 'drop quota' = 96, 'create settings profile' = 97, 'alter settings profile'\
+      \ = 98, 'drop settings profile' = 99, 'allow sql security none' = 100, 'show\
+      \ users' = 101, 'show roles' = 102, 'show row policies' = 103, 'show quotas'\
+      \ = 104, 'show settings profiles' = 105, 'show access' = 106, 'access management'\
+      \ = 107, 'show named collections' = 108, 'show named collections secrets' =\
+      \ 109, 'named collection' = 110, 'named collection admin' = 111, 'set definer'\
+      \ = 112, 'table engine' = 113, 'system shutdown' = 114, 'system drop dns cache'\
+      \ = 115, 'system drop connections cache' = 116, 'system prewarm mark cache'\
+      \ = 117, 'system drop mark cache' = 118, 'system drop iceberg metadata cache'\
+      \ = 119, 'system prewarm primary index cache' = 120, 'system drop primary index\
+      \ cache' = 121, 'system drop uncompressed cache' = 122, 'system drop vector\
+      \ similarity index cache' = 123, 'system drop mmap cache' = 124, 'system drop\
+      \ query condition cache' = 125, 'system drop query cache' = 126, 'system drop\
+      \ compiled expression cache' = 127, 'system drop filesystem cache' = 128, 'system\
+      \ drop distributed cache' = 129, 'system sync filesystem cache' = 130, 'system\
+      \ drop page cache' = 131, 'system drop schema cache' = 132, 'system drop format\
+      \ schema cache' = 133, 'system drop s3 client cache' = 134, 'system drop cache'\
+      \ = 135, 'system reload config' = 136, 'system reload users' = 137, 'system\
+      \ reload dictionary' = 138, 'system reload model' = 139, 'system reload function'\
+      \ = 140, 'system reload embedded dictionaries' = 141, 'system reload asynchronous\
+      \ metrics' = 142, 'system reload' = 143, 'system restart disk' = 144, 'system\
+      \ merges' = 145, 'system ttl merges' = 146, 'system fetches' = 147, 'system\
+      \ moves' = 148, 'system pulling replication log' = 149, 'system cleanup' = 150,\
+      \ 'system views' = 151, 'system distributed sends' = 152, 'system replicated\
+      \ sends' = 153, 'system sends' = 154, 'system replication queues' = 155, 'system\
+      \ virtual parts update' = 156, 'system reduce blocking parts' = 157, 'system\
+      \ drop replica' = 158, 'system sync replica' = 159, 'system replica readiness'\
+      \ = 160, 'system restart replica' = 161, 'system restore replica' = 162, 'system\
+      \ restore database replica' = 163, 'system wait loading parts' = 164, 'system\
+      \ sync database replica' = 165, 'system sync transaction log' = 166, 'system\
+      \ sync file cache' = 167, 'system flush distributed' = 168, 'system flush logs'\
+      \ = 169, 'system flush async insert queue' = 170, 'system flush' = 171, 'system\
+      \ thread fuzzer' = 172, 'system unfreeze' = 173, 'system unlock snapshot' =\
+      \ 174, 'system failpoint' = 175, 'system listen' = 176, 'system jemalloc' =\
+      \ 177, 'system load primary key' = 178, 'system unload primary key' = 179, 'system'\
+      \ = 180, 'dictget' = 181, 'displaysecretsinshowandselect' = 182, 'addresstoline'\
+      \ = 183, 'addresstolinewithinlines' = 184, 'addresstosymbol' = 185, 'demangle'\
+      \ = 186, 'introspection' = 187, 'read' = 188, 'write' = 189, 'cluster' = 190,\
+      \ 'file' = 191, 'url' = 192, 'remote' = 193, 'mongo' = 194, 'redis' = 195, 'mysql'\
+      \ = 196, 'postgres' = 197, 'sqlite' = 198, 'odbc' = 199, 'jdbc' = 200, 'hdfs'\
+      \ = 201, 's3' = 202, 'hive' = 203, 'azure' = 204, 'kafka' = 205, 'nats' = 206,\
+      \ 'rabbitmq' = 207, 'sources' = 208, 'all' = 209, 'none' = 210>"
+    description: Access parameters for ClickHouse user account.
+    fullyQualifiedName: test_clickhouse.default.system.grants.access_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: access_object
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Parameter for access_type. Contains: 1 - Name of the source type\
+      \ for READ/WRITE grants.2 - Name of the table engine for TABLE ENGINE  grants.3\
+      \ - Name of the user for grants like `SET DEFINER`."
+    fullyQualifiedName: test_clickhouse.default.system.grants.access_object
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Name of a database.
+    fullyQualifiedName: test_clickhouse.default.system.grants.database
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Name of a table.
+    fullyQualifiedName: test_clickhouse.default.system.grants.table
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: column
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Name of a column to which access is granted.
+    fullyQualifiedName: test_clickhouse.default.system.grants.column
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_partial_revoke
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: "Logical value. It shows whether some privileges have been revoked.\
+      \ Possible values: 0 — The row describes a grant, 1 — The row describes a partial\
+      \ revoke."
+    fullyQualifiedName: test_clickhouse.default.system.grants.is_partial_revoke
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: grant_option
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Permission is granted WITH GRANT OPTION.
+    fullyQualifiedName: test_clickhouse.default.system.grants.grant_option
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d4096bfcacea6fd938b46db47e7dc4bc
+processedLineage: false
+entityStatus: Unprocessed
