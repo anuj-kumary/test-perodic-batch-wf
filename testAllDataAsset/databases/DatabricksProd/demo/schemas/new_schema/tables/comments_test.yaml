@@ -1,0 +1,90 @@
+name: comments_test
+fullyQualifiedName: DatabricksProd.demo.new_schema.comments_test
+description: "The 'comments_test' table is designed to hold data related to user comments\
+  \ on various test items. It includes information such as the unique identifier of\
+  \ each comment and a complex column that stores additional data related to the comment.\
+  \ This table can be useful for analyzing user feedback on tests, identifying common\
+  \ issues or areas of improvement, and tracking changes over time in user comments."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: new comm
+    fullyQualifiedName: DatabricksProd.demo.new_schema.comments_test.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: complex_col
+    dataType: STRUCT
+    dataTypeDisplay: "struct<b1:int,b2:struct<b11:int>>"
+    description: demo com
+    fullyQualifiedName: DatabricksProd.demo.new_schema.comments_test.complex_col
+    tags: []
+    children:
+      - name: b1
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: DatabricksProd.demo.new_schema.comments_test.complex_col.b1
+        tags: []
+        children: []
+      - name: b2
+        dataType: STRUCT
+        dataTypeDisplay: struct<b11:int>
+        fullyQualifiedName: DatabricksProd.demo.new_schema.comments_test.complex_col.b2
+        tags: []
+        children:
+          - name: b11
+            dataType: INT
+            dataTypeDisplay: int
+            fullyQualifiedName: DatabricksProd.demo.new_schema.comments_test.complex_col.b2.b11
+            tags: []
+            children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 420834f5-1a71-4745-9447-2f52361c437a
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: DatabricksProd.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: 716ed3e4-f66d-4d5d-a911-0467233dcb5c
+  type: database
+  name: demo
+  fullyQualifiedName: DatabricksProd.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 70aba29d-0c08-4c85-9ee9-e60bc667f8c2
+  type: databaseService
+  name: DatabricksProd
+  fullyQualifiedName: DatabricksProd
+  displayName: databricksProD
+  deleted: false
+serviceType: Databricks
+schemaDefinition: |-
+  CREATE TABLE demo.new_schema.comments_test (
+    id INT COMMENT 'new comm',
+    complex_col STRUCT<b1: INT COMMENT 'inner comment 11', b2: STRUCT<b11: INT COMMENT 'inner comment 21'> COMMENT 'inner comment 12'> COMMENT 'demo com')
+  USING delta
+  COMMENT 'The \'comments_test\' table is designed to hold data related to user comments on various test items. It includes information such as the unique identifier of each comment and a complex column that stores additional data related to the comment. This table can be useful for analyzing user feedback on tests, identifying common issues or areas of improvement, and tracking changes over time in user comments.'
+  TBLPROPERTIES (
+    'delta.minReaderVersion' = '1',
+    'delta.minWriterVersion' = '2')
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: ee7d6c3d8fb2d3aa419016099c4e7156
+processedLineage: false
+entityStatus: Approved

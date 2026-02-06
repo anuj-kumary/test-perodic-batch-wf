@@ -1,0 +1,95 @@
+name: new_table
+fullyQualifiedName: DatabricksProd.demo.new_schema.new_table
+description: "This table stores unique identifiers and names, allowing users to manage\
+  \ and reference entities effectively, such as customers or products, in various\
+  \ applications and analyses."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "This column serves as a unique identifier for each record in the\
+      \ table, allowing for efficient data retrieval and management."
+    fullyQualifiedName: DatabricksProd.demo.new_schema.new_table.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(22)
+    description: "This column stores the name associated with each record, providing\
+      \ a way to identify or categorize the entries in the table."
+    fullyQualifiedName: DatabricksProd.demo.new_schema.new_table.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 420834f5-1a71-4745-9447-2f52361c437a
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: DatabricksProd.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: 716ed3e4-f66d-4d5d-a911-0467233dcb5c
+  type: database
+  name: demo
+  fullyQualifiedName: DatabricksProd.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 70aba29d-0c08-4c85-9ee9-e60bc667f8c2
+  type: databaseService
+  name: DatabricksProd
+  fullyQualifiedName: DatabricksProd
+  displayName: databricksProD
+  deleted: false
+serviceType: Databricks
+schemaDefinition: |-
+  CREATE TABLE demo.new_schema.new_table (
+    id INT NOT NULL,
+    name VARCHAR(22),
+    CONSTRAINT `new_table_pk` PRIMARY KEY (`id`))
+  USING delta
+  TBLPROPERTIES (
+    'delta.minReaderVersion' = '1',
+    'delta.minWriterVersion' = '2')
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.id.description
+      newValue: "This column serves as a unique identifier for each record in the\
+        \ table, allowing for efficient data retrieval and management."
+    - name: columns.name.description
+      newValue: "This column stores the name associated with each record, providing\
+        \ a way to identify or categorize the entries in the table."
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1743770568688
+    columns.id.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770568939
+    columns.name.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770568939
+domains: []
+dataProducts: []
+sourceHash: 77d6b853884f253dd0865a0d021b9ee3
+processedLineage: false
+entityStatus: Approved

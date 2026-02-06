@@ -1,0 +1,160 @@
+name: complex_data
+displayName: compleX_datA
+fullyQualifiedName: DatabricksProd.demo.default.complex_data
+description: "This table stores complex data types, including arrays, maps, and structs,\
+  \ allowing users to manage and analyze intricate datasets effectively, making it\
+  \ ideal for applications requiring rich data structures and relationships."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "This column serves as a unique identifier for each record in the\
+      \ table, enabling efficient retrieval and management of data."
+    fullyQualifiedName: DatabricksProd.demo.default.complex_data.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: array_data
+    dataType: ARRAY
+    arrayDataType: INT
+    dataTypeDisplay: array<int>
+    description: "This column is used to store a collection of integer values, allowing\
+      \ for the representation of multiple related numeric entries in a single field."
+    fullyQualifiedName: DatabricksProd.demo.default.complex_data.array_data
+    tags: []
+    children: []
+    customMetrics: []
+  - name: map_data
+    dataType: MAP
+    dataTypeDisplay: "map<string,int>"
+    description: "This column is utilized to store key-value pairs, where each key\
+      \ is a string and its corresponding value is an integer, facilitating the association\
+      \ of descriptive labels with numeric values."
+    fullyQualifiedName: DatabricksProd.demo.default.complex_data.map_data
+    tags: []
+    children: []
+    customMetrics: []
+  - name: struct_data
+    dataType: STRUCT
+    dataTypeDisplay: "struct<a:int,b:string,c:array<string>,d:struct<abc:int>>"
+    description: "This column contains a structured data format that encapsulates\
+      \ multiple related fields, including an integer, a string, an array of strings,\
+      \ and a nested structure, allowing for complex data representation."
+    fullyQualifiedName: DatabricksProd.demo.default.complex_data.struct_data
+    tags: []
+    children:
+      - name: a
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: DatabricksProd.demo.default.complex_data.struct_data.a
+        tags: []
+        children: []
+      - name: b
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DatabricksProd.demo.default.complex_data.struct_data.b
+        tags: []
+        children: []
+      - name: c
+        dataType: ARRAY
+        arrayDataType: STRING
+        dataTypeDisplay: array<string>
+        fullyQualifiedName: DatabricksProd.demo.default.complex_data.struct_data.c
+        tags: []
+        children: []
+      - name: d
+        dataType: STRUCT
+        dataTypeDisplay: struct<abc:int>
+        fullyQualifiedName: DatabricksProd.demo.default.complex_data.struct_data.d
+        tags: []
+        children:
+          - name: abc
+            dataType: INT
+            dataTypeDisplay: int
+            fullyQualifiedName: DatabricksProd.demo.default.complex_data.struct_data.d.abc
+            tags: []
+            children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 5726b397-9e1b-4536-8790-c3217e617134
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: DatabricksProd.demo.default
+  displayName: default
+  deleted: false
+database:
+  id: 716ed3e4-f66d-4d5d-a911-0467233dcb5c
+  type: database
+  name: demo
+  fullyQualifiedName: DatabricksProd.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 70aba29d-0c08-4c85-9ee9-e60bc667f8c2
+  type: databaseService
+  name: DatabricksProd
+  fullyQualifiedName: DatabricksProd
+  displayName: databricksProD
+  deleted: false
+serviceType: Databricks
+schemaDefinition: |-
+  CREATE TABLE demo.default.complex_data (
+    id INT,
+    array_data ARRAY<INT>,
+    map_data MAP<STRING, INT>,
+    struct_data STRUCT<a: INT, b: STRING, c: ARRAY<STRING>, d: STRUCT<abc: INT>>)
+  USING delta
+  TBLPROPERTIES (
+    'delta.checkpoint.writeStatsAsJson' = 'false',
+    'delta.checkpoint.writeStatsAsStruct' = 'true',
+    'delta.enableDeletionVectors' = 'true',
+    'delta.feature.deletionVectors' = 'supported',
+    'delta.minReaderVersion' = '3',
+    'delta.minWriterVersion' = '7')
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 84a0585f-a841-4515-b0f7-fb1ad443bda8
+  type: testSuite
+  name: DatabricksProd.demo.default.complex_data.testSuite
+  fullyQualifiedName: DatabricksProd.demo.default.complex_data.testSuite
+  displayName: DatabricksProd.demo.default.complex_data.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: displayName
+      newValue: compleX_datA
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1743770591416
+    columns.id.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770591416
+    columns.map_data.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770591416
+    columns.array_data.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770591416
+    columns.struct_data.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770591416
+domains: []
+dataProducts: []
+sourceHash: 76f8c7353750ffb8754a85fb6f8c506c
+processedLineage: false
+entityStatus: Approved

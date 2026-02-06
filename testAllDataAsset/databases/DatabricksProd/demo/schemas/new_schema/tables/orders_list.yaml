@@ -1,0 +1,188 @@
+name: orders_list
+fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list
+description: "This table stores detailed information about customer orders, including\
+  \ their contact details, preferences, and a list of ordered products, enabling businesses\
+  \ to analyze customer behavior and improve service offerings."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Unique identifier
+    fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the person
+    fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: STRUCT
+    dataTypeDisplay: "struct<street:string,city:string,state:string,postal_code:string,country:string,coordinates:struct<latitude:double,longitude:double>>"
+    description: Address information
+    fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address
+    tags: []
+    children:
+      - name: street
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address.street
+        tags: []
+        children: []
+      - name: city
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address.city
+        tags: []
+        children: []
+      - name: state
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address.state
+        tags: []
+        children: []
+      - name: postal_code
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address.postal_code
+        tags: []
+        children: []
+      - name: country
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address.country
+        tags: []
+        children: []
+      - name: coordinates
+        dataType: STRUCT
+        dataTypeDisplay: "struct<latitude:double,longitude:double>"
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address.coordinates
+        tags: []
+        children:
+          - name: latitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address.coordinates.latitude
+            tags: []
+            children: []
+          - name: longitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.address.coordinates.longitude
+            tags: []
+            children: []
+    customMetrics: []
+  - name: phone_numbers
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: List of phone numbers
+    fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.phone_numbers
+    tags: []
+    children: []
+    customMetrics: []
+  - name: preferences
+    dataType: MAP
+    dataTypeDisplay: "map<string,string>"
+    description: User preferences
+    fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.preferences
+    tags: []
+    children: []
+    customMetrics: []
+  - name: orders
+    dataType: ARRAY
+    arrayDataType: STRUCT
+    dataTypeDisplay: "array<struct<order_id:int,product:string,quantity:int>>"
+    description: List of orders
+    fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.orders
+    tags: []
+    children:
+      - name: order_id
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.orders.order_id
+        tags: []
+        children: []
+      - name: product
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.orders.product
+        tags: []
+        children: []
+      - name: quantity
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: DatabricksProd.demo.new_schema.orders_list.orders.quantity
+        tags: []
+        children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 420834f5-1a71-4745-9447-2f52361c437a
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: DatabricksProd.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: 716ed3e4-f66d-4d5d-a911-0467233dcb5c
+  type: database
+  name: demo
+  fullyQualifiedName: DatabricksProd.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 70aba29d-0c08-4c85-9ee9-e60bc667f8c2
+  type: databaseService
+  name: DatabricksProd
+  fullyQualifiedName: DatabricksProd
+  displayName: databricksProD
+  deleted: false
+serviceType: Databricks
+schemaDefinition: |-
+  CREATE TABLE demo.new_schema.orders_list (
+    id INT COMMENT 'Unique identifier',
+    name STRING COMMENT 'Name of the person',
+    address STRUCT<street: STRING COMMENT 'Street name', city: STRING COMMENT 'City name', state: STRING COMMENT 'State name', postal_code: STRING COMMENT 'Postal code', country: STRING COMMENT 'Country name', coordinates: STRUCT<latitude: DOUBLE COMMENT 'Latitude coordinate', longitude: DOUBLE COMMENT 'Longitude coordinate'> COMMENT 'Geographic coordinates including latitude and longitude'> COMMENT 'Address information',
+    phone_numbers ARRAY<STRING> COMMENT 'List of phone numbers',
+    preferences MAP<STRING, STRING> COMMENT 'User preferences',
+    orders ARRAY<STRUCT<order_id: INT COMMENT 'Order identifier', product: STRING COMMENT 'Product name', quantity: INT COMMENT 'Quantity ordered'>> COMMENT 'List of orders')
+  USING delta
+  TBLPROPERTIES (
+    'delta.minReaderVersion' = '1',
+    'delta.minWriterVersion' = '2')
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: description
+      newValue: "This table stores detailed information about customer orders, including\
+        \ their contact details, preferences, and a list of ordered products, enabling\
+        \ businesses to analyze customer behavior and improve service offerings."
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1743770565099
+domains: []
+dataProducts: []
+sourceHash: 5f56d9ea2645f2dcc0d3479982a7e22f
+processedLineage: false
+entityStatus: Approved

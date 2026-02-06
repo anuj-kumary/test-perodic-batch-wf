@@ -1,0 +1,197 @@
+name: demo_data_ext_tbl3
+fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3
+description: "This table stores customer-related information, including names, contact\
+  \ details, and geographic locations, enabling businesses to analyze customer demographics\
+  \ and improve targeted marketing strategies."
+tableType: Regular
+columns:
+  - name: CUSTOMERID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: The CUSTOMERID column is a unique identifier assigned to each customer.
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3.CUSTOMERID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CUSTOMERNAME
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The CUSTOMERNAME column contains the full name of the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3.CUSTOMERNAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EMAIL
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The EMAIL column stores the email address of the customer for communication
+      purposes.
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3.EMAIL
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CITY
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The CITY column represents the name of the city where the customer
+      is located.
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3.CITY
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: COUNTRY
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The COUNTRY column indicates the country where the customer resides.
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3.COUNTRY
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TERRITORY
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The TERRITORY column specifies the geographical area or region assigned
+      to the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3.TERRITORY
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CONTACTFIRSTNAME
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The CONTACTFIRSTNAME column contains the first name of the contact
+      person for the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3.CONTACTFIRSTNAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CONTACTLASTNAME
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The CONTACTLASTNAME column holds the last name of the contact person
+      for the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl3.CONTACTLASTNAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 5726b397-9e1b-4536-8790-c3217e617134
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: DatabricksProd.demo.default
+  displayName: default
+  deleted: false
+database:
+  id: 716ed3e4-f66d-4d5d-a911-0467233dcb5c
+  type: database
+  name: demo
+  fullyQualifiedName: DatabricksProd.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 70aba29d-0c08-4c85-9ee9-e60bc667f8c2
+  type: databaseService
+  name: DatabricksProd
+  fullyQualifiedName: DatabricksProd
+  displayName: databricksProD
+  deleted: false
+serviceType: Databricks
+schemaDefinition: |-
+  CREATE TABLE demo.default.demo_data_ext_tbl3 (
+    CUSTOMERID INT,
+    CUSTOMERNAME STRING,
+    EMAIL STRING,
+    CITY STRING,
+    COUNTRY STRING,
+    TERRITORY STRING,
+    CONTACTFIRSTNAME STRING,
+    CONTACTLASTNAME STRING)
+  USING csv
+  OPTIONS (
+    'header' = 'true',
+    'inferSchema' = 'true')
+  LOCATION 's3://awsdatalake-testing/dbt-testing/mayur/customers.csv'
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.CUSTOMERID.description
+      newValue: The CUSTOMERID column is a unique identifier assigned to each customer.
+    - name: columns.CUSTOMERNAME.description
+      newValue: The CUSTOMERNAME column contains the full name of the customer.
+    - name: columns.EMAIL.description
+      newValue: The EMAIL column stores the email address of the customer for communication
+        purposes.
+    - name: columns.CITY.description
+      newValue: The CITY column represents the name of the city where the customer
+        is located.
+    - name: columns.COUNTRY.description
+      newValue: The COUNTRY column indicates the country where the customer resides.
+    - name: columns.TERRITORY.description
+      newValue: The TERRITORY column specifies the geographical area or region assigned
+        to the customer.
+    - name: columns.CONTACTFIRSTNAME.description
+      newValue: The CONTACTFIRSTNAME column contains the first name of the contact
+        person for the customer.
+    - name: columns.CONTACTLASTNAME.description
+      newValue: The CONTACTLASTNAME column holds the last name of the contact person
+        for the customer.
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588098
+    columns.CITY.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588367
+    columns.EMAIL.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588367
+    columns.COUNTRY.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588367
+    columns.TERRITORY.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588367
+    columns.CUSTOMERID.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588367
+    columns.CUSTOMERNAME.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588367
+    columns.CONTACTLASTNAME.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588367
+    columns.CONTACTFIRSTNAME.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770588367
+domains: []
+dataProducts: []
+sourceHash: 03fe2b1b519767213e5dd1e9a7b69d6a
+processedLineage: false
+entityStatus: Approved

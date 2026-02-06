@@ -1,0 +1,115 @@
+name: demo_data
+fullyQualifiedName: DatabricksProd.demo.default.demo_data
+description: "This table stores user-related information, including email addresses,\
+  \ unique user IDs, and usernames, enabling applications to manage user accounts,\
+  \ authenticate users, and personalize experiences based on their profiles."
+tableType: Regular
+columns:
+  - name: user_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The user_id column serves as a unique identifier for each user in\
+      \ the system, allowing for efficient tracking and management of user-related\
+      \ data."
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data.user_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: username
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The username column contains the chosen display name of the user,\
+      \ which is often used for login purposes and to represent the user in the application."
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data.username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The email column stores the email address of the user, which is\
+      \ typically used for communication and account verification purposes."
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data.email
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 5726b397-9e1b-4536-8790-c3217e617134
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: DatabricksProd.demo.default
+  displayName: default
+  deleted: false
+database:
+  id: 716ed3e4-f66d-4d5d-a911-0467233dcb5c
+  type: database
+  name: demo
+  fullyQualifiedName: DatabricksProd.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 70aba29d-0c08-4c85-9ee9-e60bc667f8c2
+  type: databaseService
+  name: DatabricksProd
+  fullyQualifiedName: DatabricksProd
+  displayName: databricksProD
+  deleted: false
+serviceType: Databricks
+schemaDefinition: |-
+  CREATE TABLE demo.default.demo_data (
+    user_id STRING,
+    username STRING,
+    email STRING)
+  USING delta
+  TBLPROPERTIES (
+    'delta.minReaderVersion' = '1',
+    'delta.minWriterVersion' = '2')
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.user_id.description
+      newValue: "The user_id column serves as a unique identifier for each user in\
+        \ the system, allowing for efficient tracking and management of user-related\
+        \ data."
+    - name: columns.username.description
+      newValue: "The username column contains the chosen display name of the user,\
+        \ which is often used for login purposes and to represent the user in the\
+        \ application."
+    - name: columns.email.description
+      newValue: "The email column stores the email address of the user, which is typically\
+        \ used for communication and account verification purposes."
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1743770589971
+    columns.email.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770590238
+    columns.user_id.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770590238
+    columns.username.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770590238
+domains: []
+dataProducts: []
+sourceHash: b916bc42fca5b13ed2872726f94840ab
+processedLineage: false
+entityStatus: Approved

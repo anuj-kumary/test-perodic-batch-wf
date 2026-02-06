@@ -1,0 +1,188 @@
+name: load_data_exp
+fullyQualifiedName: DatabricksProd.demo.default.load_data_exp
+description: "This table stores customer-related information, including their names,\
+  \ contact details, and geographical locations, enabling businesses to manage relationships,\
+  \ analyze customer demographics, and enhance targeted marketing efforts."
+tableType: Regular
+columns:
+  - name: customerid
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(100)
+    description: A unique identifier assigned to each customer.
+    fullyQualifiedName: DatabricksProd.demo.default.load_data_exp.customerid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customername
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(100)
+    description: The name of the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.load_data_exp.customername
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(100)
+    description: The email address of the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.load_data_exp.email
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: city
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(100)
+    description: The city where the customer is located.
+    fullyQualifiedName: DatabricksProd.demo.default.load_data_exp.city
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: country
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(100)
+    description: The country where the customer resides.
+    fullyQualifiedName: DatabricksProd.demo.default.load_data_exp.country
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: territory
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(100)
+    description: The sales territory or region associated with the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.load_data_exp.territory
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: contactfirstname
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(100)
+    description: The first name of the contact person for the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.load_data_exp.contactfirstname
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: contactlastname
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar(100)
+    description: The last name of the contact person for the customer.
+    fullyQualifiedName: DatabricksProd.demo.default.load_data_exp.contactlastname
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 5726b397-9e1b-4536-8790-c3217e617134
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: DatabricksProd.demo.default
+  displayName: default
+  deleted: false
+database:
+  id: 716ed3e4-f66d-4d5d-a911-0467233dcb5c
+  type: database
+  name: demo
+  fullyQualifiedName: DatabricksProd.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 70aba29d-0c08-4c85-9ee9-e60bc667f8c2
+  type: databaseService
+  name: DatabricksProd
+  fullyQualifiedName: DatabricksProd
+  displayName: databricksProD
+  deleted: false
+serviceType: Databricks
+schemaDefinition: |-
+  CREATE TABLE demo.default.load_data_exp (
+    customerid VARCHAR(100),
+    customername VARCHAR(100),
+    email VARCHAR(100),
+    city VARCHAR(100),
+    country VARCHAR(100),
+    territory VARCHAR(100),
+    contactfirstname VARCHAR(100),
+    contactlastname VARCHAR(100))
+  USING delta
+  TBLPROPERTIES (
+    'delta.enableDeletionVectors' = 'true',
+    'delta.feature.deletionVectors' = 'supported',
+    'delta.minReaderVersion' = '3',
+    'delta.minWriterVersion' = '7')
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.customerid.description
+      newValue: A unique identifier assigned to each customer.
+    - name: columns.customername.description
+      newValue: The name of the customer.
+    - name: columns.email.description
+      newValue: The email address of the customer.
+    - name: columns.city.description
+      newValue: The city where the customer is located.
+    - name: columns.country.description
+      newValue: The country where the customer resides.
+    - name: columns.territory.description
+      newValue: The sales territory or region associated with the customer.
+    - name: columns.contactfirstname.description
+      newValue: The first name of the contact person for the customer.
+    - name: columns.contactlastname.description
+      newValue: The last name of the contact person for the customer.
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587142
+    columns.city.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587402
+    columns.email.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587402
+    columns.country.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587402
+    columns.territory.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587402
+    columns.customerid.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587402
+    columns.customername.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587402
+    columns.contactlastname.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587402
+    columns.contactfirstname.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770587402
+domains: []
+dataProducts: []
+sourceHash: d98ec5eee9a5ca1ea654048953191269
+processedLineage: false
+entityStatus: Approved

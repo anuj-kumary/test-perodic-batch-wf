@@ -1,0 +1,115 @@
+name: demo_data_ext_tbl2
+fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl2
+description: "This table stores user-related information, including email addresses,\
+  \ unique user IDs, and usernames, enabling applications to manage user accounts,\
+  \ authenticate users, and personalize experiences based on their profiles."
+tableType: Regular
+columns:
+  - name: user_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "The user_id column serves as a unique identifier for each user in\
+      \ the system, allowing for efficient tracking and management of user-related\
+      \ data."
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl2.user_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: username
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The username column contains the chosen usernames of users, which\
+      \ are often used for login and display purposes within the application."
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl2.username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The email column stores the email addresses of users, which can\
+      \ be used for communication, account verification, and login purposes."
+    fullyQualifiedName: DatabricksProd.demo.default.demo_data_ext_tbl2.email
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 5726b397-9e1b-4536-8790-c3217e617134
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: DatabricksProd.demo.default
+  displayName: default
+  deleted: false
+database:
+  id: 716ed3e4-f66d-4d5d-a911-0467233dcb5c
+  type: database
+  name: demo
+  fullyQualifiedName: DatabricksProd.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 70aba29d-0c08-4c85-9ee9-e60bc667f8c2
+  type: databaseService
+  name: DatabricksProd
+  fullyQualifiedName: DatabricksProd
+  displayName: databricksProD
+  deleted: false
+serviceType: Databricks
+schemaDefinition: |-
+  CREATE TABLE demo.default.demo_data_ext_tbl2 (
+    user_id INT,
+    username STRING,
+    email STRING)
+  USING csv
+  OPTIONS (
+    'header' = 'true',
+    'inferSchema' = 'true')
+  LOCATION 's3://awsdatalake-testing/test.csv'
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.user_id.description
+      newValue: "The user_id column serves as a unique identifier for each user in\
+        \ the system, allowing for efficient tracking and management of user-related\
+        \ data."
+    - name: columns.username.description
+      newValue: "The username column contains the chosen usernames of users, which\
+        \ are often used for login and display purposes within the application."
+    - name: columns.email.description
+      newValue: "The email column stores the email addresses of users, which can be\
+        \ used for communication, account verification, and login purposes."
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1743770589016
+    columns.email.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770589287
+    columns.user_id.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770589287
+    columns.username.description:
+      changedBy: ingestion-bot
+      changedAt: 1743770589287
+domains: []
+dataProducts: []
+sourceHash: bbacdc0897c6708d802fdf8a61a06e00
+processedLineage: false
+entityStatus: Approved
