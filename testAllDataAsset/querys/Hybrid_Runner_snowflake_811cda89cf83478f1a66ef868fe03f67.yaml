@@ -1,0 +1,46 @@
+name: 811cda89cf83478f1a66ef868fe03f67
+fullyQualifiedName: Hybrid Runner snowflake.811cda89cf83478f1a66ef868fe03f67
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"05d9475b-b3f5-4821-af39-976700b93e15\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_TABLE_1\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_1\"\
+        ,\"displayName\":\"SOURCE_TABLE_1\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 87.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(LEN(\"CUSTOMER_NAME\")) AS mean, count(\"CUSTOMER_NAME\") AS \"\
+  valuesCount\", count(DISTINCT \"CUSTOMER_NAME\") AS \"distinctCount\", MAX(LEN(\"\
+  CUSTOMER_NAME\")) AS max, MIN(LEN(\"CUSTOMER_NAME\")) AS min, coalesce(SUM(CASE\
+  \ WHEN (\"CUSTOMER_NAME\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  CUSTOMER_NAME\")) AS stddev, SUM(LEN(\"CUSTOMER_NAME\")) AS sum \nFROM \"ALL_LINAGE_SCHEMA\"\
+  .\"SOURCE_TABLE_1\"\n LIMIT ?"
+checksum: 811cda89cf83478f1a66ef868fe03f67
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 05d9475b-b3f5-4821-af39-976700b93e15
+    type: table
+    name: SOURCE_TABLE_1
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_1
+    displayName: SOURCE_TABLE_1
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

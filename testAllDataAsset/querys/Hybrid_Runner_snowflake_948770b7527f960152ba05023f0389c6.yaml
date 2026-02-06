@@ -1,0 +1,46 @@
+name: 948770b7527f960152ba05023f0389c6
+fullyQualifiedName: Hybrid Runner snowflake.948770b7527f960152ba05023f0389c6
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"e430445a-72c4-438b-9254-69cdd5e583eb\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_EMPLOYEES\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_EMPLOYEES\"\
+        ,\"displayName\":\"SOURCE_EMPLOYEES\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 235.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(LEN(\"DEPARTMENT_NAME\")) AS mean, count(\"DEPARTMENT_NAME\") AS\
+  \ \"valuesCount\", count(DISTINCT \"DEPARTMENT_NAME\") AS \"distinctCount\", MAX(LEN(\"\
+  DEPARTMENT_NAME\")) AS max, MIN(LEN(\"DEPARTMENT_NAME\")) AS min, coalesce(SUM(CASE\
+  \ WHEN (\"DEPARTMENT_NAME\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  DEPARTMENT_NAME\")) AS stddev, SUM(LEN(\"DEPARTMENT_NAME\")) AS sum \nFROM \"ALL_LINAGE_SCHEMA\"\
+  .\"SOURCE_EMPLOYEES\"\n LIMIT ?"
+checksum: 948770b7527f960152ba05023f0389c6
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: e430445a-72c4-438b-9254-69cdd5e583eb
+    type: table
+    name: SOURCE_EMPLOYEES
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_EMPLOYEES
+    displayName: SOURCE_EMPLOYEES
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

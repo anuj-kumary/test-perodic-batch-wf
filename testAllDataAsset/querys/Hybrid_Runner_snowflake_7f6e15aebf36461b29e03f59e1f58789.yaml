@@ -1,0 +1,45 @@
+name: 7f6e15aebf36461b29e03f59e1f58789
+fullyQualifiedName: Hybrid Runner snowflake.7f6e15aebf36461b29e03f59e1f58789
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7d2b6ab4-9ae8-4560-b4b9-5f97ea198429\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_TABLE_3\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_3\"\
+        ,\"displayName\":\"SOURCE_TABLE_3\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 164.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(\"PRODUCT_ID\") AS mean, count(\"PRODUCT_ID\") AS \"valuesCount\"\
+  , count(DISTINCT \"PRODUCT_ID\") AS \"distinctCount\", MIN(\"PRODUCT_ID\") AS min,\
+  \ MAX(\"PRODUCT_ID\") AS max, coalesce(SUM(CASE WHEN (\"PRODUCT_ID\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"PRODUCT_ID\") AS stddev, SUM(\"\
+  PRODUCT_ID\") AS sum \nFROM \"ALL_LINAGE_SCHEMA\".\"SOURCE_TABLE_3\"\n LIMIT ?"
+checksum: 7f6e15aebf36461b29e03f59e1f58789
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 7d2b6ab4-9ae8-4560-b4b9-5f97ea198429
+    type: table
+    name: SOURCE_TABLE_3
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_3
+    displayName: SOURCE_TABLE_3
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

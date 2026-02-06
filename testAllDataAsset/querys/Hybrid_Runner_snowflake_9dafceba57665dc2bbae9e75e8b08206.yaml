@@ -1,0 +1,45 @@
+name: 9dafceba57665dc2bbae9e75e8b08206
+fullyQualifiedName: Hybrid Runner snowflake.9dafceba57665dc2bbae9e75e8b08206
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0d014896-904f-453d-a3b9-0c11a731dc11\",\"type\":\"table\"\
+        ,\"name\":\"EXTERNAL_TABLE_CUSTOMER\",\"fullyQualifiedName\":\"Hybrid Runner\
+        \ snowflake.MT_DB.ALL_LINAGE_SCHEMA.EXTERNAL_TABLE_CUSTOMER\",\"displayName\"\
+        :\"EXTERNAL_TABLE_CUSTOMER\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 309.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"NATION_KEY\" ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"NATION_KEY\" ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY \"NATION_KEY\" ASC) AS \"thirdQuartile\"\
+  \ \nFROM \"ALL_LINAGE_SCHEMA\".\"EXTERNAL_TABLE_CUSTOMER\"\n LIMIT ?"
+checksum: 9dafceba57665dc2bbae9e75e8b08206
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 0d014896-904f-453d-a3b9-0c11a731dc11
+    type: table
+    name: EXTERNAL_TABLE_CUSTOMER
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.EXTERNAL_TABLE_CUSTOMER
+    displayName: EXTERNAL_TABLE_CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

@@ -1,0 +1,43 @@
+name: 4ad0290d4cf63282958d924b5353c9f1
+fullyQualifiedName: Hybrid Runner snowflake.4ad0290d4cf63282958d924b5353c9f1
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7d2b6ab4-9ae8-4560-b4b9-5f97ea198429\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_TABLE_3\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_3\"\
+        ,\"displayName\":\"SOURCE_TABLE_3\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 65.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"SALE_ID\") AS count_1\
+  \ \nFROM \"ALL_LINAGE_SCHEMA\".\"SOURCE_TABLE_3\" GROUP BY \"SALE_ID\" \nHAVING\
+  \ count(\"SALE_ID\") = ?) AS only_once\n LIMIT ?"
+checksum: 4ad0290d4cf63282958d924b5353c9f1
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 7d2b6ab4-9ae8-4560-b4b9-5f97ea198429
+    type: table
+    name: SOURCE_TABLE_3
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_3
+    displayName: SOURCE_TABLE_3
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

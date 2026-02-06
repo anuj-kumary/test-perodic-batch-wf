@@ -1,0 +1,44 @@
+name: 9264e4f3704840632891d2e936915646
+fullyQualifiedName: Hybrid Runner snowflake.9264e4f3704840632891d2e936915646
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"02fae7d8-186a-4276-a4b1-9cc13596ca55\",\"type\":\"table\"\
+        ,\"name\":\"STREAM_ON_BASE_TABLE\",\"fullyQualifiedName\":\"Hybrid Runner\
+        \ snowflake.MT_DB.ALL_LINAGE_SCHEMA.STREAM_ON_BASE_TABLE\",\"displayName\"\
+        :\"STREAM_ON_BASE_TABLE\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 91.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"METADATA$ACTION\"\
+  ) AS count_1 \nFROM \"ALL_LINAGE_SCHEMA\".\"STREAM_ON_BASE_TABLE\" GROUP BY \"METADATA$ACTION\"\
+  \ \nHAVING count(\"METADATA$ACTION\") = ?) AS only_once\n LIMIT ?"
+checksum: 9264e4f3704840632891d2e936915646
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 02fae7d8-186a-4276-a4b1-9cc13596ca55
+    type: table
+    name: STREAM_ON_BASE_TABLE
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.STREAM_ON_BASE_TABLE
+    displayName: STREAM_ON_BASE_TABLE
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

@@ -1,0 +1,45 @@
+name: 808e108085e8b84e29a53569113b3798
+fullyQualifiedName: Hybrid Runner snowflake.808e108085e8b84e29a53569113b3798
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"8e3de80d-1444-4a2b-b01c-f720696af8d9\",\"type\":\"table\"\
+        ,\"name\":\"MATERIALIZED_VIEW_ON_BASE_TABLE\",\"fullyQualifiedName\":\"Hybrid\
+        \ Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.MATERIALIZED_VIEW_ON_BASE_TABLE\"\
+        ,\"displayName\":\"MATERIALIZED_VIEW_ON_BASE_TABLE\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 114.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"ID\" ASC) AS median, percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY \"ID\" ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY \"ID\" ASC) AS \"thirdQuartile\" \nFROM \"ALL_LINAGE_SCHEMA\"\
+  .\"MATERIALIZED_VIEW_ON_BASE_TABLE\"\n LIMIT ?"
+checksum: 808e108085e8b84e29a53569113b3798
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 8e3de80d-1444-4a2b-b01c-f720696af8d9
+    type: table
+    name: MATERIALIZED_VIEW_ON_BASE_TABLE
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.MATERIALIZED_VIEW_ON_BASE_TABLE
+    displayName: MATERIALIZED_VIEW_ON_BASE_TABLE
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

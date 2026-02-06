@@ -1,0 +1,47 @@
+name: 4fd28ad2f349cf59f4efe4acd8a57c50
+fullyQualifiedName: Hybrid Runner snowflake.4fd28ad2f349cf59f4efe4acd8a57c50
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"23aa6f42-71f7-4955-a443-99485e015f8c\",\"type\":\"table\"\
+        ,\"name\":\"CTAS_DOT_SOURCE_TABLE\",\"fullyQualifiedName\":\"Hybrid Runner\
+        \ snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_DOT_SOURCE_TABLE\",\"displayName\"\
+        :\"CTAS_DOT_SOURCE_TABLE\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 156.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(LEN(\"COLUMN2\")) AS mean, count(\"COLUMN2\") AS \"valuesCount\"\
+  , count(DISTINCT \"COLUMN2\") AS \"distinctCount\", MAX(LEN(\"COLUMN2\")) AS max,\
+  \ MIN(LEN(\"COLUMN2\")) AS min, coalesce(SUM(CASE WHEN (\"COLUMN2\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"COLUMN2\")) AS stddev, SUM(LEN(\"\
+  COLUMN2\")) AS sum \nFROM \"ALL_LINAGE_SCHEMA\".\"CTAS_DOT_SOURCE_TABLE\"\n LIMIT\
+  \ ?"
+checksum: 4fd28ad2f349cf59f4efe4acd8a57c50
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 23aa6f42-71f7-4955-a443-99485e015f8c
+    type: table
+    name: CTAS_DOT_SOURCE_TABLE
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_DOT_SOURCE_TABLE
+    displayName: CTAS_DOT_SOURCE_TABLE
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

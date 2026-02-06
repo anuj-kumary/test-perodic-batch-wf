@@ -1,0 +1,47 @@
+name: 5d16abef428c103d0ad6fb24ec5281e7
+fullyQualifiedName: Hybrid Runner snowflake.5d16abef428c103d0ad6fb24ec5281e7
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"bb4add84-0369-459b-9b8e-33f7c75c39bd\",\"type\":\"table\"\
+        ,\"name\":\"CTAS_MONTHLY_SUMMARY\",\"fullyQualifiedName\":\"Hybrid Runner\
+        \ snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_MONTHLY_SUMMARY\",\"displayName\"\
+        :\"CTAS_MONTHLY_SUMMARY\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 115.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(\"AVG_AMOUNT\") AS mean, count(\"AVG_AMOUNT\") AS \"valuesCount\"\
+  , count(DISTINCT \"AVG_AMOUNT\") AS \"distinctCount\", MIN(\"AVG_AMOUNT\") AS min,\
+  \ MAX(\"AVG_AMOUNT\") AS max, coalesce(SUM(CASE WHEN (\"AVG_AMOUNT\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"AVG_AMOUNT\") AS stddev, SUM(\"\
+  AVG_AMOUNT\") AS sum \nFROM \"ALL_LINAGE_SCHEMA\".\"CTAS_MONTHLY_SUMMARY\"\n LIMIT\
+  \ ?"
+checksum: 5d16abef428c103d0ad6fb24ec5281e7
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: bb4add84-0369-459b-9b8e-33f7c75c39bd
+    type: table
+    name: CTAS_MONTHLY_SUMMARY
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_MONTHLY_SUMMARY
+    displayName: CTAS_MONTHLY_SUMMARY
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

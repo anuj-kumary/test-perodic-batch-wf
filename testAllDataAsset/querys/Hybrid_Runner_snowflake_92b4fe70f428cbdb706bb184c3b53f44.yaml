@@ -1,0 +1,46 @@
+name: 92b4fe70f428cbdb706bb184c3b53f44
+fullyQualifiedName: Hybrid Runner snowflake.92b4fe70f428cbdb706bb184c3b53f44
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"e430445a-72c4-438b-9254-69cdd5e583eb\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_EMPLOYEES\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_EMPLOYEES\"\
+        ,\"displayName\":\"SOURCE_EMPLOYEES\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 135.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(\"EMPLOYEE_ID\") AS mean, count(\"EMPLOYEE_ID\") AS \"valuesCount\"\
+  , count(DISTINCT \"EMPLOYEE_ID\") AS \"distinctCount\", MIN(\"EMPLOYEE_ID\") AS\
+  \ min, MAX(\"EMPLOYEE_ID\") AS max, coalesce(SUM(CASE WHEN (\"EMPLOYEE_ID\" IS ?)\
+  \ THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"EMPLOYEE_ID\") AS stddev,\
+  \ SUM(\"EMPLOYEE_ID\") AS sum \nFROM \"ALL_LINAGE_SCHEMA\".\"SOURCE_EMPLOYEES\"\n\
+  \ LIMIT ?"
+checksum: 92b4fe70f428cbdb706bb184c3b53f44
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: e430445a-72c4-438b-9254-69cdd5e583eb
+    type: table
+    name: SOURCE_EMPLOYEES
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_EMPLOYEES
+    displayName: SOURCE_EMPLOYEES
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

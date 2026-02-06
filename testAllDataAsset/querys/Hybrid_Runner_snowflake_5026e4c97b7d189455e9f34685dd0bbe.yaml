@@ -1,0 +1,45 @@
+name: 5026e4c97b7d189455e9f34685dd0bbe
+fullyQualifiedName: Hybrid Runner snowflake.5026e4c97b7d189455e9f34685dd0bbe
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"e430445a-72c4-438b-9254-69cdd5e583eb\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_EMPLOYEES\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_EMPLOYEES\"\
+        ,\"displayName\":\"SOURCE_EMPLOYEES\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 161.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"EMPLOYEE_NAME\") ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"EMPLOYEE_NAME\") ASC)\
+  \ AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"EMPLOYEE_NAME\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"ALL_LINAGE_SCHEMA\".\"SOURCE_EMPLOYEES\"\n\
+  \ LIMIT ?"
+checksum: 5026e4c97b7d189455e9f34685dd0bbe
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: e430445a-72c4-438b-9254-69cdd5e583eb
+    type: table
+    name: SOURCE_EMPLOYEES
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_EMPLOYEES
+    displayName: SOURCE_EMPLOYEES
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

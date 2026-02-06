@@ -1,0 +1,44 @@
+name: 7c179f240b97efcb060480c8f29e53a3
+fullyQualifiedName: Hybrid Runner snowflake.7c179f240b97efcb060480c8f29e53a3
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"bb4add84-0369-459b-9b8e-33f7c75c39bd\",\"type\":\"table\"\
+        ,\"name\":\"CTAS_MONTHLY_SUMMARY\",\"fullyQualifiedName\":\"Hybrid Runner\
+        \ snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_MONTHLY_SUMMARY\",\"displayName\"\
+        :\"CTAS_MONTHLY_SUMMARY\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 62.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"MIN_AMOUNT\") AS\
+  \ count_1 \nFROM \"ALL_LINAGE_SCHEMA\".\"CTAS_MONTHLY_SUMMARY\" GROUP BY \"MIN_AMOUNT\"\
+  \ \nHAVING count(\"MIN_AMOUNT\") = ?) AS only_once\n LIMIT ?"
+checksum: 7c179f240b97efcb060480c8f29e53a3
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: bb4add84-0369-459b-9b8e-33f7c75c39bd
+    type: table
+    name: CTAS_MONTHLY_SUMMARY
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_MONTHLY_SUMMARY
+    displayName: CTAS_MONTHLY_SUMMARY
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

@@ -1,0 +1,43 @@
+name: 6ee9a1f810b7c55c9ee3fb099adf62d0
+fullyQualifiedName: Hybrid Runner snowflake.6ee9a1f810b7c55c9ee3fb099adf62d0
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"05d9475b-b3f5-4821-af39-976700b93e15\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_TABLE_1\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_1\"\
+        ,\"displayName\":\"SOURCE_TABLE_1\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 74.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CUSTOMER_NAME\"\
+  ) AS count_1 \nFROM \"ALL_LINAGE_SCHEMA\".\"SOURCE_TABLE_1\" GROUP BY \"CUSTOMER_NAME\"\
+  \ \nHAVING count(\"CUSTOMER_NAME\") = ?) AS only_once\n LIMIT ?"
+checksum: 6ee9a1f810b7c55c9ee3fb099adf62d0
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 05d9475b-b3f5-4821-af39-976700b93e15
+    type: table
+    name: SOURCE_TABLE_1
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_1
+    displayName: SOURCE_TABLE_1
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

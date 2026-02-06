@@ -1,0 +1,45 @@
+name: 47ee12d146f115903f2a7c8a6deb4db1
+fullyQualifiedName: Hybrid Runner snowflake.47ee12d146f115903f2a7c8a6deb4db1
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7d2b6ab4-9ae8-4560-b4b9-5f97ea198429\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_TABLE_3\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_3\"\
+        ,\"displayName\":\"SOURCE_TABLE_3\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 207.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(\"QUANTITY\") AS mean, count(\"QUANTITY\") AS \"valuesCount\",\
+  \ count(DISTINCT \"QUANTITY\") AS \"distinctCount\", MIN(\"QUANTITY\") AS min, MAX(\"\
+  QUANTITY\") AS max, coalesce(SUM(CASE WHEN (\"QUANTITY\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(\"QUANTITY\") AS stddev, SUM(\"QUANTITY\") AS\
+  \ sum \nFROM \"ALL_LINAGE_SCHEMA\".\"SOURCE_TABLE_3\"\n LIMIT ?"
+checksum: 47ee12d146f115903f2a7c8a6deb4db1
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 7d2b6ab4-9ae8-4560-b4b9-5f97ea198429
+    type: table
+    name: SOURCE_TABLE_3
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_3
+    displayName: SOURCE_TABLE_3
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed
