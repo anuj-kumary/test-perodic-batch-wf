@@ -1,0 +1,117 @@
+name: event
+fullyQualifiedName: redshift-reverse-metadata.dev.public.event
+tableType: Partitioned
+columns:
+  - name: eventid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.event.eventid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: venueid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.event.venueid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: catid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.event.catid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dateid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.event.dateid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: eventname
+    dataType: VARCHAR
+    dataLength: 200
+    dataTypeDisplay: character varying(200)
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.event.eventname
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: starttime
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp without time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.event.starttime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: SORT_KEY
+    columns:
+      - dateid
+  - constraintType: DIST_KEY
+    columns:
+      - eventid
+tablePartition:
+  columns:
+    - columnName: eventid
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: 3a00587c-8ee3-4e70-8fba-0b84b49754cb
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: redshift-reverse-metadata.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1667992140082}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667992140082
+sourceHash: fba762539e27e4c6872577b5a7fb42f0
+processedLineage: false
+entityStatus: Approved

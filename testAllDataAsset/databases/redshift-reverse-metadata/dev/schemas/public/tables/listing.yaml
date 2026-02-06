@@ -1,0 +1,139 @@
+name: listing
+fullyQualifiedName: redshift-reverse-metadata.dev.public.listing
+tableType: Partitioned
+columns:
+  - name: listid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.listing.listid
+    tags: []
+    constraint: UNIQUE
+    children: []
+    customMetrics: []
+  - name: sellerid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.listing.sellerid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: eventid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.listing.eventid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dateid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.listing.dateid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: numtickets
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.listing.numtickets
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: priceperticket
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "numeric(8,2)"
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.listing.priceperticket
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: totalprice
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "numeric(8,2)"
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.listing.totalprice
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: listtime
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp without time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.listing.listtime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: SORT_KEY
+    columns:
+      - dateid
+  - constraintType: DIST_KEY
+    columns:
+      - listid
+tablePartition:
+  columns:
+    - columnName: listid
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: 3a00587c-8ee3-4e70-8fba-0b84b49754cb
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: redshift-reverse-metadata.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1667992140085}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667992140085
+sourceHash: 3b848eeaadabf79fefca092ffabf72eb
+processedLineage: false
+entityStatus: Approved

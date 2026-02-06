@@ -1,0 +1,149 @@
+name: customers
+fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers
+description: <p>updated new desc</p>
+tableType: Partitioned
+columns:
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.first_name
+    tags:
+      - tagFQN: ADDRESS.Address
+        name: Address
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.first_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: most_recent_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.most_recent_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: number_of_orders
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.number_of_orders
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_lifetime_value
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.customer_lifetime_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.customer_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: DIST_KEY
+    columns:
+      - customer_lifetime_value
+tablePartition:
+  columns:
+    - columnName: customer_lifetime_value
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: c1b9b332-a980-4007-ab49-cc7df4332143
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins:
+    - columnName: customer_id
+      joinedWith:
+        - fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.customer_id
+          joinCount: 0
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.first_name.tags
+      newValue: "[{\"tagFQN\":\"ADDRESS.Address\",\"name\":\"Address\",\"description\"\
+        :\"SNOWFLAKE TAG VALUE\",\"source\":\"Classification\",\"labelType\":\"Manual\"\
+        ,\"state\":\"Confirmed\"},{\"tagFQN\":\"ADDRESS.Address\",\"name\":\"Address\"\
+        ,\"description\":\"SNOWFLAKE TAG VALUE\",\"source\":\"Classification\",\"\
+        labelType\":\"Manual\",\"state\":\"Confirmed\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.4
+  changeSummary:
+    description:
+      changedBy: keshav.mohta
+      changedAt: 1753249937760
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1701232635115
+  updated:
+    timestamp: 1744502400000
+    accessedByAProcess: openmetadata
+  accessed:
+    timestamp: 1744502400000
+    accessedByAProcess: openmetadata
+sourceHash: 77f3304048634c40bb46a11318b0679a
+processedLineage: false
+entityStatus: Approved

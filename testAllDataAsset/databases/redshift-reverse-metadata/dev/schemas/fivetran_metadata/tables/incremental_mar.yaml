@@ -1,0 +1,159 @@
+name: incremental_mar
+fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar
+tableType: Regular
+columns:
+  - name: connector_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.connector_name
+    tags: []
+    children: []
+    customMetrics: []
+  - name: destination_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.destination_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: measured_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.measured_date
+    tags: []
+    children: []
+    customMetrics: []
+  - name: schema_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.schema_name
+    tags: []
+    children: []
+    customMetrics: []
+  - name: sync_type
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.sync_type
+    tags: []
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.table_name
+    tags: []
+    children: []
+    customMetrics: []
+  - name: free_type
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.free_type
+    tags: []
+    children: []
+    customMetrics: []
+  - name: updated_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.updated_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: incremental_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar.incremental_rows
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _fivetran_synced
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.incremental_mar._fivetran_synced
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - connector_name
+      - destination_id
+      - free_type
+      - measured_date
+      - schema_name
+      - sync_type
+      - table_name
+  - constraintType: FOREIGN_KEY
+    columns:
+      - destination_id
+    referredColumns:
+      - redshift-reverse-metadata.dev.fivetran_metadata.destination.id
+    relationshipType: MANY_TO_ONE
+  - constraintType: DIST_KEY
+    columns:
+      - destination_id
+owners: []
+databaseSchema:
+  id: f27847e1-064b-444e-a734-1df4bbe061c7
+  type: databaseSchema
+  name: fivetran_metadata
+  fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata
+  displayName: fivetran_metadata
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"destination_id\"\
+        ],\"referredColumns\":[\"redshift-reverse-metadata.dev.fivetran_metadata.destination.id\"\
+        ],\"relationshipType\":\"MANY_TO_ONE\"}]"
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 868fbb676ad2b56561b5a9990d505ca8
+      newValue: e29f5ab1ff087fe55a79b3ae63b77990
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1721723604888
+sourceHash: e29f5ab1ff087fe55a79b3ae63b77990
+processedLineage: false
+entityStatus: Approved

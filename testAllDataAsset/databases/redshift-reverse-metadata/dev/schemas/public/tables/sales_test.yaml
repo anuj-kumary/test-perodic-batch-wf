@@ -1,0 +1,157 @@
+name: sales_test
+fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test
+tableType: Regular
+columns:
+  - name: salesid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.salesid
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: listid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.listid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: sellerid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.sellerid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: buyerid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.buyerid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: eventid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.eventid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dateid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.dateid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: qtysold
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.qtysold
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: pricepaid
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "numeric(8,2)"
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.pricepaid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: commission
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "numeric(8,2)"
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.commission
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: saletime
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp without time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales_test.saletime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: DIST_KEY
+    columns:
+      - listid
+  - constraintType: SORT_KEY
+    columns:
+      - listid
+  - constraintType: SORT_KEY
+    columns:
+      - sellerid
+  - constraintType: FOREIGN_KEY
+    columns:
+      - listid
+    referredColumns:
+      - redshift-reverse-metadata.dev.public.listing.listid
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - dateid
+    referredColumns:
+      - redshift-reverse-metadata.dev.public.date.dateid
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 3a00587c-8ee3-4e70-8fba-0b84b49754cb
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: redshift-reverse-metadata.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 48459a0d246adbc79ab3a28254b21e82
+processedLineage: false
+entityStatus: Approved

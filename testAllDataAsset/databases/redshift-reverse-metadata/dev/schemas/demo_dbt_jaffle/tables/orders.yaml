@@ -1,0 +1,149 @@
+name: orders
+fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders
+tableType: Regular
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: credit_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.credit_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: coupon_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.coupon_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: bank_transfer_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.bank_transfer_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: gift_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.gift_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.orders.order_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - customer_id
+    referredColumns:
+      - redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.customer_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: c1b9b332-a980-4007-ab49-cc7df4332143
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins:
+    - columnName: customer_id
+      joinedWith:
+        - fullyQualifiedName: redshift-reverse-metadata.dev.demo_dbt_jaffle.customers.customer_id
+          joinCount: 0
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: lifeCycle
+      oldValue: "{\"created\":{\"timestamp\":1701232642289}}"
+      newValue: "{\"created\":{\"timestamp\":1701232642289},\"accessed\":{\"timestamp\"\
+        :1744502400000,\"accessedByAProcess\":\"openmetadata\"}}"
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1701232642289
+  accessed:
+    timestamp: 1744502400000
+    accessedByAProcess: openmetadata
+sourceHash: e211ef273b8718f8f854c6727b299620
+processedLineage: false
+entityStatus: Approved

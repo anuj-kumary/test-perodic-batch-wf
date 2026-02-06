@@ -1,0 +1,188 @@
+name: sales
+fullyQualifiedName: redshift-reverse-metadata.dev.public.sales
+tableType: Partitioned
+columns:
+  - name: salesid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.salesid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: listid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.listid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: sellerid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.sellerid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: buyerid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.buyerid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: eventid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.eventid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dateid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.dateid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: qtysold
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.qtysold
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: pricepaid
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "numeric(8,2)"
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.pricepaid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: commission
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "numeric(8,2)"
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.commission
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: saletime
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp without time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.sales.saletime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - dateid
+    referredColumns:
+      - redshift-reverse-metadata.dev.public.date.dateid
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - listid
+    referredColumns:
+      - redshift-reverse-metadata.dev.public.listing.listid
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - sellerid
+    referredColumns:
+      - redshift-reverse-metadata.dev.public.users.userid
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - buyerid
+    referredColumns:
+      - redshift-reverse-metadata.dev.public.users.userid
+    relationshipType: MANY_TO_ONE
+  - constraintType: SORT_KEY
+    columns:
+      - dateid
+  - constraintType: DIST_KEY
+    columns:
+      - listid
+tablePartition:
+  columns:
+    - columnName: listid
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: 3a00587c-8ee3-4e70-8fba-0b84b49754cb
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: redshift-reverse-metadata.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"sellerid\"],\"\
+        referredColumns\":[\"redshift-reverse-metadata.dev.public.users.userid\"],\"\
+        relationshipType\":\"MANY_TO_ONE\"},{\"constraintType\":\"FOREIGN_KEY\",\"\
+        columns\":[\"buyerid\"],\"referredColumns\":[\"redshift-reverse-metadata.dev.public.users.userid\"\
+        ],\"relationshipType\":\"MANY_TO_ONE\"}]"
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 5822e7e93dffba58ac8fac050bfcb322
+      newValue: 57a77b003e9bb80ec642cd219b93420e
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667992140088
+sourceHash: 57a77b003e9bb80ec642cd219b93420e
+processedLineage: false
+entityStatus: Approved

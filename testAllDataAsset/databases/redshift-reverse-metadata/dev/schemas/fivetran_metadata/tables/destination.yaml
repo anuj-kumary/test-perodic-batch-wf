@@ -1,0 +1,146 @@
+name: destination
+fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination
+tableType: Regular
+columns:
+  - name: id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination.id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: account_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination.account_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: created_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination.created_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: region
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination.region
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_active
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination.is_active
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: deployment_type
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination.deployment_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: destination_type
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination.destination_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _fivetran_synced
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.destination._fivetran_synced
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - account_id
+    referredColumns:
+      - redshift-reverse-metadata.dev.fivetran_metadata.account.id
+    relationshipType: MANY_TO_ONE
+  - constraintType: SORT_KEY
+    columns:
+      - account_id
+  - constraintType: DIST_KEY
+    columns:
+      - id
+owners: []
+databaseSchema:
+  id: f27847e1-064b-444e-a734-1df4bbe061c7
+  type: databaseSchema
+  name: fivetran_metadata
+  fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata
+  displayName: fivetran_metadata
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1721723608584}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1721723608584
+sourceHash: 35c43959ccc214b307089debdc8f8b69
+processedLineage: false
+entityStatus: Approved

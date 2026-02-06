@@ -1,0 +1,105 @@
+name: role_permission
+fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.role_permission
+tableType: Regular
+columns:
+  - name: role_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.role_permission.role_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: permission
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.role_permission.permission
+    tags: []
+    children: []
+    customMetrics: []
+  - name: _fivetran_deleted
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.role_permission._fivetran_deleted
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _fivetran_synced
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.role_permission._fivetran_synced
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - permission
+      - role_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - role_id
+    referredColumns:
+      - redshift-reverse-metadata.dev.fivetran_metadata.role.id
+    relationshipType: MANY_TO_ONE
+  - constraintType: DIST_KEY
+    columns:
+      - role_id
+owners: []
+databaseSchema:
+  id: f27847e1-064b-444e-a734-1df4bbe061c7
+  type: databaseSchema
+  name: fivetran_metadata
+  fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata
+  displayName: fivetran_metadata
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"role_id\"],\"\
+        referredColumns\":[\"redshift-reverse-metadata.dev.fivetran_metadata.role.id\"\
+        ],\"relationshipType\":\"MANY_TO_ONE\"}]"
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 51217571271819d58cc9e99ac1460fe9
+      newValue: a8c60c9deb5d67b30858199841d02ced
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1721723604927
+sourceHash: a8c60c9deb5d67b30858199841d02ced
+processedLineage: false
+entityStatus: Approved

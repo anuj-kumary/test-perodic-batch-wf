@@ -1,0 +1,136 @@
+name: log
+fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log
+tableType: Regular
+columns:
+  - name: id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log.id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: time_stamp
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log.time_stamp
+    tags: []
+    children: []
+    customMetrics: []
+  - name: connector_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log.connector_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log.event
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: message_event
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log.message_event
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: message_data
+    dataType: VARCHAR
+    dataLength: 8192
+    dataTypeDisplay: character varying(8192)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log.message_data
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sync_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log.sync_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: _fivetran_synced
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp with time zone
+    fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata.log._fivetran_synced
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - id
+      - time_stamp
+  - constraintType: FOREIGN_KEY
+    columns:
+      - connector_id
+    referredColumns:
+      - redshift-reverse-metadata.dev.fivetran_metadata.connector.connector_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: DIST_KEY
+    columns:
+      - id
+owners: []
+databaseSchema:
+  id: f27847e1-064b-444e-a734-1df4bbe061c7
+  type: databaseSchema
+  name: fivetran_metadata
+  fullyQualifiedName: redshift-reverse-metadata.dev.fivetran_metadata
+  displayName: fivetran_metadata
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1721723604884}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1721723604884
+sourceHash: e9fe6c39bcbe89f1e55a1fbedebf0cbd
+processedLineage: false
+entityStatus: Approved

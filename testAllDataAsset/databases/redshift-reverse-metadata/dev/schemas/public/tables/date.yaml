@@ -1,0 +1,135 @@
+name: date
+fullyQualifiedName: redshift-reverse-metadata.dev.public.date
+tableType: Partitioned
+columns:
+  - name: dateid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.date.dateid
+    tags: []
+    constraint: UNIQUE
+    children: []
+    customMetrics: []
+  - name: caldate
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.date.caldate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: day
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: character(3)
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.date.day
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: week
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.date.week
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: month
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: character(5)
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.date.month
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: qtr
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: character(5)
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.date.qtr
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: year
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.date.year
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: holiday
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: redshift-reverse-metadata.dev.public.date.holiday
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: SORT_KEY
+    columns:
+      - dateid
+  - constraintType: DIST_KEY
+    columns:
+      - dateid
+tablePartition:
+  columns:
+    - columnName: dateid
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: 3a00587c-8ee3-4e70-8fba-0b84b49754cb
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: redshift-reverse-metadata.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1667992140078}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667992140078
+sourceHash: 523cdfd351f82ad5c8eea8e29df9d44b
+processedLineage: false
+entityStatus: Approved
