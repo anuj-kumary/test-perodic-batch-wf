@@ -1,0 +1,41 @@
+name: 4a010e7e99605bf57bacff68817699fa
+fullyQualifiedName: snowflake_h.4a010e7e99605bf57bacff68817699fa
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.3
+owners: []
+duration: 5906966.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_SOLD_DATE_SK\" AS \"CS_SOLD_DATE_SK\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_SALES\"\
+  \ AS \"CATALOG_SALES_1\" TABLESAMPLE bernoulli(?)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_SOLD_DATE_SK\" AS \"CS_SOLD_DATE_SK\"\
+  \ \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n SELECT avg(\"CS_SOLD_DATE_SK\"\
+  ) AS mean, count(\"CS_SOLD_DATE_SK\") AS \"valuesCount\", count(DISTINCT \"CS_SOLD_DATE_SK\"\
+  ) AS \"distinctCount\", MIN(\"CS_SOLD_DATE_SK\") AS min, MAX(\"CS_SOLD_DATE_SK\"\
+  ) AS max, coalesce(SUM(CASE WHEN (\"CS_SOLD_DATE_SK\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(\"CS_SOLD_DATE_SK\") AS stddev, SUM(\"CS_SOLD_DATE_SK\"\
+  ) AS sum \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\n LIMIT ?"
+checksum: 4a010e7e99605bf57bacff68817699fa
+queryDate: 1740700800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8429ffb6-97ac-4fdd-9534-55b0d18846ae
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

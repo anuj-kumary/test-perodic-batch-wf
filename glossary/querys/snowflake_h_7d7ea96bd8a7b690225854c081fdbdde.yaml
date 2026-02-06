@@ -1,0 +1,40 @@
+name: 7d7ea96bd8a7b690225854c081fdbdde
+fullyQualifiedName: snowflake_h.7d7ea96bd8a7b690225854c081fdbdde
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.3
+owners: []
+duration: 493.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_SUITE_NUMBER\" AS \"CC_SUITE_NUMBER\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\"\
+  \ AS \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_SUITE_NUMBER\" AS \"\
+  CC_SUITE_NUMBER\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"CC_SUITE_NUMBER\") ASC) AS median, percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"CC_SUITE_NUMBER\") ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"CC_SUITE_NUMBER\") ASC) AS \"thirdQuartile\" \nFROM\
+  \ \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\n LIMIT ?"
+checksum: 7d7ea96bd8a7b690225854c081fdbdde
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8f88fae3-bb61-4f94-965c-92c9c6fa423f
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

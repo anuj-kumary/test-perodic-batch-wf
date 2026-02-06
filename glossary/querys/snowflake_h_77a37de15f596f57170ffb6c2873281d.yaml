@@ -1,0 +1,40 @@
+name: 77a37de15f596f57170ffb6c2873281d
+fullyQualifiedName: snowflake_h.77a37de15f596f57170ffb6c2873281d
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.3
+owners: []
+duration: 147.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_CITY\" AS \"CC_CITY\" \nFROM \"TPCDS_SF100TCL\".\"CALL_CENTER\" AS \"CALL_CENTER_1\"\
+  \ TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\" AS \n\
+  (SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_CITY\" AS \"CC_CITY\" \nFROM\
+  \ \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"CC_CITY\") ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER\
+  \ BY LEN(\"CC_CITY\") ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"CC_CITY\") ASC) AS \"thirdQuartile\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \n LIMIT ?"
+checksum: 77a37de15f596f57170ffb6c2873281d
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: bba6f759-7b48-4471-8c63-197e2e790c23
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

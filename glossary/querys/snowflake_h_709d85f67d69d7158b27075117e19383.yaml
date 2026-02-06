@@ -1,0 +1,41 @@
+name: 709d85f67d69d7158b27075117e19383
+fullyQualifiedName: snowflake_h.709d85f67d69d7158b27075117e19383
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 6001845.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_COUPON_AMT\" AS \"CS_COUPON_AMT\" \nFROM \"TPCDS_SF10TCL\".\"CATALOG_SALES\"\
+  \ AS \"CATALOG_SALES_1\" TABLESAMPLE bernoulli(?)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_COUPON_AMT\" AS \"CS_COUPON_AMT\"\
+  \ \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n SELECT avg(\"CS_COUPON_AMT\") AS\
+  \ mean, count(\"CS_COUPON_AMT\") AS \"valuesCount\", count(DISTINCT \"CS_COUPON_AMT\"\
+  ) AS \"distinctCount\", MIN(\"CS_COUPON_AMT\") AS min, MAX(\"CS_COUPON_AMT\") AS\
+  \ max, coalesce(SUM(CASE WHEN (\"CS_COUPON_AMT\" IS ?) THEN ? ELSE ? END), ?) AS\
+  \ \"nullCount\", STDDEV_POP(\"CS_COUPON_AMT\") AS stddev, SUM(\"CS_COUPON_AMT\"\
+  ) AS sum \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\n LIMIT ?"
+checksum: 709d85f67d69d7158b27075117e19383
+queryDate: 1740873600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: c461b611-7095-4fe8-80a8-517160d4c2f9
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

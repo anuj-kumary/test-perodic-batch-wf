@@ -1,0 +1,39 @@
+name: 4eed0e56cddb501710d614496e4e5e3b
+fullyQualifiedName: snowflake_h.4eed0e56cddb501710d614496e4e5e3b
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.5
+owners: []
+duration: 1031360.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_REFUNDED_CASH\" AS \"CR_REFUNDED_CASH\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_RETURNS\"\
+  \ AS \"CATALOG_RETURNS_1\" TABLESAMPLE bernoulli(?)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_REFUNDED_CASH\" AS\
+  \ \"CR_REFUNDED_CASH\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CR_REFUNDED_CASH\") AS count_1\
+  \ \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\" GROUP BY \"CR_REFUNDED_CASH\"\
+  \ \nHAVING count(\"CR_REFUNDED_CASH\") = ?) AS only_once\n LIMIT ?"
+checksum: 4eed0e56cddb501710d614496e4e5e3b
+queryDate: 1740700800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7103b5aa-a032-43da-be04-f3459f1ac097
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h
