@@ -1,0 +1,201 @@
+name: ALERTS_DBT_MODELS
+fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS
+tableType: View
+columns:
+  - name: ALERT_ID
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.ALERT_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: UNIQUE_ID
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.UNIQUE_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: DETECTED_AT
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.DETECTED_AT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: DATABASE_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.DATABASE_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: MATERIALIZATION
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.MATERIALIZATION
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: PATH
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.PATH
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ORIGINAL_PATH
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.ORIGINAL_PATH
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SCHEMA_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.SCHEMA_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: MESSAGE
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.MESSAGE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: OWNERS
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.OWNERS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TAGS
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.TAGS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ALIAS
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.ALIAS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: STATUS
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.STATUS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FULL_REFRESH
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS.FULL_REFRESH
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3cbb1476-02db-47d7-82bd-46c3700a3234
+  type: databaseSchema
+  name: DBT_SAMPLE_ELEMENTARY
+  fullyQualifiedName: hktest1.DBT_DB.DBT_SAMPLE_ELEMENTARY
+  displayName: DBT_SAMPLE_ELEMENTARY
+  deleted: false
+database:
+  id: 05a8380c-202a-4bf7-861f-bfd7026e8de1
+  type: database
+  name: DBT_DB
+  fullyQualifiedName: hktest1.DBT_DB
+  displayName: DBT_DB
+  deleted: false
+service:
+  id: bac8305b-a253-4ae2-9ca8-6009c7ebcdce
+  type: databaseService
+  name: hktest1
+  fullyQualifiedName: hktest1
+  description: ""
+  displayName: hktest1
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view dbt_db.DBT_SAMPLE_elementary.alerts_dbt_models\n\
+  \  \n   as (\n    \n\nwith error_models as (\n  \n    select  model_execution_id,\n\
+  \            unique_id,\n            invocation_id,\n            name,\n       \
+  \     generated_at,\n            status,\n            full_refresh,\n          \
+  \  message,\n            execution_time,\n            execute_started_at,\n    \
+  \        execute_completed_at,\n            compile_started_at,\n            compile_completed_at,\n\
+  \            compiled_code,\n            database_name,\n            schema_name,\n\
+  \            materialization,\n            tags,\n            package_name,\n  \
+  \          path,\n            original_path,\n            owner,\n            alias\
+  \ \n    from dbt_db.DBT_SAMPLE_elementary.model_run_results\n  \n    union all\n\
+  \  \n    select  model_execution_id,\n            unique_id,\n            invocation_id,\n\
+  \            name,\n            generated_at,\n            status,\n           \
+  \ full_refresh,\n            message,\n            execution_time,\n           \
+  \ execute_started_at,\n            execute_completed_at,\n            compile_started_at,\n\
+  \            compile_completed_at,\n            compiled_code,\n            database_name,\n\
+  \            schema_name,\n            materialization,\n            tags,\n   \
+  \         package_name,\n            path,\n            original_path,\n       \
+  \     owner,\n            alias  \n  from dbt_db.DBT_SAMPLE_elementary.snapshot_run_results\n\
+  )\n\n\nselect model_execution_id as alert_id,\n       unique_id,\n       cast(generated_at\
+  \ as timestamp) as detected_at,\n       database_name,\n       materialization,\n\
+  \       path,\n       original_path,\n       schema_name,\n       message,\n   \
+  \    owner as owners,\n       tags,\n       alias,\n       status,\n       full_refresh\n\
+  from error_models\nwhere True and lower(status) != 'success'and lower(status) !=\
+  \ 'skipped'\n  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: processedLineage
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/vcgkhnh/ic95276/#/data/databases/DBT_DB/schemas/DBT_SAMPLE_ELEMENTARY/view/ALERTS_DBT_MODELS
+domains: []
+dataProducts: []
+sourceHash: 6965182467d7b981e42ea51b82580458
+processedLineage: true
+entityStatus: Approved

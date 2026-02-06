@@ -1,0 +1,81 @@
+name: SECURE_VIEW
+fullyQualifiedName: hktest.TEST_DB.PUBLIC.SECURE_VIEW
+description: new desc - reverse metadata
+tableType: View
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    description: new description - reverse metadata testing
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.SECURE_VIEW.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.SECURE_VIEW.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a2cbfa09-c9ab-4afd-9011-850e509db75f
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: hktest.TEST_DB.PUBLIC
+  description: reverse metadata ingestion.
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: 001fe81f-478f-495d-ba98-af329b7144b7
+  type: database
+  name: TEST_DB
+  fullyQualifiedName: hktest.TEST_DB
+  displayName: TEST_DB
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: |-
+  CREATE OR REPLACE SECURE VIEW TEST_DB.PUBLIC.secure_view AS
+  SELECT * FROM TEST_DB.PUBLIC.regular_table;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1751328000000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/TEST_DB/schemas/PUBLIC/view/SECURE_VIEW
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1751328000000
+    accessedByAProcess: TESTOPENMETADATA
+sourceHash: 541e6b0dde39ca6bd029a803fce4ec6d
+processedLineage: true
+entityStatus: Approved
