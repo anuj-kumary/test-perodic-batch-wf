@@ -1,0 +1,26 @@
+name: ef1963ef1f53449f0db8cebc638aa546
+fullyQualifiedName: hktest.ef1963ef1f53449f0db8cebc638aa546
+owners: []
+duration: 58.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CONT_ACCUM_PREMIUMS\"\
+  ) AS count_1 \nFROM \"LANDING\".\"CONT\" GROUP BY \"CONT_ACCUM_PREMIUMS\" \nHAVING\
+  \ count(\"CONT_ACCUM_PREMIUMS\") = ?) AS only_once\n LIMIT ?"
+checksum: ef1963ef1f53449f0db8cebc638aa546
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

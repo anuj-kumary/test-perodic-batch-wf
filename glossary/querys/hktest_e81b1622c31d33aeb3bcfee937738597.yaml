@@ -1,0 +1,65 @@
+name: e81b1622c31d33aeb3bcfee937738597
+fullyQualifiedName: hktest.e81b1622c31d33aeb3bcfee937738597
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"8ce40df4-adcb-4191-a383-87ff2c9aa5e8\",\"type\":\"table\"\
+        ,\"name\":\"DBT_SOURCE_FRESHNESS_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SOURCE_FRESHNESS_RESULTS\"\
+        ,\"displayName\":\"DBT_SOURCE_FRESHNESS_RESULTS\",\"deleted\":false}]"
+  previousVersion: 0.7
+  changeSummary: {}
+owners: []
+duration: 200.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "with dbt_source_freshness_results as (\n            select\n             \
+  \   *,\n                \n    case\n        when status = ? then ?\n        when\
+  \ status = ? then ?\n        else status\n    end as normalized_status\n,\n    \
+  \            rank() over (partition by unique_id order by generated_at desc) as\
+  \ invocations_rank_index\n            from dbt_db.DBT_SAMPLE_elementary.dbt_source_freshness_results\n\
+  \            \n                where datediff(\n        day,\n        cast(generated_at\
+  \ as timestamp),\n        \n  current_timestamp::timestamp\n\n        ) < ?\n  \
+  \          \n        ),\n\n        dbt_sources as (\n            select * from dbt_db.DBT_SAMPLE_elementary.dbt_sources\n\
+  \        )\n\n        select\n            freshness.source_freshness_execution_id,\n\
+  \            freshness.unique_id,\n            freshness.max_loaded_at,\n      \
+  \      freshness.generated_at,\n            freshness.status as original_status,\n\
+  \            freshness.normalized_status,\n            \n            \n        \
+  \        freshness.error_after,\n                freshness.warn_after,\n       \
+  \         freshness.filter,\n            \n            freshness.max_loaded_at_time_ago_in_s,\n\
+  \            freshness.snapshotted_at,\n            freshness.invocation_id,\n \
+  \           freshness.error,\n            freshness.invocations_rank_index,\n  \
+  \          sources.database_name,\n            sources.schema_name,\n          \
+  \  sources.source_name,\n            sources.name as table_name,\n            sources.loaded_at_field,\n\
+  \            sources.meta,\n            sources.tags,\n            sources.owner\
+  \ as owners,\n            sources.freshness_error_after as source_freshness_error_after,\n\
+  \            sources.freshness_warn_after as source_freshness_warn_after,\n    \
+  \        sources.freshness_filter as source_freshness_filter,\n            sources.relation_name,\n\
+  \            \n            \n                sources.freshness_description\n   \
+  \         \n        from dbt_source_freshness_results freshness\n        join dbt_sources\
+  \ sources on freshness.unique_id = sources.unique_id\n        where invocations_rank_index\
+  \ <= ?\n        order by freshness.unique_id, invocations_rank_index desc"
+checksum: e81b1622c31d33aeb3bcfee937738597
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: b21cf3a8-f359-4fc0-bb37-9adc6339b7cc
+    type: table
+    name: DBT_SOURCES
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SOURCES
+    displayName: DBT_SOURCES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

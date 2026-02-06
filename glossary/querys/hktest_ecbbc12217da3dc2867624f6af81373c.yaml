@@ -1,0 +1,33 @@
+name: ecbbc12217da3dc2867624f6af81373c
+fullyQualifiedName: hktest.ecbbc12217da3dc2867624f6af81373c
+owners: []
+duration: 450.0
+users: []
+query: "WITH d6def3b6c248e09592da506240613bd9_rnd AS \n(SELECT \"LINEITEM_1\".\"L_SHIPDATE\"\
+  \ AS \"L_SHIPDATE\" \nFROM \"TPCH_SF1\".\"LINEITEM\" AS \"LINEITEM_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nd6def3b6c248e09592da506240613bd9_sample AS \n(SELECT d6def3b6c248e09592da506240613bd9_rnd.\"\
+  L_SHIPDATE\" AS \"L_SHIPDATE\" \nFROM d6def3b6c248e09592da506240613bd9_rnd)\n SELECT\
+  \ ? AS anon_1, count(\"L_SHIPDATE\") AS \"valuesCount\", count(DISTINCT \"L_SHIPDATE\"\
+  ) AS \"distinctCount\", MIN(\"L_SHIPDATE\") AS min, MAX(\"L_SHIPDATE\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"L_SHIPDATE\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , ? AS anon__1, ? AS anon__2 \nFROM d6def3b6c248e09592da506240613bd9_sample\n LIMIT\
+  \ ?"
+checksum: ecbbc12217da3dc2867624f6af81373c
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b565859-50f2-4c96-b4f3-2abd5feeecb1
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

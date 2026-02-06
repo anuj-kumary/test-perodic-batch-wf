@@ -1,0 +1,35 @@
+name: ebec33e3d9640a46fbb174b9502b52e7
+fullyQualifiedName: hktest.ebec33e3d9640a46fbb174b9502b52e7
+owners: []
+duration: 274.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"MODEL_EXECUTION_ID\")) AS mean, count(\"MODEL_EXECUTION_ID\"\
+  ) AS \"valuesCount\", count(DISTINCT \"MODEL_EXECUTION_ID\") AS \"distinctCount\"\
+  , MIN(LEN(\"MODEL_EXECUTION_ID\")) AS min, MAX(LEN(\"MODEL_EXECUTION_ID\")) AS max,\
+  \ coalesce(SUM(CASE WHEN (\"MODEL_EXECUTION_ID\" IS ?) THEN ? ELSE ? END), ?) AS\
+  \ \"nullCount\", STDDEV_POP(LEN(\"MODEL_EXECUTION_ID\")) AS stddev, SUM(LEN(\"MODEL_EXECUTION_ID\"\
+  )) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"SEED_RUN_RESULTS\"\n LIMIT ?"
+checksum: ebec33e3d9640a46fbb174b9502b52e7
+queryDate: 1748563200000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 71f3b29a-0599-4623-b7e2-1e721ace56c4
+    type: table
+    name: SEED_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SEED_RUN_RESULTS
+    displayName: SEED_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

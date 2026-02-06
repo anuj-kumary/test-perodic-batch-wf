@@ -1,0 +1,39 @@
+name: eb9b4a9eed8debc6edb0977b4c675fa5
+fullyQualifiedName: hktest.eb9b4a9eed8debc6edb0977b4c675fa5
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b9575673-6097-446e-9dd0-c6556d064a78\",\"type\":\"table\"\
+        ,\"name\":\"JOBS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.JOBS\"\
+        ,\"displayName\":\"JOBS\",\"deleted\":false}]"
+  previousVersion: 0.9
+  changeSummary: {}
+owners: []
+duration: 126.0
+users: []
+query: "SELECT avg(\"E2E_TESTMAX_SALARY\") AS mean, count(\"E2E_TESTMAX_SALARY\")\
+  \ AS \"valuesCount\", count(DISTINCT \"E2E_TESTMAX_SALARY\") AS \"distinctCount\"\
+  , MIN(\"E2E_TESTMAX_SALARY\") AS min, MAX(\"E2E_TESTMAX_SALARY\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"E2E_TESTMAX_SALARY\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"\
+  E2E_TESTMAX_SALARY\") AS stddev, SUM(\"E2E_TESTMAX_SALARY\") AS sum \nFROM \"E2E_TEST\"\
+  .\"JOBS\"\n LIMIT ?"
+checksum: eb9b4a9eed8debc6edb0977b4c675fa5
+queryDate: 1752537600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b9575673-6097-446e-9dd0-c6556d064a78
+    type: table
+    name: JOBS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.JOBS
+    displayName: JOBS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

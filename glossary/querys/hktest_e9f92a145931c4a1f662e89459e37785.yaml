@@ -1,0 +1,32 @@
+name: e9f92a145931c4a1f662e89459e37785
+fullyQualifiedName: hktest.e9f92a145931c4a1f662e89459e37785
+owners: []
+duration: 64.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_ANNLZD_PREM_AT_ISS\"\
+  \ AS \"CONT_ANNLZD_PREM_AT_ISS\" \nFROM \"CURATED\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_ANNLZD_PREM_AT_ISS\" AS \"CONT_ANNLZD_PREM_AT_ISS\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_ANNLZD_PREM_AT_ISS\"\
+  ) ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_ANNLZD_PREM_AT_ISS\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_ANNLZD_PREM_AT_ISS\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\n\
+  \ LIMIT ?"
+checksum: e9f92a145931c4a1f662e89459e37785
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

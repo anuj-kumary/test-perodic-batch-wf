@@ -1,0 +1,57 @@
+name: eacb8f9f96883b4d32c7493ebfda99d6
+fullyQualifiedName: hktest.eacb8f9f96883b4d32c7493ebfda99d6
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"dadd6b4a-93b0-4a0f-9b97-daa761a9438d\",\"type\":\"table\"\
+        ,\"name\":\"DBT_SEEDS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SEEDS\"\
+        ,\"displayName\":\"DBT_SEEDS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 86.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: |-
+  with dbt_artifacts_seeds as (
+            select
+              name,
+              unique_id,
+              database_name,
+              schema_name,
+              case when alias is not ? then alias
+              else name end as table_name,
+              owner as owners,
+              tags,
+              package_name,
+              description,
+              original_path as full_path
+            from dbt_db.DBT_SAMPLE_elementary.dbt_seeds
+          )
+
+          select * from dbt_artifacts_seeds
+checksum: eacb8f9f96883b4d32c7493ebfda99d6
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: dadd6b4a-93b0-4a0f-9b97-daa761a9438d
+    type: table
+    name: DBT_SEEDS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SEEDS
+    displayName: DBT_SEEDS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
