@@ -1,0 +1,78 @@
+name: new_cities_view22
+fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities_view22
+tableType: View
+columns:
+  - name: LatD
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities_view22.LatD
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NS
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities_view22.NS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: d5622c23-ef11-49bc-bd9b-ad19a37d34ba
+  type: databaseSchema
+  name: sdoh_cms_dual_eligible_enrollment
+  fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment
+  description: ""
+  displayName: sdoh_cms_dual_eligible_enrollment
+  deleted: false
+database:
+  id: ca8d273e-c526-40d5-be10-20f981830f2c
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: query_runner_bq.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: 97732e10-864e-4a8b-b734-9d0bcceb11fa
+  type: databaseService
+  name: query_runner_bq
+  fullyQualifiedName: query_runner_bq
+  description: ""
+  displayName: query_runner_bq
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: "CREATE VIEW sdoh_cms_dual_eligible_enrollment.new_cities_view22\
+  \ AS select  `modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities`.LatD,\
+  \ `modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities_nine`.NS  from\
+  \ `modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities` INNER JOIN\
+  \ `modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities_nine` On (`modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities`.LatD\
+  \ =`modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.new_cities_nine`.LatD)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1656053530241}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2ssdoh_cms_dual_eligible_enrollment!3snew_cities_view22
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1656053530241
+sourceHash: 601dec893dd7163b85ec0da414b480f8
+processedLineage: true
+entityStatus: Unprocessed

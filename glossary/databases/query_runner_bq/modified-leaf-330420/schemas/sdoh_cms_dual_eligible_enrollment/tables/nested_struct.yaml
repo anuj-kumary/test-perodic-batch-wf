@@ -1,0 +1,162 @@
+name: nested_struct
+fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: test description main
+    fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: person
+    dataType: STRUCT
+    dataTypeDisplay: "struct<name:string,address:struct<city:string,state:string>,age:int64>"
+    fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.person
+    tags: []
+    children:
+      - name: name
+        dataType: STRING
+        dataLength: 1
+        dataTypeDisplay: string
+        description: Test Nested description
+        fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.person.name
+        tags: []
+        constraint: "NULL"
+        children: []
+      - name: address
+        dataType: STRUCT
+        dataTypeDisplay: "struct<city:string,state:string>"
+        fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.person.address
+        tags: []
+        children:
+          - name: city
+            dataType: STRING
+            dataLength: 1
+            dataTypeDisplay: string
+            description: test description
+            fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.person.address.city
+            tags: []
+            constraint: "NULL"
+            children: []
+          - name: state
+            dataType: STRING
+            dataLength: 1
+            dataTypeDisplay: string
+            fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.person.address.state
+            tags: []
+            constraint: "NULL"
+            children: []
+      - name: age
+        dataType: INT
+        dataLength: 1
+        dataTypeDisplay: INTEGER
+        fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.person.age
+        tags: []
+        constraint: "NULL"
+        children: []
+    customMetrics: []
+  - name: address
+    dataType: STRUCT
+    dataTypeDisplay: "struct<cityid:int64,cityname:string>"
+    fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.address
+    tags:
+      - tagFQN: General.Location
+        name: Location
+        description: "Name of politically or geographically defined location (cities,\
+          \ provinces, countries, international regions, bodies of water, mountains."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 0.93
+        appliedAt: 1767969396000
+        appliedBy: admin
+    children:
+      - name: cityId
+        dataType: INT
+        dataLength: 1
+        dataTypeDisplay: INTEGER
+        fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.address.cityId
+        tags: []
+        constraint: "NULL"
+        children: []
+      - name: cityName
+        dataType: STRING
+        dataLength: 1
+        dataTypeDisplay: string
+        fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.nested_struct.address.cityName
+        tags: []
+        constraint: "NULL"
+        children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: d5622c23-ef11-49bc-bd9b-ad19a37d34ba
+  type: databaseSchema
+  name: sdoh_cms_dual_eligible_enrollment
+  fullyQualifiedName: query_runner_bq.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment
+  description: ""
+  displayName: sdoh_cms_dual_eligible_enrollment
+  deleted: false
+database:
+  id: ca8d273e-c526-40d5-be10-20f981830f2c
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: query_runner_bq.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: 97732e10-864e-4a8b-b734-9d0bcceb11fa
+  type: databaseService
+  name: query_runner_bq
+  fullyQualifiedName: query_runner_bq
+  description: ""
+  displayName: query_runner_bq
+  deleted: false
+serviceType: BigQuery
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.address.tags
+      newValue: "[{\"tagFQN\":\"General.Location\",\"name\":\"Location\",\"description\"\
+        :\"Name of politically or geographically defined location (cities, provinces,\
+        \ countries, international regions, bodies of water, mountains.\",\"source\"\
+        :\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"\
+        tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\":\"\
+        PII which is easily accessible from public sources and can include zip code,\
+        \ race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 0.93\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2ssdoh_cms_dual_eligible_enrollment!3snested_struct
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1657608970961
+sourceHash: 6ae0a60ed8535bf59b7999aa76943d24
+processedLineage: false
+entityStatus: Unprocessed
