@@ -1,0 +1,46 @@
+name: f030db01166ed0196a3c0644368b817c
+fullyQualifiedName: Hybrid Runner snowflake.f030db01166ed0196a3c0644368b817c
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"02fae7d8-186a-4276-a4b1-9cc13596ca55\",\"type\":\"table\"\
+        ,\"name\":\"STREAM_ON_BASE_TABLE\",\"fullyQualifiedName\":\"Hybrid Runner\
+        \ snowflake.MT_DB.ALL_LINAGE_SCHEMA.STREAM_ON_BASE_TABLE\",\"displayName\"\
+        :\"STREAM_ON_BASE_TABLE\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 117.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(\"ID\") AS mean, count(\"ID\") AS \"valuesCount\", count(DISTINCT\
+  \ \"ID\") AS \"distinctCount\", MIN(\"ID\") AS min, MAX(\"ID\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"ID\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"ID\"\
+  ) AS stddev, SUM(\"ID\") AS sum \nFROM \"ALL_LINAGE_SCHEMA\".\"STREAM_ON_BASE_TABLE\"\
+  \n LIMIT ?"
+checksum: f030db01166ed0196a3c0644368b817c
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 02fae7d8-186a-4276-a4b1-9cc13596ca55
+    type: table
+    name: STREAM_ON_BASE_TABLE
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.STREAM_ON_BASE_TABLE
+    displayName: STREAM_ON_BASE_TABLE
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

@@ -1,0 +1,43 @@
+name: d7c6350d70e7384f71f099f2d3bedd04
+fullyQualifiedName: Hybrid Runner snowflake.d7c6350d70e7384f71f099f2d3bedd04
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"4b6894b6-59e1-44f1-9646-fcc6748d407d\",\"type\":\"table\"\
+        ,\"name\":\"DYNAMIC_TABLE\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE\"\
+        ,\"displayName\":\"DYNAMIC_TABLE\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 96.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"RECORD_COUNT\")\
+  \ AS count_1 \nFROM \"ALL_LINAGE_SCHEMA\".\"DYNAMIC_TABLE\" GROUP BY \"RECORD_COUNT\"\
+  \ \nHAVING count(\"RECORD_COUNT\") = ?) AS only_once\n LIMIT ?"
+checksum: d7c6350d70e7384f71f099f2d3bedd04
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 4b6894b6-59e1-44f1-9646-fcc6748d407d
+    type: table
+    name: DYNAMIC_TABLE
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE
+    displayName: DYNAMIC_TABLE
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

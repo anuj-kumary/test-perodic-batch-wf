@@ -1,0 +1,47 @@
+name: a6e2ee9d58c5e229239afa61d99c8a14
+fullyQualifiedName: Hybrid Runner snowflake.a6e2ee9d58c5e229239afa61d99c8a14
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"bb4add84-0369-459b-9b8e-33f7c75c39bd\",\"type\":\"table\"\
+        ,\"name\":\"CTAS_MONTHLY_SUMMARY\",\"fullyQualifiedName\":\"Hybrid Runner\
+        \ snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_MONTHLY_SUMMARY\",\"displayName\"\
+        :\"CTAS_MONTHLY_SUMMARY\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 108.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(\"TRANSACTION_COUNT\") AS mean, count(\"TRANSACTION_COUNT\") AS\
+  \ \"valuesCount\", count(DISTINCT \"TRANSACTION_COUNT\") AS \"distinctCount\", MIN(\"\
+  TRANSACTION_COUNT\") AS min, MAX(\"TRANSACTION_COUNT\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"TRANSACTION_COUNT\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"\
+  TRANSACTION_COUNT\") AS stddev, SUM(\"TRANSACTION_COUNT\") AS sum \nFROM \"ALL_LINAGE_SCHEMA\"\
+  .\"CTAS_MONTHLY_SUMMARY\"\n LIMIT ?"
+checksum: a6e2ee9d58c5e229239afa61d99c8a14
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: bb4add84-0369-459b-9b8e-33f7c75c39bd
+    type: table
+    name: CTAS_MONTHLY_SUMMARY
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_MONTHLY_SUMMARY
+    displayName: CTAS_MONTHLY_SUMMARY
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

@@ -1,0 +1,45 @@
+name: aa51ae9588bc4d2d4e1399fb006d7b48
+fullyQualifiedName: Hybrid Runner snowflake.aa51ae9588bc4d2d4e1399fb006d7b48
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"bf5e0a06-502d-481e-b29b-e07f3a312b16\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_TABLE_4\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_4\"\
+        ,\"displayName\":\"SOURCE_TABLE_4\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 227.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(LEN(\"EMAIL\")) AS mean, count(\"EMAIL\") AS \"valuesCount\", count(DISTINCT\
+  \ \"EMAIL\") AS \"distinctCount\", MAX(LEN(\"EMAIL\")) AS max, MIN(LEN(\"EMAIL\"\
+  )) AS min, coalesce(SUM(CASE WHEN (\"EMAIL\" IS ?) THEN ? ELSE ? END), ?) AS \"\
+  nullCount\", STDDEV_POP(LEN(\"EMAIL\")) AS stddev, SUM(LEN(\"EMAIL\")) AS sum \n\
+  FROM \"ALL_LINAGE_SCHEMA\".\"SOURCE_TABLE_4\"\n LIMIT ?"
+checksum: aa51ae9588bc4d2d4e1399fb006d7b48
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: bf5e0a06-502d-481e-b29b-e07f3a312b16
+    type: table
+    name: SOURCE_TABLE_4
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_4
+    displayName: SOURCE_TABLE_4
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

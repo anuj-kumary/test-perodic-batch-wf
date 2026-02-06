@@ -1,0 +1,46 @@
+name: f1e5e907d38643ff239ffa0e02b658cd
+fullyQualifiedName: Hybrid Runner snowflake.f1e5e907d38643ff239ffa0e02b658cd
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"19aa308c-fbed-4b9a-80ac-f49b22835222\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_TABLE_5\",\"fullyQualifiedName\":\"Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5\"\
+        ,\"displayName\":\"SOURCE_TABLE_5\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 98.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(LEN(\"MERCHANT_NAME\")) AS mean, count(\"MERCHANT_NAME\") AS \"\
+  valuesCount\", count(DISTINCT \"MERCHANT_NAME\") AS \"distinctCount\", MAX(LEN(\"\
+  MERCHANT_NAME\")) AS max, MIN(LEN(\"MERCHANT_NAME\")) AS min, coalesce(SUM(CASE\
+  \ WHEN (\"MERCHANT_NAME\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  MERCHANT_NAME\")) AS stddev, SUM(LEN(\"MERCHANT_NAME\")) AS sum \nFROM \"ALL_LINAGE_SCHEMA\"\
+  .\"SOURCE_TABLE_5\"\n LIMIT ?"
+checksum: f1e5e907d38643ff239ffa0e02b658cd
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 19aa308c-fbed-4b9a-80ac-f49b22835222
+    type: table
+    name: SOURCE_TABLE_5
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5
+    displayName: SOURCE_TABLE_5
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed

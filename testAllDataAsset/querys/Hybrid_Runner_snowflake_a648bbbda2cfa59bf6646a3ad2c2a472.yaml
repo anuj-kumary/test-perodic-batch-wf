@@ -1,0 +1,47 @@
+name: a648bbbda2cfa59bf6646a3ad2c2a472
+fullyQualifiedName: Hybrid Runner snowflake.a648bbbda2cfa59bf6646a3ad2c2a472
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"bb4add84-0369-459b-9b8e-33f7c75c39bd\",\"type\":\"table\"\
+        ,\"name\":\"CTAS_MONTHLY_SUMMARY\",\"fullyQualifiedName\":\"Hybrid Runner\
+        \ snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_MONTHLY_SUMMARY\",\"displayName\"\
+        :\"CTAS_MONTHLY_SUMMARY\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 86.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(\"UNIQUE_MERCHANTS\") AS mean, count(\"UNIQUE_MERCHANTS\") AS \"\
+  valuesCount\", count(DISTINCT \"UNIQUE_MERCHANTS\") AS \"distinctCount\", MIN(\"\
+  UNIQUE_MERCHANTS\") AS min, MAX(\"UNIQUE_MERCHANTS\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"UNIQUE_MERCHANTS\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"\
+  UNIQUE_MERCHANTS\") AS stddev, SUM(\"UNIQUE_MERCHANTS\") AS sum \nFROM \"ALL_LINAGE_SCHEMA\"\
+  .\"CTAS_MONTHLY_SUMMARY\"\n LIMIT ?"
+checksum: a648bbbda2cfa59bf6646a3ad2c2a472
+queryDate: 1762300800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: bb4add84-0369-459b-9b8e-33f7c75c39bd
+    type: table
+    name: CTAS_MONTHLY_SUMMARY
+    fullyQualifiedName: Hybrid Runner snowflake.MT_DB.ALL_LINAGE_SCHEMA.CTAS_MONTHLY_SUMMARY
+    displayName: CTAS_MONTHLY_SUMMARY
+    deleted: false
+processedLineage: false
+service:
+  id: 56d535da-6a5d-4b09-b6bc-412d61e8abf5
+  type: databaseService
+  name: Hybrid Runner snowflake
+  fullyQualifiedName: Hybrid Runner snowflake
+entityStatus: Unprocessed
