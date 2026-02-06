@@ -1,0 +1,38 @@
+name: fb1899c77ee9f2fd28ba35ff08636afb
+fullyQualifiedName: hktest.fb1899c77ee9f2fd28ba35ff08636afb
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"9bc6307f-5d2d-4ecf-b1f5-f791a29d4443\",\"type\":\"table\"\
+        ,\"name\":\"PART\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART\"\
+        ,\"description\":\"Part data as defined by TPC-H\",\"displayName\":\"PART\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 120.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"P_COMMENT\") AS\
+  \ count_1 \nFROM \"TPCH_SF1\".\"PART\" GROUP BY \"P_COMMENT\" \nHAVING count(\"\
+  P_COMMENT\") = ?) AS only_once\n LIMIT ?"
+checksum: fb1899c77ee9f2fd28ba35ff08636afb
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9bc6307f-5d2d-4ecf-b1f5-f791a29d4443
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

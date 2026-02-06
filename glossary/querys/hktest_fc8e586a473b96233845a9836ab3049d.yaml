@@ -1,0 +1,32 @@
+name: fc8e586a473b96233845a9836ab3049d
+fullyQualifiedName: hktest.fc8e586a473b96233845a9836ab3049d
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b2308968-5747-4a6d-b783-6780f10d7211\",\"type\":\"table\"\
+        ,\"name\":\"ORDERS\",\"fullyQualifiedName\":\"hktest.CUSTOMERS.JAFFLE_SHOP.ORDERS\"\
+        ,\"displayName\":\"ORDERS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 98.0
+users: []
+query: |-
+  SELECT DATE_PART(?,"ORDERS"."ORDER_DATE") AS "mn:ORDER_DATE:ok",
+    SUM("ORDERS"."AMOUNT") AS "sum:AMOUNT:ok"
+  FROM "CUSTOMERS"."JAFFLE_SHOP"."ORDERS" "ORDERS"
+  GROUP BY ?
+checksum: fc8e586a473b96233845a9836ab3049d
+queryDate: 1744588800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn: []
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

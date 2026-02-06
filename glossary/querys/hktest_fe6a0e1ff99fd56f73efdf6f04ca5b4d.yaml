@@ -1,0 +1,34 @@
+name: fe6a0e1ff99fd56f73efdf6f04ca5b4d
+fullyQualifiedName: hktest.fe6a0e1ff99fd56f73efdf6f04ca5b4d
+owners: []
+duration: 205.0
+users: []
+query: "WITH \"34042d04d5b9455f924448e95d0f54a4_rnd\" AS \n(SELECT \"HOUSEHOLD_DEMOGRAPHICS_1\"\
+  .\"HD_VEHICLE_COUNT\" AS \"HD_VEHICLE_COUNT\" \nFROM \"TPCDS_SF100TCL\".\"HOUSEHOLD_DEMOGRAPHICS\"\
+  \ AS \"HOUSEHOLD_DEMOGRAPHICS_1\" TABLESAMPLE ROW(? ROWS)), \n\"34042d04d5b9455f924448e95d0f54a4_sample\"\
+  \ AS \n(SELECT \"34042d04d5b9455f924448e95d0f54a4_rnd\".\"HD_VEHICLE_COUNT\" AS\
+  \ \"HD_VEHICLE_COUNT\" \nFROM \"34042d04d5b9455f924448e95d0f54a4_rnd\")\n SELECT\
+  \ avg(\"HD_VEHICLE_COUNT\") AS mean, count(\"HD_VEHICLE_COUNT\") AS \"valuesCount\"\
+  , count(DISTINCT \"HD_VEHICLE_COUNT\") AS \"distinctCount\", MIN(\"HD_VEHICLE_COUNT\"\
+  ) AS min, MAX(\"HD_VEHICLE_COUNT\") AS max, coalesce(SUM(CASE WHEN (\"HD_VEHICLE_COUNT\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"HD_VEHICLE_COUNT\"\
+  ) AS stddev, SUM(\"HD_VEHICLE_COUNT\") AS sum \nFROM \"34042d04d5b9455f924448e95d0f54a4_sample\"\
+  \n LIMIT ?"
+checksum: fe6a0e1ff99fd56f73efdf6f04ca5b4d
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8ffdc285-d446-44c2-96f9-137df51f66c9
+    type: table
+    name: HOUSEHOLD_DEMOGRAPHICS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.HOUSEHOLD_DEMOGRAPHICS
+    displayName: HOUSEHOLD_DEMOGRAPHICS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

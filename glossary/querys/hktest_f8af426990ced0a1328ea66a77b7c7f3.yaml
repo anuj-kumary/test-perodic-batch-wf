@@ -1,0 +1,34 @@
+name: f8af426990ced0a1328ea66a77b7c7f3
+fullyQualifiedName: hktest.f8af426990ced0a1328ea66a77b7c7f3
+owners: []
+duration: 91.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_LAST_MSTR_CHNG_DATE\"\
+  \ AS \"CONT_LAST_MSTR_CHNG_DATE\" \nFROM \"LANDING\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_LAST_MSTR_CHNG_DATE\" AS \"CONT_LAST_MSTR_CHNG_DATE\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT avg(LEN(\"CONT_LAST_MSTR_CHNG_DATE\")) AS mean, count(\"CONT_LAST_MSTR_CHNG_DATE\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CONT_LAST_MSTR_CHNG_DATE\") AS \"distinctCount\"\
+  , MIN(LEN(\"CONT_LAST_MSTR_CHNG_DATE\")) AS min, MAX(LEN(\"CONT_LAST_MSTR_CHNG_DATE\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"CONT_LAST_MSTR_CHNG_DATE\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"CONT_LAST_MSTR_CHNG_DATE\")) AS\
+  \ stddev, SUM(LEN(\"CONT_LAST_MSTR_CHNG_DATE\")) AS sum \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\
+  \n LIMIT ?"
+checksum: f8af426990ced0a1328ea66a77b7c7f3
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

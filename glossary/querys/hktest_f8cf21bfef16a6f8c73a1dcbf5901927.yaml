@@ -1,0 +1,44 @@
+name: f8cf21bfef16a6f8c73a1dcbf5901927
+fullyQualifiedName: hktest.f8cf21bfef16a6f8c73a1dcbf5901927
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"98e57e0d-b1b7-4dd8-ae1e-418bef3de0ed\",\"type\":\"table\"\
+        ,\"name\":\"LINEITEM\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.LINEITEM\"\
+        ,\"description\":\"Lineitem data as defined by TPC-H\",\"displayName\":\"\
+        LINEITEM\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 854.0
+users: []
+query: "WITH d6def3b6c248e09592da506240613bd9_rnd AS \n(SELECT \"LINEITEM_1\".\"L_COMMENT\"\
+  \ AS \"L_COMMENT\" \nFROM \"TPCH_SF10\".\"LINEITEM\" AS \"LINEITEM_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nd6def3b6c248e09592da506240613bd9_sample AS \n(SELECT d6def3b6c248e09592da506240613bd9_rnd.\"\
+  L_COMMENT\" AS \"L_COMMENT\" \nFROM d6def3b6c248e09592da506240613bd9_rnd)\n SELECT\
+  \ avg(LEN(\"L_COMMENT\")) AS mean, count(\"L_COMMENT\") AS \"valuesCount\", count(DISTINCT\
+  \ \"L_COMMENT\") AS \"distinctCount\", MIN(LEN(\"L_COMMENT\")) AS min, MAX(LEN(\"\
+  L_COMMENT\")) AS max, coalesce(SUM(CASE WHEN (\"L_COMMENT\" IS ?) THEN ? ELSE ?\
+  \ END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"L_COMMENT\")) AS stddev, SUM(LEN(\"\
+  L_COMMENT\")) AS sum \nFROM d6def3b6c248e09592da506240613bd9_sample\n LIMIT ?"
+checksum: f8cf21bfef16a6f8c73a1dcbf5901927
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 98e57e0d-b1b7-4dd8-ae1e-418bef3de0ed
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,26 @@
+name: fb693f2c39d09bb87c624d5e9354f20c
+fullyQualifiedName: hktest.fb693f2c39d09bb87c624d5e9354f20c
+owners: []
+duration: 38.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"BALANCE\") AS count_1\
+  \ \nFROM \"MSSQLBANKING_STG\".\"CUSTOMERACCOUNTS\" GROUP BY \"BALANCE\" \nHAVING\
+  \ count(\"BALANCE\") = ?) AS only_once\n LIMIT ?"
+checksum: fb693f2c39d09bb87c624d5e9354f20c
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d03f73b0-8a36-4cd5-a82f-a07db17fe588
+    type: table
+    name: CUSTOMERACCOUNTS
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS
+    displayName: CUSTOMERACCOUNTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,55 @@
+name: f78681667aa3b0e30a8ba2e51853603c
+fullyQualifiedName: hktest.f78681667aa3b0e30a8ba2e51853603c
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"ae833c0b-5dc6-41d8-ab5d-f0c043a45959\",\"type\":\"table\"\
+        ,\"name\":\"DBT_MODELS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_MODELS\"\
+        ,\"displayName\":\"DBT_MODELS\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 84.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: |-
+  with ordered_run_results as (
+        select
+          *,
+          row_number() over (partition by unique_id order by run_results.generated_at desc) as row_number
+        from dbt_db.DBT_SAMPLE_elementary.dbt_run_results run_results
+        join dbt_db.DBT_SAMPLE_elementary.dbt_models using (unique_id)
+      ),
+
+      latest_run_results as (
+        select *
+        from ordered_run_results
+        where row_number = ?
+      )
+
+      select unique_id, invocation_id from latest_run_results
+checksum: f78681667aa3b0e30a8ba2e51853603c
+queryDate: 1748563200000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: ae833c0b-5dc6-41d8-ab5d-f0c043a45959
+    type: table
+    name: DBT_MODELS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_MODELS
+    displayName: DBT_MODELS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

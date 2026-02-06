@@ -1,0 +1,44 @@
+name: fb8c3ddfe7e173a171e0f55b0726dc7d
+fullyQualifiedName: hktest.fb8c3ddfe7e173a171e0f55b0726dc7d
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"27d28fd3-67f5-4719-8ec4-6975d578a5c1\",\"type\":\"table\"\
+        ,\"name\":\"SAMPLE_TABLE\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE\"\
+        ,\"displayName\":\"SAMPLE_TABLE\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 215.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"COUNTRY\")) AS mean, count(\"COUNTRY\") AS \"valuesCount\"\
+  , count(DISTINCT \"COUNTRY\") AS \"distinctCount\", MIN(LEN(\"COUNTRY\")) AS min,\
+  \ MAX(LEN(\"COUNTRY\")) AS max, coalesce(SUM(CASE WHEN (\"COUNTRY\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"COUNTRY\")) AS stddev, SUM(LEN(\"\
+  COUNTRY\")) AS sum \nFROM \"DBT_SAMPLE\".\"SAMPLE_TABLE\"\n LIMIT ?"
+checksum: fb8c3ddfe7e173a171e0f55b0726dc7d
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 27d28fd3-67f5-4719-8ec4-6975d578a5c1
+    type: table
+    name: SAMPLE_TABLE
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE
+    displayName: SAMPLE_TABLE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

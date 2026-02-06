@@ -1,0 +1,39 @@
+name: fde3f52b284077a87de4cfb26aee23ea
+fullyQualifiedName: hktest.fde3f52b284077a87de4cfb26aee23ea
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"081b5958-06b1-4866-818f-ed255e483244\",\"type\":\"table\"\
+        ,\"name\":\"ACCOUNTSTATEMENT\",\"fullyQualifiedName\":\"hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.ACCOUNTSTATEMENT\"\
+        ,\"displayName\":\"ACCOUNTSTATEMENT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 54.0
+users: []
+query: "SELECT avg(\"TOTALCREDITS\") AS mean, count(\"TOTALCREDITS\") AS \"valuesCount\"\
+  , count(DISTINCT \"TOTALCREDITS\") AS \"distinctCount\", MIN(\"TOTALCREDITS\") AS\
+  \ min, MAX(\"TOTALCREDITS\") AS max, coalesce(SUM(CASE WHEN (\"TOTALCREDITS\" IS\
+  \ ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"TOTALCREDITS\") AS stddev,\
+  \ SUM(\"TOTALCREDITS\") AS sum \nFROM \"MSSQLBANKING_ACCOUNT\".\"ACCOUNTSTATEMENT\"\
+  \n LIMIT ?"
+checksum: fde3f52b284077a87de4cfb26aee23ea
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 081b5958-06b1-4866-818f-ed255e483244
+    type: table
+    name: ACCOUNTSTATEMENT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.ACCOUNTSTATEMENT
+    displayName: ACCOUNTSTATEMENT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

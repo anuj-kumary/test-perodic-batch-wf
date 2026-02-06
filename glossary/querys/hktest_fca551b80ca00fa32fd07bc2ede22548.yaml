@@ -1,0 +1,39 @@
+name: fca551b80ca00fa32fd07bc2ede22548
+fullyQualifiedName: hktest.fca551b80ca00fa32fd07bc2ede22548
+owners: []
+duration: 86.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\"\
+  \ AS \"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"\
+  ACCOUNT_1\" TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample\
+  \ AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\"\
+  \ AS \"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(LEN(\"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\")) AS mean, count(\"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\"\
+  ) AS \"valuesCount\", count(DISTINCT \"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\") AS\
+  \ \"distinctCount\", MIN(LEN(\"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\")) AS min,\
+  \ MAX(LEN(\"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\")) AS max, coalesce(SUM(CASE WHEN\
+  \ (\"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(LEN(\"GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\")) AS stddev, SUM(LEN(\"\
+  GRADES_RANKINGS_REVIEW_ISSUE_YEARS_C\")) AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: fca551b80ca00fa32fd07bc2ede22548
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

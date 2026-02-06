@@ -1,0 +1,36 @@
+name: fe04e429387a13a3d14b69187607398d
+fullyQualifiedName: hktest.fe04e429387a13a3d14b69187607398d
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"77cb81a8-3b36-41e0-b1c9-e8062da66307\",\"type\":\"table\"\
+        ,\"name\":\"REGIONS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.REGIONS\"\
+        ,\"displayName\":\"REGIONS\",\"deleted\":false}]"
+  previousVersion: 1.3
+  changeSummary: {}
+owners: []
+duration: 102.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"REGION_NAME\") AS\
+  \ count_1 \nFROM \"E2E_TEST\".\"REGIONS\" GROUP BY \"REGION_NAME\" \nHAVING count(\"\
+  REGION_NAME\") = ?) AS only_once\n LIMIT ?"
+checksum: fe04e429387a13a3d14b69187607398d
+queryDate: 1751414400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 77cb81a8-3b36-41e0-b1c9-e8062da66307
+    type: table
+    name: REGIONS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.REGIONS
+    displayName: REGIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

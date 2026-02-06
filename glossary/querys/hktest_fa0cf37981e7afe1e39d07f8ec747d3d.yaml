@@ -1,0 +1,33 @@
+name: fa0cf37981e7afe1e39d07f8ec747d3d
+fullyQualifiedName: hktest.fa0cf37981e7afe1e39d07f8ec747d3d
+owners: []
+duration: 181.0
+users: []
+query: "WITH \"34042d04d5b9455f924448e95d0f54a4_rnd\" AS \n(SELECT \"HOUSEHOLD_DEMOGRAPHICS_1\"\
+  .\"HD_DEMO_SK\" AS \"HD_DEMO_SK\" \nFROM \"TPCDS_SF10TCL\".\"HOUSEHOLD_DEMOGRAPHICS\"\
+  \ AS \"HOUSEHOLD_DEMOGRAPHICS_1\" TABLESAMPLE ROW(? ROWS)), \n\"34042d04d5b9455f924448e95d0f54a4_sample\"\
+  \ AS \n(SELECT \"34042d04d5b9455f924448e95d0f54a4_rnd\".\"HD_DEMO_SK\" AS \"HD_DEMO_SK\"\
+  \ \nFROM \"34042d04d5b9455f924448e95d0f54a4_rnd\")\n SELECT avg(\"HD_DEMO_SK\")\
+  \ AS mean, count(\"HD_DEMO_SK\") AS \"valuesCount\", count(DISTINCT \"HD_DEMO_SK\"\
+  ) AS \"distinctCount\", MIN(\"HD_DEMO_SK\") AS min, MAX(\"HD_DEMO_SK\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"HD_DEMO_SK\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(\"HD_DEMO_SK\") AS stddev, SUM(\"HD_DEMO_SK\") AS sum \nFROM \"34042d04d5b9455f924448e95d0f54a4_sample\"\
+  \n LIMIT ?"
+checksum: fa0cf37981e7afe1e39d07f8ec747d3d
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: fcc57c4d-d777-4c6c-ac9b-7a8bf1ff1e89
+    type: table
+    name: HOUSEHOLD_DEMOGRAPHICS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.HOUSEHOLD_DEMOGRAPHICS
+    displayName: HOUSEHOLD_DEMOGRAPHICS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

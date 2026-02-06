@@ -1,0 +1,31 @@
+name: fb1fd7bc4e6340933dd53866ca83211b
+fullyQualifiedName: hktest.fb1fd7bc4e6340933dd53866ca83211b
+owners: []
+duration: 466.0
+users: []
+query: "WITH d6def3b6c248e09592da506240613bd9_rnd AS \n(SELECT \"LINEITEM_1\".\"L_SHIPMODE\"\
+  \ AS \"L_SHIPMODE\" \nFROM \"TPCH_SF1000\".\"LINEITEM\" AS \"LINEITEM_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nd6def3b6c248e09592da506240613bd9_sample AS \n(SELECT d6def3b6c248e09592da506240613bd9_rnd.\"\
+  L_SHIPMODE\" AS \"L_SHIPMODE\" \nFROM d6def3b6c248e09592da506240613bd9_rnd)\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"L_SHIPMODE\") AS count_1 \n\
+  FROM d6def3b6c248e09592da506240613bd9_sample GROUP BY \"L_SHIPMODE\" \nHAVING count(\"\
+  L_SHIPMODE\") = ?) AS only_once\n LIMIT ?"
+checksum: fb1fd7bc4e6340933dd53866ca83211b
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9df2a6b2-7501-4f06-a629-34d4d1c748ab
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

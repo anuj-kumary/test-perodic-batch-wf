@@ -1,0 +1,33 @@
+name: f8d7096a4e75e13725cb5265af087035
+fullyQualifiedName: hktest.f8d7096a4e75e13725cb5265af087035
+owners: []
+duration: 83.0
+users: []
+query: "WITH \"4c9e7581028a01fc71dfc3997bd40912_rnd\" AS \n(SELECT \"LOAN_1\".\"LOAN_STAT_CD\"\
+  \ AS \"LOAN_STAT_CD\" \nFROM \"CURATED\".\"LOAN\" AS \"LOAN_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"4c9e7581028a01fc71dfc3997bd40912_sample\" AS \n(SELECT \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  .\"LOAN_STAT_CD\" AS \"LOAN_STAT_CD\" \nFROM \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  )\n SELECT avg(LEN(\"LOAN_STAT_CD\")) AS mean, count(\"LOAN_STAT_CD\") AS \"valuesCount\"\
+  , count(DISTINCT \"LOAN_STAT_CD\") AS \"distinctCount\", MIN(LEN(\"LOAN_STAT_CD\"\
+  )) AS min, MAX(LEN(\"LOAN_STAT_CD\")) AS max, coalesce(SUM(CASE WHEN (\"LOAN_STAT_CD\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"LOAN_STAT_CD\"\
+  )) AS stddev, SUM(LEN(\"LOAN_STAT_CD\")) AS sum \nFROM \"4c9e7581028a01fc71dfc3997bd40912_sample\"\
+  \n LIMIT ?"
+checksum: f8d7096a4e75e13725cb5265af087035
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 169cbc9c-563e-4142-b5cb-099e6afdb44a
+    type: table
+    name: LOAN
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.LOAN
+    displayName: LOAN
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

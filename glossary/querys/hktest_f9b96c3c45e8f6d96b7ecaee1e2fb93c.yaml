@@ -1,0 +1,50 @@
+name: f9b96c3c45e8f6d96b7ecaee1e2fb93c
+fullyQualifiedName: hktest.f9b96c3c45e8f6d96b7ecaee1e2fb93c
+owners: []
+duration: 917.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_NET_PAID\" AS \"CS_NET_PAID\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_SALES\"\
+  \ AS \"CATALOG_SALES_1\" TABLESAMPLE ROW(? ROWS)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_NET_PAID\" AS \"CS_NET_PAID\"\
+  \ \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n SELECT count(CASE WHEN (\"CS_NET_PAID\"\
+  \ >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\" END) AS \"0 to 653.747\", count(CASE\
+  \ WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\" END)\
+  \ AS \"653.747 to 1.307K\", count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\"\
+  \ < ?) THEN \"CS_NET_PAID\" END) AS \"1.307K to 1.961K\", count(CASE WHEN (\"CS_NET_PAID\"\
+  \ >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\" END) AS \"1.961K to 2.615K\"\
+  , count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\"\
+  \ END) AS \"2.615K to 3.269K\", count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\"\
+  \ < ?) THEN \"CS_NET_PAID\" END) AS \"3.269K to 3.922K\", count(CASE WHEN (\"CS_NET_PAID\"\
+  \ >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\" END) AS \"3.922K to 4.576K\"\
+  , count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\"\
+  \ END) AS \"4.576K to 5.230K\", count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\"\
+  \ < ?) THEN \"CS_NET_PAID\" END) AS \"5.230K to 5.884K\", count(CASE WHEN (\"CS_NET_PAID\"\
+  \ >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\" END) AS \"5.884K to 6.537K\"\
+  , count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\"\
+  \ END) AS \"6.537K to 7.191K\", count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\"\
+  \ < ?) THEN \"CS_NET_PAID\" END) AS \"7.191K to 7.845K\", count(CASE WHEN (\"CS_NET_PAID\"\
+  \ >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\" END) AS \"7.845K to 8.499K\"\
+  , count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\" < ?) THEN \"CS_NET_PAID\"\
+  \ END) AS \"8.499K to 9.152K\", count(CASE WHEN (\"CS_NET_PAID\" >= ? AND \"CS_NET_PAID\"\
+  \ < ?) THEN \"CS_NET_PAID\" END) AS \"9.152K to 9.806K\", count(CASE WHEN (\"CS_NET_PAID\"\
+  \ >= ?) THEN \"CS_NET_PAID\" END) AS \"9.806K and up\" \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\n\
+  \ LIMIT ?"
+checksum: f9b96c3c45e8f6d96b7ecaee1e2fb93c
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 2c3b67ba-852a-449e-b9b1-18d6862e9d96
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
