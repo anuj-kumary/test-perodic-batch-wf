@@ -1,0 +1,49 @@
+name: deab6687719a29fed9a8182eeb352876
+fullyQualifiedName: test_clickhouse.deab6687719a29fed9a8182eeb352876
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"48b1657c-662a-4125-b2cf-c781a971a76c\",\"type\":\"table\"\
+        ,\"name\":\"query_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.query_log\"\
+        ,\"description\":\"Contains information about executed queries, for example,\
+        \ start time, duration of processing, error messages.\\n\\nIt is safe to truncate\
+        \ or drop this table at any time.\",\"displayName\":\"query_log\",\"deleted\"\
+        :false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 4.0
+users: []
+query: "SELECT count() FROM system.query_log WHERE (event_date >= toDate(_CAST(?,\
+  \ ?))) AND (event_time >= toDateTime(_CAST(?, ?))) AND (event_time <= (toDateTime(_CAST(?,\
+  \ ?)) + toIntervalSecond(?))) AND (event_time_microseconds > toDateTime64(_CAST(?,\
+  \ ?), ?)) AND (event_time_microseconds <= toDateTime64(_CAST(?, ?), ?)) AND (initial_user\
+  \ NOT IN _CAST([?, ?, ?, ?, ?, ?, ?, ?, ?], ?)) AND (type NOT IN _CAST([?], ?))"
+checksum: deab6687719a29fed9a8182eeb352876
+queryDate: 1768521600000
+usedBy:
+  - monitoring-internal
+tags: []
+queryUsedIn:
+  - id: 48b1657c-662a-4125-b2cf-c781a971a76c
+    type: table
+    name: query_log
+    fullyQualifiedName: test_clickhouse.default.system.query_log
+    description: |-
+      Contains information about executed queries, for example, start time, duration of processing, error messages.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: query_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

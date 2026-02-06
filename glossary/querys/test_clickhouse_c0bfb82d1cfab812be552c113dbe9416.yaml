@@ -1,0 +1,48 @@
+name: c0bfb82d1cfab812be552c113dbe9416
+fullyQualifiedName: test_clickhouse.c0bfb82d1cfab812be552c113dbe9416
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"eae3c500-db67-42bd-9966-d46e73fc145b\",\"type\":\"table\"\
+        ,\"name\":\"session_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.session_log\"\
+        ,\"description\":\"Contains information about all successful and failed login\
+        \ and logout events.\\n\\nIt is safe to truncate or drop this table at any\
+        \ time.\",\"displayName\":\"session_log\",\"deleted\":false}]"
+  previousVersion: 0.5
+  changeSummary: {}
+owners: []
+duration: 3.0
+users: []
+query: "SELECT \nnow64(?) as scrape_time_microseconds,\n? AS pod_ident,\n? AS spoken_name,\n\
+  ? AS cell,\n? AS region,\n? AS cloud_provider,\n? AS clickhouse_version,\n? AS control_plane_id,\n\
+  ? AS system_processor,\n* \nFROM system.\"session_log\" \nWHERE event_time >= toDateTime32(?)\n\
+  AND event_time < toDateTime32(?)\nAND event_date >= toDate(toDateTime32(?))\nAND\
+  \ event_date <= toDate(toDateTime32(?))\nORDER BY event_time ASC"
+checksum: c0bfb82d1cfab812be552c113dbe9416
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: eae3c500-db67-42bd-9966-d46e73fc145b
+    type: table
+    name: session_log
+    fullyQualifiedName: test_clickhouse.default.system.session_log
+    description: |-
+      Contains information about all successful and failed login and logout events.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: session_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

@@ -1,0 +1,46 @@
+name: 5fc9edd52b829181eb441ec10ff689a7
+fullyQualifiedName: test_clickhouse.5fc9edd52b829181eb441ec10ff689a7
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"bc3ae5da-9b4b-4162-87e4-2e9d6a670a19\",\"type\":\"table\"\
+        ,\"name\":\"server_settings\",\"fullyQualifiedName\":\"test_clickhouse.default.system.server_settings\"\
+        ,\"description\":\"Contains a list of all server-wide settings (which are\
+        \ effective only on server startup and usually cannot be modified at runtime),\
+        \ their current and default values along with descriptions.\",\"displayName\"\
+        :\"server_settings\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: "SELECT \nnow64(?) as scrape_time_microseconds,\n? AS pod_ident,\n? AS spoken_name,\n\
+  ? AS cell,\n? AS region,\n? AS cloud_provider,\n? AS clickhouse_version,\n? AS control_plane_id,\n\
+  ? AS system_processor,\n*\nFROM system.\"server_settings\""
+checksum: 5fc9edd52b829181eb441ec10ff689a7
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: bc3ae5da-9b4b-4162-87e4-2e9d6a670a19
+    type: table
+    name: server_settings
+    fullyQualifiedName: test_clickhouse.default.system.server_settings
+    description: "Contains a list of all server-wide settings (which are effective\
+      \ only on server startup and usually cannot be modified at runtime), their current\
+      \ and default values along with descriptions."
+    displayName: server_settings
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

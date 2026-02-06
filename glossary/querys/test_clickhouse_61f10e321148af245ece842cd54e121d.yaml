@@ -1,0 +1,49 @@
+name: 61f10e321148af245ece842cd54e121d
+fullyQualifiedName: test_clickhouse.61f10e321148af245ece842cd54e121d
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"3086e2da-2c23-493a-b3ab-ebe27bd315ec\",\"type\":\"table\"\
+        ,\"name\":\"s3queue_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.s3queue_log\"\
+        ,\"description\":\"Contains logging entries with the information files processes\
+        \ by S3Queue engine.\\n\\nIt is safe to truncate or drop this table at any\
+        \ time.\",\"displayName\":\"s3queue_log\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: |-
+  SELECT min(event_time), now() - INTERVAL ? SECOND maxSettlePoint
+  FROM system.s3queue_log
+  WHERE event_time >= toDateTime32(?)
+  AND event_date >= toDate(toDateTime32(?))
+  AND event_time <= maxSettlePoint
+checksum: 61f10e321148af245ece842cd54e121d
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 3086e2da-2c23-493a-b3ab-ebe27bd315ec
+    type: table
+    name: s3queue_log
+    fullyQualifiedName: test_clickhouse.default.system.s3queue_log
+    description: |-
+      Contains logging entries with the information files processes by S3Queue engine.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: s3queue_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

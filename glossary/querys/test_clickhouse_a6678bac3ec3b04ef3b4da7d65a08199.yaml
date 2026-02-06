@@ -1,0 +1,50 @@
+name: a6678bac3ec3b04ef3b4da7d65a08199
+fullyQualifiedName: test_clickhouse.a6678bac3ec3b04ef3b4da7d65a08199
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7ee1f778-0288-467e-a569-86be3524dac7\",\"type\":\"table\"\
+        ,\"name\":\"blob_storage_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.blob_storage_log\"\
+        ,\"description\":\"Contains logging entries with information about various\
+        \ blob storage operations such as uploads and deletes.\\n\\nIt is safe to\
+        \ truncate or drop this table at any time.\",\"displayName\":\"blob_storage_log\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: |-
+  SELECT min(event_time), now() - INTERVAL ? SECOND maxSettlePoint
+  FROM system.blob_storage_log
+  WHERE event_time >= toDateTime32(?)
+  AND event_date >= toDate(toDateTime32(?))
+  AND event_time <= maxSettlePoint
+checksum: a6678bac3ec3b04ef3b4da7d65a08199
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 7ee1f778-0288-467e-a569-86be3524dac7
+    type: table
+    name: blob_storage_log
+    fullyQualifiedName: test_clickhouse.default.system.blob_storage_log
+    description: |-
+      Contains logging entries with information about various blob storage operations such as uploads and deletes.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: blob_storage_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

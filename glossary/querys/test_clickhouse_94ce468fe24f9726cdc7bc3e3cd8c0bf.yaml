@@ -1,0 +1,42 @@
+name: 94ce468fe24f9726cdc7bc3e3cd8c0bf
+fullyQualifiedName: test_clickhouse.94ce468fe24f9726cdc7bc3e3cd8c0bf
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f054ec2b-b403-447a-996a-5985619ae1e0\",\"type\":\"table\"\
+        ,\"name\":\"processes\",\"fullyQualifiedName\":\"test_clickhouse.default.system.processes\"\
+        ,\"description\":\"Contains a list of currently executing processes (queries)\
+        \ with their progress.\",\"displayName\":\"processes\",\"deleted\":false}]"
+  previousVersion: 7.7
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: "SELECT count() FROM system.processes WHERE initial_user NOT IN _CAST([?, ?,\
+  \ ?, ?, ?, ?, ?, ?, ?, ?], ?)"
+checksum: 94ce468fe24f9726cdc7bc3e3cd8c0bf
+queryDate: 1768521600000
+usedBy:
+  - monitoring-internal
+tags: []
+queryUsedIn:
+  - id: f054ec2b-b403-447a-996a-5985619ae1e0
+    type: table
+    name: processes
+    fullyQualifiedName: test_clickhouse.default.system.processes
+    description: Contains a list of currently executing processes (queries) with their
+      progress.
+    displayName: processes
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

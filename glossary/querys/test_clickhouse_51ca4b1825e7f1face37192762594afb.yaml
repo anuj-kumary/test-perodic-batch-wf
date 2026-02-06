@@ -1,0 +1,48 @@
+name: 51ca4b1825e7f1face37192762594afb
+fullyQualifiedName: test_clickhouse.51ca4b1825e7f1face37192762594afb
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"ce291ad1-8e70-4d3c-a1e8-a0d16070afd1\",\"type\":\"table\"\
+        ,\"name\":\"tables\",\"fullyQualifiedName\":\"test_clickhouse.default.system.tables\"\
+        ,\"description\":\"Lists all tables of the current server.\",\"displayName\"\
+        :\"tables\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 522.0
+users: []
+query: "SELECT name, \ncityHash64(replaceAll(create_table_query, name, ?)) as hash,\n\
+  primary_key, sorting_key, partition_key, comment\nFROM system.tables\nWHERE database\
+  \ = ? AND (name LIKE ? OR match(name, ?))\nAND engine IN (?, ?)\nAND name NOT LIKE\
+  \ ?\nAND name NOT LIKE ?\nAND (match(name, ?) OR match(name, ?) OR match(name, ?)\
+  \ OR match(name, ?) OR match(name, ?) OR match(name, ?) OR match(name, ?) OR match(name,\
+  \ ?) OR match(name, ?) OR match(name, ?) OR match(name, ?) OR match(name, ?) OR\
+  \ match(name, ?) OR match(name, ?) OR match(name, ?) OR match(name, ?) OR match(name,\
+  \ ?) OR match(name, ?) OR match(name, ?) OR match(name, ?) OR match(name, ?) OR\
+  \ match(name, ?))\n ORDER BY name ASC"
+checksum: 51ca4b1825e7f1face37192762594afb
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: ce291ad1-8e70-4d3c-a1e8-a0d16070afd1
+    type: table
+    name: tables
+    fullyQualifiedName: test_clickhouse.default.system.tables
+    description: Lists all tables of the current server.
+    displayName: tables
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

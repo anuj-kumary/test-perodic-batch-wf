@@ -1,0 +1,48 @@
+name: 9c1477228c8e9daa1712ee4f95e9d242
+fullyQualifiedName: test_clickhouse.9c1477228c8e9daa1712ee4f95e9d242
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"ce291ad1-8e70-4d3c-a1e8-a0d16070afd1\",\"type\":\"table\"\
+        ,\"name\":\"tables\",\"fullyQualifiedName\":\"test_clickhouse.default.system.tables\"\
+        ,\"description\":\"Lists all tables of the current server.\",\"displayName\"\
+        :\"tables\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 6.0
+users: []
+query: |-
+  SELECT name,
+  cityHash64(replaceAll(create_table_query, name, ?)) as hash,
+  comment
+  FROM system.tables
+  WHERE database = ? AND engine like ?
+  AND name NOT LIKE ? AND NOT match(name, ?)
+  AND (name = ? OR name = ? OR name = ? OR name = ? OR name = ? OR name = ? OR name = ? OR name = ? OR name = ? OR name = ? OR name = ? OR name = ?)
+   ORDER BY name ASC
+checksum: 9c1477228c8e9daa1712ee4f95e9d242
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: ce291ad1-8e70-4d3c-a1e8-a0d16070afd1
+    type: table
+    name: tables
+    fullyQualifiedName: test_clickhouse.default.system.tables
+    description: Lists all tables of the current server.
+    displayName: tables
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

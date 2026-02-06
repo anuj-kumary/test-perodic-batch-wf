@@ -1,0 +1,49 @@
+name: b67c69ee4564aabe7dd44895298b460e
+fullyQualifiedName: test_clickhouse.b67c69ee4564aabe7dd44895298b460e
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"5b218bee-2d9b-42c2-87f5-efdd16f82f1b\",\"type\":\"table\"\
+        ,\"name\":\"backup_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.backup_log\"\
+        ,\"description\":\"Contains logging entries with the information about BACKUP\
+        \ and RESTORE operations.\\n\\nIt is safe to truncate or drop this table at\
+        \ any time.\",\"displayName\":\"backup_log\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: |-
+  SELECT min(event_time), now() - INTERVAL ? SECOND maxSettlePoint
+  FROM system.backup_log
+  WHERE event_time >= toDateTime32(?)
+  AND event_date >= toDate(toDateTime32(?))
+  AND event_time <= maxSettlePoint
+checksum: b67c69ee4564aabe7dd44895298b460e
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 5b218bee-2d9b-42c2-87f5-efdd16f82f1b
+    type: table
+    name: backup_log
+    fullyQualifiedName: test_clickhouse.default.system.backup_log
+    description: |-
+      Contains logging entries with the information about BACKUP and RESTORE operations.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: backup_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

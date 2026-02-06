@@ -1,0 +1,43 @@
+name: 60cce510fb18efab067fe3908cc1c6ef
+fullyQualifiedName: test_clickhouse.60cce510fb18efab067fe3908cc1c6ef
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"ce291ad1-8e70-4d3c-a1e8-a0d16070afd1\",\"type\":\"table\"\
+        ,\"name\":\"tables\",\"fullyQualifiedName\":\"test_clickhouse.default.system.tables\"\
+        ,\"description\":\"Lists all tables of the current server.\",\"displayName\"\
+        :\"tables\",\"deleted\":false}]"
+  previousVersion: 0.5
+  changeSummary: {}
+owners: []
+duration: 10.0
+users: []
+query: "SELECT st.name AS name, st.database AS schema, multiIf((engine LIKE ?) AND\
+  \ (create_table_query LIKE ?), ?, engine LIKE ?, ?, ?) AS type, st.engine AS engine,\
+  \ st.uuid AS uuid FROM system.tables AS st WHERE st.database = ? SETTINGS show_data_lake_catalogs_in_system_tables\
+  \ = ?, log_comment = ?"
+checksum: 60cce510fb18efab067fe3908cc1c6ef
+queryDate: 1768521600000
+usedBy:
+  - sql-console:ulixiusthegreat@gmail.com
+tags: []
+queryUsedIn:
+  - id: ce291ad1-8e70-4d3c-a1e8-a0d16070afd1
+    type: table
+    name: tables
+    fullyQualifiedName: test_clickhouse.default.system.tables
+    description: Lists all tables of the current server.
+    displayName: tables
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

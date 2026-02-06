@@ -1,0 +1,44 @@
+name: f5ef9ca60b6eb4fc7b78af8630e9e6f7
+fullyQualifiedName: test_clickhouse.f5ef9ca60b6eb4fc7b78af8630e9e6f7
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f054ec2b-b403-447a-996a-5985619ae1e0\",\"type\":\"table\"\
+        ,\"name\":\"processes\",\"fullyQualifiedName\":\"test_clickhouse.default.system.processes\"\
+        ,\"description\":\"Contains a list of currently executing processes (queries)\
+        \ with their progress.\",\"displayName\":\"processes\",\"deleted\":false}]"
+  previousVersion: 2.5
+  changeSummary: {}
+owners: []
+duration: 3.0
+users: []
+query: "SELECT count() as count, sum(elapsed) as total_elapsed, ? as usr\nFROM system.processes\
+  \ \nWHERE user = ? AND client_hostname LIKE ? \nUNION ALL\nSELECT count() as count,\
+  \ sum(elapsed) as total_elapsed, ? as usr\nFROM system.processes \nWHERE user !=\
+  \ ? AND client_hostname NOT LIKE ?;"
+checksum: f5ef9ca60b6eb4fc7b78af8630e9e6f7
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: f054ec2b-b403-447a-996a-5985619ae1e0
+    type: table
+    name: processes
+    fullyQualifiedName: test_clickhouse.default.system.processes
+    description: Contains a list of currently executing processes (queries) with their
+      progress.
+    displayName: processes
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

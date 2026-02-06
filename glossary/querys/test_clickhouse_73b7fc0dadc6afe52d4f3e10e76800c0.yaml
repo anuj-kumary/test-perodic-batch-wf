@@ -1,0 +1,49 @@
+name: 73b7fc0dadc6afe52d4f3e10e76800c0
+fullyQualifiedName: test_clickhouse.73b7fc0dadc6afe52d4f3e10e76800c0
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"4da2aa4c-c1cb-40b9-8bd1-14bee11ae962\",\"type\":\"table\"\
+        ,\"name\":\"filesystem_cache_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.filesystem_cache_log\"\
+        ,\"description\":\"Contains a history of all events occurred with filesystem\
+        \ cache for objects on a remote filesystem.\\n\\nIt is safe to truncate or\
+        \ drop this table at any time.\",\"displayName\":\"filesystem_cache_log\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.5
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: "SELECT \nnow64(?) as scrape_time_microseconds,\n? AS pod_ident,\n? AS spoken_name,\n\
+  ? AS cell,\n? AS region,\n? AS cloud_provider,\n? AS clickhouse_version,\n? AS control_plane_id,\n\
+  ? AS system_processor,\n* \nFROM system.\"filesystem_cache_log\" \nWHERE event_time\
+  \ >= toDateTime32(?)\nAND event_time < toDateTime32(?)\nAND event_date >= toDate(toDateTime32(?))\n\
+  AND event_date <= toDate(toDateTime32(?))\nORDER BY event_time ASC"
+checksum: 73b7fc0dadc6afe52d4f3e10e76800c0
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 4da2aa4c-c1cb-40b9-8bd1-14bee11ae962
+    type: table
+    name: filesystem_cache_log
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_cache_log
+    description: |-
+      Contains a history of all events occurred with filesystem cache for objects on a remote filesystem.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: filesystem_cache_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

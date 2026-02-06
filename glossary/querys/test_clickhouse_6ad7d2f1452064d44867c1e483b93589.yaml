@@ -1,0 +1,45 @@
+name: 6ad7d2f1452064d44867c1e483b93589
+fullyQualifiedName: test_clickhouse.6ad7d2f1452064d44867c1e483b93589
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"775feaea-e2b5-4f50-9f67-575b7a3df568\",\"type\":\"table\"\
+        ,\"name\":\"metrics\",\"fullyQualifiedName\":\"test_clickhouse.default.system.metrics\"\
+        ,\"description\":\"Contains metrics which can be calculated instantly, or\
+        \ have a current value. For example, the number of simultaneously processed\
+        \ queries or the current replica delay. This table is always up to date.\"\
+        ,\"displayName\":\"metrics\",\"deleted\":false}]"
+  previousVersion: 7.7
+  changeSummary: {}
+owners: []
+duration: 1.0
+users: []
+query: SELECT sum(value) AS numParts FROM system.metrics WHERE (name = ?) OR (name
+  = ?)
+checksum: 6ad7d2f1452064d44867c1e483b93589
+queryDate: 1768521600000
+usedBy:
+  - monitoring-internal
+tags: []
+queryUsedIn:
+  - id: 775feaea-e2b5-4f50-9f67-575b7a3df568
+    type: table
+    name: metrics
+    fullyQualifiedName: test_clickhouse.default.system.metrics
+    description: "Contains metrics which can be calculated instantly, or have a current\
+      \ value. For example, the number of simultaneously processed queries or the\
+      \ current replica delay. This table is always up to date."
+    displayName: metrics
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

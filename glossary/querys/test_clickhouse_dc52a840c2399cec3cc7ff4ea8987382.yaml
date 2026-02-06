@@ -1,0 +1,42 @@
+name: dc52a840c2399cec3cc7ff4ea8987382
+fullyQualifiedName: test_clickhouse.dc52a840c2399cec3cc7ff4ea8987382
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"bfc47872-d05b-4564-8439-30b7cdccfb27\",\"type\":\"table\"\
+        ,\"name\":\"columns\",\"fullyQualifiedName\":\"test_clickhouse.default.system.columns\"\
+        ,\"description\":\"Lists all columns from all tables of the current server.\"\
+        ,\"displayName\":\"columns\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 1.0
+users: []
+query: "SELECT sc.`table` AS tableName, sc.name AS name, sc.type AS type FROM system.columns\
+  \ AS sc WHERE database = ? ORDER BY `table` ASC, position ASC SETTINGS show_data_lake_catalogs_in_system_tables\
+  \ = ?, log_comment = ?"
+checksum: dc52a840c2399cec3cc7ff4ea8987382
+queryDate: 1768521600000
+usedBy:
+  - sql-console:ulixiusthegreat@gmail.com
+tags: []
+queryUsedIn:
+  - id: bfc47872-d05b-4564-8439-30b7cdccfb27
+    type: table
+    name: columns
+    fullyQualifiedName: test_clickhouse.default.system.columns
+    description: Lists all columns from all tables of the current server.
+    displayName: columns
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

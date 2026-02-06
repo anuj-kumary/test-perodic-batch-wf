@@ -1,0 +1,43 @@
+name: 7cc9dd1037007dd3c2e3915f5e979efc
+fullyQualifiedName: test_clickhouse.7cc9dd1037007dd3c2e3915f5e979efc
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"158b0aac-ce95-4de1-b062-dbbb4b2c0f53\",\"type\":\"table\"\
+        ,\"name\":\"system_tables_tracking_brassaws_ak_80\",\"fullyQualifiedName\"\
+        :\"test_clickhouse.default.system.system_tables_tracking_brassaws_ak_80\"\
+        ,\"displayName\":\"system_tables_tracking_brassaws_ak_80\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: |-
+  SELECT count(*)
+          FROM system.system_tables_tracking_brassaws_ak_80
+          WHERE attached_replica_id IS NOT ?
+          AND attached_replica_id NOT IN (?, ?, ?)
+checksum: 7cc9dd1037007dd3c2e3915f5e979efc
+queryDate: 1768521600000
+usedBy:
+  - operator-internal
+tags: []
+queryUsedIn:
+  - id: 158b0aac-ce95-4de1-b062-dbbb4b2c0f53
+    type: table
+    name: system_tables_tracking_brassaws_ak_80
+    fullyQualifiedName: test_clickhouse.default.system.system_tables_tracking_brassaws_ak_80
+    displayName: system_tables_tracking_brassaws_ak_80
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

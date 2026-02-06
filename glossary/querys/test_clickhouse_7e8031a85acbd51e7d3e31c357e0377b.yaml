@@ -1,0 +1,49 @@
+name: 7e8031a85acbd51e7d3e31c357e0377b
+fullyQualifiedName: test_clickhouse.7e8031a85acbd51e7d3e31c357e0377b
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"63011f64-9044-42c5-8516-c25d6a265fe0\",\"type\":\"table\"\
+        ,\"name\":\"crash_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.crash_log\"\
+        ,\"description\":\"Contains information about stack traces for fatal errors.\
+        \ The table does not exist in the database by default, it is created only\
+        \ when fatal errors occur.\\n\\nIt is safe to truncate or drop this table\
+        \ at any time.\",\"displayName\":\"crash_log\",\"deleted\":false}]"
+  previousVersion: 0.5
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: "SELECT \nnow64(?) as scrape_time_microseconds,\n? AS pod_ident,\n? AS spoken_name,\n\
+  ? AS cell,\n? AS region,\n? AS cloud_provider,\n? AS clickhouse_version,\n? AS control_plane_id,\n\
+  ? AS system_processor,\n* \nFROM system.\"crash_log\" \nWHERE event_time >= toDateTime32(?)\n\
+  AND event_time < toDateTime32(?)\nAND event_date >= toDate(toDateTime32(?))\nAND\
+  \ event_date <= toDate(toDateTime32(?))\nORDER BY event_time ASC"
+checksum: 7e8031a85acbd51e7d3e31c357e0377b
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 63011f64-9044-42c5-8516-c25d6a265fe0
+    type: table
+    name: crash_log
+    fullyQualifiedName: test_clickhouse.default.system.crash_log
+    description: |-
+      Contains information about stack traces for fatal errors. The table does not exist in the database by default, it is created only when fatal errors occur.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: crash_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

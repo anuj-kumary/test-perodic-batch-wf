@@ -1,0 +1,43 @@
+name: 694f1452ce26def2cfd4cf2e7486c2f5
+fullyQualifiedName: test_clickhouse.694f1452ce26def2cfd4cf2e7486c2f5
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"9f7e7a5b-6094-4da1-b444-429f08c9d9da\",\"type\":\"table\"\
+        ,\"name\":\"build_options\",\"fullyQualifiedName\":\"test_clickhouse.default.system.build_options\"\
+        ,\"description\":\"Contains a list of all build flags, compiler options and\
+        \ commit hash for used build.\",\"displayName\":\"build_options\",\"deleted\"\
+        :false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: "SELECT \n\t\tnow() as current_time,\n\t\tversion() as chVersion,\n\t\t(SELECT\
+  \ value FROM system.build_options WHERE name = ?) as system_processor"
+checksum: 694f1452ce26def2cfd4cf2e7486c2f5
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 9f7e7a5b-6094-4da1-b444-429f08c9d9da
+    type: table
+    name: build_options
+    fullyQualifiedName: test_clickhouse.default.system.build_options
+    description: "Contains a list of all build flags, compiler options and commit\
+      \ hash for used build."
+    displayName: build_options
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

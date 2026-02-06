@@ -1,0 +1,47 @@
+name: a686e3462b062281d33c551143d69153
+fullyQualifiedName: test_clickhouse.a686e3462b062281d33c551143d69153
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"fef3a40f-106b-4851-b3ee-6dd8e9f90de0\",\"type\":\"table\"\
+        ,\"name\":\"asynchronous_metric_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.asynchronous_metric_log\"\
+        ,\"description\":\"Contains the historical values for system.asynchronous_metrics,\
+        \ once per time interval (one second by default).\\n\\nIt is safe to truncate\
+        \ or drop this table at any time.\",\"displayName\":\"asynchronous_metric_log\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 78.0
+users: []
+query: "SELECT count() FROM system.asynchronous_metric_log WHERE (event_date >= toDate(_CAST(?,\
+  \ ?))) AND (event_time > toDateTime(_CAST(?, ?))) AND (event_time <= toDateTime(_CAST(?,\
+  \ ?))) AND (metric IN _CAST([?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?], ?))"
+checksum: a686e3462b062281d33c551143d69153
+queryDate: 1768521600000
+usedBy:
+  - monitoring-internal
+tags: []
+queryUsedIn:
+  - id: fef3a40f-106b-4851-b3ee-6dd8e9f90de0
+    type: table
+    name: asynchronous_metric_log
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metric_log
+    description: |-
+      Contains the historical values for system.asynchronous_metrics, once per time interval (one second by default).
+
+      It is safe to truncate or drop this table at any time.
+    displayName: asynchronous_metric_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

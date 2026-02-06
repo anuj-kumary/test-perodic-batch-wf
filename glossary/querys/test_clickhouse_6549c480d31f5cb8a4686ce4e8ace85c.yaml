@@ -1,0 +1,81 @@
+name: 6549c480d31f5cb8a4686ce4e8ace85c
+fullyQualifiedName: test_clickhouse.6549c480d31f5cb8a4686ce4e8ace85c
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"48b1657c-662a-4125-b2cf-c781a971a76c\",\"type\":\"table\"\
+        ,\"name\":\"query_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.query_log\"\
+        ,\"description\":\"Contains information about executed queries, for example,\
+        \ start time, duration of processing, error messages.\\n\\nIt is safe to truncate\
+        \ or drop this table at any time.\",\"displayName\":\"query_log\",\"deleted\"\
+        :false}]"
+  previousVersion: 0.7
+  changeSummary: {}
+owners: []
+duration: 25.0
+users: []
+query: "SELECT CAST(?, ?) AS control_plane_id, CAST(?, ?) AS pod_id, CAST(now64(),\
+  \ ?) AS scrape_ts_microseconds, CAST(type, ?) AS type, CAST(event_date, ?) AS event_date,\
+  \ CAST(event_time, ?) AS event_time, CAST(event_time_microseconds, ?) AS event_time_microseconds,\
+  \ CAST(query_start_time, ?) AS query_start_time, CAST(query_start_time_microseconds,\
+  \ ?) AS query_start_time_microseconds, CAST(query_duration_ms, ?) AS query_duration_ms,\
+  \ CAST(read_rows, ?) AS read_rows, CAST(read_bytes, ?) AS read_bytes, CAST(written_rows,\
+  \ ?) AS written_rows, CAST(written_bytes, ?) AS written_bytes, CAST(result_rows,\
+  \ ?) AS result_rows, CAST(result_bytes, ?) AS result_bytes, CAST(memory_usage, ?)\
+  \ AS memory_usage, CAST(current_database, ?) AS current_database, CAST(normalizeQuery(left(query,\
+  \ ?)), ?) AS query, CAST(normalized_query_hash, ?) AS normalized_query_hash, CAST(query_kind,\
+  \ ?) AS query_kind, CAST(databases, ?) AS databases, CAST(tables, ?) AS tables,\
+  \ CAST(columns, ?) AS columns, CAST(projections, ?) AS projections, CAST(views,\
+  \ ?) AS views, CAST(exception_code, ?) AS exception_code, CAST(right(exception,\
+  \ ?), ?) AS exception, CAST(is_initial_query, ?) AS is_initial_query, CAST(user,\
+  \ ?) AS user, CAST(query_id, ?) AS query_id, CAST(address, ?) AS address, CAST(port,\
+  \ ?) AS port, CAST(initial_user, ?) AS initial_user, CAST(initial_query_id, ?) AS\
+  \ initial_query_id, CAST(initial_address, ?) AS initial_address, CAST(initial_port,\
+  \ ?) AS initial_port, CAST(initial_query_start_time, ?) AS initial_query_start_time,\
+  \ CAST(initial_query_start_time_microseconds, ?) AS initial_query_start_time_microseconds,\
+  \ CAST(interface, ?) AS interface, CAST(is_secure, ?) AS is_secure, CAST(client_name,\
+  \ ?) AS client_name, CAST(client_revision, ?) AS client_revision, CAST(client_version_major,\
+  \ ?) AS client_version_major, CAST(client_version_minor, ?) AS client_version_minor,\
+  \ CAST(client_version_patch, ?) AS client_version_patch, CAST(http_method, ?) AS\
+  \ http_method, CAST(http_user_agent, ?) AS http_user_agent, CAST(quota_key, ?) AS\
+  \ quota_key, CAST(distributed_depth, ?) AS distributed_depth, CAST(revision, ?)\
+  \ AS revision, CAST(ProfileEvents, ?) AS ProfileEvents, CAST(Settings, ?) AS Settings,\
+  \ CAST(used_aggregate_functions, ?) AS used_aggregate_functions, CAST(used_aggregate_function_combinators,\
+  \ ?) AS used_aggregate_function_combinators, CAST(used_database_engines, ?) AS used_database_engines,\
+  \ CAST(used_data_type_families, ?) AS used_data_type_families, CAST(used_dictionaries,\
+  \ ?) AS used_dictionaries, CAST(used_formats, ?) AS used_formats, CAST(used_functions,\
+  \ ?) AS used_functions, CAST(used_storages, ?) AS used_storages, CAST(used_table_functions,\
+  \ ?) AS used_table_functions, CAST(transaction_id, ?) AS transaction_id FROM system.query_log\
+  \ WHERE (event_date >= toDate(_CAST(?, ?))) AND (event_time >= toDateTime(_CAST(?,\
+  \ ?))) AND (event_time <= (toDateTime(_CAST(?, ?)) + toIntervalSecond(?))) AND (event_time_microseconds\
+  \ > toDateTime64(_CAST(?, ?), ?)) AND (event_time_microseconds <= toDateTime64(_CAST(?,\
+  \ ?), ?)) AND (initial_user NOT IN _CAST([?, ?, ?, ?, ?, ?, ?, ?, ?], ?)) AND (type\
+  \ NOT IN _CAST([?], ?))"
+checksum: 6549c480d31f5cb8a4686ce4e8ace85c
+queryDate: 1768521600000
+usedBy:
+  - monitoring-internal
+tags: []
+queryUsedIn:
+  - id: 48b1657c-662a-4125-b2cf-c781a971a76c
+    type: table
+    name: query_log
+    fullyQualifiedName: test_clickhouse.default.system.query_log
+    description: |-
+      Contains information about executed queries, for example, start time, duration of processing, error messages.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: query_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

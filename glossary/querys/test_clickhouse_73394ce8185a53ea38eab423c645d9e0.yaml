@@ -1,0 +1,49 @@
+name: 73394ce8185a53ea38eab423c645d9e0
+fullyQualifiedName: test_clickhouse.73394ce8185a53ea38eab423c645d9e0
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b190493f-b77b-49f9-84d5-2b55c4448a6d\",\"type\":\"table\"\
+        ,\"name\":\"text_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.text_log\"\
+        ,\"description\":\"Contains logging entries which are normally written to\
+        \ a log file or to stdout.\\n\\nIt is safe to truncate or drop this table\
+        \ at any time.\",\"displayName\":\"text_log\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: |-
+  SELECT min(event_time), now() - INTERVAL ? SECOND maxSettlePoint
+  FROM system.text_log
+  WHERE event_time >= toDateTime32(?)
+  AND event_date >= toDate(toDateTime32(?))
+  AND event_time <= maxSettlePoint
+checksum: 73394ce8185a53ea38eab423c645d9e0
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: b190493f-b77b-49f9-84d5-2b55c4448a6d
+    type: table
+    name: text_log
+    fullyQualifiedName: test_clickhouse.default.system.text_log
+    description: |-
+      Contains logging entries which are normally written to a log file or to stdout.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: text_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

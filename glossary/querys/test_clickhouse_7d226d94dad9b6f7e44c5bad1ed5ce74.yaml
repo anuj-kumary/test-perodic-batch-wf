@@ -1,0 +1,49 @@
+name: 7d226d94dad9b6f7e44c5bad1ed5ce74
+fullyQualifiedName: test_clickhouse.7d226d94dad9b6f7e44c5bad1ed5ce74
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"6d9abd82-4d97-4cc7-b805-1341963a4e20\",\"type\":\"table\"\
+        ,\"name\":\"part_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.part_log\"\
+        ,\"description\":\"This table contains information about events that occurred\
+        \ with data parts in the MergeTree family tables, such as adding or merging\
+        \ data.\\n\\nIt is safe to truncate or drop this table at any time.\",\"displayName\"\
+        :\"part_log\",\"deleted\":false}]"
+  previousVersion: 0.5
+  changeSummary: {}
+owners: []
+duration: 3.0
+users: []
+query: "SELECT \nnow64(?) as scrape_time_microseconds,\n? AS pod_ident,\n? AS spoken_name,\n\
+  ? AS cell,\n? AS region,\n? AS cloud_provider,\n? AS clickhouse_version,\n? AS control_plane_id,\n\
+  ? AS system_processor,\n* \nFROM system.\"part_log\" \nWHERE event_time >= toDateTime32(?)\n\
+  AND event_time < toDateTime32(?)\nAND event_date >= toDate(toDateTime32(?))\nAND\
+  \ event_date <= toDate(toDateTime32(?))\nORDER BY event_time ASC"
+checksum: 7d226d94dad9b6f7e44c5bad1ed5ce74
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 6d9abd82-4d97-4cc7-b805-1341963a4e20
+    type: table
+    name: part_log
+    fullyQualifiedName: test_clickhouse.default.system.part_log
+    description: |-
+      This table contains information about events that occurred with data parts in the MergeTree family tables, such as adding or merging data.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: part_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

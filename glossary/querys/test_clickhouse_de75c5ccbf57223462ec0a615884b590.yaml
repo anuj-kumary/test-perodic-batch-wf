@@ -1,0 +1,50 @@
+name: de75c5ccbf57223462ec0a615884b590
+fullyQualifiedName: test_clickhouse.de75c5ccbf57223462ec0a615884b590
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"8cdc671d-6829-4e35-ab84-7779cc1cbfd8\",\"type\":\"table\"\
+        ,\"name\":\"query_metric_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.query_metric_log\"\
+        ,\"description\":\"Contains history of memory and metric values from table\
+        \ system.events for individual queries, periodically flushed to disk.\\n\\\
+        nIt is safe to truncate or drop this table at any time.\",\"displayName\"\
+        :\"query_metric_log\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 7.0
+users: []
+query: |-
+  SELECT min(event_time), now() - INTERVAL ? SECOND maxSettlePoint
+  FROM system.query_metric_log
+  WHERE event_time >= toDateTime32(?)
+  AND event_date >= toDate(toDateTime32(?))
+  AND event_time <= maxSettlePoint
+checksum: de75c5ccbf57223462ec0a615884b590
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 8cdc671d-6829-4e35-ab84-7779cc1cbfd8
+    type: table
+    name: query_metric_log
+    fullyQualifiedName: test_clickhouse.default.system.query_metric_log
+    description: |-
+      Contains history of memory and metric values from table system.events for individual queries, periodically flushed to disk.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: query_metric_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

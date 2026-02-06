@@ -1,0 +1,49 @@
+name: 9573cb2467d3ad6420ef487e2bdf2d79
+fullyQualifiedName: test_clickhouse.9573cb2467d3ad6420ef487e2bdf2d79
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"c4b280a2-a70f-41cc-aae7-e25a08431905\",\"type\":\"table\"\
+        ,\"name\":\"query_thread_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.query_thread_log\"\
+        ,\"description\":\"Contains information about threads that execute queries,\
+        \ for example, thread name, thread start time, duration of query processing.\\\
+        n\\nIt is safe to truncate or drop this table at any time.\",\"displayName\"\
+        :\"query_thread_log\",\"deleted\":false}]"
+  previousVersion: 0.5
+  changeSummary: {}
+owners: []
+duration: 4.0
+users: []
+query: "SELECT \nnow64(?) as scrape_time_microseconds,\n? AS pod_ident,\n? AS spoken_name,\n\
+  ? AS cell,\n? AS region,\n? AS cloud_provider,\n? AS clickhouse_version,\n? AS control_plane_id,\n\
+  ? AS system_processor,\n* \nFROM system.\"query_thread_log\" \nWHERE event_time\
+  \ >= toDateTime32(?)\nAND event_time < toDateTime32(?)\nAND event_date >= toDate(toDateTime32(?))\n\
+  AND event_date <= toDate(toDateTime32(?))\nORDER BY event_time ASC"
+checksum: 9573cb2467d3ad6420ef487e2bdf2d79
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: c4b280a2-a70f-41cc-aae7-e25a08431905
+    type: table
+    name: query_thread_log
+    fullyQualifiedName: test_clickhouse.default.system.query_thread_log
+    description: |-
+      Contains information about threads that execute queries, for example, thread name, thread start time, duration of query processing.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: query_thread_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

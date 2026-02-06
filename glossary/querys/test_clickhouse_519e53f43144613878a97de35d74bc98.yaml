@@ -1,0 +1,52 @@
+name: 519e53f43144613878a97de35d74bc98
+fullyQualifiedName: test_clickhouse.519e53f43144613878a97de35d74bc98
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"ce291ad1-8e70-4d3c-a1e8-a0d16070afd1\",\"type\":\"table\"\
+        ,\"name\":\"tables\",\"fullyQualifiedName\":\"test_clickhouse.default.system.tables\"\
+        ,\"description\":\"Lists all tables of the current server.\",\"displayName\"\
+        :\"tables\",\"deleted\":false}]"
+  previousVersion: 0.7
+  changeSummary: {}
+owners: []
+duration: 1128.0
+users: []
+query: "SELECT CAST(?, ?) AS control_plane_id, CAST(?, ?) AS pod_id, CAST(now64(),\
+  \ ?) AS scrape_ts_microseconds, CAST(database, ?) AS database, CAST(name, ?) AS\
+  \ name, CAST(uuid, ?) AS uuid, CAST(engine, ?) AS engine, CAST(is_temporary, ?)\
+  \ AS is_temporary, CAST(CAST(?, ?), ?) AS data_paths, CAST(metadata_path, ?) AS\
+  \ metadata_path, CAST(metadata_modification_time, ?) AS metadata_modification_time,\
+  \ CAST(left(create_table_query, ?), ?) AS create_table_query, CAST(engine_full,\
+  \ ?) AS engine_full, CAST(left(as_select, ?), ?) AS as_select, CAST(partition_key,\
+  \ ?) AS partition_key, CAST(sorting_key, ?) AS sorting_key, CAST(primary_key, ?)\
+  \ AS primary_key, CAST(sampling_key, ?) AS sampling_key, CAST(storage_policy, ?)\
+  \ AS storage_policy, CAST(total_rows, ?) AS total_rows, CAST(total_bytes, ?) AS\
+  \ total_bytes, CAST(left(comment, ?), ?) AS comment, CAST(has_own_data, ?) AS has_own_data\
+  \ FROM system.tables WHERE multiMatchAny(storage_policy, _CAST([?, ?, ?, ?], ?))\
+  \ > ?"
+checksum: 519e53f43144613878a97de35d74bc98
+queryDate: 1768521600000
+usedBy:
+  - monitoring-internal
+tags: []
+queryUsedIn:
+  - id: ce291ad1-8e70-4d3c-a1e8-a0d16070afd1
+    type: table
+    name: tables
+    fullyQualifiedName: test_clickhouse.default.system.tables
+    description: Lists all tables of the current server.
+    displayName: tables
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

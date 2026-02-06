@@ -1,0 +1,50 @@
+name: 56486a0e515683b4d66ee58c752d76bd
+fullyQualifiedName: test_clickhouse.56486a0e515683b4d66ee58c752d76bd
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"954a3ced-bc7b-4822-8e89-e95b83cfbd67\",\"type\":\"table\"\
+        ,\"name\":\"filesystem_read_prefetches_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.filesystem_read_prefetches_log\"\
+        ,\"description\":\"Contains a history of all prefetches done during reading\
+        \ from MergeTables backed by a remote filesystem.\\n\\nIt is safe to truncate\
+        \ or drop this table at any time.\",\"displayName\":\"filesystem_read_prefetches_log\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 2.0
+users: []
+query: |-
+  SELECT min(event_time), now() - INTERVAL ? SECOND maxSettlePoint
+  FROM system.filesystem_read_prefetches_log
+  WHERE event_time >= toDateTime32(?)
+  AND event_date >= toDate(toDateTime32(?))
+  AND event_time <= maxSettlePoint
+checksum: 56486a0e515683b4d66ee58c752d76bd
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 954a3ced-bc7b-4822-8e89-e95b83cfbd67
+    type: table
+    name: filesystem_read_prefetches_log
+    fullyQualifiedName: test_clickhouse.default.system.filesystem_read_prefetches_log
+    description: |-
+      Contains a history of all prefetches done during reading from MergeTables backed by a remote filesystem.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: filesystem_read_prefetches_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed

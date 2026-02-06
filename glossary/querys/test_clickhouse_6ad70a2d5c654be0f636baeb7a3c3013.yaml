@@ -1,0 +1,46 @@
+name: 6ad70a2d5c654be0f636baeb7a3c3013
+fullyQualifiedName: test_clickhouse.6ad70a2d5c654be0f636baeb7a3c3013
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"82c37dd5-5a9b-436c-9ab8-6768e72bf298\",\"type\":\"table\"\
+        ,\"name\":\"metric_log\",\"fullyQualifiedName\":\"test_clickhouse.default.system.metric_log\"\
+        ,\"description\":\"Contains history of metrics values from tables system.metrics\
+        \ and system.events, periodically flushed to disk.\\n\\nIt is safe to truncate\
+        \ or drop this table at any time.\",\"displayName\":\"metric_log\",\"deleted\"\
+        :false}]"
+  previousVersion: 2.5
+  changeSummary: {}
+owners: []
+duration: 30.0
+users: []
+query: "SELECT\navg(ProfileEvent_OSCPUWaitMicroseconds) as cpu_wait FROM \nsystem.metric_log\
+  \ \nWHERE event_time > now() - INTERVAL ? MINUTE AND event_date >= yesterday()"
+checksum: 6ad70a2d5c654be0f636baeb7a3c3013
+queryDate: 1768521600000
+usedBy:
+  - observability-internal
+tags: []
+queryUsedIn:
+  - id: 82c37dd5-5a9b-436c-9ab8-6768e72bf298
+    type: table
+    name: metric_log
+    fullyQualifiedName: test_clickhouse.default.system.metric_log
+    description: |-
+      Contains history of metrics values from tables system.metrics and system.events, periodically flushed to disk.
+
+      It is safe to truncate or drop this table at any time.
+    displayName: metric_log
+    deleted: false
+processedLineage: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+entityStatus: Unprocessed
