@@ -1,0 +1,60 @@
+name: STG_VIEW
+fullyQualifiedName: SnowflakeProd.TASTY_BYTES_SAMPLE_DATA.RAW_POS.STG_VIEW
+tableType: View
+columns:
+  - name: sum_MENU_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 31
+    scale: 0
+    dataTypeDisplay: "number(31,0)"
+    fullyQualifiedName: SnowflakeProd.TASTY_BYTES_SAMPLE_DATA.RAW_POS.STG_VIEW.sum_MENU_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: dde7e150-68dd-4730-885e-c4cf27a20149
+  type: databaseSchema
+  name: RAW_POS
+  fullyQualifiedName: SnowflakeProd.TASTY_BYTES_SAMPLE_DATA.RAW_POS
+  displayName: RAW_POS
+  deleted: false
+database:
+  id: dd3ca46f-b479-4620-8c1d-c7ce928a957c
+  type: database
+  name: TASTY_BYTES_SAMPLE_DATA
+  fullyQualifiedName: SnowflakeProd.TASTY_BYTES_SAMPLE_DATA
+  displayName: TASTY_BYTES_SAMPLE_DATA
+  deleted: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd
+  description: ""
+  displayName: SnowflakeProd
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view STG_VIEW(\n\t\"sum_MENU_ID\"\n) as (SELECT\
+  \ \n  \"sum_MENU_ID\" \nFROM (SELECT \n  SUM(\"MENU_ID\") AS \"sum_MENU_ID\" \n\
+  FROM ((SELECT \n  \"MENU_ID\", \n  \"MENU_TYPE_ID\", \n  \"MENU_TYPE\", \n  \"TRUCK_BRAND_NAME\"\
+  , \n  \"MENU_ITEM_ID\", \n  \"MENU_ITEM_NAME\", \n  \"ITEM_CATEGORY\", \n  \"ITEM_SUBCATEGORY\"\
+  , \n  \"COST_OF_GOODS_USD\", \n  \"SALE_PRICE_USD\", \n  \"MENU_ITEM_HEALTH_METRICS_OBJ\"\
+  \ \nFROM \"TASTY_BYTES_SAMPLE_DATA\".\"RAW_POS\".\"MENU\"))) AS \"v_0000000101_0000001838\"\
+  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/tmqlsne/ww42057/#/data/databases/TASTY_BYTES_SAMPLE_DATA/schemas/RAW_POS/view/STG_VIEW
+domains: []
+dataProducts: []
+sourceHash: 5c33ac4c1500f46d04059ff708f595b7
+processedLineage: false
+entityStatus: Approved
