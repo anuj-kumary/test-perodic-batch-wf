@@ -1,0 +1,191 @@
+name: PARTSUPP
+fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP
+description: Partsupp data as defined by TPC-H
+tableType: Partitioned
+columns:
+  - name: PS_PARTKEY
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP.PS_PARTKEY
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: PS_SUPPKEY
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP.PS_SUPPKEY
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: PS_AVAILQTY
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP.PS_AVAILQTY
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: PS_SUPPLYCOST
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 12
+    scale: 2
+    dataTypeDisplay: "number(12,2)"
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP.PS_SUPPLYCOST
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: PS_COMMENT
+    dataType: VARCHAR
+    dataLength: 199
+    dataTypeDisplay: text(199)
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP.PS_COMMENT
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+tablePartition:
+  columns:
+    - columnName: PS_SUPPKEY
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: 6b5f20d2-cf4a-4937-977f-e1563db1d385
+  type: databaseSchema
+  name: TPCH_SF1000
+  fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000
+  description: TPC-H scaling factor 1000
+  displayName: TPCH_SF1000
+  deleted: false
+database:
+  id: 7388b682-7782-4628-bda7-76b42e2b759a
+  type: database
+  name: SNOWFLAKE_SAMPLE_DATA
+  fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA
+  description: <p>Checking alert</p>
+  displayName: SNOWFLAKE_SAMPLE_DATA
+  deleted: false
+service:
+  id: 435fa0a8-a3e1-4465-bd6a-33924c85e6aa
+  type: databaseService
+  name: Snowflake_test_hr
+  fullyQualifiedName: Snowflake_test_hr
+  description: <p>Test the metadata</p>
+  displayName: Snowflake_test_hr
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.PS_PARTKEY.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Automated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Automated\",\"state\":\"Suggested\"}]"
+    - name: columns.PS_AVAILQTY.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Automated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Automated\",\"state\":\"Suggested\"}]"
+    - name: columns.PS_COMMENT.tags
+      newValue: "[{\"tagFQN\":\"General.Person\",\"name\":\"Person\",\"description\"\
+        :\"A full person name, which can include first names, middle names or initials,\
+        \ and last names.\",\"source\":\"Classification\",\"labelType\":\"Automated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\"\
+        ,\"description\":\"PII which if lost, compromised, or disclosed without authorization,\
+        \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Automated\",\"state\":\"Suggested\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+sourceUrl: https://app.snowflake.com/rtbezht/rf91450/#/data/databases/SNOWFLAKE_SAMPLE_DATA/schemas/TPCH_SF1000/table/PARTSUPP
+domains: []
+dataProducts: []
+sourceHash: 9f18bb3064295949d3e59c1631b4f84d
+processedLineage: false
+entityStatus: Approved

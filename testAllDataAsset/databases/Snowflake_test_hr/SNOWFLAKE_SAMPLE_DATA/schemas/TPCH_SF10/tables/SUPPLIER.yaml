@@ -1,0 +1,223 @@
+name: SUPPLIER
+fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER
+description: Supplier data as defined by TPC-H
+tableType: Regular
+columns:
+  - name: S_SUPPKEY
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER.S_SUPPKEY
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: S_NAME
+    dataType: VARCHAR
+    dataLength: 25
+    dataTypeDisplay: text(25)
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER.S_NAME
+    tags:
+      - tagFQN: General.NationalID
+        name: NationalID
+        description: "Region specific identifiers, such as [ABN](https://en.wikipedia.org/wiki/Australian_Business_Number),\
+          \ [NIF](https://es.wikipedia.org/wiki/N%C3%BAmero_de_identificaci%C3%B3n_fiscal)\
+          \ or [NHS](https://en.wikipedia.org/wiki/National_Health_Service)."
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: S_ADDRESS
+    dataType: VARCHAR
+    dataLength: 40
+    dataTypeDisplay: text(40)
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER.S_ADDRESS
+    tags:
+      - tagFQN: General.Address
+        name: Address
+        displayName: Address new
+        description: Address of a Person.
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: S_NATIONKEY
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER.S_NATIONKEY
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: S_PHONE
+    dataType: VARCHAR
+    dataLength: 15
+    dataTypeDisplay: text(15)
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER.S_PHONE
+    tags:
+      - tagFQN: General.PhoneNumber
+        name: PhoneNumber
+        description: A telephone number.
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: S_ACCTBAL
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 12
+    scale: 2
+    dataTypeDisplay: "number(12,2)"
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER.S_ACCTBAL
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: S_COMMENT
+    dataType: VARCHAR
+    dataLength: 101
+    dataTypeDisplay: text(101)
+    fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER.S_COMMENT
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 9a7aeb37-4f30-404d-af65-be39735786bb
+  type: databaseSchema
+  name: TPCH_SF10
+  fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10
+  description: TPC-H scaling factor 10
+  displayName: TPCH_SF10
+  deleted: false
+database:
+  id: 7388b682-7782-4628-bda7-76b42e2b759a
+  type: database
+  name: SNOWFLAKE_SAMPLE_DATA
+  fullyQualifiedName: Snowflake_test_hr.SNOWFLAKE_SAMPLE_DATA
+  description: <p>Checking alert</p>
+  displayName: SNOWFLAKE_SAMPLE_DATA
+  deleted: false
+service:
+  id: 435fa0a8-a3e1-4465-bd6a-33924c85e6aa
+  type: databaseService
+  name: Snowflake_test_hr
+  fullyQualifiedName: Snowflake_test_hr
+  description: <p>Test the metadata</p>
+  displayName: Snowflake_test_hr
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: extension
+      newValue: "[{\"email\":\"test@test.com\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+extension:
+  email: test@test.com
+sourceUrl: https://app.snowflake.com/rtbezht/rf91450/#/data/databases/SNOWFLAKE_SAMPLE_DATA/schemas/TPCH_SF10/table/SUPPLIER
+domains: []
+dataProducts: []
+sourceHash: 1040c550daa2a13551286a555d0317f3
+processedLineage: false
+entityStatus: Approved
