@@ -1,0 +1,467 @@
+name: SAMPLE_TABLE_UPPER_PYTHON
+fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE_UPPER_PYTHON
+tableType: Transient
+columns:
+  - name: CUSTOMERID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE_UPPER_PYTHON.CUSTOMERID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE_UPPER_PYTHON.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EMAIL
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE_UPPER_PYTHON.EMAIL
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: COUNTRY
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE_UPPER_PYTHON.COUNTRY
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SIGNUPDATE
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE_UPPER_PYTHON.SIGNUPDATE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: PURCHASEAMOUNT
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE_UPPER_PYTHON.PURCHASEAMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME_UPPER_PYTHON
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE_UPPER_PYTHON.NAME_UPPER_PYTHON
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 784e8d90-2db1-4b79-806b-5dad5f2a175e
+  type: databaseSchema
+  name: DBT_SAMPLE
+  fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE
+  displayName: DBT_SAMPLE
+  deleted: false
+database:
+  id: 7d587349-44f2-4979-9c81-024bf3f7570d
+  type: database
+  name: DBT_DB
+  fullyQualifiedName: hktest.DBT_DB
+  displayName: DBT_DB
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+dataModel:
+  modelType: DBT
+  resourceType: model
+  path: models/example/first.py
+  rawSql: "# write me a python script that will print \"hello world\" and use dbt\
+    \ python\nimport logging\n\nimport snowflake.snowpark.functions as F\nfrom snowflake.snowpark.functions\
+    \ import col, upper\n\n\ndef model(dbt, session):\n    dbt.config(\n        materialized=\"\
+    table\",\n        alias=\"sample_table_upper_python\"\n    )\n    \n    # Print\
+    \ hello world (note: this will appear in platform logs, not dbt logs)\n    print(\"\
+    Hello World from dbt Python model!\")\n    \n    sample_table = dbt.ref(\"sample_table\"\
+    )\n    final_df = sample_table.select(\"*\", upper(col(\"name\")).alias(\"name_upper_python\"\
+    ))\n    \n    # Get the log messages from test function\n    log_messages = test()\n\
+    \    print(log_messages)\n    logging.error(log_messages)\n    logging.info(log_messages)\n\
+    \    logging.warning(log_messages)\n    logging.debug(log_messages) \n    logging.critical(log_messages)\n\
+    \    logging.exception(log_messages)\n    \n    # raise Exception(log_messages)\n\
+    \    \n    \n    # Return the log messages for debugging instead of the dataframe\n\
+    \    # Convert list to a single string for easier reading\n    return final_df\n\
+    \ndef test():\n    print(\"INSIDE TEST FUNCTION\")\n    import sys\n    sys.stdout.flush()\n\
+    \    \n    # Create a list to store all log messages\n    log_messages = []\n\
+    \    \n    \"\"\"Handle the auto-ingest command logic\"\"\"\n    import os\n \
+    \   from pathlib import Path\n    from typing import Dict, Optional\n\n    import\
+    \ yaml\n\n    # Snowflake-friendly logging function that collects messages\n \
+    \   def sf_log(message):\n        log_messages.append(f\"[DBT-COL] {message}\"\
+    )\n        print(f\"[DBT-COL] {message}\")\n        sys.stdout.flush()\n    \n\
+    \    sf_log(\"Starting dbt-col auto-ingestion process...\")\n    \n    def find_dbt_project(start_path:\
+    \ Optional[Path] = None) -> Optional[Path]:\n        \"\"\"Find dbt_project.yml\
+    \ in current directory or parent directories\"\"\"\n        sf_log(\"Looking for\
+    \ dbt_project.yml...\")\n        current = start_path or Path.cwd()\n        sf_log(f\"\
+    Current working directory: {current}\")\n        \n        for path in [current]\
+    \ + list(current.parents):\n            dbt_project = path / \"dbt_project.yml\"\
+    \n            sf_log(f\"Checking path: {path}\")\n            if dbt_project.exists():\n\
+    \                sf_log(f\"Found dbt_project.yml at: {path}\")\n             \
+    \   return path\n        sf_log(\"dbt_project.yml not found in any parent directories\"\
+    )\n        return None\n\n    def load_dbt_project_config(project_dir: Path) ->\
+    \ Dict:\n        \"\"\"Load dbt_project.yml configuration\"\"\"\n        sf_log(f\"\
+    Loading dbt project config from: {project_dir}\")\n        dbt_project_path =\
+    \ project_dir / \"dbt_project.yml\"\n        try:\n            with open(dbt_project_path,\
+    \ 'r') as f:\n                config = yaml.safe_load(f)\n                sf_log(\"\
+    Successfully loaded dbt_project.yml\")\n                return config\n      \
+    \  except Exception as e:\n            sf_log(f\"Error loading dbt_project.yml:\
+    \ {str(e)}\")\n            raise\n\n    class DbtColIngestion:\n        \"\"\"\
+    Core class for handling dbt to OpenMetadata ingestion\"\"\"\n        \n      \
+    \  def __init__(\n            self,\n            host_port: str,\n           \
+    \ jwt_token: str,\n            service_name: str,\n            manifest_path:\
+    \ str,\n            catalog_path: Optional[str] = None,\n            run_results_path:\
+    \ Optional[str] = None\n        ):\n            sf_log(f\"Initializing DbtColIngestion\
+    \ with service: {service_name}\")\n            self.host_port = host_port\n  \
+    \          self.jwt_token = jwt_token\n            self.service_name = service_name\n\
+    \            self.manifest_path = manifest_path\n            self.catalog_path\
+    \ = catalog_path\n            self.run_results_path = run_results_path\n     \
+    \       \n            # Validate paths\n            if not Path(self.manifest_path).exists():\n\
+    \                sf_log(f\"ERROR: Manifest file not found: {self.manifest_path}\"\
+    )\n                raise FileNotFoundError(f\"Manifest file not found: {self.manifest_path}\"\
+    )\n            sf_log(f\"Manifest path validated: {self.manifest_path}\")\n  \
+    \      \n        def _create_config(self) -> dict:\n            \"\"\"Create the\
+    \ OpenMetadata workflow configuration\"\"\"\n            sf_log(\"Creating OpenMetadata\
+    \ workflow configuration...\")\n            config = {\n                'sink':\
+    \ {\n                    'config': {}, \n                    'type': 'metadata-rest'\n\
+    \                },\n                'source': {\n                    'serviceName':\
+    \ self.service_name,\n                    'sourceConfig': {\n                \
+    \        'config': {\n                            'databaseFilterPattern': {\n\
+    \                                'includes': ['.*']\n                        \
+    \    },\n                            'dbtConfigSource': {\n                  \
+    \              'dbtManifestFilePath': self.manifest_path,\n                  \
+    \              'dbtConfigType': 'local'\n                            },\n    \
+    \                        'dbtUpdateDescriptions': True,\n                    \
+    \        'dbtUpdateOwners': True,\n                            'includeTags':\
+    \ True,\n                            'schemaFilterPattern': {\n              \
+    \                  'includes': ['.*']\n                            },\n      \
+    \                      'searchAcrossDatabases': False,\n                     \
+    \       'tableFilterPattern': {\n                                'includes': ['.*']\n\
+    \                            },\n                            'type': 'DBT'\n \
+    \                       }\n                    },\n                    'type':\
+    \ 'dbt'\n                },\n                'workflowConfig': {\n           \
+    \         'loggerLevel': 'INFO',\n                    'openMetadataServerConfig':\
+    \ {\n                        'authProvider': 'openmetadata',\n               \
+    \         'hostPort': self.host_port,\n                        'securityConfig':\
+    \ {\n                            'jwtToken': self.jwt_token\n                \
+    \        }\n                    }\n                }\n            }\n        \
+    \    \n            # Add optional files if they exist\n            if self.catalog_path\
+    \ and Path(self.catalog_path).exists():\n                sf_log(f\"Adding catalog\
+    \ file: {self.catalog_path}\")\n                config['source']['sourceConfig']['config']['dbtConfigSource']['dbtCatalogFilePath']\
+    \ = self.catalog_path\n            \n            if self.run_results_path and\
+    \ Path(self.run_results_path).exists():\n                sf_log(f\"Adding run\
+    \ results file: {self.run_results_path}\")\n                config['source']['sourceConfig']['config']['dbtConfigSource']['dbtRunResultsFilePath']\
+    \ = self.run_results_path\n            \n            sf_log(\"Configuration created\
+    \ successfully\")\n            return config\n        \n        def run(self)\
+    \ -> bool:\n            \"\"\"Execute the OpenMetadata ingestion workflow\"\"\"\
+    \n            sf_log(\"Starting OpenMetadata ingestion workflow...\")\n      \
+    \      try:\n                # Import OpenMetadata workflow\n                try:\n\
+    \                    sf_log(\"Importing OpenMetadata workflow...\")\n        \
+    \            from metadata.workflow.metadata import MetadataWorkflow\n       \
+    \             sf_log(\"OpenMetadata workflow imported successfully\")\n      \
+    \          except ImportError as import_error:\n                    sf_log(f\"\
+    ❌ Error: openmetadata-ingestion package not found: {str(import_error)}\")\n  \
+    \                  sf_log(\"   Please install it with: pip install openmetadata-ingestion\"\
+    )\n                    return False\n                \n                # Create\
+    \ configuration\n                sf_log(\"Creating workflow configuration...\"\
+    )\n                config = self._create_config()\n                \n        \
+    \        # Create workflow instance\n                sf_log(\"Creating workflow\
+    \ instance...\")\n                workflow = MetadataWorkflow.create(config)\n\
+    \                sf_log(\"Workflow instance created successfully\")\n        \
+    \        \n                # Execute the workflow\n                sf_log(\"Executing\
+    \ workflow...\")\n                workflow.execute()\n                sf_log(\"\
+    Workflow execution completed\")\n                \n                sf_log(\"Checking\
+    \ workflow status...\")\n                workflow.raise_from_status()\n      \
+    \          \n                # Print the status\n                sf_log(\"📊 Ingestion\
+    \ Summary:\")\n                try:\n                    workflow.print_status()\n\
+    \                except Exception as status_error:\n                    sf_log(f\"\
+    Could not print workflow status: {str(status_error)}\")\n                \n  \
+    \              sf_log(\"Stopping workflow...\")\n                workflow.stop()\n\
+    \                sf_log(\"Workflow stopped successfully\")\n                \n\
+    \                return True\n                \n            except Exception as\
+    \ e:\n                sf_log(f\"❌ Error during OpenMetadata ingestion: {str(e)}\"\
+    )\n                sf_log(f\"Exception type: {type(e).__name__}\")\n         \
+    \       import traceback\n                sf_log(f\"Traceback: {traceback.format_exc()}\"\
+    )\n                return False\n\n    try:\n        sf_log(\"=== Starting dbt-col\
+    \ ingestion process ===\")\n        \n        # Find dbt project\n        sf_log(\"\
+    Step 1: Finding dbt project...\")\n        project_dir = find_dbt_project()\n\
+    \        if not project_dir:\n            sf_log(\"❌ No dbt_project.yml found.\
+    \ Run from your dbt project directory or specify --project-dir.\")\n         \
+    \   return log_messages\n        \n        sf_log(f\"📁 Found dbt project: {project_dir}\"\
+    )\n        \n        # Load dbt project configuration\n        sf_log(\"Step 2:\
+    \ Loading dbt project configuration...\")\n        dbt_config = load_dbt_project_config(project_dir)\n\
+    \        vars_config = dbt_config.get('vars', {})\n        sf_log(f\"Found {len(vars_config)}\
+    \ variables in dbt config\")\n        \n        # Extract OpenMetadata configuration\n\
+    \        sf_log(\"Step 3: Extracting OpenMetadata configuration...\")\n      \
+    \  jwt_token = vars_config.get('openmetadata_jwt_token')\n        host_port =\
+    \ vars_config.get('openmetadata_host_port')\n        service_name = vars_config.get('openmetadata_service_name',\
+    \ 'dbt')\n        \n        sf_log(f\"JWT Token present: {'Yes' if jwt_token else\
+    \ 'No'}\")\n        sf_log(f\"Host Port: {host_port if host_port else 'Not found'}\"\
+    )\n        sf_log(f\"Service Name: {service_name}\")\n        \n        if not\
+    \ jwt_token or not host_port:\n            sf_log(\"❌ OpenMetadata configuration\
+    \ not found in dbt_project.yml\")\n            sf_log(\"   Add the following to\
+    \ your vars:\")\n            sf_log(\"   openmetadata_jwt_token: 'your-jwt-token'\"\
+    )\n            sf_log(\"   openmetadata_host_port: 'http://localhost:8585/api'\"\
+    )\n            sf_log(\"   openmetadata_service_name: 'your-service-name'\")\n\
+    \            return log_messages\n        \n        # Find target directory\n\
+    \        sf_log(\"Step 4: Checking target directory...\")\n        target_dir\
+    \ = project_dir / \"target\"\n        sf_log(f\"Target directory path: {target_dir}\"\
+    )\n        if not target_dir.exists():\n            sf_log(\"❌ Target directory\
+    \ not found. Please run 'dbt build' first.\")\n            return log_messages\n\
+    \        \n        # Check for required artifacts\n        sf_log(\"Step 5: Checking\
+    \ for required artifacts...\")\n        manifest_path = target_dir / \"manifest.json\"\
+    \n        sf_log(f\"Manifest path: {manifest_path}\")\n        if not manifest_path.exists():\n\
+    \            sf_log(\"❌ manifest.json not found. Please run 'dbt build' first.\"\
+    )\n            return log_messages\n        \n        sf_log(f\"🔗 Publishing\
+    \ to: {host_port}\")\n        sf_log(f\"📊 Service name: {service_name}\")\n \
+    \       \n        # Create and run ingestion\n        sf_log(\"Step 6: Creating\
+    \ ingestion instance...\")\n        ingestion = DbtColIngestion(\n           \
+    \ host_port=host_port,\n            jwt_token=jwt_token,\n            service_name=service_name,\n\
+    \            manifest_path=str(manifest_path),\n            catalog_path=str(target_dir\
+    \ / \"catalog.json\") if (target_dir / \"catalog.json\").exists() else None,\n\
+    \            run_results_path=str(target_dir / \"run_results.json\") if (target_dir\
+    \ / \"run_results.json\").exists() else None\n        )\n        \n        sf_log(\"\
+    🚀 Starting OpenMetadata ingestion...\")\n        success = ingestion.run()\n\
+    \        \n        if success:\n            sf_log(\"✅ dbt-col: OpenMetadata ingestion\
+    \ completed successfully!\")\n        else:\n            sf_log(\"❌ dbt-col: OpenMetadata\
+    \ ingestion failed.\")\n        \n        sf_log(\"=== dbt-col ingestion process\
+    \ completed ===\")\n            \n    except Exception as e:\n        sf_log(f\"\
+    ❌ Error: {str(e)}\")\n        import traceback\n        sf_log(f\"Full traceback:\
+    \ {traceback.format_exc()}\")\n    \n    print(\"OUTSIDE TEST FUNCTION\")\n  \
+    \  sys.stdout.flush()\n    \n    # Return the collected log messages\n    return\
+    \ log_messages"
+  sql: "# write me a python script that will print \"hello world\" and use dbt python\n\
+    import logging\n\nimport snowflake.snowpark.functions as F\nfrom snowflake.snowpark.functions\
+    \ import col, upper\n\n\ndef model(dbt, session):\n    dbt.config(\n        materialized=\"\
+    table\",\n        alias=\"sample_table_upper_python\"\n    )\n    \n    # Print\
+    \ hello world (note: this will appear in platform logs, not dbt logs)\n    print(\"\
+    Hello World from dbt Python model!\")\n    \n    sample_table = dbt.ref(\"sample_table\"\
+    )\n    final_df = sample_table.select(\"*\", upper(col(\"name\")).alias(\"name_upper_python\"\
+    ))\n    \n    # Get the log messages from test function\n    log_messages = test()\n\
+    \    print(log_messages)\n    logging.error(log_messages)\n    logging.info(log_messages)\n\
+    \    logging.warning(log_messages)\n    logging.debug(log_messages) \n    logging.critical(log_messages)\n\
+    \    logging.exception(log_messages)\n    \n    # raise Exception(log_messages)\n\
+    \    \n    \n    # Return the log messages for debugging instead of the dataframe\n\
+    \    # Convert list to a single string for easier reading\n    return final_df\n\
+    \ndef test():\n    print(\"INSIDE TEST FUNCTION\")\n    import sys\n    sys.stdout.flush()\n\
+    \    \n    # Create a list to store all log messages\n    log_messages = []\n\
+    \    \n    \"\"\"Handle the auto-ingest command logic\"\"\"\n    import os\n \
+    \   from pathlib import Path\n    from typing import Dict, Optional\n\n    import\
+    \ yaml\n\n    # Snowflake-friendly logging function that collects messages\n \
+    \   def sf_log(message):\n        log_messages.append(f\"[DBT-COL] {message}\"\
+    )\n        print(f\"[DBT-COL] {message}\")\n        sys.stdout.flush()\n    \n\
+    \    sf_log(\"Starting dbt-col auto-ingestion process...\")\n    \n    def find_dbt_project(start_path:\
+    \ Optional[Path] = None) -> Optional[Path]:\n        \"\"\"Find dbt_project.yml\
+    \ in current directory or parent directories\"\"\"\n        sf_log(\"Looking for\
+    \ dbt_project.yml...\")\n        current = start_path or Path.cwd()\n        sf_log(f\"\
+    Current working directory: {current}\")\n        \n        for path in [current]\
+    \ + list(current.parents):\n            dbt_project = path / \"dbt_project.yml\"\
+    \n            sf_log(f\"Checking path: {path}\")\n            if dbt_project.exists():\n\
+    \                sf_log(f\"Found dbt_project.yml at: {path}\")\n             \
+    \   return path\n        sf_log(\"dbt_project.yml not found in any parent directories\"\
+    )\n        return None\n\n    def load_dbt_project_config(project_dir: Path) ->\
+    \ Dict:\n        \"\"\"Load dbt_project.yml configuration\"\"\"\n        sf_log(f\"\
+    Loading dbt project config from: {project_dir}\")\n        dbt_project_path =\
+    \ project_dir / \"dbt_project.yml\"\n        try:\n            with open(dbt_project_path,\
+    \ 'r') as f:\n                config = yaml.safe_load(f)\n                sf_log(\"\
+    Successfully loaded dbt_project.yml\")\n                return config\n      \
+    \  except Exception as e:\n            sf_log(f\"Error loading dbt_project.yml:\
+    \ {str(e)}\")\n            raise\n\n    class DbtColIngestion:\n        \"\"\"\
+    Core class for handling dbt to OpenMetadata ingestion\"\"\"\n        \n      \
+    \  def __init__(\n            self,\n            host_port: str,\n           \
+    \ jwt_token: str,\n            service_name: str,\n            manifest_path:\
+    \ str,\n            catalog_path: Optional[str] = None,\n            run_results_path:\
+    \ Optional[str] = None\n        ):\n            sf_log(f\"Initializing DbtColIngestion\
+    \ with service: {service_name}\")\n            self.host_port = host_port\n  \
+    \          self.jwt_token = jwt_token\n            self.service_name = service_name\n\
+    \            self.manifest_path = manifest_path\n            self.catalog_path\
+    \ = catalog_path\n            self.run_results_path = run_results_path\n     \
+    \       \n            # Validate paths\n            if not Path(self.manifest_path).exists():\n\
+    \                sf_log(f\"ERROR: Manifest file not found: {self.manifest_path}\"\
+    )\n                raise FileNotFoundError(f\"Manifest file not found: {self.manifest_path}\"\
+    )\n            sf_log(f\"Manifest path validated: {self.manifest_path}\")\n  \
+    \      \n        def _create_config(self) -> dict:\n            \"\"\"Create the\
+    \ OpenMetadata workflow configuration\"\"\"\n            sf_log(\"Creating OpenMetadata\
+    \ workflow configuration...\")\n            config = {\n                'sink':\
+    \ {\n                    'config': {}, \n                    'type': 'metadata-rest'\n\
+    \                },\n                'source': {\n                    'serviceName':\
+    \ self.service_name,\n                    'sourceConfig': {\n                \
+    \        'config': {\n                            'databaseFilterPattern': {\n\
+    \                                'includes': ['.*']\n                        \
+    \    },\n                            'dbtConfigSource': {\n                  \
+    \              'dbtManifestFilePath': self.manifest_path,\n                  \
+    \              'dbtConfigType': 'local'\n                            },\n    \
+    \                        'dbtUpdateDescriptions': True,\n                    \
+    \        'dbtUpdateOwners': True,\n                            'includeTags':\
+    \ True,\n                            'schemaFilterPattern': {\n              \
+    \                  'includes': ['.*']\n                            },\n      \
+    \                      'searchAcrossDatabases': False,\n                     \
+    \       'tableFilterPattern': {\n                                'includes': ['.*']\n\
+    \                            },\n                            'type': 'DBT'\n \
+    \                       }\n                    },\n                    'type':\
+    \ 'dbt'\n                },\n                'workflowConfig': {\n           \
+    \         'loggerLevel': 'INFO',\n                    'openMetadataServerConfig':\
+    \ {\n                        'authProvider': 'openmetadata',\n               \
+    \         'hostPort': self.host_port,\n                        'securityConfig':\
+    \ {\n                            'jwtToken': self.jwt_token\n                \
+    \        }\n                    }\n                }\n            }\n        \
+    \    \n            # Add optional files if they exist\n            if self.catalog_path\
+    \ and Path(self.catalog_path).exists():\n                sf_log(f\"Adding catalog\
+    \ file: {self.catalog_path}\")\n                config['source']['sourceConfig']['config']['dbtConfigSource']['dbtCatalogFilePath']\
+    \ = self.catalog_path\n            \n            if self.run_results_path and\
+    \ Path(self.run_results_path).exists():\n                sf_log(f\"Adding run\
+    \ results file: {self.run_results_path}\")\n                config['source']['sourceConfig']['config']['dbtConfigSource']['dbtRunResultsFilePath']\
+    \ = self.run_results_path\n            \n            sf_log(\"Configuration created\
+    \ successfully\")\n            return config\n        \n        def run(self)\
+    \ -> bool:\n            \"\"\"Execute the OpenMetadata ingestion workflow\"\"\"\
+    \n            sf_log(\"Starting OpenMetadata ingestion workflow...\")\n      \
+    \      try:\n                # Import OpenMetadata workflow\n                try:\n\
+    \                    sf_log(\"Importing OpenMetadata workflow...\")\n        \
+    \            from metadata.workflow.metadata import MetadataWorkflow\n       \
+    \             sf_log(\"OpenMetadata workflow imported successfully\")\n      \
+    \          except ImportError as import_error:\n                    sf_log(f\"\
+    ❌ Error: openmetadata-ingestion package not found: {str(import_error)}\")\n  \
+    \                  sf_log(\"   Please install it with: pip install openmetadata-ingestion\"\
+    )\n                    return False\n                \n                # Create\
+    \ configuration\n                sf_log(\"Creating workflow configuration...\"\
+    )\n                config = self._create_config()\n                \n        \
+    \        # Create workflow instance\n                sf_log(\"Creating workflow\
+    \ instance...\")\n                workflow = MetadataWorkflow.create(config)\n\
+    \                sf_log(\"Workflow instance created successfully\")\n        \
+    \        \n                # Execute the workflow\n                sf_log(\"Executing\
+    \ workflow...\")\n                workflow.execute()\n                sf_log(\"\
+    Workflow execution completed\")\n                \n                sf_log(\"Checking\
+    \ workflow status...\")\n                workflow.raise_from_status()\n      \
+    \          \n                # Print the status\n                sf_log(\"📊 Ingestion\
+    \ Summary:\")\n                try:\n                    workflow.print_status()\n\
+    \                except Exception as status_error:\n                    sf_log(f\"\
+    Could not print workflow status: {str(status_error)}\")\n                \n  \
+    \              sf_log(\"Stopping workflow...\")\n                workflow.stop()\n\
+    \                sf_log(\"Workflow stopped successfully\")\n                \n\
+    \                return True\n                \n            except Exception as\
+    \ e:\n                sf_log(f\"❌ Error during OpenMetadata ingestion: {str(e)}\"\
+    )\n                sf_log(f\"Exception type: {type(e).__name__}\")\n         \
+    \       import traceback\n                sf_log(f\"Traceback: {traceback.format_exc()}\"\
+    )\n                return False\n\n    try:\n        sf_log(\"=== Starting dbt-col\
+    \ ingestion process ===\")\n        \n        # Find dbt project\n        sf_log(\"\
+    Step 1: Finding dbt project...\")\n        project_dir = find_dbt_project()\n\
+    \        if not project_dir:\n            sf_log(\"❌ No dbt_project.yml found.\
+    \ Run from your dbt project directory or specify --project-dir.\")\n         \
+    \   return log_messages\n        \n        sf_log(f\"📁 Found dbt project: {project_dir}\"\
+    )\n        \n        # Load dbt project configuration\n        sf_log(\"Step 2:\
+    \ Loading dbt project configuration...\")\n        dbt_config = load_dbt_project_config(project_dir)\n\
+    \        vars_config = dbt_config.get('vars', {})\n        sf_log(f\"Found {len(vars_config)}\
+    \ variables in dbt config\")\n        \n        # Extract OpenMetadata configuration\n\
+    \        sf_log(\"Step 3: Extracting OpenMetadata configuration...\")\n      \
+    \  jwt_token = vars_config.get('openmetadata_jwt_token')\n        host_port =\
+    \ vars_config.get('openmetadata_host_port')\n        service_name = vars_config.get('openmetadata_service_name',\
+    \ 'dbt')\n        \n        sf_log(f\"JWT Token present: {'Yes' if jwt_token else\
+    \ 'No'}\")\n        sf_log(f\"Host Port: {host_port if host_port else 'Not found'}\"\
+    )\n        sf_log(f\"Service Name: {service_name}\")\n        \n        if not\
+    \ jwt_token or not host_port:\n            sf_log(\"❌ OpenMetadata configuration\
+    \ not found in dbt_project.yml\")\n            sf_log(\"   Add the following to\
+    \ your vars:\")\n            sf_log(\"   openmetadata_jwt_token: 'your-jwt-token'\"\
+    )\n            sf_log(\"   openmetadata_host_port: 'http://localhost:8585/api'\"\
+    )\n            sf_log(\"   openmetadata_service_name: 'your-service-name'\")\n\
+    \            return log_messages\n        \n        # Find target directory\n\
+    \        sf_log(\"Step 4: Checking target directory...\")\n        target_dir\
+    \ = project_dir / \"target\"\n        sf_log(f\"Target directory path: {target_dir}\"\
+    )\n        if not target_dir.exists():\n            sf_log(\"❌ Target directory\
+    \ not found. Please run 'dbt build' first.\")\n            return log_messages\n\
+    \        \n        # Check for required artifacts\n        sf_log(\"Step 5: Checking\
+    \ for required artifacts...\")\n        manifest_path = target_dir / \"manifest.json\"\
+    \n        sf_log(f\"Manifest path: {manifest_path}\")\n        if not manifest_path.exists():\n\
+    \            sf_log(\"❌ manifest.json not found. Please run 'dbt build' first.\"\
+    )\n            return log_messages\n        \n        sf_log(f\"🔗 Publishing\
+    \ to: {host_port}\")\n        sf_log(f\"📊 Service name: {service_name}\")\n \
+    \       \n        # Create and run ingestion\n        sf_log(\"Step 6: Creating\
+    \ ingestion instance...\")\n        ingestion = DbtColIngestion(\n           \
+    \ host_port=host_port,\n            jwt_token=jwt_token,\n            service_name=service_name,\n\
+    \            manifest_path=str(manifest_path),\n            catalog_path=str(target_dir\
+    \ / \"catalog.json\") if (target_dir / \"catalog.json\").exists() else None,\n\
+    \            run_results_path=str(target_dir / \"run_results.json\") if (target_dir\
+    \ / \"run_results.json\").exists() else None\n        )\n        \n        sf_log(\"\
+    🚀 Starting OpenMetadata ingestion...\")\n        success = ingestion.run()\n\
+    \        \n        if success:\n            sf_log(\"✅ dbt-col: OpenMetadata ingestion\
+    \ completed successfully!\")\n        else:\n            sf_log(\"❌ dbt-col: OpenMetadata\
+    \ ingestion failed.\")\n        \n        sf_log(\"=== dbt-col ingestion process\
+    \ completed ===\")\n            \n    except Exception as e:\n        sf_log(f\"\
+    ❌ Error: {str(e)}\")\n        import traceback\n        sf_log(f\"Full traceback:\
+    \ {traceback.format_exc()}\")\n    \n    print(\"OUTSIDE TEST FUNCTION\")\n  \
+    \  sys.stdout.flush()\n    \n    # Return the collected log messages\n    return\
+    \ log_messages\n\n\n# This part is user provided model code\n# you will need to\
+    \ copy the next section to run the code\n# COMMAND ----------\n# this part is\
+    \ dbt logic for get ref work, do not modify\n\ndef ref(*args, **kwargs):\n   \
+    \ refs = {\"sample_table\": \"dbt_db.DBT_SAMPLE.sample_table\"}\n    key = '.'.join(args)\n\
+    \    version = kwargs.get(\"v\") or kwargs.get(\"version\")\n    if version:\n\
+    \        key += f\".v{version}\"\n    dbt_load_df_function = kwargs.get(\"dbt_load_df_function\"\
+    )\n    return dbt_load_df_function(refs[key])\n\n\ndef source(*args, dbt_load_df_function):\n\
+    \    sources = {}\n    key = '.'.join(args)\n    return dbt_load_df_function(sources[key])\n\
+    \n\nconfig_dict = {}\n\n\nclass config:\n    def __init__(self, *args, **kwargs):\n\
+    \        pass\n\n    @staticmethod\n    def get(key, default=None):\n        return\
+    \ config_dict.get(key, default)\n\nclass this:\n    \"\"\"dbt.this() or dbt.this.identifier\"\
+    \"\"\n    database = \"dbt_db\"\n    schema = \"DBT_SAMPLE\"\n    identifier =\
+    \ \"sample_table_upper_python\"\n    \n    def __repr__(self):\n        return\
+    \ 'dbt_db.DBT_SAMPLE.sample_table_upper_python'\n\n\nclass dbtObj:\n    def __init__(self,\
+    \ load_df_function) -> None:\n        self.source = lambda *args: source(*args,\
+    \ dbt_load_df_function=load_df_function)\n        self.ref = lambda *args, **kwargs:\
+    \ ref(*args, **kwargs, dbt_load_df_function=load_df_function)\n        self.config\
+    \ = config\n        self.this = this()\n        self.is_incremental = False\n\n\
+    # COMMAND ----------\n\n# To run this in snowsight, you need to select entry point\
+    \ to be main\n# And you may have to modify the return type to text to get the\
+    \ result back\n# def main(session):\n#     dbt = dbtObj(session.table)\n#    \
+    \ df = model(dbt, session)\n#     return df.collect()\n\n# to run this in local\
+    \ notebook, you need to create a session following examples https://github.com/Snowflake-Labs/sfguide-getting-started-snowpark-python\n\
+    # then you can do the following to run model\n# dbt = dbtObj(session.table)\n\
+    # df = model(dbt, session)\n\n"
+  upstream:
+    - hktest.DBT_DB.DBT_SAMPLE.SAMPLE_TABLE
+  tags: []
+  columns: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: deleted
+      oldValue: true
+      newValue: false
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/djywarg/lk40101/#/data/databases/DBT_DB/schemas/DBT_SAMPLE/table/SAMPLE_TABLE_UPPER_PYTHON
+domains: []
+dataProducts: []
+sourceHash: 660c7210a12866d29995587a16a22977
+processedLineage: false
+entityStatus: Approved

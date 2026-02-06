@@ -1,0 +1,86 @@
+name: VIEW_PERSONS
+fullyQualifiedName: hktest.E2E_DB.E2E_TEST.VIEW_PERSONS
+tableType: View
+columns:
+  - name: PERSON_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.VIEW_PERSONS.PERSON_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FULL_NAME
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: text(255)
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.VIEW_PERSONS.FULL_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 282ae396-8b85-4ea4-8be0-34882c438a03
+  type: databaseSchema
+  name: E2E_TEST
+  fullyQualifiedName: hktest.E2E_DB.E2E_TEST
+  displayName: E2E_TEST
+  deleted: false
+database:
+  id: bd992f86-36b8-4df5-af27-e0d5122eddad
+  type: database
+  name: E2E_DB
+  fullyQualifiedName: hktest.E2E_DB
+  displayName: E2E_DB
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: |-
+  CREATE VIEW E2E_DB.e2e_test.view_persons AS
+              SELECT person_id, full_name
+              FROM e2e_test.persons;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: lifeCycle
+      oldValue: "{\"created\":{\"timestamp\":1752364800000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"},\"accessed\":{\"timestamp\":1746662400000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+      newValue: "{\"created\":{\"timestamp\":1752364800000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"},\"accessed\":{\"timestamp\":1752537600000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+  fieldsDeleted: []
+  previousVersion: 0.5
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/E2E_DB/schemas/E2E_TEST/view/VIEW_PERSONS
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1752364800000
+    accessedByAProcess: TESTOPENMETADATA
+  accessed:
+    timestamp: 1752537600000
+    accessedByAProcess: TESTOPENMETADATA
+sourceHash: fd1e82763124c5c238c4fd3638f3e3b2
+processedLineage: true
+entityStatus: Approved
