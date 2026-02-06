@@ -1,0 +1,32 @@
+name: ee0caf8ad3880bb7c0151f43e457d58b
+fullyQualifiedName: hktest.ee0caf8ad3880bb7c0151f43e457d58b
+owners: []
+duration: 62.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_CASH_VAL_1YR_TM\"\
+  \ AS \"CONT_CASH_VAL_1YR_TM\" \nFROM \"CURATED\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_CASH_VAL_1YR_TM\" AS \"CONT_CASH_VAL_1YR_TM\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_CASH_VAL_1YR_TM\"\
+  ) ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_CASH_VAL_1YR_TM\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_CASH_VAL_1YR_TM\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\n\
+  \ LIMIT ?"
+checksum: ee0caf8ad3880bb7c0151f43e457d58b
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

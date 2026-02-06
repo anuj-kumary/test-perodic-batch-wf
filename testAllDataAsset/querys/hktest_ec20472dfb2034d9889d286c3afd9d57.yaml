@@ -1,0 +1,40 @@
+name: ec20472dfb2034d9889d286c3afd9d57
+fullyQualifiedName: hktest.ec20472dfb2034d9889d286c3afd9d57
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b2308968-5747-4a6d-b783-6780f10d7211\",\"type\":\"table\"\
+        ,\"name\":\"ORDERS\",\"fullyQualifiedName\":\"hktest.CUSTOMERS.JAFFLE_SHOP.ORDERS\"\
+        ,\"displayName\":\"ORDERS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 312.0
+users: []
+query: |-
+  SELECT "t0"."yr:ORDER_DATE:ok" AS "yr:ORDER_DATE:ok",
+    SUM("CUSTOMERS"."NUMBER_OF_ORDERS") AS "sum:NUMBER_OF_ORDERS:ok"
+  FROM "CUSTOMERS"."JAFFLE_SHOP"."CUSTOMERS" "CUSTOMERS"
+    INNER JOIN (
+    SELECT "CUSTOMERS"."CUSTOMER_ID" AS "CUSTOMER_ID",
+      DATE_PART(?,"ORDERS"."ORDER_DATE") AS "yr:ORDER_DATE:ok"
+    FROM "CUSTOMERS"."JAFFLE_SHOP"."CUSTOMERS" "CUSTOMERS"
+      LEFT JOIN "CUSTOMERS"."JAFFLE_SHOP"."ORDERS" "ORDERS" ON ("CUSTOMERS"."CUSTOMER_ID" = "ORDERS"."CUSTOMER_ID")
+    GROUP BY ?,
+      ?
+  ) "t0" ON ("CUSTOMERS"."CUSTOMER_ID" IS NOT DISTINCT FROM "t0"."CUSTOMER_ID")
+  GROUP BY ?
+checksum: ec20472dfb2034d9889d286c3afd9d57
+queryDate: 1744588800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn: []
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

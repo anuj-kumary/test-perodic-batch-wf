@@ -1,0 +1,33 @@
+name: e6dd96c46bf4d997f005f960f3b86e98
+fullyQualifiedName: hktest.e6dd96c46bf4d997f005f960f3b86e98
+owners: []
+duration: 176.0
+users: []
+query: "WITH \"4c9e7581028a01fc71dfc3997bd40912_rnd\" AS \n(SELECT \"LOAN_1\".\"SRC_SYS_CD\"\
+  \ AS \"SRC_SYS_CD\" \nFROM \"TRANSIENT\".\"LOAN\" AS \"LOAN_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"4c9e7581028a01fc71dfc3997bd40912_sample\" AS \n(SELECT \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  .\"SRC_SYS_CD\" AS \"SRC_SYS_CD\" \nFROM \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  )\n SELECT avg(LEN(\"SRC_SYS_CD\")) AS mean, count(\"SRC_SYS_CD\") AS \"valuesCount\"\
+  , count(DISTINCT \"SRC_SYS_CD\") AS \"distinctCount\", MIN(LEN(\"SRC_SYS_CD\"))\
+  \ AS min, MAX(LEN(\"SRC_SYS_CD\")) AS max, coalesce(SUM(CASE WHEN (\"SRC_SYS_CD\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"SRC_SYS_CD\"))\
+  \ AS stddev, SUM(LEN(\"SRC_SYS_CD\")) AS sum \nFROM \"4c9e7581028a01fc71dfc3997bd40912_sample\"\
+  \n LIMIT ?"
+checksum: e6dd96c46bf4d997f005f960f3b86e98
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b5994ca-25ef-4f35-b1f0-67ede52ac3c8
+    type: table
+    name: LOAN
+    fullyQualifiedName: hktest.INDIVIDUAL.TRANSIENT.LOAN
+    displayName: LOAN
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

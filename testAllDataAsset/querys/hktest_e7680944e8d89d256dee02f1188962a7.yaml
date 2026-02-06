@@ -1,0 +1,39 @@
+name: e7680944e8d89d256dee02f1188962a7
+fullyQualifiedName: hktest.e7680944e8d89d256dee02f1188962a7
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"d121e49b-a72f-4cb2-a739-b4f79f844a69\",\"type\":\"table\"\
+        ,\"name\":\"NATION\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.NATION\"\
+        ,\"description\":\"Nation data as defined by TPC-H\",\"displayName\":\"NATION\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 58.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"N_COMMENT\") ASC) AS\
+  \ median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"N_COMMENT\") ASC) AS \"\
+  firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"N_COMMENT\") ASC)\
+  \ AS \"thirdQuartile\" \nFROM \"TPCH_SF1\".\"NATION\"\n LIMIT ?"
+checksum: e7680944e8d89d256dee02f1188962a7
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d121e49b-a72f-4cb2-a739-b4f79f844a69
+    type: table
+    name: NATION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.NATION
+    description: Nation data as defined by TPC-H
+    displayName: NATION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

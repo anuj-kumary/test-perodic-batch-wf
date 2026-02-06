@@ -1,0 +1,36 @@
+name: e939beaa061fff4f7499d2f043dd9bbd
+fullyQualifiedName: hktest.e939beaa061fff4f7499d2f043dd9bbd
+owners: []
+duration: 74.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"ACCOUNT_SCORE_C\"\
+  \ AS \"ACCOUNT_SCORE_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  ACCOUNT_SCORE_C\" AS \"ACCOUNT_SCORE_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(\"ACCOUNT_SCORE_C\") AS mean, count(\"ACCOUNT_SCORE_C\") AS \"valuesCount\"\
+  , count(DISTINCT \"ACCOUNT_SCORE_C\") AS \"distinctCount\", MIN(\"ACCOUNT_SCORE_C\"\
+  ) AS min, MAX(\"ACCOUNT_SCORE_C\") AS max, coalesce(SUM(CASE WHEN (\"ACCOUNT_SCORE_C\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"ACCOUNT_SCORE_C\"\
+  ) AS stddev, SUM(\"ACCOUNT_SCORE_C\") AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: e939beaa061fff4f7499d2f043dd9bbd
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

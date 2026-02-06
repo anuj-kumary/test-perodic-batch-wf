@@ -1,0 +1,48 @@
+name: ea1d773ca037cf8b435ee62fe106b97e
+fullyQualifiedName: hktest.ea1d773ca037cf8b435ee62fe106b97e
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f8ab8061-1d41-4b83-987f-d8d5ffba7396\",\"type\":\"table\"\
+        ,\"name\":\"ACCOUNT\",\"fullyQualifiedName\":\"hktest.TEST_DB.PUBLIC.ACCOUNT\"\
+        ,\"description\":\"new description for testing.\\ncollate\",\"displayName\"\
+        :\"ACCOUNT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 77.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"COMPETITOR_9_REFERENCE_C\"\
+  \ AS \"COMPETITOR_9_REFERENCE_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT\
+  \ c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"COMPETITOR_9_REFERENCE_C\" AS \"COMPETITOR_9_REFERENCE_C\"\
+  \ \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n SELECT avg(LEN(\"COMPETITOR_9_REFERENCE_C\"\
+  )) AS mean, count(\"COMPETITOR_9_REFERENCE_C\") AS \"valuesCount\", count(DISTINCT\
+  \ \"COMPETITOR_9_REFERENCE_C\") AS \"distinctCount\", MIN(LEN(\"COMPETITOR_9_REFERENCE_C\"\
+  )) AS min, MAX(LEN(\"COMPETITOR_9_REFERENCE_C\")) AS max, coalesce(SUM(CASE WHEN\
+  \ (\"COMPETITOR_9_REFERENCE_C\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  COMPETITOR_9_REFERENCE_C\")) AS stddev, SUM(LEN(\"COMPETITOR_9_REFERENCE_C\")) AS\
+  \ sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT ?"
+checksum: ea1d773ca037cf8b435ee62fe106b97e
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

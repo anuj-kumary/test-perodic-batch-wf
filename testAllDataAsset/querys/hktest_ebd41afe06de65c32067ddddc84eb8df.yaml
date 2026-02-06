@@ -1,0 +1,76 @@
+name: ebd41afe06de65c32067ddddc84eb8df
+fullyQualifiedName: hktest.ebd41afe06de65c32067ddddc84eb8df
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"49ed908c-886f-4af7-bb76-f93d3d974e9b\",\"type\":\"table\"\
+        ,\"name\":\"METRICS_ANOMALY_SCORE\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.METRICS_ANOMALY_SCORE\"\
+        ,\"displayName\":\"METRICS_ANOMALY_SCORE\",\"deleted\":false}]"
+  previousVersion: 0.9
+  changeSummary: {}
+owners: []
+duration: 252.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "create or replace   view dbt_db.DBT_SAMPLE_elementary.metrics_anomaly_score\n\
+  \  \n   as (\n    \n\nwith data_monitoring_metrics as (\n\n    select * from dbt_db.DBT_SAMPLE_elementary.data_monitoring_metrics\n\
+  \n),\n\ntime_window_aggregation as (\n\n    select\n        id,\n        full_table_name,\n\
+  \        column_name,\n        dimension,\n        dimension_value,\n        metric_name,\n\
+  \        metric_value,\n        source_value,\n        bucket_start,\n        bucket_end,\n\
+  \        bucket_duration_hours,\n        updated_at,\n        avg(metric_value)\
+  \ over (partition by metric_name, full_table_name, column_name order by bucket_start\
+  \ asc rows between unbounded preceding and current row) as training_avg,\n     \
+  \   stddev(cast(metric_value as float)) over (partition by metric_name, full_table_name,\
+  \ column_name order by bucket_start asc rows between unbounded preceding and current\
+  \ row) as training_stddev,\n        count(metric_value) over (partition by metric_name,\
+  \ full_table_name, column_name order by bucket_start asc rows between unbounded\
+  \ preceding and current row) as training_set_size,\n        last_value(bucket_end)\
+  \ over (partition by metric_name, full_table_name, column_name order by bucket_start\
+  \ asc rows between unbounded preceding and current row) training_end,\n        first_value(bucket_end)\
+  \ over (partition by metric_name, full_table_name, column_name order by bucket_start\
+  \ asc rows between unbounded preceding and current row) as training_start\n    from\
+  \ data_monitoring_metrics\n    group by ?,?,?,?,?,?,?,?,?,?,?,?\n),\n\nmetrics_anomaly_score\
+  \ as (\n\n    select\n        id,\n        full_table_name,\n        column_name,\n\
+  \        dimension,\n        dimension_value,\n        metric_name,\n        case\n\
+  \            when training_stddev is ? then ?\n            when training_stddev\
+  \ = ? then ?\n            else (metric_value - training_avg) / (training_stddev)\n\
+  \        end as anomaly_score,\n        metric_value as latest_metric_value,\n \
+  \       bucket_start,\n        bucket_end,\n        training_avg,\n        training_stddev,\n\
+  \        training_start,\n        training_end,\n        training_set_size,\n  \
+  \      max(updated_at) as updated_at\n    from time_window_aggregation\n       \
+  \ where\n            metric_value is not ?\n            and training_avg is not\
+  \ ?\n            and bucket_end >= \n    dateadd(day, cast(? as integer), cast(date_trunc(?,\
+  \ \n  current_timestamp::timestamp\n) as timestamp))\n\n    group by ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?\n\
+  \    order by bucket_end desc\n\n\n),\n\nfinal as (\n\n    select\n        id,\n\
+  \        full_table_name,\n        column_name,\n        dimension,\n        dimension_value,\n\
+  \        metric_name,\n        anomaly_score,\n        latest_metric_value,\n  \
+  \      bucket_start,\n        bucket_end,\n        training_avg,\n        training_stddev,\n\
+  \        training_start,\n        training_end,\n        training_set_size,\n  \
+  \      updated_at,\n        case\n            when abs(anomaly_score) > ? then ?\n\
+  \            else ? end\n        as is_anomaly\n    from metrics_anomaly_score\n\
+  )\n\nselect * from final\n  );"
+checksum: ebd41afe06de65c32067ddddc84eb8df
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 65cf3741-cd7e-47a9-a363-7b20bd64f6e6
+    type: table
+    name: DATA_MONITORING_METRICS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DATA_MONITORING_METRICS
+    displayName: DATA_MONITORING_METRICS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

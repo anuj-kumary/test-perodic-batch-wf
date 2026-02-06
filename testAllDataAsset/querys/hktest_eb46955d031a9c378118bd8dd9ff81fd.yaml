@@ -1,0 +1,36 @@
+name: eb46955d031a9c378118bd8dd9ff81fd
+fullyQualifiedName: hktest.eb46955d031a9c378118bd8dd9ff81fd
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"d03f73b0-8a36-4cd5-a82f-a07db17fe588\",\"type\":\"table\"\
+        ,\"name\":\"CUSTOMERACCOUNTS\",\"fullyQualifiedName\":\"hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS\"\
+        ,\"displayName\":\"CUSTOMERACCOUNTS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 53.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"EMAIL\") AS count_1\
+  \ \nFROM \"MSSQLBANKING_STG\".\"CUSTOMERACCOUNTS\" GROUP BY \"EMAIL\" \nHAVING count(\"\
+  EMAIL\") = ?) AS only_once\n LIMIT ?"
+checksum: eb46955d031a9c378118bd8dd9ff81fd
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d03f73b0-8a36-4cd5-a82f-a07db17fe588
+    type: table
+    name: CUSTOMERACCOUNTS
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS
+    displayName: CUSTOMERACCOUNTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

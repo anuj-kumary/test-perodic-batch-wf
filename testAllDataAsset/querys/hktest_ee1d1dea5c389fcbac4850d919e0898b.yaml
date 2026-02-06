@@ -1,0 +1,29 @@
+name: ee1d1dea5c389fcbac4850d919e0898b
+fullyQualifiedName: hktest.ee1d1dea5c389fcbac4850d919e0898b
+owners: []
+duration: 90.0
+users: []
+query: "SELECT avg(LEN(\"CNT_PRM_OVERRIDE_IND\")) AS mean, count(\"CNT_PRM_OVERRIDE_IND\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CNT_PRM_OVERRIDE_IND\") AS \"distinctCount\"\
+  , MIN(LEN(\"CNT_PRM_OVERRIDE_IND\")) AS min, MAX(LEN(\"CNT_PRM_OVERRIDE_IND\"))\
+  \ AS max, coalesce(SUM(CASE WHEN (\"CNT_PRM_OVERRIDE_IND\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(LEN(\"CNT_PRM_OVERRIDE_IND\")) AS stddev, SUM(LEN(\"\
+  CNT_PRM_OVERRIDE_IND\")) AS sum \nFROM \"CURATED\".\"CNTRCT\"\n LIMIT ?"
+checksum: ee1d1dea5c389fcbac4850d919e0898b
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

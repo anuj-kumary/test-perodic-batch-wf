@@ -1,0 +1,45 @@
+name: eaa2c0698a0c54533e4f8bbafd754e2f
+fullyQualifiedName: hktest.eaa2c0698a0c54533e4f8bbafd754e2f
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"d1421023-d4ef-4bea-ad0f-0b3f8a230893\",\"type\":\"table\"\
+        ,\"name\":\"PERSONS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.PERSONS\"\
+        ,\"displayName\":\"PERSONS\",\"deleted\":false}]"
+  previousVersion: 0.7
+  changeSummary: {}
+owners: []
+duration: 118.0
+users: []
+query: "SELECT count(*) FROM (SELECT * FROM (SELECT (\"tmp2\".\"PERSON_ID\" IS NULL)\
+  \ AS \"is_exclusive_a\", (\"tmp1\".\"PERSON_ID\" IS NULL) AS \"is_exclusive_b\"\
+  , CASE WHEN \"tmp1\".\"PERSON_ID\" is distinct from \"tmp2\".\"PERSON_ID\" THEN\
+  \ ? ELSE ? END AS \"is_diff_PERSON_ID\", CASE WHEN \"tmp1\".\"FULL_NAME\" is distinct\
+  \ from \"tmp2\".\"FULL_NAME\" THEN ? ELSE ? END AS \"is_diff_FULL_NAME\", cast(cast(\"\
+  tmp1\".\"PERSON_ID\" as decimal(?, ?)) as string) AS \"PERSON_ID_a\", cast(cast(\"\
+  tmp2\".\"PERSON_ID\" as decimal(?, ?)) as string) AS \"PERSON_ID_b\", cast(\"tmp1\"\
+  .\"FULL_NAME\" as string) AS \"FULL_NAME_a\", cast(\"tmp2\".\"FULL_NAME\" as string)\
+  \ AS \"FULL_NAME_b\" FROM \"E2E_TEST\".\"PERSONS\" \"tmp1\" FULL OUTER JOIN \"E2E_TEST\"\
+  .\"PERSONS\" \"tmp2\" ON (\"tmp1\".\"PERSON_ID\" = \"tmp2\".\"PERSON_ID\")) tmp3\
+  \ WHERE ((\"is_diff_PERSON_ID\" = ?) OR (\"is_diff_FULL_NAME\" = ?)) AND (\"is_exclusive_a\"\
+  \ OR \"is_exclusive_b\")) tmp4"
+checksum: eaa2c0698a0c54533e4f8bbafd754e2f
+queryDate: 1746576000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d1421023-d4ef-4bea-ad0f-0b3f8a230893
+    type: table
+    name: PERSONS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.PERSONS
+    displayName: PERSONS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

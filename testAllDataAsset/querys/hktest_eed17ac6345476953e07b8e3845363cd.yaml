@@ -1,0 +1,50 @@
+name: eed17ac6345476953e07b8e3845363cd
+fullyQualifiedName: hktest.eed17ac6345476953e07b8e3845363cd
+owners: []
+duration: 581.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_STORE_CREDIT\" AS \"CR_STORE_CREDIT\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_RETURNS\"\
+  \ AS \"CATALOG_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_STORE_CREDIT\" AS \"\
+  CR_STORE_CREDIT\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n SELECT count(CASE\
+  \ WHEN (\"CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\" < ?) THEN \"CR_STORE_CREDIT\"\
+  \ END) AS \"0 to 161.465\", count(CASE WHEN (\"CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\"\
+  \ < ?) THEN \"CR_STORE_CREDIT\" END) AS \"161.465 to 322.930\", count(CASE WHEN\
+  \ (\"CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\" < ?) THEN \"CR_STORE_CREDIT\"\
+  \ END) AS \"322.930 to 484.395\", count(CASE WHEN (\"CR_STORE_CREDIT\" >= ? AND\
+  \ \"CR_STORE_CREDIT\" < ?) THEN \"CR_STORE_CREDIT\" END) AS \"484.395 to 645.860\"\
+  , count(CASE WHEN (\"CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\" < ?) THEN \"\
+  CR_STORE_CREDIT\" END) AS \"645.860 to 807.325\", count(CASE WHEN (\"CR_STORE_CREDIT\"\
+  \ >= ? AND \"CR_STORE_CREDIT\" < ?) THEN \"CR_STORE_CREDIT\" END) AS \"807.325 to\
+  \ 968.790\", count(CASE WHEN (\"CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\" <\
+  \ ?) THEN \"CR_STORE_CREDIT\" END) AS \"968.790 to 1.130K\", count(CASE WHEN (\"\
+  CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\" < ?) THEN \"CR_STORE_CREDIT\" END)\
+  \ AS \"1.130K to 1.292K\", count(CASE WHEN (\"CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\"\
+  \ < ?) THEN \"CR_STORE_CREDIT\" END) AS \"1.292K to 1.453K\", count(CASE WHEN (\"\
+  CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\" < ?) THEN \"CR_STORE_CREDIT\" END)\
+  \ AS \"1.453K to 1.615K\", count(CASE WHEN (\"CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\"\
+  \ < ?) THEN \"CR_STORE_CREDIT\" END) AS \"1.615K to 1.776K\", count(CASE WHEN (\"\
+  CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\" < ?) THEN \"CR_STORE_CREDIT\" END)\
+  \ AS \"1.776K to 1.938K\", count(CASE WHEN (\"CR_STORE_CREDIT\" >= ? AND \"CR_STORE_CREDIT\"\
+  \ < ?) THEN \"CR_STORE_CREDIT\" END) AS \"1.938K to 2.099K\", count(CASE WHEN (\"\
+  CR_STORE_CREDIT\" >= ?) THEN \"CR_STORE_CREDIT\" END) AS \"2.099K and up\" \nFROM\
+  \ \"7492547a05b84d643fd227e52ada40ff_sample\"\n LIMIT ?"
+checksum: eed17ac6345476953e07b8e3845363cd
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b9619de9-ba22-4783-99e0-09f868de5c08
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

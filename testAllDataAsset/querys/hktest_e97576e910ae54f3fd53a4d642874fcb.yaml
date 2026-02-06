@@ -1,0 +1,31 @@
+name: e97576e910ae54f3fd53a4d642874fcb
+fullyQualifiedName: hktest.e97576e910ae54f3fd53a4d642874fcb
+owners: []
+duration: 59.0
+users: []
+query: "WITH \"367c47e78fd2339134c9b9307fea1b1f_rnd\" AS \n(SELECT \"LOANACCOUNT_1\"\
+  .\"_FIVETRAN_SYNCED\" AS \"_FIVETRAN_SYNCED\" \nFROM \"MSSQLBANKING_ACCOUNT\".\"\
+  LOANACCOUNT\" AS \"LOANACCOUNT_1\" TABLESAMPLE ROW(? ROWS)), \n\"367c47e78fd2339134c9b9307fea1b1f_sample\"\
+  \ AS \n(SELECT \"367c47e78fd2339134c9b9307fea1b1f_rnd\".\"_FIVETRAN_SYNCED\" AS\
+  \ \"_FIVETRAN_SYNCED\" \nFROM \"367c47e78fd2339134c9b9307fea1b1f_rnd\")\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"_FIVETRAN_SYNCED\") AS count_1\
+  \ \nFROM \"367c47e78fd2339134c9b9307fea1b1f_sample\" GROUP BY \"_FIVETRAN_SYNCED\"\
+  \ \nHAVING count(\"_FIVETRAN_SYNCED\") = ?) AS only_once\n LIMIT ?"
+checksum: e97576e910ae54f3fd53a4d642874fcb
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0776506f-3c50-4714-bf68-fd02c42cf3f6
+    type: table
+    name: LOANACCOUNT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.LOANACCOUNT
+    displayName: LOANACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

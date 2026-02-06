@@ -1,0 +1,45 @@
+name: ec3e68605b5947c238d4f19ffe7484b1
+fullyQualifiedName: hktest.ec3e68605b5947c238d4f19ffe7484b1
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"1067c449-1123-409b-88c7-98614f62bedd\",\"type\":\"table\"\
+        ,\"name\":\"SNAPSHOT_RUN_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SNAPSHOT_RUN_RESULTS\"\
+        ,\"displayName\":\"SNAPSHOT_RUN_RESULTS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 89.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"MATERIALIZATION\")) AS mean, count(\"MATERIALIZATION\") AS\
+  \ \"valuesCount\", count(DISTINCT \"MATERIALIZATION\") AS \"distinctCount\", MIN(LEN(\"\
+  MATERIALIZATION\")) AS min, MAX(LEN(\"MATERIALIZATION\")) AS max, coalesce(SUM(CASE\
+  \ WHEN (\"MATERIALIZATION\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  MATERIALIZATION\")) AS stddev, SUM(LEN(\"MATERIALIZATION\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\"\
+  .\"SNAPSHOT_RUN_RESULTS\"\n LIMIT ?"
+checksum: ec3e68605b5947c238d4f19ffe7484b1
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 1067c449-1123-409b-88c7-98614f62bedd
+    type: table
+    name: SNAPSHOT_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SNAPSHOT_RUN_RESULTS
+    displayName: SNAPSHOT_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

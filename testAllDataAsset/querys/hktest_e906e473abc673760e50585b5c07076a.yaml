@@ -1,0 +1,39 @@
+name: e906e473abc673760e50585b5c07076a
+fullyQualifiedName: hktest.e906e473abc673760e50585b5c07076a
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f541ed9b-43c8-4fde-9898-ccab88cd5324\",\"type\":\"table\"\
+        ,\"name\":\"ORDERS\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS\"\
+        ,\"description\":\"Orders data as defined by TPC-H\",\"displayName\":\"ORDERS\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 85.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"O_ORDERPRIORITY\")\
+  \ ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"O_ORDERPRIORITY\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"O_ORDERPRIORITY\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"TPCH_SF1\".\"ORDERS\"\n LIMIT ?"
+checksum: e906e473abc673760e50585b5c07076a
+queryDate: 1752192000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f541ed9b-43c8-4fde-9898-ccab88cd5324
+    type: table
+    name: ORDERS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS
+    description: Orders data as defined by TPC-H
+    displayName: ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
