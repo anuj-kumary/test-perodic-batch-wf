@@ -1,0 +1,70 @@
+name: customer_v0
+fullyQualifiedName: red-pere.dev.collate_shop.customer_v0
+tableType: View
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.collate_shop.customer_v0.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.collate_shop.customer_v0.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.collate_shop.customer_v0.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f842b6bc-98b7-470e-a9ff-eb8ea51075b2
+  type: databaseSchema
+  name: collate_shop
+  fullyQualifiedName: red-pere.dev.collate_shop
+  displayName: collate_shop
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW collate_shop.customer_v0 AS  SELECT raw_customers.id, raw_customers.first_name, raw_customers.last_name
+     FROM collate_shop.raw_customers;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 9b3ef8aacbc8de150d323d53b723c249
+processedLineage: false
+entityStatus: Unprocessed
