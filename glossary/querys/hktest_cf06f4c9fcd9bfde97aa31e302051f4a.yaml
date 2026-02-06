@@ -1,0 +1,36 @@
+name: cf06f4c9fcd9bfde97aa31e302051f4a
+fullyQualifiedName: hktest.cf06f4c9fcd9bfde97aa31e302051f4a
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"d47eec01-bfb8-49b6-8964-8515c551934d\",\"type\":\"table\"\
+        ,\"name\":\"TEST_DEPENDENTS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.TEST_DEPENDENTS\"\
+        ,\"displayName\":\"TEST_DEPENDENTS\",\"deleted\":false}]"
+  previousVersion: 1.4
+  changeSummary: {}
+owners: []
+duration: 185.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"E2E_TESTFIRST_NAME\"\
+  ) AS count_1 \nFROM \"E2E_TEST\".\"TEST_DEPENDENTS\" GROUP BY \"E2E_TESTFIRST_NAME\"\
+  \ \nHAVING count(\"E2E_TESTFIRST_NAME\") = ?) AS only_once\n LIMIT ?"
+checksum: cf06f4c9fcd9bfde97aa31e302051f4a
+queryDate: 1752192000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d47eec01-bfb8-49b6-8964-8515c551934d
+    type: table
+    name: TEST_DEPENDENTS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.TEST_DEPENDENTS
+    displayName: TEST_DEPENDENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

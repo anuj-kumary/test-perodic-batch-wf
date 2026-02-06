@@ -1,0 +1,33 @@
+name: cac9323f7cbb16fd9d95421200bf45aa
+fullyQualifiedName: hktest.cac9323f7cbb16fd9d95421200bf45aa
+owners: []
+duration: 116.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_COMPANY\" AS \"CC_COMPANY\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\" AS \"\
+  CALL_CENTER_1\" TABLESAMPLE ROW(? ROWS)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_COMPANY\" AS \"CC_COMPANY\"\
+  \ \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT avg(\"CC_COMPANY\")\
+  \ AS mean, count(\"CC_COMPANY\") AS \"valuesCount\", count(DISTINCT \"CC_COMPANY\"\
+  ) AS \"distinctCount\", MIN(\"CC_COMPANY\") AS min, MAX(\"CC_COMPANY\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"CC_COMPANY\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(\"CC_COMPANY\") AS stddev, SUM(\"CC_COMPANY\") AS sum \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \n LIMIT ?"
+checksum: cac9323f7cbb16fd9d95421200bf45aa
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ce0a6904-d515-40d5-8ca9-6848df3ef2a4
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

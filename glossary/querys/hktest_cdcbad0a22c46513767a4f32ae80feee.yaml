@@ -1,0 +1,40 @@
+name: cdcbad0a22c46513767a4f32ae80feee
+fullyQualifiedName: hktest.cdcbad0a22c46513767a4f32ae80feee
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b8edd128-e9a7-4b1e-9a7a-6f441d6c3cb4\",\"type\":\"table\"\
+        ,\"name\":\"ORDERS\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.ORDERS\"\
+        ,\"description\":\"Orders data as defined by TPC-H\",\"displayName\":\"ORDERS\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 129.0
+users: []
+query: "SELECT avg(\"O_TOTALPRICE\") AS mean, count(\"O_TOTALPRICE\") AS \"valuesCount\"\
+  , count(DISTINCT \"O_TOTALPRICE\") AS \"distinctCount\", MIN(\"O_TOTALPRICE\") AS\
+  \ min, MAX(\"O_TOTALPRICE\") AS max, coalesce(SUM(CASE WHEN (\"O_TOTALPRICE\" IS\
+  \ ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"O_TOTALPRICE\") AS stddev,\
+  \ SUM(\"O_TOTALPRICE\") AS sum \nFROM \"TPCH_SF1000\".\"ORDERS\"\n LIMIT ?"
+checksum: cdcbad0a22c46513767a4f32ae80feee
+queryDate: 1752105600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b8edd128-e9a7-4b1e-9a7a-6f441d6c3cb4
+    type: table
+    name: ORDERS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.ORDERS
+    description: Orders data as defined by TPC-H
+    displayName: ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

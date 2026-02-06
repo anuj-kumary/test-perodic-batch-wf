@@ -1,0 +1,31 @@
+name: ce7be8688a8912d31a9f2ca7fcf93282
+fullyQualifiedName: hktest.ce7be8688a8912d31a9f2ca7fcf93282
+owners: []
+duration: 1156.0
+users: []
+query: "WITH \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\" AS \n(SELECT \"INVENTORY_1\"\
+  .\"INV_ITEM_SK\" AS \"INV_ITEM_SK\" \nFROM \"TPCDS_SF100TCL\".\"INVENTORY\" AS \"\
+  INVENTORY_1\" TABLESAMPLE ROW(? ROWS)), \n\"23c6d3d8dee11d726d3c9e52099b7d02_sample\"\
+  \ AS \n(SELECT \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\".\"INV_ITEM_SK\" AS \"INV_ITEM_SK\"\
+  \ \nFROM \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"INV_ITEM_SK\") AS count_1 \nFROM \"23c6d3d8dee11d726d3c9e52099b7d02_sample\"\
+  \ GROUP BY \"INV_ITEM_SK\" \nHAVING count(\"INV_ITEM_SK\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: ce7be8688a8912d31a9f2ca7fcf93282
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ad3bb84a-060f-47ad-bb37-0247bf29931c
+    type: table
+    name: INVENTORY
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.INVENTORY
+    displayName: INVENTORY
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

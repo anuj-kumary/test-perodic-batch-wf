@@ -1,0 +1,32 @@
+name: d04ea6fc696ac50db840540eed6c18b7
+fullyQualifiedName: hktest.d04ea6fc696ac50db840540eed6c18b7
+owners: []
+duration: 92.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"FIRST_BUCKET_END\"\
+  ) AS count_1 \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"MONITORS_RUNS\" GROUP BY \"FIRST_BUCKET_END\"\
+  \ \nHAVING count(\"FIRST_BUCKET_END\") = ?) AS only_once\n LIMIT ?"
+checksum: d04ea6fc696ac50db840540eed6c18b7
+queryDate: 1748563200000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 0777e470-b01c-42a9-b275-67217059c629
+    type: table
+    name: MONITORS_RUNS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS
+    displayName: MONITORS_RUNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

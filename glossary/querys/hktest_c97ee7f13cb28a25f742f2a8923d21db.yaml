@@ -1,0 +1,36 @@
+name: c97ee7f13cb28a25f742f2a8923d21db
+fullyQualifiedName: hktest.c97ee7f13cb28a25f742f2a8923d21db
+owners: []
+duration: 85.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"X_2021_HIGHLIGHT_C\"\
+  \ AS \"X_2021_HIGHLIGHT_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  X_2021_HIGHLIGHT_C\" AS \"X_2021_HIGHLIGHT_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(LEN(\"X_2021_HIGHLIGHT_C\")) AS mean, count(\"X_2021_HIGHLIGHT_C\"\
+  ) AS \"valuesCount\", count(DISTINCT \"X_2021_HIGHLIGHT_C\") AS \"distinctCount\"\
+  , MIN(LEN(\"X_2021_HIGHLIGHT_C\")) AS min, MAX(LEN(\"X_2021_HIGHLIGHT_C\")) AS max,\
+  \ coalesce(SUM(CASE WHEN (\"X_2021_HIGHLIGHT_C\" IS ?) THEN ? ELSE ? END), ?) AS\
+  \ \"nullCount\", STDDEV_POP(LEN(\"X_2021_HIGHLIGHT_C\")) AS stddev, SUM(LEN(\"X_2021_HIGHLIGHT_C\"\
+  )) AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT ?"
+checksum: c97ee7f13cb28a25f742f2a8923d21db
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

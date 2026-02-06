@@ -1,0 +1,26 @@
+name: ce22343edb9b2b211650e88eb2d82ffb
+fullyQualifiedName: hktest.ce22343edb9b2b211650e88eb2d82ffb
+owners: []
+duration: 79.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"_FIVETRAN_DELETED\"\
+  ) AS count_1 \nFROM \"MSSQLBANKING_ACCOUNT\".\"TRANSACT\" GROUP BY \"_FIVETRAN_DELETED\"\
+  \ \nHAVING count(\"_FIVETRAN_DELETED\") = ?) AS only_once\n LIMIT ?"
+checksum: ce22343edb9b2b211650e88eb2d82ffb
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b53a9c36-844d-4499-979b-6f0b6cd2b454
+    type: table
+    name: TRANSACT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.TRANSACT
+    displayName: TRANSACT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

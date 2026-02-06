@@ -1,0 +1,35 @@
+name: cfd2256e207a8bb1983ae6d23c47d278
+fullyQualifiedName: hktest.cfd2256e207a8bb1983ae6d23c47d278
+owners: []
+duration: 154.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"ADAPTER_RESPONSE\")) AS mean, count(\"ADAPTER_RESPONSE\"\
+  ) AS \"valuesCount\", count(DISTINCT \"ADAPTER_RESPONSE\") AS \"distinctCount\"\
+  , MIN(LEN(\"ADAPTER_RESPONSE\")) AS min, MAX(LEN(\"ADAPTER_RESPONSE\")) AS max,\
+  \ coalesce(SUM(CASE WHEN (\"ADAPTER_RESPONSE\" IS ?) THEN ? ELSE ? END), ?) AS \"\
+  nullCount\", STDDEV_POP(LEN(\"ADAPTER_RESPONSE\")) AS stddev, SUM(LEN(\"ADAPTER_RESPONSE\"\
+  )) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"SEED_RUN_RESULTS\"\n LIMIT ?"
+checksum: cfd2256e207a8bb1983ae6d23c47d278
+queryDate: 1748563200000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 71f3b29a-0599-4623-b7e2-1e721ace56c4
+    type: table
+    name: SEED_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SEED_RUN_RESULTS
+    displayName: SEED_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

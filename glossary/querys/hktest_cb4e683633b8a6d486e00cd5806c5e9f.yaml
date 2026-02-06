@@ -1,0 +1,37 @@
+name: cb4e683633b8a6d486e00cd5806c5e9f
+fullyQualifiedName: hktest.cb4e683633b8a6d486e00cd5806c5e9f
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f3f7adf0-5934-40b1-9c34-71aa27a03cd6\",\"type\":\"table\"\
+        ,\"name\":\"CNTRCT\",\"fullyQualifiedName\":\"hktest.INDIVIDUAL.CURATED.CNTRCT\"\
+        ,\"displayName\":\"CNTRCT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 50.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"CNTRCT_VRSN_KY\" ASC) AS\
+  \ median, percentile_cont(?) WITHIN GROUP (ORDER BY \"CNTRCT_VRSN_KY\" ASC) AS \"\
+  firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY \"CNTRCT_VRSN_KY\" ASC)\
+  \ AS \"thirdQuartile\" \nFROM \"CURATED\".\"CNTRCT\"\n LIMIT ?"
+checksum: cb4e683633b8a6d486e00cd5806c5e9f
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

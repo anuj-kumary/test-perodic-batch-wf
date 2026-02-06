@@ -1,0 +1,36 @@
+name: ccdf24f9bd1e8ab5455c4cb930a74499
+fullyQualifiedName: hktest.ccdf24f9bd1e8ab5455c4cb930a74499
+owners: []
+duration: 77.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"TRANSFER_F_21_NSC_SLIDE_LINK_C\"\
+  \ AS \"TRANSFER_F_21_NSC_SLIDE_LINK_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT\
+  \ c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"TRANSFER_F_21_NSC_SLIDE_LINK_C\" AS \"\
+  TRANSFER_F_21_NSC_SLIDE_LINK_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"TRANSFER_F_21_NSC_SLIDE_LINK_C\"\
+  ) ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"TRANSFER_F_21_NSC_SLIDE_LINK_C\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"TRANSFER_F_21_NSC_SLIDE_LINK_C\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT\
+  \ ?"
+checksum: ccdf24f9bd1e8ab5455c4cb930a74499
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

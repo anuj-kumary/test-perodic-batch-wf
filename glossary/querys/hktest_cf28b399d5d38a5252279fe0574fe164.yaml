@@ -1,0 +1,36 @@
+name: cf28b399d5d38a5252279fe0574fe164
+fullyQualifiedName: hktest.cf28b399d5d38a5252279fe0574fe164
+owners: []
+duration: 118.0
+users: []
+query: "WITH \"9be203cdfef8628939c9942fb61fdae3_rnd\" AS \n(SELECT \"PART_1\".\"P_RETAILPRICE\"\
+  \ AS \"P_RETAILPRICE\" \nFROM \"TPCH_SF10\".\"PART\" AS \"PART_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"9be203cdfef8628939c9942fb61fdae3_sample\" AS \n(SELECT \"9be203cdfef8628939c9942fb61fdae3_rnd\"\
+  .\"P_RETAILPRICE\" AS \"P_RETAILPRICE\" \nFROM \"9be203cdfef8628939c9942fb61fdae3_rnd\"\
+  )\n SELECT count(CASE WHEN (\"P_RETAILPRICE\" >= ? AND \"P_RETAILPRICE\" < ?) THEN\
+  \ \"P_RETAILPRICE\" END) AS \"1.039K to 1.271K\", count(CASE WHEN (\"P_RETAILPRICE\"\
+  \ >= ? AND \"P_RETAILPRICE\" < ?) THEN \"P_RETAILPRICE\" END) AS \"1.271K to 1.503K\"\
+  , count(CASE WHEN (\"P_RETAILPRICE\" >= ? AND \"P_RETAILPRICE\" < ?) THEN \"P_RETAILPRICE\"\
+  \ END) AS \"1.503K to 1.735K\", count(CASE WHEN (\"P_RETAILPRICE\" >= ? AND \"P_RETAILPRICE\"\
+  \ < ?) THEN \"P_RETAILPRICE\" END) AS \"1.735K to 1.968K\", count(CASE WHEN (\"\
+  P_RETAILPRICE\" >= ?) THEN \"P_RETAILPRICE\" END) AS \"1.968K and up\" \nFROM \"\
+  9be203cdfef8628939c9942fb61fdae3_sample\"\n LIMIT ?"
+checksum: cf28b399d5d38a5252279fe0574fe164
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: edafde3d-6c1b-476a-9f4c-7225f6146b68
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

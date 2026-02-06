@@ -1,0 +1,31 @@
+name: cee2d1898eb1fda0bfe63ef79fbd53bf
+fullyQualifiedName: hktest.cee2d1898eb1fda0bfe63ef79fbd53bf
+owners: []
+duration: 635.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_BILL_CDEMO_SK\" AS \"WS_BILL_CDEMO_SK\" \nFROM \"TPCDS_SF100TCL\".\"WEB_SALES\"\
+  \ AS \"WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_BILL_CDEMO_SK\" AS\
+  \ \"WS_BILL_CDEMO_SK\" \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"WS_BILL_CDEMO_SK\") AS count_1\
+  \ \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\" GROUP BY \"WS_BILL_CDEMO_SK\"\
+  \ \nHAVING count(\"WS_BILL_CDEMO_SK\") = ?) AS only_once\n LIMIT ?"
+checksum: cee2d1898eb1fda0bfe63ef79fbd53bf
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7f12a8b5-822b-4eb5-97e2-6d3a4cb1ca7e
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

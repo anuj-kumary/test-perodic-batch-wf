@@ -1,0 +1,41 @@
+name: ca495f47dbdb40bd18cd17f028a3a560
+fullyQualifiedName: hktest.ca495f47dbdb40bd18cd17f028a3a560
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7f12a8b5-822b-4eb5-97e2-6d3a4cb1ca7e\",\"type\":\"table\"\
+        ,\"name\":\"WEB_SALES\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES\"\
+        ,\"displayName\":\"WEB_SALES\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 513.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_NET_PAID_INC_TAX\" AS \"WS_NET_PAID_INC_TAX\" \nFROM \"TPCDS_SF100TCL\".\"\
+  WEB_SALES\" AS \"WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_NET_PAID_INC_TAX\"\
+  \ AS \"WS_NET_PAID_INC_TAX\" \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"WS_NET_PAID_INC_TAX\"\
+  ) AS count_1 \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\" GROUP BY \"WS_NET_PAID_INC_TAX\"\
+  \ \nHAVING count(\"WS_NET_PAID_INC_TAX\") = ?) AS only_once\n LIMIT ?"
+checksum: ca495f47dbdb40bd18cd17f028a3a560
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7f12a8b5-822b-4eb5-97e2-6d3a4cb1ca7e
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

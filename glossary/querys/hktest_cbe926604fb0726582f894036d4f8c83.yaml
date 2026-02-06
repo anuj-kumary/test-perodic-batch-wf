@@ -1,0 +1,35 @@
+name: cbe926604fb0726582f894036d4f8c83
+fullyQualifiedName: hktest.cbe926604fb0726582f894036d4f8c83
+owners: []
+duration: 101.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"DATA_ISSUE_ID\")) AS mean, count(\"DATA_ISSUE_ID\") AS \"\
+  valuesCount\", count(DISTINCT \"DATA_ISSUE_ID\") AS \"distinctCount\", MIN(LEN(\"\
+  DATA_ISSUE_ID\")) AS min, MAX(LEN(\"DATA_ISSUE_ID\")) AS max, coalesce(SUM(CASE\
+  \ WHEN (\"DATA_ISSUE_ID\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  DATA_ISSUE_ID\")) AS stddev, SUM(LEN(\"DATA_ISSUE_ID\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\"\
+  .\"ALERTS_SCHEMA_CHANGES\"\n LIMIT ?"
+checksum: cbe926604fb0726582f894036d4f8c83
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 5cb8e589-4ee6-4f02-9217-98ba637ba168
+    type: table
+    name: ALERTS_SCHEMA_CHANGES
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_SCHEMA_CHANGES
+    displayName: ALERTS_SCHEMA_CHANGES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

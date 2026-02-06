@@ -1,0 +1,39 @@
+name: c96dd448669ebb97b388dc7178d7cc69
+fullyQualifiedName: hktest.c96dd448669ebb97b388dc7178d7cc69
+owners: []
+duration: 325.0
+users: []
+query: "WITH \"979ee13f032c02b4652a4e3c3928d90b_rnd\" AS \n(SELECT \"CUSTOMER_1\"\
+  .\"C_FIRST_SALES_DATE_SK\" AS \"C_FIRST_SALES_DATE_SK\" \nFROM \"TPCDS_SF10TCL\"\
+  .\"CUSTOMER\" AS \"CUSTOMER_1\" TABLESAMPLE ROW(? ROWS)), \n\"979ee13f032c02b4652a4e3c3928d90b_sample\"\
+  \ AS \n(SELECT \"979ee13f032c02b4652a4e3c3928d90b_rnd\".\"C_FIRST_SALES_DATE_SK\"\
+  \ AS \"C_FIRST_SALES_DATE_SK\" \nFROM \"979ee13f032c02b4652a4e3c3928d90b_rnd\")\n\
+  \ SELECT count(CASE WHEN (\"C_FIRST_SALES_DATE_SK\" >= ? AND \"C_FIRST_SALES_DATE_SK\"\
+  \ < ?) THEN \"C_FIRST_SALES_DATE_SK\" END) AS \"2.449M to 2.450M\", count(CASE WHEN\
+  \ (\"C_FIRST_SALES_DATE_SK\" >= ? AND \"C_FIRST_SALES_DATE_SK\" < ?) THEN \"C_FIRST_SALES_DATE_SK\"\
+  \ END) AS \"2.450M to 2.450M\", count(CASE WHEN (\"C_FIRST_SALES_DATE_SK\" >= ?\
+  \ AND \"C_FIRST_SALES_DATE_SK\" < ?) THEN \"C_FIRST_SALES_DATE_SK\" END) AS \"2.450M\
+  \ to 2.451M\", count(CASE WHEN (\"C_FIRST_SALES_DATE_SK\" >= ? AND \"C_FIRST_SALES_DATE_SK\"\
+  \ < ?) THEN \"C_FIRST_SALES_DATE_SK\" END) AS \"2.451M to 2.452M\", count(CASE WHEN\
+  \ (\"C_FIRST_SALES_DATE_SK\" >= ? AND \"C_FIRST_SALES_DATE_SK\" < ?) THEN \"C_FIRST_SALES_DATE_SK\"\
+  \ END) AS \"2.452M to 2.452M\", count(CASE WHEN (\"C_FIRST_SALES_DATE_SK\" >= ?)\
+  \ THEN \"C_FIRST_SALES_DATE_SK\" END) AS \"2.452M and up\" \nFROM \"979ee13f032c02b4652a4e3c3928d90b_sample\"\
+  \n LIMIT ?"
+checksum: c96dd448669ebb97b388dc7178d7cc69
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b17bebfd-6661-4983-a4e4-1c07f7b19158
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CUSTOMER
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

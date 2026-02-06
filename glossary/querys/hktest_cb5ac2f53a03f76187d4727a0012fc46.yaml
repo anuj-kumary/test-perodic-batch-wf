@@ -1,0 +1,62 @@
+name: cb5ac2f53a03f76187d4727a0012fc46
+fullyQualifiedName: hktest.cb5ac2f53a03f76187d4727a0012fc46
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b47b343a-03e8-409a-9861-bffd086dce6c\",\"type\":\"table\"\
+        ,\"name\":\"MODEL_RUN_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.MODEL_RUN_RESULTS\"\
+        ,\"displayName\":\"MODEL_RUN_RESULTS\",\"deleted\":false}]"
+  previousVersion: 1.1
+  changeSummary: {}
+owners: []
+duration: 496.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "create or replace   view dbt_db.DBT_SAMPLE_elementary.alerts_dbt_models\n\
+  \  \n   as (\n    \n\nwith error_models as (\n  \n    select  model_execution_id,\n\
+  \            unique_id,\n            invocation_id,\n            name,\n       \
+  \     generated_at,\n            status,\n            full_refresh,\n          \
+  \  message,\n            execution_time,\n            execute_started_at,\n    \
+  \        execute_completed_at,\n            compile_started_at,\n            compile_completed_at,\n\
+  \            compiled_code,\n            database_name,\n            schema_name,\n\
+  \            materialization,\n            tags,\n            package_name,\n  \
+  \          path,\n            original_path,\n            owner,\n            alias\
+  \ \n    from dbt_db.DBT_SAMPLE_elementary.model_run_results\n  \n    union all\n\
+  \  \n    select  model_execution_id,\n            unique_id,\n            invocation_id,\n\
+  \            name,\n            generated_at,\n            status,\n           \
+  \ full_refresh,\n            message,\n            execution_time,\n           \
+  \ execute_started_at,\n            execute_completed_at,\n            compile_started_at,\n\
+  \            compile_completed_at,\n            compiled_code,\n            database_name,\n\
+  \            schema_name,\n            materialization,\n            tags,\n   \
+  \         package_name,\n            path,\n            original_path,\n       \
+  \     owner,\n            alias  \n  from dbt_db.DBT_SAMPLE_elementary.snapshot_run_results\n\
+  )\n\n\nselect model_execution_id as alert_id,\n       unique_id,\n       cast(generated_at\
+  \ as timestamp) as detected_at,\n       database_name,\n       materialization,\n\
+  \       path,\n       original_path,\n       schema_name,\n       message,\n   \
+  \    owner as owners,\n       tags,\n       alias,\n       status,\n       full_refresh\n\
+  from error_models\nwhere ? and lower(status) != ?and lower(status) != ?\n  );"
+checksum: cb5ac2f53a03f76187d4727a0012fc46
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: aba63d35-7870-48f2-a0f9-50dc7a120f60
+    type: table
+    name: ALERTS_DBT_MODELS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_DBT_MODELS
+    displayName: ALERTS_DBT_MODELS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

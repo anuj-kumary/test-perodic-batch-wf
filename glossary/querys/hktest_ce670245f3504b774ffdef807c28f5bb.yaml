@@ -1,0 +1,31 @@
+name: ce670245f3504b774ffdef807c28f5bb
+fullyQualifiedName: hktest.ce670245f3504b774ffdef807c28f5bb
+owners: []
+duration: 75.0
+users: []
+query: "WITH e3c58aee13887c409aa5a310c57a9757_rnd AS \n(SELECT \"CNTRCT_1\".\"CNTRCT_VRSN_KY\"\
+  \ AS \"CNTRCT_VRSN_KY\" \nFROM \"CURATED\".\"CNTRCT\" AS \"CNTRCT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \ne3c58aee13887c409aa5a310c57a9757_sample AS \n(SELECT e3c58aee13887c409aa5a310c57a9757_rnd.\"\
+  CNTRCT_VRSN_KY\" AS \"CNTRCT_VRSN_KY\" \nFROM e3c58aee13887c409aa5a310c57a9757_rnd)\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"CNTRCT_VRSN_KY\" ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"CNTRCT_VRSN_KY\" ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY \"CNTRCT_VRSN_KY\" ASC) AS \"thirdQuartile\"\
+  \ \nFROM e3c58aee13887c409aa5a310c57a9757_sample\n LIMIT ?"
+checksum: ce670245f3504b774ffdef807c28f5bb
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,26 @@
+name: d02bf6f9033f52705c61e5e91d1dd0d0
+fullyQualifiedName: hktest.d02bf6f9033f52705c61e5e91d1dd0d0
+owners: []
+duration: 54.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"NEXT_DUE_DT\") AS\
+  \ count_1 \nFROM \"CURATED\".\"LOAN\" GROUP BY \"NEXT_DUE_DT\" \nHAVING count(\"\
+  NEXT_DUE_DT\") = ?) AS only_once\n LIMIT ?"
+checksum: d02bf6f9033f52705c61e5e91d1dd0d0
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 169cbc9c-563e-4142-b5cb-099e6afdb44a
+    type: table
+    name: LOAN
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.LOAN
+    displayName: LOAN
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

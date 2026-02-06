@@ -1,0 +1,28 @@
+name: ca2d9f86055378aeec8238954047b51d
+fullyQualifiedName: hktest.ca2d9f86055378aeec8238954047b51d
+owners: []
+duration: 104.0
+users: []
+query: SELECT CASE WHEN (SELECT min("ADDRESSID") FROM "FIVETRAN_RECEIVABLE_CLUBHOUSE_STAGING"."MSSQLBANKING_CUSTO-STAGING-35FFA79A-DF7A-416B-ADF3-F985208C8218")
+  > (SELECT max("ADDRESSID") FROM "MSSQLBANKING_CUSTOMER"."ADDRESS") THEN ? WHEN (SELECT
+  max("ADDRESSID") FROM "FIVETRAN_RECEIVABLE_CLUBHOUSE_STAGING"."MSSQLBANKING_CUSTO-STAGING-35FFA79A-DF7A-416B-ADF3-F985208C8218")
+  < (SELECT min("ADDRESSID") from "MSSQLBANKING_CUSTOMER"."ADDRESS") THEN ? ELSE ?
+  END AS NO_COMMON_DATA
+checksum: ca2d9f86055378aeec8238954047b51d
+queryDate: 1748217600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 47446995-13cc-44ba-aa77-73e9475e23c0
+    type: table
+    name: ADDRESS
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.ADDRESS
+    displayName: ADDRESS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,36 @@
+name: cac989ee28167be8f0d120cd6e7c1bea
+fullyQualifiedName: hktest.cac989ee28167be8f0d120cd6e7c1bea
+owners: []
+duration: 73.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"NUMBER_OF_EMPLOYEES\"\
+  \ AS \"NUMBER_OF_EMPLOYEES\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  NUMBER_OF_EMPLOYEES\" AS \"NUMBER_OF_EMPLOYEES\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(\"NUMBER_OF_EMPLOYEES\") AS mean, count(\"NUMBER_OF_EMPLOYEES\") AS\
+  \ \"valuesCount\", count(DISTINCT \"NUMBER_OF_EMPLOYEES\") AS \"distinctCount\"\
+  , MIN(\"NUMBER_OF_EMPLOYEES\") AS min, MAX(\"NUMBER_OF_EMPLOYEES\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"NUMBER_OF_EMPLOYEES\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"\
+  NUMBER_OF_EMPLOYEES\") AS stddev, SUM(\"NUMBER_OF_EMPLOYEES\") AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: cac989ee28167be8f0d120cd6e7c1bea
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

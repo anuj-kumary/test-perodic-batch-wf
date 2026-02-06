@@ -1,0 +1,34 @@
+name: ce576b3e6f7e0557b5de329fde38d85d
+fullyQualifiedName: hktest.ce576b3e6f7e0557b5de329fde38d85d
+owners: []
+duration: 765.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_BILL_CDEMO_SK\" AS \"WS_BILL_CDEMO_SK\" \nFROM \"TPCDS_SF10TCL\".\"WEB_SALES\"\
+  \ AS \"WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_BILL_CDEMO_SK\" AS\
+  \ \"WS_BILL_CDEMO_SK\" \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n SELECT\
+  \ avg(\"WS_BILL_CDEMO_SK\") AS mean, count(\"WS_BILL_CDEMO_SK\") AS \"valuesCount\"\
+  , count(DISTINCT \"WS_BILL_CDEMO_SK\") AS \"distinctCount\", MIN(\"WS_BILL_CDEMO_SK\"\
+  ) AS min, MAX(\"WS_BILL_CDEMO_SK\") AS max, coalesce(SUM(CASE WHEN (\"WS_BILL_CDEMO_SK\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"WS_BILL_CDEMO_SK\"\
+  ) AS stddev, SUM(\"WS_BILL_CDEMO_SK\") AS sum \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \n LIMIT ?"
+checksum: ce576b3e6f7e0557b5de329fde38d85d
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: fe6947d0-4f65-437f-a917-f1853723e385
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

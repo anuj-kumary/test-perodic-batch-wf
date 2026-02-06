@@ -1,0 +1,32 @@
+name: cc04f09b7644b22fdaa99fe7c02525c8
+fullyQualifiedName: hktest.cc04f09b7644b22fdaa99fe7c02525c8
+owners: []
+duration: 53.0
+users: []
+query: "WITH e3c58aee13887c409aa5a310c57a9757_rnd AS \n(SELECT \"CNTRCT_1\".\"MKTG_CMPGN_TYP_CD\"\
+  \ AS \"MKTG_CMPGN_TYP_CD\" \nFROM \"CURATED\".\"CNTRCT\" AS \"CNTRCT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \ne3c58aee13887c409aa5a310c57a9757_sample AS \n(SELECT e3c58aee13887c409aa5a310c57a9757_rnd.\"\
+  MKTG_CMPGN_TYP_CD\" AS \"MKTG_CMPGN_TYP_CD\" \nFROM e3c58aee13887c409aa5a310c57a9757_rnd)\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"MKTG_CMPGN_TYP_CD\") ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"MKTG_CMPGN_TYP_CD\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"MKTG_CMPGN_TYP_CD\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM e3c58aee13887c409aa5a310c57a9757_sample\n LIMIT\
+  \ ?"
+checksum: cc04f09b7644b22fdaa99fe7c02525c8
+queryDate: 1749254400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

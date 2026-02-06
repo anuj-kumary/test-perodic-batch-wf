@@ -1,0 +1,35 @@
+name: cd2023b63947e04caf890171ca16377a
+fullyQualifiedName: hktest.cd2023b63947e04caf890171ca16377a
+owners: []
+duration: 162.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"THREAD_ID\")) AS mean, count(\"THREAD_ID\") AS \"valuesCount\"\
+  , count(DISTINCT \"THREAD_ID\") AS \"distinctCount\", MIN(LEN(\"THREAD_ID\")) AS\
+  \ min, MAX(LEN(\"THREAD_ID\")) AS max, coalesce(SUM(CASE WHEN (\"THREAD_ID\" IS\
+  \ ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"THREAD_ID\")) AS\
+  \ stddev, SUM(LEN(\"THREAD_ID\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"SNAPSHOT_RUN_RESULTS\"\
+  \n LIMIT ?"
+checksum: cd2023b63947e04caf890171ca16377a
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 1067c449-1123-409b-88c7-98614f62bedd
+    type: table
+    name: SNAPSHOT_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SNAPSHOT_RUN_RESULTS
+    displayName: SNAPSHOT_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
