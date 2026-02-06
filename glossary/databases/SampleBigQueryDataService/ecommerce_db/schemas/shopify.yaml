@@ -1,0 +1,202 @@
+name: shopify
+fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify
+description: This **mock** database contains schema related to shopify sales and orders
+  with related dimension tables.
+dataProducts: []
+owners: []
+service:
+  id: c735cb24-bf22-4aa6-87e7-f0d5ce4e1ab1
+  type: databaseService
+  name: SampleBigQueryDataService
+  fullyQualifiedName: SampleBigQueryDataService
+  displayName: SampleBigQueryDataService
+  deleted: false
+serviceType: BigQuery
+database:
+  id: a76df7f3-d077-4006-afe0-f45b56323068
+  type: database
+  name: ecommerce_db
+  fullyQualifiedName: SampleBigQueryDataService.ecommerce_db
+  description: This **mock** database contains schemas related to shopify sales and
+    orders with related dimension tables.
+  displayName: ecommerce_db
+  deleted: false
+tables:
+  - id: 4a0dfc44-ab23-4ec6-9a5c-2238bd0c806e
+    type: table
+    name: dim(shop)
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim(shop)
+    description: This dimension table contains online shop information with weird
+      characters.
+    displayName: dim(shop)
+    deleted: false
+  - id: 8310f69a-9719-43b7-8e08-3c9ddfa8c94d
+    type: table
+    name: dim.api/client
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify."dim.api/client"
+    description: This dimension table contains a row for each channel or app that
+      your customers use to create orders. Some examples of these include Facebook
+      and Online Store. You can join this table with the sales table to measure channel
+      performance.
+    displayName: dim.api/client
+    deleted: false
+  - id: 12b30efe-0667-49c4-a9c5-5935dc1e8f09
+    type: table
+    name: dim.product
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify."dim.product"
+    description: This dimension table contains information about each of the products
+      in your store. This table contains one row per product. This table reflects
+      the current state of products in your Shopify admin.
+    displayName: dim.product
+    deleted: false
+  - id: 7b46aee6-a81a-40b5-9c62-c3dc1b96235d
+    type: table
+    name: dim.product.variant
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify."dim.product.variant"
+    description: This dimension table contains current information about each of the
+      product variants in your store. This table contains one row per product variant.
+    displayName: dim.product.variant
+    deleted: false
+  - id: c3af748c-62c2-411b-8d28-002024b31a6e
+    type: table
+    name: dim.shop
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify."dim.shop"
+    description: This dimension table contains online shop information. This table
+      contains one shop per row.
+    displayName: dim.shop
+    deleted: false
+  - id: 64b551e8-0354-4487-8fa5-637af6a2f50c
+    type: table
+    name: dim_address
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_address
+    description: "This dimension table contains the billing and shipping addresses\
+      \ of customers. You can join this table with the sales table to generate lists\
+      \ of the billing and shipping addresses. Customers can enter their addresses\
+      \ more than once, so the same address can appear in more than one row in this\
+      \ table. This table contains one row per customer address."
+    displayName: dim_address
+    deleted: false
+  - id: 3e35df38-f9f4-46c9-b300-4de7aaaf9f4e
+    type: table
+    name: dim_address_clean
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_address_clean
+    description: Created from dim_address after a small cleanup.
+    displayName: dim_address_clean
+    deleted: false
+  - id: 7c432e01-184e-487f-b2f4-938a8bc235d9
+    type: table
+    name: dim_customer
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_customer
+    description: "The dimension table contains data about your customers. The customers\
+      \ table contains one row per customer. It includes historical metrics (such\
+      \ as the total amount that each customer has spent in your store) as well as\
+      \ forward-looking metrics (such as the predicted number of days between future\
+      \ orders and the expected order value in the next 30 days). This table also\
+      \ includes columns that segment customers into various categories (such as new,\
+      \ returning, promising, at risk, dormant, and loyal), which you can use to target\
+      \ marketing activities."
+    displayName: dim_customer
+    deleted: false
+  - id: ce539748-1638-474c-bcbf-01ad65d2bb86
+    type: table
+    name: dim_location
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location
+    description: The dimension table contains metrics about your Shopify POS. This
+      table contains one row per Shopify POS location. You can use this table to generate
+      a list of the Shopify POS locations or you can join the table with the sales
+      table to measure sales performance.
+    displayName: dim_location
+    deleted: false
+  - id: cfb5cda3-3c2e-43e5-9735-24c719ad9be9
+    type: table
+    name: dim_staff
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_staff
+    description: "This dimension table contains information about the staff accounts\
+      \ in the store. It contains one row per staff account. Use this table to generate\
+      \ a list of your staff accounts, or join it with the sales, API clients and\
+      \ locations tables to analyze staff performance at Shopify POS locations."
+    displayName: dim_staff
+    deleted: false
+  - id: 0840e57b-faed-49f3-8133-58de8d0bff4e
+    type: table
+    name: fact_line_item_Lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua_Ut_enim_ad_minim_veniam_quis_nostrud_exercitation_ullamco_laboris_nisi_ut_aliquip_ex_ea_commodo_consequat_Duis_aute_iru
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.fact_line_item_Lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua_Ut_enim_ad_minim_veniam_quis_nostrud_exercitation_ullamco_laboris_nisi_ut_aliquip_ex_ea_commodo_consequat_Duis_aute_iru
+    description: The fact table contains information about the line items in orders.
+      Each row in the table is a line item in an order. It contains product and product
+      variant details as they were at the time of the order. This table does not include
+      information about returns. Join this table with the TODO fact_sales table to
+      get the details of the product on the day it was sold. This data will match
+      what appears on the order in your Shopify admin as well as the in the Sales
+      reports.
+    displayName: fact_line_item_Lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua_Ut_enim_ad_minim_veniam_quis_nostrud_exercitation_ullamco_laboris_nisi_ut_aliquip_ex_ea_commodo_consequat_Duis_aute_iru
+    deleted: false
+  - id: dc4c5587-6ae9-4b70-9a0e-ad14b702a042
+    type: table
+    name: fact_order
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.fact_order
+    description: "The orders table contains information about each order in your store.\
+      \ Although this table is good for generating order lists and joining with the\
+      \ dim_customer, use the sales table instead for computing financial or other\
+      \ metrics."
+    displayName: fact_order
+    deleted: false
+  - id: d2873227-5266-45b0-9cf6-6c456c3471f4
+    type: table
+    name: fact_sale
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.fact_sale
+    description: "The fact table captures the value of products sold or returned,\
+      \ as well as the values of other charges such as taxes and shipping costs. The\
+      \ sales table contains one row per order line item, one row per returned line\
+      \ item, and one row per shipping charge. Use this table when you need financial\
+      \ metrics."
+    displayName: fact_sale
+    deleted: false
+  - id: fa8f8860-8ac2-41c3-9769-f4fe24328ad9
+    type: table
+    name: fact_session
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.fact_session
+    description: "This fact table contains information about the visitors to your\
+      \ online store. This table has one row per session, where one session can contain\
+      \ many page views. If you use Urchin Traffic Module (UTM) parameters in marketing\
+      \ campaigns, then you can use this table to track how many customers they direct\
+      \ to your store."
+    displayName: fact_session
+    deleted: false
+  - id: 8c1c9e56-6d4b-4fb8-8b84-604c79492629
+    type: table
+    name: raw_customer
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.raw_customer
+    description: "This is a raw customers table as represented in our online DB. This\
+      \ contains personal, shipping and billing addresses and details of the customer\
+      \ store and customer profile. This table is used to build our dimensional and\
+      \ fact tables"
+    displayName: raw_customer
+    deleted: false
+  - id: ab45ac81-3b45-4ae0-8844-923eda5775ac
+    type: table
+    name: raw_order
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.raw_order
+    description: This is a raw orders table as represented in our online DB. This
+      table contains all the orders by the customers and can be used to buid our dim
+      and fact tables
+    displayName: raw_order
+    deleted: false
+  - id: 911c3b1a-7490-4098-8b7c-8a9cb46adc26
+    type: table
+    name: raw_product_catalog
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.raw_product_catalog
+    description: "This is a raw product catalog table contains the product listing,\
+      \ price, seller etc.. represented in our online DB. "
+    displayName: raw_product_catalog
+    deleted: false
+  - id: 164f9c15-0959-43f8-82fb-1235adda5068
+    type: table
+    name: магазин
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.магазин
+    description: This dimension table contains online shop information with weird
+      characters.
+    displayName: магазин
+    deleted: false
+tags: []
+domains: []
+entityStatus: Unprocessed
