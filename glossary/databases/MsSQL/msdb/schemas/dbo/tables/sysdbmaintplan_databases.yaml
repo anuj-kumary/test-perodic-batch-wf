@@ -1,0 +1,63 @@
+name: sysdbmaintplan_databases
+fullyQualifiedName: MsSQL.msdb.dbo.sysdbmaintplan_databases
+tableType: Regular
+columns:
+  - name: plan_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdbmaintplan_databases.plan_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdbmaintplan_databases.database_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - plan_id
+    referredColumns:
+      - MsSQL.msdb.dbo.sysdbmaintplans.plan_id
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 6aa3b98c3b6d2ca45328e9bca27230b1
+processedLineage: false
+entityStatus: Approved

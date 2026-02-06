@@ -1,0 +1,195 @@
+name: syscollector_collection_sets
+fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets
+tableType: View
+columns:
+  - name: collection_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.collection_set_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: collection_set_uid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.collection_set_uid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: target
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.target
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_system
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.is_system
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_running
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.is_running
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: collection_mode
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.collection_mode
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: proxy_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.proxy_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: schedule_uid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.schedule_uid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: collection_job_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.collection_job_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: upload_job_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.upload_job_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: logging_level
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.logging_level
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: days_until_expiration
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.days_until_expiration
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dump_on_any_error
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.dump_on_any_error
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dump_on_codes
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_sets.dump_on_codes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[syscollector_collection_sets]\r\nAS\r\n  \
+  \  SELECT \r\n        s.collection_set_id,\r\n        s.collection_set_uid,\r\n\
+  \        CASE \r\n            WHEN s.name_id IS NULL THEN s.name \r\n          \
+  \  ELSE FORMATMESSAGE(s.name_id)\r\n        END AS name,        \r\n        s.target,\r\
+  \n        s.is_system,\r\n        s.is_running,\r\n        s.collection_mode,\r\n\
+  \        s.proxy_id,\r\n        s.schedule_uid,\r\n        s.collection_job_id,\r\
+  \n        s.upload_job_id,\r\n        s.logging_level,\r\n        s.days_until_expiration,\r\
+  \n        CASE \r\n            WHEN s.description_id IS NULL THEN s.description\r\
+  \n            ELSE FORMATMESSAGE(s.description_id)\r\n        END AS description,\r\
+  \n        s.dump_on_any_error,\r\n        s.dump_on_codes\r\n    FROM \r\n     \
+  \   [dbo].[syscollector_collection_sets_internal] AS s"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d3ae62a80e23f714b30b394f4062ba03
+processedLineage: false
+entityStatus: Approved

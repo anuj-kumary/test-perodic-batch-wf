@@ -1,0 +1,168 @@
+name: MSdbms_map
+fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map
+tableType: Regular
+columns:
+  - name: map_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.map_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: src_dbms_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_dbms_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dest_dbms_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.dest_dbms_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: src_datatype_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_datatype_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: src_len_min
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_len_min
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_len_max
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_len_max
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_prec_min
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_prec_min
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_prec_max
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_prec_max
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_scale_min
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_scale_min
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_scale_max
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_scale_max
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_nullable
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.src_nullable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_datatype_mapping_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdbms_map.default_datatype_mapping_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - default_datatype_mapping_id
+    referredColumns:
+      - MsSQL.msdb.dbo.MSdbms_datatype_mapping.datatype_mapping_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - dest_dbms_id
+    referredColumns:
+      - MsSQL.msdb.dbo.MSdbms.dbms_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - src_datatype_id
+    referredColumns:
+      - MsSQL.msdb.dbo.MSdbms_datatype.datatype_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - src_dbms_id
+    referredColumns:
+      - MsSQL.msdb.dbo.MSdbms.dbms_id
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 34d33b10d78e1bcbdeed442b4fafcc6b
+processedLineage: false
+entityStatus: Approved

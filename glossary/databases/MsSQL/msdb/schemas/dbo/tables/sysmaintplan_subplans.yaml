@@ -1,0 +1,191 @@
+name: sysmaintplan_subplans
+fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans
+tableType: Regular
+columns:
+  - name: subplan_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans.subplan_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: subplan_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans.subplan_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: subplan_description
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(512)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans.subplan_description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: plan_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans.plan_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: job_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans.job_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: msx_job_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans.msx_job_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: schedule_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans.schedule_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: msx_plan
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_subplans.msx_plan
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+      - job_id
+    referredColumns:
+      - MsSQL.msdb.dbo.syscategories.name
+      - MsSQL.msdb.dbo.syscategories.plan_id
+      - MsSQL.msdb.dbo.syscategories.instance_id
+      - MsSQL.msdb.dbo.syscategories.session_id
+      - MsSQL.msdb.dbo.syscategories.instance_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+      - MsSQL.msdb.dbo.syscategories.proxy_id
+      - MsSQL.msdb.dbo.syscategories.proxy_id
+      - MsSQL.msdb.dbo.syscategories.subsystem_id
+      - MsSQL.msdb.dbo.syscategories.subsystem_id
+      - MsSQL.msdb.dbo.syscategories.servergroup_id
+      - MsSQL.msdb.dbo.syscategories.name
+      - MsSQL.msdb.dbo.syscategories.server_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+      - msx_job_id
+    referredColumns:
+      - MsSQL.msdb.dbo.syscategories.name
+      - MsSQL.msdb.dbo.syscategories.plan_id
+      - MsSQL.msdb.dbo.syscategories.instance_id
+      - MsSQL.msdb.dbo.syscategories.session_id
+      - MsSQL.msdb.dbo.syscategories.instance_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+      - MsSQL.msdb.dbo.syscategories.proxy_id
+      - MsSQL.msdb.dbo.syscategories.proxy_id
+      - MsSQL.msdb.dbo.syscategories.subsystem_id
+      - MsSQL.msdb.dbo.syscategories.subsystem_id
+      - MsSQL.msdb.dbo.syscategories.servergroup_id
+      - MsSQL.msdb.dbo.syscategories.name
+      - MsSQL.msdb.dbo.syscategories.server_id
+      - MsSQL.msdb.dbo.syscategories.job_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - schedule_id
+    referredColumns:
+      - MsSQL.msdb.dbo.sysschedules.schedule_id
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 560ea0c7b8be22fc1ce6acd6ab5652de
+processedLineage: false
+entityStatus: Approved

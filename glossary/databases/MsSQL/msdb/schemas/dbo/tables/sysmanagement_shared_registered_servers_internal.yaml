@@ -1,0 +1,99 @@
+name: sysmanagement_shared_registered_servers_internal
+fullyQualifiedName: MsSQL.msdb.dbo.sysmanagement_shared_registered_servers_internal
+tableType: Regular
+columns:
+  - name: server_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmanagement_shared_registered_servers_internal.server_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: server_group_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmanagement_shared_registered_servers_internal.server_group_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmanagement_shared_registered_servers_internal.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmanagement_shared_registered_servers_internal.server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(2048)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmanagement_shared_registered_servers_internal.description
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: server_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmanagement_shared_registered_servers_internal.server_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - server_group_id
+    referredColumns:
+      - MsSQL.msdb.dbo.sysmanagement_shared_server_groups_internal.server_group_id
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 2da18c1017076968ab11fe0659bf056c
+processedLineage: false
+entityStatus: Approved

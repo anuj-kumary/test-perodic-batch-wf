@@ -1,0 +1,173 @@
+name: syscollector_execution_log
+fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log
+tableType: View
+columns:
+  - name: log_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.log_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parent_log_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.parent_log_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: collection_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.collection_set_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: collection_item_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.collection_item_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: start_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.start_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_iteration_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.last_iteration_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: finish_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.finish_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: runtime_execution_mode
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.runtime_execution_mode
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.status
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: operator
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.operator
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: package_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.package_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: package_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.package_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: package_execution_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.package_execution_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: failure_message
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(2048)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_log.failure_message
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[syscollector_execution_log] AS\r\n    SELECT\
+  \ \r\n        log_id, \r\n        ISNULL(parent_log_id, 0) as parent_log_id, \r\n\
+  \        collection_set_id, \r\n        collection_item_id,\r\n        start_time,\r\
+  \n        last_iteration_time,\r\n        finish_time,\r\n        runtime_execution_mode,\r\
+  \n        [status],\r\n        operator,\r\n        package_id,\r\n        msdb.dbo.fn_syscollector_get_package_path(package_id)\
+  \ as package_name,\r\n        package_execution_id,\r\n        failure_message\r\
+  \n    FROM dbo.syscollector_execution_log_internal;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 8091a782c6e38822fedc8017b5c8c3c4
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,99 @@
+name: MSdatatype_mappings
+fullyQualifiedName: MsSQL.msdb.dbo.MSdatatype_mappings
+tableType: View
+columns:
+  - name: dbms_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdatatype_mappings.dbms_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: sql_type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdatatype_mappings.sql_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dest_type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdatatype_mappings.dest_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dest_prec
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdatatype_mappings.dest_prec
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dest_create_params
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdatatype_mappings.dest_create_params
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dest_nullable
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.MSdatatype_mappings.dest_nullable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE VIEW dbo.MSdatatype_mappings (dbms_name, sql_type, dest_type,\
+  \ dest_prec, dest_create_params, dest_nullable) AS SELECT destination_dbms, source_type,\
+  \ destination_type, case when (destination_createparams & 1) = 1 then destination_precision\
+  \ else destination_length end, destination_createparams, destination_nullable FROM\
+  \ sys.fn_helpdatatypemap(N'MSSQLSERVER', '%', '%', '%', '%', '%', 0)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: f111b97a8ba5337308469d83930a5f05
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,72 @@
+name: sysoriginatingservers_view
+fullyQualifiedName: MsSQL.msdb.dbo.sysoriginatingservers_view
+tableType: View
+columns:
+  - name: originating_server_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysoriginatingservers_view.originating_server_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: originating_server
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysoriginatingservers_view.originating_server
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: master_server
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysoriginatingservers_view.master_server
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW dbo.sysoriginatingservers_view(originating_server_id,\
+  \ originating_server, master_server)\r\nAS\r\n   SELECT\r\n      0 AS originating_server_id,\r\
+  \n      UPPER(CONVERT(sysname, SERVERPROPERTY('ServerName'))) AS originating_server,\r\
+  \n      0 AS master_server\r\n   UNION\r\n   SELECT\r\n      originating_server_id,\r\
+  \n      originating_server,\r\n      master_server\r\n   FROM\r\n      dbo.sysoriginatingservers"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: cb8d0e83fe4609662eec5bc0caafec03
+processedLineage: false
+entityStatus: Approved

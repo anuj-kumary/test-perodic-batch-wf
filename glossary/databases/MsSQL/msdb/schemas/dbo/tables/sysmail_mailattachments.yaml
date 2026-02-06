@@ -1,0 +1,109 @@
+name: sysmail_mailattachments
+fullyQualifiedName: MsSQL.msdb.dbo.sysmail_mailattachments
+tableType: View
+columns:
+  - name: attachment_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_mailattachments.attachment_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: mailitem_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_mailattachments.mailitem_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: filename
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(260)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_mailattachments.filename
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: filesize
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_mailattachments.filesize
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: attachment
+    dataType: VARBINARY
+    dataLength: 1
+    dataTypeDisplay: varbinary
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_mailattachments.attachment
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_mod_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_mailattachments.last_mod_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_mod_user
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_mailattachments.last_mod_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW sysmail_mailattachments\r\nAS\r\nSELECT attachment_id,\r\
+  \n       sa.mailitem_id,\r\n       filename,\r\n       filesize,\r\n       attachment,\r\
+  \n       sa.last_mod_date,\r\n       sa.last_mod_user\r\n  FROM msdb.dbo.sysmail_attachments\
+  \ sa\r\n  JOIN msdb.dbo.sysmail_mailitems sm ON sa.mailitem_id = sm.mailitem_id\r\
+  \n  WHERE (sm.send_request_user = SUSER_SNAME()) OR (ISNULL(IS_SRVROLEMEMBER(N'sysadmin'),\
+  \ 0) = 1)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: ab66762bfa1b1702100b1339429fc84d
+processedLineage: false
+entityStatus: Approved

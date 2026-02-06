@@ -1,0 +1,160 @@
+name: sysmail_server
+fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server
+tableType: Regular
+columns:
+  - name: account_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.account_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: servertype
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.servertype
+    tags: []
+    children: []
+    customMetrics: []
+  - name: servername
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.servername
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: port
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.port
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: username
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: credential_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.credential_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: use_default_credentials
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.use_default_credentials
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: enable_ssl
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.enable_ssl
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: flags
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.flags
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: timeout
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.timeout
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_mod_datetime
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.last_mod_datetime
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_mod_user
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_server.last_mod_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - account_id
+      - servertype
+  - constraintType: FOREIGN_KEY
+    columns:
+      - account_id
+    referredColumns:
+      - MsSQL.msdb.dbo.sysmail_account.account_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - servertype
+    referredColumns:
+      - MsSQL.msdb.dbo.sysmail_servertype.servertype
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b7a396626673153cf9efffca4a46b56e
+processedLineage: false
+entityStatus: Approved

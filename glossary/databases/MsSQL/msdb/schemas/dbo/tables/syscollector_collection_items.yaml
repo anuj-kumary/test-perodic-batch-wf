@@ -1,0 +1,100 @@
+name: syscollector_collection_items
+fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items
+tableType: View
+columns:
+  - name: collection_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items.collection_set_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: collection_item_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items.collection_item_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: collector_type_uid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items.collector_type_uid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: frequency
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items.frequency
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parameters
+    dataType: XML
+    dataLength: 1
+    dataTypeDisplay: xml(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items.parameters
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[syscollector_collection_items]\r\nAS\r\n \
+  \   SELECT\r\n        i.collection_set_id,\r\n        i.collection_item_id,\r\n\
+  \        i.collector_type_uid,\r\n        CASE \r\n            WHEN i.name_id IS\
+  \ NULL THEN i.name \r\n            ELSE FORMATMESSAGE(i.name_id)\r\n        END\
+  \ AS name,        \r\n        i.frequency,\r\n        i.parameters\r\n    FROM \r\
+  \n        [dbo].[syscollector_collection_items_internal] i"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: ad699deb973c95abdc1a41119d20bb29
+processedLineage: false
+entityStatus: Approved

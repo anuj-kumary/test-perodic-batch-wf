@@ -1,0 +1,134 @@
+name: sysdac_instances
+fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances
+tableType: View
+columns:
+  - name: instance_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.instance_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.type_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type_version
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(64)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.type_version
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: type_stream
+    dataType: VARBINARY
+    dataLength: 1
+    dataTypeDisplay: varbinary
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.type_stream
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: date_created
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.date_created
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: created_by
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.created_by
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysdac_instances.database_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[sysdac_instances]\r\nAS\r\n    SELECT\r\n\
+  \        -- this must be locked down because we use instance_id visability as a\
+  \ security gate\r\n        case \r\n            when (dbo.fn_sysdac_is_currentuser_sa()\
+  \ = 1) then dac_instances.instance_id\r\n            when sd.owner_sid = SUSER_SID()\
+  \ then dac_instances.instance_id\r\n            else NULL\r\n        end as instance_id,\r\
+  \n        dac_instances.instance_name,\r\n        dac_instances.type_name,\r\n \
+  \       dac_instances.type_version,\r\n        dac_instances.description,\r\n  \
+  \      case \r\n            when (dbo.fn_sysdac_is_currentuser_sa() = 1) then dac_instances.type_stream\r\
+  \n            when sd.owner_sid = SUSER_SID() then dac_instances.type_stream\r\n\
+  \            else NULL\r\n        end as type_stream,\r\n        dac_instances.date_created,\r\
+  \n        dac_instances.created_by,\r\n        dac_instances.instance_name as database_name\r\
+  \n    FROM sysdac_instances_internal dac_instances\r\n    LEFT JOIN sys.databases\
+  \ sd\r\n\t\tON dac_instances.instance_name = sd.name"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: acd49d6ada576b936de07a8572e9fbf0
+processedLineage: false
+entityStatus: Approved

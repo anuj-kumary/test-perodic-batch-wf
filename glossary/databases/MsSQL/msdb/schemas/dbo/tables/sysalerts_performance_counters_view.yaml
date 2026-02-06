@@ -1,0 +1,103 @@
+name: sysalerts_performance_counters_view
+fullyQualifiedName: MsSQL.msdb.dbo.sysalerts_performance_counters_view
+tableType: View
+columns:
+  - name: object_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysalerts_performance_counters_view.object_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: counter_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysalerts_performance_counters_view.counter_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysalerts_performance_counters_view.instance_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: cntr_value
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.sysalerts_performance_counters_view.cntr_value
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cntr_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysalerts_performance_counters_view.cntr_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: server_name
+    dataType: VARBINARY
+    dataLength: 1
+    dataTypeDisplay: sql_variant
+    fullyQualifiedName: MsSQL.msdb.dbo.sysalerts_performance_counters_view.server_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW sysalerts_performance_counters_view\r\nAS\r\n   \
+  \ -- Parse object_name 'SQLServer:Buffer Manager', exclude instance specific info;\
+  \ return as 'Buffer Manager'\r\n    SELECT RTRIM(SUBSTRING(pc.object_name, CHARINDEX(':',\
+  \ pc.object_name)+1, DATALENGTH(pc.object_name))) AS 'object_name',\r\n        \
+  \    RTRIM(pc.counter_name) AS 'counter_name',\r\n            CASE WHEN pc.instance_name\
+  \ IS NULL\r\n                THEN NULL\r\n                ELSE RTRIM(pc.instance_name)\r\
+  \n            END AS 'instance_name',\r\n            pc.cntr_value,\r\n        \
+  \    pc.cntr_type,\r\n            SERVERPROPERTY('ServerName') AS 'server_name'\r\
+  \n    FROM sys.dm_os_performance_counters pc"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 10d9f7a44c11458ec4231d35fd5146ec
+processedLineage: false
+entityStatus: Approved

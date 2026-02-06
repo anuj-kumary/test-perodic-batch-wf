@@ -1,0 +1,144 @@
+name: syscollector_collector_types_internal
+fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal
+tableType: Regular
+columns:
+  - name: collector_type_uid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.collector_type_uid
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parameter_schema
+    dataType: XML
+    dataLength: 1
+    dataTypeDisplay: xml(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.parameter_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: parameter_formatter
+    dataType: XML
+    dataLength: 1
+    dataTypeDisplay: xml(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.parameter_formatter
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: schema_collection
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.schema_collection
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: collection_package_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.collection_package_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: collection_package_folderid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.collection_package_folderid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: upload_package_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.upload_package_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: upload_package_folderid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.upload_package_folderid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_system
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collector_types_internal.is_system
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - collection_package_folderid
+      - collection_package_name
+    referredColumns:
+      - MsSQL.msdb.dbo.sysssispackages.folderid
+      - MsSQL.msdb.dbo.sysssispackages.name
+  - constraintType: FOREIGN_KEY
+    columns:
+      - upload_package_folderid
+      - upload_package_name
+    referredColumns:
+      - MsSQL.msdb.dbo.sysssispackages.folderid
+      - MsSQL.msdb.dbo.sysssispackages.name
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 1c8de5809986d53cc09d56194d22e8d4
+processedLineage: false
+entityStatus: Approved

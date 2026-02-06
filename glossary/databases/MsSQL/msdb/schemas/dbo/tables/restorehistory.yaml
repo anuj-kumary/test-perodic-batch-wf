@@ -1,0 +1,162 @@
+name: restorehistory
+fullyQualifiedName: MsSQL.msdb.dbo.restorehistory
+tableType: Regular
+columns:
+  - name: restore_history_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.restore_history_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: restore_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.restore_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: destination_database_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.destination_database_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.user_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: backup_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.backup_set_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: restore_type
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.restore_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: replace
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.replace
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: recovery
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.recovery
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: restart
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.restart
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: stop_at
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.stop_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: device_count
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.device_count
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: stop_at_mark_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.stop_at_mark_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: stop_before
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.restorehistory.stop_before
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - backup_set_id
+    referredColumns:
+      - MsSQL.msdb.dbo.backupset.backup_set_id
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 023629d0f5424066deb1c70b37bfae89
+processedLineage: false
+entityStatus: Approved

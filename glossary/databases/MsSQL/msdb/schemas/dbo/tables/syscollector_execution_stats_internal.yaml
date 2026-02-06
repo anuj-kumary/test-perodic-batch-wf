@@ -1,0 +1,110 @@
+name: syscollector_execution_stats_internal
+fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_stats_internal
+tableType: Regular
+columns:
+  - name: log_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_stats_internal.log_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: task_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_stats_internal.task_name
+    tags: []
+    children: []
+    customMetrics: []
+  - name: execution_row_count_in
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_stats_internal.execution_row_count_in
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: execution_row_count_out
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_stats_internal.execution_row_count_out
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: execution_row_count_errors
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_stats_internal.execution_row_count_errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: execution_time_ms
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_stats_internal.execution_time_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: log_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_execution_stats_internal.log_time
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - log_id
+      - task_name
+      - log_time
+  - constraintType: FOREIGN_KEY
+    columns:
+      - log_id
+    referredColumns:
+      - MsSQL.msdb.dbo.syscollector_execution_log_internal.log_id
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 854acc3d3d1c70c0d1fdffc836fb2cdc
+processedLineage: false
+entityStatus: Approved

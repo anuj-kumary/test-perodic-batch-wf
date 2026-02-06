@@ -1,0 +1,198 @@
+name: log_shipping_secondaries
+fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries
+tableType: Regular
+columns:
+  - name: primary_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.primary_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: secondary_server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.secondary_server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: secondary_database_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.secondary_database_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_copied_filename
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(500)
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.last_copied_filename
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_loaded_filename
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(500)
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.last_loaded_filename
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_copied_last_updated
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.last_copied_last_updated
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_loaded_last_updated
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.last_loaded_last_updated
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: secondary_plan_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.secondary_plan_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: copy_enabled
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.copy_enabled
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: load_enabled
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.load_enabled
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: out_of_sync_threshold
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.out_of_sync_threshold
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: threshold_alert
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.threshold_alert
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: threshold_alert_enabled
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.threshold_alert_enabled
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: planned_outage_start_time
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.planned_outage_start_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: planned_outage_end_time
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.planned_outage_end_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: planned_outage_weekday_mask
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.planned_outage_weekday_mask
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: allow_role_change
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.log_shipping_secondaries.allow_role_change
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - primary_id
+    referredColumns:
+      - MsSQL.msdb.dbo.log_shipping_primaries.primary_id
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: cdf66498c8d5f004c82863f7b4b1d466
+processedLineage: false
+entityStatus: Approved

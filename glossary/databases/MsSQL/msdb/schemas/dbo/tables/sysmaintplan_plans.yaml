@@ -1,0 +1,152 @@
+name: sysmaintplan_plans
+fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans
+tableType: View
+columns:
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(1024)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: create_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.create_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.owner
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: version_major
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.version_major
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: version_minor
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.version_minor
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: version_build
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.version_build
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: version_comments
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(1024)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.version_comments
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: from_msx
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.from_msx
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: has_targets
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmaintplan_plans.has_targets
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW sysmaintplan_plans\r\nAS\r\n   SELECT\r\n   s.name\
+  \ AS [name],\r\n   s.id AS [id],\r\n   s.description AS [description],\r\n   s.createdate\
+  \ AS [create_date],\r\n   suser_sname(s.ownersid) AS [owner],\r\n   s.vermajor AS\
+  \ [version_major],\r\n   s.verminor AS [version_minor],\r\n   s.verbuild AS [version_build],\r\
+  \n   s.vercomments AS [version_comments],\r\n   ISNULL((select TOP 1 msx_plan from\
+  \ sysmaintplan_subplans where plan_id = s.id), 0) AS [from_msx],\r\n   CASE WHEN\
+  \ (NOT EXISTS (select TOP 1 msx_job_id \r\n                          from sysmaintplan_subplans\
+  \ subplans, sysjobservers jobservers\r\n                          where plan_id\
+  \ = s.id \r\n                          and msx_job_id is not null\r\n          \
+  \                and subplans.msx_job_id = jobservers.job_id\r\n               \
+  \           and server_id != 0)) \r\n        then 0 \r\n        else 1 END AS [has_targets]\r\
+  \n   FROM\r\n   msdb.dbo.sysssispackages AS s\r\n   WHERE\r\n   (s.folderid = '08aa12d5-8f98-4dab-a4fc-980b150a5dc8'\
+  \ and s.packagetype = 6)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d2b56b8d46e2613dc7d67706b941520a
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,62 @@
+name: syspolicy_configuration
+fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_configuration
+tableType: View
+columns:
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_configuration.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: current_value
+    dataType: VARBINARY
+    dataLength: 1
+    dataTypeDisplay: sql_variant
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_configuration.current_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[syspolicy_configuration]\r\nAS\r\n    SELECT\
+  \ \r\n        name,\r\n        CASE WHEN name = N'Enabled' and (SERVERPROPERTY('EngineEdition')\
+  \ = 4 or SERVERPROPERTY('EngineEdition') = 9) THEN 0 ELSE current_value END AS current_value\r\
+  \n    FROM [dbo].[syspolicy_configuration_internal]"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: ad1c59500138fbfb2b036db7838f45c3
+processedLineage: false
+entityStatus: Approved

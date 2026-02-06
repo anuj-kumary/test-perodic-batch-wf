@@ -1,0 +1,129 @@
+name: sysmail_event_log
+fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log
+tableType: View
+columns:
+  - name: log_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.log_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_type
+    dataType: VARCHAR
+    dataLength: 11
+    dataTypeDisplay: varchar(11)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.event_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.log_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: process_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.process_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mailitem_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.mailitem_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: account_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.account_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_mod_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.last_mod_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_mod_user
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysmail_event_log.last_mod_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW sysmail_event_log\r\nAS\r\nSELECT log_id,\r\n   \
+  \    CASE event_type \r\n          WHEN 0 THEN 'success' \r\n          WHEN 1 THEN\
+  \ 'information' \r\n          WHEN 2 THEN 'warning' \r\n          ELSE 'error' \r\
+  \n       END as event_type,\r\n       log_date,\r\n       description,\r\n     \
+  \  process_id,\r\n       sl.mailitem_id,\r\n       account_id,\r\n       sl.last_mod_date,\r\
+  \n       sl.last_mod_user\r\nFROM [dbo].[sysmail_log]  sl\r\nWHERE (ISNULL(IS_SRVROLEMEMBER(N'sysadmin'),\
+  \ 0) = 1) OR \r\n      (EXISTS ( SELECT mailitem_id FROM [dbo].[sysmail_allitems]\
+  \ ai WHERE sl.mailitem_id = ai.mailitem_id ))"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 2303bce7ea705c261fd573d7c7c267ae
+processedLineage: false
+entityStatus: Approved

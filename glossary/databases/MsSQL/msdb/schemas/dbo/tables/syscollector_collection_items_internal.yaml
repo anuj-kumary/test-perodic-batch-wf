@@ -1,0 +1,115 @@
+name: syscollector_collection_items_internal
+fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items_internal
+tableType: Regular
+columns:
+  - name: collection_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items_internal.collection_set_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: collection_item_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items_internal.collection_item_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: collector_type_uid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items_internal.collector_type_uid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items_internal.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items_internal.name_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: frequency
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items_internal.frequency
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: parameters
+    dataType: XML
+    dataLength: 1
+    dataTypeDisplay: xml(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syscollector_collection_items_internal.parameters
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - collection_item_id
+      - collection_set_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - collection_set_id
+    referredColumns:
+      - MsSQL.msdb.dbo.syscollector_collection_sets_internal.collection_set_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - collector_type_uid
+    referredColumns:
+      - MsSQL.msdb.dbo.syscollector_collector_types_internal.collector_type_uid
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 2729511d2c1dddbc10dcf9f1f5930cb3
+processedLineage: false
+entityStatus: Approved
