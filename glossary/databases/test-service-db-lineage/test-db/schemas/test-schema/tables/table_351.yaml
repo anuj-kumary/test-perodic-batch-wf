@@ -1,0 +1,67 @@
+name: table_351
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_351
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_351.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EMAIL_BOUNCED(\n\tID,\n\t\"MarketoGUID\"\
+  ,\n\t\"LeadID\",\n\t\"ActivityDate\",\n\t\"ActivityTypeIID\",\n\t\"PrimaryAttributeValueID\"\
+  ,\n\t\"PrimaryAttributeValue\",\n\t\"CampaignID\",\n\t\"Campaign\",\n\t\"CampaignRunID\"\
+  ,\n\t\"ChoiceNumber\",\n\t\"Details\",\n\t\"Email\",\n\t\"HasPredective\",\n\t\"\
+  StepID\",\n\t\"Category\",\n\t\"SubCategory\",\n\t\"TestVariant\",\n\t\"ETLInsertDate\"\
+  ,\n\t\"ETLUpdateDate\",\n\t\"ETLDeleteDate\",\n\t\"BounceType\"\n) as\n/*Model:ODS_LS.MARKETO.EMAIL_BOUNCED\n\
+  Author: Bharath Bachu\nDate: 11/01/23\nDescription:\nChange Date: 11/01/23\nChnage\
+  \ Notes: Bharath rename to correct the spelling. estVariant renameed as  TestVariant\n\
+  STRY2571434 - Added Bounce Type for filtering delivered, opened\n\n*/\nSELECT \"\
+  ID\" as \"ID\",\n       \"MARKETOGUID\" as \"MarketoGUID\",\n       \"LEADID\" as\
+  \ \"LeadID\",\n       \"ACTIVITYDATE\" as \"ActivityDate\",\n       \"ACTIVITYTYPEID\"\
+  \ as \"ActivityTypeIID\",\n       \"PRIMARYATTRIBUTEVALUEID\" as \"PrimaryAttributeValueID\"\
+  ,\n       \"PRIMARYATTRIBUTEVALUE\" as \"PrimaryAttributeValue\",\n       \"CAMPAIGNID\"\
+  \ as \"CampaignID\",\n       \"CAMPAIGN\" as \"Campaign\",\n       \"CAMPAIGN_RUN_ID\"\
+  \ as \"CampaignRunID\",\n       \"CHOICE_NUMBER\" as \"ChoiceNumber\",\n       \"\
+  DETAILS\" as \"Details\",\n       \"EMAIL\" as \"Email\",\n       \"HAS_PREDECTIVE\"\
+  \ as \"HasPredective\",\n       \"STEP_ID\" as \"StepID\",\n       \"CATEGORY\"\
+  \ as \"Category\",\n       \"SUBCATEGORY\" as \"SubCategory\",\n       \"TEST_VARIANT\"\
+  \ as \"TestVariant\",\n       \"ETL_INSERT_DATE\" as \"ETLInsertDate\",\n      \
+  \ \"ETL_UPDATE_DATE\" as \"ETLUpdateDate\",\n       \"ETL_DELETE_DATE\" as \"ETLDeleteDate\"\
+  ,\n        case when \"ACTIVITYTYPEID\" = 'random' then 'random' else 'random' end\
+  \ as \"BounceType\"\n   FROM \"RDS\".\"MARKETO\".\"EMAIL_BOUNCED\" ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

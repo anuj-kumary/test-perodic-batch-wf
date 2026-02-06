@@ -1,0 +1,54 @@
+name: table_285
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_285
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_285.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_SALES_PRODUCT(\n\t\"STSalesProductSysID\"\
+  ,\n\t\"STSalesProductExtractDate\",\n\t\"STSalesProductCode\",\n\t\"STSalesProductFamily3Value\"\
+  ,\n\t\"STSalesProductBusinessUnitValue\",\n\t\"STSalesProductCategoryValue\"\n)\
+  \ as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SYS_ID\" as \"STSalesProductSysID\",\n\
+  \       \"EXTRACT_DATE\" as \"STSalesProductExtractDate\",\n       \"U_PRODUCT_CODE\"\
+  \ as \"STSalesProductCode\",\n       \"DV_U_FAMILY_3\" as \"STSalesProductFamily3Value\"\
+  ,\n       \"DV_U_BUSINESS_UNIT\" as \"STSalesProductBusinessUnitValue\",\n     \
+  \  \"DV_U_CATEGORY\" as \"STSalesProductCategoryValue\"\nFROM \"RDS\".\"SURF\".\"\
+  ST_SALES_PRODUCT\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

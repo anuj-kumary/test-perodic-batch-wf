@@ -1,0 +1,79 @@
+name: table_342
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_342
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_342.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_CUSTOMER_SURVEY(\n\t\"CustSurveyDeploymentSysID\"\
+  ,\n\t\"CustSurveyDeploymentValue\",\n\t\"CustSurveyRecommendTeamAvg\",\n\t\"CustSurveySurveyResponses\"\
+  ,\n\t\"CustSurveyProjectTimeframeAvg\",\n\t\"CustSurveyRecommendSNAvg\",\n\t\"CustSurveyOverallSatAvg\"\
+  ,\n\t\"CustSurveySurveyInvites\",\n\t\"CustSurveySurveyDateRangeLabel\",\n\t\"CustSurveyNumber\"\
+  ,\n\t\"CustSurveyStateValue\",\n\t\"CustSurveySurveyDateRange\",\n\t\"CustSurveySurveyQuarter\"\
+  ,\n\t\"CustSurveySysID\",\n\t\"CustSurveyAccount\",\n\t\"CustSurveyTypeID\",\n\t\
+  \"CustSurveyType\",\n\t\"CustSurveyAccountID\",\n\t\"CustSurveyStateID\",\n\t\"\
+  CustSurveyDateID\",\n\t\"CustSurveyFutureExpansionAvg\",\n\t\"CustSurveyKnowledgeTransferAvg\"\
+  ,\n\t\"CustSurveyValuedPartnerAvg\",\n\t\"CustSurveyCommunicationAvg\",\n\t\"CustSurveyTechnicalKnowledgeAvg\"\
+  ,\n\t\"CustSurveyLikelyToRepurchaseAvg\",\n\t\"CustSurveyLikelyToAdoptMoreAvg\"\
+  ,\n\t\"CustSurveyUnderstoodNeedsAndRequirementsAvg\",\n\t\"CustSurveyProvidedAccurateSowAvg\"\
+  ,\n\t\"CustSurveyCreatedOn\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"U_DEPLOYMENT\"\
+  \ as \"CustSurveyDeploymentSysID\",\n       \"DV_U_DEPLOYMENT\" as \"CustSurveyDeploymentValue\"\
+  ,\n       \"U_RECOMMEND_TEAM_AVG\" as \"CustSurveyRecommendTeamAvg\",\n       \"\
+  U_SURVEY_RESPONSES\" as \"CustSurveySurveyResponses\",\n       \"U_PROJECT_TIMEFRAME_AVG\"\
+  \ as \"CustSurveyProjectTimeframeAvg\",\n       \"U_RECOMMEND_SN_AVG\" as \"CustSurveyRecommendSNAvg\"\
+  ,\n       \"U_OVERALL_SAT_AVG\" as \"CustSurveyOverallSatAvg\",\n       \"U_SURVEY_INVITES\"\
+  \ as \"CustSurveySurveyInvites\",\n       \"U_SURVEY_DATE_RANGE\" as \"CustSurveySurveyDateRangeLabel\"\
+  ,\n       \"U_NUMBER\" as \"CustSurveyNumber\",\n       \"DV_U_STATE\" as \"CustSurveyStateValue\"\
+  ,\n       \"DV_U_SURVEY_DATE_RANGE\" as \"CustSurveySurveyDateRange\",\n       \"\
+  U_SURVEY_QUARTER\" as \"CustSurveySurveyQuarter\",\n       \"SYS_ID\" as \"CustSurveySysID\"\
+  ,\n       \"DV_U_ACCOUNT\" as \"CustSurveyAccount\",\n       \"U_TYPE\" as \"CustSurveyTypeID\"\
+  ,\n       \"DV_U_TYPE\" as \"CustSurveyType\",\n       \"U_ACCOUNT\" as \"CustSurveyAccountID\"\
+  ,\n       \"U_STATE\" as \"CustSurveyStateID\",\n       \"U_SURVEY_DATE\" as \"\
+  CustSurveyDateID\",\n       \"U_FUTURE_EXPANSION_AVG\" as \"CustSurveyFutureExpansionAvg\"\
+  ,\n       \"U_KNOWLEDGE_TRANSFER_AVG\" as \"CustSurveyKnowledgeTransferAvg\",\n\
+  \       \"U_VALUED_PARTNER_AVG\" as \"CustSurveyValuedPartnerAvg\",\n       \"U_COMMUNICATION_AVG\"\
+  \ as \"CustSurveyCommunicationAvg\",\n       \"U_TECHNICAL_KNOWLEDGE_AVG\" as \"\
+  CustSurveyTechnicalKnowledgeAvg\",\n       \"U_LIKELY_TO_REPURCHASE_AVG\" as \"\
+  CustSurveyLikelyToRepurchaseAvg\",\n       \"U_LIKELY_TO_ADOPT_MORE_AVG\" as \"\
+  CustSurveyLikelyToAdoptMoreAvg\",\n       \"U_UNDERSTOOD_NEEDS_AND_REQUIREMENTS_AVG\"\
+  \ as \"CustSurveyUnderstoodNeedsAndRequirementsAvg\",\n       \"U_PROVIDED_ACCURATE_SOW_AVG\"\
+  \ as \"CustSurveyProvidedAccurateSowAvg\",\n       \"SYS_CREATED_ON\" as \"CustSurveyCreatedOn\"\
+  \nFROM \"RDS\".\"SURF\".\"U_CUSTOMER_SURVEY\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

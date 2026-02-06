@@ -1,0 +1,97 @@
+name: table_355
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_355
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_355.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_ENGAGEMENTS(\n\t\"AccountGUID\",\n\t\"\
+  AccountName\",\n\t\"OpportunityGUID\",\n\t\"OpportunityName\",\n\t\"EngagementID\"\
+  ,\n\t\"EngagementNumber\",\n\t\"EngagementName\",\n\t\"EngagementTypeID\",\n\t\"\
+  EngagementTypeName\",\n\t\"EngagementStatusCodeName\",\n\t\"EngagementOwningTeam\"\
+  ,\n\t\"EngagementOwnerName\",\n\t\"EngagementCompleteDate\",\n\t\"EngagementStateCode\"\
+  ,\n\t\"EngagementOwningUser\",\n\t\"EngagementStateCodeName\",\n\t\"EngagementOwnerID\"\
+  ,\n\t\"EngagementPrePostSaleName\",\n\t\"EngagementStatusCode\",\n\t\"EngagementCreatedOn\"\
+  ,\n\t\"EngagementSalesStageCodeName\",\n\t\"EngagementDescription\",\n\t\"EngagementStageName\"\
+  ,\n\t\"EngagementScheduleStartDate\",\n\t\"EngagementStartDate\",\n\t\"EngagementCategoryCodeName\"\
+  ,\n\t\"EngagementAssignedTo\",\n\t\"EngagementCXOSponsoredName\",\n\t\"EngagementEffortName\"\
+  ,\n\t\"EngagementParticpatedinEBCName\",\n\t\"EngagementPriorityAccountName\",\n\
+  \t\"EngagementSubStageName\",\n\t\"DreamBigphasesCompletedName\",\n\t\"BuyingCentersIdentified\"\
+  ,\n\t\"DreamBigPotentialPipelineUSDMillion\",\n\t\"EngagementDriverName\",\n\t\"\
+  EngagementRequestDetails\",\n\t\"EngagementSpecialProjectCode\",\n\t\"ACEEngagementName\"\
+  ,\n\t\"ACEEngagementTypeName\",\n\t\"ACEPartnerTypeName\",\n\t\"EngagementSubTypeID\"\
+  ,\n\t\"PrimaryProductID\",\n\t\"EngagementSubTypeName\",\n\t\"PrimaryProductName\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SN_ACCOUNTID\" as \"AccountGUID\",\n\
+  \       \"SN_ACCOUNTIDNAME\" as \"AccountName\",\n       \"SN_OPPORTUNITYID\" as\
+  \ \"OpportunityGUID\",\n       \"SN_OPPORTUNITYIDNAME\" as \"OpportunityName\",\n\
+  \       \"SN_ENGAGEMENTID\" as \"EngagementID\",\n       \"SN_ENGAGEMENTNUMBER\"\
+  \ as \"EngagementNumber\",\n       \"SN_NAME\" as \"EngagementName\",\n       \"\
+  SN_ENGAGEMENTTYPEID\" as \"EngagementTypeID\",\n       \"SN_ENGAGEMENTTYPEIDNAME\"\
+  \ as \"EngagementTypeName\",\n       \"STATUSCODENAME\" as \"EngagementStatusCodeName\"\
+  ,\n       \"OWNINGTEAM\" as \"EngagementOwningTeam\",\n       \"OWNERIDNAME\" as\
+  \ \"EngagementOwnerName\",\n       \"SN_COMPLETEDDATE\" as \"EngagementCompleteDate\"\
+  ,\n       \"STATECODE\" as \"EngagementStateCode\",\n       \"OWNINGUSER\" as \"\
+  EngagementOwningUser\",\n       \"STATECODENAME\" as \"EngagementStateCodeName\"\
+  ,\n       \"OWNERID\" as \"EngagementOwnerID\",\n       \"SN_PREPOSTSALENAME\" as\
+  \ \"EngagementPrePostSaleName\",\n       \"STATUSCODE\" as \"EngagementStatusCode\"\
+  ,\n       \"CREATEDON\" as \"EngagementCreatedOn\",\n       \"SN_SALESSTAGECODENAME\"\
+  \ as \"EngagementSalesStageCodeName\",\n     --  \"SN_DESCRIPTION\" as \"EngagementDescription\"\
+  ,\n       case when \"SN_DESCRIPTION\" like 'random' then  replace(replace(replace(replace(REGEXP_REPLACE(REGEXP_REPLACE(\"\
+  SN_DESCRIPTION\", 'random', 'random')\n, 'random', 'random'),'random', 'random'),'random','random'),'random','random'),'random','random')\
+  \ else \"SN_DESCRIPTION\" end as \"EngagementDescription\",\n       \"SN_STAGENAME\"\
+  \ as \"EngagementStageName\",\n       \"SN_REQUESTDUEDATE\" as \"EngagementScheduleStartDate\"\
+  ,\n       \"SN_WORKSTARTDATE\" as \"EngagementStartDate\",\n       \"SN_CATEGORYCODENAME\"\
+  \ as \"EngagementCategoryCodeName\",\n       \"OWNERIDNAME\" as \"EngagementAssignedTo\"\
+  ,\n       \"SN_CXOSPONSOREDNAME\" as \"EngagementCXOSponsoredName\",\n       \"\
+  SN_ENGAGEMENTEFFORTNAME\" as \"EngagementEffortName\",\n       \"SN_PARTICPATEDINEBCNAME\"\
+  \ as \"EngagementParticpatedinEBCName\",\n       \"SN_PRIORITYACCOUNTNAME\" as \"\
+  EngagementPriorityAccountName\",\n       \"SN_SUBSTAGENAME\" as \"EngagementSubStageName\"\
+  ,\n       \"SN_DREAMBIGPHASESCOMPLETEDNAME\" as \"DreamBigphasesCompletedName\"\
+  ,\n       \"SN_BUYINGCENTERSIDENTIFIED\" as \"BuyingCentersIdentified\",\n     \
+  \  \"SN_DREAMBIGPOTENTIALPIPELINEUSDMILLION\" as \"DreamBigPotentialPipelineUSDMillion\"\
+  ,\n       \"SN_DRIVERNAME\" as \"EngagementDriverName\",\n       \"SN_REQUESTDETAILS\"\
+  \ as \"EngagementRequestDetails\",\n       \"SN_SPECIALPROJECTCODE\" as \"EngagementSpecialProjectCode\"\
+  ,\n       \"SN_ACEENGAGEMENTNAME\" as \"ACEEngagementName\",\n       \"SN_ACEENGAGEMENTTYPENAME\"\
+  \ as \"ACEEngagementTypeName\",\n       \"SN_ACEPARTNERTYPENAME\" as \"ACEPartnerTypeName\"\
+  ,\n       \"SN_ENGAGEMENTSUBTYPEID\" as \"EngagementSubTypeID\",\n       \"SN_PRIMARYPRODUCTID\"\
+  \ as \"PrimaryProductID\",\n       \"SN_ENGAGEMENTSUBTYPEIDNAME\" as \"EngagementSubTypeName\"\
+  ,\n       \"SN_PRIMARYPRODUCTIDNAME\" as \"PrimaryProductName\"\nFROM RDS.\"DYNAMICS365\"\
+  .\"SN_ENGAGEMENTS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

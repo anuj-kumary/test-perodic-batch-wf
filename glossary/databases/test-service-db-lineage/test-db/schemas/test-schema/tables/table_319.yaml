@@ -1,0 +1,83 @@
+name: table_319
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_319
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_319.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_MUTUALSUCCESSPLAN(\n\t\"VPMutualPlanTaskShortDesc\"\
+  ,\n\t\"VPMutualPlanNotes\",\n\t\"VPMutualPlanOwner\",\n\t\"VPMutualPlanDueDate\"\
+  ,\n\t\"VPMutualPlanActiveFlag\",\n\t\"VPMutualPlanUpdatedOn\",\n\t\"VPMutualPlanCreatedOn\"\
+  ,\n\t\"VPMutualPlanSuccessGUID\",\n\t\"VPMutualPlanCreatedBy\",\n\t\"VPMutualPlanStatusName\"\
+  ,\n\t\"VPMutualPlanOpportunityGUID\",\n\t\"VPMutualPlanTaskName\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"ValueSellPlanTaskShortDesc\" as \"VPMutualPlanTaskShortDesc\"\
+  ,\n       \"ValueSellPlanNotes\" as \"VPMutualPlanNotes\",\n       \"ValueSellPlanOwner\"\
+  \ as \"VPMutualPlanOwner\",\n       \"ValueSellPlanDueDate\" as \"VPMutualPlanDueDate\"\
+  ,\n       \"ValueSellPlanActiveFlag\" as \"VPMutualPlanActiveFlag\",\n       \"\
+  ValueSellPlanUpdatedOn\" as \"VPMutualPlanUpdatedOn\",\n       \"ValueSellPlanCreatedOn\"\
+  \ as \"VPMutualPlanCreatedOn\",\n       \"VPMutualPlanSuccessGUID\" as \"VPMutualPlanSuccessGUID\"\
+  ,\n       \"VPMutualPlanCreatedBy\" as \"VPMutualPlanCreatedBy\",\n       \"VPMutualPlanStatusName\"\
+  \ as \"VPMutualPlanStatusName\",\n       \"ValueSellPlanOpportunityGUID\" as \"\
+  VPMutualPlanOpportunityGUID\",\n       \"ValueSellPlanTaskName\" as \"VPMutualPlanTaskName\"\
+  \nFROM\n  (SELECT \"CREATEDON\" as \"ValueSellPlanCreatedOn\",\n          \"MODIFIEDON\"\
+  \ as \"ValueSellPlanUpdatedOn\",\n          \"SN_OPPORTUNITYID\" as \"ValueSellPlanOpportunityGUID\"\
+  ,\n          \"STATECODE\" as \"ValueSellPlanActiveFlag\",\n          \"SN_TARGETDATE\"\
+  \ as \"ValueSellPlanDueDate\",\n          \"SN_OWNER\" as \"ValueSellPlanOwner\"\
+  ,\n          \"SN_COMMENTS1\" as \"ValueSellPlanNotes_1\",\n          \"SN_TASK1111\"\
+  \ as \"ValueSellPlanTaskName1\",\n          \"SN_DESCRIPTION1\" as \"ValueSellPlanTaskShortDesc1\"\
+  ,\n          \"SN_TASK\" as \"ValueSellPlanTaskName\",\n          \"SN_NAME\" as\
+  \ \"SN_NAME\",\n          \"SN_COMMENTS\" as \"ValueSellPlanNotes\",\n         \
+  \ \"SN_DESCRIPTION\" as \"ValueSellPlanTaskShortDesc\",\n          \"SN_MUTUALSUCCESSPLANID\"\
+  \ as \"VPMutualPlanSuccessGUID\",\n          \"CREATEDBYNAME\" as \"VPMutualPlanCreatedBy\"\
+  ,\n          \"SN_TASKSTATUSNAME\" as \"VPMutualPlanStatusName\"\n   FROM\n    \
+  \ (SELECT \"CREATEDON\" as \"CREATEDON\",\n             \"MODIFIEDON\" as \"MODIFIEDON\"\
+  ,\n             \"SN_OPPORTUNITYID\" as \"SN_OPPORTUNITYID\",\n             \"STATECODE\"\
+  \ as \"STATECODE\",\n             \"SN_TARGETDATE\" as \"SN_TARGETDATE\",\n    \
+  \         \"SN_OWNER\" as \"SN_OWNER\",\n             \"SN_COMMENTS\" as \"SN_COMMENTS1\"\
+  ,\n             \"SN_TASK\" as \"SN_TASK1111\",\n             \"SN_DESCRIPTION\"\
+  \ as \"SN_DESCRIPTION1\",\n             \"SN_NAME\" as \"SN_NAME1\",\n         \
+  \    \"SN_TASKSTATUSNAME\" as \"SN_TASKSTATUSNAME\",\n             \"CREATEDBYNAME\"\
+  \ as \"CREATEDBYNAME\",\n             \"SN_ACTIONPLANID\" as \"SN_MUTUALSUCCESSPLANID\"\
+  ,\n             (\"SN_TASK1111\") :: VARCHAR('random') as \"SN_TASK\",\n       \
+  \      (\"SN_NAME1\") :: VARCHAR('random') as \"SN_NAME\",\n             (\"SN_COMMENTS1\"\
+  ) :: VARCHAR('random') as \"SN_COMMENTS\",\n             (\"SN_DESCRIPTION1\") ::\
+  \ VARCHAR('random') as \"SN_DESCRIPTION\"\n      FROM \"RDS\".\"DYNAMICS365\".\"\
+  SN_JOINTACTIONPLANTASKS\")\"Projection_1Copy\")Projection_2Copy;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

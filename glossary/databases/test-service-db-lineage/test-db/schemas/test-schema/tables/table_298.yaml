@@ -1,0 +1,143 @@
+name: table_298
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_298
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_298.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view MARKETO_CONTACT_UPDATED_FIELD_DELETION(\n\
+  \t\"Address1\",\n\t\"Address2\",\n\t\"Address3\",\n\t\"AdobeIPAddress\",\n\t\"AdobeMCID\"\
+  ,\n\t\"Area\",\n\t\"AssignedTo\",\n\t\"BusPhone\",\n\t\"City\",\n\t\"Company\",\n\
+  \t\"ContactIDExt\",\n\t\"ConversicaDoNotEmail\",\n\t\"Country\",\n\t\"DateCreated\"\
+  ,\n\t\"DbIPAddress\",\n\t\"DoNotPhone\",\n\t\"DUNSNumber\",\n\t\"EmailAddress\"\
+  ,\n\t\"EmailAddressClnsd\",\n\t\"EmailAddressDomain\",\n\t\"Employees\",\n\t\"ETLExtractDate\"\
+  ,\n\t\"ExplicitConsentDate\",\n\t\"ExplicitConsentSource\",\n\t\"FirstName\",\n\t\
+  \"GeoNormalized\",\n\t\"HotLead\",\n\t\"JobFunction\",\n\t\"JobLevel\",\n\t\"JobRole\"\
+  ,\n\t\"LastName\",\n\t\"LeadScore\",\n\t\"LeadScoreDateMostRecent\",\n\t\"LeadSourceDetail\"\
+  ,\n\t\"LeadSourceMostRecent\",\n\t\"LeadStatus\",\n\t\"UpdatedLeadSourceOriginalDetail\"\
+  ,\n\t\"ListSourceID\",\n\t\"OptIn\",\n\t\"ReasonCode\",\n\t\"SFDCAccountID\",\n\t\
+  \"SFDCContactID\",\n\t\"SFDCLeadID\",\n\t\"StateProv\",\n\t\"Title\",\n\t\"UnsubscribeDate\"\
+  ,\n\t\"UnsubscribeReason\",\n\t\"ZipPostal\",\n\t\"ListSource\",\n\t\"MarketoContactID\"\
+  ,\n\t\"CampaignID\",\n\t\"Unsubscribed\",\n\t\"Territory\",\n\t\"TerritoryArea\"\
+  ,\n\t\"TerritoryDistrict\",\n\tTERRITORY_GEO,\n\t\"TerritoryMajorArea\",\n\t\"TerritoryRegion\"\
+  ,\n\t\"PageURL\",\n\t\"ListSourceRecent\",\n\t\"FormFillMostRecentDateTime\",\n\t\
+  CMCID,\n\t\"Active\",\n\t\"ActiveContact\",\n\t\"AccountSegment\",\n\t\"AccountType\"\
+  ,\n\t\"CustomerHQ\",\n\t\"CustomerHQNumber\",\n\t\"CustomerSince\",\n\t\"MarketableContact\"\
+  ,\n\t\"NurtureInProcessAMS\",\n\t\"NurtureInProcessAPJ\",\n\t\"NurtureInProcessEMEA\"\
+  ,\n\t\"LeadSourceMostRecentDateTime\",\n\t\"LeadContactMLTitleNormResultDate\",\n\
+  \t\"LeadContactMLTitleNormResultLRF\",\n\t\"NotEmailableReason\",\n\t\"AccountNumber\"\
+  ,\n\t\"DbCountry\",\n\t\"Industry\",\n\t\"IndustrySegment\",\n\t\"IndustryCategory\"\
+  ,\n\t\"LeadRole\",\n\t\"PrimarySalesRep\"\n) as\n SELECT\n C.\"ADDRESS\" as \"Address1\"\
+  ,\n C.\"ADDRESS_2\" as \"Address2\",\n 'random' as \"Address3\",\n C.\"ADOBE_IP_ADDRESS\"\
+  \ as \"AdobeIPAddress\",\n C.\"ADOBE_MC_ID\" as \"AdobeMCID\",\n T.\"DV_U_AREA\"\
+  \ AS\"Area\",\n C.\"ASSIGNED_TO\" as \"AssignedTo\",\n C.\"PHONE\" as \"BusPhone\"\
+  ,\n L.\"CITY\" as \"City\",\n C.\"COMPANY\" as \"Company\",\n C.\"C_ID\" as \"ContactIDExt\"\
+  ,\n --\"CONTACT_REGION_NORMALIZED\" as \"ContactRegion\",--by default this attribute\
+  \ contains null values\n C.\"CONVERSICA_DO_NOT_EMAIL\" as \"ConversicaDoNotEmail\"\
+  ,\n C.\"COUNTRY\" as \"Country\",\n C.\"CREATED_AT\" as \"DateCreated\",\n --\"\
+  CRM_UPDATED_DATETIME\" as \"DateModified\",\n --\"DB_ANNUAL_SALES\" as \"DbAnnualSales\"\
+  ,\n T.\"DV_U_COUNTRY\" as \"DbCountry\",\n --\"DB_EMPLOYEE_COUNT\" as \"DbEmployeeCount\"\
+  ,\n 'random' as \"DbIPAddress\",\n--\"DB_PHONE\" as \"DbPhone\",\n C.\"DO_NOT_CALL\"\
+  \ as \"DoNotPhone\",\n 'random' as \"DUNSNumber\",\n C.\"EMAIL\" as \"EmailAddress\"\
+  ,\n C.\"EMAIL\" as \"EmailAddressClnsd\",\n 'random' as \"EmailAddressDomain\",\n\
+  \ 'random' as \"Employees\",\n 'random' as \"ETLExtractDate\",\n C.\"EXPLICIT_CONSENT_DATE\"\
+  \ as \"ExplicitConsentDate\",\n C.\"EXPLICIT_CONSENT_SOURCE\" as \"ExplicitConsentSource\"\
+  ,\n --\"FAX\" as \"Fax\",\n C.\"FIRSTNAME\" as \"FirstName\",\n C.\"CONTACT_GEO_NORMALIZED\"\
+  \ as \"GeoNormalized\",\n 'random' as \"HotLead\",\n --\"I_AM_INTERESTED_IN\" as\
+  \ \"IAmInterestedIn\",\n C.\"JOB_FUNCTION\" as \"JobFunction\",\n C.\"JOB_LEVEL\"\
+  \ as \"JobLevel\",\n C.\"JOB_ROLE\" as \"JobRole\",\n C.\"LASTNAME\" as \"LastName\"\
+  ,\n L.\"U_LEAD_SCORE\" as \"LeadScore\",\n C.\"BI_LEAD_SCORE_LAST_MODIFIED_DATE\"\
+  \ as \"LeadScoreDateMostRecent\",\n C.\"LEAD_SOURCE\" as \"LeadSourceDetail\",\n\
+  \ C.\"LEAD_SOURCE_MOST_RECENT\" as \"LeadSourceMostRecent\",\n C.\"LEAD_STATUS\"\
+  \ as \"LeadStatus\",\n --\"LINKEDIN_PROFILE_URL\" as \"LinkedIn\",\n C.\"LEAD_SOURCE_ORIGINAL\"\
+  \ as \"UpdatedLeadSourceOriginalDetail\",\n 'random' as \"ListSourceID\",\n --\"\
+  MOBILE_PHONE\" as \"MobilePhone\",\n --\"MOST_RECENT_BU\" as \"MostRecentBU\",\n\
+  \ 'random' as \"OptIn\",\n C.\"REASON_CODE\" as \"ReasonCode\",\n --\"REGION\" as\
+  \ \"Region\",\n --\"SALUTATION\" as \"Salutation\",\n 'random' as \"SFDCAccountID\"\
+  ,\n 'random' as \"SFDCContactID\",\n C.\"CRM_ID\" as \"SFDCLeadID\",\n C.\"STATE\"\
+  \ as \"StateProv\",\n C.\"TITLE\" as \"Title\",\n C.\"UNSUBSCRIBED_DATE\" as \"\
+  UnsubscribeDate\",\n C.\"UNSUBSCRIBED_REASON\" as \"UnsubscribeReason\",\n --\"\
+  WEBSITE\" as \"Website\",\n C.\"POSTAL_CODE\" as \"ZipPostal\",\n C.\"LIST_SOURCE_ORIGINAL\"\
+  \ as \"ListSource\",\n --\"ETL_INSERT_DATE\" as \"ETLInsertDate\",\n C.\"ID\" as\
+  \ \"MarketoContactID\",\n --\"LEAD_PERSON\" as \"LeadPerson\",\n CA.\"U_ID\" as\
+  \ \"CampaignID\",\n --\"D365_LEAD_ID\" as \"D365LeadID\",--by default this attribute\
+  \ contains null values\n --\"D365_ACCOUNT_ID\" as \"D365AccountID\",--by default\
+  \ this attribute contains null values\n C.\"UNSUBSCRIBED\" as \"Unsubscribed\",\n\
+  \ --\"UNSUBSCRIBED_SURF\" as \"UnsubscribedSURF\",\n T.\"DV_U_COUNTRY\" AS \"Territory\"\
+  ,\n T.\"DV_U_AREA\" AS \"TerritoryArea\",\n T.\"DV_U_DISTRICT\" AS \"TerritoryDistrict\"\
+  ,\n T.\"DV_U_GEO\" AS \"TERRITORY_GEO\",\n T.\"DV_U_MAJOR_AREA\" AS \"TerritoryMajorArea\"\
+  ,\n T.\"DV_U_REGION\" AS \"TerritoryRegion\",\n --\"SITE\" as \"Site\",\n --\"REGISTRATION_SOURCE_TYPE\"\
+  \ as \"RegistrationSourceType\",\n A.\"DV_PRIMARY_SALES_REP\" as \"PrimarySalesRep\"\
+  ,\n --\"PRIMARY_SALESREP_EMAIL\" as \"PrimarySalesRepEmail\",\n C.\"PAGE_URL\" as\
+  \ \"PageURL\",\n --\"MKTO_NAME\" as \"MKTOName\",\n C.\"LIST_SOURCE_RECENT\" as\
+  \ \"ListSourceRecent\",\n L.\"DV_U_JOB_ROLE_FUNCTION\" as \"LeadRole\",\n --\"IS_LEAD\"\
+  \ as \"IsLead\",\n I.\"U_CATEGORY\" as \"IndustryCategory\",\n A.\"DV_INDUSTRY\"\
+  \ as \"Industry\",\n A.\"DV_U_NEW_SEGMENT\" as \"IndustrySegment\",\n --\"G2K_PARENT\"\
+  \ as \"G2KParent\",--by default this attribute contains null values\n --\"G2K_PARENT_SUBSIDIARY\"\
+  \ as \"G2KParentSubsidiary\",--by default this attribute contains null values\n\
+  \ C.\"FORM_FILL_MOST_RECENT_DATETIME\" as \"FormFillMostRecentDateTime\",\n C.\"\
+  CM_C_ID\" as \"CMCID\",\n A.\"U_ACTIVE\" as \"Active\",\n A.\"U_ACTIVE\" as \"ActiveContact\"\
+  ,\n --\"ACCOUNT_SCORE\" as \"AccountScore\",\n A.\"DV_U_NEW_SEGMENT\" as \"AccountSegment\"\
+  ,\n A.\"DV_TYPE\" as \"AccountType\",\n A.\"U_CUSTOMER_HQ\" as \"CustomerHQ\",\n\
+  \ A.\"DV_U_CUSTOMER_HQ\" as \"CustomerHQNumber\",\n A.\"CUSTOMER_SINCE\" as \"CustomerSince\"\
+  ,\n C.\"EMAILABLE\" as \"MarketableContact\",\n --\"PREFCENTER_60_DAY_SUSPENSION\"\
+  \ as \"PrefCenter60DaySuspension\",\n --\"PREFCENTER_DO_NOT_CALL\" as \"PrefCenterDonotCall\"\
+  ,\n --\"PREFCENTER_KNOWLEDGE_CONFERENCE\" as \"PrefCenterKnowledgeConference\",\n\
+  \ --\"PREFCENTER_LIVE_EVENTS\" as \"PrefCenterLiveEvents\",\n --\"PREFCENTER_NEWSLETTERS\"\
+  \ as \"PrefCenterNewsletters\",\n --\"PREFCENTER_NOW_AT_WORK_GLOBAL_EVENTS\" as\
+  \ \"PrefCenterNowatWorkGlobalEvents\",\n --\"PREFCENTER_ONLINE_EVENTS\" as \"PrefCenterOnlineEvents\"\
+  ,\n --\"PREFCENTER_PRODUCT_INFO_ANNOUNCEMENTS\" as \"PrefCenterProductInfoAnnounce\"\
+  ,\n C.\"NURTURE_IN_PROCESS_AMS\" as \"NurtureInProcessAMS\",\n C.\"NURTURE_IN_PROCESS_APJ\"\
+  \ as \"NurtureInProcessAPJ\",\n C.\"NURTURE_IN_PROCESSEMEA\" as \"NurtureInProcessEMEA\"\
+  ,\n C.\"LEAD_SOURCE_MOST_RECENT_DATETIME\" as \"LeadSourceMostRecentDateTime\",\n\
+  \ --\"PREFCENTER_MAJOR_EVENTS\" as \"PrefCenterMajorEvents\",\n --\"PREFCENTER_LOCAL_EVENTS\"\
+  \ as \"PrefCenterLocalEvents\",\n --\"PREFCENTER_PRODUCT_INFORMATION\" as \"PrefCenterProductInformation\"\
+  ,\n --\"PREFCENTER_WEBINARS\" as \"PrefCenterWebinars\",\n --\"PREFCENTER_EDUCATIONAL_MARKETING_COMMS\"\
+  \ as \"PrefCenterEducationalMarketingComms\",\n C.\"ML_TITLE_NORM_RESULT_DATESTAMP\"\
+  \ AS \"LeadContactMLTitleNormResultDate\",--STRY2521032\n C.\"ML_TITLE_NORM_RESULT_LRF\"\
+  \ AS \"LeadContactMLTitleNormResultLRF\", --STRY2521032\n C.\"NOTEMAILABLEREASON\"\
+  \ as \"NotEmailableReason\", --STSK0323845\n A.\"U_NUMBER\" \"AccountNumber\"\n\
+  \ FROM RDS.\"MARKETO\".\"LEADS_CONTACT_BKP_04_JUN_2024\" C\n LEFT OUTER JOIN RDS.SURF.SALES_LEAD\
+  \ L ON L.\"NUMBER\"=C.\"CRM_ID\"\n LEFT OUTER JOIN RDS.SURF.SALES_ACCOUNT A ON L.\"\
+  ACCOUNT\" = A.\"SYS_ID\"\n LEFT OUTER JOIN RDS.SURF.U_CAMPAIGN CA ON L.\"U_LEAD_SOURCE_ORIGINAL\"\
+  = CA.\"SYS_ID\"\n LEFT OUTER JOIN RDS.SURF.U_SALES_TERRITORY T ON A.\"U_TERRITORY\"\
+  =T.\"SYS_ID\"\n LEFT OUTER JOIN RDS.SURF.SALES_INDUSTRY I ON I.\"SYS_ID\"=A.\"INDUSTRY\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
