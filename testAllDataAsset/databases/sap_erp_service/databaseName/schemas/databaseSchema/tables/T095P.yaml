@@ -1,0 +1,211 @@
+name: T095P
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P
+description: Reconcil.accts. derived dep. areas
+tableType: Regular
+columns:
+  - name: AFABER
+    displayName: Depreciation area
+    dataType: CHAR
+    dataLength: 2
+    dataTypeDisplay: numc(2)
+    description: Depreciation area real or derived
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.AFABER
+    tags: []
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: AFASL
+    displayName: Depreciation key
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Depreciation key
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.AFASL
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: KTMEHR
+    displayName: Gain from asset sale
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: "G/L account: asset retirement gain"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTMEHR
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 12
+    children: []
+    customMetrics: []
+  - name: KTMIND
+    displayName: Loss from asset sale
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: G/L account for asset retirement loss
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTMIND
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 13
+    children: []
+    customMetrics: []
+  - name: KTNAUF
+    displayName: Write-off special reserves (gross)
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: P&L account:Write-off spec.reserves w/ gross allocation
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTNAUF
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: KTOGR
+    displayName: Acct determination
+    dataType: CHAR
+    dataLength: 8
+    dataTypeDisplay: char(8)
+    description: Account determination
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTOGR
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: KTOPL
+    displayName: Chart of Accounts
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Chart of Accounts
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTOPL
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: KTSABG
+    displayName: Write-off spec.reserves after retiremnt
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: "Rev. acct: Amortiz. spec.reserves after retirement"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTSABG
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 10
+    children: []
+    customMetrics: []
+  - name: KTSAUF
+    displayName: "Revenue: amortiz. special reserves"
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: "Rev. acct: Amortiz. special reserves"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTSAUF
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: KTSEIN
+    displayName: "Expense: Allocation to spec.reserves"
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: "Exp. acct: Allocation to special reserves"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTSEIN
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: KTSOPO
+    displayName: Special reserves balance
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Spec.res. Balance sheet account
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTSOPO
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: KTVBAB
+    displayName: Clear.revenue sale to affil.company
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Clearing acct.revenue from sale to affiliated company
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTVBAB
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 14
+    children: []
+    customMetrics: []
+  - name: KTZUSA
+    displayName: Write-up on special reserves
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: "Rev. account: Write-up on special reserves"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.KTZUSA
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 11
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T095P.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - AFABER
+      - AFASL
+      - KTOGR
+      - KTOPL
+      - MANDT
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 2e31f2cc9dd5b1c2d32adfe0d11f297c
+processedLineage: false
+entityStatus: Approved

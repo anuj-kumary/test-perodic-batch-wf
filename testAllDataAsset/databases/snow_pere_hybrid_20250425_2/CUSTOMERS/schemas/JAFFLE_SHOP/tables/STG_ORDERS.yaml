@@ -1,0 +1,97 @@
+name: STG_ORDERS
+fullyQualifiedName: snow pere hybrid 20250425 2.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS
+tableType: View
+columns:
+  - name: ORDER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow pere hybrid 20250425 2.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS.ORDER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CUSTOMER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow pere hybrid 20250425 2.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS.CUSTOMER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ORDER_DATE
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: snow pere hybrid 20250425 2.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS.ORDER_DATE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: STATUS
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow pere hybrid 20250425 2.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS.STATUS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: c279d062-31d6-4d65-afb3-7bd8626212ae
+  type: databaseSchema
+  name: JAFFLE_SHOP
+  fullyQualifiedName: snow pere hybrid 20250425 2.CUSTOMERS.JAFFLE_SHOP
+  description: Reverse metadata ingestion testing.
+  displayName: JAFFLE_SHOP
+  deleted: false
+database:
+  id: 1e285053-1d29-4838-8400-eaa535d5d83b
+  type: database
+  name: CUSTOMERS
+  fullyQualifiedName: snow pere hybrid 20250425 2.CUSTOMERS
+  displayName: CUSTOMERS
+  deleted: false
+service:
+  id: ae84577f-95ca-40e8-a3b4-e96626dab376
+  type: databaseService
+  name: snow pere hybrid 20250425 2
+  fullyQualifiedName: snow pere hybrid 20250425 2
+  description: ""
+  displayName: snow pere hybrid 20250425 2
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view CUSTOMERS.jaffle_shop.stg_orders\n  \n\
+  \   as (\n    with source as (\n    select * from CUSTOMERS.jaffle_shop.raw_orders\n\
+  \n),\n\nrenamed as (\n\n    select\n        id as order_id,\n        user_id as\
+  \ customer_id,\n        order_date,\n        status\n\n    from source\n\n)\n\n\
+  select * from renamed\n  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: processedLineage
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/CUSTOMERS/schemas/JAFFLE_SHOP/view/STG_ORDERS
+domains: []
+dataProducts: []
+sourceHash: 75dfd0a353c0e72063048768f55dc46f
+processedLineage: true
+entityStatus: Approved
