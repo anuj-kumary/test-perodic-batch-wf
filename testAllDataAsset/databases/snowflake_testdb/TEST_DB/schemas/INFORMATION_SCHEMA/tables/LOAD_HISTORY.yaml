@@ -1,0 +1,185 @@
+name: LOAD_HISTORY
+fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY
+tableType: View
+columns:
+  - name: SCHEMA_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: Schema of target table
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.SCHEMA_NAME
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: FILE_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: Name of source file
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.FILE_NAME
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TABLE_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: Name of target table
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.TABLE_NAME
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: LAST_LOAD_TIME
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ltz
+    description: Timestamp of the load record
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.LAST_LOAD_TIME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: STATUS
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: "Status: loaded, load failed or partially loaded"
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.STATUS
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ROW_COUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Number of rows loaded from the source file
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.ROW_COUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ROW_PARSED
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Number of rows parsed from the source file
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.ROW_PARSED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_ERROR_MESSAGE
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: First error of the source file
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.FIRST_ERROR_MESSAGE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_ERROR_LINE_NUMBER
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Line number of the first error
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.FIRST_ERROR_LINE_NUMBER
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_ERROR_CHARACTER_POSITION
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Position of the first error character
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.FIRST_ERROR_CHARACTER_POSITION
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_ERROR_COL_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: Column name of the first error
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.FIRST_ERROR_COL_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ERROR_COUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Number of error rows in the source file
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.ERROR_COUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ERROR_LIMIT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: "If the number of error reach this limit, then abort"
+    fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA.LOAD_HISTORY.ERROR_LIMIT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 536657c7-fb40-44bf-a54b-1e52cd4a4e88
+  type: databaseSchema
+  name: INFORMATION_SCHEMA
+  fullyQualifiedName: snowflake_testdb.TEST_DB.INFORMATION_SCHEMA
+  description: Views describing the contents of schemas in this database
+  displayName: INFORMATION_SCHEMA
+  deleted: false
+database:
+  id: d91703e3-1fe4-468c-9a05-a4fda40a285b
+  type: database
+  name: TEST_DB
+  fullyQualifiedName: snowflake_testdb.TEST_DB
+  displayName: TEST_DB
+  deleted: false
+service:
+  id: faa5bebf-63a9-4dd8-bfe3-45ecabe49ea5
+  type: databaseService
+  name: snowflake_testdb
+  fullyQualifiedName: snowflake_testdb
+  description: ""
+  displayName: snowflake_testdb
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/eggtndd/jd74081/#/data/databases/TEST_DB/schemas/INFORMATION_SCHEMA/view/LOAD_HISTORY
+domains: []
+dataProducts: []
+sourceHash: 47b506f0dc98910cc262adaf06310d61
+processedLineage: false
+entityStatus: Approved

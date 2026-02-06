@@ -1,0 +1,80 @@
+name: COUNTRIES
+fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.COUNTRIES
+tableType: Regular
+columns:
+  - name: COUNTRY_ID
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: text(2)
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.COUNTRIES.COUNTRY_ID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: COUNTRY_NAME
+    dataType: VARCHAR
+    dataLength: 40
+    dataTypeDisplay: text(40)
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.COUNTRIES.COUNTRY_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: REGION_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.COUNTRIES.REGION_ID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 1eddf5f5-d086-474a-84af-7b4ee8544462
+  type: databaseSchema
+  name: E2E_TEST
+  fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST
+  displayName: E2E_TEST
+  deleted: false
+database:
+  id: be5ce48c-3e7c-49c6-a2bd-cb4c27ce7d54
+  type: database
+  name: E2E_DB
+  fullyQualifiedName: SnowflakeProd.E2E_DB
+  displayName: E2E_DB
+  deleted: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd
+  description: ""
+  displayName: SnowflakeProd
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace TABLE COUNTRIES (\n\tCOUNTRY_ID VARCHAR(2) NOT\
+  \ NULL,\n\tCOUNTRY_NAME VARCHAR(40),\n\tREGION_ID NUMBER(38,0) NOT NULL,\n\tprimary\
+  \ key (COUNTRY_ID)\n);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/tmqlsne/ww42057/#/data/databases/E2E_DB/schemas/E2E_TEST/table/COUNTRIES
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1724667299077
+  accessed:
+    timestamp: 1723334400000
+    accessedByAProcess: TESTOPENMETADATA
+sourceHash: 3442c70e33881baa8c0a3b2fba7d6ffa
+processedLineage: false
+entityStatus: Approved

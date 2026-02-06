@@ -1,0 +1,253 @@
+name: TABLE_STORAGE_METRICS
+fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS
+tableType: View
+columns:
+  - name: TABLE_CATALOG
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: Database that the table belongs to.  Potentially NULL if table is
+      in failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.TABLE_CATALOG
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TABLE_SCHEMA
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: Schema that the table belongs to.  Potentially NULL if table is in
+      failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.TABLE_SCHEMA
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TABLE_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: Name of the table.  Potentially NULL if table is in failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.TABLE_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Unique identifier of the table
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.ID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: CLONE_GROUP_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Unique identifier of the oldest clone ancestor of this table.  Same
+      as this table's ID if it is not a clone.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.CLONE_GROUP_ID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: IS_TRANSIENT
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: text(3)
+    description: "'YES' if table is transient, 'NO' otherwise.  Potentially NULL if\
+      \ table is in failsafe."
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.IS_TRANSIENT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ACTIVE_BYTES
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Bytes in the active version of the table. Some bytes may be billed
+      to another table if this table is a clone.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.ACTIVE_BYTES
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TIME_TRAVEL_BYTES
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Bytes in time travel versions of the table. Some bytes may be billed
+      to another table if this table is a clone
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.TIME_TRAVEL_BYTES
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: FAILSAFE_BYTES
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: Bytes in failsafe versions of the table. All such bytes are billed
+      to this table.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.FAILSAFE_BYTES
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: RETAINED_FOR_CLONE_BYTES
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 0
+    dataTypeDisplay: "number(9,0)"
+    description: "Bytes which used to be owned by this table and are no longer referenced\
+      \ by it. Still, they are retained (and billed) because other clone(s) of that\
+      \ table are still referencing these bytes. Note that the original metadata for\
+      \ this table might have been purged so the table, schema, and database names\
+      \ might be NULL in this case."
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.RETAINED_FOR_CLONE_BYTES
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TABLE_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ltz
+    description: Time at which this table was created.  Potentially NULL if table
+      is in failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.TABLE_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TABLE_DROPPED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ltz
+    description: "Time at which the table was dropped, or NULL.  Potentially NULL\
+      \ if table is in failsafe."
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.TABLE_DROPPED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TABLE_ENTERED_FAILSAFE
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ltz
+    description: "Time at which the table entered the failsafe state, or NULL.  Potentially\
+      \ NULL if table is in failsafe."
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.TABLE_ENTERED_FAILSAFE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CATALOG_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ltz
+    description: Time at which the database was created.  Potentially NULL if table
+      is in failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.CATALOG_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CATALOG_DROPPED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ltz
+    description: Time at which the database was dropped.  Potentially NULL if table
+      is past failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.CATALOG_DROPPED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SCHEMA_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ltz
+    description: Time at which the schema was created.  Potentially NULL if table
+      is past failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.SCHEMA_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SCHEMA_DROPPED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ltz
+    description: Time at which the schema was dropped.  Potentially NULL if table
+      is in failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.SCHEMA_DROPPED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: COMMENT
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    description: Table's comment.  Potentially NULL if table is in failsafe.
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA.TABLE_STORAGE_METRICS.COMMENT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 68ba3639-6dd8-4287-95c3-a6b8f3da2a41
+  type: databaseSchema
+  name: INFORMATION_SCHEMA
+  fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.INFORMATION_SCHEMA
+  description: Views describing the contents of schemas in this database
+  displayName: INFORMATION_SCHEMA
+  deleted: false
+database:
+  id: fad476d7-10f6-4297-8cd9-115cf201fc5d
+  type: database
+  name: DEMO_STAGE_2
+  fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2
+  displayName: DEMO_STAGE_2
+  deleted: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd
+  description: ""
+  displayName: SnowflakeProd
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/nxxicwj/ax71538/#/data/databases/DEMO_STAGE_2/schemas/INFORMATION_SCHEMA/view/TABLE_STORAGE_METRICS
+domains: []
+dataProducts: []
+sourceHash: 4678e7ac7be96e8e9729da37b6ce3365
+processedLineage: false
+entityStatus: Approved

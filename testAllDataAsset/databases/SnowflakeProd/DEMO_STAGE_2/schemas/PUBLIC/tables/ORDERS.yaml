@@ -1,0 +1,81 @@
+name: ORDERS
+fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.PUBLIC.ORDERS
+tableType: Regular
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.PUBLIC.ORDERS.ID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: CUSTOMER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.PUBLIC.ORDERS.CUSTOMER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: AMOUNT
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.PUBLIC.ORDERS.AMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CUSTOMER_ID
+    referredColumns:
+      - SnowflakeProd.DEMO_STAGE.PUBLIC.CUSTOMER.ID
+owners: []
+databaseSchema:
+  id: 98595d96-cf6e-451c-9e80-52ba6b8c614b
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: fad476d7-10f6-4297-8cd9-115cf201fc5d
+  type: database
+  name: DEMO_STAGE_2
+  fullyQualifiedName: SnowflakeProd.DEMO_STAGE_2
+  displayName: DEMO_STAGE_2
+  deleted: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd
+  description: ""
+  displayName: SnowflakeProd
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/nxxicwj/ax71538/#/data/databases/DEMO_STAGE_2/schemas/PUBLIC/table/ORDERS
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1712775649645
+sourceHash: 5dea0ad2f3e43b52b91773dbe75dcf0d
+processedLineage: false
+entityStatus: Approved
