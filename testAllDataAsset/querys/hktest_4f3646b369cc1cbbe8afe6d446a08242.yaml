@@ -1,0 +1,35 @@
+name: 4f3646b369cc1cbbe8afe6d446a08242
+fullyQualifiedName: hktest.4f3646b369cc1cbbe8afe6d446a08242
+owners: []
+duration: 125.0
+users: []
+query: "WITH \"251d5be6c2243ba771425aa88477c04d_rnd\" AS \n(SELECT \"PARTSUPP_1\"\
+  .\"PS_AVAILQTY\" AS \"PS_AVAILQTY\" \nFROM \"TPCH_SF1\".\"PARTSUPP\" AS \"PARTSUPP_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"251d5be6c2243ba771425aa88477c04d_sample\" AS \n\
+  (SELECT \"251d5be6c2243ba771425aa88477c04d_rnd\".\"PS_AVAILQTY\" AS \"PS_AVAILQTY\"\
+  \ \nFROM \"251d5be6c2243ba771425aa88477c04d_rnd\")\n SELECT count(CASE WHEN (\"\
+  PS_AVAILQTY\" >= ? AND \"PS_AVAILQTY\" < ?) THEN \"PS_AVAILQTY\" END) AS \"323.000\
+  \ to 3.112K\", count(CASE WHEN (\"PS_AVAILQTY\" >= ? AND \"PS_AVAILQTY\" < ?) THEN\
+  \ \"PS_AVAILQTY\" END) AS \"3.112K to 5.901K\", count(CASE WHEN (\"PS_AVAILQTY\"\
+  \ >= ? AND \"PS_AVAILQTY\" < ?) THEN \"PS_AVAILQTY\" END) AS \"5.901K to 8.690K\"\
+  , count(CASE WHEN (\"PS_AVAILQTY\" >= ?) THEN \"PS_AVAILQTY\" END) AS \"8.690K and\
+  \ up\" \nFROM \"251d5be6c2243ba771425aa88477c04d_sample\"\n LIMIT ?"
+checksum: 4f3646b369cc1cbbe8afe6d446a08242
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ba0b673e-2967-483d-bf95-f4f3b99305c6
+    type: table
+    name: PARTSUPP
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PARTSUPP
+    description: Partsupp data as defined by TPC-H
+    displayName: PARTSUPP
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

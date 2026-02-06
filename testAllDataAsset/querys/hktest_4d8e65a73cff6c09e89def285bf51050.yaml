@@ -1,0 +1,40 @@
+name: 4d8e65a73cff6c09e89def285bf51050
+fullyQualifiedName: hktest.4d8e65a73cff6c09e89def285bf51050
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0b565859-50f2-4c96-b4f3-2abd5feeecb1\",\"type\":\"table\"\
+        ,\"name\":\"LINEITEM\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM\"\
+        ,\"description\":\"Lineitem data as defined by TPC-H\",\"displayName\":\"\
+        LINEITEM\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 512.0
+users: []
+query: "SELECT avg(\"L_SUPPKEY\") AS mean, count(\"L_SUPPKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"L_SUPPKEY\") AS \"distinctCount\", MIN(\"L_SUPPKEY\") AS min,\
+  \ MAX(\"L_SUPPKEY\") AS max, coalesce(SUM(CASE WHEN (\"L_SUPPKEY\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"L_SUPPKEY\") AS stddev, SUM(\"\
+  L_SUPPKEY\") AS sum \nFROM \"TPCH_SF1\".\"LINEITEM\"\n LIMIT ?"
+checksum: 4d8e65a73cff6c09e89def285bf51050
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b565859-50f2-4c96-b4f3-2abd5feeecb1
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

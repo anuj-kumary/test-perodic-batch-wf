@@ -1,0 +1,30 @@
+name: 4ef5840ca7588ab1dd466757e78eafb1
+fullyQualifiedName: hktest.4ef5840ca7588ab1dd466757e78eafb1
+owners: []
+duration: 73.0
+users: []
+query: "SELECT avg(LEN(\"CONT_ORIGINAL_ISS_DATE\")) AS mean, count(\"CONT_ORIGINAL_ISS_DATE\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CONT_ORIGINAL_ISS_DATE\") AS \"distinctCount\"\
+  , MIN(LEN(\"CONT_ORIGINAL_ISS_DATE\")) AS min, MAX(LEN(\"CONT_ORIGINAL_ISS_DATE\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"CONT_ORIGINAL_ISS_DATE\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"CONT_ORIGINAL_ISS_DATE\")) AS stddev,\
+  \ SUM(LEN(\"CONT_ORIGINAL_ISS_DATE\")) AS sum \nFROM \"CURATED\".\"CONT\"\n LIMIT\
+  \ ?"
+checksum: 4ef5840ca7588ab1dd466757e78eafb1
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

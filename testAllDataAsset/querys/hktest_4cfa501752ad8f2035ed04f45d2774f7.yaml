@@ -1,0 +1,33 @@
+name: 4cfa501752ad8f2035ed04f45d2774f7
+fullyQualifiedName: hktest.4cfa501752ad8f2035ed04f45d2774f7
+owners: []
+duration: 107.0
+users: []
+query: "WITH \"1301ccfe5993f8410d241f4d575945c8_rnd\" AS \n(SELECT \"TIME_DIM_1\"\
+  .\"T_MEAL_TIME\" AS \"T_MEAL_TIME\" \nFROM \"TPCDS_SF10TCL\".\"TIME_DIM\" AS \"\
+  TIME_DIM_1\" TABLESAMPLE ROW(? ROWS)), \n\"1301ccfe5993f8410d241f4d575945c8_sample\"\
+  \ AS \n(SELECT \"1301ccfe5993f8410d241f4d575945c8_rnd\".\"T_MEAL_TIME\" AS \"T_MEAL_TIME\"\
+  \ \nFROM \"1301ccfe5993f8410d241f4d575945c8_rnd\")\n SELECT avg(LEN(\"T_MEAL_TIME\"\
+  )) AS mean, count(\"T_MEAL_TIME\") AS \"valuesCount\", count(DISTINCT \"T_MEAL_TIME\"\
+  ) AS \"distinctCount\", MIN(LEN(\"T_MEAL_TIME\")) AS min, MAX(LEN(\"T_MEAL_TIME\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"T_MEAL_TIME\" IS ?) THEN ? ELSE ? END), ?)\
+  \ AS \"nullCount\", STDDEV_POP(LEN(\"T_MEAL_TIME\")) AS stddev, SUM(LEN(\"T_MEAL_TIME\"\
+  )) AS sum \nFROM \"1301ccfe5993f8410d241f4d575945c8_sample\"\n LIMIT ?"
+checksum: 4cfa501752ad8f2035ed04f45d2774f7
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 1b1e42e5-1548-4606-a964-064e7e20378d
+    type: table
+    name: TIME_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.TIME_DIM
+    displayName: TIME_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

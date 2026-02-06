@@ -1,0 +1,40 @@
+name: 4d2009451b78908acfa2cae2e79c2345
+fullyQualifiedName: hktest.4d2009451b78908acfa2cae2e79c2345
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b61c5123-d022-4b6e-810b-f35b41e4ab82\",\"type\":\"table\"\
+        ,\"name\":\"CUSTOMER\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER\"\
+        ,\"description\":\"Customer data as defined by TPC-H\",\"displayName\":\"\
+        CUSTOMER\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 85.0
+users: []
+query: "SELECT avg(LEN(\"C_NAME\")) AS mean, count(\"C_NAME\") AS \"valuesCount\"\
+  , count(DISTINCT \"C_NAME\") AS \"distinctCount\", MIN(LEN(\"C_NAME\")) AS min,\
+  \ MAX(LEN(\"C_NAME\")) AS max, coalesce(SUM(CASE WHEN (\"C_NAME\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"C_NAME\")) AS stddev, SUM(LEN(\"\
+  C_NAME\")) AS sum \nFROM \"TPCH_SF1\".\"CUSTOMER\"\n LIMIT ?"
+checksum: 4d2009451b78908acfa2cae2e79c2345
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b61c5123-d022-4b6e-810b-f35b41e4ab82
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

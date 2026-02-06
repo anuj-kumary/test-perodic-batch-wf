@@ -1,0 +1,33 @@
+name: 478728b96c620c71dfb130883e65119d
+fullyQualifiedName: hktest.478728b96c620c71dfb130883e65119d
+owners: []
+duration: 668.0
+users: []
+query: "WITH d6def3b6c248e09592da506240613bd9_rnd AS \n(SELECT \"LINEITEM_1\".\"L_COMMENT\"\
+  \ AS \"L_COMMENT\" \nFROM \"TPCH_SF10\".\"LINEITEM\" AS \"LINEITEM_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nd6def3b6c248e09592da506240613bd9_sample AS \n(SELECT d6def3b6c248e09592da506240613bd9_rnd.\"\
+  L_COMMENT\" AS \"L_COMMENT\" \nFROM d6def3b6c248e09592da506240613bd9_rnd)\n SELECT\
+  \ count(CASE WHEN (LEN(\"L_COMMENT\") >= ? AND LEN(\"L_COMMENT\") < ?) THEN LEN(\"\
+  L_COMMENT\") END) AS \"11.000 to 22.265\", count(CASE WHEN (LEN(\"L_COMMENT\") >=\
+  \ ? AND LEN(\"L_COMMENT\") < ?) THEN LEN(\"L_COMMENT\") END) AS \"22.265 to 33.530\"\
+  , count(CASE WHEN (LEN(\"L_COMMENT\") >= ?) THEN LEN(\"L_COMMENT\") END) AS \"33.530\
+  \ and up\" \nFROM d6def3b6c248e09592da506240613bd9_sample\n LIMIT ?"
+checksum: 478728b96c620c71dfb130883e65119d
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 98e57e0d-b1b7-4dd8-ae1e-418bef3de0ed
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

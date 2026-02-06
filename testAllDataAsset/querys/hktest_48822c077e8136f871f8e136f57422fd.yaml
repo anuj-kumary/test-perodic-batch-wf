@@ -1,0 +1,33 @@
+name: 48822c077e8136f871f8e136f57422fd
+fullyQualifiedName: hktest.48822c077e8136f871f8e136f57422fd
+owners: []
+duration: 1146.0
+users: []
+query: "WITH \"251d5be6c2243ba771425aa88477c04d_rnd\" AS \n(SELECT \"PARTSUPP_1\"\
+  .\"PS_SUPPLYCOST\" AS \"PS_SUPPLYCOST\" \nFROM \"TPCH_SF1000\".\"PARTSUPP\" AS \"\
+  PARTSUPP_1\" TABLESAMPLE ROW(? ROWS)), \n\"251d5be6c2243ba771425aa88477c04d_sample\"\
+  \ AS \n(SELECT \"251d5be6c2243ba771425aa88477c04d_rnd\".\"PS_SUPPLYCOST\" AS \"\
+  PS_SUPPLYCOST\" \nFROM \"251d5be6c2243ba771425aa88477c04d_rnd\")\n SELECT percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY \"PS_SUPPLYCOST\" ASC) AS median, percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY \"PS_SUPPLYCOST\" ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY \"PS_SUPPLYCOST\" ASC) AS \"thirdQuartile\" \nFROM \"251d5be6c2243ba771425aa88477c04d_sample\"\
+  \n LIMIT ?"
+checksum: 48822c077e8136f871f8e136f57422fd
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 91be5eb1-5461-49c7-a1d2-4f8477868386
+    type: table
+    name: PARTSUPP
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP
+    description: Partsupp data as defined by TPC-H
+    displayName: PARTSUPP
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

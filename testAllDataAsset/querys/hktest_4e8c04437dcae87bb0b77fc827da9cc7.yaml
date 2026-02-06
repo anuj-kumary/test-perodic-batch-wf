@@ -1,0 +1,34 @@
+name: 4e8c04437dcae87bb0b77fc827da9cc7
+fullyQualifiedName: hktest.4e8c04437dcae87bb0b77fc827da9cc7
+owners: []
+duration: 173.0
+users: []
+query: "WITH \"15e219364c9158944561b60284e81c87_rnd\" AS \n(SELECT \"DATE_DIM_1\"\
+  .\"D_SAME_DAY_LQ\" AS \"D_SAME_DAY_LQ\" \nFROM \"TPCDS_SF10TCL\".\"DATE_DIM\" AS\
+  \ \"DATE_DIM_1\" TABLESAMPLE ROW(? ROWS)), \n\"15e219364c9158944561b60284e81c87_sample\"\
+  \ AS \n(SELECT \"15e219364c9158944561b60284e81c87_rnd\".\"D_SAME_DAY_LQ\" AS \"\
+  D_SAME_DAY_LQ\" \nFROM \"15e219364c9158944561b60284e81c87_rnd\")\n SELECT avg(\"\
+  D_SAME_DAY_LQ\") AS mean, count(\"D_SAME_DAY_LQ\") AS \"valuesCount\", count(DISTINCT\
+  \ \"D_SAME_DAY_LQ\") AS \"distinctCount\", MIN(\"D_SAME_DAY_LQ\") AS min, MAX(\"\
+  D_SAME_DAY_LQ\") AS max, coalesce(SUM(CASE WHEN (\"D_SAME_DAY_LQ\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"D_SAME_DAY_LQ\") AS stddev, SUM(\"\
+  D_SAME_DAY_LQ\") AS sum \nFROM \"15e219364c9158944561b60284e81c87_sample\"\n LIMIT\
+  \ ?"
+checksum: 4e8c04437dcae87bb0b77fc827da9cc7
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0521e7ab-e00a-4d08-89fe-da2a09bf0978
+    type: table
+    name: DATE_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.DATE_DIM
+    displayName: DATE_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

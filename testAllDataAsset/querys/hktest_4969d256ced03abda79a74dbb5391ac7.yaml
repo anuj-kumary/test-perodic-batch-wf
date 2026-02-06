@@ -1,0 +1,34 @@
+name: 4969d256ced03abda79a74dbb5391ac7
+fullyQualifiedName: hktest.4969d256ced03abda79a74dbb5391ac7
+owners: []
+duration: 99.0
+users: []
+query: "WITH \"3ba600b22d9bdd208addfc7e734daa56_rnd\" AS \n(SELECT \"PROMOTION_1\"\
+  .\"P_CHANNEL_RADIO\" AS \"P_CHANNEL_RADIO\" \nFROM \"TPCDS_SF10TCL\".\"PROMOTION\"\
+  \ AS \"PROMOTION_1\" TABLESAMPLE ROW(? ROWS)), \n\"3ba600b22d9bdd208addfc7e734daa56_sample\"\
+  \ AS \n(SELECT \"3ba600b22d9bdd208addfc7e734daa56_rnd\".\"P_CHANNEL_RADIO\" AS \"\
+  P_CHANNEL_RADIO\" \nFROM \"3ba600b22d9bdd208addfc7e734daa56_rnd\")\n SELECT avg(LEN(\"\
+  P_CHANNEL_RADIO\")) AS mean, count(\"P_CHANNEL_RADIO\") AS \"valuesCount\", count(DISTINCT\
+  \ \"P_CHANNEL_RADIO\") AS \"distinctCount\", MIN(LEN(\"P_CHANNEL_RADIO\")) AS min,\
+  \ MAX(LEN(\"P_CHANNEL_RADIO\")) AS max, coalesce(SUM(CASE WHEN (\"P_CHANNEL_RADIO\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"P_CHANNEL_RADIO\"\
+  )) AS stddev, SUM(LEN(\"P_CHANNEL_RADIO\")) AS sum \nFROM \"3ba600b22d9bdd208addfc7e734daa56_sample\"\
+  \n LIMIT ?"
+checksum: 4969d256ced03abda79a74dbb5391ac7
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 98589dfc-124b-44f8-8453-2f5912d1bf05
+    type: table
+    name: PROMOTION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.PROMOTION
+    displayName: PROMOTION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

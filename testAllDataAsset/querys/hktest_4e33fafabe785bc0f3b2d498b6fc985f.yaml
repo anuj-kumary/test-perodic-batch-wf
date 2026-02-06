@@ -1,0 +1,40 @@
+name: 4e33fafabe785bc0f3b2d498b6fc985f
+fullyQualifiedName: hktest.4e33fafabe785bc0f3b2d498b6fc985f
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"d121e49b-a72f-4cb2-a739-b4f79f844a69\",\"type\":\"table\"\
+        ,\"name\":\"NATION\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.NATION\"\
+        ,\"description\":\"Nation data as defined by TPC-H\",\"displayName\":\"NATION\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 71.0
+users: []
+query: "SELECT avg(\"N_REGIONKEY\") AS mean, count(\"N_REGIONKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"N_REGIONKEY\") AS \"distinctCount\", MIN(\"N_REGIONKEY\") AS\
+  \ min, MAX(\"N_REGIONKEY\") AS max, coalesce(SUM(CASE WHEN (\"N_REGIONKEY\" IS ?)\
+  \ THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"N_REGIONKEY\") AS stddev,\
+  \ SUM(\"N_REGIONKEY\") AS sum \nFROM \"TPCH_SF1\".\"NATION\"\n LIMIT ?"
+checksum: 4e33fafabe785bc0f3b2d498b6fc985f
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d121e49b-a72f-4cb2-a739-b4f79f844a69
+    type: table
+    name: NATION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.NATION
+    description: Nation data as defined by TPC-H
+    displayName: NATION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

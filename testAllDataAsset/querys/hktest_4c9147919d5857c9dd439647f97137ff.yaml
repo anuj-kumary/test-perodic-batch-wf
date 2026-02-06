@@ -1,0 +1,32 @@
+name: 4c9147919d5857c9dd439647f97137ff
+fullyQualifiedName: hktest.4c9147919d5857c9dd439647f97137ff
+owners: []
+duration: 90.0
+users: []
+query: "WITH \"3ba600b22d9bdd208addfc7e734daa56_rnd\" AS \n(SELECT \"PROMOTION_1\"\
+  .\"P_COST\" AS \"P_COST\" \nFROM \"TPCDS_SF100TCL\".\"PROMOTION\" AS \"PROMOTION_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"3ba600b22d9bdd208addfc7e734daa56_sample\" AS \n\
+  (SELECT \"3ba600b22d9bdd208addfc7e734daa56_rnd\".\"P_COST\" AS \"P_COST\" \nFROM\
+  \ \"3ba600b22d9bdd208addfc7e734daa56_rnd\")\n SELECT percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY \"P_COST\" ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY\
+  \ \"P_COST\" ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY\
+  \ \"P_COST\" ASC) AS \"thirdQuartile\" \nFROM \"3ba600b22d9bdd208addfc7e734daa56_sample\"\
+  \n LIMIT ?"
+checksum: 4c9147919d5857c9dd439647f97137ff
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 1879032e-ea36-40ca-b5f0-5127dc3626dc
+    type: table
+    name: PROMOTION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.PROMOTION
+    displayName: PROMOTION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,31 @@
+name: 48abb4ede7d3f62425af82f604df3c80
+fullyQualifiedName: hktest.48abb4ede7d3f62425af82f604df3c80
+owners: []
+duration: 86.0
+users: []
+query: "WITH da2424e90a319ddb1df8355481ec154d_rnd AS \n(SELECT \"BANKACCOUNT_1\".\"\
+  DATEOPENED\" AS \"DATEOPENED\" \nFROM \"MSSQLBANKING_ACCOUNT\".\"BANKACCOUNT\" AS\
+  \ \"BANKACCOUNT_1\" TABLESAMPLE ROW(? ROWS)), \nda2424e90a319ddb1df8355481ec154d_sample\
+  \ AS \n(SELECT da2424e90a319ddb1df8355481ec154d_rnd.\"DATEOPENED\" AS \"DATEOPENED\"\
+  \ \nFROM da2424e90a319ddb1df8355481ec154d_rnd)\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"DATEOPENED\") AS count_1 \nFROM da2424e90a319ddb1df8355481ec154d_sample\
+  \ GROUP BY \"DATEOPENED\" \nHAVING count(\"DATEOPENED\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 48abb4ede7d3f62425af82f604df3c80
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 6f76a5d5-3b77-43b8-9af6-d88def60b362
+    type: table
+    name: BANKACCOUNT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.BANKACCOUNT
+    displayName: BANKACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

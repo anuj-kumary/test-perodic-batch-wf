@@ -1,0 +1,34 @@
+name: 4f1b32dfdc666e7d73b0736cd1853486
+fullyQualifiedName: hktest.4f1b32dfdc666e7d73b0736cd1853486
+owners: []
+duration: 549.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_LIST_PRICE\" AS \"WS_LIST_PRICE\" \nFROM \"TPCDS_SF10TCL\".\"WEB_SALES\" AS\
+  \ \"WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_LIST_PRICE\" AS \"\
+  WS_LIST_PRICE\" \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n SELECT avg(\"\
+  WS_LIST_PRICE\") AS mean, count(\"WS_LIST_PRICE\") AS \"valuesCount\", count(DISTINCT\
+  \ \"WS_LIST_PRICE\") AS \"distinctCount\", MIN(\"WS_LIST_PRICE\") AS min, MAX(\"\
+  WS_LIST_PRICE\") AS max, coalesce(SUM(CASE WHEN (\"WS_LIST_PRICE\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"WS_LIST_PRICE\") AS stddev, SUM(\"\
+  WS_LIST_PRICE\") AS sum \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\"\n LIMIT\
+  \ ?"
+checksum: 4f1b32dfdc666e7d73b0736cd1853486
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: fe6947d0-4f65-437f-a917-f1853723e385
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

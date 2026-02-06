@@ -1,0 +1,53 @@
+name: 4ee508437ced801e22f99dd91aced979
+fullyQualifiedName: hktest.4ee508437ced801e22f99dd91aced979
+owners: []
+duration: 635.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_NET_PROFIT\" AS \"WS_NET_PROFIT\" \nFROM \"TPCDS_SF100TCL\".\"WEB_SALES\"\
+  \ AS \"WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_NET_PROFIT\" AS \"\
+  WS_NET_PROFIT\" \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n SELECT count(CASE\
+  \ WHEN (\"WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\"\
+  \ END) AS \"-5.139K to -4.007K\", count(CASE WHEN (\"WS_NET_PROFIT\" >= ? AND \"\
+  WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\" END) AS \"-4.007K to -2.875K\", count(CASE\
+  \ WHEN (\"WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\"\
+  \ END) AS \"-2.875K to -1.743K\", count(CASE WHEN (\"WS_NET_PROFIT\" >= ? AND \"\
+  WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\" END) AS \"-1.743K to -611.435\", count(CASE\
+  \ WHEN (\"WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\"\
+  \ END) AS \"-611.435 to 520.452\", count(CASE WHEN (\"WS_NET_PROFIT\" >= ? AND \"\
+  WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\" END) AS \"520.452 to 1.652K\", count(CASE\
+  \ WHEN (\"WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\"\
+  \ END) AS \"1.652K to 2.784K\", count(CASE WHEN (\"WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\"\
+  \ < ?) THEN \"WS_NET_PROFIT\" END) AS \"2.784K to 3.916K\", count(CASE WHEN (\"\
+  WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\" END) AS \"\
+  3.916K to 5.048K\", count(CASE WHEN (\"WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\"\
+  \ < ?) THEN \"WS_NET_PROFIT\" END) AS \"5.048K to 6.180K\", count(CASE WHEN (\"\
+  WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\" END) AS \"\
+  6.180K to 7.312K\", count(CASE WHEN (\"WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\"\
+  \ < ?) THEN \"WS_NET_PROFIT\" END) AS \"7.312K to 8.444K\", count(CASE WHEN (\"\
+  WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\" END) AS \"\
+  8.444K to 9.576K\", count(CASE WHEN (\"WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\"\
+  \ < ?) THEN \"WS_NET_PROFIT\" END) AS \"9.576K to 10.707K\", count(CASE WHEN (\"\
+  WS_NET_PROFIT\" >= ? AND \"WS_NET_PROFIT\" < ?) THEN \"WS_NET_PROFIT\" END) AS \"\
+  10.707K to 11.839K\", count(CASE WHEN (\"WS_NET_PROFIT\" >= ?) THEN \"WS_NET_PROFIT\"\
+  \ END) AS \"11.839K and up\" \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\"\n\
+  \ LIMIT ?"
+checksum: 4ee508437ced801e22f99dd91aced979
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7f12a8b5-822b-4eb5-97e2-6d3a4cb1ca7e
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
