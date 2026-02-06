@@ -1,0 +1,94 @@
+name: mv_test
+fullyQualifiedName: oracle_test.default.admin.mv_test
+tableType: MaterializedView
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    fullyQualifiedName: oracle_test.default.admin.mv_test.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: created_at
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: oracle_test.default.admin.mv_test.created_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: created_datetime
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    fullyQualifiedName: oracle_test.default.admin.mv_test.created_datetime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: varchar2(256)
+    fullyQualifiedName: oracle_test.default.admin.mv_test.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f641e097-d2e8-4e7f-9b92-f4b8b6b87a7e
+  type: databaseSchema
+  name: admin
+  fullyQualifiedName: oracle_test.default.admin
+  displayName: admin
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+schemaDefinition: "CREATE MATERIALIZED VIEW \"ADMIN\".\"MV_TEST\" (\"ID\", \"CREATED_AT\"\
+  , \"CREATED_DATETIME\", \"NAME\")\n  SEGMENT CREATION IMMEDIATE\n  ORGANIZATION\
+  \ HEAP PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 \n NOCOMPRESS LOGGING\n  STORAGE(INITIAL\
+  \ 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645\n  PCTINCREASE 0 FREELISTS\
+  \ 1 FREELIST GROUPS 1\n  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE\
+  \ DEFAULT)\n  TABLESPACE \"USERS\" \n  BUILD IMMEDIATE\n  USING INDEX \n  REFRESH\
+  \ FORCE ON DEMAND\n  USING DEFAULT LOCAL ROLLBACK SEGMENT\n  USING ENFORCED CONSTRAINTS\
+  \ DISABLE ON QUERY COMPUTATION DISABLE QUERY REWRITE\n  AS SELECT * FROM NEW_USER\
+  \ nu"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 57508c607a901bc590b11d8783fd377e
+      newValue: 81c66df5f259f8f5f9531d473c08559d
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: 81c66df5f259f8f5f9531d473c08559d
+processedLineage: false
+entityStatus: Approved
