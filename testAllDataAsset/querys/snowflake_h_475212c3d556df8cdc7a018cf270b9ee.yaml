@@ -1,0 +1,39 @@
+name: 475212c3d556df8cdc7a018cf270b9ee
+fullyQualifiedName: snowflake_h.475212c3d556df8cdc7a018cf270b9ee
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 2759329.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_ITEM_SK\" AS \"CS_ITEM_SK\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_SALES\" AS\
+  \ \"CATALOG_SALES_1\" TABLESAMPLE bernoulli(?)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_ITEM_SK\" AS \"CS_ITEM_SK\"\
+  \ \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"CS_ITEM_SK\") AS count_1 \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\
+  \ GROUP BY \"CS_ITEM_SK\" \nHAVING count(\"CS_ITEM_SK\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 475212c3d556df8cdc7a018cf270b9ee
+queryDate: 1740873600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8429ffb6-97ac-4fdd-9534-55b0d18846ae
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

@@ -1,0 +1,43 @@
+name: 4126e513f1303af344fa6a036a43a08d
+fullyQualifiedName: snowflake_h.4126e513f1303af344fa6a036a43a08d
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 6915596.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_NET_PAID_INC_SHIP_TAX\" AS \"CS_NET_PAID_INC_SHIP_TAX\" \nFROM \"TPCDS_SF10TCL\"\
+  .\"CATALOG_SALES\" AS \"CATALOG_SALES_1\" TABLESAMPLE bernoulli(?)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_NET_PAID_INC_SHIP_TAX\"\
+  \ AS \"CS_NET_PAID_INC_SHIP_TAX\" \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n\
+  \ SELECT avg(\"CS_NET_PAID_INC_SHIP_TAX\") AS mean, count(\"CS_NET_PAID_INC_SHIP_TAX\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CS_NET_PAID_INC_SHIP_TAX\") AS \"distinctCount\"\
+  , MIN(\"CS_NET_PAID_INC_SHIP_TAX\") AS min, MAX(\"CS_NET_PAID_INC_SHIP_TAX\") AS\
+  \ max, coalesce(SUM(CASE WHEN (\"CS_NET_PAID_INC_SHIP_TAX\" IS ?) THEN ? ELSE ?\
+  \ END), ?) AS \"nullCount\", STDDEV_POP(\"CS_NET_PAID_INC_SHIP_TAX\") AS stddev,\
+  \ SUM(\"CS_NET_PAID_INC_SHIP_TAX\") AS sum \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\n\
+  \ LIMIT ?"
+checksum: 4126e513f1303af344fa6a036a43a08d
+queryDate: 1740873600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: c461b611-7095-4fe8-80a8-517160d4c2f9
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

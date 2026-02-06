@@ -1,0 +1,43 @@
+name: 743ed80309f215c50ab47bc6bcd74074
+fullyQualifiedName: snowflake_h.743ed80309f215c50ab47bc6bcd74074
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.3
+owners: []
+duration: 690.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_MKT_DESC\" AS \"CC_MKT_DESC\" \nFROM \"TPCDS_SF100TCL\".\"CALL_CENTER\" AS\
+  \ \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_MKT_DESC\" AS \"CC_MKT_DESC\"\
+  \ \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT count(CASE WHEN (LEN(\"\
+  CC_MKT_DESC\") >= ? AND LEN(\"CC_MKT_DESC\") < ?) THEN LEN(\"CC_MKT_DESC\") END)\
+  \ AS \"20.000 to 43.500\", count(CASE WHEN (LEN(\"CC_MKT_DESC\") >= ? AND LEN(\"\
+  CC_MKT_DESC\") < ?) THEN LEN(\"CC_MKT_DESC\") END) AS \"43.500 to 67.000\", count(CASE\
+  \ WHEN (LEN(\"CC_MKT_DESC\") >= ? AND LEN(\"CC_MKT_DESC\") < ?) THEN LEN(\"CC_MKT_DESC\"\
+  ) END) AS \"67.000 to 90.500\", count(CASE WHEN (LEN(\"CC_MKT_DESC\") >= ?) THEN\
+  \ LEN(\"CC_MKT_DESC\") END) AS \"90.500 and up\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \n LIMIT ?"
+checksum: 743ed80309f215c50ab47bc6bcd74074
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: bba6f759-7b48-4471-8c63-197e2e790c23
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

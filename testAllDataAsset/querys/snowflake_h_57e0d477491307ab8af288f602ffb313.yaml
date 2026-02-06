@@ -1,0 +1,42 @@
+name: 57e0d477491307ab8af288f602ffb313
+fullyQualifiedName: snowflake_h.57e0d477491307ab8af288f602ffb313
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 680.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_DIVISION\" AS \"CC_DIVISION\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\" AS\
+  \ \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_DIVISION\" AS \"CC_DIVISION\"\
+  \ \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT count(CASE WHEN (\"\
+  CC_DIVISION\" >= ? AND \"CC_DIVISION\" < ?) THEN \"CC_DIVISION\" END) AS \"1.000\
+  \ to 2.587\", count(CASE WHEN (\"CC_DIVISION\" >= ? AND \"CC_DIVISION\" < ?) THEN\
+  \ \"CC_DIVISION\" END) AS \"2.587 to 4.175\", count(CASE WHEN (\"CC_DIVISION\" >=\
+  \ ? AND \"CC_DIVISION\" < ?) THEN \"CC_DIVISION\" END) AS \"4.175 to 5.762\", count(CASE\
+  \ WHEN (\"CC_DIVISION\" >= ?) THEN \"CC_DIVISION\" END) AS \"5.762 and up\" \nFROM\
+  \ \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\n LIMIT ?"
+checksum: 57e0d477491307ab8af288f602ffb313
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8f88fae3-bb61-4f94-965c-92c9c6fa423f
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

@@ -1,0 +1,41 @@
+name: 34b75d46767d7729cfa03df641013f74
+fullyQualifiedName: snowflake_h.34b75d46767d7729cfa03df641013f74
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.3
+owners: []
+duration: 354056.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_RETURNED_TIME_SK\" AS \"CR_RETURNED_TIME_SK\" \nFROM \"TPCDS_SF10TCL\".\"\
+  CATALOG_RETURNS\" AS \"CATALOG_RETURNS_1\" TABLESAMPLE bernoulli(?)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_RETURNED_TIME_SK\"\
+  \ AS \"CR_RETURNED_TIME_SK\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"CR_RETURNED_TIME_SK\" ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY \"CR_RETURNED_TIME_SK\" ASC)\
+  \ AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY \"CR_RETURNED_TIME_SK\"\
+  \ ASC) AS \"thirdQuartile\" \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\"\n\
+  \ LIMIT ?"
+checksum: 34b75d46767d7729cfa03df641013f74
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8f94907f-a235-49a3-a963-4ca6ea13db1c
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h

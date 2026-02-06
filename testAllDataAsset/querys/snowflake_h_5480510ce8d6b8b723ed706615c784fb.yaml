@@ -1,0 +1,41 @@
+name: 5480510ce8d6b8b723ed706615c784fb
+fullyQualifiedName: snowflake_h.5480510ce8d6b8b723ed706615c784fb
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.3
+owners: []
+duration: 4454411.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_WAREHOUSE_SK\" AS \"CS_WAREHOUSE_SK\" \nFROM \"TPCDS_SF10TCL\".\"CATALOG_SALES\"\
+  \ AS \"CATALOG_SALES_1\" TABLESAMPLE bernoulli(?)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_WAREHOUSE_SK\" AS \"CS_WAREHOUSE_SK\"\
+  \ \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n SELECT avg(\"CS_WAREHOUSE_SK\"\
+  ) AS mean, count(\"CS_WAREHOUSE_SK\") AS \"valuesCount\", count(DISTINCT \"CS_WAREHOUSE_SK\"\
+  ) AS \"distinctCount\", MIN(\"CS_WAREHOUSE_SK\") AS min, MAX(\"CS_WAREHOUSE_SK\"\
+  ) AS max, coalesce(SUM(CASE WHEN (\"CS_WAREHOUSE_SK\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(\"CS_WAREHOUSE_SK\") AS stddev, SUM(\"CS_WAREHOUSE_SK\"\
+  ) AS sum \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\n LIMIT ?"
+checksum: 5480510ce8d6b8b723ed706615c784fb
+queryDate: 1740873600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: c461b611-7095-4fe8-80a8-517160d4c2f9
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h
