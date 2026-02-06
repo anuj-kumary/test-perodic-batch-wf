@@ -1,0 +1,148 @@
+name: OpenMetadata
+fullyQualifiedName: OpenMetadata
+displayName: OpenMetadata Service
+serviceType: OpenMetadata
+description: Service Used for creating OpenMetadata Ingestion Pipelines.
+connection:
+  config:
+    type: OpenMetadata
+    hostPort: http://collate.sandbox-beta.svc:8585/api
+    verifySSL: no-ssl
+    apiVersion: v1
+    clusterName: sandbox-beta
+    includeTags: true
+    authProvider: openmetadata
+    includeTeams: true
+    includeUsers: true
+    limitRecords: 1000
+    includePolicy: true
+    includeTables: true
+    includeTopics: true
+    elasticsSearch:
+      type: elasticsearch
+      config:
+        scheme: http
+        es_host: opensearch-cluster-master
+        es_port: 9200
+        es_password: ""
+        es_username: ""
+    securityConfig:
+      jwtToken: eyJraWQiOiJHYjM4OWEtOWY3Ni1nZGpzLWE5MmotMDI0MmJrOTQzNTYiLCJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnZXRjb2xsYXRlLmlvIiwic3ViIjoiaW5nZXN0aW9uLWJvdCIsInJvbGVzIjpbIkluZ2VzdGlvbkJvdFJvbGUiXSwiZW1haWwiOiJpbmdlc3Rpb24tYm90QGdldGNvbGxhdGUuaW8iLCJpc0JvdCI6dHJ1ZSwidG9rZW5UeXBlIjoiQk9UIiwiaWF0IjoxNzU5NDEwNDAyLCJleHAiOm51bGx9.odY1q8KpmKaMkPU8Gs1YaYiwQIMRJIVWpXynRzqKpWuEWOYxDwIGcKVl6lHKwl9toeje0N6-tVTme38BQyI7Ej1Oq0_-XC0cfaRbPBYcbEsAq9ZwvKuBGd3orJvajFoGXVngXt0pXbnSdN68O1sWrR9aUSfI5iqoVI_jaa0rKCBc578rGuvkoi6y9asJ8taIeAAbqkbnlF6fJ24fBmY95ITd_rxMVXxtVHPhNdVgHWypyNcDAsp0Xz_yoA0WHTLAeYAGOIvZfPt6W6epugbJcw1s48mUPeJkCxc5MdeIABajqW1H8xiAzopFW6dDKJViqOsBuZZczlbwcOrlq4huRQ
+    includeMlModels: true
+    includePipelines: true
+    includeDashboards: true
+    includeGlossaryTerms: true
+    secretsManagerLoader: noop
+    forceEntityOverwriting: false
+    secretsManagerProvider: db
+    storeServiceConnection: true
+    enableVersionValidation: true
+    includeDatabaseServices: true
+    includePipelineServices: true
+    includeMessagingServices: true
+    supportsDataInsightExtraction: true
+    supportsElasticSearchReindexingExtraction: true
+pipelines:
+  - id: fcd0a279-54df-4bd9-86fd-5b4538398f06
+    type: ingestionPipeline
+    name: CollateAIApplication
+    fullyQualifiedName: OpenMetadata.CollateAIApplication
+    description: "Collate AI uses generative AI on your metadata to boost data team\
+      \ productivity. \nCollate AI delivers:\n- **SQL query generation for business\
+      \ users**: Non-technical users can generate SQL queries by asking the MetaPilot\
+      \ chatbot questions in natural language, opening access to data insights. \n\
+      - **Automatic schema labeling**: Collate AI generates clear descriptions for\
+      \ your data schemas in just one click, saving time compared to manually documenting.\n\
+      - **Intelligent query copilot**: SQL users can use MetaPilot to help with query\
+      \ building and refinement, table joins and relationships, as well as query performance\
+      \ optimization, to generate data insights faster.\n\nCollateAI is powered by\
+      \ your existing metadata, such as database schemas, join information, and query\
+      \ history, in order to deliver high-quality recommendations tailored to your\
+      \ organization's data, with user deployment controls over how your data is used.\n"
+    displayName: Collate AI Documentation Agent
+    deleted: false
+  - id: 813e7822-fe01-4fd6-a987-76dc91e992cf
+    type: ingestionPipeline
+    name: CollateAIQualityAgentApplication
+    fullyQualifiedName: OpenMetadata.CollateAIQualityAgentApplication
+    description: |-
+      Quality Agent is an AI-powered tool that recommends the best data quality tests for your entities in Collate
+      . As part of our Collate AI offering, it leverages our best in-house AI model to suggest the most relevant data quality tests.
+
+      Quality Agent delivers:
+          - **Automated Tests Suggestions**: Quality Agent automatically suggest the best data quality tests for your entities in Collate
+          - **Automated Tests Deployment**: let Quality Agent automatically deploy your data quality tests for you to effortlessly scale your data quality efforts
+    displayName: Collate AI Quality Agent
+    deleted: false
+  - id: 16bd034d-bb5e-46e1-a924-a868f5f0ad81
+    type: ingestionPipeline
+    name: CollateAITierAgentApplication
+    fullyQualifiedName: OpenMetadata.CollateAITierAgentApplication
+    description: "The Collate AI Tier Agent is an AI-powered application that suggests\
+      \ the best Tier classification for your assets in Collate, simplifying how your\
+      \ users can find the most relevant data. \nCollate AI Tier Agent delivers:\n\
+      - **Automated Tier Suggestions**: The Tier Agent automatically suggests the\
+      \ best Tier classification for your assets in Collate.\n"
+    displayName: Collate AI Tier Agent
+    deleted: false
+  - id: d22d2464-4cb7-460a-a843-c9fc5ae6284a
+    type: ingestionPipeline
+    name: MetadataExporterApplication
+    fullyQualifiedName: OpenMetadata.MetadataExporterApplication
+    description: Export Metadata data from OpenMetadata to your data warehouse.
+    displayName: Metadata Exporter
+    deleted: false
+  - id: 644dfafa-05c2-4315-b00a-c0e1bae75811
+    type: ingestionPipeline
+    name: OpenMetadata_application_1vgdour0
+    fullyQualifiedName: OpenMetadata.OpenMetadata_application_1vgdour0
+    displayName: hk_auto_test_bug
+    deleted: false
+  - id: fafbfdbb-0af5-46d6-9dca-109760ace2b3
+    type: ingestionPipeline
+    name: OpenMetadata_application_4lfC6MUK
+    fullyQualifiedName: OpenMetadata.OpenMetadata_application_4lfC6MUK
+    displayName: ddgs
+    deleted: false
+  - id: daf52ee3-3bd0-4018-8a1a-301a532d2cd7
+    type: ingestionPipeline
+    name: OpenMetadata_application_TcY4dw3v
+    fullyQualifiedName: OpenMetadata.OpenMetadata_application_TcY4dw3v
+    displayName: Aniket Automator
+    deleted: false
+  - id: 77f3b586-273a-4c63-9161-2ea94e342f3d
+    type: ingestionPipeline
+    name: OpenMetadata_application_c75lUKV5
+    fullyQualifiedName: OpenMetadata.OpenMetadata_application_c75lUKV5
+    displayName: Test Case - Compare 2 tables
+    deleted: false
+  - id: fe4ee1bb-f3f6-4396-b437-e300879fec2e
+    type: ingestionPipeline
+    name: OpenMetadata_application_ftu8DkCt
+    fullyQualifiedName: OpenMetadata.OpenMetadata_application_ftu8DkCt
+    displayName: Foo
+    deleted: false
+  - id: abab3348-c203-4d2b-8fbe-4b1ebc3aef60
+    type: ingestionPipeline
+    name: OpenMetadata_application_uoTIRhCN
+    fullyQualifiedName: OpenMetadata.OpenMetadata_application_uoTIRhCN
+    displayName: automator_before_opti
+    deleted: false
+  - id: 39fbcc5a-f2b1-4494-ac1b-68fdf17243ea
+    type: ingestionPipeline
+    name: OpenMetadata_application_x1KHCttk
+    fullyQualifiedName: OpenMetadata.OpenMetadata_application_x1KHCttk
+    displayName: TestProp
+    deleted: false
+tags: []
+owners: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: connection
+      oldValue: '"old-encrypted-value"'
+      newValue: '"new-encrypted-value"'
+  fieldsDeleted: []
+  previousVersion: 2.2
+  changeSummary: {}
+provider: system
