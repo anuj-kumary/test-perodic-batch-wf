@@ -1,0 +1,633 @@
+name: table_356
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_356
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_356.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPO_PS_BACKLOG_SNAPSHOT(\n\t\"ReportingMonthUpdated\"\
+  ,\n\t\"AccountingPrinciple\",\n\t\"SalesDocument\",\n\t\"SalesDocumentItem\",\n\t\
+  \"T4CFlag\",\n\t\"DocumentCurrency\",\n\t\"LocalCurrency\",\n\t\"MasterSalesDocument\"\
+  ,\n\t\"CustomerName\",\n\t\"MaterialDesc\",\n\t\"ContractSignedDate\",\n\t\"SalesOrg\"\
+  ,\n\t\"MaterialGroup\",\n\t\"ReasonforRejection\",\n\t\"POBId\",\n\t\"POBName\"\
+  ,\n\t\"EndUserName\",\n\t\"ContractStartDate\",\n\t\"ContractEndDate\",\n\t\"SettlementFrom\"\
+  ,\n\t\"SettlementTo\",\n\t\"EndUserCountry\",\n\t\"MaterialNo\",\n\t\"T4CValidityFrom\"\
+  ,\n\t\"T4CValidityTo\",\n\t\"ItemCategory\",\n\t\"OpportunityID\",\n\t\"RAContract\"\
+  ,\n\t\"SourceFlag\",\n\t\"RecordKey\",\n\t\"AmountDC\",\n\t\"ReportingQuarter\"\
+  ,\n\t\"ProductBusinessUnit\",\n\t\"SnapshotDate\"\n) as\n\n\n\n---**Fetch Source\
+  \ RPO backlog***************************\nWith REVENUE_SCHEDULE as\n\n(\n\nSELECT\n\
+  \n\"RPOBacklog\".\"ReportingMonthNumeric\" as \"ReportingMonthNumeric\",\n\"RPOBacklog\"\
+  .\"AccountingPrinciple\" as \"AccountingPrinciple\",\n\"RPOBacklog\".\"SalesDocument\"\
+  \ as \"SalesDocument\",\n\"RPOBacklog\".\"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n\"RPOBacklog\".\"T4CDocItem\" as \"T4CDocItem\" ,\n\"RPOBacklog\".\"T4C_Flag\"\
+  \ as \"T4C_Flag\",\n\"RPOBacklog\".\"DocumentCurrency\" as \"DocumentCurrency\"\
+  ,\n\"RPOBacklog\".\"LocalCurrency\" as \"LocalCurrency\",\n\"RPOBacklog\".\"MasterSalesDocument\"\
+  \ as \"MasterSalesDocument\",\n\"RPOBacklog\".\"CustomerName\" as \"CustomerName\"\
+  ,\n\"RPOBacklog\".\"ContractItemStartDate\" as \"ContractItemStartDate\",\n\"RPOBacklog\"\
+  .\"ContractItemEndDate\" as \"ContractItemEndDate\",\n\"RPOBacklog\".\"MaterialDescription\"\
+  \ as \"MaterialDescription\",\n\"RPOBacklog\".\"OrderForm\" as \"OrderForm\",\n\"\
+  RPOBacklog\".\"ContractSignedDate\" as \"ContractSignedDate\",\n\"RPOBacklog\".\"\
+  SalesOrganization\" as \"SalesOrganization\",\n\"RPOBacklog\".\"MaterialGroup\"\
+  \ as \"MaterialGroup\",\n\"RPOBacklog\".\"ShiptoCountry\" as \"ShiptoCountry\",\n\
+  \"RPOBacklog\".\"RejectionReason\" as \"RejectionReason\",\n\"RPOBacklog\".\"PerformanceObligationID\"\
+  \ as \"PerformanceObligationID\",\n\"RPOBacklog\".\"POBName\" as \"POBName\",\n\"\
+  RPOBacklog\".\"PerformanceObligationType\" as \"PerformanceObligationType\",\n\"\
+  RPOBacklog\".\"Revenue_Status\" as \"Revenue_Status\",\n\"RPOBacklog\".\"RejectionReasonDesc\"\
+  \ as \"RejectionReasonDesc\",\n\"RPOBacklog\".\"EndUserName\" as \"EndUserName\"\
+  ,\n\"RPOBacklog\".\"ContractStartDate\" as \"ContractStartDate\",\n\"RPOBacklog\"\
+  .\"ContractEndDate\" as \"ContractEndDate\",\n\"RPOBacklog\".\"T4C_REV_DC\" as \"\
+  T4C_REV_DC\",\n\"RPOBacklog\".\"T4C_REV_LC\" as \"T4C_REV_LC\",\n\"RPOBacklog\"\
+  .\"T4C_REV_GC\" as \"T4C_REV_GC\",\n\"RPOBacklog\".\"T4C_REV_HC\" as \"T4C_REV_HC\"\
+  ,\n\"RPOBacklog\".\"BLENDED_DC\" as \"BLENDED_DC\",\n\"RPOBacklog\".\"BLENDED_LC\"\
+  \ as \"BLENDED_LC\",\n\"RPOBacklog\".\"BLENDED_GC\" as \"BLENDED_GC\",\n\"RPOBacklog\"\
+  .\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\",\n\"RPOBacklog\".\"BillingPlanNumber\"\
+  \ as \"BillingPlanNumber\",\n\"RPOBacklog\".\"FPLT_BillingStatusfortheBillingPlanDate\"\
+  \ as \"FPLT_BillingStatusfortheBillingPlanDate\",\n\"RPOBacklog\".\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n\"RPOBacklog\".\"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n\"RPOBacklog\".\"T4C_Contract\" as\
+  \ \"T4C_Contract\",\n\"RPOBacklog\".\"RPO\" as \"RPO\",\n\"RPOBacklog\".\"SnapshotMonth\"\
+  \ as \"SnapshotMonth\",\n\"RPOBacklog\".\"RecordKeyold\" as \"RecordKeyold\",\n\"\
+  RPOBacklog\".\"SnapshotDate\" as \"SnapshotDate\",\n\"RPOBacklog\".\"ItemText\"\
+  \ as \"ItemText\",\n\"RPOBacklog\".\"EndUserCountry\" as \"EndUserCountry\",\n\"\
+  RPOBacklog\".\"Material\" as \"Material\",\n\"RPOBacklog\".\"T4CValidityFrom\" as\
+  \ \"T4CValidityFrom\",\n\"RPOBacklog\".\"T4CValidityTo\" as \"T4CValidityTo\",\n\
+  \"RPOBacklog\".\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n\"RPOBacklog\".\"T4CRightToRefund\"\
+  \ as \"T4CRightToRefund\",\n\"RPOBacklog\".\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\"\
+  ,\n\"RPOBacklog\".\"T4CRefundValidityTo\" as \"T4CRefundValidityTo\",\n\"RPOBacklog\"\
+  .\"SDItemCategory\" as \"SDItemCategory\",\n\"RPOBacklog\".\"Territory\" as \"Territory\"\
+  ,\n\"RPOBacklog\".\"OpportunityID\" as \"OpportunityID\",\n\"RPOBacklog\".\"RAContract\"\
+  \ as \"RAContract\",\n\"RPOBacklog\".\"UnbilledRevenue\" as \"UnbilledRevenue\"\
+  ,\n\"RPOBacklog\".\"TotalDeferredRevenue\" as \"TotalDeferredRevenue\",\n\"RPOBacklog\"\
+  .\"TotalRevenue\" as \"TotalRevenue\",\n\"RPOBacklog\".\"AllocatedAmount\" as \"\
+  AllocatedAmount\",\n\"RPOBacklog\".\"BundleLevelMaterialDescription\" as \"BundleLevelMaterialDescription\"\
+  ,\n\"RPOBacklog\".\"TerritoryDesc\" as \"TerritoryDesc\",\n\"RPOBacklog\".\"SourceFlag\"\
+  \ as \"SourceFlag\",\n\"RPOBacklog\".\"RecordKey\" as \"RecordKey\",\n\"RPOBacklog\"\
+  .\"ReportingQuarter\" as \"ReportingQuarter\",\n\"RPOBacklog\".\"ReportingMonthUpdated\"\
+  \ as \"ReportingMonthUpdated\",\n\"RPOAdjustments\".\"AdjRPOAmountUSD\" as \"AdjRPOAmountUSD\"\
+  ,\nIFF(\"SourceFlag\" = 'random',IFF(\"PerformanceObligationID\" = \"AdjPOBId\"\
+  ,\"AdjRPOAmountUSD\",\"T4C_REV_LC\") ,\"T4C_REV_LC\") as \"FinalRPOAmount\",\n\n\
+  \nfrom\n--**********************RPO Backlog  ************************************\n\
+  \n(SELECT\n\n\"ReportingMonth\" as \"ReportingMonthNumeric\",\n\"AccountingPrinciple\"\
+  \ as \"AccountingPrinciple\",\nLTRIM(\"SalesDocument\",'random') as \"SalesDocument\"\
+  ,\nLTRIM(\"SalesDocumentItem\",'random') as \"SalesDocumentItem\",\nLTRIM(\"SalesDocument\"\
+  ,'random')||LTRIM(\"SalesDocumentItem\",'random') as \"T4CDocItem\" ,\n\"T4C_Flag\"\
+  \ as \"T4C_Flag\",\n\"DocumentCurrency\" as \"DocumentCurrency\",\n\"LocalCurrency\"\
+  \ as \"LocalCurrency\",\n\"MasterSalesDocument\" as \"MasterSalesDocument\",\n\"\
+  CustomerName\" as \"CustomerName\",\n\"ContractItemStartDate\" as \"ContractItemStartDate\"\
+  ,\n\"ContractItemEndDate\" as \"ContractItemEndDate\",\n\"MaterialDescription\"\
+  \ as \"MaterialDescription\",\n\"OrderForm\" as \"OrderForm\",\n\"ContractSignedDate\"\
+  \ as \"ContractSignedDate\",\n\"SalesOrganization\" as \"SalesOrganization\",\n\"\
+  MaterialGroup\" as \"MaterialGroup\",\n\"ShiptoCountry\" as \"ShiptoCountry\",\n\
+  \"RejectionReason\" as \"RejectionReason\",\n\"PerformanceObligationID\" as \"PerformanceObligationID\"\
+  ,\nUPPER(\"POB\") as \"POBName\",\n\"PerformanceObligationType\" as \"PerformanceObligationType\"\
+  ,\n\"Revenue_Status\" as \"Revenue_Status\",\n\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n\"EndUserName\" as \"EndUserName\",\n\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n\"ContractEndDate\" as \"ContractEndDate\",\n\"T4C_REV_DC\" as \"T4C_REV_DC\"\
+  ,\n\"T4C_REV_LC\" as \"T4C_REV_LC\",\n\"T4C_REV_GC\" as \"T4C_REV_GC\",\n\"T4C_REV_HC\"\
+  \ as \"T4C_REV_HC\",\n\"BLENDED_DC\" as \"BLENDED_DC\",\n\"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n\"BLENDED_GC\" as \"BLENDED_GC\",\n\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n\"BillingPlanNumber\" as \"BillingPlanNumber\",\n\"FPLT_BillingStatusfortheBillingPlanDate\"\
+  \ as \"FPLT_BillingStatusfortheBillingPlanDate\",\n\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n\"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n\"T4C_Contract\" as \"T4C_Contract\"\
+  ,\n\"RPO\" as \"RPO\",\n\"SnapshotMonth\" as \"SnapshotMonth\",\n\"RecordKey\" as\
+  \ \"RecordKeyold\",\n \"SnapshotDate\" as \"SnapshotDate\",\n\"ItemText\" as \"\
+  ItemText\",\n\"EndUserCountry\" as \"EndUserCountry\",\n\"Material\" as \"Material\"\
+  ,\n\"T4CValidityFrom\" as \"T4CValidityFrom\",\n\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n\"T4CRightToRefund\" as \"T4CRightToRefund\"\
+  ,\n\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\",\n\"T4CRefundValidityTo\"\
+  \ as \"T4CRefundValidityTo\",\n\"SDItemCategory\" as \"SDItemCategory\",\n\"Territory\"\
+  \ as \"Territory\",\n\"OpportunityID\" as \"OpportunityID\",\n\"RAContract\" as\
+  \ \"RAContract\",\n\"UnbilledRevenue\" as \"UnbilledRevenue\",\n\"TotalDeferredRevenue\"\
+  \ as \"TotalDeferredRevenue\",\n\"TotalRevenue\" as \"TotalRevenue\",\n\"AllocatedAmount\"\
+  \ as \"AllocatedAmount\",\n\"BundleLevelMaterialDescription\" as \"BundleLevelMaterialDescription\"\
+  ,\n\"TerritoryDesc\" as \"TerritoryDesc\",\n'random' as \"SourceFlag\",\nCASE  WHEN\
+  \ \"POBName\" in ( 'random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random')\
+  \ then 'random'\nWHEN \"POBName\" in('random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random')\
+  \ then 'random'\nWHEN \"POBName\" in ('random',\n'random',\n'random',\n'random',\n\
+  'random',\n'random',\n'random',\n'random',\n'random',\n'random',\n'random',\n'random',\n\
+  'random',\n'random',\n'random',\n'random') then 'random'\nend as \"RecordKey\",\n\
+  case WHEN right(\"ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN\
+  \ right(\"ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN right(\"\
+  ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\"\
+  ,'random') ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random')\
+  \ ='random'then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random') ='random'\
+  \ then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random') ='random' then 'random'\n\
+  WHEN right(\"ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN right(\"\
+  ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\"\
+  ,'random') ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random')\
+  \ ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random') ='random'\
+  \ then 'random'\nend :: CHAR('random') as \"QuarterNum\" ,\nsubstr(\"ReportingMonthNumeric\"\
+  ,'random','random')||'random'|| \"QuarterNum\" as \"ReportingQuarter\",\ncase WHEN\
+  \ right(\"ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN right(\"\
+  ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\"\
+  ,'random') ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random')\
+  \ ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random') ='random'then\
+  \ 'random'\nWHEN right(\"ReportingMonthNumeric\",'random') ='random' then 'random'\n\
+  WHEN right(\"ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN right(\"\
+  ReportingMonthNumeric\",'random') ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\"\
+  ,'random') ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random')\
+  \ ='random' then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random') ='random'\
+  \ then 'random'\nWHEN right(\"ReportingMonthNumeric\",'random') ='random' then 'random'\n\
+  end :: CHAR('random') as \"MonthName\" ,\nleft(\"ReportingMonthNumeric\",'random')\
+  \ || 'random' || right(\"ReportingMonthNumeric\",'random')  || 'random'|| \"MonthName\"\
+  \ || 'random' as \"ReportingMonthUpdated\"\nfrom CDL_LS.FINANCE_FPA_RPT.RPT_MPL_REVENUE_SCHEDULE\n\
+  \nWHERE \"RecordKeyold\" = 'random'\nand  left(\"SnapshotMonth\",'random') >= 'random'\n\
+  and  \"Revenue_Status\" = 'random'\n\n --\"ReportingMonthNumeric\"  >= (left(\"\
+  SnapshotMonth\",4)||right(\"SnapshotMonth\",2))\n )\"RPOBacklog\"\n--**********************RPO\
+  \ Backlog Adjustments ************************************\nleft join\n\n(\nselect\n\
+  \t\"ITEM\" as \"Item\",\n\t\"SALES_DOCUMENT\" as \"Sales Document\",\n\t\"POB_ID\"\
+  \ as  \"AdjPOBId\",\n\t\"POB_NAME\" as \"POB Name\",\n\t\"SUBS_PS_TRAINING\" as\
+  \ \"Subs/PS/Training\",\n\t\"REPORTING_MONTH\" as\"Reporting Month\",\n\tleft(try_to_date(\"\
+  REPORTING_MONTH\",'random'),'random') as \"ReportingMonthFormat\",\n\tLEFT(\"ReportingMonthFormat\"\
+  , 'random')||RIGHT(\"ReportingMonthFormat\", 'random') as \"AdjReportingMonthNumeric\"\
+  ,\n\t\"AMOUNT_USD\" as \"AdjRPOAmountUSD\",\n\tETL_INSERT_DATE as \"AdjSnapshotDate\"\
+  \n---FullRPO adjutstment pending\n\n\tfrom RDS.FLATFILESOURCE.ANAPLAN_REVENUE_BACKLOG\n\
+  \twhere \"DATA\" = 'random' and\n\tFILE_VERSION = 'random' and\n\tETL_INSERT_DATE\
+  \ in (Select \tmax(ETL_INSERT_DATE) from RDS.FLATFILESOURCE.ANAPLAN_REVENUE_BACKLOG\n\
+  \twhere \"DATA\" = 'random' and \tFILE_VERSION = 'random')\n\t)\"RPOAdjustments\"\
+  \non\n\"RPOBacklog\".\"PerformanceObligationID\" =  \"RPOAdjustments\".\"AdjPOBId\"\
+  \ and\n  \"RPOAdjustments\".\"AdjSnapshotDate\" >= \"RPOBacklog\".\"SnapshotDate\"\
+  \ and\n\"RPOBacklog\".\"ReportingMonthNumeric\" =  \"RPOAdjustments\".\"AdjReportingMonthNumeric\"\
+  \n)\n-----******************Combine all the Datasets (RPO Backlog+PS Backlog+T4C\
+  \ Addback) ********************************\nselect\n\n\"ReportingMonthUpdated\"\
+  \ as \"ReportingMonthUpdated\",\n\"AccountingPrinciple\" as \"AccountingPrinciple\"\
+  ,\n\"SalesDocument\" as \"SalesDocument\",\n\"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n\"T4C_Flag\" as \"T4CFlag\",\n\"DocumentCurrency\" as \"DocumentCurrency\",\n\
+  \"LocalCurrency\" as \"LocalCurrency\",\n\"MasterSalesDocument\" as \"MasterSalesDocument\"\
+  ,\n\"CustomerName\" as \"CustomerName\",\n\"MaterialDescription\" as \"MaterialDesc\"\
+  ,\n\"ContractSignedDate\" as \"ContractSignedDate\",\n\"SalesOrganization\" as \"\
+  SalesOrg\",\n\"MaterialGroup\" as \"MaterialGroup\",\n\"RejectionReason\" as \"\
+  ReasonforRejection\",\n\"PerformanceObligationID\" as \"POBId\",\n\"POBName\" as\
+  \ \"POBName\",\n\"EndUserName\" as \"EndUserName\",\n\"ContractStartDate\" as \"\
+  ContractStartDate\",\n\"ContractEndDate\" as \"ContractEndDate\",\n\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"SettlementFrom\",\n\"FPLT_SettlementDateforDeadlineNFDAT\" as \"SettlementTo\"\
+  ,\n\"EndUserCountry\" as \"EndUserCountry\",\n\"Material\" as \"MaterialNo\",\n\"\
+  T4CValidityFrom\" as \"T4CValidityFrom\",\n\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n\"SDItemCategory\" as \"ItemCategory\",\n\"OpportunityID\" as \"OpportunityID\"\
+  ,\n\"RAContract\" as \"RAContract\",\n\"SourceFlag\" as \"SourceFlag\",\n\"RecordKey\"\
+  \ as \"RecordKey\",\n\"AmountDC\" as \"AmountDC\",\n\"ReportingQuarter\" as \"ReportingQuarter\"\
+  ,\n\"ProductBusinessUnit\" as \"ProductBusinessUnit\",\n\"SnapshotDate\" as \"SnapshotDate\"\
+  \n\nfrom\n(\nselect\n\"ReportingMonthUpdated\" as \"ReportingMonthUpdated\",\n\"\
+  AccountingPrinciple\" as \"AccountingPrinciple\",\n\"SalesDocument\" as \"SalesDocument\"\
+  ,\n\"SalesDocumentItem\" as \"SalesDocumentItem\",\n\"T4C_Flag\" as \"T4C_Flag\"\
+  ,\n\"DocumentCurrency\" as \"DocumentCurrency\",\n\"LocalCurrency\" as \"LocalCurrency\"\
+  ,\n\"MasterSalesDocument\" as \"MasterSalesDocument\",\n\"CustomerName\" as \"CustomerName\"\
+  ,\n\"ContractItemStartDate\" as \"ContractItemStartDate\",\n\"ContractItemEndDate\"\
+  \ as \"ContractItemEndDate\",\n\"MaterialDescription\" as \"MaterialDescription\"\
+  ,\n\"OrderForm\" as \"OrderForm\",\n\"ContractSignedDate\" as \"ContractSignedDate\"\
+  ,\n\"SalesOrganization\" as \"SalesOrganization\",\n\"MaterialGroup\" as \"MaterialGroup\"\
+  ,\n\"ShiptoCountry\" as \"ShiptoCountry\",\n\"RejectionReason\" as \"RejectionReason\"\
+  ,\n\"PerformanceObligationID\" as \"PerformanceObligationID\",\n\"POBName\" as \"\
+  POBName\",\n\"PerformanceObligationType\" as \"PerformanceObligationType\",\n\"\
+  Revenue_Status\" as \"Revenue_Status\",\n\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n\"EndUserName\" as \"EndUserName\",\n\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n\"ContractEndDate\" as \"ContractEndDate\",\n\"T4C_REV_DC\" as \"T4C_REV_DC\"\
+  ,\n\"T4C_REV_LC\" as \"T4C_REV_LC\",\n\"T4C_REV_GC\" as \"T4C_REV_GC\",\n\"T4C_REV_HC\"\
+  \ as \"T4C_REV_HC\",\n\"BLENDED_DC\" as \"BLENDED_DC\",\n\"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n\"BLENDED_GC\" as \"BLENDED_GC\",\n\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n\"BillingPlanNumber\" as \"BillingPlanNumber\",\n\"FPLT_BillingStatusfortheBillingPlanDate\"\
+  \ as \"FPLT_BillingStatusfortheBillingPlanDate\",\n\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n\"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n\"T4C_Contract\" as \"T4C_Contract\"\
+  ,\n\"RPO\" as \"RPO\",\n\"SnapshotMonth\" as \"SnapshotMonth\",\n\"RecordKey\" as\
+  \ \"RecordKeyold\",\n\"SnapshotDate\" as \"SnapshotDate\",\n\"ItemText\" as \"ItemText\"\
+  ,\n\"EndUserCountry\" as \"EndUserCountry\",\n\"Material\" as \"Material\",\n\"\
+  T4CValidityFrom\" as \"T4CValidityFrom\",\n\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n\"T4CRightToRefund\" as \"T4CRightToRefund\"\
+  ,\n\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\",\n\"T4CRefundValidityTo\"\
+  \ as \"T4CRefundValidityTo\",\n\"SDItemCategory\" as \"SDItemCategory\",\n\"Territory\"\
+  \ as \"Territory\",\n\"OpportunityID\" as \"OpportunityID\",\n\"RAContract\" as\
+  \ \"RAContract\",\n\"UnbilledRevenue\" as \"UnbilledRevenue\",\n\"TotalDeferredRevenue\"\
+  \ as \"TotalDeferredRevenue\",\n\"TotalRevenue\" as \"TotalRevenue\",\n\"AllocatedAmount\"\
+  \ as \"AllocatedAmount\",\n\"BundleLevelMaterialDescription\" as \"BundleLevelMaterialDescription\"\
+  ,\n\"TerritoryDesc\" as \"TerritoryDesc\",\n\"SourceFlag\" as \"SourceFlag\",\n\"\
+  RecordKey\" as \"RecordKey\",\n\"ReportingQuarter\" as \"ReportingQuarter\",\n\"\
+  FinalRPOAmount\" as \"AmountDC\",\n'random' as \"ProductBusinessUnit\",\n'random'\
+  \ as \"SupersededOrNot\",\n'random' as \"RevenueType\",\n'random' as \"ZTExchangeRate\"\
+  ,\n'random' as \"ProfitCenter\",\n'random' as \"TotalDeferredRevenueDC\",\n'random'\
+  \ as \"ManualBESPValue\",\n'random' as \"ExternalRevenueDC(PTD)\",\n'random' as\
+  \ \"ManualExternalRevenue\",\n'random' as \"ExternalSwap\",\n'random'  as \"ExternalManualDebook\"\
+  ,\n'random' as \"ExternalSumifWBSDC\",\n'random' as \"ExternalOtherDC\",\n'random'\
+  \ as \"BacklogDC-GAAP\",\n'random' as \"Backlog–GAAP_USD\",\n'random' as \"RPOCQUSD\"\
+  ,\n'random' as \"RPOCQDC\",\n'random' as \"RPOCQUSDCalc\",\n'random' as \"IsT4C\"\
+  ,\n'random'  as \"T4CImpactLC\" ,\n'random' as \"DerivedT4CFlag\",\n'random' as\
+  \ \"T4CAmountCalc\"\nfrom\n\n(\n\nSELECT\n\n\"ReportingMonthNumeric\" as \"ReportingMonthNumeric\"\
+  ,\n\"AccountingPrinciple\" as \"AccountingPrinciple\",\n\"SalesDocument\" as \"\
+  SalesDocument\",\n\"SalesDocumentItem\" as \"SalesDocumentItem\",\n\"T4C_Flag\"\
+  \ as \"T4C_Flag\",\n\"DocumentCurrency\" as \"DocumentCurrency\",\n\"LocalCurrency\"\
+  \ as \"LocalCurrency\",\n\"MasterSalesDocument\" as \"MasterSalesDocument\",\n\"\
+  CustomerName\" as \"CustomerName\",\n\"ContractItemStartDate\" as \"ContractItemStartDate\"\
+  ,\n\"ContractItemEndDate\" as \"ContractItemEndDate\",\n\"MaterialDescription\"\
+  \ as \"MaterialDescription\",\n\"OrderForm\" as \"OrderForm\",\n\"ContractSignedDate\"\
+  \ as \"ContractSignedDate\",\n\"SalesOrganization\" as \"SalesOrganization\",\n\"\
+  MaterialGroup\" as \"MaterialGroup\",\n\"ShiptoCountry\" as \"ShiptoCountry\",\n\
+  \"RejectionReason\" as \"RejectionReason\",\n\"PerformanceObligationID\" as \"PerformanceObligationID\"\
+  ,\n\"POBName\" as \"POBName\",\n\"PerformanceObligationType\" as \"PerformanceObligationType\"\
+  ,\n\"Revenue_Status\" as \"Revenue_Status\",\n\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n\"EndUserName\" as \"EndUserName\",\n\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n\"ContractEndDate\" as \"ContractEndDate\",\n\"T4C_REV_DC\" as \"T4C_REV_DC\"\
+  ,\n\"T4C_REV_LC\" as \"T4C_REV_LC\",\n\"T4C_REV_GC\" as \"T4C_REV_GC\",\n\"T4C_REV_HC\"\
+  \ as \"T4C_REV_HC\",\n\"BLENDED_DC\" as \"BLENDED_DC\",\n\"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n\"BLENDED_GC\" as \"BLENDED_GC\",\n\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n\"BillingPlanNumber\" as \"BillingPlanNumber\",\n\"FPLT_BillingStatusfortheBillingPlanDate\"\
+  \ as \"FPLT_BillingStatusfortheBillingPlanDate\",\n\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n\"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n\"T4C_Contract\" as \"T4C_Contract\"\
+  ,\n\"RPO\" as \"RPO\",\n\"SnapshotMonth\" as \"SnapshotMonth\",\n\"RecordKey\" as\
+  \ \"RecordKeyold\",\n\"SnapshotDate\" as \"SnapshotDate\",\n\"ItemText\" as \"ItemText\"\
+  ,\n\"EndUserCountry\" as \"EndUserCountry\",\n\"Material\" as \"Material\",\n\"\
+  T4CValidityFrom\" as \"T4CValidityFrom\",\n\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n\"T4CRightToRefund\" as \"T4CRightToRefund\"\
+  ,\n\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\",\n\"T4CRefundValidityTo\"\
+  \ as \"T4CRefundValidityTo\",\n\"SDItemCategory\" as \"SDItemCategory\",\n\"Territory\"\
+  \ as \"Territory\",\n\"OpportunityID\" as \"OpportunityID\",\n\"RAContract\" as\
+  \ \"RAContract\",\n\"UnbilledRevenue\" as \"UnbilledRevenue\",\n\"TotalDeferredRevenue\"\
+  \ as \"TotalDeferredRevenue\",\n\"TotalRevenue\" as \"TotalRevenue\",\n\"AllocatedAmount\"\
+  \ as \"AllocatedAmount\",\n\"BundleLevelMaterialDescription\" as \"BundleLevelMaterialDescription\"\
+  ,\n\"TerritoryDesc\" as \"TerritoryDesc\",\n\"SourceFlag\"as \"SourceFlag\",\n\"\
+  RecordKey\" as \"RecordKey\",\n\"ReportingQuarter\" as \"ReportingQuarter\",\n\"\
+  ReportingMonthUpdated\" as \"ReportingMonthUpdated\",\n\"FinalRPOAmount\" as \"\
+  FinalRPOAmount\"\nfrom REVENUE_SCHEDULE\n\n\n\n)\"Projection_1\"\n\n-----******************PS\
+  \ Backlog********************************\n\nunion all\n\nselect\n'random' as \"\
+  ReportingMonthUpdated\",\n'random'  as \"AccountingPrinciple\",\n\"SalesDocument\"\
+  \ as \"SalesDocument\",\n\"SalesDocumentItem\" as \"SalesDocumentItem\",\n'random'\
+  \ as \"T4C_Flag\",\n\"Currency\" as \"DocumentCurrency\",\n\"BESPCurrency\" as \"\
+  LocalCurrency\",\n'random' as \"MasterSalesDocument\",\n'random' as \"CustomerName\"\
+  ,\n'random' as \"ContractItemStartDate\",\n'random' as \"ContractItemEndDate\",\n\
+  \"MaterialDescription\" as \"MaterialDescription\",\n'random' as \"OrderForm\",\n\
+  \"ContractSignedDate\" as \"ContractSignedDate\",\n\"SalesOrganizationContract\"\
+  \ as \"SalesOrganization\",\n\"MaterialGroup\" as \"MaterialGroup\",\n'random' as\
+  \ \"ShiptoCountry\",\n\"RejectionReason\" as \"RejectionReason\",\nLTRIM(\"POBLine\"\
+  ,'random') as \"PerformanceObligationID\",\n'random' as \"POBName\",\n'random' as\
+  \ \"PerformanceObligationType\",\n'random' as \"Revenue_Status\",\n\"RejectionReasonDesc\"\
+  \ as \"RejectionReasonDesc\",\n\"EndUserName\" as \"EndUserName\",\n\"ContractStartDate\"\
+  \ as \"ContractStartDate\",\n\"ContractEndDate\" as \"ContractEndDate\",\n'random'\
+  \ as \"T4C_REV_DC\",\n'random' as \"T4C_REV_LC\",\n'random' as \"T4C_REV_GC\",\n\
+  'random' as \"T4C_REV_HC\",\n'random' as \"BLENDED_DC\",\n'random' as \"BLENDED_LC\"\
+  ,\n'random' as \"BLENDED_GC\",\n'random' as \"T4CSignificantPenalty\",\n'random'\
+  \ as \"BillingPlanNumber\",\n'random' as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n'random' as \"FPLT_SettlementDateforDeadlineFKDAT\",\n'random' as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n'random' as \"T4C_Contract\",\n'random' as \"RPO\",\nleft(try_to_date(\"SnapshotDate\"\
+  \ ),'random') as \"SnapshotMonth\",\n'random' as \"RecordKeyold\",\n\"SnapshotDate\"\
+  \ as \"SnapshotDate\",\n'random' as \"ItemText\",\n'random' as \"EndUserCountry\"\
+  ,\n\"Material\" as \"Material\",\n'random' as \"T4CValidityFrom\",\n'random' as\
+  \ \"T4CValidityTo\",\n'random' as \"T4CNoticePeriod\",\n'random' as \"T4CRightToRefund\"\
+  ,\n'random' as \"T4CRefundValidityFrom\",\n'random' as \"T4CRefundValidityTo\",\n\
+  \"ItemCategory\" as \"SDItemCategory\",\n'random' as \"Territory\",\n'random' as\
+  \ \"OpportunityID\",\n\"RARContractNumber\" as \"RAContract\",\n'random' as \"UnbilledRevenue\"\
+  ,\n'random' as \"TotalDeferredRevenue\",\n'random' as \"TotalRevenue\",\n'random'\
+  \ as \"AllocatedAmount\",\n'random' as \"BundleLevelMaterialDescription\",\n'random'\
+  \ as \"TerritoryDesc\",\n\"SourceFlag\" as \"SourceFlag\",\n\"RecordKey\" as \"\
+  RecordKey\",\n'random' as \"ReportingQuarter\",\n'random' as \"FinalRPOAmount\"\
+  ,\n\"ProductBusinessUnit\" as \"ProductBusinessUnit\",\n\"SupersededOrNot\" as \"\
+  SupersededOrNot\",\n\"RevenueType\" as \"RevenueType\",\n\"ZTExchangeRate\" as \"\
+  ZTExchangeRate\",\n\"ProfitCenter\" as \"ProfitCenter\",\n\"TotalDeferredRevenueDC\"\
+  \ as \"TotalDeferredRevenueDC\",\n\"ManualBESPValue\" as \"ManualBESPValue\",\n\"\
+  RevenueAmountDC\" as \"ExternalRevenueDC(PTD)\",\n\"ManualExternalRevenue\" as \"\
+  ManualExternalRevenue\",\n\"ExternalSwap\" as \"ExternalSwap\",\n\"ExternalManualDebook\"\
+  \  as \"ExternalManualDebook\",\n\"ExternalSumifWBSDC\" as \"ExternalSumifWBSDC\"\
+  ,\n\"ExternalOtherDC\" as \"ExternalOtherDC\",\n\"BacklogDC-GAAP\" as \"BacklogDC-GAAP\"\
+  ,\n\"Backlog–GAAP_USD\" as \"Backlog–GAAP_USD\",\n\"RPOCQUSD\" as \"RPOCQUSD\",\n\
+  \"RPOCQDC\" as \"RPOCQDC\",\n\"RPOCQDCCalc\" as \"AmountDC\",\n\n'random' as \"\
+  IsT4C\",\n'random'  as \"T4CImpactLC\" ,\n'random' as \"DerivedT4CFlag\",\n'random'\
+  \ as \"T4CAmountCalc\"\n\n\n\nfrom\n\n(select\n\n\"Projection_2\".\"SalesDocument\"\
+  \ as \"SalesDocument\",\n\"Projection_2\".\"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n\"Projection_2\".\"POBLine\" as \"POBLine\",\n\"Projection_2\".\"SalesOrganizationContract\"\
+  \ as \"SalesOrganizationContract\",\n\"Projection_2\".\"RejectionReasonDesc\" as\
+  \ \"RejectionReasonDesc\",\n\"Projection_2\".\"RejectionReason\" as \"RejectionReason\"\
+  ,\n\"Projection_2\".\"SupersededOrNot\" as \"SupersededOrNot\",\n\"Projection_2\"\
+  .\"ContractStartDate\" as \"ContractStartDate\",\n\"Projection_2\".\"ContractEndDate\"\
+  \ as \"ContractEndDate\",\ntry_to_date(\"Projection_2\".\"ContractSignedDate\")\
+  \ as \"ContractSignedDate\",\n\"Projection_2\".\"EndUserName\" as \"EndUserName\"\
+  ,\n\"Projection_2\".\"ProductBusinessUnit\" as \"ProductBusinessUnit\",\n\"Projection_2\"\
+  .\"RARContractNumber\" as \"RARContractNumber\",\n\"Projection_2\".\"RevenueType\"\
+  \ as \"RevenueType\",\n\"Projection_2\".\"ProfitCenter\" as \"ProfitCenter\",\n\"\
+  Projection_2\".\"Material\" as \"Material\",\n\"Projection_2\".\"MaterialDescription\"\
+  \ as \"MaterialDescription\",\n\"Projection_2\".\"MaterialGroup\" as \"MaterialGroup\"\
+  ,\n\"Projection_2\".\"ItemCategory\" as \"ItemCategory\",\n\"Projection_2\".\"BESPCurrency\"\
+  \ as \"BESPCurrency\",\n\"Projection_2\".\"Currency\" as \"Currency\",\n\"Projection_2\"\
+  .\"ZTExchangeRate\" as \"ZTExchangeRate\",\n\"Projection_2\".\"BESP\" as \"BESP\"\
+  ,\n\"Projection_2\".\"TotalDeferredRevenueDC\" as \"TotalDeferredRevenueDC\",\n\"\
+  Projection_2\".\"ManualBESPValue\" as \"ManualBESPValue\",\n\"Projection_2\".\"\
+  RevenueAmountDC\" as \"RevenueAmountDC\",\n\"Projection_2\".\"ManualExternalRevenue\"\
+  \ as \"ManualExternalRevenue\",\n\"Projection_2\".\"ExternalSwap\" as \"ExternalSwap\"\
+  ,\n\"Projection_2\".\"ExternalManualDebook\"  as \"ExternalManualDebook\",\n\"Projection_2\"\
+  .\"ExternalSumifWBSDC\" as \"ExternalSumifWBSDC\",\n\"Projection_2\".\"ExternalOtherDC\"\
+  \ as \"ExternalOtherDC\",\n\"Projection_2\".\"SnapshotDate\"  as  \"SnapshotDate\"\
+  ,\n'random' as \"SourceFlag\",\n\n\nCASE when \"IncludeFlag\" = 'random' then\n\
+  case WHEN \"ItemCategory\" in('random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random','random')\n\
+  then 'random'\nWHEN \"ItemCategory\" in ('random','random','random','random','random','random','random','random','random','random','random','random')\
+  \ then 'random'\nend\nend as \"RecordKey\",\n\nIFF (\"SourceFlag\" =  'random',IFF((\
+  \ \"ManualBESPValue\" IS NULL Or \"ManualBESPValue\" = 'random' ) , \"BESP\" , \"\
+  ManualBESPValue\"),'random') as \"BESPCalculated\",\n\"RevenueAmountDC\" +\"ManualExternalRevenue\"\
+  \ + \"ExternalSwap\"+\"ExternalManualDebook\"+\"ExternalSumifWBSDC\"+\"ExternalOtherDC\"\
+  \nas \"MiscTotal\",\n\"BESPCalculated\"- \"MiscTotal\" as \"BacklogDC_GAAPDerivationUpdated\"\
+  ,\n--*************Backlog DC - GAAP Derivation************\nIFF ( \"SourceFlag\"\
+  \ =  'random',IFF ((\"ProductBusinessUnit\" = 'random'),'random' ,\nIFF((\"ContractSignedDate\"\
+  \ > add_months(last_day(CURRENT_DATE),'random')  and \"ContractSignedDate\" <> try_to_date('random')),\
+  \ 'random' ,\n\nIFF ((\"SupersededOrNot\" = 'random' And \"ItemCategory\" Not In\
+  \ ('random','random')) ,\"BacklogDC_GAAPDerivationUpdated\",\n\nIFF ((\"RejectionReason\"\
+  \ = 'random' And \"ItemCategory\" Not In ('random','random') And \"ProfitCenter\"\
+  \ ='random' And \"ItemCategory\" = 'random') , 'random',\n\nIFF ((\"RejectionReason\"\
+  \ = 'random' And \"ItemCategory\" Not In ('random','random') And \"ProfitCenter\"\
+  \ ='random') ,\n\"BacklogDC_GAAPDerivationUpdated\" , 'random'))\n))) ,'random')\
+  \  as \"BacklogDC-GAAP\",\n\n\"BacklogDC-GAAP\"/\"ZTExchangeRate\" as \"Backlog–\
+  GAAP_USD\",\n\n---******************RPOCQUSD derivation*****************\nIFF (\
+  \ \"SourceFlag\" =  'random',IFF (\"IncludeFlag\" = 'random' ,'random',\nIFF(\"\
+  RevenueType\" not in ('random','random'),\"Backlog–GAAP_USD\",\nIFF(ABS(\"Backlog–\
+  GAAP_USD\") < 'random', 'random',\nLEAST(ABS(\"Backlog–GAAP_USD\"),ABS(\"TotalDeferredRevenueDC\"\
+  /\"ZTExchangeRate\"))* ABS(\"Backlog–GAAP_USD\")/\"Backlog–GAAP_USD\"))),'random')\n\
+  as \"RPOCQUSD\",\n\n\"RPOCQUSD\" * \"ZTExchangeRate\" as \"RPOCQDC\",\n\"Projection_3\"\
+  .\"CollectionBlockSalesDoc\" as \"CollectionBlockSalesDoc\" ,\n\"Projection_3\"\
+  .\"CollectionBlockSalesDocItem\" as \"CollectionBlockSalesDocItem\",\n---*******************The\
+  \ amount related to \"Collection block docs\" should NOT be considered **********************************\n\
+  IFF(\"CollectionBlockSalesDoc\"|| \"CollectionBlockSalesDocItem\"  =  \"SalesDocument\"\
+  \ || \"SalesDocumentItem\" , 'random',\"RPOCQDC\") as \"RPOCQDCCalc\"\n\n\n\nfrom\n\
+  (SELECT\n\"SalesDocument\" as \"SalesDocument\",\n\"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n\"POBLine\" as \"POBLine\",\n\"SalesOrganizationContract\" as \"SalesOrganizationContract\"\
+  ,\n\"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n\"RejectionReason\" as \"\
+  RejectionReason\",\n\"SupersededOrNot\" as \"SupersededOrNot\",\n\"ContractStartDate\"\
+  \ as \"ContractStartDate\",\n\"ContractEndDate\" as \"ContractEndDate\",\n\"ContractSignedDate\"\
+  \ as \"ContractSignedDate\",\n\"EndUserName\" as \"EndUserName\",\n\"ProductBusinessUnit\"\
+  \ as \"ProductBusinessUnit\",\n\"RARContractNumber\" as \"RARContractNumber\",\n\
+  \"RevenueType\" as \"RevenueType\",\n\"ProfitCenter\" as \"ProfitCenter\",\n\"Material\"\
+  \ as \"Material\",\n\"MaterialDescription\" as \"MaterialDescription\",\n\"MaterialGroup\"\
+  \ as \"MaterialGroup\",\n\"ItemCategory\" as \"ItemCategory\",\n\"BESPCurrency\"\
+  \ as \"BESPCurrency\",\n\"Currency\" as \"Currency\",\n\"ZTExchangeRate\" as \"\
+  ZTExchangeRate\",\n\"BESP\" as \"BESP\",\n\"DebookComments\" as \"DebookComments\"\
+  ,\n\"BookingDate\" as \"BookingDate\",\nZEROIFNULL(\"TotalDeferredRevenueDC\") as\
+  \ \"TotalDeferredRevenueDC\",\nZEROIFNULL(\"ManualBESPValue\") as \"ManualBESPValue\"\
+  ,\nZEROIFNULL(\"RevenueAmountDC\") as \"RevenueAmountDC\",\nZEROIFNULL(\"ManualExternalRevenue\"\
+  ) as \"ManualExternalRevenue\",\nZEROIFNULL(\"ExternalSwap\") as \"ExternalSwap\"\
+  ,\nZEROIFNULL(\"ExternalManualDebook\") as \"ExternalManualDebook\",\nZEROIFNULL(\"\
+  ExternalSumifWBSDC\") as \"ExternalSumifWBSDC\",\nZEROIFNULL(\"ExternalOtherDC\"\
+  ) as \"ExternalOtherDC\",\n\"SnapshotDate\" as  \"SnapshotDate\",\nCASE WHEN \"\
+  ItemCategory\" in ('random','random','random','random', 'random','random','random','random','random','random','random')\
+  \ then 'random'\nelse 'random'\nend as \"IncludeFlag\"\n\nFROM\n  RDS.FLATFILESOURCE.STG_PS_BACKLOG_SNAPSHOT_TEST\n\
+  \ ---**Exclude salesDocs that are already in RPO backlog*****************************\n\
+  \  where \"SalesDocument\"|| \"SalesDocumentItem\" not in (Select \"SalesDocument\"\
+  || \"SalesDocumentItem\" from REVENUE_SCHEDULE)\n\n\n  and \"DebookComments\" IS\
+  \ NULL\n  --and \"RejectionReason\" not in ( '10' ,'51','50','11','ZT')\n and \"\
+  RejectionReason\" IS NULL\n  and \"BookingDate\" <= add_months(last_day(CURRENT_DATE),'random')\n\
+  \ and \"IncludeFlag\" = 'random'\n\n\n)\"Projection_2\"\n\n\n\n\n---***************************Collections\
+  \ Blocks **************************************\n\n\n\nleft join\n\n(select  distinct\
+  \ \"Sales Document\" as \"CollectionBlockSalesDoc\" , \"Item\" as \"CollectionBlockSalesDocItem\"\
+  ,\n from\n\n RDS.FLATFILESOURCE.STG_COLLECTION_BLOCK_DOCS_SNAPSHOT_TEST\n\n)\"Projection_3\"\
+  \non \"Projection_2\".\"SalesDocument\" = \"Projection_3\".\"CollectionBlockSalesDoc\"\
+  \ and\n\"Projection_2\".\"SalesDocumentItem\" = \"Projection_3\". \"CollectionBlockSalesDocItem\"\
+  \n\n)\"Join_1\"\n\n\n\n\n\n\n--**************************T4C Addback sourced from\
+  \ RPO Backlog with T4C checked********************************\nunion all\n\nselect\n\
+  \n\"ReportingMonthUpdated\" as \"ReportingMonthUpdated\",\n\"AccountingPrinciple\"\
+  \ as \"AccountingPrinciple\",\n\"SalesDocument\" as \"SalesDocument\",\n\"SalesDocumentItem\"\
+  \ as \"SalesDocumentItem\",\n\"T4C_Flag\" as \"T4C_Flag\",\n\"DocumentCurrency\"\
+  \ as \"DocumentCurrency\",\n\"LocalCurrency\" as \"LocalCurrency\",\n\"MasterSalesDocument\"\
+  \ as \"MasterSalesDocument\",\n\"CustomerName\" as \"CustomerName\",\n\"ContractItemStartDate\"\
+  \ as \"ContractItemStartDate\",\n\"ContractItemEndDate\" as \"ContractItemEndDate\"\
+  ,\n\"MaterialDescription\" as \"MaterialDescription\",\n\"OrderForm\" as \"OrderForm\"\
+  ,\n\"ContractSignedDate\" as \"ContractSignedDate\",\n\"SalesOrganization\" as \"\
+  SalesOrganization\",\n\"MaterialGroup\" as \"MaterialGroup\",\n\"ShiptoCountry\"\
+  \ as \"ShiptoCountry\",\n\"RejectionReason\" as \"RejectionReason\",\n\"PerformanceObligationID\"\
+  \ as \"PerformanceObligationID\",\n\"POBName\" as \"POBName\",\n\"PerformanceObligationType\"\
+  \ as \"PerformanceObligationType\",\n\"Revenue_Status\" as \"Revenue_Status\",\n\
+  \"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n\"EndUserName\" as \"EndUserName\"\
+  ,\n\"ContractStartDate\" as \"ContractStartDate\",\n\"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n\"T4C_REV_DC\" as \"T4C_REV_DC\",\n\"T4C_REV_LC\" as \"T4C_REV_LC\",\n\"T4C_REV_GC\"\
+  \ as \"T4C_REV_GC\",\n\"T4C_REV_HC\" as \"T4C_REV_HC\",\n\"BLENDED_DC\" as \"BLENDED_DC\"\
+  ,\n\"BLENDED_LC\" as \"BLENDED_LC\",\n\"BLENDED_GC\" as \"BLENDED_GC\",\n\"T4CSignificantPenalty\"\
+  \ as \"T4CSignificantPenalty\",\n\"BillingPlanNumber\" as \"BillingPlanNumber\"\
+  ,\n\"FPLT_BillingStatusfortheBillingPlanDate\" as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n\"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n\"FPLT_SettlementDateforDeadlineNFDAT\" as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n\"T4C_Contract\" as \"T4C_Contract\",\n\"RPO\" as \"RPO\",\n\"SnapshotMonth\"\
+  \ as \"SnapshotMonth\",\n\"RecordKey\" as \"RecordKeyold\",\n\"SnapshotDate\" as\
+  \ \"SnapshotDate\",\n\"ItemText\" as \"ItemText\",\n\"EndUserCountry\" as \"EndUserCountry\"\
+  ,\n\"Material\" as \"Material\",\n\"T4CValidityFrom\" as \"T4CValidityFrom\",\n\"\
+  T4CValidityTo\" as \"T4CValidityTo\",\n\"T4CNoticePeriod\" as \"T4CNoticePeriod\"\
+  ,\n\"T4CRightToRefund\" as \"T4CRightToRefund\",\n\"T4CRefundValidityFrom\" as \"\
+  T4CRefundValidityFrom\",\n\"T4CRefundValidityTo\" as \"T4CRefundValidityTo\",\n\"\
+  SDItemCategory\" as \"SDItemCategory\",\n\"Territory\" as \"Territory\",\n\"OpportunityID\"\
+  \ as \"OpportunityID\",\n\"RAContract\" as \"RAContract\",\n\"UnbilledRevenue\"\
+  \ as \"UnbilledRevenue\",\n\"TotalDeferredRevenue\" as \"TotalDeferredRevenue\"\
+  ,\n\"TotalRevenue\" as \"TotalRevenue\",\n\"AllocatedAmount\" as \"AllocatedAmount\"\
+  ,\n\"BundleLevelMaterialDescription\" as \"BundleLevelMaterialDescription\",\n\"\
+  TerritoryDesc\" as \"TerritoryDesc\",\n\"SourceFlag\" as \"SourceFlag\",\n\"RecordKey\"\
+  \ as \"RecordKey\",\n\"ReportingQuarter\" as \"ReportingQuarter\",\n\"FinalRPOAmount\"\
+  \ as \"FinalRPOAmount\",\n'random' as \"ProductBusinessUnit\",\n'random' as \"SupersededOrNot\"\
+  ,\n'random' as \"RevenueType\",\n'random' as \"ZTExchangeRate\",\n'random' as \"\
+  ProfitCenter\",\n'random' as \"TotalDeferredRevenueDC\",\n'random' as \"ManualBESPValue\"\
+  ,\n'random' as \"ExternalRevenueDC(PTD)\",\n'random' as \"ManualExternalRevenue\"\
+  ,\n'random' as \"ExternalSwap\",\n'random'  as \"ExternalManualDebook\",\n'random'\
+  \ as \"ExternalSumifWBSDC\",\n'random' as \"ExternalOtherDC\",\n'random' as \"BacklogDC-GAAP\"\
+  ,\n'random' as \"Backlog–GAAP_USD\",\n'random' as \"RPOCQUSD\",\n'random' as \"\
+  RPOCQDC\",\n'random' as \"RPOCQUSDCalc\",\n\"IsT4C\" as \"IsT4C\",\n\"T4CImpactLC\"\
+  \  as \"T4CImpactLC\" ,\n\"DerivedT4CFlag\" as \"DerivedT4CFlag\",\n\"T4CAmountCalc\"\
+  \ as \"T4CAmountCalc\"\n\n\nfrom\n(\n\nSELECT\n\n\"Join_2\".\"ReportingMonthUpdated\"\
+  \ as \"ReportingMonthUpdated\",\n\"Join_2\".\"AccountingPrinciple\" as \"AccountingPrinciple\"\
+  ,\n\"Join_2\".\"SalesDocument\" as \"SalesDocument\",\n\"Join_2\".\"SalesDocumentItem\"\
+  \ as \"SalesDocumentItem\",\n\"Join_2\".\"SalesDocument\" ||\"SalesDocumentItem\"\
+  \ as \"DocumentItem\",\n\"Join_2\".\"T4CDocItem\" as \"T4CDocItem\" ,\n\"Join_2\"\
+  .\"T4C_Flag\" as \"T4C_Flag\",\n\"Join_2\".\"DocumentCurrency\" as \"DocumentCurrency\"\
+  ,\n\"Join_2\".\"LocalCurrency\" as \"LocalCurrency\",\n\"Join_2\".\"MasterSalesDocument\"\
+  \ as \"MasterSalesDocument\",\n\"Join_2\".\"CustomerName\" as \"CustomerName\",\n\
+  \"Join_2\".\"ContractItemStartDate\" as \"ContractItemStartDate\",\n\"Join_2\".\"\
+  ContractItemEndDate\" as \"ContractItemEndDate\",\n\"Join_2\".\"MaterialDescription\"\
+  \ as \"MaterialDescription\",\n\"Join_2\".\"OrderForm\" as \"OrderForm\",\n\"Join_2\"\
+  .\"ContractSignedDate\" as \"ContractSignedDate\",\n\"Join_2\".\"SalesOrganization\"\
+  \ as \"SalesOrganization\",\n\"Join_2\".\"MaterialGroup\" as \"MaterialGroup\",\n\
+  \"Join_2\".\"ShiptoCountry\" as \"ShiptoCountry\",\n\"Join_2\".\"RejectionReason\"\
+  \ as \"RejectionReason\",\n\"Join_2\".\"PerformanceObligationID\" as \"PerformanceObligationID\"\
+  ,\n\"Join_2\".\"POBName\" as \"POBName\",\n\"Join_2\".\"PerformanceObligationType\"\
+  \ as \"PerformanceObligationType\",\n\"Join_2\".\"Revenue_Status\" as \"Revenue_Status\"\
+  ,\n\"Join_2\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n\"Join_2\".\"\
+  EndUserName\" as \"EndUserName\",\n\"Join_2\".\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n\"Join_2\".\"ContractEndDate\" as \"ContractEndDate\",\n\"Join_2\".\"T4C_REV_DC\"\
+  \ as \"T4C_REV_DC\",\n\"Join_2\".\"T4C_REV_LC\" as \"T4C_REV_LC\",\n\"Join_2\".\"\
+  T4C_REV_GC\" as \"T4C_REV_GC\",\n\"Join_2\".\"T4C_REV_HC\" as \"T4C_REV_HC\",\n\"\
+  Join_2\".\"BLENDED_DC\" as \"BLENDED_DC\",\n\"Join_2\".\"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n\"Join_2\".\"BLENDED_GC\" as \"BLENDED_GC\",\n\"Join_2\".\"T4CSignificantPenalty\"\
+  \ as \"T4CSignificantPenalty\",\n\"Join_2\".\"BillingPlanNumber\" as \"BillingPlanNumber\"\
+  ,\n\"Join_2\".\"FPLT_BillingStatusfortheBillingPlanDate\" as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n\"Join_2\".\"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n\"Join_2\".\"FPLT_SettlementDateforDeadlineNFDAT\" as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n\"Join_2\".\"T4C_Contract\" as \"T4C_Contract\",\n\"Join_2\".\"RPO\" as \"RPO\"\
+  ,\n\"Join_2\".\"SnapshotMonth\" as \"SnapshotMonth\",\n\"Join_2\".\"RecordKey\"\
+  \ as \"RecordKeyold\",\n\"Join_2\".\"SnapshotDate\" as \"SnapshotDate\",\n\"Join_2\"\
+  .\"ItemText\" as \"ItemText\",\n\"Join_2\".\"EndUserCountry\" as \"EndUserCountry\"\
+  ,\n\"Join_2\".\"Material\" as \"Material\",\n\"Join_2\".\"T4CValidityFrom\" as \"\
+  T4CValidityFrom\",\n\"Join_2\".\"T4CValidityTo\" as \"T4CValidityTo\",\n\"Join_2\"\
+  .\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n\"Join_2\".\"T4CRightToRefund\" as\
+  \ \"T4CRightToRefund\",\n\"Join_2\".\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\"\
+  ,\n\"Join_2\".\"T4CRefundValidityTo\" as \"T4CRefundValidityTo\",\n\"Join_2\".\"\
+  SDItemCategory\" as \"SDItemCategory\",\n\"Join_2\".\"Territory\" as \"Territory\"\
+  ,\n\"Join_2\".\"OpportunityID\" as \"OpportunityID\",\n\"Join_2\".\"RAContract\"\
+  \ as \"RAContract\",\n\"Join_2\".\"UnbilledRevenue\" as \"UnbilledRevenue\",\n\"\
+  Join_2\".\"TotalDeferredRevenue\" as \"TotalDeferredRevenue\",\n\"Join_2\".\"TotalRevenue\"\
+  \ as \"TotalRevenue\",\n\"Join_2\".\"AllocatedAmount\" as \"AllocatedAmount\",\n\
+  \"Join_2\".\"BundleLevelMaterialDescription\" as \"BundleLevelMaterialDescription\"\
+  ,\n\"Join_2\".\"TerritoryDesc\" as \"TerritoryDesc\",\n\"Join_2\".\"SourceFlag\"\
+  \ as \"SourceFlag\",\n\"Join_2\".\"RecordKey\" as \"RecordKey\",\n\"Join_2\".\"\
+  ReportingQuarter\" as \"ReportingQuarter\",\n\"Join_2\".\"FinalRPOAmount\" as \"\
+  FinalRPOAmount\",\n\"Join_2\".\"IsT4C\" as \"IsT4C\",\n\"FinalRPOAmount\" - \"BLENDED_LC\"\
+  \  as \"T4CImpactLC\" ,\nIFF( \"T4CImpactLC\"  IS not NULL or \"T4CImpactLC\" >\
+  \ 'random' ,'random','random') as \"DerivedT4CFlag\",\n\nlast_day(try_to_date(\"\
+  SnapshotMonth\" || 'random'  )) as \"LastdayoftheQuarter\",\ndatediff(day,IFF((\"\
+  FPLT_SettlementDateforDeadlineNFDAT\" IS NULL ),\"ContractStartDate\",\ngreatest(\"\
+  LastdayoftheQuarter\", \"FPLT_SettlementDateforDeadlineNFDAT\" )+ 'random'),\"ContractEndDate\"\
+  \  )  as \"RemainingDays\",\ndiv0null(\"T4CImpactLC\" , (\"RemainingDays\"+ 'random')\
+  \ ) as \"DailyRateLC\",\n\n\n\"Projection_6\".\"NoOfDays\" as \"NoOfDays\",\nleast\
+  \ ( ABS(\"DailyRateLC\" * \"NoOfDays\") ,ABS(\"T4CImpactLC\")) as \"T4CAmountCalc\"\
+  \n\n\nfrom\n\n\n(\nSELECT\n\n\"Projection_4\".\"ReportingMonthUpdated\" as \"ReportingMonthUpdated\"\
+  ,\n\"Projection_4\".\"AccountingPrinciple\" as \"AccountingPrinciple\",\n\"Projection_4\"\
+  .\"SalesDocument\" as \"SalesDocument\",\n\"Projection_4\".\"SalesDocumentItem\"\
+  \ as \"SalesDocumentItem\",\n\"Projection_4\".\"SalesDocument\" ||\"SalesDocumentItem\"\
+  \ as \"DocumentItem\",\n\"Projection_4\".\"T4CDocItem\" as \"T4CDocItem\" ,\n\"\
+  Projection_4\".\"T4C_Flag\" as \"T4C_Flag\",\n\"Projection_4\".\"DocumentCurrency\"\
+  \ as \"DocumentCurrency\",\n\"Projection_4\".\"LocalCurrency\" as \"LocalCurrency\"\
+  ,\n\"Projection_4\".\"MasterSalesDocument\" as \"MasterSalesDocument\",\n\"Projection_4\"\
+  .\"CustomerName\" as \"CustomerName\",\n\"Projection_4\".\"ContractItemStartDate\"\
+  \ as \"ContractItemStartDate\",\n\"Projection_4\".\"ContractItemEndDate\" as \"\
+  ContractItemEndDate\",\n\"Projection_4\".\"MaterialDescription\" as \"MaterialDescription\"\
+  ,\n\"Projection_4\".\"OrderForm\" as \"OrderForm\",\n\"Projection_4\".\"ContractSignedDate\"\
+  \ as \"ContractSignedDate\",\n\"Projection_4\".\"SalesOrganization\" as \"SalesOrganization\"\
+  ,\n\"Projection_4\".\"MaterialGroup\" as \"MaterialGroup\",\n\"Projection_4\".\"\
+  ShiptoCountry\" as \"ShiptoCountry\",\n\"Projection_4\".\"RejectionReason\" as \"\
+  RejectionReason\",\n\"Projection_4\".\"PerformanceObligationID\" as \"PerformanceObligationID\"\
+  ,\n\"Projection_4\".\"POBName\" as \"POBName\",\n\"Projection_4\".\"PerformanceObligationType\"\
+  \ as \"PerformanceObligationType\",\n\"Projection_4\".\"Revenue_Status\" as \"Revenue_Status\"\
+  ,\n\"Projection_4\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n\"Projection_4\"\
+  .\"EndUserName\" as \"EndUserName\",\n\"Projection_4\".\"ContractStartDate\" as\
+  \ \"ContractStartDate\",\n\"Projection_4\".\"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n\"Projection_4\".\"T4C_REV_DC\" as \"T4C_REV_DC\",\n\"Projection_4\".\"T4C_REV_LC\"\
+  \ as \"T4C_REV_LC\",\n\"Projection_4\".\"T4C_REV_GC\" as \"T4C_REV_GC\",\n\"Projection_4\"\
+  .\"T4C_REV_HC\" as \"T4C_REV_HC\",\n\"Projection_4\".\"BLENDED_DC\" as \"BLENDED_DC\"\
+  ,\n\"Projection_4\".\"BLENDED_LC\" as \"BLENDED_LC\",\n\"Projection_4\".\"BLENDED_GC\"\
+  \ as \"BLENDED_GC\",\n\"Projection_4\".\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n\"Projection_4\".\"BillingPlanNumber\" as \"BillingPlanNumber\",\n\"Projection_4\"\
+  .\"FPLT_BillingStatusfortheBillingPlanDate\" as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n\"Projection_4\".\"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n\"Projection_4\".\"FPLT_SettlementDateforDeadlineNFDAT\" as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n\"Projection_4\".\"T4C_Contract\" as \"T4C_Contract\",\n\"Projection_4\".\"RPO\"\
+  \ as \"RPO\",\n\"Projection_4\".\"SnapshotMonth\" as \"SnapshotMonth\",\n\"Projection_4\"\
+  .\"RecordKey\" as \"RecordKeyold\",\n \"Projection_4\".\"SnapshotDate\" as \"SnapshotDate\"\
+  ,\n\"Projection_4\".\"ItemText\" as \"ItemText\",\n\"Projection_4\".\"EndUserCountry\"\
+  \ as \"EndUserCountry\",\n\"Projection_4\".\"Material\" as \"Material\",\n\"Projection_4\"\
+  .\"T4CValidityFrom\" as \"T4CValidityFrom\",\n\"Projection_4\".\"T4CValidityTo\"\
+  \ as \"T4CValidityTo\",\n\"Projection_4\".\"T4CNoticePeriod\" as \"T4CNoticePeriod\"\
+  ,\n\"Projection_4\".\"T4CRightToRefund\" as \"T4CRightToRefund\",\n\"Projection_4\"\
+  .\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\",\n\"Projection_4\".\"T4CRefundValidityTo\"\
+  \ as \"T4CRefundValidityTo\",\n\"Projection_4\".\"SDItemCategory\" as \"SDItemCategory\"\
+  ,\n\"Projection_4\".\"Territory\" as \"Territory\",\n\"Projection_4\".\"OpportunityID\"\
+  \ as \"OpportunityID\",\n\"Projection_4\".\"RAContract\" as \"RAContract\",\n\"\
+  Projection_4\".\"UnbilledRevenue\" as \"UnbilledRevenue\",\n\"Projection_4\".\"\
+  TotalDeferredRevenue\" as \"TotalDeferredRevenue\",\n\"Projection_4\".\"TotalRevenue\"\
+  \ as \"TotalRevenue\",\n\"Projection_4\".\"AllocatedAmount\" as \"AllocatedAmount\"\
+  ,\n\"Projection_4\".\"BundleLevelMaterialDescription\" as \"BundleLevelMaterialDescription\"\
+  ,\n\"Projection_4\".\"TerritoryDesc\" as \"TerritoryDesc\",\n\"Projection_4\".\"\
+  SourceFlag\" as \"SourceFlag\",\n\"Projection_4\".\"RecordKey\" as \"RecordKey\"\
+  ,\n\"Projection_4\".\"ReportingQuarter\" as \"ReportingQuarter\",\n\"Projection_4\"\
+  .\"FinalRPOAmount\" as \"FinalRPOAmount\",\n\"Projection_5\".\"IsT4C\" as \"IsT4C\"\
+  \nfrom\n\n\n(\nSELECT\n\n\"ReportingMonthUpdated\" as \"ReportingMonthUpdated\"\
+  ,\n\"AccountingPrinciple\" as \"AccountingPrinciple\",\n\"SalesDocument\" as \"\
+  SalesDocument\",\n\"SalesDocumentItem\" as \"SalesDocumentItem\",\n\"SalesDocument\"\
+  \ ||\"SalesDocumentItem\" as \"DocumentItem\",\n\"T4CDocItem\" as \"T4CDocItem\"\
+  \ ,\n\"T4C_Flag\" as \"T4C_Flag\",\n\"DocumentCurrency\" as \"DocumentCurrency\"\
+  ,\n\"LocalCurrency\" as \"LocalCurrency\",\n\"MasterSalesDocument\" as \"MasterSalesDocument\"\
+  ,\n\"CustomerName\" as \"CustomerName\",\n\"ContractItemStartDate\" as \"ContractItemStartDate\"\
+  ,\n\"ContractItemEndDate\" as \"ContractItemEndDate\",\n\"MaterialDescription\"\
+  \ as \"MaterialDescription\",\n\"OrderForm\" as \"OrderForm\",\n\"ContractSignedDate\"\
+  \ as \"ContractSignedDate\",\n\"SalesOrganization\" as \"SalesOrganization\",\n\"\
+  MaterialGroup\" as \"MaterialGroup\",\n\"ShiptoCountry\" as \"ShiptoCountry\",\n\
+  \"RejectionReason\" as \"RejectionReason\",\n\"PerformanceObligationID\" as \"PerformanceObligationID\"\
+  ,\n\"POBName\" as \"POBName\",\n\"PerformanceObligationType\" as \"PerformanceObligationType\"\
+  ,\n\"Revenue_Status\" as \"Revenue_Status\",\n\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n\"EndUserName\" as \"EndUserName\",\n\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n\"ContractEndDate\" as \"ContractEndDate\",\n\"T4C_REV_DC\" as \"T4C_REV_DC\"\
+  ,\n\"T4C_REV_LC\" as \"T4C_REV_LC\",\n\"T4C_REV_GC\" as \"T4C_REV_GC\",\n\"T4C_REV_HC\"\
+  \ as \"T4C_REV_HC\",\n\"BLENDED_DC\" as \"BLENDED_DC\",\n\"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n\"BLENDED_GC\" as \"BLENDED_GC\",\n\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n\"BillingPlanNumber\" as \"BillingPlanNumber\",\n\"FPLT_BillingStatusfortheBillingPlanDate\"\
+  \ as \"FPLT_BillingStatusfortheBillingPlanDate\",\n\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n\"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n\"T4C_Contract\" as \"T4C_Contract\"\
+  ,\n\"RPO\" as \"RPO\",\n\"SnapshotMonth\" as \"SnapshotMonth\",\n\"RecordKey\" as\
+  \ \"RecordKeyold\",\n\"SnapshotDate\" as \"SnapshotDate\",\n\"ItemText\" as \"ItemText\"\
+  ,\n\"EndUserCountry\" as \"EndUserCountry\",\n\"Material\" as \"Material\",\n\"\
+  T4CValidityFrom\" as \"T4CValidityFrom\",\n\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n\"T4CRightToRefund\" as \"T4CRightToRefund\"\
+  ,\n\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\",\n\"T4CRefundValidityTo\"\
+  \ as \"T4CRefundValidityTo\",\n\"SDItemCategory\" as \"SDItemCategory\",\n\"Territory\"\
+  \ as \"Territory\",\n\"OpportunityID\" as \"OpportunityID\",\n\"RAContract\" as\
+  \ \"RAContract\",\n\"UnbilledRevenue\" as \"UnbilledRevenue\",\n\"TotalDeferredRevenue\"\
+  \ as \"TotalDeferredRevenue\",\n\"TotalRevenue\" as \"TotalRevenue\",\n\"AllocatedAmount\"\
+  \ as \"AllocatedAmount\",\n\"BundleLevelMaterialDescription\" as \"BundleLevelMaterialDescription\"\
+  ,\n\"TerritoryDesc\" as \"TerritoryDesc\",\n'random' as \"SourceFlag\",\n\"RecordKey\"\
+  \ as \"RecordKey\",\n\"ReportingQuarter\" as \"ReportingQuarter\",\n\"FinalRPOAmount\"\
+  \ as \"FinalRPOAmount\"\n\n\n\nfrom REVENUE_SCHEDULE\n\n )\"Projection_4\"\n--Optional'random'--------------\n\
+  left join\n(Select \"T4CDocItem\" as \"T4CDocItem\", IS_T4C as \"IsT4C\"\nfrom\n\
+  (select Ltrim(VBELN,'random')||Ltrim(POSNR,'random') as \"T4CDocItem\",IS_T4C\n\
+  from RDS.BIECC.ZFARR_WFR_HDR where IS_T4C = 'random')\nunion all\n(select Ltrim(VBELN,'random')||Ltrim(POSNR,'random')\
+  \ as \"T4CDocItem\", ZZOPT_DOWNSELL\nfrom RDS.BIECC.VBKD where ZZOPT_DOWNSELL in\
+  \ ( 'random','random')))\"Projection_5\"\non \"Projection_4\" .\"DocumentItem\"\
+  \  = \"Projection_5\".\"T4CDocItem\"\n)\"Join_2\"\n---*****************Unbilled\
+  \ Docs*******************************\n left join\n(\nselect\n \"ContractNumberNoLeadingZeroes\"\
+  \ as  \"ContractNumberNoLeadingZeroes\",\n  \"ContractLineNoLeadingZeroes\" as \
+  \ \"ContractLineNoLeadingZeroes\",\n\"UnbilledReportingQuarter\" as \"UnbilledReportingQuarter\"\
+  \ ,\n\"SettlementFromUnbilled\"  as \"SettlementFromUnbilled\",\n\"SettlementToUnbilled\"\
+  \ as \"SettlementToUnbilled\" ,\ncase\nwhen right(\"UnbilledReportingQuarter\" ,'random')\
+  \ = 'random' then 'random'\nwhen right(\"UnbilledReportingQuarter\" ,'random') =\
+  \ 'random' then 'random'\nwhen right(\"UnbilledReportingQuarter\" ,'random') = 'random'\
+  \ then 'random'\nwhen right(\"UnbilledReportingQuarter\" ,'random') = 'random' then\
+  \ 'random'\nend as \"QuarterMonth\",\n\n('random'|| left(\"UnbilledReportingQuarter\"\
+  \ ,'random')||'random'||\"QuarterMonth\"||'random'||'random' ) :: DATE as \"FirstDayoftheMonth\"\
+  ,\nLast_DAY(\"FirstDayoftheMonth\",'random') as \"LastDayoftheQuarter\",\nDATEDIFF(day,\
+  \ Greatest (\"SettlementFromUnbilled\",\"LastDayoftheQuarter\"),\"SettlementToUnbilled\"\
+  \ )  + 'random' as \"NoOfDays\"\n\nfrom\n(\nSELECT\n \"ContractNumberNoLeadingZeroes\"\
+  \ as  \"ContractNumberNoLeadingZeroes\",\n  \"ContractLineNoLeadingZeroes\" as \
+  \ \"ContractLineNoLeadingZeroes\",\n \"ReportingQuarter\" as \"UnbilledReportingQuarter\"\
+  ,\ntry_to_date(min (\"SettlementFrom\" ) )  as \"SettlementFromUnbilled\",\n try_to_date(max(\"\
+  SettlementTo\") ) as \"SettlementToUnbilled\"\n\n\nFROM\n  RDS.FLATFILESOURCE.STG_UNBILLED_DOCS_SNAPSHOT_TEST\n\
+  \n   group by\n\"ContractNumberNoLeadingZeroes\",\n\"ContractLineNoLeadingZeroes\"\
+  ,\n\"UnbilledReportingQuarter\"\n)\n)\"Projection_6\"\n\nON \"Join_2\".\"SalesDocument\"\
+  \ = \"Projection_6\". \"ContractNumberNoLeadingZeroes\" and\n\"Join_2\".\"SalesDocumentItem\"\
+  \ = \"Projection_6\".\"ContractLineNoLeadingZeroes\" and\n\"Join_2\".\"ReportingQuarter\"\
+  = \"Projection_6\".\"UnbilledReportingQuarter\"\n )\n)\"Union_1\"\nwhere \"SalesDocument\"\
+  \  = 'random'\nand \"SalesDocumentItem\" = 'random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,69 @@
+name: table_299
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_299
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_299.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CMN_SKILL(\n\t\"SkillType\",\n\t\"SkillSkillSysID\"\
+  ,\n\t\"SkillName\",\n\t\"SkillLevel\",\n\t\"SkillEmployeBioValue\",\n\t\"SkillEmployeeBioSysID\"\
+  ,\n\t\"SkillSkill\",\n\t\"SkillActive\",\n\t\"SkillRequired\",\n\t\"SkillCertificationDate\"\
+  ,\n\t\"SkillRequiredBy\",\n\t\"SkillAccreditationDate\",\n\t\"SkillExpirationDate\"\
+  ,\n\t\"SkillCertificationNumber\",\n\t\"SkillUpdatedOn\",\n\t\"SkillCertificationStatus\"\
+  ,\n\t\"SkillDueDate\",\n\t\"SkillSysCreatedOn\",\n\t\"SysDomain\",\n\t\"DVSysDomain\"\
+  ,\n\t\"DVUManagerRating\",\n\t\"UManagerRating\",\n\t\"UEmail\",\n\t\"UFirstName\"\
+  ,\n\t\"ULastName\",\n\t\"SkillAcquiredDate\"\n) as -- SEMANTIC LAYER BEGINS\n\n\
+  SELECT \"DV_U_TYPE\" as \"SkillType\",\n       \"U_SKILL\" as \"SkillSkillSysID\"\
+  ,\n       \"NAME\" as \"SkillName\",\n       \"DV_U_LEVEL\" as \"SkillLevel\",\n\
+  \       \"DV_U_EMPLOYEE_BIO\" as \"SkillEmployeBioValue\",\n       \"U_EMPLOYEE_BIO\"\
+  \ as \"SkillEmployeeBioSysID\",\n       \"DV_U_SKILL\" as \"SkillSkill\",\n    \
+  \   \"ACTIVE\" as \"SkillActive\",\n       \"U_REQUIRED\" as \"SkillRequired\",\n\
+  \       \"U_CERTIFICATION_DATE\" as \"SkillCertificationDate\",\n       \"U_REQUIRED_BY\"\
+  \ as \"SkillRequiredBy\",\n       \"U_ACCREDITATION_DATE\" as \"SkillAccreditationDate\"\
+  ,\n       \"U_EXPIRATION_DATE\" as \"SkillExpirationDate\",\n       \"U_CERTIFICATION_NUMBER\"\
+  \ as \"SkillCertificationNumber\",\n       \"SYS_UPDATED_ON\" as \"SkillUpdatedOn\"\
+  ,\n       \"DV_U_CERTIFICATION_STATUS\" as \"SkillCertificationStatus\",\n     \
+  \  \"U_DUE_DATE\" as \"SkillDueDate\",\n       \"SYS_CREATED_ON\" as \"SkillSysCreatedOn\"\
+  ,\n       \"SYS_DOMAIN\" as \"SysDomain\",\n       \"DV_SYS_DOMAIN\" as \"DVSysDomain\"\
+  ,\n       \"DV_U_MANAGER_RATING\" as \"DVUManagerRating\",\n       \"U_MANAGER_RATING\"\
+  \ as \"UManagerRating\",\n       \"U_EMAIL\" as \"UEmail\",\n       \"U_FIRST_NAME\"\
+  \ as \"UFirstName\",\n       \"U_LAST_NAME\" as \"ULastName\",\n       \"U_ACQUIRED_DATE\"\
+  \ as \"SkillAcquiredDate\"\nFROM \"RDS\".\"SURF\".\"U_SKILLS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

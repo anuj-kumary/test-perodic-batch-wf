@@ -1,0 +1,60 @@
+name: table_273
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_273
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_273.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_FINANCE_SALES_JOIN(\n\t\"OpportunityName\"\
+  ,\n\t\"OpportunityNumber\",\n\t\"OpportunityType\",\n\t\"ForecastStage\",\n\t\"\
+  OrderTermStartDate\",\n\t\"AccountNumber\",\n\t\"AccountName\",\n\t\"ContractSignedDate\"\
+  ,\n\t\"HIInstanceValue\",\n\t\"Instance\",\n\t\"ContractReviewed\",\n\t\"Contractnumber\"\
+  ,\n\t\"ARNotes\",\n\t\"HIInstanceID\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"\
+  U_OPPORTUNITY_NAME\" as \"OpportunityName\",\n       \"U_OPPORTUNITY_NUMBER\" as\
+  \ \"OpportunityNumber\",\n       \"U_OPPORTUNITY_TYPE\" as \"OpportunityType\",\n\
+  \       \"U_FORECAST_STAGE\" as \"ForecastStage\",\n       \"U_ORDER_TERM_START_DATE\"\
+  \ as \"OrderTermStartDate\",\n       \"U_ACCOUNT_NUMBER\" as \"AccountNumber\",\n\
+  \       \"U_ACCOUNT_NAME\" as \"AccountName\",\n       \"U_CONTRACT_SIGNED_DATE\"\
+  \ as \"ContractSignedDate\",\n       \"DV_U_HI_INSTANCE\" as \"HIInstanceValue\"\
+  ,\n       \"U_INSTANCE_ID\" as \"Instance\",\n       \"U_CONTRACT_REVIEWED\" as\
+  \ \"ContractReviewed\",\n       \"U_CONTRACT_NUMBER\" as \"Contractnumber\",\n \
+  \      \"U_AR_NOTES\" as \"ARNotes\",\n       \"U_HI_INSTANCE\" as \"HIInstanceID\"\
+  \nFROM \"RDS\".\"SURF\".\"U_FINANCE_SALES_JOIN\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

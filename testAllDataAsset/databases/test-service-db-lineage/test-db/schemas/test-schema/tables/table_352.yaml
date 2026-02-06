@@ -1,0 +1,93 @@
+name: table_352
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_352
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_352.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DELIVERED_EMAIL(\n\t\"EmailDeliveredID\"\
+  ,\n\t\"EmailDeliveredMarketoGUID\",\n\t\"EmailDeliveredLeadID\",\n\t\"EmailDeliveredActivityDate\"\
+  ,\n\t\"EmailDeliveredActivityTypeID\",\n\t\"EmailDeliveredPrimaryAttributeValueID\"\
+  ,\n\t\"EmailDeliveredPrimaryAttribute\",\n\t\"EmailDeliveredCampaignID\",\n\t\"\
+  EmailDeliveredCampaign\",\n\t\"EmailDeliveredCampaignRunID\",\n\t\"EmailDeliveredChoiceNumber\"\
+  ,\n\t\"EmailDeliveredHasPredective\",\n\t\"EmailDeliveredStepID\",\n\t\"EmailDeliveredClietIPAddress\"\
+  ,\n\t\"EmailDeliveredQueryParameters\",\n\t\"EmailDeliveredReferrerURL\",\n\t\"\
+  EmailDeliveredWebPageURL\",\n\t\"EmailDeliveredTestVariant\",\n\t\"Source\"\n) as\n\
+  \    SELECT\n        \"ID\" as \"EmailDeliveredID\",\n       \"MARKETOGUID\" as\
+  \ \"EmailDeliveredMarketoGUID\",\n       \"LEADID\" as \"EmailDeliveredLeadID\"\
+  ,\n       \"ACTIVITYDATE\" as \"EmailDeliveredActivityDate\",\n       \"ACTIVITYTYPEID\"\
+  \ as \"EmailDeliveredActivityTypeID\",\n       \"PRIMARYATTRIBUTEVALUEID\" as \"\
+  EmailDeliveredPrimaryAttributeValueID\",\n       \"PRIMARYATTRIBUTEVALUE\" as \"\
+  EmailDeliveredPrimaryAttribute\",\n       \"CAMPAIGNID\" as \"EmailDeliveredCampaignID\"\
+  ,\n       \"CAMPAIGN\" as \"EmailDeliveredCampaign\",\n       \"CAMPAIGN_RUN_ID\"\
+  \ as \"EmailDeliveredCampaignRunID\",\n       \"CHOICE_NUMBER\" as \"EmailDeliveredChoiceNumber\"\
+  ,\n       \"HAS_PREDECTIVE\" as \"EmailDeliveredHasPredective\",\n       \"STEP_ID\"\
+  \ as \"EmailDeliveredStepID\",\n       \"CLIENT_IP_ADDRESS\" as \"EmailDeliveredClietIPAddress\"\
+  ,\n       \"QUERY_PARAMETERS\" as \"EmailDeliveredQueryParameters\",\n       \"\
+  REFERRER_URL\" as \"EmailDeliveredReferrerURL\",\n       \"WEBPAGE_URL\" as \"EmailDeliveredWebPageURL\"\
+  ,\n       \"TEST_VARIANT\" as \"EmailDeliveredTestVariant\",\n      -- \"ETL_EXTRACT_DATE\"\
+  \ as \"ETLExtractDate\",\n        'random' \"Source\"\n    FROM RDS.\"MARKETO\"\
+  .\"EMAIL_DELIVERED\" delivered\n/*union all\n--backfill logic; generate dummy email\
+  \ delivered from email click data.\n    SELECT\n       clicks.\"ID\" as \"EmailDeliveredID\"\
+  ,\n       clicks.\"MARKETOGUID\" as \"EmailDeliveredMarketoGUID\",\n       clicks.\"\
+  LEADID\" as \"EmailDeliveredLeadID\",\n       clicks.\"ACTIVITYDATE\" as \"EmailDeliveredActivityDate\"\
+  ,\n       clicks.\"ACTIVITYTYPEID\" as \"EmailDeliveredActivityTypeID\",\n     \
+  \  clicks.\"PRIMARYATTRIBUTEVALUEID\" as \"EmailDeliveredPrimaryAttributeValueID\"\
+  ,\n       clicks.\"PRIMARYATTRIBUTEVALUE\" as \"EmailDeliveredPrimaryAttribute\"\
+  ,\n       clicks.\"CAMPAIGNID\" as \"EmailDeliveredCampaignID\",\n       clicks.\"\
+  CAMPAIGN\" as \"EmailDeliveredCampaign\",\n       clicks.\"CAMPAIGN_RUN_ID\" as\
+  \ \"EmailDeliveredCampaignRunID\",\n       clicks.\"CHOICE_NUMBER\" as \"EmailDeliveredChoiceNumber\"\
+  ,\n       clicks.\"HAS_PREDECTIVE\" as \"EmailDeliveredHasPredective\",\n      \
+  \ clicks.\"STEP_ID\" as \"EmailDeliveredStepID\",\n       null as \"EmailDeliveredClietIPAddress\"\
+  ,\n       null as \"EmailDeliveredQueryParameters\",\n       null as \"EmailDeliveredReferrerURL\"\
+  ,\n       null as \"EmailDeliveredWebPageURL\",\n       null as \"EmailDeliveredTestVariant\"\
+  ,\n      -- null as \"ETLExtractDate\",\n        'Backfill' as  \"Source\"\n   \
+  \ from RDS.\"MARKETO\".\"CLICK_EMAIL\" clicks\n    inner join\n        (\n     \
+  \   select  \"LeadID\",\"PrimaryAttributeValue\",\"CampaignID\",min(\"ActivityDate\"\
+  ) \"ActivityDate\"\n        FROM ODS_LS.\"MARKETO\".\"CLICK_EMAIL\"\n        WHERE\
+  \ \"LinkType\"='Body'\n        and \"LeadID\"||\"PrimaryAttributeValue\"||\"CampaignID\"\
+  \ NOT IN\n            (SELECT  DISTINCT LEADID||PRIMARYATTRIBUTEVALUE||CAMPAIGNID\n\
+  \                FROM RDS.\"MARKETO\".\"EMAIL_DELIVERED\"\n            ) --989,870\n\
+  \        group by \"LeadID\",\"PrimaryAttributeValue\",\"CampaignID\") missing_delivered\n\
+  \    on clicks.LEADID =missing_delivered.\"LeadID\"\n    and clicks.PRIMARYATTRIBUTEVALUE\
+  \ =missing_delivered.\"PrimaryAttributeValue\"\n    and clicks.CAMPAIGNID =missing_delivered.\"\
+  CampaignID\"\n    and clicks.ACTIVITYDATE =missing_delivered.\"ActivityDate\"\n\
+  \    */;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

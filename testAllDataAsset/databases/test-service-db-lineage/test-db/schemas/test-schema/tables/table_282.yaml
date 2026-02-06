@@ -1,0 +1,118 @@
+name: table_282
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_282
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_282.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view COMPETITIVE_PRODUCT(\n\t\"CompetitorOptySysId\"\
+  ,\n\t\"Incumbent\",\n\t\"OtherCompetitor\",\n\t\"PrimaryCompetitor\",\n\t\"CompetitorBusinessUnit\"\
+  ,\n\t\"BusinessUnitSysid\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"U_OPPORTUNITY\"\
+  \ as \"CompetitorOptySysId\",\n       \"Incumbent\" as \"Incumbent\",\n       \"\
+  OtherCompetitor\" as \"OtherCompetitor\",\n       \"PrimaryCompetitor\" as \"PrimaryCompetitor\"\
+  ,\n       \"CompetitorBusinessUnit\" as \"CompetitorBusinessUnit\",\n       \"BusinessUnitSysid\"\
+  \ as \"BusinessUnitSysid\"\nFROM\n  (SELECT \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\"\
+  ,\n          \"Incumbent\" as \"Incumbent\",\n          \"OtherCompetitor\" as \"\
+  OtherCompetitor\",\n          \"PrimaryCompetitor\" as \"PrimaryCompetitor\",\n\
+  \          \"CompetitorBusinessUnit\" as \"CompetitorBusinessUnit\",\n         \
+  \ \"BusinessUnitSysid\" as \"BusinessUnitSysid\"\n   FROM\n     (SELECT \"Join_2\"\
+  .\"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n             \"Join_2\".\"Incumbent\"\
+  \ as \"Incumbent\",\n             \"Join_2\".\"OtherCompetitor\" as \"OtherCompetitor\"\
+  ,\n             \"Rank_PrimaryCompetitor\".\"PrimaryCompetitor\" as \"PrimaryCompetitor\"\
+  ,\n             \"Join_2\".\"CompetitorBusinessUnit\" as \"CompetitorBusinessUnit\"\
+  ,\n             \"Join_2\".\"BusinessUnitSysid\" as \"BusinessUnitSysid\"\n    \
+  \  FROM\n        (SELECT \"Join_1\".\"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n  \
+  \              \"Join_1\".\"Incumbent\" as \"Incumbent\",\n                \"Rank_OtherCompetitor\"\
+  .\"OtherCompetitor\" as \"OtherCompetitor\",\n                \"Join_1\".\"CompetitorBusinessUnit\"\
+  \ as \"CompetitorBusinessUnit\",\n                \"Join_1\".\"BusinessUnitSysid\"\
+  \ as \"BusinessUnitSysid\"\n         FROM\n           (SELECT \"UniqueOptys\".\"\
+  U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n                   \"Rank_Incumbent\".\"\
+  Incumbent\" as \"Incumbent\",\n                   \"UniqueOptys\".\"CompetitorBusinessUnit\"\
+  \ as \"CompetitorBusinessUnit\",\n                   \"UniqueOptys\".\"BusinessUnitSysid\"\
+  \ as \"BusinessUnitSysid\"\n            FROM\n              (SELECT \"U_OPPORTUNITY\"\
+  \ as \"U_OPPORTUNITY\",\n                      \"DV_U_BUSINESS_UNIT\" as \"CompetitorBusinessUnit\"\
+  ,\n                      \"U_BUSINESS_UNIT\" as \"BusinessUnitSysid\"\n        \
+  \       FROM \"RDS\".\"SURF\".\"U_COMPETITIVE_PRODUCT\"\n               WHERE \"\
+  U_OPPORTUNITY\" IS not NULL\n               GROUP BY \"U_OPPORTUNITY\",\n      \
+  \                  \"CompetitorBusinessUnit\",\n                        \"BusinessUnitSysid\"\
+  )\"UniqueOptys\"\n            LEFT JOIN\n              (SELECT \"Incumbent\" as\
+  \ \"Incumbent\",\n                      \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n\
+  \                      \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n             \
+  \         \"U_BUSINESS_UNIT\" as \"U_BUSINESS_UNIT\",\n                      ROW_NUMBER()\
+  \ OVER(PARTITION BY U_OPPORTUNITY, U_BUSINESS_UNIT\n                           \
+  \             ORDER BY SYS_UPDATED_ON DESC)\"Rank_Column\"\n               FROM\n\
+  \                 (SELECT \"DV_U_COMPETITOR_PRODUCT\" as \"Incumbent\",\n      \
+  \                   \"U_COMPETITOR_TYPE\" as \"U_COMPETITOR_TYPE\",\n          \
+  \               \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n                      \
+  \   \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n                         \"U_BUSINESS_UNIT\"\
+  \ as \"U_BUSINESS_UNIT\"\n                  FROM \"RDS\".\"SURF\".\"U_COMPETITIVE_PRODUCT\"\
+  \n                  WHERE \"U_COMPETITOR_TYPE\" = 'random' )\"Incumbent\" QUALIFY\
+  \ \"Rank_Column\" <= 'random')\"Rank_Incumbent\" ON \"UniqueOptys\".\"U_OPPORTUNITY\"\
+  \ = \"Rank_Incumbent\".\"U_OPPORTUNITY\"\n            AND \"UniqueOptys\".\"BusinessUnitSysid\"\
+  \ = \"Rank_Incumbent\".\"U_BUSINESS_UNIT\")\"Join_1\"\n         LEFT JOIN\n    \
+  \       (SELECT \"OtherCompetitor\" as \"OtherCompetitor\",\n                  \
+  \ \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n                   \"SYS_UPDATED_ON\"\
+  \ as \"SYS_UPDATED_ON\",\n                   \"U_BUSINESS_UNIT\" as \"U_BUSINESS_UNIT\"\
+  ,\n                   ROW_NUMBER() OVER(PARTITION BY U_OPPORTUNITY, U_BUSINESS_UNIT\n\
+  \                                     ORDER BY SYS_UPDATED_ON DESC)\"Rank_Column\"\
+  \n            FROM\n              (SELECT \"DV_U_COMPETITOR_PRODUCT\" as \"OtherCompetitor\"\
+  ,\n                      \"U_COMPETITOR_TYPE\" as \"U_COMPETITOR_TYPE\",\n     \
+  \                 \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n                    \
+  \  \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n                      \"U_BUSINESS_UNIT\"\
+  \ as \"U_BUSINESS_UNIT\"\n               FROM \"RDS\".\"SURF\".\"U_COMPETITIVE_PRODUCT\"\
+  \n               WHERE \"U_COMPETITOR_TYPE\" = 'random' )\"OtherCompetitor\" QUALIFY\
+  \ \"Rank_Column\" <= 'random')\"Rank_OtherCompetitor\" ON \"Join_1\".\"U_OPPORTUNITY\"\
+  \ = \"Rank_OtherCompetitor\".\"U_OPPORTUNITY\"\n         AND \"Join_1\".\"BusinessUnitSysid\"\
+  \ = \"Rank_OtherCompetitor\".\"U_BUSINESS_UNIT\")\"Join_2\"\n      LEFT JOIN\n \
+  \       (SELECT \"PrimaryCompetitor\" as \"PrimaryCompetitor\",\n              \
+  \  \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n                \"SYS_UPDATED_ON\" as\
+  \ \"SYS_UPDATED_ON\",\n                \"U_BUSINESS_UNIT\" as \"U_BUSINESS_UNIT\"\
+  ,\n                ROW_NUMBER() OVER(PARTITION BY U_OPPORTUNITY, U_BUSINESS_UNIT\n\
+  \                                  ORDER BY SYS_UPDATED_ON DESC)\"Rank_Column\"\n\
+  \         FROM\n           (SELECT \"DV_U_COMPETITOR_PRODUCT\" as \"PrimaryCompetitor\"\
+  ,\n                   \"U_COMPETITOR_TYPE\" as \"U_COMPETITOR_TYPE\",\n        \
+  \           \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n                   \"SYS_UPDATED_ON\"\
+  \ as \"SYS_UPDATED_ON\",\n                   \"U_BUSINESS_UNIT\" as \"U_BUSINESS_UNIT\"\
+  \n            FROM \"RDS\".\"SURF\".\"U_COMPETITIVE_PRODUCT\"\n            WHERE\
+  \ \"U_COMPETITOR_TYPE\" = 'random' )\"PrimaryCompetitor\" QUALIFY \"Rank_Column\"\
+  \ <= 'random')\"Rank_PrimaryCompetitor\" ON \"Join_2\".\"U_OPPORTUNITY\" = \"Rank_PrimaryCompetitor\"\
+  .\"U_OPPORTUNITY\"\n      AND \"Join_2\".\"BusinessUnitSysid\" = \"Rank_PrimaryCompetitor\"\
+  .\"U_BUSINESS_UNIT\")\"Join_3\")Projection_6;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

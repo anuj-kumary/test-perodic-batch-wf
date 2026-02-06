@@ -1,0 +1,72 @@
+name: table_283
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_283
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_283.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_PARTNERSOASSOCIATION(\n\t\"ModifiedOn\"\
+  ,\n\t\"PrePipelineID\",\n\t\"CreatedByName\",\n\t\"ModifiedBy\",\n\t\"SN_Name\"\
+  ,\n\t\"SN_Number\",\n\t\"CreatedOn\",\n\t\"SN_Opportunity_GUID\",\n\t\"StateCodeName\"\
+  ,\n\t\"SN_PrepipelineNumber\",\n\t\"SN_Partner\",\n\tSN_PARTNERSOASSOCIATIONID,\n\
+  \t\"SN_PartnerName\",\n\t\"SN_TypeName\",\n\t\"SN_Type\",\n\tSN_SOLUTIONOROFFERING,\n\
+  \t\"SN_OpportunityName\",\n\tETL_INSERT_DATE,\n\tETL_UPDATE_DATE\n) as\n\nselect\n\
+  \         \"MODIFIEDON\"                               as           \"ModifiedOn\"\
+  ,\n         \"SN_PREPIPELINEID\"                         as           \"PrePipelineID\"\
+  ,\n         \"CREATEDBYNAME\"                            as           \"CreatedByName\"\
+  ,\n         \"MODIFIEDBY\"                               as           \"ModifiedBy\"\
+  ,\n         \"SN_NAME\"                                  as           \"SN_Name\"\
+  ,\n         \"SN_SOLUTIONOROFFERINGNAME\"                as           \"SN_Number\"\
+  ,\n         \"CREATEDON\"                                as           \"CreatedOn\"\
+  ,\n         \"SN_OPPORTUNITY\"                           as           \"SN_Opportunity_GUID\"\
+  ,\n         \"STATECODENAME\"                            as           \"StateCodeName\"\
+  ,\n         \"SN_PREPIPELINEIDNAME\"                     as           \"SN_PrepipelineNumber\"\
+  ,\n         \"SN_PARTNER\"                               as           \"SN_Partner\"\
+  ,\n         \"SN_PARTNERSOASSOCIATIONID\"                as           \"SN_PARTNERSOASSOCIATIONID\"\
+  ,\n         \"SN_PARTNERNAME\"                           as           \"SN_PartnerName\"\
+  ,\n         \"SN_TYPENAME\"                              as           \"SN_TypeName\"\
+  ,\n         \"SN_TYPE\"                                  as           \"SN_TYPE\"\
+  ,\n         \"SN_SOLUTIONOROFFERING\"                    as           \"SN_SOLUTIONOROFFERING\"\
+  ,\n         \"SN_OPPORTUNITYNAME\"                       as           \"SN_OpportunityName\"\
+  ,\n         \"ETL_INSERT_DATE\"                          as           \"ETL_INSERT_DATE\"\
+  ,\n         \"ETL_UPDATE_DATE\"                          as           \"ETL_UPDATE_DATE\"\
+  \n\nFROM  RDS.\"DYNAMICS365\".\"SN_PARTNERSOASSOCIATIONS\" WHERE \"STATECODENAME\"\
+  ='random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

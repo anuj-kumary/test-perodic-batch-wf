@@ -1,0 +1,75 @@
+name: table_31
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_31
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_31.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_PS_CSAT_REQUESTS(\n\t\"CSat_State\",\n\
+  \t\"Csat_Total_Hours_Approved\",\n\t\"Csat_Deployment\",\n\t\"Csat_BusinessService\"\
+  ,\n\t\"CSATNumber\",\n\t\"CsatOpenedBy\",\n\t\"CsatAccount\",\n\t\"CsatReasonType\"\
+  ,\n\t\"CsatHoursRequested\",\n\t\"CsatApprovalLevel\",\n\t\"CsatApprover\",\n\t\"\
+  CsatOpenedAt\",\n\t\"CsatCommentsAndWorkNotes\",\n\tDESCRIPTION,\n\t\"CsatPhase\"\
+  ,\n\t\"CsatAccountSysID\",\n\t\"CsatEstimatedStartDate\",\n\t\"CsatEstimatedEndDate\"\
+  ,\n\t\"CsatRequestedFor\",\n\t\"CsatRequestedFor_SysID\",\n\t\"CsatBusinessUnitsInvolved\"\
+  ,\n\t\"CsatEstimatedHoursReqstd\",\n\t\"CsatInvoicedValue_USD\",\n\t\"CsatEstimatedHoursApprvd\"\
+  ,\n\t\"CsatTargetDuration\",\n\t\"CsatFundingSource\",\n\t\"CsatProductsInvolved\"\
+  ,\n\t\"CsatPartner\",\n\t\"CsatCreateDT\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"DV_STATE\" as \"CSat_State\",\n       \"U_TOTAL_HOURS_APPROVED\" as \"Csat_Total_Hours_Approved\"\
+  ,\n       \"DV_U_DEPLOYMENT\" as \"Csat_Deployment\",\n       \"BUSINESS_SERVICE\"\
+  \ as \"Csat_BusinessService\",\n       \"NUMBER\" as \"CSATNumber\",\n       \"\
+  DV_OPENED_BY\" as \"CsatOpenedBy\",\n       \"DV_U_ACCOUNT\" as \"CsatAccount\"\
+  ,\n       \"DV_U_REASON_TYPE\" as \"CsatReasonType\",\n       \"U_HOURS_REQUESTED\"\
+  \ as \"CsatHoursRequested\",\n       \"DV_U_APPROVAL_LEVEL\" as \"CsatApprovalLevel\"\
+  ,\n       \"DV_U_APPROVER\" as \"CsatApprover\",\n       \"OPENED_AT\" as \"CsatOpenedAt\"\
+  ,\n       \"U_COMMENTS_AND_WORK_NOTES\" as \"CsatCommentsAndWorkNotes\",\n     \
+  \  \"DESCRIPTION\" as \"DESCRIPTION\",\n       \"DV_U_PHASE\" as \"CsatPhase\",\
+  \  --- /*added by az*/\n\t   \"U_ACCOUNT\" as \"CsatAccountSysID\", -- CO Team for\
+  \ Investmentfund\n\t   \"U_ESTIMATED_START\" as \"CsatEstimatedStartDate\",\n\t\
+  \   \"U_ESTIMATED_END\" as \"CsatEstimatedEndDate\",\n\t   \"DV_U_TASK_FOR\" as\
+  \ \"CsatRequestedFor\",\n\t   \"U_TASK_FOR\" as \"CsatRequestedFor_SysID\",\n\t\
+  \   \"DV_U_BUSINESS_UNITS_INVOLVED\" as \"CsatBusinessUnitsInvolved\",\n\t   \"\
+  U_ESTIMATED_HOURS_REQ\" as \"CsatEstimatedHoursReqstd\",\n\t   \"U_INV_VALUE_USD\"\
+  \ as \"CsatInvoicedValue_USD\",\n\t   \"U_ESTIMATED_HOURS_APRVD\" as \"CsatEstimatedHoursApprvd\"\
+  ,\n\t   \"U_TARGETED_DURATION\" as \"CsatTargetDuration\",\n\t   \"U_FUNDING_SOURCE\"\
+  \ as \"CsatFundingSource\",\n\t   \"U_PRODUCTS_INVOLVED\" as \"CsatProductsInvolved\"\
+  ,\n\t   \"DV_U_PARTNER\" as \"CsatPartner\",\n       \"SYS_CREATED_ON\" as \"CsatCreateDT\"\
+  \nFROM \"RDS\".\"SURF\".\"U_PS_CSAT_REQUESTS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

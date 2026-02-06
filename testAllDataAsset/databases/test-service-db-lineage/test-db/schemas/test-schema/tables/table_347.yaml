@@ -1,0 +1,67 @@
+name: table_347
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_347
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_347.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_CUSTOMER_PRODUCTS(\n\t\"CustomerProductBusinessUnit\"\
+  ,\n\t\"CustomerProductName\",\n\t\"CustomerProductBusinessUnitSysID\",\n\t\"CustomerProductSysID\"\
+  ,\n\t\"CustomerProductGsPractice\",\n\t\"CustomerProductApplicationType\",\n\t\"\
+  CustomerProductActiveFlag\",\n\t\"CustomerProductCustomerProfileFlag\",\n\t\"CustomerProductFamily1\"\
+  ,\n\t\"CustomerProductFamily2\",\n\t\"CustomerProductFamily3\",\n\t\"CustomerProductESMName\"\
+  ,\n\t\"CustomerProductUApplicationType\",\n\tMDM_APPLICATION_ID,\n\tSYS_CREATED_ON,\n\
+  \tSYS_UPDATED_BY,\n\tSYS_UPDATED_ON,\n\tSYS_CREATED_BY,\n\tU_CATEGORY,\n\tOLD_PRODUCT_NAME\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT UCP.\"DV_U_BUSINESS_UNIT\" as \"CustomerProductBusinessUnit\"\
+  ,\n       UCP.\"U_PRODUCT_NAME\" as \"CustomerProductName\",\n       --UCP.U_MDM_APP_ID\
+  \ AS MDM_APPLICATION_ID,\n       UCP.\"U_BUSINESS_UNIT\" as \"CustomerProductBusinessUnitSysID\"\
+  ,\n       UCP.\"SYS_ID\" as \"CustomerProductSysID\",\n       UCP.\"DV_U_GS_PRACTICE\"\
+  \ as \"CustomerProductGsPractice\",\n       UCP.\"DV_U_APPLICATION_TYPE\" as \"\
+  CustomerProductApplicationType\",\n       UCP.\"U_ACTIVE\" as \"CustomerProductActiveFlag\"\
+  ,\n       UCP.\"U_CUSTOMER_PROFILE\" as \"CustomerProductCustomerProfileFlag\",\n\
+  \       UCP.\"DV_U_FAMILY_1\" as \"CustomerProductFamily1\",\n       UCP.\"DV_U_FAMILY_2\"\
+  \ as \"CustomerProductFamily2\",\n       UCP.\"DV_U_FAMILY_3\" as \"CustomerProductFamily3\"\
+  ,\n       UCP.\"U_ESM_NAME\" as \"CustomerProductESMName\",\n       UCP.\"U_APPLICATION_TYPE\"\
+  \ as \"CustomerProductUApplicationType\",\n       UCP.U_MDM_APP_ID AS MDM_APPLICATION_ID,\n\
+  \       UCP.SYS_CREATED_ON,\n       UCP.SYS_UPDATED_BY,\n       UCP.SYS_UPDATED_ON,\n\
+  \       UCP.SYS_CREATED_BY,\n       UCP.U_CATEGORY,\n       SS.\"U_PRODUCT_NAME\"\
+  \ AS OLD_PRODUCT_NAME\nFROM RDS.\"SURF\".\"U_CUSTOMER_PRODUCTS\" UCP\nLEFT JOIN\
+  \ EDW_LS.PRODUCT_COMPLIANCE_EM.U_CUSTOMER_PRODUCTS_OLD SS\nON SS.SYS_ID = UCP.SYS_ID;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

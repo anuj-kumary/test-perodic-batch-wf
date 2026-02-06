@@ -1,0 +1,57 @@
+name: table_274
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_274
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_274.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_SALES_REPS_QUOTA(\n\t\"SnapshotDate\"\
+  ,\n\t\"SRepQuarter\",\n\t\"SRepEmployeeNumber\",\n\t\"SRepTerrSysId\",\n\t\"EmpSysID\"\
+  ,\n\t\"SRepQuotaValue\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SnapshotDate\"\
+  \ as \"SnapshotDate\",\n       \"SRepQuarter\" as \"SRepQuarter\",\n       \"SRepEmployeeNumber\"\
+  \ as \"SRepEmployeeNumber\",\n       \"SRepTerrSysId\" as \"SRepTerrSysId\",\n \
+  \      \"EmpSysID\" as \"EmpSysID\",\n       \"SRepQuotaValue\" as \"SRepQuotaValue\"\
+  \nFROM\n  (SELECT \"SnapshotDate\" as \"SnapshotDate\",\n          \"SRepQuarter\"\
+  \ as \"SRepQuarter\",\n          \"SRepEmployeeNumber\" as \"SRepEmployeeNumber\"\
+  ,\n          \"SRepTerrSysId\" as \"SRepTerrSysId\",\n          \"EmpSysID\" as\
+  \ \"EmpSysID\",\n          \"SRepQuotaValue\" as \"SRepQuotaValue\",\n         \
+  \ \"SRepQuotaComponent\" as \"SRepQuotaComponent\"\n   FROM \"EDW_LS\".\"SALES_EM\"\
+  .\"ST_TBLREPQUOTA\"\n   WHERE \"SRepQuotaComponent\"='random')Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,67 @@
+name: table_314
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_314
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_314.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_NEXTGENFUNNELS(\n\t\"BeginningLeadRating\"\
+  ,\n\t\"BeginningLeadScore\",\n\t\"BelowThresholdFlag\",\n\t\"Campaign\",\n\t\"LeadProgressStage\"\
+  ,\n\t\"LeadScoreUponFunnelStageCreation\",\n\t\"LeadRatingUponFunnelStageCreation\"\
+  ,\n\t\"LeadSysID\",\n\t\"LeadFunnelSysID\",\n\t\"StageStartDate\",\n\t\"StageEndDate\"\
+  ,\n\t\"TimeinCurrentCycle\",\n\t\"TimeinStage\",\n\t\"Quarter\",\n\t\"LeadNumber\"\
+  ,\n\t\"CampaignLSMR\",\n\t\"LeadName\",\n\t\"CycleName\",\n\t\"CycleEndDate\",\n\
+  \t\"CycleID\",\n\t\"CycleStartDate\",\n\t\"HotLeadFlag\"\n) as\n SELECT \"SN_BEGINNINGLEADRATINGNAME\"\
+  \ as \"BeginningLeadRating\",\n\"SN_BEGINNINGLEADSCORE\" as \"BeginningLeadScore\"\
+  ,\n\"SN_BELOWTHRESHOLDNAME\" as \"BelowThresholdFlag\",\n\"SN_CAMPAIGNLSMRLEADSOURCEMOSTRECENTNAME\"\
+  \ as \"Campaign\",\ntrim(\"SN_LEADPROGRESSSTAGENAME\") as \"LeadProgressStage\"\
+  ,\n\"SN_LEADSCOREUPONFUNNELSTAGECREATION\" as \"LeadScoreUponFunnelStageCreation\"\
+  ,\n\"SN_LEADRATINGUPONFUNNELSTAGECREATIONNAME\" as \"LeadRatingUponFunnelStageCreation\"\
+  ,\n\"SN_LEAD\" as \"LeadSysID\",\n\"SN_NEXTGENFUNNELID\" as \"LeadFunnelSysID\"\
+  ,\n\"SN_DATETIMESTAGESTART\" as \"StageStartDate\",\n\"SN_DATETIMESTAGEEND\" as\
+  \ \"StageEndDate\",\n\"SN_TIMEINCURRENTCYCLE\" as \"TimeinCurrentCycle\",\n\"SN_TIMEINSTAGE\"\
+  \ as \"TimeinStage\",\nRIGHT(YEAR(\"StageStartDate\") ||'random'|| QUARTER(\"StageStartDate\"\
+  ),'random') as \"Quarter\",\nLEFT(\"SN_CYCLEID\",'random') as \"LeadNumber\",\n\"\
+  SN_CAMPAIGNLSMRLEADSOURCEMOSTRECENT\" as \"CampaignLSMR\",\n\"SN_LEADNAME\" as \"\
+  LeadName\",\n\"SN_NAME\" as \"CycleName\",\n\"SN_CYCLEENDDATE\" as \"CycleEndDate\"\
+  ,\n\"SN_CYCLEID\" as \"CycleID\",\n\"SN_CYCLESTARTDATE\" as \"CycleStartDate\",\n\
+  IFNULL(TRY_TO_NUMBER(\"SN_HOTLEAD\" ),'random') as \"HotLeadFlag\"\nFROM RDS_SHARE.\"\
+  DYNAMICS365\".\"SN_NEXTGENFUNNELS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,88 @@
+name: table_329
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_329
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_329.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CM_MASTER_DATA(\n\t\"SalesQuarter\",\n\t\
+  \"SnapshotDate\",\n\t\"Geo\",\n\t\"MajorArea\",\n\t\"Area\",\n\t\"Region\",\n\t\"\
+  District\",\n\t\"Territory\",\n\t\"TerrSysID\",\n\t\"CreatedByRole\",\n\t\"BUWorkFlow\"\
+  ,\n\t\"BUGroup\",\n\tNNACV,\n\t\"Pipeline\",\n\t\"WtPipeline\",\n\t\"GeoPipeline\"\
+  ,\n\t\"GeoClosed\",\n\t\"GeoWeightedPipeline\"\n) as\nwith\nCM_MASTER_DATA as (\n\
+  select\n     \"SnapshotDate\"\n    ,\"SalesQuarter\"\n    ,\"Geo\"\n    ,\"MajorArea\"\
+  \n    ,\"Area\"\n    ,\"Region\"\n    ,\"District\"\n    ,\"Territory\"\n    ,\"\
+  TerrSysID\"\n    ,\"BUWorkFlow\"\n    ,\"BUGroup\"\n    ,\"CreatedByRole\"\n   \
+  \ ,\"Pipeline\"\n    ,\"WtPipeline\"\n    ,nnacv\nfrom \"EDW_LS\".\"RESEARCH_INSIGHTS\"\
+  .\"CM_MASTER_DATA\"\nwhere CM_DRILLDOWN_FLAG = 'random'\n),\n\nMasterData as (\n\
+  select\n    sq.\"SnapshotDate\"\n    ,sq.\"SalesQuarter\"\n    ,\"Geo\"\n    ,\"\
+  MajorArea\"\n    ,\"Area\"\n    ,\"Region\"\n    ,\"District\"\n    ,\"Territory\"\
+  \n    ,\"TerrSysID\"\n    ,bb.\"BUWorkFlow\"\n    ,bb.\"BUGroup\"\n    ,sr.\"CreatedByRole\"\
+  \nfrom\n(\nselect\n    \"Geo\"\n    ,\"MajorArea\"\n    ,\"Area\"\n    ,\"Region\"\
+  \n    ,\"District\"\n    ,\"Territory\"\n    ,\"TerrSysID\"\nfrom CM_MASTER_DATA\n\
+  group by all\n) md\nleft join (\n            select\n                \"BUWorkFlow\"\
+  \n                ,\"BUGroup\"\n            from CM_MASTER_DATA\n            group\
+  \ by all\n) bb\non 'random' = 'random'\nleft join (\n            select\n      \
+  \          \"SnapshotDate\"\n                ,\"SalesQuarter\"\n            from\
+  \ CM_MASTER_DATA\n            group by all\n) sq\non 'random' = 'random'\nleft join\
+  \ (\n            select\n                \"CreatedByRole\"\n            from CM_MASTER_DATA\n\
+  \            group by all\n) sr\non 'random'='random'\n),\nFinalData as(\nselect\n\
+  \     md.\"SnapshotDate\"\n    ,md.\"SalesQuarter\"\n    ,md.\"Geo\"\n    ,md.\"\
+  MajorArea\"\n    ,md.\"Area\"\n    ,md.\"Region\"\n    ,md.\"District\"\n    ,md.\"\
+  Territory\"\n    ,md.\"TerrSysID\"\n    ,md.\"BUWorkFlow\"\n    ,md.\"BUGroup\"\n\
+  \    ,md.\"CreatedByRole\"\n    ,sum(cm.\"Pipeline\") as \"Pipeline\"\n    ,sum(cm.\"\
+  WtPipeline\") as \"WtPipeline\"\n    ,sum(cm.nnacv) as nnacv\nfrom MasterData md\n\
+  left join CM_MASTER_DATA cm\non md.\"SnapshotDate\" = cm.\"SnapshotDate\"\n    and\
+  \ md.\"SalesQuarter\" = cm.\"SalesQuarter\"\n    and md.\"TerrSysID\" = cm.\"TerrSysID\"\
+  \n    and md.\"BUGroup\" = cm.\"BUGroup\"\n    and md.\"CreatedByRole\" = cm.\"\
+  CreatedByRole\"\ngroup by all\n),\n\nGeoAggregatedData as\n(\nselect\n    \"SnapshotDate\"\
+  \n    ,\"SalesQuarter\"\n    ,\"BUGroup\"\n    ,\"CreatedByRole\"\n    ,\"Geo\"\n\
+  \    ,sum(\"Pipeline\") as \"GeoPipeline\"\n    ,sum(nnacv) as \"GeoClosed\"\n \
+  \   ,sum(\"WtPipeline\") as \"GeoWeightedPipeline\"\nfrom FinalData\ngroup by all\n\
+  )\n\nselect\n     md.\"SalesQuarter\"\n    ,md.\"SnapshotDate\"\n    ,md.\"Geo\"\
+  \n    ,md.\"MajorArea\"\n    ,md.\"Area\"\n    ,md.\"Region\"\n    ,md.\"District\"\
+  \n    ,md.\"Territory\"\n    ,md.\"TerrSysID\"\n    ,md.\"CreatedByRole\"\n    ,md.\"\
+  BUWorkFlow\"\n    ,md.\"BUGroup\"\n    ,md.NNACV\n    ,md.\"Pipeline\"\n    ,md.\"\
+  WtPipeline\"\n    ,Geo.\"GeoPipeline\"\n    ,Geo.\"GeoClosed\"\n    ,Geo.\"GeoWeightedPipeline\"\
+  \nfrom FinalData md\nleft join GeoAggregatedData Geo\non md.\"SnapshotDate\" = Geo.\"\
+  SnapshotDate\"\n    and md.\"SalesQuarter\" = Geo.\"SalesQuarter\"\n    and md.\"\
+  Geo\" = Geo.\"Geo\"\n    and md.\"BUGroup\" = Geo.\"BUGroup\"\n    and md.\"CreatedByRole\"\
+  \ = Geo.\"CreatedByRole\"\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
