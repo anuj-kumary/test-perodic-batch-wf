@@ -1,0 +1,232 @@
+name: cdb_jobs
+fullyQualifiedName: oracle_test.default.sys.cdb_jobs
+tableType: View
+columns:
+  - name: job
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Identifier of job.  Neither import/export nor repeated executions
+      change it.
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.job
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_user
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: USER who was logged in when the job was submitted
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.log_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: priv_user
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: USER whose default privileges apply to this job
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.priv_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: schema_user
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: 'select * from bar  means  select * from schema_user.bar '
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.schema_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date that this job last successfully executed
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.last_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_sec
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: varchar2(8)
+    description: Same as LAST_DATE.  This is when the last successful execution started.
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.last_sec
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: this_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date that this job started executing (usually null if not executing)
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.this_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: this_sec
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: varchar2(8)
+    description: Same as THIS_DATE.  This is when the last successful execution started.
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.this_sec
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: next_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date that this job will next be executed
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.next_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: next_sec
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: varchar2(8)
+    description: Same as NEXT_DATE.  The job becomes due for execution at this time.
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.next_sec
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_time
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: "Total wallclock time spent by the system on this job, in seconds"
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.total_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: broken
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "If Y, no attempt is being made to run this job.  See dbms_jobq.broken(job)."
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.broken
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: interval
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: "A date function, evaluated at the start of execution, becomes next\
+      \ NEXT_DATE"
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.interval
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: failures
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: How many times has this job started and failed since its last success?
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.failures
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: what
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Body of the anonymous PL/SQL block that this job executes
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.what
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: nls_env
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: alter session parameters describing the NLS environment of the job
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.nls_env
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: misc_env
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: raw
+    description: "a versioned raw maintained by the kernel, for other session parameters"
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.misc_env
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: instance
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Instance number restricted to run the job
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.instance
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: con_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: container id
+    fullyQualifiedName: oracle_test.default.sys.cdb_jobs.con_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 70394c9ab98d93b45351520d7f605b41
+processedLineage: false
+entityStatus: Approved
