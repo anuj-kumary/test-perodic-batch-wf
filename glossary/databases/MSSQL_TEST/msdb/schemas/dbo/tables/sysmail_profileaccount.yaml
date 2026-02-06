@@ -1,0 +1,94 @@
+name: sysmail_profileaccount
+fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_profileaccount
+tableType: Regular
+columns:
+  - name: profile_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_profileaccount.profile_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: account_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_profileaccount.account_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: sequence_number
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_profileaccount.sequence_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_mod_datetime
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_profileaccount.last_mod_datetime
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_mod_user
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_profileaccount.last_mod_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - profile_id
+      - account_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - account_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.sysmail_account.account_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 57c2f396-9b05-4e00-9903-62b0219fbc25
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MSSQL_TEST.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: af8db866-dbb4-4bd5-a2ea-22202fbc71ef
+  type: database
+  name: msdb
+  fullyQualifiedName: MSSQL_TEST.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b43c14bea03b2ad90ab9c536c913fe3a
+processedLineage: false
+entityStatus: Approved
