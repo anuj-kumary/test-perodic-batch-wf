@@ -1,0 +1,34 @@
+name: 6b654c0f29080595a3778d60f719b332
+fullyQualifiedName: hktest.6b654c0f29080595a3778d60f719b332
+owners: []
+duration: 153.0
+users: []
+query: "WITH \"2061f84ba305bd56039e785b3920a99b_rnd\" AS \n(SELECT \"COBE_ETI_1\"\
+  .\"MET_EXTRACT_DATE\" AS \"MET_EXTRACT_DATE\" \nFROM \"LANDING\".\"COBE_ETI\" AS\
+  \ \"COBE_ETI_1\" TABLESAMPLE ROW(? ROWS)), \n\"2061f84ba305bd56039e785b3920a99b_sample\"\
+  \ AS \n(SELECT \"2061f84ba305bd56039e785b3920a99b_rnd\".\"MET_EXTRACT_DATE\" AS\
+  \ \"MET_EXTRACT_DATE\" \nFROM \"2061f84ba305bd56039e785b3920a99b_rnd\")\n SELECT\
+  \ avg(LEN(\"MET_EXTRACT_DATE\")) AS mean, count(\"MET_EXTRACT_DATE\") AS \"valuesCount\"\
+  , count(DISTINCT \"MET_EXTRACT_DATE\") AS \"distinctCount\", MIN(LEN(\"MET_EXTRACT_DATE\"\
+  )) AS min, MAX(LEN(\"MET_EXTRACT_DATE\")) AS max, coalesce(SUM(CASE WHEN (\"MET_EXTRACT_DATE\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"MET_EXTRACT_DATE\"\
+  )) AS stddev, SUM(LEN(\"MET_EXTRACT_DATE\")) AS sum \nFROM \"2061f84ba305bd56039e785b3920a99b_sample\"\
+  \n LIMIT ?"
+checksum: 6b654c0f29080595a3778d60f719b332
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7177a74e-7bdc-4ef4-86d3-f41e58404c78
+    type: table
+    name: COBE_ETI
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.COBE_ETI
+    displayName: COBE_ETI
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

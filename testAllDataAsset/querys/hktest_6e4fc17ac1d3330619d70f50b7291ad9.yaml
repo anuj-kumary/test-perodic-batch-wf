@@ -1,0 +1,45 @@
+name: 6e4fc17ac1d3330619d70f50b7291ad9
+fullyQualifiedName: hktest.6e4fc17ac1d3330619d70f50b7291ad9
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"71f3b29a-0599-4623-b7e2-1e721ace56c4\",\"type\":\"table\"\
+        ,\"name\":\"SEED_RUN_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SEED_RUN_RESULTS\"\
+        ,\"displayName\":\"SEED_RUN_RESULTS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 425.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"QUERY_ID\")) AS mean, count(\"QUERY_ID\") AS \"valuesCount\"\
+  , count(DISTINCT \"QUERY_ID\") AS \"distinctCount\", MIN(LEN(\"QUERY_ID\")) AS min,\
+  \ MAX(LEN(\"QUERY_ID\")) AS max, coalesce(SUM(CASE WHEN (\"QUERY_ID\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"QUERY_ID\")) AS stddev, SUM(LEN(\"\
+  QUERY_ID\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"SEED_RUN_RESULTS\"\n LIMIT\
+  \ ?"
+checksum: 6e4fc17ac1d3330619d70f50b7291ad9
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 71f3b29a-0599-4623-b7e2-1e721ace56c4
+    type: table
+    name: SEED_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SEED_RUN_RESULTS
+    displayName: SEED_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

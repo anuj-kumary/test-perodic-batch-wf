@@ -1,0 +1,38 @@
+name: 70f57546bb37380e8266d0f7e7836547
+fullyQualifiedName: hktest.70f57546bb37380e8266d0f7e7836547
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"97a1a769-0ed2-4e8f-b352-177a49154924\",\"type\":\"table\"\
+        ,\"name\":\"SUPPLIER\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.SUPPLIER\"\
+        ,\"description\":\"Supplier data as defined by TPC-H\",\"displayName\":\"\
+        SUPPLIER\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 188.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"S_COMMENT\") AS\
+  \ count_1 \nFROM \"TPCH_SF1\".\"SUPPLIER\" GROUP BY \"S_COMMENT\" \nHAVING count(\"\
+  S_COMMENT\") = ?) AS only_once\n LIMIT ?"
+checksum: 70f57546bb37380e8266d0f7e7836547
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 97a1a769-0ed2-4e8f-b352-177a49154924
+    type: table
+    name: SUPPLIER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.SUPPLIER
+    description: Supplier data as defined by TPC-H
+    displayName: SUPPLIER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

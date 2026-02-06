@@ -1,0 +1,33 @@
+name: 6c5358b8725c21e217ab808df2623ed8
+fullyQualifiedName: hktest.6c5358b8725c21e217ab808df2623ed8
+owners: []
+duration: 55.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"DA_SCOOP_COMPOSER_DONT_MATCH_LEADS_TO_THIS_ACCOUNT_C\"\
+  \ AS \"DA_SCOOP_COMPOSER_DONT_MATCH_LEADS_TO_THIS_ACCOUNT_C\" \nFROM \"PUBLIC\"\
+  .\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample\
+  \ AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"DA_SCOOP_COMPOSER_DONT_MATCH_LEADS_TO_THIS_ACCOUNT_C\"\
+  \ AS \"DA_SCOOP_COMPOSER_DONT_MATCH_LEADS_TO_THIS_ACCOUNT_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT ? AS anon_1, ? AS anon__1, ? AS anon__2 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: 6c5358b8725c21e217ab808df2623ed8
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

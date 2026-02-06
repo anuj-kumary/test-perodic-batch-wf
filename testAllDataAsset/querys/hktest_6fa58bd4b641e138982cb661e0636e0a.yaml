@@ -1,0 +1,40 @@
+name: 6fa58bd4b641e138982cb661e0636e0a
+fullyQualifiedName: hktest.6fa58bd4b641e138982cb661e0636e0a
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f3f7adf0-5934-40b1-9c34-71aa27a03cd6\",\"type\":\"table\"\
+        ,\"name\":\"CNTRCT\",\"fullyQualifiedName\":\"hktest.INDIVIDUAL.CURATED.CNTRCT\"\
+        ,\"displayName\":\"CNTRCT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 69.0
+users: []
+query: "SELECT avg(LEN(\"ENT_NB_PROGRAM_TYP_NM\")) AS mean, count(\"ENT_NB_PROGRAM_TYP_NM\"\
+  ) AS \"valuesCount\", count(DISTINCT \"ENT_NB_PROGRAM_TYP_NM\") AS \"distinctCount\"\
+  , MIN(LEN(\"ENT_NB_PROGRAM_TYP_NM\")) AS min, MAX(LEN(\"ENT_NB_PROGRAM_TYP_NM\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"ENT_NB_PROGRAM_TYP_NM\" IS ?) THEN ? ELSE ?\
+  \ END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"ENT_NB_PROGRAM_TYP_NM\")) AS stddev,\
+  \ SUM(LEN(\"ENT_NB_PROGRAM_TYP_NM\")) AS sum \nFROM \"CURATED\".\"CNTRCT\"\n LIMIT\
+  \ ?"
+checksum: 6fa58bd4b641e138982cb661e0636e0a
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

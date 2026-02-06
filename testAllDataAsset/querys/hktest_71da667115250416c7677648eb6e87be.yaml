@@ -1,0 +1,27 @@
+name: 71da667115250416c7677648eb6e87be
+fullyQualifiedName: hktest.71da667115250416c7677648eb6e87be
+owners: []
+duration: 2586.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"C_CUSTKEY\") AS\
+  \ count_1 \nFROM \"TPCH_SF100\".\"CUSTOMER\" GROUP BY \"C_CUSTKEY\" \nHAVING count(\"\
+  C_CUSTKEY\") = ?) AS only_once\n LIMIT ?"
+checksum: 71da667115250416c7677648eb6e87be
+queryDate: 1752364800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: dc092bc6-2f58-414c-a722-42aa3ec1674e
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

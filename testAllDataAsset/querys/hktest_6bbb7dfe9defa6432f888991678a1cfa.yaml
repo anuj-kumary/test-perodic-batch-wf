@@ -1,0 +1,32 @@
+name: 6bbb7dfe9defa6432f888991678a1cfa
+fullyQualifiedName: hktest.6bbb7dfe9defa6432f888991678a1cfa
+owners: []
+duration: 955.0
+users: []
+query: "WITH \"979ee13f032c02b4652a4e3c3928d90b_rnd\" AS \n(SELECT \"CUSTOMER_1\"\
+  .\"C_NATIONKEY\" AS \"C_NATIONKEY\" \nFROM \"TPCH_SF1000\".\"CUSTOMER\" AS \"CUSTOMER_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"979ee13f032c02b4652a4e3c3928d90b_sample\" AS \n\
+  (SELECT \"979ee13f032c02b4652a4e3c3928d90b_rnd\".\"C_NATIONKEY\" AS \"C_NATIONKEY\"\
+  \ \nFROM \"979ee13f032c02b4652a4e3c3928d90b_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"C_NATIONKEY\") AS count_1 \nFROM \"979ee13f032c02b4652a4e3c3928d90b_sample\"\
+  \ GROUP BY \"C_NATIONKEY\" \nHAVING count(\"C_NATIONKEY\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 6bbb7dfe9defa6432f888991678a1cfa
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 4a092d7f-9f82-4396-984e-a1dce870cfbe
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,33 @@
+name: 7296d7cc373616c5f7c57d97b3b82ce1
+fullyQualifiedName: hktest.7296d7cc373616c5f7c57d97b3b82ce1
+owners: []
+duration: 205.0
+users: []
+query: "WITH \"69aede266809f89b89fe70681f6a129f_rnd\" AS \n(SELECT \"REGION_1\".\"\
+  R_NAME\" AS \"R_NAME\" \nFROM \"TPCH_SF100\".\"REGION\" AS \"REGION_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"69aede266809f89b89fe70681f6a129f_sample\" AS \n(SELECT \"69aede266809f89b89fe70681f6a129f_rnd\"\
+  .\"R_NAME\" AS \"R_NAME\" \nFROM \"69aede266809f89b89fe70681f6a129f_rnd\")\n SELECT\
+  \ avg(LEN(\"R_NAME\")) AS mean, count(\"R_NAME\") AS \"valuesCount\", count(DISTINCT\
+  \ \"R_NAME\") AS \"distinctCount\", MIN(LEN(\"R_NAME\")) AS min, MAX(LEN(\"R_NAME\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"R_NAME\" IS ?) THEN ? ELSE ? END), ?) AS \"\
+  nullCount\", STDDEV_POP(LEN(\"R_NAME\")) AS stddev, SUM(LEN(\"R_NAME\")) AS sum\
+  \ \nFROM \"69aede266809f89b89fe70681f6a129f_sample\"\n LIMIT ?"
+checksum: 7296d7cc373616c5f7c57d97b3b82ce1
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 4256ee58-a99c-4d03-9ce3-b0ecb5c45b05
+    type: table
+    name: REGION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.REGION
+    description: Region data as defined by TPC-H
+    displayName: REGION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
