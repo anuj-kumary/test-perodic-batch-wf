@@ -1,0 +1,74 @@
+name: table_686
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_686
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_686.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PARTY_COMM(\n\t\"CommRowidObject\",\n\t\"\
+  CreateDate\",\n\t\"LastUpdateDate\",\n\t\"ConsolidationInd\",\n\t\"LastRowidSystem\"\
+  ,\n\t\"HubStateInd\",\n\t\"Partyid\",\n\t\"CommTypeCode\",\n\t\"CommValue\",\n\t\
+  \"StatusCode\",\n\t\"PrimaryFlag\",\n\t\"DoNotContactInd\",\n\t\"PreferredInd\"\
+  ,\n\t\"OptIn\",\n\t\"AreaCode\",\n\t\"OverrideTrustInd\",\n\t\"EventType\",\n\t\"\
+  CommUsage\",\n\t\"OverrideTrustReason\",\n\t\"BounceBackInd\",\n\t\"BounceBackDate\"\
+  ,\n\t\"UnsubscribeInd\",\n\t\"UnsubscribeDate\",\n\t\"RefEmailVerboseStatus\",\n\
+  \t\"RefPhoneVerboseStatus\",\n\t\"RefPhoneType\",\n\t\"RefPhoneTimeZone\",\n\t\"\
+  RefPhoneCountry\",\n\t\"RefPhoneCity\",\n\t\"RefPhoneIntlFormat\",\n\t\"RefPhoneE64Format\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ROWID_OBJECT\" as \"CommRowidObject\"\
+  ,\n       \"CREATE_DATE\" as \"CreateDate\",\n       \"LAST_UPDATE_DATE\" as \"\
+  LastUpdateDate\",\n       \"CONSOLIDATION_IND\" as \"ConsolidationInd\",\n     \
+  \  \"LAST_ROWID_SYSTEM\" as \"LastRowidSystem\",\n       \"HUB_STATE_IND\" as \"\
+  HubStateInd\",\n       \"PARTY_ID\" as \"Partyid\",\n       \"COMM_TYP_CD\" as \"\
+  CommTypeCode\",\n       \"COMM_VAL\" as \"CommValue\",\n       \"STATUS_CD\" as\
+  \ \"StatusCode\",\n       \"PRIMARY_FLG\" as \"PrimaryFlag\",\n       \"DO_NOT_CNTCT_IND\"\
+  \ as \"DoNotContactInd\",\n       \"PREF_IND\" as \"PreferredInd\",\n       \"OPT_IN\"\
+  \ as \"OptIn\",\n       \"AREA_CD\" as \"AreaCode\",\n       \"OVERRIDE_TRUST_IND\"\
+  \ as \"OverrideTrustInd\",\n       \"EVENT_TYP\" as \"EventType\",\n       \"COMM_USG\"\
+  \ as \"CommUsage\",\n       \"OVERRIDE_TRUST_RSN\" as \"OverrideTrustReason\",\n\
+  \       \"BOUNCEBACK_IND\" as \"BounceBackInd\",\n       \"BOUNCEBACK_DATE\" as\
+  \ \"BounceBackDate\",\n       \"UNSUBSCRIBE_IND\" as \"UnsubscribeInd\",\n     \
+  \  \"UNSUBSCRIBE_DATE\" as \"UnsubscribeDate\",\n       \"REF_EMAIL_VERBOSE_STS\"\
+  \ as \"RefEmailVerboseStatus\",\n       \"REF_PHONE_VERBOSE_STS\" as \"RefPhoneVerboseStatus\"\
+  ,\n       \"REF_PHONE_TYPE\" as \"RefPhoneType\",\n       \"REF_PHONE_TIMEZONE\"\
+  \ as \"RefPhoneTimeZone\",\n       \"REF_PHONE_CNTRY\" as \"RefPhoneCountry\",\n\
+  \       \"REF_PHONE_CITY\" as \"RefPhoneCity\",\n       \"REF_PHONE_INTL_FORMAT\"\
+  \ as \"RefPhoneIntlFormat\",\n       \"REF_PHONE_E164_FORMAT\" as \"RefPhoneE64Format\"\
+  \nFROM \"RDS\".\"MDM\".\"C_B_PARTY_COMM\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

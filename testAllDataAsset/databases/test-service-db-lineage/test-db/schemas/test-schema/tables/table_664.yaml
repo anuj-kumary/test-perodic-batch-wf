@@ -1,0 +1,55 @@
+name: table_664
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_664
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_664.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TBLRENEWALRAMQUOTA(\n\tQUARTER,\n\tEID,\n\
+  \tNAME,\n\tTERRITORY_ID,\n\tTITLE,\n\tMANAGER,\n\tGEO,\n\tPLAN_TYPE,\n\tPLAN_START_DATE,\n\
+  \tPLAN_END_DATE,\n\tQUOTA_EFFECTIVE_DATE_CM_DEFAULT,\n\tQUOTA_COMPONENT,\n\tQUOTA_CURRENCY,\n\
+  \tFX_RATE,\n\tANNUAL_QUOTA_USD,\n\tHIRE_DATE,\n\tEND_DATE,\n\tLAST_TRANSFER_DATE,\n\
+  \tDEPARTMENT,\n\tQUOTA\n) as\n\nselect\n\"QUARTER\",\n\"EID\",\n\"NAME\",\n\"TERRITORY_ID\"\
+  ,\n\"TITLE\",\n\"MANAGER\",\n\"GEO\",\n\"PLAN_TYPE\",\n\"PLAN_START_DATE\",\n\"\
+  PLAN_END_DATE\",\n\"QUOTA_EFFECTIVE_DATE_CM_DEFAULT\",\n\"QUOTA_COMPONENT\",\n\"\
+  QUOTA_CURRENCY\",\n\"FX_RATE\",\n\"ANNUAL_QUOTA_USD\",\n\"HIRE_DATE\",\n\"END_DATE\"\
+  ,\n\"LAST_TRANSFER_DATE\",\n\"DEPARTMENT\",\n\"QUOTA\"\nfrom \"RDS\".\"ANAPLAN\"\
+  .\"TBLRENEWALRAMQUOTA\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

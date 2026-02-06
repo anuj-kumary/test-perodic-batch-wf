@@ -1,0 +1,114 @@
+name: table_66
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_66
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_66.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_PRM_DEAL_REGISTRATION(\n\t\"PRMOptyRegistrationNumber\"\
+  ,\n\t\"PRMOptyRegistrationName\",\n\t\"PRMOptyPartnershipType\",\n\t\"PRMOptyType\"\
+  ,\n\t\"PRMDealStage\",\n\t\"PRMOptyRegistrationStatus\",\n\t\"PRMChannelManager\"\
+  ,\n\t\"PRMSubmissionDate\",\n\t\"PRMOptyPreApprovedDate\",\n\t\"PRMOptyAcceptDate\"\
+  ,\n\t\"PRMOptyClosedDate\",\n\t\"PRMSysID\",\n\t\"PRMPartnerAccountSysID\",\n\t\"\
+  PRMSurfOpportunity\",\n\t\"PRMCustomerAccountName\",\n\t\"PRMPotentialACV\",\n\t\
+  \"PRMOptyRegistrationType\",\n\t\"PRMPartnerAccount\",\n\t\"PRMCustomerAccount\"\
+  ,\n\t\"PRMCustomerAccountSysID\",\n\tU_STAGE,\n\tU_SALES_STAGE,\n\t\"PRMPartnerGSIEnabled\"\
+  ,\n\t\"PRMOpportunityAssociation\",\n\t\"PRMOptyRegistrationSubStatus\",\n\t\"PRMDealRegPrimaryBu_CC\"\
+  ,\n\t\"PRMDealRegPrimaryBu\",\n\t\"PRMDealRegCoSellingFlag\",\n\t\"PRMDealRegAutoApprovedAE\"\
+  ,\n\t\"PRMDealRegAutoApprovedRAM\",\n\t\"PRMDealRegUpdatedOn\",\n\t\"PRMDealRegExpirationDate\"\
+  ,\n\t\"PRMDealRegApprovalDate\",\n\t\"PRMRegistrationClassification\",\n\t\"PRMOptyRegStatusValue\"\
+  ,\n\t\"PRMPrimarySalesRep\",\n\t\"PRMAccountCountry\",\n\t\"PRMPartnerContact\"\
+  ,\n\t\"PRMRDTOwner\",\n\t\"PRMProduct\",\n\t\"PRMRejectionCode\",\n\t\"PRMRejectionComments\"\
+  ,\n\t\"PRMDealRegDeniedDate\",\n\t\"PRMDealSubmittedBy\",\n\t\"PRMAcceptedBy\",\n\
+  \t\"PRMAcceptedIPAddress\",\n\t\"PRMActiveWorkflow\",\n\t\"PRMOpportunityName\"\
+  ,\n\t\"PRMADRAssignment\",\n\t\"PRMOpportunityType\",\n\t\"PRMDealRegistrationType\"\
+  ,\n\t\"PRMRegistrationClosedDate\",\n\t\"PRMDealRegionalAllianceManager\",\n\t\"\
+  PRMPotentialACVValue\",\n\t\"PRMMarketingActivityNumber\",\n\t\"PRMOptyPartner\"\
+  ,\n\t\"PRMDealRegistrationGeo\",\n\t\"PRMSurfContact\",\n\t\"PRMDealRegistrationCampaignType\"\
+  ,\n\t\"PRMPrimaryCampaign\",\n\t\"PRMSecondaryCampaign\",\n\t\"PrePipelineNumber\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\n/* ---------------------------------------------------------------------------------------------------------------\n\
+  \   REVISION HISTORY:\n    1.  20-Dec-2023 :: SFSTRY0110099 - Primary Campaign and\
+  \ Secondary Campaign\n    2.  23-Jan-2023 :: SFSTRY0111743 - Prepipelie Number for\
+  \ Demand Accelerator New Logo\n   ----------------------------------------------------------------------------------------------------------------\
+  \ */\n\nSELECT \"U_DEAL_REGISTRATION_NUMBER\" as \"PRMOptyRegistrationNumber\",\n\
+  \       \"U_NAME\" as \"PRMOptyRegistrationName\",\n       \"DV_U_DEAL_REGISTRATION_TYPE\"\
+  \ as \"PRMOptyPartnershipType\",\n       \"DV_U_DEAL_TYPE\" as \"PRMOptyType\",\n\
+  \       \"DV_U_STAGE\" as \"PRMDealStage\",\n       \"DV_U_LEAD_STATUS\" as \"PRMOptyRegistrationStatus\"\
+  ,\n       \"DV_U_CHANNEL_MANAGER\" as \"PRMChannelManager\",\n       \"SYS_CREATED_ON\"\
+  \ as \"PRMSubmissionDate\",\n       \"U_PREAPPROVED_DATE\" as \"PRMOptyPreApprovedDate\"\
+  ,\n       \"U_ACCEPTANCE_DATE\" as \"PRMOptyAcceptDate\",\n       \"U_CLOSE_DATE\"\
+  \ as \"PRMOptyClosedDate\",\n       \"SYS_ID\" as \"PRMSysID\",\n       \"U_SALES_PARTNER\"\
+  \ as \"PRMPartnerAccountSysID\",\n       \"U_SURF_OPPORTUNITY\" as \"PRMSurfOpportunity\"\
+  ,\n       \"U_ACCOUNT_NAME\" as \"PRMCustomerAccountName\",\n       \"U_POTENTIAL_ACV\"\
+  \ as \"PRMPotentialACV\",\n       \"DV_U_OPPORTUNITY_TYPE\" as \"PRMOptyRegistrationType\"\
+  ,\n       \"DV_U_SALES_PARTNER\" as \"PRMPartnerAccount\",\n       \"DV_U_CUSTOMER_ACCOUNT\"\
+  \ as \"PRMCustomerAccount\",\n       \"U_CUSTOMER_ACCOUNT\" as \"PRMCustomerAccountSysID\"\
+  ,\n       \"U_STAGE\" as \"U_STAGE\",\n       \"U_SALES_STAGE\" as \"U_SALES_STAGE\"\
+  ,\n       \"U_GSI_ENABLED\" as \"PRMPartnerGSIEnabled\",\n       \"DV_U_OPPORTUNITY_ASSOCIATION\"\
+  \ as \"PRMOpportunityAssociation\",\n       \"DV_U_SUB_STATUS\" as \"PRMOptyRegistrationSubStatus\"\
+  ,\n       \"DV_U_PRIMARY_BU\" as \"PRMDealRegPrimaryBu_CC\",\n       IFF(\"PRMDealRegPrimaryBu_CC\"\
+  ='random', 'random', IFF(\"PRMDealRegPrimaryBu_CC\"='random', 'random', \"PRMDealRegPrimaryBu_CC\"\
+  )) as \"PRMDealRegPrimaryBu\",\n       \"U_CO_SELLING\" as \"PRMDealRegCoSellingFlag\"\
+  ,\n       \"U_AE_AUTO_APPROVED\" as \"PRMDealRegAutoApprovedAE\",\n       \"U_RAM_AUTO_APPROVED\"\
+  \ as \"PRMDealRegAutoApprovedRAM\",\n       \"SYS_UPDATED_ON\" as \"PRMDealRegUpdatedOn\"\
+  ,\n       \"U_PRM_REG_EXPIRATION_DATE\" as \"PRMDealRegExpirationDate\",\n     \
+  \  \"U_DEAL_REG_APPROVAL_DATE\" as \"PRMDealRegApprovalDate\",\n       \"DV_U_PAR_CLASSIFICATION\"\
+  \ as \"PRMRegistrationClassification\",\n       \"U_LEAD_STATUS\" as \"PRMOptyRegStatusValue\"\
+  ,\n       \"DV_U_PRIMARY_SALES_REP\" as \"PRMPrimarySalesRep\",\n       \"DV_U_COUNTRY\"\
+  \ as \"PRMAccountCountry\",\n       \"DV_U_PARTNER_CONTACT\" as \"PRMPartnerContact\"\
+  ,\n       \"DV_U_RDT_OWNER\" as \"PRMRDTOwner\",\n       coalesce(\"DV_U_PRODUCT\"\
+  ,\"DV_U_PRODUCTS\") as \"PRMProduct\",\n       \"DV_U_REJECTION_CODE\" as \"PRMRejectionCode\"\
+  ,\n       \"U_REJECTION_COMMENTS\" as \"PRMRejectionComments\",\n       \"U_DENIED_DATE\"\
+  \ as \"PRMDealRegDeniedDate\",\n       \"DV_U_DEAL_REGISTRATION_SUBMITTER\" as \"\
+  PRMDealSubmittedBy\",\n       \"U_ACCEPTED_BY\" as \"PRMAcceptedBy\",\n       \"\
+  U_ACCEPTED_IP_ADDRESS\" as \"PRMAcceptedIPAddress\",\n       \"U_ACTIVE_WORKFLOW\"\
+  \ as \"PRMActiveWorkflow\",\n       \"U_OPPORTUNITY_NAME\" as \"PRMOpportunityName\"\
+  ,\n       \"U_ADR_ASSIGNMENT\" as \"PRMADRAssignment\",\n       \"U_OPPORTUNITY_TYPE\"\
+  \ as \"PRMOpportunityType\",\n       \"U_DEAL_REGISTRATION_TYPE\" as \"PRMDealRegistrationType\"\
+  ,\n       \"U_REGISTRATION_CLOSED_DATE\" as \"PRMRegistrationClosedDate\",\n   \
+  \    \"DV_U_GTM_PARTNER_MANAGER\" as \"PRMDealRegionalAllianceManager\",\n     \
+  \  \"U_POTENTIAL_ACV_VALUE\" as \"PRMPotentialACVValue\",\n       \"U_MARKETING_ACTIVITY_NUMBER\"\
+  \ as \"PRMMarketingActivityNumber\",\n       \"DV_U_OPPORTUNITY_PARTNER\" as \"\
+  PRMOptyPartner\",\n       \"DV_U_GEO\" as \"PRMDealRegistrationGeo\",\n       \"\
+  DV_U_SURF_CONTACT\" as \"PRMSurfContact\",\n       \"DV_U_CAMPAIGN_TYPE\" as \"\
+  PRMDealRegistrationCampaignType\",\n       \"DV_U_PRIMARY_CAMPAIGN\" as \"PRMPrimaryCampaign\"\
+  ,\n       \"DV_U_SECONDARY_CAMPAIGN\" as \"PRMSecondaryCampaign\",\n       \"DV_U_PRIMARY_PREPIPELINE\"\
+  \ as \"PrePipelineNumber\"\nFROM RDS.\"SURF\".\"U_PRM_DEAL_REGISTRATION\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,54 @@
+name: table_706
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_706
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_706.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_NOW_ON_NOW_R_CUSTOMER_CALL_ACCOUNTS(\n\
+  \tCALCULATED_PIPELINE_INFLUENCE,\n\tACCOUNT_TYPE,\n\tQUARTER_DATE_VALUE,\n\tEXECUTIVE_TARGET_QUARTER,\n\
+  \tPRIORITY_VALUE,\n\tCALCULATED_PIPELINE_CLOSED,\n\tSYS_UPDATED_ON,\n\tPRIORITY,\n\
+  \tCCA_NUMBER,\n\tSYS_ID,\n\tCALCULATED_PIPELINE_CREATED,\n\tSYS_CREATED_ON,\n\t\
+  DV_SPEAKERS,\n\tACCOUNT_VALUE,\n\tDV_SALES_ACCOUNT\n) as\n SELECT\n CALCULATED_PIPELINE_INFLUENCE,\n\
+  \ ACCOUNT_TYPE,\n QUARTER_DATE_VALUE,\n EXECUTIVE_TARGET_QUARTER,\n PRIORITY_VALUE,\n\
+  \ CALCULATED_PIPELINE_CLOSED,\n SYS_UPDATED_ON,\n PRIORITY,\n NUMBER as CCA_NUMBER,\n\
+  \ SYS_ID,\n CALCULATED_PIPELINE_CREATED,\n SYS_CREATED_ON,\n DV_SPEAKERS,\n ACCOUNT_VALUE,\n\
+  \ DV_SALES_ACCOUNT\n FROM RDS.SURF.X_SNC_NOW_ON_NOW_R_CUSTOMER_CALL_ACCOUNTS;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

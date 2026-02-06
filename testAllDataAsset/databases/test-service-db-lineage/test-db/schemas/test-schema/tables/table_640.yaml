@@ -1,0 +1,64 @@
+name: table_640
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_640
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_640.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view APPROVALS_PROXY(\n\t\"QuoteNumber\",\n\t\
+  \"ApproverName\",\n\t\"ApproverId\",\n\t\"OriginalApproverTitle\",\n\t\"ApprovalComments\"\
+  ,\n\t\"TimeOfApproval\",\n\t\"IsQuoteOverWritten\",\n\t\"DispositionCriteriaSelectedByProxy\"\
+  ,\n\t\"OriginalApprover\"\n) as\nWITH TAB_APPROVAL_REQUESTS AS(\nSELECT\n  \"QUOTENUMBER\"\
+  ,\n  \"APPROVER_NAME\" ,\n  \"APPROVER_ID\",\n  \"APPROVER_COMMENTS\",\n  \"APPROVAL_SUBMISSION_DATE_TIME\"\
+  ,\n  \"SN_OVERRIDE_APPROVAL\",\n  \"SN_DISPOSITION_CRITERIA\",\n  \"SN_ACTUAL_APPROVER\"\
+  \n  FROM\n  \"RDS_CPQ\".\"CALLIDUS\".\"APPROVAL_REQUESTS\"\n  WHERE \"SN_OVERRIDE_APPROVAL\"\
+  ='random'\n  ) ,\n  TAB_APPROVAL_ROLE AS\n(SELECT\n\"SysAppApproverID\",\n\"SysAppApproverRole\"\
+  \nFROM\n(SELECT  \"SysAppApproverID\", \"SysAppApproverRole\",\nROW_NUMBER() OVER\
+  \ (PARTITION BY \"SysAppApproverID\"  ORDER BY \"SysAppApprovalSubmissionDateTimeDisplay\"\
+  ) RANK\n FROM\nODS_LS.SURF.SYSAPPROVAL_APPROVER\nWHERE \"SysAppApproverSource\"\
+  \ ='random')\nWHERE RANK='random')\nSELECT \"QUOTENUMBER\" AS \"QuoteNumber\",\n\
+  \  \"APPROVER_NAME\" AS  \"ApproverName\" ,\n  \"APPROVER_ID\"   AS  \"ApproverId\"\
+  ,\n  \"SysAppApproverRole\" AS \"OriginalApproverTitle\",\n  \"APPROVER_COMMENTS\"\
+  \ AS  \"ApprovalComments\",\n  \"APPROVAL_SUBMISSION_DATE_TIME\" AS  \"TimeOfApproval\"\
+  ,\n  \"SN_OVERRIDE_APPROVAL\"  AS \"IsQuoteOverWritten\",\n  \"SN_DISPOSITION_CRITERIA\"\
+  \  AS \"DispositionCriteriaSelectedByProxy\",\n  \"SN_ACTUAL_APPROVER\" AS \"OriginalApprover\"\
+  \n  FROM\nTAB_APPROVAL_REQUESTS\nLEFT JOIN\nTAB_APPROVAL_ROLE\nON  \"APPROVER_ID\"\
+  =\"SysAppApproverID\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

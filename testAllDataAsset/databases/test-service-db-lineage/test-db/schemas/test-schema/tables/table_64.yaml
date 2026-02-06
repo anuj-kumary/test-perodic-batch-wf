@@ -1,0 +1,57 @@
+name: table_64
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_64
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_64.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_OPTYALLOCATION_COMM_IN_QTR(\n\tLINEITEMCODE,\n\
+  \tPRODUCTID,\n\tSPLITPRODUCTID,\n\tSPLITSEQNUM,\n\tALLOCATION,\n\tLINEITEMCODEWITHSPLITSEQNUM,\n\
+  \tSKUID,\n\tCSMAPPENGINEBUNDLEFLAG,\n\tEFFECTIVE_START,\n\tEFFECTIVE_END\n) as \
+  \ -- SEMANTIC LAYER BEGINS\n    /********************************************************************************************************************************\n\
+  \ * Program  Name            :         V_OPTYALLOCATION_COMM_IN_QTR\n * Development\
+  \ Request #    :\n * Date Created             :     \t  08-01-2024\n * Developed\
+  \ By             :         Deepika\n * Brief Description        :    \t  created\
+  \ an ods view to use in models for the RDS table TBLOPTYALLOCATION_COMM_IN_QTR\n\
+  \ * Story\t\t\t\t\t:\t      SFSTRY0111633\n ********************************************************************************************************************************/\n\
+  SELECT\n    LINEITEMCODE,\n\tPRODUCTID,\n\tSPLITPRODUCTID,\n\tSPLITSEQNUM,\n\tALLOCATION,\n\
+  \tLINEITEMCODEWITHSPLITSEQNUM,\n\tSKUID,\n\tCSMAPPENGINEBUNDLEFLAG,\n\tEFFECTIVE_START,\n\
+  \tEFFECTIVE_END\nFROM RDS.FLATFILESOURCE.TBLOPTYALLOCATION_COMM_IN_QTR;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

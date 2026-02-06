@@ -1,0 +1,140 @@
+name: table_708
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_708
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_708.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PARTY_ACCOUNT(\n\t\"PartySurfId\",\n\t\"\
+  PartyName\",\n\t\"PartyType\",\n\t\"PartyG2KParent\",\n\t\"PartyParent\",\n\t\"\
+  PartyDunsNumber\",\n\t\"PartyCustomerHQ\",\n\t\"PartyMDMCustomerHQ\",\n\t\"PartyIndustrySegment\"\
+  ,\n\t\"PartyIndustrySegmentChangeReason\",\n\t\"PartySegment\",\n\t\"PartySegmentOverrideCode\"\
+  ,\n\t\"PartyEmployeesUsed\",\n\t\"PartyNumberOfITEmployess\",\n\t\"PartyNumberOfEmployees\"\
+  ,\n\t\"PartyAnnualRevenue\",\n\t\"PartyTerritory\",\n\t\"PartyAdress1\",\n\t\"PartyAddress2\"\
+  ,\n\t\"PartyCity\",\n\t\"PartyStateCode\",\n\t\"PartyState\",\n\t\"PartyCountryCode\"\
+  ,\n\t\"PartyCountry\",\n\t\"PartyZip\",\n\t\"PartyWebsite\",\n\t\"IsMerged\",\n\t\
+  \"PartyMdmId\",\n\t\"PartyLastRun\",\n\t\"ETLExtractDate\",\n\t\"PartyPKeySrcObject\"\
+  ,\n\t\"PartyPhone\",\n\t\"PartyPrtnerPhone\",\n\t\"PartyPsTerritory\",\n\t\"PartyMDMTerritory\"\
+  ,\n\t\"PartyTerrAssignRule\",\n\t\"PartyG2kVerfd\",\n\t\"PartyG2KLanded\",\n\t\"\
+  PartyFieldSalesParent\",\n\t\"PartyFieldSalesPrntChngRsn\",\n\t\"PartyMdmFieldSalesPrnt\"\
+  ,\n\t\"PartyCustHqAccount\",\n\t\"PartyCustHqAssignRule\",\n\t\"PartyCustHQChngRsnCd\"\
+  ,\n\t\"PartyEmpUsedLstChngDt\",\n\t\"PartyEmpSrcCD\",\n\t\"PartyEmpSrcUrl\",\n\t\
+  \"PartyoverEmpCntRsnCD\",\n\t\"PartyAcctDeniedParty\",\n\t\"PartySapNmbr\",\n\t\"\
+  PartyCustSince\",\n\t\"PartyPoReqd\",\n\t\"PartyPoNotes\",\n\t\"PartySalesRep\"\
+  ,\n\t\"PartyMspEndCustName\",\n\t\"PartyLeadID\",\n\t\"PartyPartnerStatus\",\n\t\
+  \"PartyPrtnrAcctNmbr\",\n\t\"PartyPaymentStatus\",\n\t\"PartyCustHQAccountName\"\
+  ,\n\tACTV_FLG,\n\tSERVICE_PROVIDER_STATUS,\n\tREV_RANGE,\n\tESCALATION_STATUS,\n\
+  \tPRODUCT_CLASSIF,\n\tACCOUNT_MAINTAINCE,\n\tTOTAL_ACV,\n\tACCOUNT_GRADE,\n\tSALES_REP_ID,\n\
+  \tSURVIVOR_SURF_ID,\n\tTARGET_ACCOUNT_FLAG,\n\tTARGET_ACCOUNT_EXCEPTION,\n\tTARGET_ACCOUNT_DATE,\n\
+  \tCONTRACT_REVIEW,\n\tLEGAL_REV_MOA_TERMS,\n\tRENEWAL_GUIDE,\n\tACV_BANDING,\n\t\
+  APPSTORE_VENDOR_STATUS,\n\tCRM_ID,\n\tMIGRATION_STATUS,\n\tHI_INSTANCE,\n\tPRTNR_AGRMNT_NMBR,\n\
+  \tF500_COMPANY_NM,\n\tSP_END_CUSTOMER,\n\tGLOBAL_ULTIMATE_DUNS,\n\tADR,\n\tFORCE_NEW_ACCT,\n\
+  \tMDM_G2K_LANDED,\n\tSALES_REP_EMAIL_ID,\n\tMRKT_SEGMENT,\n\tTECH_PRTNR,\n\tNON_STDRD_MSTR_TERMS,\n\
+  \tPRTNR_ACTV_FLAG,\n\tSALES_PRTNR_FLAG,\n\tREFERRAL_FLAG,\n\tMSP_FLAG,\n\tMSA_FLAG,\n\
+  \tIMPLMT_FLAG,\n\tGSI_FLAG,\n\tGSI_NM,\n\tSUP_PRTNR_FLAG,\n\tTRAINING_FLAG,\n\t\
+  SEGMENT,\n\tPUBLIC_SECTOR,\n\tSERVICE_PROVIDER,\n\tOEM_PRTNRSHIP,\n\tGLBL_STRATEGIC_PRTNR,\n\
+  \tCATALYST\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SURF_ID\" as \"PartySurfId\"\
+  ,\n       \"PARTY_NAME\" as \"PartyName\",\n       \"PARTY_TYP_CD\" as \"PartyType\"\
+  ,\n       \"G2K_PARENT\" as \"PartyG2KParent\",\n       \"PARENT\" as \"PartyParent\"\
+  ,\n       \"DUNS_NMBR\" as \"PartyDunsNumber\",\n       \"CUST_HQ\" as \"PartyCustomerHQ\"\
+  ,\n       \"MDM_CUST_HQ\" as \"PartyMDMCustomerHQ\",\n       \"INDUSTRY_SEGMENT\"\
+  \ as \"PartyIndustrySegment\",\n       \"IND_SEG_CHANGE_REASON\" as \"PartyIndustrySegmentChangeReason\"\
+  ,\n       \"SEGMENT_CD\" as \"PartySegment\",\n       \"SEGMENT_OVERRIDE_CD\" as\
+  \ \"PartySegmentOverrideCode\",\n       \"EMP_USED\" as \"PartyEmployeesUsed\",\n\
+  \       \"NMBR_IT_EMP\" as \"PartyNumberOfITEmployess\",\n       \"NUMBER_OF_EMPLOYEES\"\
+  \ as \"PartyNumberOfEmployees\",\n       \"ANNUAL_REVENUE\" as \"PartyAnnualRevenue\"\
+  ,\n       \"TERRITORY\" as \"PartyTerritory\",\n       \"PARTY_ADDR_LN1\" as \"\
+  PartyAdress1\",\n       \"PARTY_ADDR_LN2\" as \"PartyAddress2\",\n       \"PARTY_CITY\"\
+  \ as \"PartyCity\",\n       \"PARTY_STATE_CD\" as \"PartyStateCode\",\n       \"\
+  PARTY_STATE_NAME\" as \"PartyState\",\n       \"PARTY_COUNTRY_CD\" as \"PartyCountryCode\"\
+  ,\n       \"PARTY_COUNTRY_NAME\" as \"PartyCountry\",\n       \"PARTY_POSTAL_CD\"\
+  \ as \"PartyZip\",\n       \"WEBSITE\" as \"PartyWebsite\",\n       \"IS_MERGED\"\
+  \ as \"IsMerged\",\n       \"MDM_ID\" as \"PartyMdmId\",\n       \"LAST_RUN\" as\
+  \ \"PartyLastRun\",\n       \"ETL_EXTRACT_DATE\" as \"ETLExtractDate\",\n      \
+  \ \"PKEY_SRC_OBJECT\" as \"PartyPKeySrcObject\",\n       \"PHONE\" as \"PartyPhone\"\
+  ,\n       \"PRTNR_PHONE\" as \"PartyPrtnerPhone\",\n       \"PS_TERRITORY\" as \"\
+  PartyPsTerritory\",\n       \"MDM_TERRITORY\" as \"PartyMDMTerritory\",\n      \
+  \ \"TERR_ASSIGN_RULE\" as \"PartyTerrAssignRule\",\n       \"G2K_VERFD\" as \"PartyG2kVerfd\"\
+  ,\n       \"G2K_LANDED\" as \"PartyG2KLanded\",\n       \"FIELD_SALES_PARENT\" as\
+  \ \"PartyFieldSalesParent\",\n       \"FIELD_SALES_PRNT_CHNG_RSN\" as \"PartyFieldSalesPrntChngRsn\"\
+  ,\n       \"MDM_FIELD_SALES_PARENT\" as \"PartyMdmFieldSalesPrnt\",\n       \"CUST_HQ_ACCOUNT\"\
+  \ as \"PartyCustHqAccount\",\n       \"CUST_HQ_ASSIGN_RULE\" as \"PartyCustHqAssignRule\"\
+  ,\n       \"CUST_HQ_CHNG_REASON_CD\" as \"PartyCustHQChngRsnCd\",\n       \"EMP_USED_LAST_CHANGE_DATE\"\
+  \ as \"PartyEmpUsedLstChngDt\",\n       \"EMP_SRC_CD\" as \"PartyEmpSrcCD\",\n \
+  \      \"EMP_SRC_URL\" as \"PartyEmpSrcUrl\",\n       \"OVER_EMP_COUNT_RSN_CD\"\
+  \ as \"PartyoverEmpCntRsnCD\",\n       \"ACCOUNT_DENIED_PARTY\" as \"PartyAcctDeniedParty\"\
+  ,\n       \"SAP_NMBR\" as \"PartySapNmbr\",\n       \"CUSTOMER_SINCE\" as \"PartyCustSince\"\
+  ,\n       \"PO_REQD\" as \"PartyPoReqd\",\n       \"PO_NOTES\" as \"PartyPoNotes\"\
+  ,\n       \"SALES_REP\" as \"PartySalesRep\",\n       \"MSP_END_CUST_NAME\" as \"\
+  PartyMspEndCustName\",\n       \"LEAD_ID\" as \"PartyLeadID\",\n       \"PARTNER_STATUS\"\
+  \ as \"PartyPartnerStatus\",\n       \"PARTNER_ACCT_NMBR\" as \"PartyPrtnrAcctNmbr\"\
+  ,\n       \"PAYMENT_STATUS\" as \"PartyPaymentStatus\",\n       \"CUST_HQ_ACCOUNT_NAME\"\
+  \ as \"PartyCustHQAccountName\",\n       \"ACTV_FLG\" as \"ACTV_FLG\",\n       \"\
+  SERVICE_PROVIDER_STATUS\" as \"SERVICE_PROVIDER_STATUS\",\n       \"REV_RANGE\"\
+  \ as \"REV_RANGE\",\n       \"ESCALATION_STATUS\" as \"ESCALATION_STATUS\",\n  \
+  \     \"PRODUCT_CLASSIF\" as \"PRODUCT_CLASSIF\",\n       \"ACCOUNT_MAINTAINCE\"\
+  \ as \"ACCOUNT_MAINTAINCE\",\n       \"TOTAL_ACV\" as \"TOTAL_ACV\",\n       \"\
+  ACCOUNT_GRADE\" as \"ACCOUNT_GRADE\",\n       \"SALES_REP_ID\" as \"SALES_REP_ID\"\
+  ,\n       \"SURVIVOR_SURF_ID\" as \"SURVIVOR_SURF_ID\",\n       \"TARGET_ACCOUNT_FLAG\"\
+  \ as \"TARGET_ACCOUNT_FLAG\",\n       \"TARGET_ACCOUNT_EXCEPTION\" as \"TARGET_ACCOUNT_EXCEPTION\"\
+  ,\n       \"TARGET_ACCOUNT_DATE\" as \"TARGET_ACCOUNT_DATE\",\n       \"CONTRACT_REVIEW\"\
+  \ as \"CONTRACT_REVIEW\",\n       \"LEGAL_REV_MOA_TERMS\" as \"LEGAL_REV_MOA_TERMS\"\
+  ,\n       \"RENEWAL_GUIDE\" as \"RENEWAL_GUIDE\",\n       \"ACV_BANDING\" as \"\
+  ACV_BANDING\",\n       \"APPSTORE_VENDOR_STATUS\" as \"APPSTORE_VENDOR_STATUS\"\
+  ,\n       \"CRM_ID\" as \"CRM_ID\",\n       \"MIGRATION_STATUS\" as \"MIGRATION_STATUS\"\
+  ,\n       \"HI_INSTANCE\" as \"HI_INSTANCE\",\n       \"PRTNR_AGRMNT_NMBR\" as \"\
+  PRTNR_AGRMNT_NMBR\",\n       \"F500_COMPANY_NM\" as \"F500_COMPANY_NM\",\n     \
+  \  \"SP_END_CUSTOMER\" as \"SP_END_CUSTOMER\",\n       \"GLOBAL_ULTIMATE_DUNS\"\
+  \ as \"GLOBAL_ULTIMATE_DUNS\",\n       \"ADR\" as \"ADR\",\n       \"FORCE_NEW_ACCT\"\
+  \ as \"FORCE_NEW_ACCT\",\n       \"MDM_G2K_LANDED\" as \"MDM_G2K_LANDED\",\n   \
+  \    \"SALES_REP_EMAIL_ID\" as \"SALES_REP_EMAIL_ID\",\n       \"MRKT_SEGMENT\"\
+  \ as \"MRKT_SEGMENT\",\n       \"TECH_PRTNR\" as \"TECH_PRTNR\",\n       \"NON_STDRD_MSTR_TERMS\"\
+  \ as \"NON_STDRD_MSTR_TERMS\",\n       \"PRTNR_ACTV_FLAG\" as \"PRTNR_ACTV_FLAG\"\
+  ,\n       \"SALES_PRTNR_FLAG\" as \"SALES_PRTNR_FLAG\",\n       \"REFERRAL_FLAG\"\
+  \ as \"REFERRAL_FLAG\",\n       \"MSP_FLAG\" as \"MSP_FLAG\",\n       \"MSA_FLAG\"\
+  \ as \"MSA_FLAG\",\n       \"IMPLMT_FLAG\" as \"IMPLMT_FLAG\",\n       \"GSI_FLAG\"\
+  \ as \"GSI_FLAG\",\n       \"GSI_NM\" as \"GSI_NM\",\n       \"SUP_PRTNR_FLAG\"\
+  \ as \"SUP_PRTNR_FLAG\",\n       \"TRAINING_FLAG\" as \"TRAINING_FLAG\",\n     \
+  \  \"SEGMENT\" as \"SEGMENT\",\n       \"PUBLIC_SECTOR\" as \"PUBLIC_SECTOR\",\n\
+  \       \"SERVICE_PROVIDER\" as \"SERVICE_PROVIDER\",\n       \"OEM_PRTNRSHIP\"\
+  \ as \"OEM_PRTNRSHIP\",\n       \"GLBL_STRATEGIC_PRTNR\" as \"GLBL_STRATEGIC_PRTNR\"\
+  ,\n       \"CATALYST\" as \"CATALYST\"\nFROM \"RDS\".\"MDM\".\"MDM_BI_PARTY_ACCOUNT\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

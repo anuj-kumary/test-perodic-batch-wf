@@ -1,0 +1,62 @@
+name: table_712
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_712
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_712.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_CMN_COST_CENTER(\n\tCOSTCENTER_SYS_ID,\n\
+  \tCOSTCENTER_CODE,\n\tCOSTCENTER_NAME,\n\tCOSTCENTER_TYPE,\n\tCOSTCENTER_REFERENCE_ID,\n\
+  \tFPA_REVIEWER,\n\tFPA_APPROVER,\n\tCOSTCENTER_FUNC_ROLLUP,\n\tCOSTCENTER_VP_ROLLUP,\n\
+  \tMANAGER,\n\tSYSTEM_NAME,\n\tCOSTCENTER_OWNER,\n\tCOSTCENTER_EXECUTIVE,\n\tBACKUP_FPA_REVIEWER,\n\
+  \tDEPARTMENT_HEAD\n) as -- SEMANTIC LAYER BEGINS\n/** Short Description: CMN_COST_CENTER\
+  \ Surf table - Dimensional View\nCreated By: Swetha Bobba\nCreated on: 22-Jul-2024\n\
+  Description: Created as required for story - STRY2617185. Can be enhanced for generic\
+  \ purpose.\n**/\nSELECT \"SYS_ID\" as costcenter_sys_id,\n       \"CODE\" as costcenter_code,\n\
+  \       \"NAME\" as costcenter_name,\n       \"DV_U_COST_CENTER_TYPE\" as costcenter_type,\n\
+  \       \"U_COST_CENTER_REFERENCE_ID\" as costcenter_reference_id,\n       \"DV_U_FP_A_REVIEWER\"\
+  \ as fpa_reviewer,\n       \"DV_U_FPA_APPROVER\" as fpa_approver,\n       \"DV_U_COST_CENTER_FUNCTIONAL_ROLL_UP\"\
+  \ as costcenter_func_rollup,\n       \"DV_U_COST_CENTER_VP_ROLLUP\" as costcenter_vp_rollup,\n\
+  \       \"DV_MANAGER\" as manager,\n       \"U_SYSTEM_NAME\" as system_name,\n \
+  \      \"DV_U_COST_CENTER_OWNER\" as costcenter_owner,\n       \"DV_U_EXECUTIVE\"\
+  \ as costcenter_executive,\n       \"DV_U_BACKUP_FP_A_REVIEWER\" as backup_fpa_reviewer,\n\
+  \       \"DV_U_DEPARTMENT_HEAD\" as department_head\nFROM RDS.\"SURF\".\"CMN_COST_CENTER\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,112 @@
+name: table_716
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_716
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_716.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_CAMPAIGN_HISTORY_EXTENDED(\n\t\"Lead\"\
+  ,\n\t\"CampaignSysID\",\n\t\"CampaignCreatedOn\",\n\t\"CampaignAssociationDate\"\
+  ,\n\t\"LeadSysID\",\n\t\"CampaignName\",\n\t\"ChCampaignName\",\n\t\"ChActive\"\
+  ,\n\t\"ChBusinessUnit\",\n\t\"ChNumber\",\n\t\"ChDVMemberStatus\",\n\t\"CampaignAssociationEloquaDate\"\
+  ,\n\t\"Touched\",\n\t\"UpdatedOn\",\n\t\"Updatedby\",\n\t\"Createdby\",\n\t\"ReferenceSource\"\
+  ,\n\t\"PageURL\",\n\t\"PrimaryProductInterest\",\n\t\"GSDActivitySource\",\n\t\"\
+  ChLeadStatus\",\n\t\"CampaignAsset\",\n\t\"CampaignLeadScore\",\n\t\"CampaignCategory\"\
+  ,\n\t\"ChDeliveryCampaign\",\n\t\"ChReasonCode\",\n\t\"ChCampaignConversation2018\"\
+  ,\n\t\"ChListUploadName\",\n\t\"ChProcessRule\",\n\t\"ChAdobeMCID\",\n\t\"ChDVPrimaryProductInterest\"\
+  ,\n\t\"ChDeliveryCampaignSysID\",\n\t\"ChPrimaryProductInterest\",\n\t\"ChCID\"\
+  ,\n\t\"ChCMCID\",\n\t\"ChCMPID\",\n\t\"ChMIDS\",\n\t\"Language\",\n\t\"MemberStatusPriorityOrder\"\
+  ,\n\t\"AssignedTo\",\n\t\"IAmInterestedIn\",\n\t\"ChOKTAId\",\n\t\"MTAEligibilityFlag\"\
+  ,\n\t\"AssetType\"\n) as (\nSELECT CH.*,CASE WHEN \"Content Type Final 2\" = 'random'\
+  \ THEN 'random'\n        WHEN \"Content Type Final 2\" = 'random' THEN 'random'\n\
+  \        WHEN IFNULL(\"Content Type Final 2\",'random') != 'random' THEN INITCAP(\"\
+  Content Type Final 2\")\n        WHEN contains(lower(C.\"CampaignType\"),'random')\
+  \ THEN SPLIT_PART(C.\"CampaignType\",'random','random')\n        WHEN lower(C.\"\
+  CampaignType\") like 'random' then 'random'\n\t\t WHEN lower(C.\"CampaignType\"\
+  ) like 'random' then 'random'\n\t\t WHEN lower(C.\"CampaignType\") like 'random'\
+  \ then 'random'\n\t\t WHEN lower(C.\"CampaignName\") like 'random'\n\t\t   or lower(CH.\"\
+  CampaignAsset\") like 'random' then 'random'\n\t\t WHEN lower(C.\"CampaignName\"\
+  ) like 'random'\n\t\t   or lower(CH.\"CampaignAsset\") like 'random' then 'random'\n\
+  \t\t WHEN lower(C.\"CampaignName\") like 'random'\n\t\t   or lower(C.\"CampaignType\"\
+  ) like 'random'\n\t\t   or lower(CH.\"CampaignAsset\") like 'random'\n\t\t   or\
+  \ lower(\"PageURL\") like 'random'then 'random'\n\t\t WHEN lower(C.\"CampaignName\"\
+  ) like 'random'\n\t\t   or lower(C.\"CampaignName\") like 'random'\n\t\t   or lower(CH.\"\
+  CampaignAsset\") like 'random'\n\t\t   or lower(CH.\"CampaignAsset\") like 'random'\n\
+  \t\t   or lower(CH.\"CampaignAsset\") like 'random'\n\t\t   or lower(\"PageURL\"\
+  ) like 'random'\n\t\t   or lower(\"PageURL\") like 'random'\n\t\t   or lower(\"\
+  PageURL\") like 'random' then 'random'\n\t\t WHEN lower(C.\"CampaignName\") like\
+  \ 'random'\n\t\t   or lower(C.\"CampaignName\") like 'random'\n\t\t   or lower(CH.\"\
+  CampaignAsset\") like 'random'\n\t\t   or lower(CH.\"CampaignAsset\") like 'random'\n\
+  \t\t   or lower(\"PageURL\") like 'random' then 'random'\n\t\t WHEN lower(C.\"CampaignName\"\
+  ) like 'random'\n\t\t   or lower(C.\"CampaignName\") like 'random'\n\t\t   or lower(CH.\"\
+  CampaignAsset\") like 'random'\n\t\t   or lower(\"PageURL\") like 'random' then\
+  \ 'random'\n\t\t WHEN lower(C.\"CampaignName\") like 'random' or\n\t\t\t  lower(CH.\"\
+  CampaignAsset\") like 'random'\n\t\t   or lower(\"PageURL\") like 'random'then 'random'\n\
+  \t\t WHEN lower(C.\"CampaignName\") like 'random'\n\t\t   or lower(C.\"CampaignName\"\
+  ) like 'random'\n\t\t   or lower(CH.\"CampaignAsset\") like 'random'\n\t\t   or\
+  \ lower(C.\"CampaignName\") like 'random'then 'random'\n\t\t WHEN lower(CH.\"CampaignAsset\"\
+  ) like 'random' then 'random'\n\t\t WHEN lower(C.\"CampaignName\") like 'random'\n\
+  \t\t   or lower(\"PageURL\") like 'random' then 'random'\n\t\t WHEN  lower(C.\"\
+  CampaignName\") like 'random' then 'random'\n\t\t WHEN  lower(C.\"CampaignName\"\
+  ) like 'random' then 'random'\n\t\t WHEN  \"PageURL\" like 'random' then 'random'\n\
+  \t\t WHEN  \"PageURL\" like 'random' then 'random'\n\t\t WHEN  \"PageURL\" like\
+  \ 'random' then 'random'\n\t\t WHEN  \"PageURL\" like 'random' then 'random'\n\t\
+  \t WHEN  \"PageURL\" like 'random' then 'random'\n\t\t WHEN  \"PageURL\" like 'random'\
+  \ then 'random'\n\t\t WHEN  \"PageURL\" like 'random' then 'random'\n\t\t WHEN \
+  \ \"PageURL\" like 'random' then 'random'\n\t\t WHEN  \"PageURL\" like 'random'\
+  \ then 'random'\n\t\t WHEN  \"PageURL\" like 'random' then 'random'\n\t\t WHEN \
+  \ \"PageURL\" like 'random' then 'random'\n\t\t WHEN  \"PageURL\" like 'random'\
+  \ then 'random'\n\t\t WHEN  \"PageURL\" like 'random' then 'random'\n\t\t WHEN \"\
+  PageURL\" like 'random' then 'random'\n\t\t WHEN \"PageURL\" like 'random' then\
+  \ 'random'\n\t\t WHEN \"PageURL\" like 'random' and \"PageURL\" like 'random' then\
+  \ 'random'\n\t\t WHEN lower(CH.\"CampaignAsset\") like 'random'  then 'random'\n\
+  \t\t WHEN lower(\"PageURL\") like 'random' then 'random'\n         WHEN F.\"CampaignAsset\"\
+  \ IS not NULL THEN INITCAP( CASE WHEN F.\"CONTENT_TYPE\"= 'random' THEN 'random'\
+  \ ELSE F.\"CONTENT_TYPE\" END )\n\telse 'random'\n\tend  \"AssetType\" FROM ODS_LS.SURF.U_CAMPAIGN_HISTORY\
+  \ CH\nLEFT JOIN ODS_LS.SURF.U_CAMPAIGN C\n\t\tON CH.\"ChCampaignName\" = C.\"CampaignSysID\"\
+  \n    LEFT JOIN RDS.\"MARKETING\".\"MKT_CONTENT_TYPE_MAPPING_0425\" CT\n       \
+  \ ON trim(lower(ifnull(\"CAMPAIGN\",'random')))  = trim(lower(ifnull(C.\"CampaignName\"\
+  ,'random')))\n\t\tAND trim(lower(ifnull(\"CAMPAIGNASSET\",'random')))  = trim(lower(ifnull(CH.\"\
+  CampaignAsset\",'random')))\n\t\tAND replace(trim(lower(ifnull(\"PAGEURL\",'random'))),'random','random')\
+  \ = replace(trim(lower(ifnull(CH.\"PageURL\",'random'))),'random','random')\n\t\t\
+  AND trim(lower(ifnull(\"CAMPAIGNTYPE\",'random'))) = trim(lower(ifnull(C.\"CampaignType\"\
+  ,'random')))\n    LEFT JOIN EDW_LS.MARKETING.MKT_CONTENT_TYPE_FUZZY_OUTPUT F\n \
+  \       ON CH.\"CampaignAsset\" = F.\"CampaignAsset\"\nWHERE \"ChActive\" = 'random');"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

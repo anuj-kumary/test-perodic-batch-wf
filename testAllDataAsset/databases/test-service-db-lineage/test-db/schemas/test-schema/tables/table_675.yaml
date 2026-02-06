@@ -1,0 +1,55 @@
+name: table_675
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_675
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_675.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view POTENTIAL_DUPLICATE_CONTACTS(\n\tID,\n\t\
+  \"Email\",\n\t\"RowidObject\",\n\t\"RowidObjectMatched\",\n\t\"EmailMatched\",\n\
+  \t\"RuleNo\",\n\t\"MatchScore\",\n\t\"CreateDate\",\n\t\"LastUpdateDate\",\n\t\"\
+  Status\",\n\t\"PersonId\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ID\" as \"\
+  ID\",\n       \"EMAIL\" as \"Email\",\n       \"ROWID_OBJECT\" as \"RowidObject\"\
+  ,\n       \"ROWID_OBJECT_MATCHED\" as \"RowidObjectMatched\",\n       \"EMAIL_MATCHED\"\
+  \ as \"EmailMatched\",\n       \"RULE_NO\" as \"RuleNo\",\n       \"MATCH_SCORE\"\
+  \ as \"MatchScore\",\n       \"CREATE_DATE\" as \"CreateDate\",\n       \"LAST_UPDATE_DATE\"\
+  \ as \"LastUpdateDate\",\n       \"STATUS\" as \"Status\",\n       \"PERSON_ID\"\
+  \ as \"PersonId\"\nFROM \"RDS\".\"MDM\".\"SERV_NOW_CONTACT_POTENTIAL_DUPS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

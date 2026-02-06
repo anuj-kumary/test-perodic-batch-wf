@@ -1,0 +1,56 @@
+name: table_701
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_701
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_701.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SNC_WAR_VERSION(\n\t\"DvUReleaseFamily\"\
+  ,\n\t\"UReleaseAvailability\",\n\t\"UGaDate\",\n\t\"UCaDate\",\n\t\"DvUVersionType\"\
+  ,\n\t\"Name\",\n\t\"UDCDate\",\n\t\"UShortDescription\",\n\t\"UDevStart\",\n\t\"\
+  UEnterpriseQPPDate\",\n\t\"DvUEnterpriseQPPDate\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"DV_U_RELEASE_FAMILY\" as \"DvUReleaseFamily\",\n       \"U_RELEASE_AVAILABILITY\"\
+  \ as \"UReleaseAvailability\",\n       \"U_GA_DATE\" as \"UGaDate\",\n       \"\
+  U_CA_DATE\" as \"UCaDate\",\n       \"DV_U_VERSION_TYPE\" as \"DvUVersionType\"\
+  ,\n       \"NAME\" as \"Name\",\n       \"U_DC_DATE\" as \"UDCDate\",\n       \"\
+  U_SHORT_DESCRIPTION\" as \"UShortDescription\",\n       \"U_DEV_START\" as \"UDevStart\"\
+  ,\n       \"U_ENTERPRISE_QPP_DATE\" as \"UEnterpriseQPPDate\",\n       \"DV_U_ENTERPRISE_QPP_DATE\"\
+  \ as \"DvUEnterpriseQPPDate\"\nFROM \"RDS\".\"HI\".\"SNC_WAR_VERSION\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

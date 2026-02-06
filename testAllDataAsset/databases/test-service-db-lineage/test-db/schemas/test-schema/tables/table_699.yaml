@@ -1,0 +1,70 @@
+name: table_699
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_699
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_699.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PA_RULES_CUBE(\n\t\"Type\",\n\t\"Criteria\"\
+  ,\n\t\"PerUnitPoints\",\n\t\"Cap\",\n\t\"MinRequirements\",\n\t\"Market\",\n\t\"\
+  LowerLimit\",\n\t\"UpperLimit\",\n\t\"Multiplier\",\n\t\"EffectiveDate\",\n\t\"\
+  ExpiryDate\",\n\t\"Tier\",\n\tETL_EXTRACT_DATE,\n\t\"Rules\",\n\t\"PublicSectorMultiplier\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"Type\" as \"Type\",\n       \"Criteria\"\
+  \ as \"Criteria\",\n       SUM(\"PerUnitPoints\") as \"PerUnitPoints\",\n      \
+  \ SUM(\"Cap\") as \"Cap\",\n       \"MinRequirements\" as \"MinRequirements\",\n\
+  \       \"Market\" as \"Market\",\n       \"LowerLimit\" as \"LowerLimit\",\n  \
+  \     \"UpperLimit\" as \"UpperLimit\",\n       SUM(\"Multiplier\") as \"Multiplier\"\
+  ,\n       \"EffectiveDate\" as \"EffectiveDate\",\n       \"ExpiryDate\" as \"ExpiryDate\"\
+  ,\n       \"Tier\" as \"Tier\",\n       \"ETL_EXTRACT_DATE\" as \"ETL_EXTRACT_DATE\"\
+  ,\n       \"Rules\" as \"Rules\",\n       SUM(\"PublicSectorMultiplier\") as \"\
+  PublicSectorMultiplier\"\nFROM\n  (SELECT \"Type\" as \"Type\",\n          \"Criteria\"\
+  \ as \"Criteria\",\n          \"PerUnitPoints\" as \"PerUnitPoints\",\n        \
+  \  \"Cap\" as \"Cap\",\n          \"MinRequirements\" as \"MinRequirements\",\n\
+  \          \"Market\" as \"Market\",\n          \"LowerLimit\" as \"LowerLimit\"\
+  ,\n          \"UpperLimit\" as \"UpperLimit\",\n          \"Multiplier\" as \"Multiplier\"\
+  ,\n          \"EffectiveDate\" as \"EffectiveDate\",\n          \"ExpiryDate\" as\
+  \ \"ExpiryDate\",\n          \"Tier\" as \"Tier\",\n          \"ETL_EXTRACT_DATE\"\
+  \ as \"ETL_EXTRACT_DATE\",\n          \"Rules\" as \"Rules\",\n          \"PublicSectorMultiplier\"\
+  \ as \"PublicSectorMultiplier\"\n   FROM \"RDS\".\"ANAPLAN\".\"RULES\")Projection_1\n\
+  GROUP BY \"Type\",\n         \"Criteria\",\n         \"MinRequirements\",\n    \
+  \     \"Market\",\n         \"LowerLimit\",\n         \"UpperLimit\",\n        \
+  \ \"EffectiveDate\",\n         \"ExpiryDate\",\n         \"Tier\",\n         \"\
+  ETL_EXTRACT_DATE\",\n         \"Rules\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

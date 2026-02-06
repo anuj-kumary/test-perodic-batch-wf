@@ -1,0 +1,58 @@
+name: table_714
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_714
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_714.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CONTACTS(\n\t\"ContactsEmailAddress1\",\n\
+  \t\"ContactsEmailAddress2\",\n\t\"ContactsEmailAddress3\",\n\t\"ContactsGenderCodeName\"\
+  ,\n\t\"ContactsNickName\",\n\t\"ContactsFirstName\",\n\t\"ContactsLastName\",\n\t\
+  \"ContactsContactID\",\n\t\"ContactsJobLevelName\",\n\t\"ContactsJobTitle\",\n\t\
+  \"ContactsDepartment\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"EMAILADDRESS1\"\
+  \ as \"ContactsEmailAddress1\",\n       \"EMAILADDRESS2\" as \"ContactsEmailAddress2\"\
+  ,\n       \"EMAILADDRESS3\" as \"ContactsEmailAddress3\",\n       \"GENDERCODENAME\"\
+  \ as \"ContactsGenderCodeName\",\n       \"NICKNAME\" as \"ContactsNickName\",\n\
+  \       \"FIRSTNAME\" as \"ContactsFirstName\",\n       \"LASTNAME\" as \"ContactsLastName\"\
+  ,\n       \"CONTACTID\" as \"ContactsContactID\",\n       \"SN_JOBLEVELNAME\" as\
+  \ \"ContactsJobLevelName\",\n       \"JOBTITLE\" as \"ContactsJobTitle\",\n    \
+  \   \"DEPARTMENT\" as \"ContactsDepartment\"\nFROM \"RDS\".\"DYNAMICS365\".\"CONTACTS\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

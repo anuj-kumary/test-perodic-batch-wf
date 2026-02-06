@@ -1,0 +1,54 @@
+name: table_704
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_704
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_704.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_NOW_ON_NOW_R_CUSTOMER_CALL_CALCULATIONS(\n\
+  \tPIPELINE_CLOSED_PER_SPEAKER,\n\tFROM_DATE,\n\tENGAGEMENT_DATE,\n\tUNTIL_DATE,\n\
+  \tSYS_UPDATED_ON,\n\tDV_PRIMARY_SPEAKER,\n\tCCC_NUMBER,\n\tPIPELINE_CREATED_PER_SPEAKER,\n\
+  \tSYS_ID,\n\tSYS_CREATED_ON,\n\tPIPELINE_CLOSED,\n\tCALCULATION_END_DATE,\n\tDV_CUSTOMER_CALL_NUMBER,\n\
+  \tPIPELINE_INFLUENCED,\n\tPIPELINE_CREATED\n) as\nselect\nPIPELINE_CLOSED_PER_SPEAKER,\n\
+  FROM_DATE,\nENGAGEMENT_DATE,\nUNTIL_DATE,\nSYS_UPDATED_ON,\nDV_PRIMARY_SPEAKER,\n\
+  NUMBER as CCC_NUMBER,\nPIPELINE_CREATED_PER_SPEAKER,\nSYS_ID,\nSYS_CREATED_ON,\n\
+  PIPELINE_CLOSED,\nCALCULATION_END_DATE,\nDV_CUSTOMER_CALL_NUMBER,\nPIPELINE_INFLUENCED,\n\
+  PIPELINE_CREATED\nFROM RDS.SURF.x_snc_now_on_now_r_customer_call_calculations;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

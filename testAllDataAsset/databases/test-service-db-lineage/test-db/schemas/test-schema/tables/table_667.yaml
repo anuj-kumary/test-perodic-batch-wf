@@ -1,0 +1,67 @@
+name: table_667
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_667
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_667.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SERVICES_EMPLOYEE_TERRITORY_MAPPING(\n\t\
+  \"STEmpEmp_ID\",\n\t\"STEmpName\",\n\t\"STEmpPlanType\",\n\t\"STEmpPlanStartDate\"\
+  ,\n\t\"STEmpPlanEndDate\",\n\t\"STEmpQuotaEffectiveDateICMdefault\",\n\t\"STEmpQuotaComponent\"\
+  ,\n\t\"STEmpQuotaCurrency\",\n\t\"STEmpTerritoryID\",\n\t\"STEmpSYSID\",\n\t\"STEmpProductGroup\"\
+  ,\n\t\"STEmpAnnualQuota_QC\",\n\t\"STEmpQ1QuotaQC\",\n\t\"STEmpQ2QuotaQC\",\n\t\"\
+  STEmpQ3QuotaQC\",\n\t\"STEmpQ4QuotaQC\",\n\t\"STEmpAnnualQuota_USD\",\n\t\"STEmpQ1QuotaUSD\"\
+  ,\n\t\"STEmpQ2QuotaUSD\",\n\t\"STEmpQ3QuotaUSD\",\n\t\"STEmpQ4QuotaUSD\",\n\t\"\
+  STEmpChangeApprovalFlag\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"EMP_ID\" as\
+  \ \"STEmpEmp_ID\",\n       \"NAME\" as \"STEmpName\",\n       \"PLANTYPE\" as \"\
+  STEmpPlanType\",\n       \"PLANSTARTDATE\" as \"STEmpPlanStartDate\",\n       \"\
+  PLANENDDATE\" as \"STEmpPlanEndDate\",\n       \"QUOTAEFFECTIVEDATEICMDEFAULT\"\
+  \ as \"STEmpQuotaEffectiveDateICMdefault\",\n       \"QUOTACOMPONENT\" as \"STEmpQuotaComponent\"\
+  ,\n       \"QUOTACURRENCY\" as \"STEmpQuotaCurrency\",\n       \"TERRITORYID\" as\
+  \ \"STEmpTerritoryID\",\n       \"SYSID\" as \"STEmpSYSID\",\n       \"PRODUCTGROUP\"\
+  \ as \"STEmpProductGroup\",\n       \"ANNUALQUOTA_QC\" as \"STEmpAnnualQuota_QC\"\
+  ,\n       \"Q1_QUOTA_QC\" as \"STEmpQ1QuotaQC\",\n       \"Q2_QUOTA_QC\" as \"STEmpQ2QuotaQC\"\
+  ,\n       \"Q3_QUOTA_QC\" as \"STEmpQ3QuotaQC\",\n       \"Q4_QUOTA_QC\" as \"STEmpQ4QuotaQC\"\
+  ,\n       \"ANNUAL_QUOTA_USD\" as \"STEmpAnnualQuota_USD\",\n       \"Q1_QUOTA_USD\"\
+  \ as \"STEmpQ1QuotaUSD\",\n       \"Q2_QUOTA_USD\" as \"STEmpQ2QuotaUSD\",\n   \
+  \    \"Q3_QUOTA_USD\" as \"STEmpQ3QuotaUSD\",\n       \"Q4_QUOTA_USD\" as \"STEmpQ4QuotaUSD\"\
+  ,\n       \"CHANGEAPPROVALFLAG\" as \"STEmpChangeApprovalFlag\"\nFROM RDS.\"ANAPLAN\"\
+  .\"TBL_CO_EMP_TERR_ASSIGNMENT\"\n--where \"NAME\" not in ('Nadir Ait Saadi');\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

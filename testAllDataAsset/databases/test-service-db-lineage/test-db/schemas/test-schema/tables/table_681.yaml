@@ -1,0 +1,57 @@
+name: table_681
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_681
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_681.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PARTY_RELATIONSHIP(\n\t\"RowidObject\",\n\
+  \t\"CreateDate\",\n\t\"LastUpdateDate\",\n\t\"ConsolidationInd\",\n\t\"LastRowidSystem\"\
+  ,\n\t\"HubStateInd\",\n\t\"ParentPartyid\",\n\t\"ChildPartyid\",\n\t\"HierarchyCode\"\
+  ,\n\t\"RelTypeCode\",\n\t\"FamilyHierarchyLevel\",\n\t\"EventType\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"ROWID_OBJECT\" as \"RowidObject\",\n       \"CREATE_DATE\"\
+  \ as \"CreateDate\",\n       \"LAST_UPDATE_DATE\" as \"LastUpdateDate\",\n     \
+  \  \"CONSOLIDATION_IND\" as \"ConsolidationInd\",\n       \"LAST_ROWID_SYSTEM\"\
+  \ as \"LastRowidSystem\",\n       \"HUB_STATE_IND\" as \"HubStateInd\",\n      \
+  \ \"PARENT_PARTY_ID\" as \"ParentPartyid\",\n       \"CHILD_PARTY_ID\" as \"ChildPartyid\"\
+  ,\n       \"HIERARCHY_CODE\" as \"HierarchyCode\",\n       \"REL_TYPE_CODE\" as\
+  \ \"RelTypeCode\",\n       \"FAM_HIERARCHY_LVL\" as \"FamilyHierarchyLevel\",\n\
+  \       \"EVENT_TYP\" as \"EventType\"\nFROM \"RDS\".\"MDM\".\"C_B_PARTY_REL\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

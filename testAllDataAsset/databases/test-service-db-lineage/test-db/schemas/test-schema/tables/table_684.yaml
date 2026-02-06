@@ -1,0 +1,85 @@
+name: table_684
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_684
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_684.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SALES_EMPLOYEE_TERRITORY_MAPPING(\n\t\"\
+  STEmpTerrQuarter\",\n\t\"STEmpTerrEmployeeNumber\",\n\t\"STEmpTerrEmployeeName\"\
+  ,\n\t\"STEmpTerrTerritoy\",\n\t\"STEmpTerrTerritorySysId\",\n\t\"STEmpTerrEmployeeSysId\"\
+  ,\n\t\"STEmpTerrEmpTitle\",\n\t\"STEmpTerrEmployeeManager\",\n\t\"STEmpTerrTerritotyType\"\
+  ,\n\t\"STEmpTerrRamped\",\n\t\"STEmpTerrActive\",\n\t\"STEmpTerrMarkedTerritory\"\
+  ,\n\t\"STEmpTerrRepFlag\",\n\t\"STEmpTerrRestatedTerrSysId\",\n\t\"STEmpTerrRepType\"\
+  ,\n\t\"STEmpTerrBU\",\n\t\"STEmpTerrHCTerritory\",\n\t\"STEmpTerrTenure\",\n\t\"\
+  STEmpPlanStartDate\",\n\t\"STEmpPlanEndDate\",\n\t\"STEmpActiveTerritory\",\n\t\"\
+  STEmpQuotaComponent\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"QUARTER\" as \"\
+  STEmpTerrQuarter\",\n       \"EMPLOYEENUMBER\" as \"STEmpTerrEmployeeNumber\",\n\
+  \       \"EMPLOYEENAME\" as \"STEmpTerrEmployeeName\",\n       \"TERRITORY\" as\
+  \ \"STEmpTerrTerritoy\",\n       \"TERRITORYSYSID\" as \"STEmpTerrTerritorySysId\"\
+  ,\n       \"EMPLOYEESYSID\" as \"STEmpTerrEmployeeSysId\",\n       \"EMPTITLE\"\
+  \ as \"STEmpTerrEmpTitle\",\n       \"EMPLOYEE_MANAGER\" as \"STEmpTerrEmployeeManager\"\
+  ,\n       \"TERRITORY_TYPE\" as \"STEmpTerrTerritotyType\",\n       \"RAMPED\" as\
+  \ \"STEmpTerrRamped\",\n       \"ACTIVE\" as \"STEmpTerrActive\",\n       \"MARKEDTERRITORY\"\
+  \ as \"STEmpTerrMarkedTerritory\",\n       \"REPFLAG\" as \"STEmpTerrRepFlag\",\n\
+  \       \"RESTATEDTERRITORYSYSID\" as \"STEmpTerrRestatedTerrSysId\",\n       \"\
+  REP_TYPE\" as \"STEmpTerrRepType\",\n       \"BU\" as \"STEmpTerrBU\",\n       \"\
+  HC_TERRITORY\" as \"STEmpTerrHCTerritory\",\n       \"TENURE\" as \"STEmpTerrTenure\"\
+  ,\n       \"PLAN_START_DATE\" as \"STEmpPlanStartDate\",\n       \"PLAN_END_DATE\"\
+  \ as \"STEmpPlanEndDate\",\n       \"ACTIVE_TERRITORY\" as \"STEmpActiveTerritory\"\
+  ,\n       \"QUOTA_COMPONENT\" as \"STEmpQuotaComponent\"\nFROM\n  (SELECT \"QUARTER\"\
+  \ as \"QUARTER\",\n          \"EMPLOYEENUMBER\" as \"EMPLOYEENUMBER\",\n       \
+  \   \"EMPLOYEENAME\" as \"EMPLOYEENAME\",\n          \"TERRITORY\" as \"TERRITORY\"\
+  ,\n          \"TERRITORYSYSID\" as \"TERRITORYSYSID\",\n          \"EMPLOYEESYSID\"\
+  \ as \"EMPLOYEESYSID\",\n          \"EMPTITLE\" as \"EMPTITLE\",\n          \"EMPLOYEE_MANAGER\"\
+  \ as \"EMPLOYEE_MANAGER\",\n          \"TERRITORY_TYPE\" as \"TERRITORY_TYPE\",\n\
+  \          \"RAMPED\" as \"RAMPED\",\n          \"ACTIVE\" as \"ACTIVE\",\n    \
+  \      \"MARKEDTERRITORY\" as \"MARKEDTERRITORY\",\n          \"REPFLAG\" as \"\
+  REPFLAG\",\n          \"RESTATEDTERRITORYSYSID\" as \"RESTATEDTERRITORYSYSID\",\n\
+  \          \"REP_TYPE\" as \"REP_TYPE\",\n          \"BU\" as \"BU\",\n        \
+  \  \"HC_TERRITORY\" as \"HC_TERRITORY\",\n          \"TENURE\" as \"TENURE\",\n\
+  \          \"PLAN_START_DATE\" as \"PLAN_START_DATE\",\n          \"PLAN_END_DATE\"\
+  \ as \"PLAN_END_DATE\",\n          \"QUOTA_COMPONENT\" as \"QUOTA_COMPONENT\",\n\
+  \          IFF(\"PLAN_START_DATE\" IS NULL\n              and \"PLAN_END_DATE\"\
+  \ IS NULL, 'random', IFF(\"PLAN_START_DATE\" <= date(TO_TIMESTAMP_LTZ(CURRENT_TIMESTAMP))\n\
+  \                                                     and \"PLAN_END_DATE\" >= date(TO_TIMESTAMP_LTZ(CURRENT_TIMESTAMP)),\
+  \ 'random', 'random')) as \"ACTIVE_TERRITORY\"\n   FROM \"RDS\".\"ANAPLAN\".\"SALES_EMP_TERRITORY_MAPPING\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

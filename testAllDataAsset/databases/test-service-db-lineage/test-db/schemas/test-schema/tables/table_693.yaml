@@ -1,0 +1,66 @@
+name: table_693
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_693
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_693.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_PARTNER_TERRITORY(\n\t\"ChannelParrentAssignmentFlag\"\
+  ,\n\t\"PartnerTerrNumber\",\n\t\"SysModcount\",\n\t\"SysUpdatedOn\",\n\t\"SysId\"\
+  ,\n\t\"PartnerAccountSysID\",\n\t\"PartnerAccount\",\n\t\"SysUpdatedBy\",\n\t\"\
+  OptyFieldTerritoryID\",\n\t\"OptyFieldTerritory\",\n\t\"SysCreatedOn\",\n\t\"IsActive\"\
+  ,\n\t\"AccountTerritoryType\",\n\t\"DVAccountTerritoryType\",\n\t\"PartnerManagerSysID\"\
+  ,\n\t\"PartnerManager\",\n\t\"PartnerSalesTerritoryID\",\n\t\"PartnerSalesTerritory\"\
+  ,\n\t\"FieldTerritoryID\",\n\t\"FieldTerritoryNode\",\n\t\"ISVAssignmentFlag\",\n\
+  \t\"SysCreatedBy\"\n) as\n(\nSELECT DISTINCT\n\tU_CHANNEL_PARENT_ASSIGNMENT AS \"\
+  ChannelParrentAssignmentFlag\",\n\tU_NUMBER AS \"PartnerTerrNumber\",\n\tSYS_MOD_COUNT\
+  \ AS \"SysModcount\",\n\tSYS_UPDATED_ON AS \"SysUpdatedOn\",\n\t--SYS_TAGS,\n\t\
+  SYS_ID AS \"SysId\",\n\tU_PARTNER_ACCOUNT AS \"PartnerAccountSysID\",\n\tDV_U_PARTNER_ACCOUNT\
+  \ AS \"PartnerAccount\",\n\tSYS_UPDATED_BY AS \"SysUpdatedBy\",\n\tU_OPPORTUNITY_FIELD_TERRITORY\
+  \ AS \"OptyFieldTerritoryID\",\n\tDV_U_OPPORTUNITY_FIELD_TERRITORY AS \"OptyFieldTerritory\"\
+  ,\n\tSYS_CREATED_ON AS \"SysCreatedOn\",\n\tU_ACTIVE AS \"IsActive\",\n\tU_TERRITORY_TYPE\
+  \ AS \"AccountTerritoryType\",\n\tDV_U_TERRITORY_TYPE AS \"DVAccountTerritoryType\"\
+  ,\n\tU_PARTNER_MANAGER AS \"PartnerManagerSysID\",\n\tDV_U_PARTNER_MANAGER AS \"\
+  PartnerManager\",\n\tU_PARTNER_SALES_TERRITORY AS \"PartnerSalesTerritoryID\",\n\
+  \tDV_U_PARTNER_SALES_TERRITORY AS \"PartnerSalesTerritory\",\n\tU_TERRITORY AS \"\
+  FieldTerritoryID\",\n\tDV_U_TERRITORY AS \"FieldTerritoryNode\",\n\tU_ISV_ASSIGNMENT\
+  \ AS \"ISVAssignmentFlag\",\n\tSYS_CREATED_BY AS \"SysCreatedBy\"\n\tFROM RDS.SURF.U_PARTNER_TERRITORY_MAPPING\n\
+  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

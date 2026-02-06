@@ -1,0 +1,52 @@
+name: table_649
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_649
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_649.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_RENEWALS_LATE_RISK_FLAG(\n\tOPTY_NUMBER,\n\
+  \tCLOSE_DATE,\n\tLATE_FOR_QUARTER_RISK_FLAG,\n\tETL_INSERT_DATE,\n\tETL_UPDATE_DATE,\n\
+  \tETL_DELETE_DATE\n) as\n(\n/*** Short Description: Base view on the top of table,\
+  \ to identify the oppotunity which have risk of becoming late renewal\nCreated By:\
+  \ Swetha Bobba\nCreated Date: 09-Jul-2024\n***/\nSELECT OPTY AS OPTY_NUMBER,\n \
+  \   CLOSE_DATE,\n    LATE_FOR_QUARTER_RISK_FLAG,\n    ETL_INSERT_DATE,\n    ETL_UPDATE_DATE,\n\
+  \    ETL_DELETE_DATE\nFROM RDS.ANAPLAN.RENEWALS_LATE_RISK_FLAGS\n);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
