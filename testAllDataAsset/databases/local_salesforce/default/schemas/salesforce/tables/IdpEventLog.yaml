@@ -1,0 +1,170 @@
+name: IdpEventLog
+fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog
+description: Identity Provider Event Log
+tableType: Regular
+columns:
+  - name: Id
+    dataType: VARCHAR
+    dataLength: 18
+    dataTypeDisplay: id
+    description: Event Log Entry ID
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.Id
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: InitiatedBy
+    dataType: UNKNOWN
+    dataLength: 40
+    dataTypeDisplay: picklist
+    description: Usage Type
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.InitiatedBy
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: Timestamp
+    dataType: UNKNOWN
+    dataLength: 0
+    dataTypeDisplay: datetime
+    description: Timestamp
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.Timestamp
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: ErrorCode
+    dataType: UNKNOWN
+    dataLength: 40
+    dataTypeDisplay: picklist
+    description: Status
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.ErrorCode
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: SamlEntityUrl
+    dataType: UNKNOWN
+    dataLength: 1500
+    dataTypeDisplay: string
+    description: Entity ID
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.SamlEntityUrl
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: UserId
+    dataType: VARCHAR
+    dataLength: 18
+    dataTypeDisplay: reference
+    description: User ID
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.UserId
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: AuthSessionId
+    dataType: VARCHAR
+    dataLength: 18
+    dataTypeDisplay: reference
+    description: Auth Session ID
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.AuthSessionId
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: SsoType
+    dataType: UNKNOWN
+    dataLength: 40
+    dataTypeDisplay: picklist
+    description: SSO Type
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.SsoType
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: AppId
+    dataType: VARCHAR
+    dataLength: 18
+    dataTypeDisplay: reference
+    description: Connected App ID
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.AppId
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: IdentityUsed
+    dataType: UNKNOWN
+    dataLength: 765
+    dataTypeDisplay: string
+    description: Identity Used
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.IdentityUsed
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 10
+    children: []
+    customMetrics: []
+  - name: OptionsHasLogoutUrl
+    dataType: UNKNOWN
+    dataLength: 0
+    dataTypeDisplay: boolean
+    description: Has Logout URL
+    fullyQualifiedName: local_salesforce.default.salesforce.IdpEventLog.OptionsHasLogoutUrl
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 11
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 9bda545c-bf37-4c29-b63e-07cabc2b1926
+  type: databaseSchema
+  name: salesforce
+  fullyQualifiedName: local_salesforce.default.salesforce
+  displayName: salesforce
+  deleted: false
+database:
+  id: 2cedc857-dacf-4943-b02e-9f2578aaf3c6
+  type: database
+  name: default
+  fullyQualifiedName: local_salesforce.default
+  displayName: default
+  deleted: false
+service:
+  id: dd198fe7-cd27-446a-9713-452aa257669c
+  type: databaseService
+  name: local_salesforce
+  fullyQualifiedName: local_salesforce
+  displayName: local_salesforce
+  deleted: false
+serviceType: Salesforce
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: deleted
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.1
+sourceUrl: https://energy-fun-7814.my.salesforce.com/lightning/o/IdpEventLog/list
+domains: []
+dataProducts: []
+sourceHash: d2386b926592a33cff7572aedbbbf934
+processedLineage: false
+entityStatus: Unprocessed
