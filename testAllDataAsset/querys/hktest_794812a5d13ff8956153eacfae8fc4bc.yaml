@@ -1,0 +1,29 @@
+name: 794812a5d13ff8956153eacfae8fc4bc
+fullyQualifiedName: hktest.794812a5d13ff8956153eacfae8fc4bc
+owners: []
+duration: 144.0
+users: []
+query: "WITH b79372ff806424782126e6a22af7ce61_rnd AS \n(SELECT \"TRANSACT_1\".\"AMOUNT\"\
+  \ AS \"AMOUNT\" \nFROM \"MSSQLBANKING_STG\".\"TRANSACT\" AS \"TRANSACT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nb79372ff806424782126e6a22af7ce61_sample AS \n(SELECT b79372ff806424782126e6a22af7ce61_rnd.\"\
+  AMOUNT\" AS \"AMOUNT\" \nFROM b79372ff806424782126e6a22af7ce61_rnd)\n SELECT count(*)\
+  \ AS \"uniqueCount\" \nFROM (SELECT count(\"AMOUNT\") AS count_1 \nFROM b79372ff806424782126e6a22af7ce61_sample\
+  \ GROUP BY \"AMOUNT\" \nHAVING count(\"AMOUNT\") = ?) AS only_once\n LIMIT ?"
+checksum: 794812a5d13ff8956153eacfae8fc4bc
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 90f072c6-07f9-41e4-9dbf-68d6c57530fc
+    type: table
+    name: TRANSACT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.TRANSACT
+    displayName: TRANSACT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

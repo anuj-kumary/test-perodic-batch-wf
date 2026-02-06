@@ -1,0 +1,27 @@
+name: 73ec8823ff174f500e6294bd0e87b98d
+fullyQualifiedName: hktest.73ec8823ff174f500e6294bd0e87b98d
+owners: []
+duration: 44.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"TRANSACTTYPE\") ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"TRANSACTTYPE\") ASC)\
+  \ AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"TRANSACTTYPE\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"MSSQLBANKING_STG\".\"TRANSACT\"\n LIMIT ?"
+checksum: 73ec8823ff174f500e6294bd0e87b98d
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 90f072c6-07f9-41e4-9dbf-68d6c57530fc
+    type: table
+    name: TRANSACT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.TRANSACT
+    displayName: TRANSACT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

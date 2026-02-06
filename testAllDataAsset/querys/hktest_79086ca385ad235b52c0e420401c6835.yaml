@@ -1,0 +1,30 @@
+name: 79086ca385ad235b52c0e420401c6835
+fullyQualifiedName: hktest.79086ca385ad235b52c0e420401c6835
+owners: []
+duration: 82.0
+users: []
+query: "WITH \"4c9e7581028a01fc71dfc3997bd40912_rnd\" AS \n(SELECT \"LOAN_1\".\"CNTRCT_VRSN_KY\"\
+  \ AS \"CNTRCT_VRSN_KY\" \nFROM \"TRANSIENT\".\"LOAN\" AS \"LOAN_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"4c9e7581028a01fc71dfc3997bd40912_sample\" AS \n(SELECT \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  .\"CNTRCT_VRSN_KY\" AS \"CNTRCT_VRSN_KY\" \nFROM \"4c9e7581028a01fc71dfc3997bd40912_rnd\"\
+  )\n SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CNTRCT_VRSN_KY\")\
+  \ AS count_1 \nFROM \"4c9e7581028a01fc71dfc3997bd40912_sample\" GROUP BY \"CNTRCT_VRSN_KY\"\
+  \ \nHAVING count(\"CNTRCT_VRSN_KY\") = ?) AS only_once\n LIMIT ?"
+checksum: 79086ca385ad235b52c0e420401c6835
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b5994ca-25ef-4f35-b1f0-67ede52ac3c8
+    type: table
+    name: LOAN
+    fullyQualifiedName: hktest.INDIVIDUAL.TRANSIENT.LOAN
+    displayName: LOAN
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

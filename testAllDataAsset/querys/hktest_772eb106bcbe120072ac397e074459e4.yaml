@@ -1,0 +1,34 @@
+name: 772eb106bcbe120072ac397e074459e4
+fullyQualifiedName: hktest.772eb106bcbe120072ac397e074459e4
+owners: []
+duration: 538.0
+users: []
+query: "WITH \"7acd5a55767403e4819968ec03121cca_rnd\" AS \n(SELECT \"STORE_RETURNS_1\"\
+  .\"SR_RETURN_AMT_INC_TAX\" AS \"SR_RETURN_AMT_INC_TAX\" \nFROM \"TPCDS_SF100TCL\"\
+  .\"STORE_RETURNS\" AS \"STORE_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"7acd5a55767403e4819968ec03121cca_sample\"\
+  \ AS \n(SELECT \"7acd5a55767403e4819968ec03121cca_rnd\".\"SR_RETURN_AMT_INC_TAX\"\
+  \ AS \"SR_RETURN_AMT_INC_TAX\" \nFROM \"7acd5a55767403e4819968ec03121cca_rnd\")\n\
+  \ SELECT avg(\"SR_RETURN_AMT_INC_TAX\") AS mean, count(\"SR_RETURN_AMT_INC_TAX\"\
+  ) AS \"valuesCount\", count(DISTINCT \"SR_RETURN_AMT_INC_TAX\") AS \"distinctCount\"\
+  , MIN(\"SR_RETURN_AMT_INC_TAX\") AS min, MAX(\"SR_RETURN_AMT_INC_TAX\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"SR_RETURN_AMT_INC_TAX\" IS ?) THEN ? ELSE ? END), ?)\
+  \ AS \"nullCount\", STDDEV_POP(\"SR_RETURN_AMT_INC_TAX\") AS stddev, SUM(\"SR_RETURN_AMT_INC_TAX\"\
+  ) AS sum \nFROM \"7acd5a55767403e4819968ec03121cca_sample\"\n LIMIT ?"
+checksum: 772eb106bcbe120072ac397e074459e4
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 5cf81329-ecc1-4042-8ba5-25a8154d16a9
+    type: table
+    name: STORE_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE_RETURNS
+    displayName: STORE_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

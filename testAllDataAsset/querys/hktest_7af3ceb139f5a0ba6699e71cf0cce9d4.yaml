@@ -1,0 +1,33 @@
+name: 7af3ceb139f5a0ba6699e71cf0cce9d4
+fullyQualifiedName: hktest.7af3ceb139f5a0ba6699e71cf0cce9d4
+owners: []
+duration: 78.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"GRAD_F_22_NSC_SLIDE_C\"\
+  \ AS \"GRAD_F_22_NSC_SLIDE_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  GRAD_F_22_NSC_SLIDE_C\" AS \"GRAD_F_22_NSC_SLIDE_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"GRAD_F_22_NSC_SLIDE_C\"\
+  ) AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"GRAD_F_22_NSC_SLIDE_C\"\
+  \ \nHAVING count(\"GRAD_F_22_NSC_SLIDE_C\") = ?) AS only_once\n LIMIT ?"
+checksum: 7af3ceb139f5a0ba6699e71cf0cce9d4
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

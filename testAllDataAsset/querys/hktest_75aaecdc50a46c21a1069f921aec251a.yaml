@@ -1,0 +1,41 @@
+name: 75aaecdc50a46c21a1069f921aec251a
+fullyQualifiedName: hktest.75aaecdc50a46c21a1069f921aec251a
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0b565859-50f2-4c96-b4f3-2abd5feeecb1\",\"type\":\"table\"\
+        ,\"name\":\"LINEITEM\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM\"\
+        ,\"description\":\"Lineitem data as defined by TPC-H\",\"displayName\":\"\
+        LINEITEM\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 374.0
+users: []
+query: "SELECT avg(LEN(\"L_SHIPMODE\")) AS mean, count(\"L_SHIPMODE\") AS \"valuesCount\"\
+  , count(DISTINCT \"L_SHIPMODE\") AS \"distinctCount\", MIN(LEN(\"L_SHIPMODE\"))\
+  \ AS min, MAX(LEN(\"L_SHIPMODE\")) AS max, coalesce(SUM(CASE WHEN (\"L_SHIPMODE\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"L_SHIPMODE\"))\
+  \ AS stddev, SUM(LEN(\"L_SHIPMODE\")) AS sum \nFROM \"TPCH_SF1\".\"LINEITEM\"\n\
+  \ LIMIT ?"
+checksum: 75aaecdc50a46c21a1069f921aec251a
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b565859-50f2-4c96-b4f3-2abd5feeecb1
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,37 @@
+name: 757e8225de6bb752b52f70db64b9f903
+fullyQualifiedName: hktest.757e8225de6bb752b52f70db64b9f903
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f3f7adf0-5934-40b1-9c34-71aa27a03cd6\",\"type\":\"table\"\
+        ,\"name\":\"CNTRCT\",\"fullyQualifiedName\":\"hktest.INDIVIDUAL.CURATED.CNTRCT\"\
+        ,\"displayName\":\"CNTRCT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 94.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"SECOND_GUAR_BFNT_PERIOD_NO\"\
+  \ ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY \"SECOND_GUAR_BFNT_PERIOD_NO\"\
+  \ ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY \"SECOND_GUAR_BFNT_PERIOD_NO\"\
+  \ ASC) AS \"thirdQuartile\" \nFROM \"CURATED\".\"CNTRCT\"\n LIMIT ?"
+checksum: 757e8225de6bb752b52f70db64b9f903
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

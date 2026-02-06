@@ -1,0 +1,30 @@
+name: 792b84faa93c44724a027f200acd6eaa
+fullyQualifiedName: hktest.792b84faa93c44724a027f200acd6eaa
+owners: []
+duration: 73.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_GRACE_DATE\"\
+  \ AS \"CONT_GRACE_DATE\" \nFROM \"CURATED\".\"CONT\" AS \"CONT_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_GRACE_DATE\" AS \"CONT_GRACE_DATE\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CONT_GRACE_DATE\"\
+  ) AS count_1 \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\" GROUP BY \"CONT_GRACE_DATE\"\
+  \ \nHAVING count(\"CONT_GRACE_DATE\") = ?) AS only_once\n LIMIT ?"
+checksum: 792b84faa93c44724a027f200acd6eaa
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

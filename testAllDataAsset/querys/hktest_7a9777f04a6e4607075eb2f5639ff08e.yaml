@@ -1,0 +1,40 @@
+name: 7a9777f04a6e4607075eb2f5639ff08e
+fullyQualifiedName: hktest.7a9777f04a6e4607075eb2f5639ff08e
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"9bc6307f-5d2d-4ecf-b1f5-f791a29d4443\",\"type\":\"table\"\
+        ,\"name\":\"PART\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART\"\
+        ,\"description\":\"Part data as defined by TPC-H\",\"displayName\":\"PART\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 187.0
+users: []
+query: "SELECT avg(LEN(\"P_COMMENT\")) AS mean, count(\"P_COMMENT\") AS \"valuesCount\"\
+  , count(DISTINCT \"P_COMMENT\") AS \"distinctCount\", MIN(LEN(\"P_COMMENT\")) AS\
+  \ min, MAX(LEN(\"P_COMMENT\")) AS max, coalesce(SUM(CASE WHEN (\"P_COMMENT\" IS\
+  \ ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"P_COMMENT\")) AS\
+  \ stddev, SUM(LEN(\"P_COMMENT\")) AS sum \nFROM \"TPCH_SF1\".\"PART\"\n LIMIT ?"
+checksum: 7a9777f04a6e4607075eb2f5639ff08e
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9bc6307f-5d2d-4ecf-b1f5-f791a29d4443
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

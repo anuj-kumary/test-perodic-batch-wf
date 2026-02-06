@@ -1,0 +1,31 @@
+name: 793e7a88b7bafca9c152490fe15d3bbc
+fullyQualifiedName: hktest.793e7a88b7bafca9c152490fe15d3bbc
+owners: []
+duration: 141.0
+users: []
+query: "WITH d6def3b6c248e09592da506240613bd9_rnd AS \n(SELECT \"LINEITEM_1\".\"L_EXTENDEDPRICE\"\
+  \ AS \"L_EXTENDEDPRICE\" \nFROM \"TPCH_SF1\".\"LINEITEM\" AS \"LINEITEM_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nd6def3b6c248e09592da506240613bd9_sample AS \n(SELECT d6def3b6c248e09592da506240613bd9_rnd.\"\
+  L_EXTENDEDPRICE\" AS \"L_EXTENDEDPRICE\" \nFROM d6def3b6c248e09592da506240613bd9_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"L_EXTENDEDPRICE\") AS\
+  \ count_1 \nFROM d6def3b6c248e09592da506240613bd9_sample GROUP BY \"L_EXTENDEDPRICE\"\
+  \ \nHAVING count(\"L_EXTENDEDPRICE\") = ?) AS only_once\n LIMIT ?"
+checksum: 793e7a88b7bafca9c152490fe15d3bbc
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b565859-50f2-4c96-b4f3-2abd5feeecb1
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

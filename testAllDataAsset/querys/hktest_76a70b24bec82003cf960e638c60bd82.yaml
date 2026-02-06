@@ -1,0 +1,36 @@
+name: 76a70b24bec82003cf960e638c60bd82
+fullyQualifiedName: hktest.76a70b24bec82003cf960e638c60bd82
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7c11b729-7c3e-4051-af26-dcc453c5b05d\",\"type\":\"table\"\
+        ,\"name\":\"LOCATIONS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.LOCATIONS\"\
+        ,\"displayName\":\"LOCATIONS\",\"deleted\":false}]"
+  previousVersion: 1.3
+  changeSummary: {}
+owners: []
+duration: 53.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"E2E_TESTCOUNTRY_ID\"\
+  ) AS count_1 \nFROM \"E2E_TEST\".\"LOCATIONS\" GROUP BY \"E2E_TESTCOUNTRY_ID\" \n\
+  HAVING count(\"E2E_TESTCOUNTRY_ID\") = ?) AS only_once\n LIMIT ?"
+checksum: 76a70b24bec82003cf960e638c60bd82
+queryDate: 1752537600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7c11b729-7c3e-4051-af26-dcc453c5b05d
+    type: table
+    name: LOCATIONS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.LOCATIONS
+    displayName: LOCATIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,40 @@
+name: 74e6f714669d1eece5ac3e9ce8fd823b
+fullyQualifiedName: hktest.74e6f714669d1eece5ac3e9ce8fd823b
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0b565859-50f2-4c96-b4f3-2abd5feeecb1\",\"type\":\"table\"\
+        ,\"name\":\"LINEITEM\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM\"\
+        ,\"description\":\"Lineitem data as defined by TPC-H\",\"displayName\":\"\
+        LINEITEM\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 303.0
+users: []
+query: "SELECT avg(\"L_QUANTITY\") AS mean, count(\"L_QUANTITY\") AS \"valuesCount\"\
+  , count(DISTINCT \"L_QUANTITY\") AS \"distinctCount\", MIN(\"L_QUANTITY\") AS min,\
+  \ MAX(\"L_QUANTITY\") AS max, coalesce(SUM(CASE WHEN (\"L_QUANTITY\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"L_QUANTITY\") AS stddev, SUM(\"\
+  L_QUANTITY\") AS sum \nFROM \"TPCH_SF1\".\"LINEITEM\"\n LIMIT ?"
+checksum: 74e6f714669d1eece5ac3e9ce8fd823b
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b565859-50f2-4c96-b4f3-2abd5feeecb1
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

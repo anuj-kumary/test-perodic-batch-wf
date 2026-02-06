@@ -1,0 +1,31 @@
+name: 7634ba54112ffa9952996d3b348f8734
+fullyQualifiedName: hktest.7634ba54112ffa9952996d3b348f8734
+owners: []
+duration: 109.0
+users: []
+query: "WITH \"15e219364c9158944561b60284e81c87_rnd\" AS \n(SELECT \"DATE_DIM_1\"\
+  .\"D_DATE_ID\" AS \"D_DATE_ID\" \nFROM \"TPCDS_SF100TCL\".\"DATE_DIM\" AS \"DATE_DIM_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"15e219364c9158944561b60284e81c87_sample\" AS \n\
+  (SELECT \"15e219364c9158944561b60284e81c87_rnd\".\"D_DATE_ID\" AS \"D_DATE_ID\"\
+  \ \nFROM \"15e219364c9158944561b60284e81c87_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"D_DATE_ID\") AS count_1 \nFROM \"15e219364c9158944561b60284e81c87_sample\"\
+  \ GROUP BY \"D_DATE_ID\" \nHAVING count(\"D_DATE_ID\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 7634ba54112ffa9952996d3b348f8734
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 31e5520d-ab7b-465c-9eee-1849572de9b7
+    type: table
+    name: DATE_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.DATE_DIM
+    displayName: DATE_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

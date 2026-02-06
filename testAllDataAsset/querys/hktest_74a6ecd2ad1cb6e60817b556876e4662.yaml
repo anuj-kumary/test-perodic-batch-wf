@@ -1,0 +1,39 @@
+name: 74a6ecd2ad1cb6e60817b556876e4662
+fullyQualifiedName: hktest.74a6ecd2ad1cb6e60817b556876e4662
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"77cb81a8-3b36-41e0-b1c9-e8062da66307\",\"type\":\"table\"\
+        ,\"name\":\"REGIONS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.REGIONS\"\
+        ,\"displayName\":\"REGIONS\",\"deleted\":false}]"
+  previousVersion: 0.8
+  changeSummary: {}
+owners: []
+duration: 112.0
+users: []
+query: "SELECT avg(LEN(\"REGION_NAME\")) AS mean, count(\"REGION_NAME\") AS \"valuesCount\"\
+  , count(DISTINCT \"REGION_NAME\") AS \"distinctCount\", MIN(LEN(\"REGION_NAME\"\
+  )) AS min, MAX(LEN(\"REGION_NAME\")) AS max, coalesce(SUM(CASE WHEN (\"REGION_NAME\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"REGION_NAME\"\
+  )) AS stddev, SUM(LEN(\"REGION_NAME\")) AS sum \nFROM \"E2E_TEST\".\"REGIONS\"\n\
+  \ LIMIT ?"
+checksum: 74a6ecd2ad1cb6e60817b556876e4662
+queryDate: 1752192000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 77cb81a8-3b36-41e0-b1c9-e8062da66307
+    type: table
+    name: REGIONS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.REGIONS
+    displayName: REGIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
