@@ -1,0 +1,91 @@
+name: DYNAMIC_TABLE
+fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE
+tableType: Dynamic
+columns:
+  - name: PROCESSED
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.PROCESSED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: RECORD_COUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 18
+    scale: 0
+    dataTypeDisplay: "number(18,0)"
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.RECORD_COUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LAST_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.LAST_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.FIRST_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 1ba9e03b-fded-4f08-b829-bf7a2f48b6a6
+  type: databaseSchema
+  name: ALL_LINAGE_SCHEMA
+  fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA
+  displayName: ALL_LINAGE_SCHEMA
+  deleted: false
+database:
+  id: bb470d1e-0b40-4695-b61c-300a3f7b7756
+  type: database
+  name: MT_DB
+  fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB
+  description: This is a testing database
+  displayName: MT_DB
+  deleted: false
+service:
+  id: 9100c529-eb91-429d-acad-2cc16ffa6462
+  type: databaseService
+  name: Hybrid Runner snowflake 2
+  fullyQualifiedName: Hybrid Runner snowflake 2
+  description: ""
+  displayName: Hybrid Runner snowflake 2
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace dynamic table DYNAMIC_TABLE(\n\tPROCESSED,\n\t\
+  RECORD_COUNT,\n\tLAST_CREATED,\n\tFIRST_CREATED\n) target_lag = '30 days' refresh_mode\
+  \ = AUTO initialize = ON_CREATE warehouse = COMPUTE_WH\n as\nSELECT\n    processed,\n\
+  \    COUNT(*) as record_count,\n    MAX(created_at) as last_created,\n    MIN(created_at)\
+  \ as first_created\nFROM transient_table\nGROUP BY processed;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/MT_DB/schemas/ALL_LINAGE_SCHEMA/dynamic-table/DYNAMIC_TABLE
+domains: []
+dataProducts: []
+sourceHash: 808b1fe8f0f50f36119b933286cc2607
+processedLineage: true
+entityStatus: Unprocessed

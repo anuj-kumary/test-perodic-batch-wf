@@ -1,0 +1,168 @@
+name: SOURCE_TABLE_5
+fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5
+tableType: Regular
+columns:
+  - name: TRANSACTION_ID
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: text(50)
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5.TRANSACTION_ID
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ACCOUNT_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5.ACCOUNT_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TRANSACTION_DATE
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5.TRANSACTION_DATE
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TRANSACTION_TYPE
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: text(50)
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5.TRANSACTION_TYPE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: AMOUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 15
+    scale: 2
+    dataTypeDisplay: "number(15,2)"
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5.AMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CURRENCY
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: text(3)
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5.CURRENCY
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: MERCHANT_NAME
+    dataType: VARCHAR
+    dataLength: 200
+    dataTypeDisplay: text(200)
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5.MERCHANT_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CATEGORY
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: text(100)
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.SOURCE_TABLE_5.CATEGORY
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8ec45377-e73f-4e0c-9bb7-c2276650cf7f
+  type: databaseSchema
+  name: ALL_LINAGE_SCHEMA
+  fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA
+  displayName: ALL_LINAGE_SCHEMA
+  deleted: false
+database:
+  id: 0fbfc475-e357-4c86-98d9-ae1f2bc04a8b
+  type: database
+  name: MT_DB
+  fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB
+  description: This is a testing database
+  displayName: MT_DB
+  deleted: false
+service:
+  id: 0021ba2b-60e8-4e85-a6e6-278c3c93c1e1
+  type: databaseService
+  name: Hybrid Runner snowflake 3
+  fullyQualifiedName: Hybrid Runner snowflake 3
+  description: ""
+  displayName: Hybrid Runner snowflake 3
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.TRANSACTION_ID.tags
+      newValue: "[{\"tagFQN\":\"General.Person\",\"name\":\"Person\",\"description\"\
+        :\"A full person name, which can include first names, middle names or initials,\
+        \ and last names.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"}]"
+    - name: columns.TRANSACTION_DATE.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/MT_DB/schemas/ALL_LINAGE_SCHEMA/table/SOURCE_TABLE_5
+domains: []
+dataProducts: []
+sourceHash: 1789d4d1fbe65949358d2bd75ece264a
+processedLineage: false
+entityStatus: Unprocessed

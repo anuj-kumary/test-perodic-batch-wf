@@ -1,0 +1,119 @@
+name: DYNAMIC_TABLE
+fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE
+tableType: Dynamic
+columns:
+  - name: PROCESSED
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.PROCESSED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: RECORD_COUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 18
+    scale: 0
+    dataTypeDisplay: "number(18,0)"
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.RECORD_COUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LAST_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.LAST_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.FIRST_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners:
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+databaseSchema:
+  id: 8ec45377-e73f-4e0c-9bb7-c2276650cf7f
+  type: databaseSchema
+  name: ALL_LINAGE_SCHEMA
+  fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB.ALL_LINAGE_SCHEMA
+  displayName: ALL_LINAGE_SCHEMA
+  deleted: false
+database:
+  id: 0fbfc475-e357-4c86-98d9-ae1f2bc04a8b
+  type: database
+  name: MT_DB
+  fullyQualifiedName: Hybrid Runner snowflake 3.MT_DB
+  description: This is a testing database
+  displayName: MT_DB
+  deleted: false
+service:
+  id: 0021ba2b-60e8-4e85-a6e6-278c3c93c1e1
+  type: databaseService
+  name: Hybrid Runner snowflake 3
+  fullyQualifiedName: Hybrid Runner snowflake 3
+  description: ""
+  displayName: Hybrid Runner snowflake 3
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace dynamic table DYNAMIC_TABLE(\n\tPROCESSED,\n\t\
+  RECORD_COUNT,\n\tLAST_CREATED,\n\tFIRST_CREATED\n) target_lag = '30 days' refresh_mode\
+  \ = AUTO initialize = ON_CREATE warehouse = COMPUTE_WH\n as\nSELECT\n    processed,\n\
+  \    COUNT(*) as record_count,\n    MAX(created_at) as last_created,\n    MIN(created_at)\
+  \ as first_created\nFROM transient_table\nGROUP BY processed;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: dataProducts
+      newValue: "[{\"id\":\"9a1805ea-7d4d-4ee1-8202-e1a0aa67f785\",\"type\":\"dataProduct\"\
+        ,\"name\":\"New_Product\",\"fullyQualifiedName\":\"New_Product\",\"description\"\
+        :\"<p>New_Product</p>\",\"displayName\":\"New_Product\"},{\"id\":\"be95df38-d856-44d4-9484-9735f8f87898\"\
+        ,\"type\":\"dataProduct\",\"name\":\"2\",\"fullyQualifiedName\":\"2\",\"description\"\
+        :\"<p>testing</p>\",\"displayName\":\"2\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    owners:
+      changedBy: ashish
+      changedAt: 1763977855201
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/MT_DB/schemas/ALL_LINAGE_SCHEMA/dynamic-table/DYNAMIC_TABLE
+domains:
+  - id: 9ebbbfe5-af46-4bc1-a1ff-50c5bc8ea53b
+    type: domain
+    name: Ajith Test
+    fullyQualifiedName: Ajith Test
+    description: <p>Ajith Test</p>
+    displayName: Ajith Test
+dataProducts: []
+sourceHash: b3a18079534ae01b56ed5247f0b26e79
+processedLineage: true
+entityStatus: Unprocessed

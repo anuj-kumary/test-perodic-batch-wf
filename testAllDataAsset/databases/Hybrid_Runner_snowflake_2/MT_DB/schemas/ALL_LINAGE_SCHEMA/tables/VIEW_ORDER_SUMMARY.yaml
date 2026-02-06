@@ -1,0 +1,133 @@
+name: VIEW_ORDER_SUMMARY
+fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.VIEW_ORDER_SUMMARY
+tableType: View
+columns:
+  - name: ORDER_MONTH
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.VIEW_ORDER_SUMMARY.ORDER_MONTH
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: STATUS
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: text(50)
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.VIEW_ORDER_SUMMARY.STATUS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ORDER_COUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 18
+    scale: 0
+    dataTypeDisplay: "number(18,0)"
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.VIEW_ORDER_SUMMARY.ORDER_COUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TOTAL_AMOUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 22
+    scale: 2
+    dataTypeDisplay: "number(22,2)"
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.VIEW_ORDER_SUMMARY.TOTAL_AMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: AVG_AMOUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 28
+    scale: 8
+    dataTypeDisplay: "number(28,8)"
+    fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA.VIEW_ORDER_SUMMARY.AVG_AMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 1ba9e03b-fded-4f08-b829-bf7a2f48b6a6
+  type: databaseSchema
+  name: ALL_LINAGE_SCHEMA
+  fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB.ALL_LINAGE_SCHEMA
+  displayName: ALL_LINAGE_SCHEMA
+  deleted: false
+database:
+  id: bb470d1e-0b40-4695-b61c-300a3f7b7756
+  type: database
+  name: MT_DB
+  fullyQualifiedName: Hybrid Runner snowflake 2.MT_DB
+  description: This is a testing database
+  displayName: MT_DB
+  deleted: false
+service:
+  id: 9100c529-eb91-429d-acad-2cc16ffa6462
+  type: databaseService
+  name: Hybrid Runner snowflake 2
+  fullyQualifiedName: Hybrid Runner snowflake 2
+  description: ""
+  displayName: Hybrid Runner snowflake 2
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "CREATE OR REPLACE VIEW VIEW_ORDER_SUMMARY AS\nSELECT \n    DATE_TRUNC('MONTH',\
+  \ order_date) as order_month,\n    status,\n    COUNT(*) as order_count,\n    SUM(amount)\
+  \ as total_amount,\n    AVG(amount) as avg_amount\nFROM SOURCE_TABLE_1\nGROUP BY\
+  \ DATE_TRUNC('MONTH', order_date), status;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.ORDER_MONTH.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/MT_DB/schemas/ALL_LINAGE_SCHEMA/view/VIEW_ORDER_SUMMARY
+domains: []
+dataProducts: []
+sourceHash: e2fdd9e5d52911046924227d96947b1b
+processedLineage: true
+entityStatus: Unprocessed
