@@ -1,0 +1,146 @@
+name: orders
+fullyQualifiedName: red-pere.dev.dbt_test_new.orders
+tableType: View
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: credit_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.credit_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: coupon_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.coupon_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: bank_transfer_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.bank_transfer_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: gift_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.gift_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_test_new.orders.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3573eecc-0e70-41d3-96b9-5ba5b68dc350
+  type: databaseSchema
+  name: dbt_test_new
+  fullyQualifiedName: red-pere.dev.dbt_test_new
+  displayName: dbt_test_new
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_test_new.orders AS  SELECT final.order_id, final.customer_id, final.order_date, final.status, final.credit_card_amount, final.coupon_amount, final.bank_transfer_amount, final.gift_card_amount, final.amount
+     FROM ( SELECT orders.order_id, orders.customer_id, orders.order_date, orders.status, order_payments.credit_card_amount, order_payments.coupon_amount, order_payments.bank_transfer_amount, order_payments.gift_card_amount, order_payments.total_amount AS amount
+             FROM ( SELECT stg_orders.order_id, stg_orders.customer_id, stg_orders.order_date, stg_orders.status
+                     FROM dbt_test_new.stg_orders) orders
+        LEFT JOIN ( SELECT payments.order_id, sum(
+                          CASE
+                              WHEN payments.payment_method::text = 'credit_card'::text THEN payments.amount
+                              ELSE 0
+                          END) AS credit_card_amount, sum(
+                          CASE
+                              WHEN payments.payment_method::text = 'coupon'::text THEN payments.amount
+                              ELSE 0
+                          END) AS coupon_amount, sum(
+                          CASE
+                              WHEN payments.payment_method::text = 'bank_transfer'::text THEN payments.amount
+                              ELSE 0
+                          END) AS bank_transfer_amount, sum(
+                          CASE
+                              WHEN payments.payment_method::text = 'gift_card'::text THEN payments.amount
+                              ELSE 0
+                          END) AS gift_card_amount, sum(payments.amount) AS total_amount
+                     FROM ( SELECT stg_payments.payment_id, stg_payments.order_id, stg_payments.payment_method, stg_payments.amount
+                             FROM dbt_test_new.stg_payments) payments
+                    GROUP BY payments.order_id) order_payments ON orders.order_id = order_payments.order_id) final;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: f7932d2bed7c04921b745a7a644972aa
+processedLineage: false
+entityStatus: Unprocessed

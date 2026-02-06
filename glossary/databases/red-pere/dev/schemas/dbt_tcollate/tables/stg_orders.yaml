@@ -1,0 +1,81 @@
+name: stg_orders
+fullyQualifiedName: red-pere.dev.dbt_tcollate.stg_orders
+tableType: View
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_tcollate.stg_orders.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_tcollate.stg_orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: red-pere.dev.dbt_tcollate.stg_orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: red-pere.dev.dbt_tcollate.stg_orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 2e93f787-beda-4e07-aba6-11e3189d8400
+  type: databaseSchema
+  name: dbt_tcollate
+  fullyQualifiedName: red-pere.dev.dbt_tcollate
+  displayName: dbt_tcollate
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_tcollate.stg_orders AS  SELECT renamed.order_id, renamed.customer_id, renamed.order_date, renamed.status
+     FROM ( SELECT source.id AS order_id, source.user_id AS customer_id, source.order_date, source.status
+             FROM ( SELECT raw_orders.id, raw_orders.user_id, raw_orders.order_date, raw_orders.status
+                     FROM dbt_tcollate.raw_orders) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 56b62b0eb6935a654ba844e7e77cc34b
+processedLineage: false
+entityStatus: Unprocessed

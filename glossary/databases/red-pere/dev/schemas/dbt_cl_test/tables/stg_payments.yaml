@@ -1,0 +1,90 @@
+name: stg_payments
+fullyQualifiedName: red-pere.dev.dbt_cl_test.stg_payments
+tableType: View
+columns:
+  - name: payment_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_cl_test.stg_payments.payment_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_cl_test.stg_payments.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_method
+    dataType: VARCHAR
+    dataLength: 13
+    dataTypeDisplay: character varying(13)
+    fullyQualifiedName: red-pere.dev.dbt_cl_test.stg_payments.payment_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: cycle_name
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: red-pere.dev.dbt_cl_test.stg_payments.cycle_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_cl_test.stg_payments.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 1a26d4a3-931c-4ad4-ad04-2f5bde3853a5
+  type: databaseSchema
+  name: dbt_cl_test
+  fullyQualifiedName: red-pere.dev.dbt_cl_test
+  displayName: dbt_cl_test
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_cl_test.stg_payments AS  SELECT renamed.payment_id, renamed.order_id, renamed.payment_method, renamed.cycle_name, renamed.amount
+     FROM ( SELECT source.id AS payment_id, source.order_id, source.payment_method, source.cycle_name, source.amount / 100 AS amount
+             FROM ( SELECT raw_payments.id, raw_payments.order_id, raw_payments.payment_method, raw_payments.amount, raw_payments.cycle_name
+                     FROM dbt_cl_test.raw_payments) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 91867fb1d4fa2f60619a4cca58df5f11
+processedLineage: false
+entityStatus: Unprocessed

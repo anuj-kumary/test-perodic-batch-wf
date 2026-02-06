@@ -1,0 +1,118 @@
+name: customers
+fullyQualifiedName: red-pere.dev.dbt_test_new.customers
+tableType: View
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.dbt_test_new.customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    fullyQualifiedName: red-pere.dev.dbt_test_new.customers.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    fullyQualifiedName: red-pere.dev.dbt_test_new.customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: red-pere.dev.dbt_test_new.customers.first_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: most_recent_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: red-pere.dev.dbt_test_new.customers.most_recent_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: number_of_orders
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_test_new.customers.number_of_orders
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_lifetime_value
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_test_new.customers.customer_lifetime_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3573eecc-0e70-41d3-96b9-5ba5b68dc350
+  type: databaseSchema
+  name: dbt_test_new
+  fullyQualifiedName: red-pere.dev.dbt_test_new
+  displayName: dbt_test_new
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_test_new.customers AS  SELECT final.customer_id, final.first_name, final.last_name, final.first_order, final.most_recent_order, final.number_of_orders, final.customer_lifetime_value
+     FROM ( SELECT customers.customer_id, customers.first_name, customers.last_name, customer_orders.first_order, customer_orders.most_recent_order, customer_orders.number_of_orders, customer_payments.total_amount AS customer_lifetime_value
+             FROM ( SELECT stg_customers.customer_id, stg_customers.first_name, stg_customers.last_name
+                     FROM dbt_test_new.stg_customers) customers
+        LEFT JOIN ( SELECT orders.customer_id, min(orders.order_date) AS first_order, "max"(orders.order_date) AS most_recent_order, count(orders.order_id) AS number_of_orders
+                     FROM ( SELECT stg_orders.order_id, stg_orders.customer_id, stg_orders.order_date, stg_orders.status
+                             FROM dbt_test_new.stg_orders) orders
+                    GROUP BY orders.customer_id) customer_orders ON customers.customer_id = customer_orders.customer_id
+     LEFT JOIN ( SELECT orders.customer_id, sum(payments.amount) AS total_amount
+                FROM ( SELECT stg_payments.payment_id, stg_payments.order_id, stg_payments.payment_method, stg_payments.amount
+                        FROM dbt_test_new.stg_payments) payments
+           LEFT JOIN ( SELECT stg_orders.order_id, stg_orders.customer_id, stg_orders.order_date, stg_orders.status
+                        FROM dbt_test_new.stg_orders) orders ON payments.order_id = orders.order_id
+          GROUP BY orders.customer_id) customer_payments ON customers.customer_id = customer_payments.customer_id) final;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: a4381f93574d8ea8351a0d5a2fc0139a
+processedLineage: false
+entityStatus: Unprocessed
