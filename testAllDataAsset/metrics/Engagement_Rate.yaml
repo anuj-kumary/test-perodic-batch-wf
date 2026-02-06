@@ -1,0 +1,72 @@
+name: Engagement Rate
+fullyQualifiedName: Engagement Rate
+description: |-
+  The **Engagement Rate** measures how actively your audience is interacting with your content, usually in the form of likes, comments, and shares.
+
+  $$latex
+  \text{Engagement Rate} = \left( \frac{\text{Engagements (Likes, Comments, Shares)}}{\text{Total Followers or Views}} \right) \times 100
+  $$
+
+  👆this is the basic formula used internally. You can follow this to reimplement it in a different language
+metricExpression:
+  language: Python
+  code: |
+    def calculate_engagement_rate(total_engagements, total_views):
+        if total_views <= 0:
+            raise ValueError("Total views or followers must be greater than 0.")
+        return (total_engagements / total_views) * 100
+metricType: PERCENTAGE
+unitOfMeasurement: PERCENTAGE
+granularity: YEAR
+relatedMetrics:
+  - id: aa80b81d-c033-4cb4-b00c-3adbf6ec5cd5
+    type: metric
+    name: Conversion Rate
+    fullyQualifiedName: Conversion Rate
+    displayName: Conversion Rate
+    deleted: false
+  - id: 0b50f3d1-d906-4027-b687-f533b19aadce
+    type: metric
+    name: Gross Profit Margin
+    fullyQualifiedName: Gross Profit Margin
+    displayName: Gross Profit Margin
+    deleted: false
+owners: []
+reviewers: []
+tags:
+  - tagFQN: Customer Success.Annual Business Review
+    name: Annual Business Review
+    displayName: Annual Business Review (ABR)
+    description: Annual Business Review
+    style: {}
+    source: Glossary
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: Tier.Tier2
+    name: Tier2
+    description: |-
+      **Important business datasets for your company (not as critical as Tier 1)**
+
+      - Used in important business metrics, product metrics, and dashboards to drive internal decisions
+
+      - Used in important compliance reporting to major regulators, govt entities, and third party
+
+      - Used for less critical online user-facing experiences (user activity, user behavior)
+
+      - Source used to derive other critical Tier-2 datasets
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+domains:
+  - id: 635cf2af-5175-44e4-91f1-030beab290d5
+    type: domain
+    name: Marketing
+    fullyQualifiedName: Marketing
+    description: Marketing
+    displayName: Marketing
+dataProducts: []
+entityStatus: Approved

@@ -1,0 +1,154 @@
+name: Gross Profit Margin
+fullyQualifiedName: Gross Profit Margin
+metricExpression:
+  language: Python
+  code: |
+    def calculate_gross_profit_margin(revenue, cogs):
+        if revenue <= 0:
+            raise ValueError("Revenue must be greater than 0.")
+        return ((revenue - cogs) / revenue) * 100
+metricType: SUM
+unitOfMeasurement: DOLLARS
+granularity: QUARTER
+relatedMetrics:
+  - id: 1dabb751-9213-4105-a479-99afa7dac32c
+    type: metric
+    name: CAC
+    fullyQualifiedName: CAC
+    displayName: CAC
+    deleted: false
+  - id: 1dabb751-9213-4105-a479-99afa7dac32c
+    type: metric
+    name: CAC
+    fullyQualifiedName: CAC
+    displayName: CAC
+    deleted: false
+  - id: 60c367be-a3d0-492a-b7be-8e38c970e0a7
+    type: metric
+    name: Engagement Rate
+    fullyQualifiedName: Engagement Rate
+    description: |-
+      The **Engagement Rate** measures how actively your audience is interacting with your content, usually in the form of likes, comments, and shares.
+
+      $$latex
+      \text{Engagement Rate} = \left( \frac{\text{Engagements (Likes, Comments, Shares)}}{\text{Total Followers or Views}} \right) \times 100
+      $$
+
+      👆this is the basic formula used internally. You can follow this to reimplement it in a different language
+    displayName: Engagement Rate
+    deleted: false
+owners:
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+  - id: 629b463b-07cf-4430-b84e-8b6cf7451048
+    type: user
+    name: deborah35
+    fullyQualifiedName: deborah35
+    displayName: William Williams
+    deleted: false
+  - id: b9940005-5f76-4ccb-bb81-d3c537e79b13
+    type: user
+    name: flemingsharon
+    fullyQualifiedName: flemingsharon
+    displayName: Deborah Prince
+    deleted: false
+  - id: d551f853-35ef-4ffa-a80d-34bb6cb1b5d2
+    type: user
+    name: lindajones
+    fullyQualifiedName: lindajones
+    displayName: Deborah Vasquez
+    deleted: false
+  - id: 0d45ecf3-bc61-4ff4-a53c-23f6755f407c
+    type: user
+    name: mooresarah
+    fullyQualifiedName: mooresarah
+    displayName: Wesley Haas
+    deleted: false
+  - id: 3d02c61f-de66-42ca-8214-822aa2cc1cc4
+    type: user
+    name: nicholsdaniel
+    fullyQualifiedName: nicholsdaniel
+    displayName: Sarah Curtis
+    deleted: false
+  - id: 8855b8a2-23be-4cb1-bc17-dd77adec6dff
+    type: user
+    name: shailesh.parmar
+    fullyQualifiedName: '"shailesh.parmar"'
+    displayName: Shailesh Parmar
+    deleted: false
+  - id: d8cd184a-ca4d-4312-b8a3-a3e009cd3686
+    type: user
+    name: sweta.agarwalla
+    fullyQualifiedName: '"sweta.agarwalla"'
+    description: ""
+    displayName: sweta.agarwalla
+    deleted: false
+  - id: 16aa99a9-3d4d-4f07-b85e-de29d032108f
+    type: user
+    name: tracygomez
+    fullyQualifiedName: tracygomez
+    displayName: Sarah Crawford
+    deleted: false
+  - id: d0107fe9-afbe-4966-914f-bfec7dfc5861
+    type: user
+    name: wilsondanny
+    fullyQualifiedName: wilsondanny
+    displayName: Aaron Baker
+    deleted: false
+reviewers: []
+tags:
+  - tagFQN: General.Password
+    name: Password
+    description: Field holding password information.
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: Tier.Tier1
+    name: Tier1
+    description: |-
+      **Critical Source of Truth business data assets of an organization**
+
+      - Used in critical metrics and dashboards to drive business and product decisions
+
+      - Used in critical compliance reporting to regulators, govt entities, and third party
+
+      - Used in brand or revenue impacting online user-facing experiences (search results, advertisement, promotions, and experimentation)
+
+      - Other high impact use, such as ML models and fraud detection
+
+      - Source used to derive other critical Tier-1 datasets
+    style:
+      color: "#ec1313"
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: '`custom`.tag1'
+    name: tag1
+    displayName: tag1
+    description: <p>tag1</p>
+    style:
+      color: "#fd3f3f"
+      iconURL: https://cdn-icons-png.flaticon.com/512/9029/9029931.png
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: granularity
+      newValue: QUARTER
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary: {}
+dataProducts: []
+entityStatus: Approved

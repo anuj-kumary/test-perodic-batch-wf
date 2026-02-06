@@ -1,0 +1,49 @@
+name: ChurnRate
+fullyQualifiedName: ChurnRate
+displayName: ""
+description: Checks the monthly customer churn rate from our SaaS
+metricExpression:
+  language: SQL
+  code: |-
+    WITH monthly_active_customers AS (
+      SELECT
+        DATE_TRUNC('month', most_recent_order) AS month,
+        COUNT(customer_id) AS active_customers
+      FROM dbt_jaffle.customers
+      GROUP BY
+        DATE_TRUNC('month', most_recent_order)
+    ), churn_calculation AS (
+      SELECT
+        month,
+        active_customers,
+        LAG(active_customers) OVER (ORDER BY month) AS previous_month_customers
+      FROM monthly_active_customers
+    )
+    SELECT
+      churn_calculation.month,
+      CASE
+        WHEN churn_calculation.previous_month_customers = 0
+        THEN NULL
+        ELSE (
+          churn_calculation.previous_month_customers - churn_calculation.active_customers
+        ) * 100.0 / NULLIF(churn_calculation.previous_month_customers, 0)
+      END AS churn_rate
+    FROM churn_calculation
+metricType: RATIO
+unitOfMeasurement: PERCENTAGE
+granularity: MONTH
+relatedMetrics: []
+owners: []
+reviewers: []
+tags: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: displayName
+      oldValue: Churn Rate
+      newValue: ""
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+dataProducts: []
+entityStatus: Approved

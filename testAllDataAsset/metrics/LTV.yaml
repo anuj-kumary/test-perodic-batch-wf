@@ -1,0 +1,17 @@
+name: LTV
+fullyQualifiedName: LTV
+displayName: Lifetime Value
+metricExpression:
+  language: Python
+  code: "def ltv(customer: Customer, orders: List[Order]):\n\tlifetime = customer.lifetime\n\
+    \  ltv: float = sum([o.amount for o in orders if o.customer_id == customer.id])\n\
+    \  \n  return ltv"
+metricType: OTHER
+unitOfMeasurement: DOLLARS
+granularity: QUARTER
+relatedMetrics: []
+owners: []
+reviewers: []
+tags: []
+dataProducts: []
+entityStatus: Approved

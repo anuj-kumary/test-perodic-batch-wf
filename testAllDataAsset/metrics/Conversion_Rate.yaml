@@ -1,0 +1,40 @@
+name: Conversion Rate
+fullyQualifiedName: Conversion Rate
+displayName: ""
+metricExpression:
+  language: Java
+  code: |
+    public static double calculateConversionRate(int totalVisitors, int conversions) {
+        if (totalVisitors <= 0 || conversions < 0) {
+            throw new IllegalArgumentException("Total visitors must be greater than 0 and conversions cannot be negative.");
+        }
+        return ((double) conversions / totalVisitors) * 100;
+    }
+relatedMetrics:
+  - id: 60c367be-a3d0-492a-b7be-8e38c970e0a7
+    type: metric
+    name: Engagement Rate
+    fullyQualifiedName: Engagement Rate
+    description: |-
+      The **Engagement Rate** measures how actively your audience is interacting with your content, usually in the form of likes, comments, and shares.
+
+      $$latex
+      \text{Engagement Rate} = \left( \frac{\text{Engagements (Likes, Comments, Shares)}}{\text{Total Followers or Views}} \right) \times 100
+      $$
+
+      👆this is the basic formula used internally. You can follow this to reimplement it in a different language
+    displayName: Engagement Rate
+    deleted: false
+owners: []
+reviewers: []
+tags: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: displayName
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+dataProducts: []
+entityStatus: Approved

@@ -1,0 +1,40 @@
+name: CLV
+fullyQualifiedName: CLV
+displayName: ""
+description: average order value × number of transactions × average length of the
+  customer relationship (in years)
+metricExpression:
+  language: Python
+  code: |
+    df = pd.DataFrame(data)
+
+    # Convert PurchaseDate to datetime type
+    df['PurchaseDate'] = pd.to_datetime(df['PurchaseDate'])
+
+    # Group data by CustomerID to calculate CLV
+    customer_clv = df.groupby('CustomerID').agg(
+        total_revenue=('Revenue', 'sum'),
+        total_cost=('Cost', 'sum'),
+        total_transactions=('CustomerID', 'count')
+    )
+
+    # Calculate Customer Lifetime Value (CLV)
+    customer_clv['CLV'] = (customer_clv['total_revenue'] - customer_clv['total_cost']) / customer_clv['total_transactions']
+metricType: RATIO
+unitOfMeasurement: DOLLARS
+granularity: YEAR
+relatedMetrics: []
+owners: []
+reviewers: []
+tags: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: displayName
+      oldValue: Customer Lifetime Value (CLV)
+      newValue: ""
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+dataProducts: []
+entityStatus: Approved
