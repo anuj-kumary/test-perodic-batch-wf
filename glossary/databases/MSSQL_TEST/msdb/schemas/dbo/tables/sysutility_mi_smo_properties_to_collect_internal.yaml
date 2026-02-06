@@ -1,0 +1,67 @@
+name: sysutility_mi_smo_properties_to_collect_internal
+fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysutility_mi_smo_properties_to_collect_internal
+tableType: Regular
+columns:
+  - name: object_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysutility_mi_smo_properties_to_collect_internal.object_type
+    tags: []
+    children: []
+    customMetrics: []
+  - name: property_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(80)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysutility_mi_smo_properties_to_collect_internal.property_name
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - object_type
+      - property_name
+  - constraintType: FOREIGN_KEY
+    columns:
+      - object_type
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.sysutility_mi_smo_objects_to_collect_internal.object_type
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 57c2f396-9b05-4e00-9903-62b0219fbc25
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MSSQL_TEST.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: af8db866-dbb4-4bd5-a2ea-22202fbc71ef
+  type: database
+  name: msdb
+  fullyQualifiedName: MSSQL_TEST.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 93f9a8029315a721b0701756331c5cc9
+processedLineage: false
+entityStatus: Approved
