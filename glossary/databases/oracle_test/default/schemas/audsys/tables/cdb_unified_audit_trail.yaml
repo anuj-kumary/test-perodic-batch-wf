@@ -1,0 +1,1114 @@
+name: cdb_unified_audit_trail
+fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail
+description: All audit trail entries in all containers
+tableType: View
+columns:
+  - name: audit_type
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Type of the Audit Record
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.audit_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sessionid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Audit Session Identifier of the User session
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.sessionid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: proxy_sessionid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Proxy Audit Session Identifier in case of Proxy User session
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.proxy_sessionid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: os_username
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Operating System logon user name of the user whose actions were audited
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.os_username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: userhost
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Client host machine name
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.userhost
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: terminal
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar2(30)
+    description: Identifier for the user's terminal
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.terminal
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: instance_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Instance number as specified in the initialization parameter file
+      'init.ora'
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.instance_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dbid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Database Identifier of the audited database
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dbid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: authentication_type
+    dataType: VARCHAR
+    dataLength: 1024
+    dataTypeDisplay: varchar2(1024)
+    description: Type of Authentication for the session user
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.authentication_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dbusername
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the user whose actions were audited
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dbusername
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dbproxy_username
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the Proxy User in case of Proxy User sessions
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dbproxy_username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: external_userid
+    dataType: VARCHAR
+    dataLength: 1024
+    dataTypeDisplay: varchar2(1024)
+    description: External Identifier for externally authenticated users
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.external_userid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: global_userid
+    dataType: VARCHAR
+    dataLength: 32
+    dataTypeDisplay: varchar2(32)
+    description: "Global user identifier for the user, if the user had logged in as\
+      \ enterprise user"
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.global_userid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: client_program_name
+    dataType: VARCHAR
+    dataLength: 48
+    dataTypeDisplay: varchar2(48)
+    description: Client Program Name which issued the commands in user session
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.client_program_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dblink_info
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: "Value of SYS_CONTEXT('USERENV', 'DBLINK_INFO')"
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dblink_info
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_user_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Real Application User name
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_user_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_sessionid
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: raw
+    description: Real Application User Session Identifier
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_sessionid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: entry_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Numeric ID for each audit trail entry in the session
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.entry_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: statement_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Numeric ID for each statement run (a statement may cause many actions)
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.statement_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event_timestamp
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    description: Timestamp of the creation of audit trail entry in session's time
+      zone
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.event_timestamp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event_timestamp_utc
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    description: Timestamp of the creation of audit trail entry in UTC time
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.event_timestamp_utc
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: action_name
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Name of the action executed by the user
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.action_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: return_code
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Oracle error code generated by the action.  Zero if the action succeeded
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.return_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: os_process
+    dataType: VARCHAR
+    dataLength: 16
+    dataTypeDisplay: varchar2(16)
+    description: Operating System process identifier of the Oracle server process
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.os_process
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: transaction_id
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: raw
+    description: Transaction identifier of the transaction in which the object is
+      accessed or modified
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.transaction_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: scn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: SCN (System Change Number) of the query
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.scn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: execution_id
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Execution Context Identifier for each action
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.execution_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_schema
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Schema name of object affected by the action
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.object_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the object affected by the action
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.object_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sql_text
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: SQL text of the query
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.sql_text
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sql_binds
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: Bind variable data of the query
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.sql_binds
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: application_contexts
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: "SemiColon seperate list of Application Context Namespace, Attribute,\
+      \ Value information in (APPCTX_NSPACE,APPCTX_ATTRIBUTE=<value>) format"
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.application_contexts
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: client_identifier
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar2(64)
+    description: Client identifier in each Oracle session
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.client_identifier
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: new_schema
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The schema of the object named in the NEW_NAME column
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.new_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: new_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: "New name of object after RENAME, or name of underlying object (e.g.\
+      \ CREATE INDEX owner.obj_name ON new_owner.new_name)"
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.new_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_edition
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The edition of the object affected by the action
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.object_edition
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: system_privilege_used
+    dataType: VARCHAR
+    dataLength: 1024
+    dataTypeDisplay: varchar2(1024)
+    description: System privilege used to execute the action
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.system_privilege_used
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: system_privilege
+    dataType: VARCHAR
+    dataLength: 40
+    dataTypeDisplay: varchar2(40)
+    description: System privileges granted/revoked by a GRANT/REVOKE statement
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.system_privilege
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: audit_option
+    dataType: VARCHAR
+    dataLength: 40
+    dataTypeDisplay: varchar2(40)
+    description: Auditing option set with the audit statement
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.audit_option
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_privileges
+    dataType: VARCHAR
+    dataLength: 35
+    dataTypeDisplay: varchar2(35)
+    description: Object privileges granted/revoked by a GRANT/REVOKE statement
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.object_privileges
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: role
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Role granted/revoked/set by a GRANT/REVOKE/SET ROLE statement
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.role
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: target_user
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: User on whom the GRANT/REVOKE/AUDIT/NOAUDIT statement was executed
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.target_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: excluded_user
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: User who was excluded when the AUDIT/NOAUDIT statement was executed
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.excluded_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: excluded_schema
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Schema of EXCLUDED_OBJECT
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.excluded_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: excluded_object
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Object which was excluded when the SET ROLE/ALTER PLUGGABLE DATABASE
+      statement was executed
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.excluded_object
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: current_user
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Effective user for the statement execution
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.current_user
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: additional_info
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Text comment on the audit trail entry
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.additional_info
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unified_audit_policies
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Unified Audit Policies that caused the audit trail entry
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.unified_audit_policies
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: fga_policy_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Fine-Grained Audit Policy that caused the audit trail entry
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.fga_policy_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_inactivity_timeout
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Inactivity timeout of the Real Application Security session
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_inactivity_timeout
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_entity_type
+    dataType: VARCHAR
+    dataLength: 32
+    dataTypeDisplay: varchar2(32)
+    description: Type of the Real Application Security entity
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_entity_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_target_principal_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Target principal name in Real Application Security operations
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_target_principal_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_proxy_user_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Real Application Security proxy user
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_proxy_user_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_datasec_policy_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Real Application Security policy enabled or disabled
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_datasec_policy_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_schema_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: "Schema in enable, disable Real Application Security policy and global\
+      \ callback"
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_schema_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_callback_event_type
+    dataType: VARCHAR
+    dataLength: 32
+    dataTypeDisplay: varchar2(32)
+    description: Real Application Security global callback event type
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_callback_event_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_package_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Real Application Security callback package for global callback
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_package_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_procedure_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Real Application Security callback procedure for global callback
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_procedure_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_enabled_role
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Enabled Real Application Security role
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_enabled_role
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_cookie
+    dataType: VARCHAR
+    dataLength: 1024
+    dataTypeDisplay: varchar2(1024)
+    description: Real Application Security session cookie
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_cookie
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_ns_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Real Application Security session namespace
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_ns_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_ns_attribute
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Real Application Security session namespace attribute
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_ns_attribute
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_ns_attribute_old_val
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Old value of the Real Application Security session namespace
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_ns_attribute_old_val
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: xs_ns_attribute_new_val
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: New value of the Real Application Security session namespace
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.xs_ns_attribute_new_val
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_action_code
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Numeric action type code for Database Vault
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_action_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_action_name
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar2(30)
+    description: Name of the action whose numeric code appears in the DV_ACTION_CODE
+      column
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_action_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_extended_action_code
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Numeric action type code for Database Vault administration
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_extended_action_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_grantee
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the user whose Database Vault authorization was modified
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_grantee
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_return_code
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Database Vault specific error code
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_return_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_action_object_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The unique name of the Database Vault object that was modified
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_action_object_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_rule_set_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The unique name of the rule set that was executing and caused the
+      audit event to trigger
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_rule_set_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_comment
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Text comment on the audit trail entry
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_comment
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_factor_context
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: XML document containing Database Vault factor identifiers for the
+      current session
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_factor_context
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dv_object_status
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates whether a particular Database Vault object is enabled or
+      disabled
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dv_object_status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_policy_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Oracle Label Security policy for which this audit record is generated
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_policy_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_grantee
+    dataType: VARCHAR
+    dataLength: 1024
+    dataTypeDisplay: varchar2(1024)
+    description: User whose OLS authorization was modified
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_grantee
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_max_read_label
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Maximum read OLS label assigned to a user
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_max_read_label
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_max_write_label
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Maximum write OLS label assigned to a user
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_max_write_label
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_min_write_label
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Minimum write OLS label assigned to a user
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_min_write_label
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_privileges_granted
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: OLS privileges assigned to a user or a trusted stored procedure
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_privileges_granted
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_program_unit_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Trusted stored procedure whose authorization was modified or executed
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_program_unit_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_privileges_used
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: OLS privileges used for an event
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_privileges_used
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_string_label
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: String representation of the OLS label
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_string_label
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_label_component_type
+    dataType: VARCHAR
+    dataLength: 12
+    dataTypeDisplay: varchar2(12)
+    description: Type of the OLS label component
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_label_component_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_label_component_name
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar2(30)
+    description: Name of the OLS label component
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_label_component_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_parent_group_name
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar2(30)
+    description: Name of the parent of the OLS group
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_parent_group_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_old_value
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Old value for OLS ALTER events
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_old_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ols_new_value
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: New value for OLS ALTER events
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ols_new_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rman_session_recid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: RMAN Record Id
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.rman_session_recid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rman_session_stamp
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: RMAN Session Stamp
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.rman_session_stamp
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rman_operation
+    dataType: VARCHAR
+    dataLength: 20
+    dataTypeDisplay: varchar2(20)
+    description: RMAN Operation
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.rman_operation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rman_object_type
+    dataType: VARCHAR
+    dataLength: 20
+    dataTypeDisplay: varchar2(20)
+    description: RMAN Object Involved
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.rman_object_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rman_device_type
+    dataType: VARCHAR
+    dataLength: 5
+    dataTypeDisplay: varchar2(5)
+    description: Device Involved in RMAN Session
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.rman_device_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dp_text_parameters1
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: varchar2(512)
+    description: Audited DataPump parameters that have text values
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dp_text_parameters1
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dp_boolean_parameters1
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: varchar2(512)
+    description: Audited DataPump parameters that have boolean values
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.dp_boolean_parameters1
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: direct_path_num_columns_loaded
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Direct Path API load - number of columns loaded
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.direct_path_num_columns_loaded
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rls_info
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: RLS predicates along with the RLS policy names used for the object
+      accessed
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.rls_info
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ksacl_user_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The connecting user name
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ksacl_user_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ksacl_service_name
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: varchar2(512)
+    description: The target DB service name
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ksacl_service_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ksacl_source_location
+    dataType: VARCHAR
+    dataLength: 48
+    dataTypeDisplay: varchar2(48)
+    description: The source location of the initiating connection
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.ksacl_source_location
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: protocol_session_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Session id for audited protocol message
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.protocol_session_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: protocol_return_code
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Return code of audited protocol message reply
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.protocol_return_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: protocol_action_name
+    dataType: VARCHAR
+    dataLength: 32
+    dataTypeDisplay: varchar2(32)
+    description: Operation of audited protocol message
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.protocol_action_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: protocol_userhost
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: IP address of client system of audited protocol message
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.protocol_userhost
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: protocol_message
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Audited protocol message
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.protocol_message
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: con_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: container id
+    fullyQualifiedName: oracle_test.default.audsys.cdb_unified_audit_trail.con_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 64fcb144-2260-4844-875e-35949dcab205
+  type: databaseSchema
+  name: audsys
+  fullyQualifiedName: oracle_test.default.audsys
+  displayName: audsys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 22c95450826c2d6a05fc28bc69a3fd94
+processedLineage: false
+entityStatus: Approved
