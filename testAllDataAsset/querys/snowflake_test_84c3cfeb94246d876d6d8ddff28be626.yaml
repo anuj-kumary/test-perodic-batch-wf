@@ -1,0 +1,64 @@
+name: 84c3cfeb94246d876d6d8ddff28be626
+fullyQualifiedName: snowflake_test.84c3cfeb94246d876d6d8ddff28be626
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 156.0
+users: []
+query: "WITH \"8924b4b411990bf5c24320a9ab1eba23_rnd\" AS \n(SELECT \"CATALOG_PAGE_1\"\
+  .\"CP_TYPE\" AS \"CP_TYPE\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_PAGE\" AS \"CATALOG_PAGE_1\"\
+  \ TABLESAMPLE bernoulli(?)), \n\"8924b4b411990bf5c24320a9ab1eba23_sample\" AS \n\
+  (SELECT \"8924b4b411990bf5c24320a9ab1eba23_rnd\".\"CP_TYPE\" AS \"CP_TYPE\" \nFROM\
+  \ \"8924b4b411990bf5c24320a9ab1eba23_rnd\")\n SELECT count(CASE WHEN (LEN(\"CP_TYPE\"\
+  ) >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"7.000 to 7.109\"\
+  , count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\"\
+  ) END) AS \"7.109 to 7.218\", count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"\
+  CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"7.218 to 7.327\", count(CASE WHEN\
+  \ (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS\
+  \ \"7.327 to 7.436\", count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\"\
+  ) < ?) THEN LEN(\"CP_TYPE\") END) AS \"7.436 to 7.545\", count(CASE WHEN (LEN(\"\
+  CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"7.545\
+  \ to 7.654\", count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN\
+  \ LEN(\"CP_TYPE\") END) AS \"7.654 to 7.762\", count(CASE WHEN (LEN(\"CP_TYPE\"\
+  ) >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"7.762 to 7.871\"\
+  , count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\"\
+  ) END) AS \"7.871 to 7.980\", count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"\
+  CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"7.980 to 8.089\", count(CASE WHEN\
+  \ (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS\
+  \ \"8.089 to 8.198\", count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\"\
+  ) < ?) THEN LEN(\"CP_TYPE\") END) AS \"8.198 to 8.307\", count(CASE WHEN (LEN(\"\
+  CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"8.307\
+  \ to 8.416\", count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN\
+  \ LEN(\"CP_TYPE\") END) AS \"8.416 to 8.525\", count(CASE WHEN (LEN(\"CP_TYPE\"\
+  ) >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"8.525 to 8.634\"\
+  , count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\"\
+  ) END) AS \"8.634 to 8.743\", count(CASE WHEN (LEN(\"CP_TYPE\") >= ? AND LEN(\"\
+  CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"8.743 to 8.852\", count(CASE WHEN\
+  \ (LEN(\"CP_TYPE\") >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS\
+  \ \"8.852 to 8.961\", count(CASE WHEN (LEN(\"CP_TYPE\") >= ?) THEN LEN(\"CP_TYPE\"\
+  ) END) AS \"8.961 and up\" \nFROM \"8924b4b411990bf5c24320a9ab1eba23_sample\"\n\
+  \ LIMIT ?"
+checksum: 84c3cfeb94246d876d6d8ddff28be626
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 5585b699-aff3-4d54-8b10-81ba94bca6ff
+    type: table
+    name: CATALOG_PAGE
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_PAGE
+    displayName: CATALOG_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

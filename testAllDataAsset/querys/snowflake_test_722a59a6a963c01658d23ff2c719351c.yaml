@@ -1,0 +1,39 @@
+name: 722a59a6a963c01658d23ff2c719351c
+fullyQualifiedName: snowflake_test.722a59a6a963c01658d23ff2c719351c
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 78.0
+users: []
+query: "WITH \"8924b4b411990bf5c24320a9ab1eba23_rnd\" AS \n(SELECT \"CATALOG_PAGE_1\"\
+  .\"CP_DEPARTMENT\" AS \"CP_DEPARTMENT\" \nFROM \"TPCDS_SF10TCL\".\"CATALOG_PAGE\"\
+  \ AS \"CATALOG_PAGE_1\" TABLESAMPLE bernoulli(?)), \n\"8924b4b411990bf5c24320a9ab1eba23_sample\"\
+  \ AS \n(SELECT \"8924b4b411990bf5c24320a9ab1eba23_rnd\".\"CP_DEPARTMENT\" AS \"\
+  CP_DEPARTMENT\" \nFROM \"8924b4b411990bf5c24320a9ab1eba23_rnd\")\n SELECT count(*)\
+  \ AS \"uniqueCount\" \nFROM (SELECT count(\"CP_DEPARTMENT\") AS count_1 \nFROM \"\
+  8924b4b411990bf5c24320a9ab1eba23_sample\" GROUP BY \"CP_DEPARTMENT\" \nHAVING count(\"\
+  CP_DEPARTMENT\") = ?) AS only_once\n LIMIT ?"
+checksum: 722a59a6a963c01658d23ff2c719351c
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3ab7b913-1d09-453e-b61f-bc057856f791
+    type: table
+    name: CATALOG_PAGE
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_PAGE
+    displayName: CATALOG_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

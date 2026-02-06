@@ -1,0 +1,43 @@
+name: 883034c81996eacab0acf664286e961c
+fullyQualifiedName: snowflake_test.883034c81996eacab0acf664286e961c
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 132490.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_RETURNING_CUSTOMER_SK\" AS \"CR_RETURNING_CUSTOMER_SK\" \nFROM \"TPCDS_SF10TCL\"\
+  .\"CATALOG_RETURNS\" AS \"CATALOG_RETURNS_1\" TABLESAMPLE bernoulli(?)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_RETURNING_CUSTOMER_SK\"\
+  \ AS \"CR_RETURNING_CUSTOMER_SK\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\"\
+  )\n SELECT avg(\"CR_RETURNING_CUSTOMER_SK\") AS mean, count(\"CR_RETURNING_CUSTOMER_SK\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CR_RETURNING_CUSTOMER_SK\") AS \"distinctCount\"\
+  , MIN(\"CR_RETURNING_CUSTOMER_SK\") AS min, MAX(\"CR_RETURNING_CUSTOMER_SK\") AS\
+  \ max, coalesce(SUM(CASE WHEN (\"CR_RETURNING_CUSTOMER_SK\" IS ?) THEN ? ELSE ?\
+  \ END), ?) AS \"nullCount\", STDDEV_POP(\"CR_RETURNING_CUSTOMER_SK\") AS stddev,\
+  \ SUM(\"CR_RETURNING_CUSTOMER_SK\") AS sum \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \n LIMIT ?"
+checksum: 883034c81996eacab0acf664286e961c
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e9119d1e-971c-4d36-8713-0798a54f4faa
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

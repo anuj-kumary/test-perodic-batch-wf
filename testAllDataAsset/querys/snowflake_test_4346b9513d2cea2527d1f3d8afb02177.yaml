@@ -1,0 +1,45 @@
+name: 4346b9513d2cea2527d1f3d8afb02177
+fullyQualifiedName: snowflake_test.4346b9513d2cea2527d1f3d8afb02177
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 177.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_STREET_TYPE\" AS \"CC_STREET_TYPE\" \nFROM \"TPCDS_SF100TCL\".\"CALL_CENTER\"\
+  \ AS \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_STREET_TYPE\" AS \"\
+  CC_STREET_TYPE\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT count(CASE\
+  \ WHEN (LEN(\"CC_STREET_TYPE\") >= ? AND LEN(\"CC_STREET_TYPE\") < ?) THEN LEN(\"\
+  CC_STREET_TYPE\") END) AS \"2.000 to 3.533\", count(CASE WHEN (LEN(\"CC_STREET_TYPE\"\
+  ) >= ? AND LEN(\"CC_STREET_TYPE\") < ?) THEN LEN(\"CC_STREET_TYPE\") END) AS \"\
+  3.533 to 5.065\", count(CASE WHEN (LEN(\"CC_STREET_TYPE\") >= ? AND LEN(\"CC_STREET_TYPE\"\
+  ) < ?) THEN LEN(\"CC_STREET_TYPE\") END) AS \"5.065 to 6.598\", count(CASE WHEN\
+  \ (LEN(\"CC_STREET_TYPE\") >= ? AND LEN(\"CC_STREET_TYPE\") < ?) THEN LEN(\"CC_STREET_TYPE\"\
+  ) END) AS \"6.598 to 8.130\", count(CASE WHEN (LEN(\"CC_STREET_TYPE\") >= ?) THEN\
+  \ LEN(\"CC_STREET_TYPE\") END) AS \"8.130 and up\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \n LIMIT ?"
+checksum: 4346b9513d2cea2527d1f3d8afb02177
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f6f32e42-c493-462c-8db5-7d565fc8c892
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

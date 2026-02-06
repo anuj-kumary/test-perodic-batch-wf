@@ -1,0 +1,42 @@
+name: 662c14396257216cacfabe0b088b8d30
+fullyQualifiedName: snowflake_test.662c14396257216cacfabe0b088b8d30
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 141.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_TAX_PERCENTAGE\" AS \"CC_TAX_PERCENTAGE\" \nFROM \"TPCDS_SF100TCL\".\"CALL_CENTER\"\
+  \ AS \"CALL_CENTER_1\" TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ AS \n(SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_TAX_PERCENTAGE\" AS\
+  \ \"CC_TAX_PERCENTAGE\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT\
+  \ count(CASE WHEN (\"CC_TAX_PERCENTAGE\" >= ? AND \"CC_TAX_PERCENTAGE\" < ?) THEN\
+  \ \"CC_TAX_PERCENTAGE\" END) AS \"0 to 40.870T\", count(CASE WHEN (\"CC_TAX_PERCENTAGE\"\
+  \ >= ? AND \"CC_TAX_PERCENTAGE\" < ?) THEN \"CC_TAX_PERCENTAGE\" END) AS \"40.870T\
+  \ to 81.740T\", count(CASE WHEN (\"CC_TAX_PERCENTAGE\" >= ?) THEN \"CC_TAX_PERCENTAGE\"\
+  \ END) AS \"81.740T and up\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\n\
+  \ LIMIT ?"
+checksum: 662c14396257216cacfabe0b088b8d30
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f6f32e42-c493-462c-8db5-7d565fc8c892
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test

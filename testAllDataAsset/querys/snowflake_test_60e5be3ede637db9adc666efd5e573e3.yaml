@@ -1,0 +1,41 @@
+name: 60e5be3ede637db9adc666efd5e573e3
+fullyQualifiedName: snowflake_test.60e5be3ede637db9adc666efd5e573e3
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.1
+owners: []
+duration: 99.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_CLASS\" AS \"CC_CLASS\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\" AS \"CALL_CENTER_1\"\
+  \ TABLESAMPLE bernoulli(?)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\" AS \n\
+  (SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_CLASS\" AS \"CC_CLASS\" \n\
+  FROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT avg(LEN(\"CC_CLASS\")) AS\
+  \ mean, count(\"CC_CLASS\") AS \"valuesCount\", count(DISTINCT \"CC_CLASS\") AS\
+  \ \"distinctCount\", MIN(LEN(\"CC_CLASS\")) AS min, MAX(LEN(\"CC_CLASS\")) AS max,\
+  \ coalesce(SUM(CASE WHEN (\"CC_CLASS\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(LEN(\"CC_CLASS\")) AS stddev, SUM(LEN(\"CC_CLASS\")) AS sum \nFROM\
+  \ \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\n LIMIT ?"
+checksum: 60e5be3ede637db9adc666efd5e573e3
+queryDate: 1740614400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f754a47f-35f6-45e8-9ab1-7afdef691f30
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: snowflake_test.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 6d146814-0a2b-4296-ba8d-05f0c5888c40
+  type: databaseService
+  name: snowflake_test
+  fullyQualifiedName: snowflake_test
