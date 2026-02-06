@@ -1,0 +1,59 @@
+name: table_839
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_839
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_839.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view KC_SAM_ACCOUNT_DIMENSION(\n\t\"AccountNumber\"\
+  ,\n\t\"AccountName\",\n\t\"AccountExecutive\",\n\t\"SolutionConsultant\",\n\t\"\
+  CustomerSuccessManager\",\n\t\"SupportAccountManager\",\n\t\"Manager\",\n\t\"Director\"\
+  ,\n\t\"SupportLevel\",\n\t\"ACVBand\",\n\t\"EscalationState\",\n\t\"Date\"\n) as\n\
+  \nselect DISTINCT\n CC.U_NUMBER as \"AccountNumber\",\n CC.NAME as \"AccountName\"\
+  ,\n REPLACE(DV_U_TERRITORY,'random') as \"AccountExecutive\",\n REPLACE(DV_U_SOLUTION_CONSULTANT,'random')\
+  \ as \"SolutionConsultant\",\n REPLACE(DV_U_SUCCESS_LEAD,'random') as \"CustomerSuccessManager\"\
+  ,\n REPLACE(CC.DV_U_CUSTOMER_SUCCESS_MANAGER,'random') as \"SupportAccountManager\"\
+  ,\n REPLACE(DV_MANAGER,'random') as \"Manager\",\n REPLACE(SYS_USER.DV_U_MGMT_LEVEL5,'random')\
+  \ as \"Director\",\n DV_U_SERVICE_LEVEL as \"SupportLevel\",\n U_ACV_BAND as \"\
+  ACVBand\",\n CASE WHEN U_ESCALATION_STATUS = 'random' THEN 'random' ELSE 'random'\
+  \ END  as \"EscalationState\",\ncurrent_date as \"Date\"\nfrom RDS.HI.CORE_COMPANY\
+  \ CC left join RDS.HI.SYS_USER SYS_USER ON CC.U_CUSTOMER_SUCCESS_MANAGER = SYS_USER.SYS_ID\n\
+  where CC.DV_U_CUSTOMER_SUCCESS_MANAGER <> 'random' and CC.NAME <> 'random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,53 @@
+name: table_807
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_807
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_807.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SNC_SURFQAREG2_SN_STREAMCONNECT_DITOPIC4_SALES_CONTRACT_ITEM(\n\
+  \tCREATE_TIME,\n\tKEY,\n\tPARTITION,\n\tOFFSET,\n\tTOPIC,\n\tTABLE_NAME,\n\tNOW_TIMESTAMP,\n\
+  \tJSON_PAYLOAD\n) as\nSELECT dateadd('random',RECORD_METADATA:CreateTime,'random')\
+  \ AS CREATE_TIME,\nRECORD_METADATA:key::VARCHAR AS KEY,\nRECORD_METADATA:partition::VARCHAR\
+  \ AS PARTITION,\nRECORD_METADATA:offset::VARCHAR AS OFFSET,\nRECORD_METADATA:topic::VARCHAR\
+  \ AS TOPIC,\nRECORD_CONTENT:tableName::VARCHAR AS TABLE_NAME,\nRECORD_CONTENT:currentDate::TIMESTAMP\
+  \ AS NOW_TIMESTAMP,\nRECORD_CONTENT:value AS JSON_PAYLOAD\nFROM RDS.POC_HERMES.SNC_SURFQAREG2_SN_STREAMCONNECT_DITOPIC4_2074033362\n\
+  WHERE TABLE_NAME = 'random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

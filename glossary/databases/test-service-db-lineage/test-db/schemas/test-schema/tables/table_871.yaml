@@ -1,0 +1,65 @@
+name: table_871
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_871
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_871.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_KC_PROSPECTS_SECURITY(\n\t\"DynamicSysID\"\
+  ,\n\tUSERID,\n\tBIN\n) as\n\n\n/* Comments retained from HANA input file */\n\n\
+  \ /*****************************\n * Program  Name              :  EM_KC_PROSPECT_SECURITY\n\
+  \ * Development Request # \t :\n * Date Created               : \t2020-09-28\n *\
+  \ Developed By               :  Kranthi Boyina\n * Brief Description          :\
+  \ \tKnowledge Cards - KC PROSPECT SECURITY\n * ---------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n * Updated On                 :\n *----------------------------------------------------------------------------------------------------------------\n\
+  \ * CR#\n * 1\n * 2\n  ****************************************************************************************************************/\n\
+  \n\n\n\n\nSELECT \"DynamicSysID\",\n       LISTAGG(\"USERID\", 'random') \"USERID\"\
+  ,\n       \"BIN\"\nFROM\n  (SELECT DISTINCT \"DynamicSysID\",\n                \
+  \   \"USERID\",\n                   \"LEN\",\n                   CONCAT('random',\
+  \ CEIL((LEN)/'random')) \"BIN\"\n   FROM\n     (\n--- Main Queru that Provoides\
+  \ Users\n SELECT DISTINCT \"USERID\",\n                                     \"AcctTerritorySysID\"\
+  \ AS \"DynamicSysID\" ,\n                                     SUM (LENGTH(\"USERID\"\
+  )+'random') over(partition by \"AcctTerritorySysID\"\n                         \
+  \                                          ORDER BY \"AcctTerritorySysID\" ROWS\
+  \ BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) \"LEN\"\n      FROM\n        (SELECT\
+  \ DISTINCT \"USERID\",\n                         \"AcctTerritorySysID\"\n      \
+  \   FROM \"EDW_LS\".\"SCORE_CARDS_EM\".\"EM_KC_PROSPECT_SECURITY_AGG\" ) ) )\nWHERE\
+  \ \"DynamicSysID\" IS not NULL\nGROUP BY \"DynamicSysID\",\n         \"BIN\" ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

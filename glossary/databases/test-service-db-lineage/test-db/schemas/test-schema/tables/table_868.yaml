@@ -1,0 +1,90 @@
+name: table_868
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_868
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_868.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view GP_DIM(\n\t\"AcctCustomerHQAcctNumber\"\
+  ,\n\t\"AcctCustomerHQName\",\n\t\"GPEmployeeCount\",\n\t\"AcctCustomerHQIndustrySegment\"\
+  ,\n\t\"AcctCustomerHQIndustryCategory\",\n\t\"AcctCustomerHQSegment\",\n\t\"AcctGPCountry\"\
+  ,\n\t\"GPEngagementScore\",\n\t\"GPAccountMarqueeFlag\",\n\t\"GPNextRenewalDate\"\
+  ,\n\t\"GPAccountLeadsplit\",\n\t\"GPExecSponsorsSplit\",\n\t\"GPDealChampSplit\"\
+  ,\n\t\"GPCustomerCnt\",\n\t\"GPProspectCnt\",\n\t\"GPSuspectCnt\",\n\t\"Total Accounts\"\
+  ,\n\t\"GPAEWithHighestCACV\",\n\t\"GPAEWithHighestpipeline\",\n\t\"GPExecSponsorWithHighestCACV\"\
+  ,\n\t\"GPDealChampWithHighestCACV\",\n\t\"GPExecSponsorWithHighestpipeline\",\n\t\
+  \"GPDealChampWithHighestpipeline\"\n) as\n\nWITH BASE AS (\n    SELECT\n       \
+  \ DISTINCT\n        \"AcctCustomerHQAcctNumber\",\n        \"AcctCustomerHQName\"\
+  ,\n        COUNT(\n            DISTINCT CASE\n                WHEN \"AcctType\"\
+  \ = 'random' THEN \"AcctNumber\"\n            END\n        ) OVER(PARTITION BY \"\
+  AcctCustomerHQAcctNumber\") AS \"GPCustomerCnt\",\n        COUNT(\n            DISTINCT\
+  \ CASE\n                WHEN \"AcctType\" = 'random' THEN \"AcctNumber\"\n     \
+  \       END\n        ) OVER(PARTITION BY \"AcctCustomerHQAcctNumber\") AS \"GPProspectCnt\"\
+  ,\n        COUNT(\n            DISTINCT CASE\n                WHEN \"AcctType\"\
+  \ = 'random' THEN \"AcctNumber\"\n            END\n        ) OVER(PARTITION BY \"\
+  AcctCustomerHQAcctNumber\") AS \"GPSuspectCnt\",\n        \"GPEmployeeCount\",\n\
+  \        \"AcctCustomerHQIndustrySegment\",\n        \"AcctCustomerHQIndustryCategory\"\
+  ,\n        \"AcctCustomerHQSegment\",\n        \"AcctGPCountry\",\n        \"GPEngagementScore\"\
+  ,\n        \"GPAccountMarqueeFlag\",\n        \"GPNextRenewalDate\",\n        \"\
+  GPAccountLeadsplit\",\n        \"GPExecSponsorsSplit\",\n        \"GPDealChampSplit\"\
+  ,\n        \"GPAEWithHighestCACV\",\n        \"GPAEWithHighestpipeline\",\n    \
+  \    LISTAGG(\n            DISTINCT CASE\n                WHEN \"AcctCACV_RANK\"\
+  \ = 'random' THEN \"Exec_sponser\"\n            END,\n            'random'\n   \
+  \     ) OVER(PARTITION BY \"AcctCustomerHQAcctNumber\") AS \"GPExecSponsorWithHighestCACV\"\
+  ,\n        LISTAGG(\n            DISTINCT CASE\n                WHEN \"AcctCACV_RANK\"\
+  \ = 'random' THEN \"Deal_Champ\"\n            END,\n            'random'\n     \
+  \   ) OVER(PARTITION BY \"AcctCustomerHQAcctNumber\") AS \"GPDealChampWithHighestCACV\"\
+  ,\n        LISTAGG(DISTINCT CASE WHEN \"PipelineRank\" = 'random' THEN \"Exec_sponser\"\
+  \ END,'random') OVER(PARTITION BY \"AcctCustomerHQAcctNumber\") AS \"GPExecSponsorWithHighestpipeline\"\
+  ,\n        LISTAGG(DISTINCT CASE WHEN \"PipelineRank\" = 'random' THEN \"Deal_Champ\"\
+  \ END,'random') OVER(PARTITION BY \"AcctCustomerHQAcctNumber\") AS \"GPDealChampWithHighestpipeline\"\
+  \n    FROM\n        CDL_LS.CUSTOMER_CD_RPT.RPT_CD_ACCOUNT_INDEX_ALL\n    WHERE\n\
+  \        USERID LIKE 'random'\n        )\n\nSELECT\n    DISTINCT\n    \"AcctCustomerHQAcctNumber\"\
+  ,\n    \"AcctCustomerHQName\",\n    \"GPEmployeeCount\",\n    \"AcctCustomerHQIndustrySegment\"\
+  ,\n    \"AcctCustomerHQIndustryCategory\",\n    \"AcctCustomerHQSegment\",\n   \
+  \ \"AcctGPCountry\",\n    \"GPEngagementScore\",\n    \"GPAccountMarqueeFlag\",\n\
+  \    \"GPNextRenewalDate\",\n    \"GPAccountLeadsplit\",\n    \"GPExecSponsorsSplit\"\
+  ,\n    \"GPDealChampSplit\",\n    \"GPCustomerCnt\",\n    \"GPProspectCnt\",\n \
+  \   \"GPSuspectCnt\",\n    \"GPCustomerCnt\" + \"GPProspectCnt\" + \"GPSuspectCnt\"\
+  \ AS \"Total Accounts\",\n    \"GPAEWithHighestCACV\",\n    \"GPAEWithHighestpipeline\"\
+  ,\n    \"GPExecSponsorWithHighestCACV\",\n    \"GPDealChampWithHighestCACV\",\n\
+  \    \"GPExecSponsorWithHighestpipeline\",\n    \"GPDealChampWithHighestpipeline\"\
+  \nFROM\n    BASE\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

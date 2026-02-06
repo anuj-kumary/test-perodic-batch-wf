@@ -1,0 +1,83 @@
+name: table_852
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_852
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_852.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CUSTOMER_SUCCESS(\n\t\"CustomerSuccessItem\"\
+  ,\n\t\"CustomerSuccessUniqueVisitors\",\n\t\"CustomerSuccessVisits\",\n\t\"CustomerSuccessPageViews\"\
+  ,\n\t\"CustomerSuccessBounces\",\n\t\"CustomerSuccessTimeSpentonPageMin\",\n\t\"\
+  CustomerSuccessE89VideoViews\",\n\t\"CustomerSuccessE17FormSuccess\",\n\t\"CustomerSuccessEntries\"\
+  ,\n\t\"CustomerSuccessTotalTimeSpent\",\n\t\"CustomerSuccessReturnVisits\",\n\t\"\
+  CustomerSuccessReturnVisitors\",\n\t\"CustomerSuccessAccountNumber\",\n\t\"CustomerSuccessLastTouchChannel\"\
+  ,\n\t\"CustomerSuccessMcid\",\n\t\"CustomerSuccessDate\",\n\t\"CustomerSuccessGranularity\"\
+  ,\n\t\"CustomerSuccessPeriodNumber\",\n\t\"CustomerSuccessSegmentName\",\n\t\"CustomerSuccessSegmentId\"\
+  ,\n\t\"CustomerSuccessGroup\",\n\t\"CustomerSuccessDownloads\"\n) as\nSELECT \"\
+  ITEM\" as \"CustomerSuccessItem\",\n       \"UNIQUE_VISITORS\" as \"CustomerSuccessUniqueVisitors\"\
+  ,\n       \"VISITS\" as \"CustomerSuccessVisits\",\n       \"PAGE_VIEWS\" as \"\
+  CustomerSuccessPageViews\",\n       \"BOUNCES\" as \"CustomerSuccessBounces\",\n\
+  \       \"TIME_SPENT_ON_PAGE_(MIN)\" as \"CustomerSuccessTimeSpentonPageMin\",\n\
+  \       \"E89_VIDEO_VIEWS\" as \"CustomerSuccessE89VideoViews\",\n       \"E17_FORM_SUCCESS\"\
+  \ as \"CustomerSuccessE17FormSuccess\",\n       \"ENTRIES\" as \"CustomerSuccessEntries\"\
+  ,\n       \"TOTAL_TIME_SPENT\" as \"CustomerSuccessTotalTimeSpent\",\n       \"\
+  RETURN_VISITS\" as \"CustomerSuccessReturnVisits\",\n       \"RETURN_VISITORS\"\
+  \ as \"CustomerSuccessReturnVisitors\",\n       \"ACCOUNT_NUMBER\" as \"CustomerSuccessAccountNumber\"\
+  ,\n       \"LAST_TOUCH_CHANNEL\" as \"CustomerSuccessLastTouchChannel\",\n     \
+  \  \"MCID\" as \"CustomerSuccessMcid\",\n       \"DATE\" as \"CustomerSuccessDate\"\
+  ,\n       \"GRANULARITY\" as \"CustomerSuccessGranularity\",\n       \"PERIOD_NUMBER\"\
+  \ as \"CustomerSuccessPeriodNumber\",\n       \"SEGMENT_NAME\" as \"CustomerSuccessSegmentName\"\
+  ,\n       \"SEGMENT_ID\" as \"CustomerSuccessSegmentId\",\n       \"GROUP\" as \"\
+  CustomerSuccessGroup\",\n       \"DOWNLOADS\" as \"CustomerSuccessDownloads\"\n\
+  FROM\n  (SELECT \"ITEM\" as \"ITEM\",\n          \"UNIQUE_VISITORS\" as \"UNIQUE_VISITORS\"\
+  ,\n          \"VISITS\" as \"VISITS\",\n          \"PAGE_VIEWS\" as \"PAGE_VIEWS\"\
+  ,\n          \"BOUNCES\" as \"BOUNCES\",\n          \"TIME_SPENT_ON_PAGE_(MIN)\"\
+  \ as \"TIME_SPENT_ON_PAGE_(MIN)\",\n          \"E89_VIDEO_VIEWS\" as \"E89_VIDEO_VIEWS\"\
+  ,\n          \"E17_FORM_SUCCESS\" as \"E17_FORM_SUCCESS\",\n          \"ENTRIES\"\
+  \ as \"ENTRIES\",\n          \"TOTAL_TIME_SPENT\" as \"TOTAL_TIME_SPENT\",\n   \
+  \       \"RETURN_VISITS\" as \"RETURN_VISITS\",\n          \"RETURN_VISITORS\" as\
+  \ \"RETURN_VISITORS\",\n          \"ACCOUNT_NUMBER\" as \"ACCOUNT_NUMBER\",\n  \
+  \        \"LAST_TOUCH_CHANNEL\" as \"LAST_TOUCH_CHANNEL\",\n          \"MCID\" as\
+  \ \"MCID\",\n          \"DATE\" as \"DATE\",\n          \"GRANULARITY\" as \"GRANULARITY\"\
+  ,\n          \"PERIOD_NUMBER\" as \"PERIOD_NUMBER\",\n          \"SEGMENT_NAME\"\
+  \ as \"SEGMENT_NAME\",\n          \"SEGMENT_ID\" as \"SEGMENT_ID\",\n          \"\
+  GROUP\" as \"GROUP\",\n          \"DOWNLOADS\" as \"DOWNLOADS\"\n   FROM \"RDS\"\
+  .\"ADOBE_ANALYTICS\".\"CUSTOMER_SUCCESS\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,56 @@
+name: table_866
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_866
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_866.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DITOPIC3(\n\tU_SEGMENT,\n\tSYS_UPDATED_ON,\n\
+  \tNAME,\n\tSYS_ID,\n\tSYS_TAGS,\n\tACTIVE,\n\tSYS_MOD_COUNT,\n\tU_CATEGORY,\n\t\
+  PARENT,\n\tSYS_CREATED_BY,\n\tSYS_UPDATED_BY,\n\tSYS_CREATED_ON,\n\tU_RISK\n) as\n\
+  select\n    JSON_PAYLOAD:\"u_segment\"::STRING as u_segment,\nJSON_PAYLOAD:\"sys_updated_on\"\
+  ::STRING as sys_updated_on,\nJSON_PAYLOAD:\"name\"::STRING as name,\nJSON_PAYLOAD:\"\
+  sys_id\"::STRING as sys_id,\nJSON_PAYLOAD:\"sys_tags\"::STRING as sys_tags,\nJSON_PAYLOAD:\"\
+  active\"::BOOLEAN as active,\nJSON_PAYLOAD:\"sys_mod_count\"::STRING as sys_mod_count,\n\
+  JSON_PAYLOAD:\"u_category\"::STRING as u_category,\nJSON_PAYLOAD:\"parent\"::STRING\
+  \ as parent,\nJSON_PAYLOAD:\"sys_created_by\"::STRING as sys_created_by,\nJSON_PAYLOAD:\"\
+  sys_updated_by\"::STRING as sys_updated_by,\nJSON_PAYLOAD:\"sys_created_on\"::STRING\
+  \ as sys_created_on,\nJSON_PAYLOAD:\"u_risk\"::STRING as u_risk\nfrom RDS.POC_HERMES.SNC_SURFQAREG2_SN_STREAMCONNECT_DITOPIC3;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

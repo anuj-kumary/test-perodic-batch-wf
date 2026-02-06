@@ -1,0 +1,57 @@
+name: table_848
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_848
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_848.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPO_BACKLOG_ADJ(\n\t\"SalesOrg\",\n\t\"\
+  SubsPSTraining\",\n\t\"POBName\",\n\t\"EndUserName\",\n\t\"Item\",\n\t\"SalesDocument\"\
+  ,\n\t\"RAContract\",\n\t\"POBId\",\n\t\"STWaterfallAdj\",\n\t\"WaterfallAdj\",\n\
+  \t\"Notes\",\n\t\"ReportingMonth\",\n\t\"Amount\",\n\t\"AdjFlag\",\n\t\"SnapshotDate\"\
+  \n) as\n\tselect\n\"Sales Org\" as \"SalesOrg\",\n\"Subs/PS/Training\" as \"SubsPSTraining\"\
+  ,\nUPPER(\"POB Name\") as \"POB ame\",\n\"End User Name\" as \"EndUserName\",\n\"\
+  Item\" as \"Item\",\nLTRIM(\"Sales Document\",'random') as \"SalesDocument\",\n\"\
+  RA Contract\" as \"RAContract\",\nLTRIM(\"POB Id\",'random') as \"POBId\",\n\"ST\
+  \ Waterfall Adj\" as \"STWaterfallAdj\",\n\"Waterfall Adj\" as \"WaterfallAdj\"\
+  ,\n\"Notes\" as \"Notes\",\n\"Reporting Month\"  as \"ReportingMonth\" ,\n\"Amount\"\
+  \ as \"Amount\",\n'random' as \"AdjFlag\",\n\n\"Snapshot Date\"  as \"SnapshotDate\"\
+  \n\n\tfrom RDS.FLATFILESOURCE.RPO_BACKLOG_TRANSPOSE_ADJ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

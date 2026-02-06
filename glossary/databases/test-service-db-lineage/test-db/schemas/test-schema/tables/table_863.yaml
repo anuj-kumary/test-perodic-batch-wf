@@ -1,0 +1,67 @@
+name: table_863
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_863
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_863.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_SALES_PROGRAM_MAPPING(\n\t\"SPMPspPerUpdateDate\"\
+  ,\n\t\"SPMsysTags\",\n\t\"SPMSysID\",\n\t\"SPMPspPerInsertDate\",\n\t\"SPMSysCreatedBy\"\
+  ,\n\t\"SPMSysUpdatedOn\",\n\t\"SPMAcctSysID\",\n\t\"SPMAcctProgram\",\n\t\"SPMSysModCount\"\
+  ,\n\t\"SPMPspPerdeleteDate\",\n\t\"SPMActive\",\n\t\"SPMSysUpdatedBy\",\n\t\"SPMProgram\"\
+  ,\n\t\"SPMStartDate\",\n\t\"SPMEndDate\",\n\t\"SPMSysCreatedOn\",\n\t\"SPMAccountName\"\
+  ,\n\t\"SPMTopAccount\",\n\t\"SPMProgramTier\",\n\t\"SPMVirtualAccount\",\n\t\"SPMTopID\"\
+  ,\n\t\"SPMDynamicsGUID\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"PSP_PER_UPDATE_DT\"\
+  \ as \"SPMPspPerUpdateDate\",\n       \"SYS_TAGS\" as \"SPMsysTags\",\n       \"\
+  SYS_ID\" as \"SPMSysID\",\n       \"PSP_PER_INSERT_DT\" as \"SPMPspPerInsertDate\"\
+  ,\n       \"SYS_CREATED_BY\" as \"SPMSysCreatedBy\",\n       \"SYS_UPDATED_ON\"\
+  \ as \"SPMSysUpdatedOn\",\n       \"U_ACCOUNT\" as \"SPMAcctSysID\",\n       \"\
+  U_PROGRAM\" as \"SPMAcctProgram\",\n       \"SYS_MOD_COUNT\" as \"SPMSysModCount\"\
+  ,\n       \"PSP_PER_DELETE_DT\" as \"SPMPspPerdeleteDate\",\n       \"U_ACTIVE\"\
+  \ as \"SPMActive\",\n       \"SYS_UPDATED_BY\" as \"SPMSysUpdatedBy\",\n       \"\
+  DV_U_PROGRAM\" as \"SPMProgram\",\n       \"U_START_DATE\" as \"SPMStartDate\",\n\
+  \       \"U_END_DATE\" as \"SPMEndDate\",\n       \"SYS_CREATED_ON\" as \"SPMSysCreatedOn\"\
+  ,\n       \"DV_U_ACCOUNT\" as \"SPMAccountName\",\n       \"DV_U_VIRTUAL_ACCOUNT\"\
+  \ as \"SPMTopAccount\",\n       \"DV_U_PROGRAM_TIER\" as \"SPMProgramTier\",\n \
+  \      \"U_VIRTUAL_ACCOUNT\" as \"SPMVirtualAccount\",\n       \"U_TOP_ID\" as \"\
+  SPMTopID\",\n       \"U_DYNAMICS_GUID\" as \"SPMDynamicsGUID\"\nFROM --\"RDS\".\"\
+  SURF\".\"U_SALES_PROGRAM_MAPPING\"\n   RDS_SHARE.\"SURF\".\"U_SALES_PROGRAM_MAPPING\"\
+  \n   ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

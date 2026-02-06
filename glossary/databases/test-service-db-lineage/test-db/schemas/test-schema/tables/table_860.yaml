@@ -1,0 +1,68 @@
+name: table_860
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_860
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_860.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DITOPIC3_SALES_INDUSTRY(\n\tDV_NAME,\n\t\
+  DV_PARENT,\n\tDV_SYS_CREATED_BY,\n\tDV_SYS_MOD_COUNT,\n\tDV_SYS_TAGS,\n\tDV_U_CATEGORY,\n\
+  \tSYS_CREATED_ON,\n\tU_RISK,\n\tSYS_ID,\n\tSYS_TAGS,\n\tU_SEGMENT,\n\tACTIVE,\n\t\
+  DV_ACTIVE,\n\tDV_SYS_CREATED_ON,\n\tDV_SYS_ID,\n\tDV_SYS_UPDATED_BY,\n\tDV_SYS_UPDATED_ON,\n\
+  \tDV_U_RISK,\n\tDV_U_SEGMENT,\n\tNAME,\n\tPARENT,\n\tSYS_CREATED_BY,\n\tSYS_MOD_COUNT,\n\
+  \tSYS_UPDATED_ON,\n\tSYS_UPDATED_BY,\n\tU_CATEGORY\n) as\nselect\n    JSON_PAYLOAD:\"\
+  dv_name\"::STRING as dv_name,\nJSON_PAYLOAD:\"dv_parent\"::STRING as dv_parent,\n\
+  JSON_PAYLOAD:\"dv_sys_created_by\"::STRING as dv_sys_created_by,\nJSON_PAYLOAD:\"\
+  dv_sys_mod_count\"::STRING as dv_sys_mod_count,\nJSON_PAYLOAD:\"dv_sys_tags\"::STRING\
+  \ as dv_sys_tags,\nJSON_PAYLOAD:\"dv_u_category\"::STRING as dv_u_category,\nJSON_PAYLOAD:\"\
+  sys_created_on\"::STRING as sys_created_on,\nJSON_PAYLOAD:\"u_risk\"::STRING as\
+  \ u_risk,\nJSON_PAYLOAD:\"sys_id\"::STRING as sys_id,\nJSON_PAYLOAD:\"sys_tags\"\
+  ::STRING as sys_tags,\nJSON_PAYLOAD:\"u_segment\"::STRING as u_segment,\nJSON_PAYLOAD:\"\
+  active\"::BOOLEAN as active,\nJSON_PAYLOAD:\"dv_active\"::STRING as dv_active,\n\
+  JSON_PAYLOAD:\"dv_sys_created_on\"::STRING as dv_sys_created_on,\nJSON_PAYLOAD:\"\
+  dv_sys_id\"::STRING as dv_sys_id,\nJSON_PAYLOAD:\"dv_sys_updated_by\"::STRING as\
+  \ dv_sys_updated_by,\nJSON_PAYLOAD:\"dv_sys_updated_on\"::STRING as dv_sys_updated_on,\n\
+  JSON_PAYLOAD:\"dv_u_risk\"::STRING as dv_u_risk,\nJSON_PAYLOAD:\"dv_u_segment\"\
+  ::STRING as dv_u_segment,\nJSON_PAYLOAD:\"name\"::STRING as name,\nJSON_PAYLOAD:\"\
+  parent\"::STRING as parent,\nJSON_PAYLOAD:\"sys_created_by\"::STRING as sys_created_by,\n\
+  JSON_PAYLOAD:\"sys_mod_count\"::STRING as sys_mod_count,\nJSON_PAYLOAD:\"sys_updated_on\"\
+  ::STRING as sys_updated_on,\nJSON_PAYLOAD:\"sys_updated_by\"::STRING as sys_updated_by,\n\
+  JSON_PAYLOAD:\"u_category\"::STRING as u_category\nfrom RDS.POC_HERMES.SNC_SURFQAREG2_SN_STREAMCONNECT_DITOPIC3_SALES_INDUSTRY;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

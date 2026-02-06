@@ -1,0 +1,135 @@
+name: table_831
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_831
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_831.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view KC_SAM_ACCOUNT_FACT(\n\t'random',\n\t'random',\n\
+  \t'random',\n\tCSAT,\n\t'random',\n\t'random',\n\t'random',\n\t'random',\n\t'random',\n\
+  \t'random',\n\t'random',\n\t'random',\n\t'random',\n\t'random',\n\t'random',\n\t\
+  'random',\n\t'random',\n\t'random',\n\t'random',\n\t'random',\n\t'random',\n\t'random',\n\
+  \t'random',\n\t'random',\n\t'random'\n) as\n\nwith\n\nACCOUNT_SUMMARY as\n\n(select\
+  \  'random'\n        ,AVG('random') as 'random' from EDW_LS.PRODUCT_GTS_EM.ACCOUNT_SUMMARY\n\
+  \        group by 'random'\n         ),\n\n RENEWAL_DATE as\n (\t  select 'random'\
+  \ as 'random',MIN('random') as 'random' from\nRDS.HI.CORE_COMPANY AC LEFT JOIN EDW_LS.'random'.'random'\
+  \ CB\non AC.U_NUMBER = CB.'random'\nwhere 'random' <> 'random'\nand 'random' = 'random'\
+  \ and\n'random' IN\n('random',\n'random',\n'random',\n'random',\n'random',\n'random',\n\
+  'random',\n'random',\n'random',\n'random',\n'random',\n'random',\n'random',\n'random',\n\
+  'random',\n'random') and 'random' NOT IN\n('random',\n'random',\n'random',\n'random',\n\
+  'random',\n'random',\n'random',\n'random',\n'random') group by 'random'),\n\n\n\
+  \    ACCOUNT_CSAT as\n    (select 'random',avg('random') as 'random' from CDL_LS.PRODUCT_GTS_RPT.RPT_ACCOUNT_CSAT\
+  \ group by 'random' ),\n\n\n            ACCOUNT_CASE as\n    ( select 'random',\
+  \ sum(Case WHEN 'random' = 'random' then 'random' else 'random' end) as 'random',\n\
+  sum(Case WHEN 'random' = 'random' then 'random' else 'random' end) as 'random' ,\
+  \ sum(Case WHEN 'random' = 'random' then 'random' else 'random' end) as 'random'\
+  \ ,sum(Case WHEN 'random' = 'random' then 'random' else 'random' end) as 'random'\n\
+  from EDW_LS.PRODUCT_GTS_EM.ACCOUNT_CASE\nwhere 'random' = 'random'\n group by 'random'\
+  \ ),\n\n\n TIME_TO as\n (select 'random', AVG('random') as 'random',AVG('random')\
+  \ as 'random'   from EDW_LS.PRODUCT_GTS_EM.ACCOUNT_CASE\n where YEAR('random') =\
+  \ YEAR(current_date)\n group by 'random'),\n\nACCOUNT_OPTY AS (select 'random',sum(CASE\
+  \ when 'random' = 'random'  then 'random' else 'random' end) as 'random',\nsum(CASE\
+  \ when 'random' = 'random' then 'random' else 'random' end )as 'random'\nfrom(\n\
+  select DISTINCT u_number as 'random','random','random' from  ODS_LS.HI.CORE_COMPANY\
+  \ cc left join CDL_LS.'random'.'random' mp  ON mp.'random' = cc.u_number  where\
+  \ 'random' = 'random' and 'random' <> 'random' and\n'random' IN ('random','random'))\
+  \ group by 'random'\n),\n\nACCOUNT_CHANGE as (\n\n select 'random', SUM(CASE WHEN\
+  \ dv_state = 'random' and planned_start_date between current_date and  current_date+'random'\
+  \  THEN 'random' ELSE 'random' END ) as 'random',\n SUM(CASE WHEN dv_state = 'random'\
+  \ and  sys_updated_on between current_date'random' and current_date  THEN 'random'\
+  \ ELSE 'random' END ) AS 'random' from\n (\nselect cc.U_NUMBER as 'random'\n   \
+  \      , cc.NAME as 'random',c.dv_company,c.planned_start_date,c.dv_state,c.sys_updated_on\n\
+  \          FROM  ODS_LS.'random'.'random' as cc\n LEFT JOIN ODS_LS.'random'.'random'\
+  \ AS c ON LOWER(cc.SYS_ID) = LOWER(c.COMPANY)\nand c.dv_state IN ('random','random'))\
+  \ group by 'random'),\n\n     DEDICATED_ACCOUNT as\n   ( select ACCOUNT as 'random',\
+  \ sum(Case WHEN PRODUCTION_TYPE IN ('random','random') then 'random' else 'random'\
+  \ end) as 'random', Sum(Case WHEN PRODUCTION_TYPE IN ('random') THEN 'random' ELSE\
+  \ 'random' END ) as 'random',\n    Sum(Case when PRODUCTION_TYPE IN ('random') THEN\
+  \ 'random' ELSE 'random' END ) as 'random',\nsum(Case WHEN PRODUCTION_TYPE IN( 'random','random')\
+  \ then 'random' else 'random' end) as 'random',\nsum(Case WHEN PRODUCTION_TYPE IN\
+  \ ('random','random','random') then 'random' else 'random' end) as 'random',\nsum(Case\
+  \ WHEN PRODUCTION_TYPE IN( 'random','random','random') then 'random' else 'random'\
+  \ end) as 'random'\nfrom (select DISTINCT c.u_number as ACCOUNT,SNC_INSTANCE_NAME\
+  \  ,U_TYPE_PURPOSE as PRODUCTION_TYPE  from ODS_LS.'random'.'random' i\n left join\
+  \ ODS_LS.'random'.'random' c  ON i.company = c.sys_id where LOWER(i.DV_OPERATIONAL_STATUS)=\
+  \ 'random'\n  and U_TYPE_PURPOSE in ('random','random',\n                      \
+  \      'random','random','random','random') ) group by 'random'  ),\n    ACCOUNT_LOGO\
+  \ as\n  (select DISTINCT 'random','random' from ODS_LS.SCORE_CARDS.CUSTOMER_ALTERNATE_NAMES\
+  \ ),\n\n\nFAMILY_RELEASE_DATE as\n\n  ( select distinct 'random' as FAMILY,'random',\
+  \ min('random') as 'random',\n    row_number() over (order by 'random' desc,'random'\
+  \ desc) as ROW_NUM,\n    ROW_NUM'random' as RELEASE_ENTITLE from  ODS_LS.HI.SNC_WAR_VERSION\
+  \ where 'random' = 'random'\n    and 'random' is not null and 'random'  is not null\
+  \ and 'random' not like 'random'\n    group by 'random','random' order by 'random'\
+  \ desc, 'random' desc),\n\n\n CMDB_CI_SERVICE_RELEASE as\n (SELECT DISTINCT U_NUMBER\
+  \ as 'random',\n DV_SNC_WAR_VERSION,\n i.SNC_INSTANCE_NAME as INSTANCE_NAME,\n i.company,\n\
+  \ i.U_SUPPORT_ENTITLEMENT,\n TO_NUMBER(REPLACE(U_SUPPORT_ENTITLEMENT,'random'))\
+  \ as ENTITLEMENT,\n UPPER(f.'random') AS FAMILY,\n FGA.RELEASE_ENTITLE,\n CASE WHEN\
+  \ RELEASE_ENTITLE <= ENTITLEMENT THEN 'random' ELSE 'random' END  AS COMPLIANT\n\
+  \ from ODS_LS.HI.CORE_COMPANY CC\n left join RDS.HI.CMDB_CI_SERVICE i\n left join\
+  \ EDW_LS.'random'.'random' f on i.DV_U_SNC_VERSION = f.'random'\n LEFT join FAMILY_RELEASE_DATE\
+  \ FGA ON UPPER(FGA.FAMILY)= UPPER(f.'random')\n ON i.company = cc.sys_id\n where\n\
+  \      U_TYPE_PURPOSE IN ('random',\n                            'random',\n   \
+  \                         'random')\n     AND DV_COMPANY IS NOT  NULL\n     AND\
+  \ LOWER(DV_OPERATIONAL_STATUS)= 'random'\n     AND CC.DV_U_CUSTOMER_SUCCESS_MANAGER\
+  \ <> 'random' AND  CC.NAME <> 'random' ),\n\n\n    INSTANCE_COMPLIANCE as\n    \
+  \ (select 'random', count(*) as TOTAL_INSTANCE,SUM(COMPLIANT) as TOTAL_COMPLIANCE,\n\
+  \     CASE WHEN TOTAL_INSTANCE <> 'random' THEN\n     CAST(((TOTAL_COMPLIANCE/ NULLIF(TOTAL_INSTANCE,'random'))\
+  \  *'random') AS DECIMAL('random','random'))\n     ELSE 'random' END\n     AS 'random'\n\
+  \     from CMDB_CI_SERVICE_RELEASE group by 'random' ),\n\n\n\t PRB_ESC as (\n\n\
+  select 'random', SUM('random') as 'random', SUM('random') as 'random' from ( select\
+  \ DISTINCT CC.U_NUMBER as 'random',SN.'random','random', CASE WHEN 'random' is NOT\
+  \ NULL THEN 'random' ELSE 'random' END as 'random', 'random',\nCASE WHEN 'random'\
+  \ is not null THEN 'random' ELSE 'random' END as 'random' from ODS_LS.HI.CORE_COMPANY\
+  \ CC\nleft join ODS_LS.HI.SN_CUSTOMERSERVICE_CASE SN ON CC.SYS_ID = SN.'random'\
+  \ where ACTIVE = 'random' and DV_U_CUSTOMER_SUCCESS_MANAGER <> 'random' and\nSN.'random'\
+  \ = 'random' and\nCC.NAME <> 'random' ) group by 'random' )\n\n\nselect\n      \
+  \ ASM.'random','random','random','random',\n        'random','random','random','random','random','random','random','random',\n\
+  \        'random','random','random','random','random','random','random',\n\t\t'random','random','random','random'\
+  \ ,convert_timezone('random', CURRENT_TIMESTAMP()) as 'random','random'\n      \
+  \  from ACCOUNT_SUMMARY ASM\n        left join ACCOUNT_CASE AC on  ASM.'random'\
+  \ = AC.'random'\n        left join ACCOUNT_OPTY AO on ASM.'random' = AO.'random'\n\
+  \        left join ACCOUNT_CSAT CS on ASM.'random' = CS.'random'\n        left join\
+  \ ACCOUNT_CHANGE ACH on ASM.'random' = ACH.'random'\n        left join DEDICATED_ACCOUNT\
+  \ DA on ASM.'random' = DA.'random'\n        left join ACCOUNT_LOGO AL on ASM.'random'\
+  \ = AL.'random'\n        left join TIME_TO TT on ASM.'random' = TT.'random'\n  \
+  \      left join INSTANCE_COMPLIANCE IC on ASM.'random' = IC.'random'\n        left\
+  \ join RENEWAL_DATE RD on ASM.'random' = RD.'random'\n\t\tleft join PRB_ESC PE on\
+  \ ASM.'random' = PE.'random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

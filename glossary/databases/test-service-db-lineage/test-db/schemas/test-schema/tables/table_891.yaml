@@ -1,0 +1,154 @@
+name: table_891
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_891
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_891.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_QUOTE_DOCUMENTS(\n\tSYS_CREATED_BY,\n\t\
+  DV_STATE,\n\tU_DOCUMENT_COMPLETED_DATE,\n\tNUMBER,\n\tNAME,\n\tDV_TYPE,\n\tTYPE,\n\
+  \tDV_U_QUOTE,\n\tU_QUOTE,\n\tU_OPPORTUNITY,\n\tDV_U_STATUS,\n\tSYS_UPDATED_ON,\n\
+  \tSYS_ID,\n\tSYS_CREATED_ON,\n\tU_ACCOUNT,\n\tDV_U_ACCOUNT,\n\tDV_U_PRIMARY_REVISION,\n\
+  \tDV_U_DOCUMENT_TEMPLATE,\n\t\"QuoteDocContractType\",\n\t\"QuoteDocContractNumber\"\
+  ,\n\t\"QuoteNumber\",\n\t\"QuoteSysID\",\n\t\"QuoteIcertisEntityName\",\n\t\"QuoteAgreementLink\"\
+  ,\n\t\"QuoteAgreementURL\",\n\t\"QuoteParentAgreementNumber\",\n\t\"QuoteDocSource\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\"\
+  ,\n       \"DV_STATE\" as \"DV_STATE\",\n       \"U_DOCUMENT_COMPLETED_DATE\" as\
+  \ \"U_DOCUMENT_COMPLETED_DATE\",\n       \"NUMBER\" as \"NUMBER\",\n       \"NAME\"\
+  \ as \"NAME\",\n       \"DV_TYPE\" as \"DV_TYPE\",\n       \"TYPE\" as \"TYPE\"\
+  ,\n       \"DV_U_QUOTE\" as \"DV_U_QUOTE\",\n       \"U_QUOTE\" as \"U_QUOTE\",\n\
+  \       \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n       \"DV_U_STATUS\" as \"DV_U_STATUS\"\
+  ,\n       \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n       \"SYS_ID\" as \"SYS_ID\"\
+  ,\n       \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n       \"U_ACCOUNT\" as \"\
+  U_ACCOUNT\",\n       \"DV_U_ACCOUNT\" as \"DV_U_ACCOUNT\",\n       \"DV_U_PRIMARY_REVISION\"\
+  \ as \"DV_U_PRIMARY_REVISION\",\n       \"DV_U_DOCUMENT_TEMPLATE\" as \"DV_U_DOCUMENT_TEMPLATE\"\
+  ,\n       \"DV_U_CONTRACT_TYPE\" as \"QuoteDocContractType\",\n       \"DV_U_CONTRACT\"\
+  \ as \"QuoteDocContractNumber\",\n       \"NUMBER_1\" as \"QuoteNumber\",\n    \
+  \   \"SYS_ID_1\" as \"QuoteSysID\",\n       \"SN_ICERTIS_ENTITY_NAME\" as \"QuoteIcertisEntityName\"\
+  ,\n       \"SN_AGREEMENT_LINK\" as \"QuoteAgreementLink\",\n       \"SN_AGREEMENT_URL\"\
+  \ as \"QuoteAgreementURL\",\n       \"SN_PARENT_AGREEMENT_NUMBER\" as \"QuoteParentAgreementNumber\"\
+  ,\n       \"QuoteDocSource\" as \"QuoteDocSource\"\nFROM\n  (SELECT *\n   FROM\n\
+  \     (SELECT \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n             \"DV_STATE\"\
+  \ as \"DV_STATE\",\n             \"U_DOCUMENT_COMPLETED_DATE\" as \"U_DOCUMENT_COMPLETED_DATE\"\
+  ,\n             \"NUMBER\" as \"NUMBER\",\n             \"NAME\" as \"NAME\",\n\
+  \             \"DV_TYPE\" as \"DV_TYPE\",\n             \"TYPE\" as \"TYPE\",\n\
+  \             \"DV_U_QUOTE\" as \"DV_U_QUOTE\",\n             \"U_QUOTE\" as \"\
+  U_QUOTE\",\n             \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n             \"\
+  DV_U_STATUS\" as \"DV_U_STATUS\",\n             \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  ,\n             \"SYS_ID\" as \"SYS_ID\",\n             \"SYS_CREATED_ON\" as \"\
+  SYS_CREATED_ON\",\n             \"U_ACCOUNT\" as \"U_ACCOUNT\",\n             \"\
+  DV_U_ACCOUNT\" as \"DV_U_ACCOUNT\",\n             \"DV_U_PRIMARY_REVISION\" as \"\
+  DV_U_PRIMARY_REVISION\",\n             \"DV_U_DOCUMENT_TEMPLATE\" as \"DV_U_DOCUMENT_TEMPLATE\"\
+  ,\n             \"DV_U_CONTRACT_TYPE\" as \"DV_U_CONTRACT_TYPE\",\n            \
+  \ \"DV_U_CONTRACT\" as \"DV_U_CONTRACT\",\n             \"NUMBER_1\" as \"NUMBER_1\"\
+  ,\n             \"SYS_ID_1\" as \"SYS_ID_1\",\n             'random' as \"SN_ICERTIS_ENTITY_NAME\"\
+  ,\n             'random' as \"SN_AGREEMENT_LINK\",\n             'random' as \"\
+  SN_AGREEMENT_URL\",\n             'random' as \"SN_PARENT_AGREEMENT_NUMBER\",\n\
+  \             \"QuoteDocSource\" as \"QuoteDocSource\"\n      FROM\n        (SELECT\
+  \ \"Projection_1\".\"DV_U_DOCUMENT_TEMPLATE\" as \"DV_U_DOCUMENT_TEMPLATE\",\n \
+  \               \"Projection_1\".\"DV_U_PRIMARY_REVISION\" as \"DV_U_PRIMARY_REVISION\"\
+  ,\n                \"Projection_1\".\"DV_U_ACCOUNT\" as \"DV_U_ACCOUNT\",\n    \
+  \            \"Projection_1\".\"U_ACCOUNT\" as \"U_ACCOUNT\",\n                \"\
+  Projection_1\".\"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n                \"Projection_1\"\
+  .\"SYS_ID\" as \"SYS_ID\",\n                \"Projection_1\".\"SYS_UPDATED_ON\"\
+  \ as \"SYS_UPDATED_ON\",\n                \"Projection_1\".\"DV_U_STATUS\" as \"\
+  DV_U_STATUS\",\n                \"Projection_1\".\"U_OPPORTUNITY\" as \"U_OPPORTUNITY\"\
+  ,\n                \"Projection_1\".\"U_QUOTE\" as \"U_QUOTE\",\n              \
+  \  \"Projection_1\".\"DV_U_QUOTE\" as \"DV_U_QUOTE\",\n                \"Projection_1\"\
+  .\"TYPE\" as \"TYPE\",\n                \"Projection_1\".\"DV_TYPE\" as \"DV_TYPE\"\
+  ,\n                \"Projection_1\".\"NAME\" as \"NAME\",\n                \"Projection_1\"\
+  .\"NUMBER\" as \"NUMBER\",\n                \"Projection_1\".\"U_DOCUMENT_COMPLETED_DATE\"\
+  \ as \"U_DOCUMENT_COMPLETED_DATE\",\n                \"Projection_1\".\"DV_STATE\"\
+  \ as \"DV_STATE\",\n                \"Projection_1\".\"SYS_CREATED_BY\" as \"SYS_CREATED_BY\"\
+  ,\n                \"Projection_2\".\"SYS_ID\" as \"SYS_ID_1\",\n              \
+  \  \"Projection_2\".\"NUMBER\" as \"NUMBER_1\",\n                \"Projection_2\"\
+  .\"DV_U_CONTRACT_TYPE\" as \"DV_U_CONTRACT_TYPE\",\n                \"Projection_2\"\
+  .\"DV_U_CONTRACT\" as \"DV_U_CONTRACT\",\n                \"Projection_2\".\"QuoteDocSource\"\
+  \ as \"QuoteDocSource\"\n         FROM\n           (SELECT \"SYS_ID\" as \"SYS_ID\"\
+  ,\n                   \"NUMBER\" as \"NUMBER\",\n                   \"DV_U_CONTRACT_TYPE\"\
+  \ as \"DV_U_CONTRACT_TYPE\",\n                   \"DV_U_CONTRACT\" as \"DV_U_CONTRACT\"\
+  ,\n                   'random' as \"QuoteDocSource\"\n            FROM \"RDS\".\"\
+  SURF\".\"SALES_QUOTE\")\"Projection_2\"\n         LEFT JOIN\n           (SELECT\
+  \ \"DV_U_DOCUMENT_TEMPLATE\" as \"DV_U_DOCUMENT_TEMPLATE\",\n                  \
+  \ \"DV_U_PRIMARY_REVISION\" as \"DV_U_PRIMARY_REVISION\",\n                   \"\
+  DV_U_ACCOUNT\" as \"DV_U_ACCOUNT\",\n                   \"U_ACCOUNT\" as \"U_ACCOUNT\"\
+  ,\n                   \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n              \
+  \     \"SYS_ID\" as \"SYS_ID\",\n                   \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  ,\n                   \"DV_U_STATUS\" as \"DV_U_STATUS\",\n                   \"\
+  U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n                   \"DV_U_QUOTE\" as \"DV_U_QUOTE\"\
+  ,\n                   \"U_QUOTE\" as \"U_QUOTE\",\n                   \"TYPE\" as\
+  \ \"TYPE\",\n                   \"DV_TYPE\" as \"DV_TYPE\",\n                  \
+  \ \"NAME\" as \"NAME\",\n                   \"NUMBER\" as \"NUMBER\",\n        \
+  \           \"U_DOCUMENT_COMPLETED_DATE\" as \"U_DOCUMENT_COMPLETED_DATE\",\n  \
+  \                 \"DV_STATE\" as \"DV_STATE\",\n                   \"SYS_CREATED_BY\"\
+  \ as \"SYS_CREATED_BY\"\n            FROM \"RDS\".\"SURF\".\"U_QUOTE_DOCUMENTS\"\
+  )\"Projection_1\" ON \"Projection_2\".\"SYS_ID\" = \"Projection_1\".\"U_QUOTE\"\
+  )\"Join_1\"\n      UNION ALL SELECT 'random' as \"SYS_CREATED_BY\",\n          \
+  \             'random' as \"DV_STATE\",\n                       'random' as \"U_DOCUMENT_COMPLETED_DATE\"\
+  ,\n                       'random' as \"NUMBER\",\n                       'random'\
+  \ as \"NAME\",\n                       'random' as \"DV_TYPE\",\n              \
+  \         'random' as \"TYPE\",\n                       'random' as \"DV_U_QUOTE\"\
+  ,\n                       'random' as \"U_QUOTE\",\n                       'random'\
+  \ as \"U_OPPORTUNITY\",\n                       \"SN_AGREEMENT_STATUS\" as \"DV_U_STATUS\"\
+  ,\n                       'random' as \"SYS_UPDATED_ON\",\n                    \
+  \   \"SN_AGREEMENT_GUID\" as \"SYS_ID\",\n                       'random' as \"\
+  SYS_CREATED_ON\",\n                       'random' as \"U_ACCOUNT\",\n         \
+  \              'random' as \"DV_U_ACCOUNT\",\n                       'random' as\
+  \ \"DV_U_PRIMARY_REVISION\",\n                       \"SN_RECORD_TYPE\" as \"DV_U_DOCUMENT_TEMPLATE\"\
+  ,\n                       \"SN_AGREEMENT_TYPE\" as \"DV_U_CONTRACT_TYPE\",\n   \
+  \                    \"SN_AGREEMENT_NUMBER\" as \"DV_U_CONTRACT\",\n           \
+  \            \"QUOTENUMBER\" as \"NUMBER_1\",\n                       \"QUOTENUMBER\"\
+  \ as \"SYS_ID_1\",\n                       \"SN_ICERTIS_ENTITY_NAME\" as \"SN_ICERTIS_ENTITY_NAME\"\
+  ,\n                       \"SN_AGREEMENT_LINK\" as \"SN_AGREEMENT_LINK\",\n    \
+  \                   \"SN_AGREEMENT_URL\" as \"SN_AGREEMENT_URL\",\n            \
+  \           \"SN_PARENT_AGREEMENT_NUMBER\" as \"SN_PARENT_AGREEMENT_NUMBER\",\n\
+  \                       \"QuoteDocSource\" as \"QuoteDocSource\"\n      FROM\n \
+  \       (SELECT \"QUOTENUMBER\" as \"QUOTENUMBER\",\n                \"SN_AGREEMENT_GUID\"\
+  \ as \"SN_AGREEMENT_GUID\",\n                \"SN_AGREEMENT_NUMBER\" as \"SN_AGREEMENT_NUMBER\"\
+  ,\n                \"SN_AGREEMENT_TYPE\" as \"SN_AGREEMENT_TYPE\",\n           \
+  \     \"SN_RECORD_TYPE\" as \"SN_RECORD_TYPE\",\n                \"SN_ICERTIS_ENTITY_NAME\"\
+  \ as \"SN_ICERTIS_ENTITY_NAME\",\n                \"SN_AGREEMENT_STATUS\" as \"\
+  SN_AGREEMENT_STATUS\",\n                \"SN_AGREEMENT_LINK\" as \"SN_AGREEMENT_LINK\"\
+  ,\n                \"SN_AGREEMENT_URL\" as \"SN_AGREEMENT_URL\",\n             \
+  \   \"SN_PARENT_AGREEMENT_NUMBER\" as \"SN_PARENT_AGREEMENT_NUMBER\",\n        \
+  \        \"ITEMSTATE\" as \"ITEMSTATE\",\n                'random' as \"QuoteDocSource\"\
+  \n         FROM \"RDS\".\"CALLIDUS\".\"AGREEMENTS\"\n         WHERE (\"ITEMSTATE\"\
+  \ ='random'\n                OR (\"ITEMSTATE\") IS NULL) )\"Projection_3\"))Union_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

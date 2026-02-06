@@ -1,0 +1,59 @@
+name: table_842
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_842
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_842.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DOCSITE_AD_HOC_ANALYSIS_DAILY_METRICS(\n\
+  \t\"DocSiteAdhocMetAvgPageDepth\",\n\t\"DocSiteAdhocMetAvgTimeSpentPerVisitTimeFormat\"\
+  ,\n\t\"DocSiteAdhocMetBounceRate\",\n\t\"DocSiteAdhocMetDimension\",\n\t\"DocSiteAdhocMetE120InternalSiteSearch\"\
+  ,\n\t\"DocSiteAdhocMetItem\",\n\t\"DocSiteAdhocMetPctOfVisitsWithSearch\",\n\t\"\
+  DocSiteAdhocMetSearchesPerVisit\",\n\t\"DocSiteAdhocMetUniqueVisitors\",\n\t\"DocSiteAdhocMetVisits\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"AVERAGE_PAGE_DEPTH\" as \"DocSiteAdhocMetAvgPageDepth\"\
+  ,\n       \"AVERAGE_TIME_SPENT_PER_VISIT_TIME_FORMAT\" as \"DocSiteAdhocMetAvgTimeSpentPerVisitTimeFormat\"\
+  ,\n       \"BOUNCE_RATE\" as \"DocSiteAdhocMetBounceRate\",\n       \"DIMENSION\"\
+  \ as \"DocSiteAdhocMetDimension\",\n       \"E120_INTERNAL_SITE_SEARCH\" as \"DocSiteAdhocMetE120InternalSiteSearch\"\
+  ,\n       \"ITEM\" as \"DocSiteAdhocMetItem\",\n       \"PCT_OF_VISITS_WITH_SEARCH\"\
+  \ as \"DocSiteAdhocMetPctOfVisitsWithSearch\",\n       \"SEARCHES_PER_VISIT\" as\
+  \ \"DocSiteAdhocMetSearchesPerVisit\",\n       \"UNIQUE_VISITORS\" as \"DocSiteAdhocMetUniqueVisitors\"\
+  ,\n       \"VISITS\" as \"DocSiteAdhocMetVisits\"\nFROM \"RDS\".\"ADOBE_ANALYTICS\"\
+  .\"DOCSITE_AD_HOC_ANALYSIS_DAILY_METRICS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
