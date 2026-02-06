@@ -1,0 +1,106 @@
+name: stackoverflow_looker_model_badges_view
+displayName: badges
+fullyQualifiedName: local_looker.model.stackoverflow_looker_model_badges_view
+owners: []
+dataProducts: []
+tags: []
+service:
+  id: 2701de85-0e6a-41ef-9f2a-80bff831017c
+  type: dashboardService
+  name: local_looker
+  fullyQualifiedName: local_looker
+  displayName: local_looker
+  deleted: false
+serviceType: Looker
+dataModelType: LookMlView
+sql: |
+  # The name of this view in Looker is "Badges"
+  view: badges {
+    # The sql_table_name parameter indicates the underlying database table
+    # to be used for all fields in this view.
+    sql_table_name: `stackoverflow.badges` ;;
+
+    # No primary key is defined for this view. In order to join this view in an Explore,
+    # define primary_key: yes on a dimension that has no repeated values.
+
+      # Here's what a typical dimension looks like in LookML.
+      # A dimension is a groupable field that can be used to filter query results.
+      # This dimension will be called "Class" in Explore.
+
+    dimension: class {
+      type: number
+      sql: ${TABLE}.class ;;
+    }
+    # Dates and timestamps can be represented in Looker using a dimension group of type: time.
+    # Looker converts dates and timestamps to the specified timeframes within the dimension group.
+
+    dimension_group: date {
+      type: time
+      timeframes: [raw, time, date, week, month, quarter, year]
+      sql: ${TABLE}.date ;;
+    }
+
+    dimension: id {
+      type: number
+      sql: ${TABLE}.id ;;
+    }
+
+    dimension: name {
+      type: string
+      sql: ${TABLE}.name ;;
+    }
+
+    dimension: tag_based {
+      type: yesno
+      sql: ${TABLE}.tag_based ;;
+    }
+
+    dimension: user_id {
+      type: number
+      sql: ${TABLE}.user_id ;;
+    }
+    measure: count {
+      type: count
+      drill_fields: [name]
+    }
+  }
+columns:
+  - name: class
+    dataType: NUMBER
+    dataTypeDisplay: number
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_badges_view.class
+    tags: []
+    children: []
+  - name: id
+    dataType: NUMBER
+    dataTypeDisplay: number
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_badges_view.id
+    tags: []
+    children: []
+  - name: name
+    dataType: STRING
+    dataTypeDisplay: string
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_badges_view.name
+    tags: []
+    children: []
+  - name: tag_based
+    dataType: BOOLEAN
+    dataTypeDisplay: yesno
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_badges_view.tag_based
+    tags: []
+    children: []
+  - name: user_id
+    dataType: NUMBER
+    dataTypeDisplay: number
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_badges_view.user_id
+    tags: []
+    children: []
+  - name: count
+    dataType: NUMBER
+    dataTypeDisplay: count
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_badges_view.count
+    tags: []
+    children: []
+project: new_look
+domains: []
+entityStatus: Unprocessed

@@ -1,0 +1,178 @@
+name: stackoverflow_looker_model_users_view
+displayName: users
+fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view
+owners: []
+dataProducts: []
+tags: []
+service:
+  id: 2701de85-0e6a-41ef-9f2a-80bff831017c
+  type: dashboardService
+  name: local_looker
+  fullyQualifiedName: local_looker
+  displayName: local_looker
+  deleted: false
+serviceType: Looker
+dataModelType: LookMlView
+sql: |
+  # The name of this view in Looker is "Users"
+  view: users {
+    # The sql_table_name parameter indicates the underlying database table
+    # to be used for all fields in this view.
+    sql_table_name: `stackoverflow.users` ;;
+
+    # No primary key is defined for this view. In order to join this view in an Explore,
+    # define primary_key: yes on a dimension that has no repeated values.
+
+      # Here's what a typical dimension looks like in LookML.
+      # A dimension is a groupable field that can be used to filter query results.
+      # This dimension will be called "About Me" in Explore.
+
+    dimension: about_me {
+      type: string
+      sql: ${TABLE}.about_me ;;
+    }
+
+    dimension: age {
+      type: string
+      sql: ${TABLE}.age ;;
+    }
+    # Dates and timestamps can be represented in Looker using a dimension group of type: time.
+    # Looker converts dates and timestamps to the specified timeframes within the dimension group.
+
+    dimension_group: creation {
+      type: time
+      timeframes: [raw, time, date, week, month, quarter, year]
+      sql: ${TABLE}.creation_date ;;
+    }
+
+    dimension: display_name {
+      type: string
+      sql: ${TABLE}.display_name ;;
+    }
+
+    dimension: down_votes {
+      type: number
+      sql: ${TABLE}.down_votes ;;
+    }
+
+    dimension: id {
+      type: number
+      sql: ${TABLE}.id ;;
+    }
+
+    dimension_group: last_access {
+      type: time
+      timeframes: [raw, time, date, week, month, quarter, year]
+      sql: ${TABLE}.last_access_date ;;
+    }
+
+    dimension: location {
+      type: string
+      sql: ${TABLE}.location ;;
+    }
+
+    dimension: profile_image_url {
+      type: string
+      sql: ${TABLE}.profile_image_url ;;
+    }
+
+    dimension: reputation {
+      type: number
+      sql: ${TABLE}.reputation ;;
+    }
+
+    dimension: up_votes {
+      type: number
+      sql: ${TABLE}.up_votes ;;
+    }
+
+    dimension: views {
+      type: number
+      sql: ${TABLE}.views ;;
+    }
+
+    dimension: website_url {
+      type: string
+      sql: ${TABLE}.website_url ;;
+    }
+    measure: count {
+      type: count
+      drill_fields: [display_name]
+    }
+  }
+columns:
+  - name: about_me
+    dataType: STRING
+    dataTypeDisplay: string
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.about_me
+    tags: []
+    children: []
+  - name: age
+    dataType: STRING
+    dataTypeDisplay: string
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.age
+    tags: []
+    children: []
+  - name: display_name
+    dataType: STRING
+    dataTypeDisplay: string
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.display_name
+    tags: []
+    children: []
+  - name: down_votes
+    dataType: NUMBER
+    dataTypeDisplay: number
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.down_votes
+    tags: []
+    children: []
+  - name: id
+    dataType: NUMBER
+    dataTypeDisplay: number
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.id
+    tags: []
+    children: []
+  - name: location
+    dataType: STRING
+    dataTypeDisplay: string
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.location
+    tags: []
+    children: []
+  - name: profile_image_url
+    dataType: STRING
+    dataTypeDisplay: string
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.profile_image_url
+    tags: []
+    children: []
+  - name: reputation
+    dataType: NUMBER
+    dataTypeDisplay: number
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.reputation
+    tags: []
+    children: []
+  - name: up_votes
+    dataType: NUMBER
+    dataTypeDisplay: number
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.up_votes
+    tags: []
+    children: []
+  - name: views
+    dataType: NUMBER
+    dataTypeDisplay: number
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.views
+    tags: []
+    children: []
+  - name: website_url
+    dataType: STRING
+    dataTypeDisplay: string
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.website_url
+    tags: []
+    children: []
+  - name: count
+    dataType: NUMBER
+    dataTypeDisplay: count
+    fullyQualifiedName: local_looker.model.stackoverflow_looker_model_users_view.count
+    tags: []
+    children: []
+project: new_look
+domains: []
+entityStatus: Unprocessed

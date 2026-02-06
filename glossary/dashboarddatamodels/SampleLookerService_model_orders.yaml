@@ -1,0 +1,74 @@
+name: orders
+displayName: Orders
+fullyQualifiedName: SampleLookerService.model.orders
+description: Orders explore from Sample Data
+owners: []
+dataProducts: []
+tags: []
+service:
+  id: e5a46435-15e0-4b01-897a-1bc38d5f74e3
+  type: dashboardService
+  name: SampleLookerService
+  fullyQualifiedName: SampleLookerService
+  displayName: SampleLookerService
+  deleted: false
+serviceType: Looker
+dataModelType: LookMlExplore
+sql: |-
+  view: orders {
+    sql_table_name: orders ;;
+
+    dimension: "1. Phase I" {
+      type: string
+      sql: ${TABLE}.status ;;
+    }
+
+    dimension: "4. Authorized" {
+      type: int
+      sql: ${TABLE}.amount ;;
+    }
+  }
+columns:
+  - name: 0. Pre-clinical
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Pre-clinical'"
+    fullyQualifiedName: SampleLookerService.model.orders."0. Pre-clinical"
+    tags: []
+    ordinalPosition: 1
+    children: []
+  - name: 2. Phase II or Combined I/II
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Phase II or Combined I/II'"
+    fullyQualifiedName: SampleLookerService.model.orders."2. Phase II or Combined
+      I/II"
+    tags: []
+    ordinalPosition: 2
+    children: []
+  - name: 1. Phase I
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Phase I'"
+    fullyQualifiedName: SampleLookerService.model.orders."1. Phase I"
+    tags: []
+    ordinalPosition: 3
+    children: []
+  - name: 3. Phase III
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Phase III'"
+    fullyQualifiedName: SampleLookerService.model.orders."3. Phase III"
+    tags: []
+    ordinalPosition: 4
+    children: []
+  - name: 4. Authorized
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Authorize'"
+    fullyQualifiedName: SampleLookerService.model.orders."4. Authorized"
+    tags: []
+    ordinalPosition: 5
+    children: []
+domains: []
+entityStatus: Unprocessed

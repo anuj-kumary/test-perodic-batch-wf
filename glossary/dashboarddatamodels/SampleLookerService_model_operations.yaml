@@ -1,0 +1,58 @@
+name: operations
+displayName: Operations
+fullyQualifiedName: SampleLookerService.model.operations
+description: Operations Explore from Sample Data
+owners: []
+dataProducts: []
+tags: []
+service:
+  id: e5a46435-15e0-4b01-897a-1bc38d5f74e3
+  type: dashboardService
+  name: SampleLookerService
+  fullyQualifiedName: SampleLookerService
+  displayName: SampleLookerService
+  deleted: false
+serviceType: Looker
+dataModelType: LookMlExplore
+sql: |-
+  view: operations {
+    sql_table_name: customers ;;
+
+    dimension: "country_name" {
+      type: string
+      sql: ${TABLE}.country ;;
+    }
+
+    dimension: "count" {
+      type: int
+      sql: ${TABLE}.amount ;;
+    }
+  }
+columns:
+  - name: country_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: varchar
+    description: Name of the country.
+    fullyQualifiedName: SampleLookerService.model.operations.country_name
+    tags: []
+    ordinalPosition: 1
+    children: []
+  - name: count
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: Total number of vaccine candidates per country.
+    fullyQualifiedName: SampleLookerService.model.operations.count
+    tags: []
+    ordinalPosition: 2
+    children: []
+  - name: COUNT(Country_Name)
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: Total number of vaccine candidates.
+    fullyQualifiedName: SampleLookerService.model.operations.COUNT(Country_Name)
+    tags: []
+    ordinalPosition: 3
+    children: []
+domains: []
+entityStatus: Unprocessed
