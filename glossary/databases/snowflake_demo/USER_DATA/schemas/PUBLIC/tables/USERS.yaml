@@ -1,0 +1,91 @@
+name: USERS
+fullyQualifiedName: snowflake_demo.USER_DATA.PUBLIC.USERS
+tableType: Regular
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snowflake_demo.USER_DATA.PUBLIC.USERS.ID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snowflake_demo.USER_DATA.PUBLIC.USERS.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EMAIL
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snowflake_demo.USER_DATA.PUBLIC.USERS.EMAIL
+    tags:
+      - tagFQN: SENSITIVE.Sensitive
+        name: Sensitive
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 394988e6-b6f1-4afe-852b-a279697ccf64
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: snowflake_demo.USER_DATA.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: e2b12c2e-01d2-4d43-90a4-049e47e73c61
+  type: database
+  name: USER_DATA
+  fullyQualifiedName: snowflake_demo.USER_DATA
+  displayName: USER_DATA
+  deleted: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo
+  description: Show me during the community meeting!
+  displayName: snowflake_demo
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace TABLE USERS (\n\tID NUMBER(38,0) NOT NULL autoincrement\
+  \ start 1 increment 1 noorder,\n\tNAME VARCHAR(16777216),\n\tEMAIL VARCHAR(16777216)\
+  \ WITH TAG (USER_DATA.PUBLIC.SENSITIVE='Sensitive'),\n\tprimary key (ID)\n);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: e9f91b578a599f9333c247764df36397
+      newValue: 140ea6d7e190e655d4dea0a90a034413
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/gwtbvpm/pg25341/#/data/databases/USER_DATA/schemas/PUBLIC/table/USERS
+domains: []
+dataProducts: []
+sourceHash: 140ea6d7e190e655d4dea0a90a034413
+processedLineage: false
+entityStatus: Approved

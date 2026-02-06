@@ -1,0 +1,169 @@
+name: SENSITIVE_CUSTOMERS
+fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.SENSITIVE_CUSTOMERS
+tableType: Regular
+columns:
+  - name: CUSTOMER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.SENSITIVE_CUSTOMERS.CUSTOMER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: USER_NAME
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: text(50)
+    fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.SENSITIVE_CUSTOMERS.USER_NAME
+    tags:
+      - tagFQN: PERSON.Person
+        name: Person
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: SENSITIVE.Sensitive
+        name: Sensitive
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SSN
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: text(50)
+    fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.SENSITIVE_CUSTOMERS.SSN
+    tags:
+      - tagFQN: NATIONALID.NationalID
+        name: NationalID
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: SENSITIVE.Sensitive
+        name: Sensitive
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ADDRESS
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: text(50)
+    fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.SENSITIVE_CUSTOMERS.ADDRESS
+    tags:
+      - tagFQN: ADDRESS.Address
+        name: Address
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: NONSENSITIVE.NonSensitive
+        name: NonSensitive
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: DWH_X10
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: text(50)
+    fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.SENSITIVE_CUSTOMERS.DWH_X10
+    tags:
+      - tagFQN: EMAIL.Email
+        name: Email
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: SENSITIVE.Sensitive
+        name: Sensitive
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f97e67e0-3503-4008-9303-6f88328e5732
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: ac0277e5-6eee-42ce-be70-3bbfaf21187b
+  type: database
+  name: USER_DATA_BKP
+  fullyQualifiedName: snowflake_demo.USER_DATA_BKP
+  displayName: USER_DATA_BKP
+  deleted: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo
+  description: Show me during the community meeting!
+  displayName: snowflake_demo
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace TABLE SENSITIVE_CUSTOMERS (\n\tCUSTOMER_ID NUMBER(38,0)\
+  \ autoincrement start 1 increment 1 noorder,\n\tUSER_NAME VARCHAR(50) WITH TAG (USER_DATA_BKP.PUBLIC.PERSON='Person',\
+  \ USER_DATA_BKP.PUBLIC.SENSITIVE='Sensitive'),\n\tSSN VARCHAR(50) WITH TAG (USER_DATA_BKP.PUBLIC.NATIONALID='NationalID',\
+  \ USER_DATA_BKP.PUBLIC.SENSITIVE='Sensitive'),\n\tADDRESS VARCHAR(50) WITH TAG (USER_DATA_BKP.PUBLIC.ADDRESS='Address',\
+  \ USER_DATA_BKP.PUBLIC.NONSENSITIVE='NonSensitive'),\n\tDWH_X10 VARCHAR(50) WITH\
+  \ TAG (USER_DATA_BKP.PUBLIC.EMAIL='Email', USER_DATA_BKP.PUBLIC.SENSITIVE='Sensitive')\n\
+  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: fbe2ce8ce8ac209278357d9731147019
+      newValue: 08b9d536bf9f7e7369c908834cfb8a43
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/gwtbvpm/pg25341/#/data/databases/USER_DATA_BKP/schemas/PUBLIC/table/SENSITIVE_CUSTOMERS
+domains: []
+dataProducts: []
+sourceHash: 08b9d536bf9f7e7369c908834cfb8a43
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,108 @@
+name: USERS
+fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.USERS
+tableType: Regular
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.USERS.ID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.USERS.NAME
+    tags:
+      - tagFQN: PERSON.Person
+        name: Person
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: SENSITIVE.Sensitive
+        name: Sensitive
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EMAIL
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC.USERS.EMAIL
+    tags:
+      - tagFQN: SENSITIVE.Sensitive
+        name: Sensitive
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f97e67e0-3503-4008-9303-6f88328e5732
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: snowflake_demo.USER_DATA_BKP.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: ac0277e5-6eee-42ce-be70-3bbfaf21187b
+  type: database
+  name: USER_DATA_BKP
+  fullyQualifiedName: snowflake_demo.USER_DATA_BKP
+  displayName: USER_DATA_BKP
+  deleted: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo
+  description: Show me during the community meeting!
+  displayName: snowflake_demo
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace TABLE USERS (\n\tID NUMBER(38,0) NOT NULL autoincrement\
+  \ start 1 increment 1 noorder,\n\tNAME VARCHAR(16777216) WITH TAG (USER_DATA_BKP.PUBLIC.PERSON='Person',\
+  \ USER_DATA_BKP.PUBLIC.SENSITIVE='Sensitive'),\n\tEMAIL VARCHAR(16777216) WITH TAG\
+  \ (USER_DATA_BKP.PUBLIC.SENSITIVE='Sensitive'),\n\tprimary key (ID)\n);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 49784f1ece03b8e755a4f10229a146ed
+      newValue: 525c7a14b223553d57265e661f53a206
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/gwtbvpm/pg25341/#/data/databases/USER_DATA_BKP/schemas/PUBLIC/table/USERS
+domains: []
+dataProducts: []
+sourceHash: 525c7a14b223553d57265e661f53a206
+processedLineage: false
+entityStatus: Approved
