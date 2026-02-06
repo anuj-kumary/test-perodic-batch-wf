@@ -1,0 +1,175 @@
+name: T012C
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C
+description: Terms for bank transactions
+tableType: Regular
+columns:
+  - name: ABWEI
+    displayName: Deviation
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: numc(3)
+    description: Deviation from reference date in days
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.ABWEI
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: BUKRS
+    displayName: Company Code
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Company Code
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.BUKRS
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: BZDAT
+    displayName: Reference date
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Reference date for determining the value date
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.BZDAT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: CALI1
+    displayName: Factory calend.ID 1
+    dataType: CHAR
+    dataLength: 2
+    dataTypeDisplay: char(2)
+    description: Factory calendar ID for calculating the value date
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.CALI1
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: CALI2
+    displayName: Factory calend. ID 2
+    dataType: CHAR
+    dataLength: 2
+    dataTypeDisplay: char(2)
+    description: Factory calendar ID for the value date ruling on days off
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.CALI2
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 10
+    children: []
+    customMetrics: []
+  - name: ENDAT
+    displayName: Alternative rule
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Rule for setting the value date for weekends and public hols
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.ENDAT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 11
+    children: []
+    customMetrics: []
+  - name: HBKID
+    displayName: House Bank
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: char(5)
+    description: Short Key for a House Bank
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.HBKID
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: HKTID
+    displayName: Account ID
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: char(5)
+    description: ID for account details
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.HKTID
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: VORGA
+    displayName: Transaction type
+    dataType: CHAR
+    dataLength: 8
+    dataTypeDisplay: char(8)
+    description: Transaction type for determining bank terms
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.VORGA
+    tags: []
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: VORZE
+    displayName: +/- sign
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: +/- sign for the difference in days
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T012C.VORZE
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - BUKRS
+      - HBKID
+      - HKTID
+      - MANDT
+      - VORGA
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 889f99fc361021500bd80fdc4107409c
+processedLineage: false
+entityStatus: Approved
