@@ -1,0 +1,118 @@
+name: partition_table_timestamp_trunc
+fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.partition_table_timestamp_trunc
+tableType: Partitioned
+columns:
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.partition_table_timestamp_trunc.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: ARRAY
+    arrayDataType: STRUCT
+    dataTypeDisplay: "array<struct<line1:string,line2:string,code:integer>>"
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.partition_table_timestamp_trunc.address
+    tags: []
+    children:
+      - name: line1
+        dataType: STRING
+        dataLength: 1
+        dataTypeDisplay: string
+        fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.partition_table_timestamp_trunc.address.line1
+        tags: []
+        constraint: "NULL"
+        children: []
+      - name: line2
+        dataType: STRING
+        dataLength: 1
+        dataTypeDisplay: string
+        fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.partition_table_timestamp_trunc.address.line2
+        tags: []
+        constraint: "NULL"
+        children: []
+      - name: code
+        dataType: INT
+        dataLength: 1
+        dataTypeDisplay: INTEGER
+        fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.partition_table_timestamp_trunc.address.code
+        tags: []
+        constraint: "NULL"
+        children: []
+    customMetrics: []
+  - name: comments
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.partition_table_timestamp_trunc.comments
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: date_field
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.partition_table_timestamp_trunc.date_field
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+tablePartition:
+  columns:
+    - columnName: date_field
+      intervalType: TIME-UNIT
+      interval: MONTH
+owners: []
+databaseSchema:
+  id: d31dc0d3-0096-4c04-9127-b1aba43a110f
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle
+  description: "Hello there, it's the description"
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: e9cc6bf9-f233-47ba-8ac6-f84af30ce935
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: Test_BQ.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: f38d98e9-f2f3-4900-b904-bbbb7e09ff47
+  type: databaseService
+  name: Test_BQ
+  fullyQualifiedName: Test_BQ
+  description: ""
+  displayName: Test_BQ
+  deleted: false
+serviceType: BigQuery
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1675321209683}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2sdbt_jaffle!3spartition_table_timestamp_trunc
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1675321209683
+sourceHash: 41bf0d0d1fd8ab1d247de0f734cccdf8
+processedLineage: false
+entityStatus: Unprocessed

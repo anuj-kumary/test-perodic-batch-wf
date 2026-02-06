@@ -1,0 +1,90 @@
+name: table_991
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_991
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_991.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view MKT_STRATEGIC_EVENTS_TARGET(\n\t\"Event_Type\"\
+  ,\n\t\"Event_Name\",\n\t\"Event_City\",\n\t\"CampaignNumber\",\n\t\"Campaign_Name\"\
+  ,\n\t\"Geo\",\n\t\"Area\",\n\tBU,\n\t\"RegistrationType\",\n\t\"SponsorshipLevel\"\
+  ,\n\t\"RegistrationGoal\",\n\t\"RegistrationGoalTotal\",\n\t\"TargetAudienceGoal\"\
+  ,\n\t\"AttendeeGoal\",\n\t\"AttendeeGoalTotal\",\n\t\"EmployeeTarget\",\n\t\"PipelineTarget\"\
+  ,\n\t\"SponsorshipTargetUSD\",\n\t\"SponsorSubmissions\",\n\t\"TargetType\",\n\t\
+  \"EventNameInSponsorship\",\n\t\"Reserver4\",\n\tEXTRACT_DATE,\n\t\"SponsorshipCurrency\"\
+  ,\n\t\"CreatorConRegistrationTarget\",\n\t\"CreatorConAttendeeTarget\",\n\t\"SponsorshipLevelTarget\"\
+  ,\n\t\"AttendeeSubType\"\n) as\nSELECT \"Event_Type\" as \"Event_Type\",\n     \
+  \  \"Event_Name\" as \"Event_Name\",\n       \"Event_City\" as \"Event_City\",\n\
+  \       \"CampaignNumber\" as \"CampaignNumber\",\n       \"Campaign_Name\" as \"\
+  Campaign_Name\",\n       \"Geo\" as \"Geo\",\n       \"Area\" as \"Area\",\n   \
+  \    \"BU\" as \"BU\",\n       \"RegistrationType\" as \"RegistrationType\",\n \
+  \      \"SponsorshipLevel\" as \"SponsorshipLevel\",\n       \"RegistrationGoal\"\
+  \ as \"RegistrationGoal\",\n       \"RegistrationGoalTotal\" as \"RegistrationGoalTotal\"\
+  ,\n       \"TargetAudienceGoal\" as \"TargetAudienceGoal\",\n       \"AttendeeGoal\"\
+  \ as \"AttendeeGoal\",\n       \"AttendeeGoalTotal\" as \"AttendeeGoalTotal\",\n\
+  \       \"EmployeeTarget\" as \"EmployeeTarget\",\n       \"PipelineTarget\" as\
+  \ \"PipelineTarget\",\n       \"SponsorshipTargetUSD\" as \"SponsorshipTargetUSD\"\
+  ,\n       \"SponsorSubmissions\" as \"SponsorSubmissions\",\n       \"TargetType\"\
+  \ as \"TargetType\",\n       \"EventNameInSponsorship\" as \"EventNameInSponsorship\"\
+  ,\n       \"Reserver4\" as \"Reserver4\",\n       \"EXTRACT_DATE\" as \"EXTRACT_DATE\"\
+  ,\n       \"Sponsorship_currency\" as \"SponsorshipCurrency\",\n       \"CreatorConRegistrationTarget\"\
+  \ as \"CreatorConRegistrationTarget\",\n       \"CreatorConAttendeeTarget\" as \"\
+  CreatorConAttendeeTarget\",\n       \"SponsorshipLevelTarget\" as \"SponsorshipLevelTarget\"\
+  ,\n       \"AttendeeSubType\" as \"AttendeeSubType\"\nFROM\n  (SELECT \"Event Type\"\
+  \ as \"Event_Type\",\n          \"Event Name\" as \"Event_Name\",\n          \"\
+  Event City\" as \"Event_City\",\n          \"CampaignNumber\" as \"CampaignNumber\"\
+  ,\n          \"Campaign Name\" as \"Campaign_Name\",\n          \"Geo\" as \"Geo\"\
+  ,\n          \"Area\" as \"Area\",\n          \"BU\" as \"BU\",\n          \"RegistrationType\"\
+  \ as \"RegistrationType\",\n          \"SponsorshipLevel\" as \"SponsorshipLevel\"\
+  ,\n          \"RegistrationGoal\" as \"RegistrationGoal\",\n          \"RegistrationGoalTotal\"\
+  \ as \"RegistrationGoalTotal\",\n          \"TargetAudienceGoal\" as \"TargetAudienceGoal\"\
+  ,\n          \"AttendeeGoal\" as \"AttendeeGoal\",\n          \"AttendeeGoalTotal\"\
+  \ as \"AttendeeGoalTotal\",\n          \"EmployeeTarget\" as \"EmployeeTarget\"\
+  ,\n          \"PipelineTarget\" as \"PipelineTarget\",\n          \"SponsorshipTargetUSD\"\
+  \ as \"SponsorshipTargetUSD\",\n          \"SponsorSubmissions\" as \"SponsorSubmissions\"\
+  ,\n          \"TargetType\" as \"TargetType\",\n          \"EventNameInSponsorship\"\
+  \ as \"EventNameInSponsorship\",\n          \"Reserver4\" as \"Reserver4\",\n  \
+  \        \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n          \"Sponsorship_currency\"\
+  \ as \"Sponsorship_currency\",\n          \"CreatorConRegistrationTarget\" as \"\
+  CreatorConRegistrationTarget\",\n          \"CreatorConAttendeeTarget\" as \"CreatorConAttendeeTarget\"\
+  ,\n          \"SponsorshipLevelTarget\" as \"SponsorshipLevelTarget\",\n       \
+  \   \"AttendeeSubType\" as \"AttendeeSubType\"\n   FROM \"RDS\".\"FLATFILESOURCE\"\
+  .\"MKT_STRATEGIC_EVENTS_TARGET\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

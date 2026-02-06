@@ -1,0 +1,59 @@
+name: table_989
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_989
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_989.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view LINE_ITEM_INVOICE_SCHEDULE(\n\t\"QuoteNumber\"\
+  ,\n\t\"RowID\",\n\t\"ProductCode\",\n\t\"InvoiceScheduleNumber\",\n\t\"InvouceDate\"\
+  ,\n\t\"StartDate\",\n\t\"EndDate\",\n\t\"PrecisionTerm\",\n\t\"TermMonthsAndDays\"\
+  ,\n\t\"Amount\",\n\t\"QuoteLineNumber\",\n\t\"DisplayStartDate\",\n\t\"DisplayEndDate\"\
+  ,\n\t\"DisplayQty\",\n\t\"DisplayBillValue\",\n\t\"ItemState\"\n) as\n\nselect\n\
+  \    QUOTENUMBER as \"QuoteNumber\",\n\tROWID as \"RowID\",\n\tSN_PRODUCT_CODE as\
+  \ \"ProductCode\",\n\tSN_INVOICE_SCHEDULE_NUMBER as \"InvoiceScheduleNumber\",\n\
+  \tSN_INVOICE_DATE as \"InvouceDate\",\n\tSN_START_DATE as \"StartDate\",\n\tSN_END_DATE\
+  \ as \"EndDate\",\n\tSN_PRECISION_TERM as \"PrecisionTerm\",\n\tSN_TERM_MONTHS_AND_DAYS\
+  \ as \"TermMonthsAndDays\",\n\tSN_AMOUNT as \"Amount\",\n\tSN_QUOTE_LINE_NUMBER\
+  \ as \"QuoteLineNumber\",\n\tSN_DISPLAY_START_DATE as \"DisplayStartDate\",\n\t\
+  SN_DISPLAY_END_DATE as \"DisplayEndDate\",\n\tSN_DISPLAY_QTY as \"DisplayQty\",\n\
+  \tSN_DISPLAY_BILL_VALUE as \"DisplayBillValue\",\n\tITEMSTATE as \"ItemState\"\n\
+  FROM RDS.CALLIDUS.LINE_ITEM_INVOICE_SCHEDULE;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

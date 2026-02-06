@@ -1,0 +1,95 @@
+name: metricflow_time_spine
+fullyQualifiedName: Test_BQ.modified-leaf-330420.demo_dbt_jaffle.metricflow_time_spine
+tableType: View
+columns:
+  - name: date_day
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.demo_dbt_jaffle.metricflow_time_spine.date_day
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 28c052e2-dbaf-4ffb-af9f-300f145ebc11
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: Test_BQ.modified-leaf-330420.demo_dbt_jaffle
+  description: ""
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: e9cc6bf9-f233-47ba-8ac6-f84af30ce935
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: Test_BQ.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: f38d98e9-f2f3-4900-b904-bbbb7e09ff47
+  type: databaseService
+  name: Test_BQ
+  fullyQualifiedName: Test_BQ
+  description: ""
+  displayName: Test_BQ
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: "CREATE VIEW demo_dbt_jaffle.metricflow_time_spine AS with\n\ndays\
+  \ as (\n\n    --for BQ adapters use \"DATE('01/01/2000','mm/dd/yyyy')\"\n    \n\
+  \    with date_spine as\n(\n\n    \n\n\n\n\n\nwith rawdata as (\n\n    \n\n    \n\
+  \n    with p as (\n        select 0 as generated_number union all select 1\n   \
+  \ ), unioned as (\n\n    select\n\n    \n    p0.generated_number * power(2, 0)\n\
+  \     + \n    \n    p1.generated_number * power(2, 1)\n     + \n    \n    p2.generated_number\
+  \ * power(2, 2)\n     + \n    \n    p3.generated_number * power(2, 3)\n     + \n\
+  \    \n    p4.generated_number * power(2, 4)\n     + \n    \n    p5.generated_number\
+  \ * power(2, 5)\n     + \n    \n    p6.generated_number * power(2, 6)\n     + \n\
+  \    \n    p7.generated_number * power(2, 7)\n     + \n    \n    p8.generated_number\
+  \ * power(2, 8)\n     + \n    \n    p9.generated_number * power(2, 9)\n     + \n\
+  \    \n    p10.generated_number * power(2, 10)\n     + \n    \n    p11.generated_number\
+  \ * power(2, 11)\n    \n    \n    + 1\n    as generated_number\n\n    from\n\n \
+  \   \n    p as p0\n     cross join \n    \n    p as p1\n     cross join \n    \n\
+  \    p as p2\n     cross join \n    \n    p as p3\n     cross join \n    \n    p\
+  \ as p4\n     cross join \n    \n    p as p5\n     cross join \n    \n    p as p6\n\
+  \     cross join \n    \n    p as p7\n     cross join \n    \n    p as p8\n    \
+  \ cross join \n    \n    p as p9\n     cross join \n    \n    p as p10\n     cross\
+  \ join \n    \n    p as p11\n    \n    \n\n    )\n\n    select *\n    from unioned\n\
+  \    where generated_number <= 3651\n    order by generated_number\n\n\n\n),\n\n\
+  all_periods as (\n\n    select (\n        \n\n        datetime_add(\n          \
+  \  cast( \n\n        datetime_add(\n            cast( cast(timestamp(datetime(current_timestamp(),\
+  \ 'America/Los_Angeles')) as date) as datetime),\n        interval -3650 day\n \
+  \       )\n\n as datetime),\n        interval (row_number() over (order by 1) -\
+  \ 1) day\n        )\n\n\n    ) as date_day\n    from rawdata\n\n),\n\nfiltered as\
+  \ (\n\n    select *\n    from all_periods\n    where date_day <= cast(\n\n     \
+  \   datetime_add(\n            cast( cast(timestamp(datetime(current_timestamp(),\
+  \ 'America/Los_Angeles')) as date) as datetime),\n        interval 1 day\n     \
+  \   )\n\n as date)\n\n)\n\nselect * from filtered\n\n\n\n)\nselect\n    cast(d.date_day\
+  \ as timestamp) as date_day\nfrom\n    date_spine d\n\n\n\n),\n\ncast_to_date as\
+  \ (\n\n    select cast(date_day as date) as date_day\n\n    from days\n\n)\n\nselect\
+  \ * from cast_to_date"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1762959042730}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2sdemo_dbt_jaffle!3smetricflow_time_spine
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1762959042730
+sourceHash: 37c188a14d862795697983b88e1cf3db
+processedLineage: false
+entityStatus: Unprocessed

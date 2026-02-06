@@ -1,0 +1,63 @@
+name: table_998
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_998
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_998.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_BILLING_RATES(\n\t\"BRDeployment\",\n\t\
+  \"BRDeploymentSysID\",\n\t\"BRResourceRole\",\n\t\"BRAssignedTo\",\n\t\"BRCustomerSatResource\"\
+  ,\n\t\"BRResourceCompany\",\n\t\"BRNumber\",\n\t\"BRSysID\",\n\t\"BRAssignedToSysID\"\
+  ,\n\t\"BRRPRateUSD\",\n\t\"BRResourceRoleSysID\",\n\t\"BRPartner\",\n\t\"BRRevenueTerritory\"\
+  ,\n\t\"BRCurrency\",\n\t\"BRRpRate\",\n\t\"BRHoursUsed\",\n\t\"BRAssignedToPartner\"\
+  ,\n\t\"BRPartnerName\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"DV_U_DEPLOYMENT\"\
+  \ as \"BRDeployment\",\n       \"U_DEPLOYMENT\" as \"BRDeploymentSysID\",\n    \
+  \   \"DV_U_RESOURCE_ROLE\" as \"BRResourceRole\",\n       \"DV_ASSIGNED_TO\" as\
+  \ \"BRAssignedTo\",\n       \"U_CUSTOMER_SAT_RESOURCE\" as \"BRCustomerSatResource\"\
+  ,\n       \"DV_U_RESOURCE_COMPANY\" as \"BRResourceCompany\",\n       \"NUMBER\"\
+  \ as \"BRNumber\",\n       \"SYS_ID\" as \"BRSysID\",\n       \"ASSIGNED_TO\" as\
+  \ \"BRAssignedToSysID\",\n       \"U_RP_RATE_IN_USD\" as \"BRRPRateUSD\",\n    \
+  \   \"U_RESOURCE_ROLE\" as \"BRResourceRoleSysID\",\n       \"U_PARTNER\" as \"\
+  BRPartner\",\n       \"DV_U_REVENUE_TERRITORY\" as \"BRRevenueTerritory\",\n   \
+  \    \"DV_U_CURRENCY\" as \"BRCurrency\",\n       \"U_RP_RATE\" as \"BRRpRate\"\
+  ,\n       \"U_HOURS_USED\" as \"BRHoursUsed\",\n       \"DV_U_ASSIGNED_TO_PARTNER\"\
+  \ as \"BRAssignedToPartner\",\n       \"DV_U_PARTNER\" as \"BRPartnerName\"\nFROM\
+  \ \"RDS\".\"SURF\".\"U_BILLING_RATES\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

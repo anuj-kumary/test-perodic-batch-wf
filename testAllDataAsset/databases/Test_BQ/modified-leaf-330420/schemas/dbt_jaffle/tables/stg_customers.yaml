@@ -1,0 +1,100 @@
+name: stg_customers
+fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.stg_customers
+tableType: View
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.stg_customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.stg_customers.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle.stg_customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: d31dc0d3-0096-4c04-9127-b1aba43a110f
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Test_BQ.modified-leaf-330420.dbt_jaffle
+  description: "Hello there, it's the description"
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: e9cc6bf9-f233-47ba-8ac6-f84af30ce935
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: Test_BQ.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: f38d98e9-f2f3-4900-b904-bbbb7e09ff47
+  type: databaseService
+  name: Test_BQ
+  fullyQualifiedName: Test_BQ
+  description: ""
+  displayName: Test_BQ
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: |-
+  CREATE VIEW dbt_jaffle.stg_customers AS with source as (
+      select * from `modified-leaf-330420`.`dbt_jaffle`.`raw_customers`
+
+  ),
+
+  renamed as (
+
+      select
+          id as customer_id,
+          first_name,
+          last_name
+
+      from source
+
+  )
+
+  select * from renamed
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: processedLineage
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2sdbt_jaffle!3sstg_customers
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1656400550909
+sourceHash: a06b23a836009edd37e71a4378131e23
+processedLineage: true
+entityStatus: Unprocessed

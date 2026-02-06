@@ -1,0 +1,66 @@
+name: table_996
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_996
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_996.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EXISTING_ENTITLEMENTS(\n\tORIGINAL_AGREEMENT_NUMBER,\n\
+  \tITEM,\n\tSURF_CONTRACT_NUMBER,\n\tQUANTITY,\n\tSTART_DATE,\n\tEND_DATE,\n\tAVG_WEIGHTED_PRICE,\n\
+  \tENTITLEMENT_NUMBER,\n\tPARENT_ENTITLEMENT_NUMBER,\n\tTRANSACTIONAL_AGREEMENT_NUMBER,\n\
+  \tDP_UNIQUE_ID,\n\tPRODUCT_CODE,\n\tTOTAL_ACV,\n\tCOMMITTED_IMPACT_FLOOR_ACV,\n\t\
+  COMMITTED_IMPACT_CEILING_ACV,\n\tPLATFORM_FLAG,\n\tINSTANCE_ID,\n\tQUOTENUMBER,\n\
+  \tENTITLEMENT_MODEL_NAME,\n\tCURRENCY,\n\tMETER,\n\tSTEP_IN_GROUP,\n\tDATA_CENTER_POD,\n\
+  \tINSTANCE_NAME,\n\tOPTION_PERIOD,\n\tMULTI_YEAR,\n\tSTORAGE_CAPACITY\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT\n\tSN_ORIGINAL_AGREEMENT_NUMBER as original_agreement_number,\n\
+  \tSN_ITEM as item,\n\tSN_SURF_CONTRACT_NUMBER as surf_contract_number,\n\tSN_QUANTITY\
+  \ as quantity,\n\tSN_START_DATE as start_date,\n\tSN_END_DATE as end_date,\n\tSN_AVG_WEIGHTED_PRICE\
+  \ as avg_weighted_price,\n\tSN_ENTITLEMENT_NUMBER as entitlement_number,\n \tSN_PARENT_ENTITLEMENT_NUMBER\
+  \ as parent_entitlement_number,\n\tSN_TRANSACTIONAL_AGREEMENT_NUMBER as transactional_agreement_number,\n\
+  \tSN_DP_UNIQUE_ID as dp_unique_id,\n\tSN_PRODUCT_CODE as product_code,\n\tSN_TOTAL_ACV\
+  \ as total_acv,\n\tSN_COMMITTED_IMPACT_FLOOR_ACV as committed_impact_floor_acv,\n\
+  \tSN_COMMITTED_IMPACT_CEILING_ACV as committed_impact_ceiling_acv,\n    SN_PLATFORM_FLAG\
+  \ as platform_flag,\n\tSN_INSTANCE_ID as instance_id,\n    QUOTENUMBER as quotenumber,\n\
+  \    SN_ENTITLEMENT_MODEL_NAME as entitlement_model_name,\n    SN_CURRENCY as currency,\n\
+  \    SN_METER as meter,\n    SN_STEP_IN_GROUP as step_in_group,\n    SN_DATA_CENTER_POD\
+  \ as data_center_pod,\n    SN_INSTANCE_NAME as instance_name,\n    SN_OPTION_PERIOD\
+  \ as option_period,\n\tSN_MULTIYEAR as multi_year,\n\tSN_STORAGE_CAPACITY as storage_capacity\n\
+  FROM RDS.\"CALLIDUS\".\"EXISTING_ENTITLEMENTS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
