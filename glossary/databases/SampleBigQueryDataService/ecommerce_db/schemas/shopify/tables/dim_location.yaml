@@ -1,0 +1,125 @@
+name: dim_location
+fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location
+description: The dimension table contains metrics about your Shopify POS. This table
+  contains one row per Shopify POS location. You can use this table to generate a
+  list of the Shopify POS locations or you can join the table with the sales table
+  to measure sales performance.
+tableType: Regular
+columns:
+  - name: location_id
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.location_id
+    tags: []
+    constraint: PRIMARY_KEY
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: shop_id
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: The ID of the store. This column is a foreign key reference to the
+      shop_id column in the dim_shop table.
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.shop_id
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar
+    description: "Name of the POS location as provided by the merchant. For example,\
+      \ 150 Elgin Street or Downtown Boutique."
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.name
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: STRUCT
+    dataTypeDisplay: "struct<street_name:varchar(24),zipcode:int,city:varchar(100),country:struct<country_code:int,\
+      \ name:varchar(100)>>"
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.address
+    tags: []
+    children:
+      - name: street_name
+        dataType: VARCHAR
+        dataLength: 24
+        dataTypeDisplay: VARCHAR(24)
+        fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.address.street_name
+        tags: []
+        children: []
+      - name: zipcode
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.address.zipcode
+        tags: []
+        children: []
+      - name: city
+        dataType: VARCHAR
+        dataLength: 100
+        dataTypeDisplay: VARCHAR(100)
+        fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.address.city
+        tags: []
+        children: []
+      - name: country
+        dataType: STRUCT
+        dataTypeDisplay: "struct<country_code:int, country_name:varchar(100)>"
+        fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.address.country
+        tags: []
+        children:
+          - name: country_code
+            dataType: INT
+            dataTypeDisplay: INT
+            fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.address.country.country_code
+            tags: []
+            children: []
+          - name: country_name
+            dataType: VARCHAR
+            dataLength: 100
+            dataTypeDisplay: VARCHAR(100)
+            fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_location.address.country.country_name
+            tags: []
+            children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 83f4b588-b847-4b58-82dc-4a43cd9d62d1
+  type: databaseSchema
+  name: shopify
+  fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify
+  description: This **mock** database contains schema related to shopify sales and
+    orders with related dimension tables.
+  displayName: shopify
+  deleted: false
+database:
+  id: a76df7f3-d077-4006-afe0-f45b56323068
+  type: database
+  name: ecommerce_db
+  fullyQualifiedName: SampleBigQueryDataService.ecommerce_db
+  description: This **mock** database contains schemas related to shopify sales and
+    orders with related dimension tables.
+  displayName: ecommerce_db
+  deleted: false
+service:
+  id: c735cb24-bf22-4aa6-87e7-f0d5ce4e1ab1
+  type: databaseService
+  name: SampleBigQueryDataService
+  fullyQualifiedName: SampleBigQueryDataService
+  displayName: SampleBigQueryDataService
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: "CREATE TABLE dim_location(location_id NUMERIC PRIMARY KEY, shop_id\
+  \ NUMERIC)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Unprocessed

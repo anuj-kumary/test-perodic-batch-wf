@@ -1,0 +1,97 @@
+name: dim_staff
+fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_staff
+description: "This dimension table contains information about the staff accounts in\
+  \ the store. It contains one row per staff account. Use this table to generate a\
+  \ list of your staff accounts, or join it with the sales, API clients and locations\
+  \ tables to analyze staff performance at Shopify POS locations."
+tableType: Regular
+columns:
+  - name: user_id
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: Unique identifier for the user of your Shopify POS or your Shopify
+      admin.
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_staff.user_id
+    tags: []
+    constraint: PRIMARY_KEY
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: shop_id
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: The ID of the store. This column is a foreign key reference to the
+      shop_id column in the dim.shop table.
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_staff.shop_id
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar
+    description: First name of the staff member.
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_staff.first_name
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar
+    description: Last name of the staff member.
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_staff.last_name
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar
+    description: Email address of the staff member.
+    fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.dim_staff.email
+    tags: []
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 83f4b588-b847-4b58-82dc-4a43cd9d62d1
+  type: databaseSchema
+  name: shopify
+  fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify
+  description: This **mock** database contains schema related to shopify sales and
+    orders with related dimension tables.
+  displayName: shopify
+  deleted: false
+database:
+  id: a76df7f3-d077-4006-afe0-f45b56323068
+  type: database
+  name: ecommerce_db
+  fullyQualifiedName: SampleBigQueryDataService.ecommerce_db
+  description: This **mock** database contains schemas related to shopify sales and
+    orders with related dimension tables.
+  displayName: ecommerce_db
+  deleted: false
+service:
+  id: c735cb24-bf22-4aa6-87e7-f0d5ce4e1ab1
+  type: databaseService
+  name: SampleBigQueryDataService
+  fullyQualifiedName: SampleBigQueryDataService
+  displayName: SampleBigQueryDataService
+  deleted: false
+serviceType: BigQuery
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Unprocessed
