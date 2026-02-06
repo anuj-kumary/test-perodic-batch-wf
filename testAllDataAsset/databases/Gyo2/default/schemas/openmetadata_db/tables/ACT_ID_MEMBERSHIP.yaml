@@ -1,0 +1,77 @@
+name: ACT_ID_MEMBERSHIP
+fullyQualifiedName: Gyo2.default.openmetadata_db.ACT_ID_MEMBERSHIP
+tableType: Regular
+columns:
+  - name: USER_ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: Gyo2.default.openmetadata_db.ACT_ID_MEMBERSHIP.USER_ID_
+    tags: []
+    children: []
+    customMetrics: []
+  - name: GROUP_ID_
+    dataType: VARCHAR
+    dataLength: 64
+    dataTypeDisplay: varchar(64)
+    fullyQualifiedName: Gyo2.default.openmetadata_db.ACT_ID_MEMBERSHIP.GROUP_ID_
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - USER_ID_
+    referredColumns:
+      - Gyo2.default.openmetadata_db.ACT_ID_USER.ID_
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 1ae3a711-6b03-48cc-a7de-9a34be516eab
+  type: databaseSchema
+  name: openmetadata_db
+  fullyQualifiedName: Gyo2.default.openmetadata_db
+  displayName: openmetadata_db
+  deleted: false
+database:
+  id: b43ed889-df08-430d-8b37-2ee890216f2a
+  type: database
+  name: default
+  fullyQualifiedName: Gyo2.default
+  displayName: default
+  deleted: false
+service:
+  id: acb4d7cc-507e-43a0-b287-0127da7c758d
+  type: databaseService
+  name: Gyo2
+  fullyQualifiedName: Gyo2
+  description: ""
+  displayName: Gyo2
+  deleted: false
+serviceType: Mysql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"USER_ID_\"],\"\
+        referredColumns\":[\"Gyo2.default.openmetadata_db.ACT_ID_USER.ID_\"],\"relationshipType\"\
+        :\"MANY_TO_ONE\"}]"
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: tableConstraints
+      oldValue: "[{\"constraintType\":\"PRIMARY_KEY\",\"columns\":[\"GROUP_ID_\",\"\
+        USER_ID_\"]},{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"GROUP_ID_\"\
+        ],\"referredColumns\":[\"Gyo2.default.openmetadata_db.ACT_ID_GROUP.ID_\"],\"\
+        relationshipType\":\"MANY_TO_ONE\"}]"
+  previousVersion: 0.1
+domains: []
+dataProducts: []
+sourceHash: d81021447ab21b3753e71c13751f69b7
+processedLineage: false
+entityStatus: Approved
