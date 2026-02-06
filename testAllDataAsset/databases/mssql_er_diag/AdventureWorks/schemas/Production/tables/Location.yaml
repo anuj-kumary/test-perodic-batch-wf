@@ -1,0 +1,93 @@
+name: Location
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Location
+description: Product inventory and manufacturing locations.
+tableType: Regular
+columns:
+  - name: LocationID
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    description: Primary key for Location records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Location.LocationID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: Name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: Location description.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Location.Name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: CostRate
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: smallmoney
+    description: Standard hourly cost of the manufacturing location.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Location.CostRate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Availability
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "decimal(8,2)"
+    description: Work capacity (in hours) of the manufacturing location.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Location.Availability
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Location.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 06ada3f0-0673-499b-a41e-1ae54143dde1
+  type: databaseSchema
+  name: Production
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Production
+  displayName: Production
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 20cace30030d4226b0fb42a3edf0f321
+processedLineage: false
+entityStatus: Approved

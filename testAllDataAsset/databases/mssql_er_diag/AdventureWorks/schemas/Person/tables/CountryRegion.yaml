@@ -1,0 +1,77 @@
+name: CountryRegion
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.CountryRegion
+description: Lookup table containing the ISO standard codes for countries and regions.
+tableType: Regular
+columns:
+  - name: CountryRegionCode
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(3)
+    description: ISO standard code for countries and regions.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.CountryRegion.CountryRegionCode
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: Name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: Country or region name.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.CountryRegion.Name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.CountryRegion.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CountryRegionCode
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.AddressType.Name
+    relationshipType: ONE_TO_ONE
+owners: []
+databaseSchema:
+  id: 8b8dc7c0-054b-4c63-abd8-9beaa0f4e0b5
+  type: databaseSchema
+  name: Person
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Person
+  displayName: Person
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 25b169ae3b6833a948c23cee1b44216f
+processedLineage: false
+entityStatus: Approved

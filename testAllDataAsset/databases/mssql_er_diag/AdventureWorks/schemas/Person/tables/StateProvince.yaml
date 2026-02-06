@@ -1,0 +1,136 @@
+name: StateProvince
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince
+description: State and province lookup table.
+tableType: Regular
+columns:
+  - name: StateProvinceID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key for StateProvince records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince.StateProvinceID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: StateProvinceCode
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(3)
+    description: ISO standard state or province code.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince.StateProvinceCode
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: CountryRegionCode
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(3)
+    description: 'ISO standard country or region code. Foreign key to CountryRegion.CountryRegionCode. '
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince.CountryRegionCode
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: IsOnlyStateProvinceFlag
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    description: "0 = StateProvinceCode exists. 1 = StateProvinceCode unavailable,\
+      \ using CountryRegionCode."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince.IsOnlyStateProvinceFlag
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: State or province description.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince.Name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TerritoryID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: ID of the territory in which the state or province is located. Foreign
+      key to SalesTerritory.SalesTerritoryID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince.TerritoryID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.StateProvince.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CountryRegionCode
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.CountryRegion.CountryRegionCode
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - TerritoryID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesTerritory.TerritoryID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 8b8dc7c0-054b-4c63-abd8-9beaa0f4e0b5
+  type: databaseSchema
+  name: Person
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Person
+  displayName: Person
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: ea7a8310f6265113b3de5753759f1cf2
+processedLineage: false
+entityStatus: Approved

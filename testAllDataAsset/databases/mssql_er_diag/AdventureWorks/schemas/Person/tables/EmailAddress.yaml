@@ -1,0 +1,101 @@
+name: EmailAddress
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.EmailAddress
+description: Where to send a person email.
+tableType: Regular
+columns:
+  - name: BusinessEntityID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Person associated with this email address.  Foreign
+      key to Person.BusinessEntityID
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.EmailAddress.BusinessEntityID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: EmailAddressID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. ID of this email address.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.EmailAddress.EmailAddressID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: EmailAddress
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: E-mail address for the person.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.EmailAddress.EmailAddress
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.EmailAddress.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.EmailAddress.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - BusinessEntityID
+      - EmailAddressID
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.Person.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 8b8dc7c0-054b-4c63-abd8-9beaa0f4e0b5
+  type: databaseSchema
+  name: Person
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Person
+  displayName: Person
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 3c6a26cda7f46d5242d8f83c9cc2d597
+processedLineage: false
+entityStatus: Approved

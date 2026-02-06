@@ -1,0 +1,123 @@
+name: EmployeeDepartmentHistory
+fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeeDepartmentHistory
+description: Employee department transfers.
+tableType: Regular
+columns:
+  - name: BusinessEntityID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Employee identification number. Foreign key to Employee.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeeDepartmentHistory.BusinessEntityID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: DepartmentID
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    description: Department in which the employee worked including currently. Foreign
+      key to Department.DepartmentID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeeDepartmentHistory.DepartmentID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ShiftID
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    description: Identifies which 8-hour shift the employee works. Foreign key to
+      Shift.Shift.ID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeeDepartmentHistory.ShiftID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: StartDate
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date the employee started work in the department.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeeDepartmentHistory.StartDate
+    tags: []
+    children: []
+    customMetrics: []
+  - name: EndDate
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date the employee left the department. NULL = Current department.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeeDepartmentHistory.EndDate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeeDepartmentHistory.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - BusinessEntityID
+      - DepartmentID
+      - ShiftID
+      - StartDate
+  - constraintType: FOREIGN_KEY
+    columns:
+      - DepartmentID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.HumanResources.Department.DepartmentID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.HumanResources.Employee.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ShiftID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.HumanResources.Shift.ShiftID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 0566ea61-1e79-49dd-89d7-07248aae613f
+  type: databaseSchema
+  name: HumanResources
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources
+  displayName: HumanResources
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 24d80a792844a4d510aae8e068912bad
+processedLineage: false
+entityStatus: Approved

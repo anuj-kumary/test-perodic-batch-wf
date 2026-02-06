@@ -1,0 +1,128 @@
+name: sysutility_ucp_volumes
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes
+tableType: View
+columns:
+  - name: volume_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.volume_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: physical_server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.physical_server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: virtual_server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.virtual_server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: volume_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.volume_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: volume_device_id
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.volume_device_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: powershell_path
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.powershell_path
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_space
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.total_space
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_space_used
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.total_space_used
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_space_utilization
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_volumes.total_space_utilization
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW dbo.sysutility_ucp_volumes\r\nAS\r\nSELECT\r\n  \
+  \  [ID] AS volume_id    -- todo (VSTS #345036): This column will be removed\r\n\
+  \    , physical_server_name AS physical_server_name\r\n    , virtual_server_name\
+  \ AS virtual_server_name\r\n    , volume_name\r\n    , volume_device_id\r\n    ,\
+  \ powershell_path\r\n    , total_space_available AS total_space\r\n    , total_space_utilized\
+  \ AS total_space_used\r\n    , percent_total_space_utilization AS total_space_utilization\
+  \  \r\nFROM dbo.syn_sysutility_ucp_volumes;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 8ea3291eb14b76dd229aa80f1e21d16d
+processedLineage: false
+entityStatus: Approved

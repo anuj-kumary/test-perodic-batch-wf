@@ -1,0 +1,138 @@
+name: TransactionHistoryArchive
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive
+description: Transactions for previous years.
+tableType: Regular
+columns:
+  - name: TransactionID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key for TransactionHistoryArchive records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.TransactionID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: ProductID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product identification number. Foreign key to Product.ProductID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.ProductID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ReferenceOrderID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "Purchase order, sales order, or work order identification number."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.ReferenceOrderID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ReferenceOrderLineID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "Line number associated with the purchase order, sales order, or\
+      \ work order."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.ReferenceOrderLineID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TransactionDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time of the transaction.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.TransactionDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TransactionType
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(1)
+    description: "W = Work Order, S = Sales Order, P = Purchase Order"
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.TransactionType
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Quantity
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product quantity.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.Quantity
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ActualCost
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Product cost.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.ActualCost
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.TransactionHistoryArchive.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesOrderHeaderSalesReason.SalesOrderID
+    relationshipType: MANY_TO_MANY
+owners: []
+databaseSchema:
+  id: 06ada3f0-0673-499b-a41e-1ae54143dde1
+  type: databaseSchema
+  name: Production
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Production
+  displayName: Production
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5ee7af2dccd3407d37225b0cae21c4bb
+processedLineage: false
+entityStatus: Approved

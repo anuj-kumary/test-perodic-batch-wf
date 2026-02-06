@@ -1,0 +1,171 @@
+name: PurchaseOrderDetail
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail
+description: Individual products associated with a specific purchase order. See PurchaseOrderHeader.
+tableType: Regular
+columns:
+  - name: PurchaseOrderID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to PurchaseOrderHeader.PurchaseOrderID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.PurchaseOrderID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: PurchaseOrderDetailID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. One line number per purchased product.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.PurchaseOrderDetailID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: DueDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date the product is expected to be received.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.DueDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: OrderQty
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    description: Quantity ordered.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.OrderQty
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ProductID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product identification number. Foreign key to Product.ProductID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.ProductID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: UnitPrice
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Vendor's selling price of a single product.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.UnitPrice
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: LineTotal
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Per product subtotal. Computed as OrderQty * UnitPrice.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.LineTotal
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ReceivedQty
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "decimal(8,2)"
+    description: Quantity actually received from the vendor.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.ReceivedQty
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: RejectedQty
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 8
+    scale: 2
+    dataTypeDisplay: "decimal(8,2)"
+    description: Quantity rejected during inspection.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.RejectedQty
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: StockedQty
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 9
+    scale: 2
+    dataTypeDisplay: "decimal(9,2)"
+    description: Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.StockedQty
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderDetail.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - PurchaseOrderDetailID
+      - PurchaseOrderID
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Production.Product.ProductID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - PurchaseOrderID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.PurchaseOrderID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 6b55cdff-7d30-4386-a8de-a25afe9481b0
+  type: databaseSchema
+  name: Purchasing
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing
+  displayName: Purchasing
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: e093199b1bdc21691b7ff0317c7a2a68
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,100 @@
+name: ddl_history
+fullyQualifiedName: MsSQL.mydb.cdc.ddl_history
+tableType: Regular
+columns:
+  - name: source_object_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.ddl_history.source_object_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.ddl_history.object_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: required_column_update
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.mydb.cdc.ddl_history.required_column_update
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ddl_command
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.mydb.cdc.ddl_history.ddl_command
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ddl_lsn
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: binary(10)
+    fullyQualifiedName: MsSQL.mydb.cdc.ddl_history.ddl_lsn
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ddl_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.mydb.cdc.ddl_history.ddl_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - ddl_lsn
+      - object_id
+owners: []
+databaseSchema:
+  id: 512ce2d2-310f-4f1d-bb5d-0859e8cf7d40
+  type: databaseSchema
+  name: cdc
+  fullyQualifiedName: MsSQL.mydb.cdc
+  displayName: cdc
+  deleted: false
+database:
+  id: 4484060b-da3f-4e6d-9121-2570eaf502c5
+  type: database
+  name: mydb
+  fullyQualifiedName: MsSQL.mydb
+  displayName: mydb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE TABLE cdc.ddl_history (\n\tsource_object_id INTEGER, \n\t\
+  object_id INTEGER NOT NULL, \n\trequired_column_update BIT, \n\tddl_command NVARCHAR,\
+  \ \n\tddl_lsn BINARY NOT NULL, \n\tddl_time DATETIME, \n\tCONSTRAINT ddl_history_clustered_idx\
+  \ PRIMARY KEY (object_id, ddl_lsn)\n)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d9a78373c1646f88c4dca8ddc1acceb4
+processedLineage: false
+entityStatus: Approved

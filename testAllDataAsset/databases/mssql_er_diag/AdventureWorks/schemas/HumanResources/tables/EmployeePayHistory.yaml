@@ -1,0 +1,105 @@
+name: EmployeePayHistory
+fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeePayHistory
+description: Employee pay history.
+tableType: Regular
+columns:
+  - name: BusinessEntityID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Employee identification number. Foreign key to Employee.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeePayHistory.BusinessEntityID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: RateChangeDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date the change in pay is effective
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeePayHistory.RateChangeDate
+    tags: []
+    children: []
+    customMetrics: []
+  - name: Rate
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Salary hourly rate.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeePayHistory.Rate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: PayFrequency
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    description: "1 = Salary received monthly, 2 = Salary received biweekly"
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeePayHistory.PayFrequency
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.EmployeePayHistory.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - BusinessEntityID
+      - RateChangeDate
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.HumanResources.Employee.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesOrderHeaderSalesReason.SalesOrderID
+    relationshipType: MANY_TO_MANY
+owners: []
+databaseSchema:
+  id: 0566ea61-1e79-49dd-89d7-07248aae613f
+  type: databaseSchema
+  name: HumanResources
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources
+  displayName: HumanResources
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: db8fe8468b48ab250fb92a7c260fd253
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,69 @@
+name: sysutility_ucp_utility_space_utilization
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_utility_space_utilization
+tableType: View
+columns:
+  - name: total_utility_storage
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_utility_space_utilization.total_utility_storage
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: total_utilized_space
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_utility_space_utilization.total_utilized_space
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "---\r\n--- Gets the total utility space utilization. \r\n--- The\
+  \ funny left-outer-join is to account for cases where there is no \"utility-wide\"\
+  \ entry yet \r\n--- typically, right at bootstrap time\r\n---\r\nCREATE   VIEW dbo.sysutility_ucp_utility_space_utilization\r\
+  \nAS\r\n   SELECT ISNULL(S2.total_space_bytes, 0) AS total_utility_storage,\r\n\
+  \          ISNULL(S2.used_space_bytes, 0) AS total_utilized_space \t\r\n   FROM\
+  \ (SELECT 1 AS x) AS S1\r\n         LEFT OUTER JOIN \r\n        (SELECT total_space_bytes,\
+  \ used_space_bytes \r\n          FROM dbo.syn_sysutility_ucp_space_utilization\r\
+  \n          WHERE object_type = 0 AND -- utility-wide information\r\n          \
+  \      aggregation_type = 0 AND -- detail-information\r\n                processing_time\
+  \ = (SELECT latest_processing_time FROM msdb.dbo.sysutility_ucp_processing_state_internal)\r\
+  \n        ) AS S2 ON (1=1)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 61daf582ef3c701d6078144aa39ad461
+processedLineage: false
+entityStatus: Approved

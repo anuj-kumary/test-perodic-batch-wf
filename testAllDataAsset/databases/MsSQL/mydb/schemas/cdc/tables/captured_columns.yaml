@@ -1,0 +1,110 @@
+name: captured_columns
+fullyQualifiedName: MsSQL.mydb.cdc.captured_columns
+tableType: Regular
+columns:
+  - name: object_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.captured_columns.object_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: column_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.mydb.cdc.captured_columns.column_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.captured_columns.column_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: column_type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.mydb.cdc.captured_columns.column_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: column_ordinal
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.captured_columns.column_ordinal
+    tags: []
+    children: []
+    customMetrics: []
+  - name: is_computed
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.mydb.cdc.captured_columns.is_computed
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: masking_function
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.mydb.cdc.captured_columns.masking_function
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - column_ordinal
+      - object_id
+owners: []
+databaseSchema:
+  id: 512ce2d2-310f-4f1d-bb5d-0859e8cf7d40
+  type: databaseSchema
+  name: cdc
+  fullyQualifiedName: MsSQL.mydb.cdc
+  displayName: cdc
+  deleted: false
+database:
+  id: 4484060b-da3f-4e6d-9121-2570eaf502c5
+  type: database
+  name: mydb
+  fullyQualifiedName: MsSQL.mydb
+  displayName: mydb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE TABLE cdc.captured_columns (\n\tobject_id INTEGER NOT NULL,\
+  \ \n\tcolumn_name NVARCHAR NOT NULL, \n\tcolumn_id INTEGER, \n\tcolumn_type NVARCHAR\
+  \ NOT NULL, \n\tcolumn_ordinal INTEGER NOT NULL, \n\tis_computed BIT, \n\tmasking_function\
+  \ NVARCHAR, \n\tCONSTRAINT captured_columns_clustered_idx PRIMARY KEY (object_id,\
+  \ column_ordinal)\n)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 94c72b3a0d81cefe1a7566aea59ac1f8
+processedLineage: false
+entityStatus: Approved

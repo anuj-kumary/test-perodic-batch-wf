@@ -1,0 +1,113 @@
+name: BusinessEntityAddress
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.BusinessEntityAddress
+description: "Cross-reference table mapping customers, vendors, and employees to their\
+  \ addresses."
+tableType: Regular
+columns:
+  - name: BusinessEntityID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to BusinessEntity.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.BusinessEntityAddress.BusinessEntityID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: AddressID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to Address.AddressID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.BusinessEntityAddress.AddressID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: AddressTypeID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to AddressType.AddressTypeID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.BusinessEntityAddress.AddressTypeID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.BusinessEntityAddress.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.BusinessEntityAddress.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - BusinessEntityID
+      - AddressID
+      - AddressTypeID
+  - constraintType: FOREIGN_KEY
+    columns:
+      - AddressID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.Address.AddressID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - AddressTypeID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.AddressType.AddressTypeID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.BusinessEntity.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 8b8dc7c0-054b-4c63-abd8-9beaa0f4e0b5
+  type: databaseSchema
+  name: Person
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Person
+  displayName: Person
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b806a6355cee4ed7ef62fe4b42be9cdd
+processedLineage: false
+entityStatus: Approved

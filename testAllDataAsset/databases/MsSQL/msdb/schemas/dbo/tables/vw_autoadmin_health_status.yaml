@@ -1,0 +1,134 @@
+name: vw_autoadmin_health_status
+fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status
+tableType: View
+columns:
+  - name: Datetime
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar(30)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Datetime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Instance name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Instance name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Storage errors
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar(30)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Storage errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Sql errors
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar(30)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Sql errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Credential errors
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar(30)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Credential errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Other errors
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar(30)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Other errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Deleted or invalid backup files
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar(30)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Deleted or invalid
+      backup files
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Number of backup loops
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar(30)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Number of backup
+      loops
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Number of retention loops
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar(30)
+    fullyQualifiedName: MsSQL.msdb.dbo.vw_autoadmin_health_status.Number of retention
+      loops
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW vw_autoadmin_health_status\r\nAS\r\n    SELECT CONVERT(VARCHAR,\
+  \ GETDATE()) 'Datetime', \r\n        @@servername 'Instance name', \r\n        CONVERT(VARCHAR,\
+  \ number_of_storage_connectivity_errors) AS 'Storage errors',\r\n        CONVERT(VARCHAR,\
+  \ number_of_sql_errors) AS 'Sql errors',\r\n        CONVERT(VARCHAR, number_of_invalid_credential_errors)\
+  \ AS 'Credential errors',\r\n        CONVERT(VARCHAR, number_of_other_errors) AS\
+  \ 'Other errors',\r\n        CONVERT(VARCHAR, number_of_corrupted_or_deleted_backups)\
+  \ AS 'Deleted or invalid backup files',\r\n        CONVERT(VARCHAR, number_of_backup_loops)\
+  \ AS 'Number of backup loops',\r\n        CONVERT(VARCHAR, number_of_retention_loops)\
+  \ AS 'Number of retention loops'\r\n    FROM smart_admin.fn_get_health_status(default,\
+  \ default)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5d466d6a4bbd0048b0ad25245da5cc4c
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,164 @@
+name: change_tables
+fullyQualifiedName: MsSQL.mydb.cdc.change_tables
+tableType: Regular
+columns:
+  - name: object_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.object_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: version
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.version
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: source_object_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.source_object_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: capture_instance
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.capture_instance
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: start_lsn
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: binary(10)
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.start_lsn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: end_lsn
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: binary(10)
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.end_lsn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: supports_net_changes
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.supports_net_changes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: has_drop_pending
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.has_drop_pending
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: role_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.role_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: index_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.index_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: filegroup_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.filegroup_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: create_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.create_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: partition_switch
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.mydb.cdc.change_tables.partition_switch
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 512ce2d2-310f-4f1d-bb5d-0859e8cf7d40
+  type: databaseSchema
+  name: cdc
+  fullyQualifiedName: MsSQL.mydb.cdc
+  displayName: cdc
+  deleted: false
+database:
+  id: 4484060b-da3f-4e6d-9121-2570eaf502c5
+  type: database
+  name: mydb
+  fullyQualifiedName: MsSQL.mydb
+  displayName: mydb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE TABLE cdc.change_tables (\n\tobject_id INTEGER NOT NULL,\
+  \ \n\tversion INTEGER, \n\tsource_object_id INTEGER, \n\tcapture_instance NVARCHAR\
+  \ NOT NULL, \n\tstart_lsn BINARY, \n\tend_lsn BINARY, \n\tsupports_net_changes BIT,\
+  \ \n\thas_drop_pending BIT, \n\trole_name NVARCHAR, \n\tindex_name NVARCHAR, \n\t\
+  filegroup_name NVARCHAR, \n\tcreate_date DATETIME, \n\tpartition_switch BIT DEFAULT\
+  \ ((0)) NOT NULL, \n\tCONSTRAINT change_tables_clustered_idx PRIMARY KEY (object_id)\n\
+  )"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 1771645df6e5b8b9df84bcb3b5de9765
+processedLineage: false
+entityStatus: Approved

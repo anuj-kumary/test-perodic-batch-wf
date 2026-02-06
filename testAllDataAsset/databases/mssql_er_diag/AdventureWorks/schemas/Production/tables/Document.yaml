@@ -1,0 +1,188 @@
+name: Document
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document
+description: Product maintenance documents.
+tableType: Regular
+columns:
+  - name: DocumentNode
+    dataType: "NULL"
+    dataLength: 1
+    dataTypeDisplay: hierarchyid(892)
+    description: Primary key for Document records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.DocumentNode
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: DocumentLevel
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    description: Depth in the document hierarchy.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.DocumentLevel
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Title
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: Title of the document.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.Title
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Owner
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Employee who controls the document.  Foreign key to Employee.BusinessEntityID
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.Owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: FolderFlag
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    description: "0 = This is a folder, 1 = This is a document."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.FolderFlag
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: FileName
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(400)
+    description: File name of the document
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.FileName
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: FileExtension
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(8)
+    description: "File extension indicating the document type. For example, .doc or\
+      \ .txt."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.FileExtension
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Revision
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(5)
+    description: 'Revision number of the document. '
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.Revision
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ChangeNumber
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Engineering change approval number.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.ChangeNumber
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Status
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    description: "1 = Pending approval, 2 = Approved, 3 = Obsolete"
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.Status
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: DocumentSummary
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    description: Document abstract.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.DocumentSummary
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Document
+    dataType: VARBINARY
+    dataLength: 1
+    dataTypeDisplay: varbinary
+    description: Complete document.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.Document
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Required for FileStream.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.Document.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - Owner
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.HumanResources.Employee.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 06ada3f0-0673-499b-a41e-1ae54143dde1
+  type: databaseSchema
+  name: Production
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Production
+  displayName: Production
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b893b7b6f9ae0fcca98215eba9b5022f
+processedLineage: false
+entityStatus: Approved

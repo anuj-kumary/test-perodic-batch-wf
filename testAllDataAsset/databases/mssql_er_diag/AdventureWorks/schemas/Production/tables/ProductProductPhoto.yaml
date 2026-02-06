@@ -1,0 +1,96 @@
+name: ProductProductPhoto
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductProductPhoto
+description: Cross-reference table mapping products and product photos.
+tableType: Regular
+columns:
+  - name: ProductID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product identification number. Foreign key to Product.ProductID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductProductPhoto.ProductID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ProductPhotoID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product photo identification number. Foreign key to ProductPhoto.ProductPhotoID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductProductPhoto.ProductPhotoID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: Primary
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    description: 0 = Photo is not the principal image. 1 = Photo is the principal
+      image.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductProductPhoto.Primary
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductProductPhoto.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - ProductID
+      - ProductPhotoID
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Production.Product.ProductID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductPhotoID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Production.ProductPhoto.ProductPhotoID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 06ada3f0-0673-499b-a41e-1ae54143dde1
+  type: databaseSchema
+  name: Production
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Production
+  displayName: Production
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d4e238dd7e428243fd55aca7fc82ca0c
+processedLineage: false
+entityStatus: Approved

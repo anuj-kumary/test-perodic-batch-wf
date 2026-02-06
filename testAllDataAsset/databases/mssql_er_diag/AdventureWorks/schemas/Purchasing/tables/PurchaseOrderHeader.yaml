@@ -1,0 +1,191 @@
+name: PurchaseOrderHeader
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader
+description: General purchase order information. See PurchaseOrderDetail.
+tableType: Regular
+columns:
+  - name: PurchaseOrderID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.PurchaseOrderID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: RevisionNumber
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    description: Incremental number to track changes to the purchase order over time.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.RevisionNumber
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Status
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    description: Order current status. 1 = Pending; 2 = Approved; 3 = Rejected; 4
+      = Complete
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.Status
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: EmployeeID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Employee who created the purchase order. Foreign key to Employee.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.EmployeeID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: VendorID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Vendor with whom the purchase order is placed. Foreign key to Vendor.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.VendorID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ShipMethodID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Shipping method. Foreign key to ShipMethod.ShipMethodID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.ShipMethodID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: OrderDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Purchase order creation date.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.OrderDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ShipDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Estimated shipment date from the vendor.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.ShipDate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SubTotal
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Purchase order subtotal. Computed as SUM(PurchaseOrderDetail.LineTotal)for
+      the appropriate PurchaseOrderID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.SubTotal
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TaxAmt
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Tax amount.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.TaxAmt
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Freight
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Shipping cost.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.Freight
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TotalDue
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Total due to vendor. Computed as Subtotal + TaxAmt + Freight.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.TotalDue
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing.PurchaseOrderHeader.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - EmployeeID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.HumanResources.Employee.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ShipMethodID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Purchasing.ShipMethod.ShipMethodID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - VendorID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Purchasing.Vendor.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 6b55cdff-7d30-4386-a8de-a25afe9481b0
+  type: databaseSchema
+  name: Purchasing
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Purchasing
+  displayName: Purchasing
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: e5bb73232561592bd0d85536c29b6a03
+processedLineage: false
+entityStatus: Approved

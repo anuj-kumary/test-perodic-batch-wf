@@ -1,0 +1,95 @@
+name: PersonPhone
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.PersonPhone
+description: Telephone number and type of a person.
+tableType: Regular
+columns:
+  - name: BusinessEntityID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Business entity identification number. Foreign key to Person.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.PersonPhone.BusinessEntityID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: PhoneNumber
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(25)
+    description: Telephone number identification number.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.PersonPhone.PhoneNumber
+    tags: []
+    children: []
+    customMetrics: []
+  - name: PhoneNumberTypeID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Kind of phone number. Foreign key to PhoneNumberType.PhoneNumberTypeID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.PersonPhone.PhoneNumberTypeID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.PersonPhone.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - BusinessEntityID
+      - PhoneNumber
+      - PhoneNumberTypeID
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.Person.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - PhoneNumberTypeID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.PhoneNumberType.PhoneNumberTypeID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 8b8dc7c0-054b-4c63-abd8-9beaa0f4e0b5
+  type: databaseSchema
+  name: Person
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Person
+  displayName: Person
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 88d58fd548221dbfbf07ed241d261db2
+processedLineage: false
+entityStatus: Approved

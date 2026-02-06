@@ -1,0 +1,102 @@
+name: ProductModelProductDescriptionCulture
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductModelProductDescriptionCulture
+description: Cross-reference table mapping product descriptions and the language the
+  description is written in.
+tableType: Regular
+columns:
+  - name: ProductModelID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to ProductModel.ProductModelID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductModelProductDescriptionCulture.ProductModelID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ProductDescriptionID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to ProductDescription.ProductDescriptionID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductModelProductDescriptionCulture.ProductDescriptionID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: CultureID
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(6)
+    description: Culture identification number. Foreign key to Culture.CultureID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductModelProductDescriptionCulture.CultureID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Production.ProductModelProductDescriptionCulture.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - CultureID
+      - ProductDescriptionID
+      - ProductModelID
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CultureID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Production.Culture.CultureID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductDescriptionID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Production.ProductDescription.ProductDescriptionID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductModelID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Production.ProductModel.ProductModelID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 06ada3f0-0673-499b-a41e-1ae54143dde1
+  type: databaseSchema
+  name: Production
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Production
+  displayName: Production
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: fa7a2c5aeae6d91694e8dbdcb9efc2a2
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,82 @@
+name: index_columns
+fullyQualifiedName: MsSQL.mydb.cdc.index_columns
+tableType: Regular
+columns:
+  - name: object_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.index_columns.object_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: column_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.mydb.cdc.index_columns.column_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: index_ordinal
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    fullyQualifiedName: MsSQL.mydb.cdc.index_columns.index_ordinal
+    tags: []
+    children: []
+    customMetrics: []
+  - name: column_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.mydb.cdc.index_columns.column_id
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - column_id
+      - index_ordinal
+      - object_id
+owners: []
+databaseSchema:
+  id: 512ce2d2-310f-4f1d-bb5d-0859e8cf7d40
+  type: databaseSchema
+  name: cdc
+  fullyQualifiedName: MsSQL.mydb.cdc
+  displayName: cdc
+  deleted: false
+database:
+  id: 4484060b-da3f-4e6d-9121-2570eaf502c5
+  type: database
+  name: mydb
+  fullyQualifiedName: MsSQL.mydb
+  displayName: mydb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE TABLE cdc.index_columns (\n\tobject_id INTEGER NOT NULL,\
+  \ \n\tcolumn_name NVARCHAR NOT NULL, \n\tindex_ordinal TINYINT NOT NULL, \n\tcolumn_id\
+  \ INTEGER NOT NULL, \n\tCONSTRAINT index_columns_clustered_idx PRIMARY KEY (object_id,\
+  \ index_ordinal, column_id)\n)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d68a7d1f2c1e1bbd4b22524a9a347d4e
+processedLineage: false
+entityStatus: Approved

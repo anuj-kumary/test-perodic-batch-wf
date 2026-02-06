@@ -1,0 +1,145 @@
+name: Address
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address
+description: "Street address information for customers, employees, and vendors."
+tableType: Regular
+columns:
+  - name: AddressID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key for Address records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.AddressID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: AddressLine1
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(60)
+    description: First street address line.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.AddressLine1
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: AddressLine2
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(60)
+    description: Second street address line.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.AddressLine2
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: City
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(30)
+    description: Name of the city.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.City
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: StateProvinceID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Unique identification number for the state or province. Foreign key
+      to StateProvince table.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.StateProvinceID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: PostalCode
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(15)
+    description: Postal code for the street address.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.PostalCode
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SpatialLocation
+    dataType: "NULL"
+    dataLength: 1
+    dataTypeDisplay: geography(-1)
+    description: Latitude and longitude of this address.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.SpatialLocation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Address.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - StateProvinceID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.StateProvince.StateProvinceID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - AddressLine1
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.CountryRegionCurrency.CurrencyCode
+    relationshipType: ONE_TO_ONE
+owners: []
+databaseSchema:
+  id: 8b8dc7c0-054b-4c63-abd8-9beaa0f4e0b5
+  type: databaseSchema
+  name: Person
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Person
+  displayName: Person
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 496665d8bea6aaea743e7b2264255e08
+processedLineage: false
+entityStatus: Approved

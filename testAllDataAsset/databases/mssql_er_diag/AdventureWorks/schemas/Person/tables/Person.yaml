@@ -1,0 +1,186 @@
+name: Person
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person
+description: "Human beings involved with AdventureWorks: employees, customer contacts,\
+  \ and vendor contacts."
+tableType: Regular
+columns:
+  - name: BusinessEntityID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key for Person records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.BusinessEntityID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: PersonType
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(2)
+    description: "Primary type of person: SC = Store Contact, IN = Individual (retail)\
+      \ customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact,\
+      \ GC = General contact"
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.PersonType
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: NameStyle
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    description: "0 = The data in FirstName and LastName are stored in western style\
+      \ (first name, last name) order.  1 = Eastern style (last name, first name)\
+      \ order."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.NameStyle
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Title
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(8)
+    description: "A courtesy title. For example, Mr. or Ms."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.Title
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FirstName
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: First name of the person.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.FirstName
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: MiddleName
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: Middle name or middle initial of the person.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.MiddleName
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LastName
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: Last name of the person.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.LastName
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Suffix
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(10)
+    description: "Surname suffix. For example, Sr. or Jr."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.Suffix
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EmailPromotion
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "0 = Contact does not wish to receive e-mail promotions, 1 = Contact\
+      \ does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does\
+      \ wish to receive e-mail promotions from AdventureWorks and selected partners. "
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.EmailPromotion
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: AdditionalContactInfo
+    dataType: XML
+    dataLength: 1
+    dataTypeDisplay: xml(-1)
+    description: 'Additional contact information about the person stored in xml format. '
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.AdditionalContactInfo
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Demographics
+    dataType: XML
+    dataLength: 1
+    dataTypeDisplay: xml(-1)
+    description: "Personal information such as hobbies, and income collected from\
+      \ online shoppers. Used for sales analysis."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.Demographics
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Person.Person.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.BusinessEntity.BusinessEntityID
+    relationshipType: ONE_TO_ONE
+owners: []
+databaseSchema:
+  id: 8b8dc7c0-054b-4c63-abd8-9beaa0f4e0b5
+  type: databaseSchema
+  name: Person
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Person
+  displayName: Person
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d1c2db33bc027e8dc0ec6860c5726507
+processedLineage: false
+entityStatus: Approved

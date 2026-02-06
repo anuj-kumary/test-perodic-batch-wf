@@ -1,0 +1,209 @@
+name: Employee
+fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee
+description: "Employee information such as salary, department, and title."
+tableType: Regular
+columns:
+  - name: BusinessEntityID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key for Employee records.  Foreign key to BusinessEntity.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.BusinessEntityID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: NationalIDNumber
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(15)
+    description: Unique national identification number such as a social security number.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.NationalIDNumber
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: LoginID
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(256)
+    description: Network login.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.LoginID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: OrganizationNode
+    dataType: "NULL"
+    dataLength: 1
+    dataTypeDisplay: hierarchyid(892)
+    description: Where the employee is located in corporate hierarchy.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.OrganizationNode
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: OrganizationLevel
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    description: The depth of the employee in the corporate hierarchy.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.OrganizationLevel
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: JobTitle
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: Work title such as Buyer or Sales Representative.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.JobTitle
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: BirthDate
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date of birth.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.BirthDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: MaritalStatus
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(1)
+    description: "M = Married, S = Single"
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.MaritalStatus
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Gender
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(1)
+    description: "M = Male, F = Female"
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.Gender
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: HireDate
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Employee hired on this date.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.HireDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SalariedFlag
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    description: "Job classification. 0 = Hourly, not exempt from collective bargaining.\
+      \ 1 = Salaried, exempt from collective bargaining."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.SalariedFlag
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: VacationHours
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    description: Number of available vacation hours.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.VacationHours
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SickLeaveHours
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    description: Number of available sick leave hours.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.SickLeaveHours
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: CurrentFlag
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    description: "0 = Inactive, 1 = Active"
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.CurrentFlag
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources.Employee.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.Person.BusinessEntityID
+    relationshipType: ONE_TO_ONE
+owners: []
+databaseSchema:
+  id: 0566ea61-1e79-49dd-89d7-07248aae613f
+  type: databaseSchema
+  name: HumanResources
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.HumanResources
+  displayName: HumanResources
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 3d3a4e6c684e5c972f76c6a6d4e41009
+processedLineage: false
+entityStatus: Approved

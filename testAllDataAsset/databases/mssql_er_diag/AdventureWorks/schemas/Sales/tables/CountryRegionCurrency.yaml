@@ -1,0 +1,85 @@
+name: CountryRegionCurrency
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CountryRegionCurrency
+description: Cross-reference table mapping ISO currency codes to a country or region.
+tableType: Regular
+columns:
+  - name: CountryRegionCode
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(3)
+    description: ISO code for countries and regions. Foreign key to CountryRegion.CountryRegionCode.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CountryRegionCurrency.CountryRegionCode
+    tags: []
+    children: []
+    customMetrics: []
+  - name: CurrencyCode
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(3)
+    description: ISO standard currency code. Foreign key to Currency.CurrencyCode.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CountryRegionCurrency.CurrencyCode
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CountryRegionCurrency.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - CountryRegionCode
+      - CurrencyCode
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CountryRegionCode
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.CountryRegion.CountryRegionCode
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CountryRegionCode
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.HumanResources.Employee.SickLeaveHours
+    relationshipType: ONE_TO_MANY
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: e612627f3e9b39cc6f32b5af9d7bcdb0
+processedLineage: false
+entityStatus: Approved
