@@ -1,0 +1,64 @@
+name: table_1403
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1403
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1403.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_SM_MARKETING_REQUEST(\n\t\"RequestNumber\"\
+  ,\n\t\"CampaignName\",\n\t\"RequestedBy\",\n\t\"AssignedTo\",\n\t\"ShortDescription\"\
+  ,\n\t\"AccountTypeCsv\",\n\t\"CountryCsv\",\n\t\"ConversationCsv\",\n\t\"JobLevelCsv\"\
+  ,\n\t\"JobRoleCsv\",\n\t\"JobFunctionCsv\",\n\t\"StandAloneEmailDate\",\n\t\"Invite1EmailDate\"\
+  ,\n\t\"Invite2EmailDate\",\n\t\"Invite3EmailDate\",\n\t\"RequestState\",\n\t\"RequestSubCategory\"\
+  ,\n\t\"RejectionGoTo\",\n\t\"RequestedByID\",\n\t\"AudienceFilter\",\n\t\"ListImportFlag\"\
+  \n) as\n-- SEMANTIC LAYER BEGINS\nSELECT \"NUMBER\" as \"RequestNumber\",\n\"DV_U_ELOQUA_CAMPAIGN_NAME\"\
+  \ as \"CampaignName\",\n\"DV_CALLER\" as \"RequestedBy\",\n\"DV_ASSIGNED_TO\" as\
+  \ \"AssignedTo\",\n\"SHORT_DESCRIPTION\" as \"ShortDescription\",\n\"DV_U_TARGET_AUDIENCE1\"\
+  \ as \"AccountTypeCsv\",\n\"DV_U_COUNTRY\" as \"CountryCsv\",\n\"DV_U_CAMPAIGN_CONVERSATION\"\
+  \ as \"ConversationCsv\",\n\"DV_U_JOB_LEVEL\" as \"JobLevelCsv\",\n\"DV_U_JOB_ROLE\"\
+  \ as \"JobRoleCsv\",\n\"DV_U_PLAIN_TEXT_OF_LANDING_PAGE\" as \"JobFunctionCsv\"\
+  ,\n\"U_STANDALONE_EMAIL_DTIME\" as \"StandAloneEmailDate\",\n\"U_INVITE1_DTIME\"\
+  \ as \"Invite1EmailDate\",\n\"U_INVITE2_DTIME\" as \"Invite2EmailDate\",\n\"U_INVITE3_DTIME\"\
+  \ as \"Invite3EmailDate\",\n\"DV_STATE\" as \"RequestState\",\n\"DV_U_SUBCATEGORY\"\
+  \ as \"RequestSubCategory\",\n\"DV_REJECTION_GOTO\" as \"RejectionGoTo\",\n\"CALLER\"\
+  \ as \"RequestedByID\",\n\"DV_U_SALES_REP\" as \"AudienceFilter\", --SMC Enhancements\
+  \ : STRY2488409\n\"U_SEND_REGISTRATION_NOTIFICATIONS2\" as \"ListImportFlag\"  --SMC\
+  \ Enhancements : STRY2488409\nFROM RDS.SURF.SN_SM_MARKETING_REQUEST;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

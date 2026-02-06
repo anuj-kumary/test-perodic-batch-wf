@@ -1,0 +1,78 @@
+name: table_1417
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1417
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1417.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_OPPORTUNITY_QUALITY(\n\tOPTY_ID,\n\
+  \tOPTY_NUMBER,\n\tQUARTER_ID,\n\tQUARTER_YYQQ,\n\tSTAGE_BUCKET,\n\tAGING_DAYS,\n\
+  \tOPTY_AGE_IN_DAYS,\n\tOPTY_AGE_BUCKET,\n\tOPTY_STAGNATION_BUCKET,\n\tNO_UPDATED_FLAG,\n\
+  \tNO_UPDATED_BUCKET,\n\tCLOSEDATE_NO_UPDATED_FLAG,\n\tLASTSTAGE_NO_UPDATED_FLAG,\n\
+  \tLASTSTATUS_NO_UPDATED_FLAG,\n\tNEXTSTEPS_NO_UPDATED_FLAG,\n\tIS_ALL_NO_UPDATED_FLAG,\n\
+  \tSLIPPED_CNT\n) as\nselect\n    hash(\"OptyNumber\") OPTY_ID,\n    \"OptyNumber\"\
+  \ OPTY_NUMBER,\n    QUARTER_ID,\n    \"SalesQuarter\" QUARTER_YYQQ,\n    MAX(\"\
+  StageBucket\") STAGE_BUCKET,\n    MAX(\"AgingDays\") AGING_DAYS,\n    MAX(\"OptyAgeInDays\"\
+  ) OPTY_AGE_IN_DAYS,\n    MAX(\"OptyAgeBucket\") OPTY_AGE_BUCKET,\n    MAX(\"OptyStagnationBucket\"\
+  ) OPTY_STAGNATION_BUCKET,\n    MAX(NO_UPDATED_FLAG) NO_UPDATED_FLAG,\n    MAX(\"\
+  NoUpdatedBucket\") NO_UPDATED_BUCKET,\n    MAX(CLOSEDATE_NO_UPDATED_FLAG) CLOSEDATE_NO_UPDATED_FLAG,\n\
+  \    MAX(LASTSTAGE_NO_UPDATED_FLAG) LASTSTAGE_NO_UPDATED_FLAG,\n    MAX(LASTSTATUS_NO_UPDATED_FLAG)\
+  \ LASTSTATUS_NO_UPDATED_FLAG,\n    MAX(NEXTSTEPS_NO_UPDATED_FLAG) NEXTSTEPS_NO_UPDATED_FLAG,\n\
+  \    MAX(\"IsAllNoUpdatedFlag\") IS_ALL_NO_UPDATED_FLAG,\n    SUM(SLIPPED_CNT) SLIPPED_CNT\n\
+  from\n(\n    select\n    \"RecordType\",\n    \"OptyNumber\",\n    \"SalesQuarter\"\
+  ,\n    \"StageBucket\",\n    \"AgingDays\",\n    \"OptyAgeInDays\",\n    \"OptyAgeBucket\"\
+  ,\n    \"OptyStagnationBucket\",\n    case when \"NoUpdated60DaysFlag\"='random'\
+  \ then 'random'\n         when \"NoUpdated30DaysFlag\"='random' then 'random'\n\
+  \    end NO_UPDATED_FLAG,\n    \"NoUpdatedBucket\",\n    case when \"CloseDateNoUpdated60DaysFlag\"\
+  ='random' then 'random'\n         when \"CloseDateNoUpdated30DaysFlag\"='random'\
+  \ then 'random'\n     end CLOSEDATE_NO_UPDATED_FLAG,\n    case when \"LastStageNoUpdated60DaysFlag\"\
+  ='random' then 'random'\n         when \"LastStageNoUpdated30DaysFlag\"='random'\
+  \ then 'random'\n    end LASTSTAGE_NO_UPDATED_FLAG,\n    case when \"LastStatusNoUpdated60DaysFlag\"\
+  ='random' then 'random'\n         when \"LastStatusNoUpdated30DaysFlag\"='random'\
+  \ then 'random'\n    end LASTSTATUS_NO_UPDATED_FLAG,\n    case when \"NextStepsNoUpdated60DaysFlag\"\
+  ='random' then 'random'\n         when \"NextStepsNoUpdated30DaysFlag\"='random'\
+  \ then 'random'\n    end NEXTSTEPS_NO_UPDATED_FLAG,\n    \"IsAllNoUpdatedFlag\"\
+  ,\n    max(\"SlippedCnt\") as SLIPPED_CNT,\n    \"LeadFromQuarter\",\n    \"LeadQuarter\"\
+  ,\n    \"LeadExtractDate\",\n    \"LeadOptyStage\"\n    from EDW_LS.SALES_EM.SALES_PIPELINE_INSIGHTS_QUALITY\n\
+  \    where \"RecordType\" in ('random','random','random')\n    group by all\n) pq\n\
+  LEFT JOIN (\n        select\n            distinct QUARTER_ID,\n            QUARTER_DT,\n\
+  \            QUARTER_YYQQ\n        from\n            EDW.ENTERPRISE.DIM_QUARTER\n\
+  \         ) qtr on pq.\"SalesQuarter\" = qtr.QUARTER_YYQQ\ngroup by all;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

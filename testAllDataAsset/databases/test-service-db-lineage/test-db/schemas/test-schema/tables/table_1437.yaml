@@ -1,0 +1,59 @@
+name: table_1437
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1437
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1437.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_NEW_LOGO_TARGET_TEST2(\n\tQUARTER_ID,\n\
+  \tTERRITORY_ID,\n\tGEO_ID,\n\tQUARTER_DT,\n\tQUARTER_YYQQ,\n\tNEW_LOGO_TARGET,\n\
+  \tNEW_LOGO_ACE_TARGET,\n\tTERRITORY_SYSID\n) as\n\n/**********************************************************************************************************************************\n\
+  * CREATE/CHANGE LOG:\n*     DATE                        MOD BY                 \
+  \                    DESC\n*---------------------*-----------------------------*----------------------------------------------------------------------------\n\
+  *  27/12/2023                     Avantika                     Created new veiw\
+  \ as part of Self-serve 1.5 team 02/02/2024 Release\n***********************************************************************************************************************************/\n\
+  \nSELECT\n    QTR.QUARTER_ID\n    ,hash(NL.\"TerritorySysID\") as TERRITORY_ID\n\
+  \    ,TERR.GEO_ID\n\t,QTR.QUARTER_DT\n    ,QTR.QUARTER_YYQQ\n    ,NL.\"NewLogoTargets\"\
+  \ as NEW_LOGO_TARGET\n    ,NL.\"NewLogoTargetsACE\" as NEW_LOGO_ACE_TARGET\n   \
+  \ ,NL.\"TerritorySysID\" as TERRITORY_SYSID\n  FROM EDW_LS.SALES_EM.EM_SALES_NEWLOGO_TARGETS\
+  \ NL\n  LEFT OUTER JOIN EDW.ENTERPRISE.DIM_QUARTER QTR  ON NL.\"Quarter\" = QTR.QUARTER_YYQQ\n\
+  \  LEFT OUTER JOIN  EDW.ENTERPRISE.DIM_TERRITORY TERR ON NL.\"TerritorySysID\" =\
+  \ TERR.TERRITORY_SYSID;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

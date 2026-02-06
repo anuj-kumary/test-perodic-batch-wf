@@ -1,0 +1,62 @@
+name: table_1399
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1399
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1399.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SOLUTION_OFFERING(\n\t\"SolutionOfferingName\"\
+  ,\n\t\"BusinessImperative\",\n\t\"SolutionOfferingNumber\",\n\t\"SolutionOfferingSysID\"\
+  ,\n\t\"PartnerSysID\",\n\t\"PartnerName\",\n\t\"PartnerManagerSysID\",\n\t\"PartnerManager\"\
+  ,\n\t\"UActive\",\n\t\"Number\",\n\t\"SubIndustry\",\n\t\"SolutionOfferingType\"\
+  ,\n\t\"SolutionOfferingndustry\",\n\t\"SolutionOfferingState\",\n\t\"InnovationIdeaApplicationSysID\"\
+  ,\n\tGUID,\n\t\"SubBusinessImperative\"\n) as\n\nselect distinct\n\"U_NAME\" as\
+  \ \"SolutionOfferingName\",\n\t\"DV_U_BUSINESS_IMPERATIVE\" as \"BusinessImperative\"\
+  ,\n\t\"U_INNOVATION_IDEA_NUMBER\" as \"SolutionOfferingNumber\",\n\t\"SYS_ID\" as\
+  \  \"SolutionOfferingSysID\",\n\t\"U_PARTNER_ACCOUNT\" as \"PartnerSysID\",\n\t\"\
+  DV_U_PARTNER_ACCOUNT\" as \"PartnerName\",\n\t\"U_PARTNER_MANAGER\" as \"PartnerManagerSysID\"\
+  ,\n\t\"DV_U_PARTNER_MANAGER\" as \"PartnerManager\",\n\t\"U_ACTIVE\" as \"UActive\"\
+  ,\n\t\"U_NUMBER\"  as \"Number\",\n\t\"DV_U_SUB_INDUSTRY\" as \"SubIndustry\",\n\
+  \t\"DV_U_IDEA_TYPE\" as \"SolutionOfferingType\",\n\t\"DV_U_INDUSTRY\" as \"SolutionOfferingndustry\"\
+  ,\n\t\"DV_U_STATE\" as \"SolutionOfferingState\",\n\t\"U_INNOVATION_IDEA_APPLICATION_SYS_ID\"\
+  \ as \"InnovationIdeaApplicationSysID\",\n\t\"U_CRM_RECORD_ID\" as \"GUID\",\n\t\
+  \"DV_U_SUB_BUSINESS_IMPERATIVE\" as \"SubBusinessImperative\"\nfrom RDS.SURF.U_SOLUTION_OFFERING\n\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

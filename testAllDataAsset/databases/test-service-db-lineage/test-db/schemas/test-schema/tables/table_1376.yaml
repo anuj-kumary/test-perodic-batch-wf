@@ -1,0 +1,90 @@
+name: table_1376
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1376
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1376.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_VALUE_PROMPTERS(\n\t\"AcctSysID\",\n\
+  \t\"AcctName\",\n\t\"AcctKey\",\n\t\"AcctNumber\",\n\t\"OpportunitySysID\",\n\t\"\
+  TotalPromptersOpty\",\n\t\"OpportunityStage\",\n\t\"SalesQuarter\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"AcctSysID\" as \"AcctSysID\",\n       \"AcctName\" as\
+  \ \"AcctName\",\n       \"AcctKey\" as \"AcctKey\",\n       \"AcctNumber\" as \"\
+  AcctNumber\",\n       COUNT(\"OpportunitySysID\") as \"OpportunitySysID\",\n   \
+  \    COUNT(\"TotalPromptersOpty\") as \"TotalPromptersOpty\",\n       \"OpportunityStage\"\
+  \ as \"OpportunityStage\",\n       \"SalesQuarter\" as \"SalesQuarter\"\nFROM\n\
+  \  (SELECT \"AcctSysID\" as \"AcctSysID\",\n          \"AcctName\" as \"AcctName\"\
+  ,\n          \"AcctKey\" as \"AcctKey\",\n          \"AcctNumber\" as \"AcctNumber\"\
+  ,\n          \"OpportunitySysID\" as \"OpportunitySysID\",\n          \"TotalPromptersOpty\"\
+  \ as \"TotalPromptersOpty\",\n          \"OpportunityStage\" as \"OpportunityStage\"\
+  ,\n          \"SalesQuarter\" as \"SalesQuarter\"\n   FROM\n     (SELECT \"Projection_1\"\
+  .\"AcctSysID\" as \"AcctSysID\",\n             \"Projection_1\".\"AcctName\" as\
+  \ \"AcctName\",\n             \"Projection_1\".\"AcctKey\" as \"AcctKey\",\n   \
+  \          \"Projection_1\".\"AcctNumber\" as \"AcctNumber\",\n             \"ValueSellingAdoption\"\
+  .\"OpportunitySysID\" as \"OpportunitySysID\",\n             \"ValueSellingAdoption\"\
+  .\"ValueSellUMaster\" as \"ValueSellUMaster\",\n             \"ValueSellingAdoption\"\
+  .\"ValueSellActive\" as \"ValueSellActive\",\n             \"Projection_1\".\"AcctNumber\"\
+  \ as \"AccountNumber\",\n             \"ValueSellingAdoption\".\"OpportunityStage\"\
+  \ as \"OpportunityStage\",\n             \"ValueSellingAdoption\".\"SalesQuarter\"\
+  \ as \"SalesQuarter\",\n             IFF((\"ValueSellUMaster\" = 'random'\n    \
+  \              and \"ValueSellActive\" = 'random') IS NULL, 'random', IFF(\"ValueSellUMaster\"\
+  \ = 'random'\n                                                                and\
+  \ \"ValueSellActive\" = 'random', \"OpportunitySysID\", 'random')) as \"TotalPromptersOpty\"\
+  \n      FROM\n        (SELECT \"OpportunitySysID\" as \"OpportunitySysID\",\n  \
+  \              \"OpportunityName\" as \"OpportunityName\",\n                \"OpportunityNumber\"\
+  \ as \"OpportunityNumber\",\n                \"OpportunityType\" as \"OpportunityType\"\
+  ,\n                \"ValueSellUMaster\" as \"ValueSellUMaster\",\n             \
+  \   \"ValueSellActive\" as \"ValueSellActive\",\n                \"AccountNumber\"\
+  \ as \"AccountNumber\",\n                \"OpportunityStage\" as \"OpportunityStage\"\
+  ,\n                \"SalesQuarter\" as \"SalesQuarter\",\n                'random'\
+  \ as \"Dummy\"\n         FROM \"CDL_LS\".\"LEGACY_SALES\".\"VALUESELLINGADOPTION\"\
+  )\"ValueSellingAdoption\"\n      INNER JOIN\n        (SELECT \"AcctSysID\" as \"\
+  AcctSysID\",\n                \"AcctName\" as \"AcctName\",\n                \"\
+  AcctNumber\" as \"AcctNumber\",\n                \"AcctMDMID\" as \"AcctMDMID\"\
+  ,\n                concat(ifnull(\"AcctMDMID\", 'random'), ifnull(\"AcctNumber\"\
+  , 'random')) as \"AcctKey\"\n         FROM \"ODS_LS\".\"SURF\".\"SALES_ACCOUNT\"\
+  )\"Projection_1\" ON \"ValueSellingAdoption\".\"AccountNumber\" = \"Projection_1\"\
+  .\"AcctNumber\")\"Join_1\"\n   GROUP BY \"AcctSysID\",\n            \"AcctName\"\
+  ,\n            \"AcctKey\",\n            \"AcctNumber\",\n            \"OpportunitySysID\"\
+  ,\n            \"TotalPromptersOpty\",\n            \"OpportunityStage\",\n    \
+  \        \"SalesQuarter\")Aggregation_1\nGROUP BY \"AcctSysID\",\n         \"AcctName\"\
+  ,\n         \"AcctKey\",\n         \"AcctNumber\",\n         \"OpportunityStage\"\
+  ,\n         \"SalesQuarter\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

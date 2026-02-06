@@ -1,0 +1,82 @@
+name: table_1400
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1400
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1400.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_VDR_RISK_ASSESMENT(\n\tVENDOR,\n\tNUMBER,\n\
+  \tDUE_DATE,\n\tDV_ASSIGNMENT_GROUP,\n\tSYS_CREATED_BY,\n\tDV_RISK_RATING,\n\tSYS_UPDATED_BY,\n\
+  \tDV_ASSIGNED_TO,\n\tWORK_END,\n\tDV_ASSESSMENT_TEMPLATE,\n\tSTATE,\n\tDV_U_PURCHASE_REQUEST,\n\
+  \tSTART_DATE,\n\tSUBMITTED_TO_VENDOR,\n\tDV_U_RISK_TIER,\n\tWORK_START,\n\tEND_DATE,\n\
+  \tDV_PRIORITY,\n\tSYS_UPDATED_ON,\n\tQUESTIONNAIRE_RESPONSE_EXPECTED_BY,\n\tU_TYPE_GROUP,\n\
+  \tSYS_ID,\n\tCLOSE_NOTES,\n\tDV_REPEATING_ASSESSMENT,\n\tDV_STATE,\n\tSYS_CREATED_ON,\n\
+  \tQUESTIONNAIRE_DUE_DATE,\n\tNAME,\n\tDV_VENDOR,\n\tASSESSMENT_DURATION,\n\tQUESTIONNAIRE_COMPLETION_DATE,\n\
+  \tWORK_NOTES,\n\tDV_U_SUB_STATE,\n\tDV_WORK_DURATION,\n\tQUESTIONNAIRE_DURATION,\n\
+  \tDV_DURATION,\n\tQUESTIONNAIRE_REVIEW_DURATION,\n\tCLOSED_AT,\n\tSTATUS,\n\tDV_STATUS,\n\
+  \tDV_STATE_HISTORY,\n\tOVERRIDE_STATUS\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"VENDOR\" as \"VENDOR\",\n       \"NUMBER\" as \"NUMBER\",\n       \"DUE_DATE\"\
+  \ as \"DUE_DATE\",\n       \"DV_ASSIGNMENT_GROUP\" as \"DV_ASSIGNMENT_GROUP\",\n\
+  \       \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n       \"DV_RISK_RATING\" as\
+  \ \"DV_RISK_RATING\",\n       \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n      \
+  \ \"DV_ASSIGNED_TO\" as \"DV_ASSIGNED_TO\",\n       \"WORK_END\" as \"WORK_END\"\
+  ,\n       \"DV_ASSESSMENT_TEMPLATE\" as \"DV_ASSESSMENT_TEMPLATE\",\n       \"STATE\"\
+  \ as \"STATE\",\n       \"DV_U_PURCHASE_REQUEST\" as \"DV_U_PURCHASE_REQUEST\",\n\
+  \       \"START_DATE\" as \"START_DATE\",\n       \"SUBMITTED_TO_VENDOR\" as \"\
+  SUBMITTED_TO_VENDOR\",\n       \"DV_U_RISK_TIER\" as \"DV_U_RISK_TIER\",\n     \
+  \  \"WORK_START\" as \"WORK_START\",\n       \"END_DATE\" as \"END_DATE\",\n   \
+  \    \"DV_PRIORITY\" as \"DV_PRIORITY\",\n       \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  ,\n       \"QUESTIONNAIRE_RESPONSE_EXPECTED_BY\" as \"QUESTIONNAIRE_RESPONSE_EXPECTED_BY\"\
+  ,\n       \"U_TYPE_GROUP\" as \"U_TYPE_GROUP\",\n       \"SYS_ID\" as \"SYS_ID\"\
+  ,\n       \"CLOSE_NOTES\" as \"CLOSE_NOTES\",\n       \"DV_REPEATING_ASSESSMENT\"\
+  \ as \"DV_REPEATING_ASSESSMENT\",\n       \"DV_STATE\" as \"DV_STATE\",\n      \
+  \ \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n       \"QUESTIONNAIRE_DUE_DATE\" as\
+  \ \"QUESTIONNAIRE_DUE_DATE\",\n       \"NAME\" as \"NAME\",\n       \"DV_VENDOR\"\
+  \ as \"DV_VENDOR\",\n       \"ASSESSMENT_DURATION\" as \"ASSESSMENT_DURATION\",\n\
+  \       \"QUESTIONNAIRE_COMPLETION_DATE\" as \"QUESTIONNAIRE_COMPLETION_DATE\",\n\
+  \       \"WORK_NOTES\" as \"WORK_NOTES\",\n       \"DV_U_SUB_STATE\" as \"DV_U_SUB_STATE\"\
+  ,\n       \"DV_WORK_DURATION\" as \"DV_WORK_DURATION\",\n       \"QUESTIONNAIRE_DURATION\"\
+  \ as \"QUESTIONNAIRE_DURATION\",\n       \"DV_DURATION\" as \"DV_DURATION\",\n \
+  \      \"QUESTIONNAIRE_REVIEW_DURATION\" as \"QUESTIONNAIRE_REVIEW_DURATION\",\n\
+  \       \"CLOSED_AT\" as \"CLOSED_AT\",\n       \"STATUS\" as \"STATUS\",\n    \
+  \   \"DV_STATUS\" as \"DV_STATUS\",\n       \"DV_STATE_HISTORY\" as \"DV_STATE_HISTORY\"\
+  ,\n       \"OVERRIDE_STATUS\" as \"OVERRIDE_STATUS\"\nFROM \"RDS\".\"SURF\".\"SN_VDR_RISK_ASMT_ASSESSMENT\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

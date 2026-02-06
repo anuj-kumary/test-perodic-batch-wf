@@ -1,0 +1,96 @@
+name: table_1388
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1388
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1388.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PI_NCP(\n\tQUARTER_ID,\n\tQUARTER_YYQQ,\n\
+  \tTERRITORY_ID,\n\tGEO_ID,\n\tBU_GROUP_ID,\n\tOPTY_ID,\n\tACCOUNT_ID,\n\tACCOUNT_NAME,\n\
+  \tEXECUTIVE_SPONSOR_NAME,\n\tPIPELINE_SOURCE,\n\tNNACV_NCP_USD,\n\tTERRITORY_SYSID,\n\
+  \tRECORD_TYPE,\n\tREGION,\n\tTERRITORY,\n\tANAPLAN_ACCT_FLG,\n\tAREA,\n\tBU,\n\t\
+  BU_WORKFLOW,\n\tBU_WORKFLOW_OLD,\n\tCLOSED_QTR,\n\tCREATED_PIPE_FINAL_TGT,\n\tCREATED_QTR,\n\
+  \tDISTRICT,\n\tDYNAMIC_QUARTER,\n\tGENAI_FLAG,\n\tGENAI_PIPE_TGT,\n\tGEO,\n\tMAJOR_AREA,\n\
+  \tIS_MARQUEE_ACCOUNT,\n\tOPTY_NAME,\n\tOPTY_NUMBER,\n\tOPTY_SYSID,\n\tOPTY_TYPE,\n\
+  \tOPTY_CREATED_WEEK,\n\tDYNAMICS_DEAL_CHAMPION,\n\tDYNAMICS_GUID,\n\tOPTY_PIPELINE_SOURCE,\n\
+  \tOPTY_STAGE,\n\tOPTY_STAGE_DT,\n\tPRORATED_TGT,\n\tPRORATED_GEN_AI_TGT,\n\tQUARTER_FLAG\n\
+  ) as\nWITH CTE_GENERATED_PIPE AS\n(SELECT\ngp.\"OpportunitySysID\",\n\"OpportunityTerritorySysID\"\
+  ,\n\"OpportunityAccountSysID\",\ngp.\"AccountName\",\ngp.\"AcctExecutiveSponsorName\"\
+  ,\nEDW_LS.SALES_EM.FN_BUGROUP('random',gp.\"ProductBusinessUnitValue\") AS \"BU_GROUP\"\
+  ,\n\"TotalPipeline\",\n\"AnaplanAccountFlag\",\n\"Area\",\nBU,\n\"BUWorkflow\",\n\
+  \"BUWorkflow_Old\",\n\"ClosedQuarter\",\n\"CreatedPipeFinalTarget\",\n\"CreatedQuarter\"\
+  ,\n\"LineCreatedBy\",\n\"RecordType\",\n\"District\",\n\"DynamicQuarter\",\n\"GenAI_Flag\"\
+  ,\n\"GenAI_PipeTarget\",\ngp.\"OptyStageValue\",\ngp.\"OptyStagedOnDate\",\ngp.\"\
+  ProratedTarget\",\ngp.\"ProratedGenAI_Target\",\ngp.\"Quarter_Flag\",\n\"Geo\",\n\
+  \"Region\",\n\"MajorArea\",\n\"Territory\",\n\"MarqueeAccount\",\n\"OpportunityName\"\
+  ,\n\"OpportunityNumber\",\n\"OpportunityType\",\n\"OptyCreatedWeek\",\ngp.\"OptyDynamicsDealChampionName\"\
+  ,\ngp.\"OptyDynamicsGUID\",\ngp.\"OptyPipelineSourced\"\nFROM EDW_LS.SALES_EM.SALES_NEW_CREATED_PIPE\
+  \ GP\nLEFT JOIN ODS_LS.\"SURF\".\"SALES_PRODUCT\" SP\nON GP.\"OpportunityItemProductSysID\"\
+  \ = SP.\"ProductSysID\"\nLEFT JOIN  ODS_LS.\"SURF\".\"SALES_OPPORTUNITY\" SO\nON\
+  \ GP.\"OpportunitySysID\" = SO.\"OptySysID\"\nLEFT JOIN (SELECT \"OptySysID\",\"\
+  OptyItemLineItemNumber\",\"OptyItemLineCreatedBy\" from ODS_LS.\"SURF\".\"SALES_OPPORTUNITY_ITEM_CREATEDBY\"\
+  ) t2\nON GP.\"OpportunitySysID\" = t2.\"OptySysID\"\nAND GP.\"OpportunityLineNumber\"\
+  \ = t2.\"OptyItemLineItemNumber\"\nLEFT JOIN  ODS_LS.\"SURF\".SALES_ACCOUNT SA\n\
+  ON GP.\"AccountNumber\" = SA.\"AcctSysID\"\n)\nSELECT\nDQ.QUARTER_ID,\nDQ.QUARTER_YYQQ,\n\
+  hash(GEN_PIPE.\"OpportunityTerritorySysID\") AS TERRITORY_ID,\nDT.GEO_ID,\nhash(GEN_PIPE.\"\
+  BU_GROUP\") AS BU_GROUP_ID,\nhash(GEN_PIPE.\"OpportunitySysID\") AS OPTY_ID,\nhash(\"\
+  OpportunityAccountSysID\") as ACCOUNT_ID,\nGEN_PIPE.\"AccountName\" as ACCOUNT_NAME,\n\
+  GEN_PIPE.\"AcctExecutiveSponsorName\"  as EXECUTIVE_SPONSOR_NAME,\n\"LineCreatedBy\"\
+  \ AS PIPELINE_SOURCE,\nSUM(\"TotalPipeline\") AS NNACV_NCP_USD,\n\"OpportunityTerritorySysID\"\
+  \ as TERRITORY_SYSID,\n\"RecordType\"\tas\tRECORD_TYPE,\n\"Region\"\tas\tREGION,\n\
+  \"Territory\"\tas\tTERRITORY,\n\"AnaplanAccountFlag\"\tas\tANAPLAN_ACCT_FLG,\n\"\
+  Area\"\tas\tAREA,\n\"BUWorkflow\"\tas\tBU,\n\"BU\"\tas\tBU_WORKFLOW,\n\"BUWorkflow_Old\"\
+  \tas\tBU_WORKFLOW_OLD,\n\"ClosedQuarter\"\tas\tCLOSED_QTR,\n\"CreatedPipeFinalTarget\"\
+  \tas\tCREATED_PIPE_FINAL_TGT,\n\"CreatedQuarter\"\tas\tCREATED_QTR,\n\"District\"\
+  \tas\tDISTRICT,\n\"DynamicQuarter\"\tas\tDYNAMIC_QUARTER,\n\"GenAI_Flag\"\tas\t\
+  GENAI_FLAG,\n\"GenAI_PipeTarget\"\tas\tGENAI_PIPE_TGT,\n\"Geo\"\tas\tGEO,\n\"MajorArea\"\
+  \tas\tMAJOR_AREA,\n\"MarqueeAccount\"\tas\tIS_MARQUEE_ACCOUNT,\n\"OpportunityName\"\
+  \tas\tOPTY_NAME,\n\"OpportunityNumber\"\tas\tOPTY_NUMBER,\n\"OpportunitySysID\"\t\
+  as\tOPTY_SYSID,\n\"OpportunityType\"\tas\tOPTY_TYPE,\n\"OptyCreatedWeek\"\tas\t\
+  OPTY_CREATED_WEEK,\n\"OptyDynamicsDealChampionName\"\tas\tDYNAMICS_DEAL_CHAMPION,\n\
+  \"OptyDynamicsGUID\"\tas\tDYNAMICS_GUID,\n\"OptyPipelineSourced\"\tas\tOPTY_PIPELINE_SOURCE,\n\
+  \"OptyStageValue\"\tas\tOPTY_STAGE,\n\"OptyStagedOnDate\"\tas\tOPTY_STAGE_DT,\n\"\
+  ProratedTarget\"\tas\tPRORATED_TGT,\n\"ProratedGenAI_Target\"\tas\tPRORATED_GEN_AI_TGT,\n\
+  \"Quarter_Flag\"\tas\tQUARTER_FLAG\nFROM CTE_GENERATED_PIPE GEN_PIPE\nLEFT JOIN\
+  \ EDW.ENTERPRISE.DIM_TERRITORY DT on DT.TERRITORY_SYSID=GEN_PIPE.\"OpportunityTerritorySysID\"\
+  \nLEFT JOIN EDW.ENTERPRISE.DIM_QUARTER DQ on DQ.QUARTER_YYQQ=GEN_PIPE.\"CreatedQuarter\"\
+  \nLEFT JOIN EDW.ENTERPRISE.DIM_ACCOUNT ACC ON GEN_PIPE.\"OpportunityAccountSysID\"\
+  \ = ACC.ACCOUNT_SYSID\nGROUP BY ALL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,85 @@
+name: table_1391
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1391
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1391.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_USAGE_APP_DEFINTION_DETAIL(\n\tACCOUNT_NO,\n\
+  \tOWNER_BU,\n\t\"LicenseStatus\",\n\tSNAPSHOT_DATE,\n\tAPPLICATION_NAME,\n\tDEFINITION,\n\
+  \tDEFINITION_DESCRIPTION,\n\t\"AdoptionStatus\",\n\tCURRENT_USAGE_VALUE,\n\tMOM_CHANGE,\n\
+  \t\"AcctSysID\",\n\t\"AccountKey\",\n\tAPP_USAGE,\n\tKEY_APPLICATION,\n\t\"NeverUsedApps\"\
+  ,\n\t\"AppUsageModified\"\n) as\n\nwith account_dtls as(\n\t\tselect distinct \"\
+  ACCOUNT_NUMBER\", \"ACCOUNT_ID\"\n\t\tfrom cdl.enterprise.V_DIM_ACCOUNT\n\t),\n\t\
+  bu_id_dtls as\n\t(select distinct BU_ID, BU\n\t\tfrom cdl.enterprise.v_dim_bu\n\t\
+  ),\n\tapp_id_dtls as\n\t(select distinct APPLICATION_NAME, APPLICATION_ID , APPLICATION_SYSID\n\
+  \t\tfrom CDL.ENTERPRISE.V_DIM_APPLICATION\n\t),\n\tttfu as----first usage date\n\
+  \t(\n\t\tselect distinct bu.BU, ttfu.APPLICATION_NAME, ttfu.APPLICATION_ID,app.APPLICATION_SYSID,\
+  \ a.ACCOUNT_NUMBER, ttfu.latest_license_status,\n\t\t\tttfu.FIRST_USAGE_DT, ttfu.METRIC_TYPE,ttfu.FIRST_LICENSED_DT,\n\
+  \t\t\tttfu.deployment_status, ttfu.first_usage_afterdays as time_to_first_use\n\t\
+  \tfrom EDW.PRODUCT_USAGE.FACT_TIME_TO_FIRST_USE ttfu\n        LEFT JOIN account_dtls\
+  \ A\n            ON ttfu.ACCOUNT_ID = a.ACCOUNT_ID\n\t\tLEFT JOIN bu_id_dtls bu\n\
+  \t\t\tON bu.bu_id = ttfu.bu_id\n\t\tLEFT JOIN app_id_dtls app\n\t\t\tON app.APPLICATION_ID\
+  \ = ttfu.APPLICATION_ID\n\t\t\twhere ttfu.FIRST_LICENSED_DT>'random'\n\t),\n\tnever_used_apps\
+  \ as\n\t( select ACCOUNT_NUMBER,BU,APPLICATION_NAME, APPLICATION_ID, APPLICATION_SYSID,\
+  \ DEPLOYMENT_STATUS\n\t\tfrom ttfu\n\t\twhere deployment_status <> 'random'\n\t\t\
+  \tand latest_license_status = 'random'\n\t)\n\tselect\n\tACCOUNT_NO,\n\tOWNER_BU,\n\
+  \t\"LicenseStatus\",\n\tSNAPSHOT_DATE,\n\tAPPLICATION_NAME,\n\tDEFINITION,\n\tDEFINITION_DESCRIPTION,\n\
+  \t\"AdoptionStatus\",\n\tCURRENT_USAGE_VALUE,\n\tMOM_CHANGE,\n\t\"AcctSysID\",\n\
+  \t\"AccountKey\",\n\tAPP_USAGE,\n\tKEY_APPLICATION,\n\t\"NeverUsedApps\", -- for\
+  \ never used apps\n\t\"AppUsageModified\"\n\tfrom (\n\t\tSELECT distinct\n\t\tcdp.\"\
+  ACCOUNT_NUMBER\" ACCOUNT_NO,\n\t\tcase when cdp.BUSINESS_UNIT = 'random' then 'random'\n\
+  \t\t   else cdp.BUSINESS_UNIT end OWNER_BU, -- SPM change\n\t\tcdp.\"LICENSED_STATUS\"\
+  \ \"LicenseStatus\",\n\t\tcdp.\"SNAPSHOT_DATE\" SNAPSHOT_DATE,\n\t\tcdp.\"APPLICATION_NAME\"\
+  \ APPLICATION_NAME,\n\t\t'random' DEFINITION,\n\t\t'random' DEFINITION_DESCRIPTION,\n\
+  \t\t'random' \"AdoptionStatus\",\n\t\t'random' CURRENT_USAGE_VALUE,\n\t\t'random'\
+  \ MOM_CHANGE,\n\t\tcdp.\"ACCOUNT_SYS_ID\" \"AcctSysID\",\n\t\tcdp.\"ACCOUNT_KEY\"\
+  \ \"AccountKey\",\n\t\tcdp.\"APP_USAGE\" APP_USAGE,\n\t\tcase when cdp.\"FIXED_CRITICAL_APP_FLAG\"\
+  \ = 'random' then 'random' else 'random' end \tKEY_APPLICATION,\n\t\tcase when never_used_apps.DEPLOYMENT_STATUS\t\
+  IS not NULL then 'random' else 'random' end \"NeverUsedApps\",\n\t\tcase when \"\
+  NeverUsedApps\" = 'random' then 'random'\n\t\twhen \"APP_USAGE\" = 'random' then\
+  \ 'random'\n\t\twhen \"APP_USAGE\" = 'random' then 'random'\n\t\telse \"APP_USAGE\"\
+  \ end \"AppUsageModified\",\n\t\tcdp.\"APPLICATION_SYS_ID\"\n\t\tFROM\n\t\tEDW_LS.\"\
+  CUSTOMER_EM\".\"CDP_USAGE_DETAILS_TABLE\" cdp\n\t\tleft JOIN\n\t\tnever_used_apps\n\
+  \t\tON (never_used_apps.ACCOUNT_NUMBER = cdp.\"ACCOUNT_NUMBER\"\n\t\t\tand never_used_apps.APPLICATION_SYSID\
+  \ = cdp.\"APPLICATION_SYS_ID\"\n\t\t\tand  never_used_apps.\"BU\" = cdp.BUSINESS_UNIT)\n\
+  \t  WHERE cdp.\"CURRENT\" = 'random' and cdp.\"LICENSED_STATUS\" = 'random'\n\t\t\
+  --and \"ACCOUNT_NUMBER\" = 'ACCT0001248' and \"BUSINESS_UNIT\" = 'HR'\n\t);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,64 @@
+name: table_1422
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1422
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1422.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_OPPORTUNITY_PARTNER(\n\tPRL_PARTNER_ID,\n\
+  \tPARTNER_ACCOUNT_ID,\n\tOPTY_ID,\n\tPARTNER_TERRITORY_ID,\n\tPARTNER_MANAGER_ID,\n\
+  \tPRL_NUMBER,\n\tPARTNER_REGISTRATION_NUMBER,\n\tIS_PARTNER_PIPELINE_SOURCED,\n\t\
+  IS_PARTNER_ACTIVE,\n\tALLOCATION_PCT,\n\tOPTY_PARTNERSHIP_TYPE,\n\tPARTNER_CREATED_TS,\n\
+  \tPRL_SYSID,\n\tACCOUNT_SYSID,\n\tOPTY_SYSID,\n\tPARTNER_TERRITORY_SYSID,\n\tPARTNER_MANAGER_SYSID,\n\
+  \tAGREEMENT_SYSID\n) as\nSELECT HASH(\"PRLSysID\")\t \t \t\t\tAS \tPRL_PARTNER_ID\t\
+  ,\nHASH(\"PartnerAccountSysID\")\t \t\t\tAS \tPARTNER_ACCOUNT_ID\t,\nHASH(\"PartnerOpportunitySysID\"\
+  )\t \t\tAS \tOPTY_ID\t,\nHASH(\"PartnerTerritorySysID\")\t \t\tAS \tPARTNER_TERRITORY_ID\t\
+  ,\nHASH(\"PartnerManager\")\t\t\t\t\tAS \tPARTNER_MANAGER_ID\t,\n\"PartnerNumber\"\
+  \t \t\t\t\t\t\tAS \tPRL_NUMBER\t,\n\"PartnerOptyRegNumber\"                  AS\
+  \  PARTNER_REGISTRATION_NUMBER,\n\"PartnerPipelineSourced\"\t \t\t\tAS \tIS_PARTNER_PIPELINE_SOURCED\t\
+  ,\n\"PartnerActive\"\t \t\t\t\t\t\tAS \tIS_PARTNER_ACTIVE\t,\n\"PartnerPercentageAllocated\"\
+  \t \t\tAS \tALLOCATION_PCT\t,\n\"PartnershipType\"\t \t\t\t\t\tAS \tOPTY_PARTNERSHIP_TYPE\t\
+  ,\n\"PartnerCreatedOn\"\t \t\t\t\t\tAS \tPARTNER_CREATED_TS\t,\n\"PRLSysID\"\t\t\
+  \t\t\t \t\t\tAS \tPRL_SYSID,\n\"PartnerAccountSysID\"\t \t\t\t\tAS \tACCOUNT_SYSID\t\
+  ,\n\"PartnerOpportunitySysID\"\t \t\t\tAS \tOPTY_SYSID\t,\n\"PartnerTerritorySysID\"\
+  \t \t\t\t\tAS \tPARTNER_TERRITORY_SYSID\t,\n\"PartnerManager\" \t\t\t\t\t\tAS \t\
+  PARTNER_MANAGER_SYSID ,\n\"PartnerAgreementSysID\"\t \t\t\t\tAS \tAGREEMENT_SYSID\n\
+  from ODS_LS.SURF.OPPORTUNITY_PARTNER;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

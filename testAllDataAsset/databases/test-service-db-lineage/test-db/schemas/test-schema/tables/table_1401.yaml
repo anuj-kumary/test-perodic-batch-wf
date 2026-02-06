@@ -1,0 +1,87 @@
+name: table_1401
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1401
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1401.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_NPS_SURVEY_DTLS(\n\t\"Qtr\",\n\tGEO,\n\
+  \tAREA,\n\tDV_U_ACCOUNT_TERRITORY,\n\tRESPONDENT_ID,\n\tCONTACT_NAME,\n\tCONTACT_TIME,\n\
+  \tDURATION,\n\tCOMPLETED_DATE,\n\tACCT_NAME,\n\tACCT_NO,\n\tLIKELY_TO_RECOMMEND,\n\
+  \tLIKELY_TO_RENEW,\n\tOSAT_RELATIONSHIP,\n\tCONTACT_ROLE,\n\tOVERALL_PRODUCT,\n\t\
+  ACCT_MGMT,\n\tIMPLEMENTATION,\n\tTECH_SUPPORT,\n\tWIKI,\n\tUPGRADING,\n\tPERFORMANCE,\n\
+  \tCREATE_APPS,\n\tDOING_BUSINESS,\n\tCOMMENTS_1,\n\tCMNTS_CATG1,\n\tCMNTS_CATG1_DESC,\n\
+  \tCMNTS_CATG2,\n\tCMNTS_CATG2_DESC,\n\tCMNTS_CATG3,\n\tCMNTS_CATG3_DESC,\n\tDV_LOYALTY,\n\
+  \tDV_LOYALTY_RENEWAL,\n\tDV_LOYALTY_OSAT,\n\tCUSTOMERSINCE,\n\t\"PrevYrACV\",\n\t\
+  \"CurrYearACV\",\n\tDV_CD_ACCOUNT,\n\t\"date\",\n\tCONTACT_EMAIL,\n\t\"AccountSysID\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"Qtr\" as \"Qtr\",\n       \"GEO\" as\
+  \ \"GEO\",\n       \"Area\" as \"AREA\",\n       \"DV_U_ACCOUNT_TERRITORY\" as \"\
+  DV_U_ACCOUNT_TERRITORY\",\n       Max(\"RESPONDENT_ID\") as \"RESPONDENT_ID\",\n\
+  \       \"CONTACT_NAME\" as \"CONTACT_NAME\",\n       \"CONTACT_TIME\" as \"CONTACT_TIME\"\
+  ,\n       SUM(\"DURATION\") as \"DURATION\",\n       \"COMPLETED_DATE\" as \"COMPLETED_DATE\"\
+  ,\n       \"ACCT_NAME\" as \"ACCT_NAME\",\n       \"ACCT_NO\" as \"ACCT_NO\",\n\
+  \       SUM(\"LIKELY_TO_RECOMMEND\") as \"LIKELY_TO_RECOMMEND\",\n       SUM(\"\
+  LIKELY_TO_RENEW\") as \"LIKELY_TO_RENEW\",\n       SUM(\"OSAT_RELATIONSHIP\") as\
+  \ \"OSAT_RELATIONSHIP\",\n       \"CONTACT_ROLE\" as \"CONTACT_ROLE\",\n       SUM(\"\
+  OVERALL_PRODUCT\") as \"OVERALL_PRODUCT\",\n       SUM(\"ACCT_MGMT\") as \"ACCT_MGMT\"\
+  ,\n       SUM(\"IMPLEMENTATION\") as \"IMPLEMENTATION\",\n       SUM(\"TECH_SUPPORT\"\
+  ) as \"TECH_SUPPORT\",\n       SUM(\"WIKI\") as \"WIKI\",\n       SUM(\"UPGRADING\"\
+  ) as \"UPGRADING\",\n       \"PERFORMANCE\" as \"PERFORMANCE\",\n       SUM(\"CREATE_APPS\"\
+  ) as \"CREATE_APPS\",\n       SUM(\"DOING_BUSINESS\") as \"DOING_BUSINESS\",\n \
+  \      \"COMMENTS_1\" as \"COMMENTS_1\",\n       \"CMNTS_CATG1\" as \"CMNTS_CATG1\"\
+  ,\n       \"CMNTS_CATG1_DESC\" as \"CMNTS_CATG1_DESC\",\n       \"CMNTS_CATG2\"\
+  \ as \"CMNTS_CATG2\",\n       \"CMNTS_CATG2_DESC\" as \"CMNTS_CATG2_DESC\",\n  \
+  \     \"CMNTS_CATG3\" as \"CMNTS_CATG3\",\n       \"CMNTS_CATG3_DESC\" as \"CMNTS_CATG3_DESC\"\
+  ,\n       \"DV_LOYALTY\" as \"DV_LOYALTY\",\n       \"DV_LOYALTY_RENEWAL\" as \"\
+  DV_LOYALTY_RENEWAL\",\n       \"DV_LOYALTY_OSAT\" as \"DV_LOYALTY_OSAT\",\n    \
+  \   \"CUSTOMERSINCE\" as \"CUSTOMERSINCE\",\n       SUM(\"PrevYrACV\") as \"PrevYrACV\"\
+  ,\n       SUM(\"CurrYearACV\") as \"CurrYearACV\",\n       \"DV_CD_ACCOUNT\" as\
+  \ \"DV_CD_ACCOUNT\",\n       \"date\" as \"date\",\n       \"CONTACT_EMAIL\" as\
+  \ \"CONTACT_EMAIL\",\n       \"AccountSysID\" as \"AccountSysID\"\nFROM EDW_LS.CUSTOMER_EM.TF_NPS_SURVEY_DTLS\n\
+  GROUP BY \"Qtr\",\n         \"GEO\",\n         \"AREA\",\n         \"DV_U_ACCOUNT_TERRITORY\"\
+  ,\n         \"CONTACT_NAME\",\n         \"CONTACT_TIME\",\n         \"COMPLETED_DATE\"\
+  ,\n         \"ACCT_NAME\",\n         \"ACCT_NO\",\n         \"CONTACT_ROLE\",\n\
+  \         \"PERFORMANCE\",\n         \"COMMENTS_1\",\n         \"CMNTS_CATG1\",\n\
+  \         \"CMNTS_CATG1_DESC\",\n         \"CMNTS_CATG2\",\n         \"CMNTS_CATG2_DESC\"\
+  ,\n         \"CMNTS_CATG3\",\n         \"CMNTS_CATG3_DESC\",\n         \"DV_LOYALTY\"\
+  ,\n         \"DV_LOYALTY_RENEWAL\",\n         \"DV_LOYALTY_OSAT\",\n         \"\
+  CUSTOMERSINCE\",\n         \"DV_CD_ACCOUNT\",\n         \"date\",\n         \"CONTACT_EMAIL\"\
+  ,\n         \"AccountSysID\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

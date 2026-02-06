@@ -1,0 +1,274 @@
+name: table_1414
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1414
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1414.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_OPPORTUNITY_ITEM_PREALLOC(\n\t\
+  SALES_QUARTER_DT,\n\tSALES_QUARTER_YYQQ,\n\tSALES_QUARTER_ID,\n\tOPTY_ID,\n\tOPTY_NUMBER,\n\
+  \tOPTY_ITEM_ID,\n\tOPTY_ITEM_NUMBER,\n\tACCOUNT_ID,\n\tPRODUCT_ID,\n\tTERRITORY_ID,\n\
+  \tGEO_ID,\n\tNNACV_LC,\n\tNNACV_USD_CY_FX,\n\tNNACV_USD_DAILY,\n\tNNACV_WEIGHTED_LC,\n\
+  \tNNACV_WEIGHTED_USD_DAILY,\n\tNNACV_WEIGHTED_USD_CY_FX,\n\tNNACV_CLOSED_LC,\n\t\
+  NNACV_CLOSED_USD_CY_FX,\n\tNNACV_CLOSED_USD_DAILY,\n\tNNACV_EXPECT_LC,\n\tNNACV_EXPECT_USD_CY_FX,\n\
+  \tNNACV_EXPECT_USD_DAILY,\n\tNNACV_MATURE_LC,\n\tNNACV_MATURE_USD_CY_FX,\n\tNNACV_MATURE_USD_DAILY,\n\
+  \tNNACV_OPEN_LC,\n\tNNACV_OPEN_USD_CY_FX,\n\tNNACV_OPEN_USD_DAILY,\n\tNNACV_SUBMITTED_LC,\n\
+  \tNNACV_SUBMITTED_USD_CY_FX,\n\tNNACV_SUBMITTED_USD_DAILY,\n\tNNACV_UPSIDE_LC,\n\
+  \tNNACV_UPSIDE_USD_CY_FX,\n\tNNACV_UPSIDE_USD_DAILY,\n\tNNACV_COMMIT_LC,\n\tNNACV_COMMIT_USD_CY_FX,\n\
+  \tNNACV_COMMIT_USD_DAILY,\n\tNNACV_BUILD_LC,\n\tNNACV_BUILD_USD_CY_FX,\n\tNNACV_BUILD_USD_DAILY,\n\
+  \tTOTAL_VALUE_AMOUNT_LC,\n\tTOTAL_VALUE_AMOUNT_USD_CY_FX,\n\tTOTAL_VALUE_AMOUNT_USD_DAILY,\n\
+  \tVARIABLE_PRICE_ACV_LC,\n\tVARIABLE_PRICE_ACV_USD_CY_FX,\n\tVARIABLE_PRICE_ACV_USD_DAILY,\n\
+  \tACV_LC,\n\tACV_USD_CY_FX,\n\tACV_USD_DAILY,\n\tADJUSTMENT_LC,\n\tADJUSTMENT_USD_CY_FX,\n\
+  \tADJUSTMENT_USD_DAILY,\n\tUNADJUSTMENT_LC,\n\tUNADJUSTMENT_USD_CY_FX,\n\tUNADJUSTMENT_USD_DAILY,\n\
+  \tRENEWAL_ACV_LC,\n\tRENEWAL_ACV_USD_CY_FX,\n\tRENEWAL_ACV_USD_DAILY,\n\tANNUAL_LIST_PRICE_LC,\n\
+  \tANNUAL_LIST_PRICE_USD_CY_FX,\n\tANNUAL_LIST_PRICE_USD_DAILY,\n\tBASE_PRICE,\n\t\
+  BASE_AMOUNT_PRICE_LC,\n\tBASE_AMOUNT_PRICE_USD_CY_FX,\n\tBASE_AMOUNT_PRICE_USD_DAILY,\n\
+  \tFIXED_LIST_PRICE,\n\tLIST_PRICE_LC,\n\tLIST_PRICE_USD_CY_FX,\n\tLIST_PRICE_USD_DAILY,\n\
+  \tSALES_AMOUNT_PRICE_LC,\n\tSALES_AMOUNT_PRICE_USD_CY_FX,\n\tSALES_AMOUNT_PRICE_USD_DAILY,\n\
+  \tSALES_PRICE_LC,\n\tSALES_PRICE_USD_CY_FX,\n\tSALES_PRICE_USD_DAILY,\n\tOPTY_ITEM_QUANTITY,\n\
+  \tNET_NEW_QUANTITY,\n\tCONTRACT_LINE_QUANTITY,\n\tDATACENTER,\n\tDEAL_REGULAR_DISCOUNT,\n\
+  \tDESCRIPTION,\n\tDG_ERROR_CODE,\n\tDG_ERROR_MESSAGE,\n\tDISCOUNT_GUIDELINE,\n\t\
+  DISCOUNT_PCT,\n\tDISCRETION,\n\tDISCRETION_ERROR_CODE,\n\tDISCRETION_ERROR_MESSAGE,\n\
+  \tFLAGS_VALUE,\n\tFLOOR_PRICE,\n\tMARGIN_PCT_INTERNAL,\n\tMARGIN_PCT_PARTNER,\n\t\
+  MINDEALS_THRESHOLD_APPROVAL_VALUE,\n\tOPTY_ITEM_NOTES,\n\tOPTY_ITEM_REV_REC_TYPE,\n\
+  \tOPTY_ITEM_STEPIN_FLAG,\n\tOPTY_LINE_PRICE_RESET_PRIMARY_LINE,\n\tPARTNER_DISCOUNT,\n\
+  \tPRE_APPROVED_DISCOUNT,\n\tPRICE_BOOK_VALUE,\n\tPROMOTIONAL_DISCOUNT,\n\tQUOTE_VERSION,\n\
+  \tFULL_DISCOUNT_REASON,\n\tRESELLER_DISCOUNT,\n\tOPTY_ITEM_SOURCE,\n\tTOTAL_DISCOUNT_PCT,\n\
+  \tIS_CLOSED,\n\tIS_SALES_ACTIVE_PIPELINE,\n\tIS_OPTY_ITEM_ACTIVE,\n\tIS_MAIN_QUOTE_ITEM,\n\
+  \tIS_QUOTED_IN_CALLIDUS,\n\tOPTY_ITEM_TERM,\n\tTERM_START_TS,\n\tTERM_END_TS,\n\t\
+  TERM_MONTH_AND_DAYS,\n\tOPPORTUNITY_SYSID,\n\tOPTY_ITEM_PRICE_RESET_PRIMARYLINE_SYSID,\n\
+  \tPRODUCT_SYSID,\n\tPRODUCT_PRICE_SYSID,\n\tOPTY_ITEM_SYSID,\n\tQUOTE_SYSID,\n\t\
+  PRODUCT_CODE_INLINE_SYSID,\n\tMINDEALS_THRESHOLD_APPROVAL_SYSID,\n\tFLAGS_SYSID,\n\
+  \tCREATED_BY,\n\tSYS_UPDATED_BY,\n\tCREATED_TS,\n\tUPDATED_TS\n) as\n\nWITH\n\n\
+  FXRATE\nAS(\n    SELECT\n        \"CFXRate\" as \"CFXRate\",\n        \"CFXCurrency\"\
+  \ as \"CFXCurrency\"\n    FROM EDW_LS.SALES_EM.EM_CONSTANT_FX_RATE_RT\n    WHERE\
+  \ \"CFXActive\" = 'random'\n ),\n\nSALES_OPPORTUNITY\nAS(\n    SELECT\n        \"\
+  OptySysID\",\n        \"OptySalesQuarter\",\n        \"OptyTerritorySysID\",\n \
+  \       \"OptyNumber\",\n        \"OptyAccountSysID\",\n        \"OptyWeightedPercentage\"\
+  ,\n        \"OptyPipelineStatusValue\",\n        \"OptyStageValue\",\n        \"\
+  OptyType\",\n        CASE\n            WHEN \"OptyStageValue\" IN(\n           \
+  \     'random',\n                'random'\n            ) THEN 'random'\n       \
+  \     ELSE 'random'\n        END as OPTY_CLOSED_WON_LOST_FLG,\n        CASE\n  \
+  \          WHEN \"OptyStageValue\" = 'random'\n            OR (\n              \
+  \  \"OptyStageValue\" = 'random'\n                and \"OptyType\" = 'random'\n\
+  \            ) THEN 'random'\n            ELSE 'random'\n        END as OPTY_CLOSED_WON_LOST_RENEWAL_FLG,\n\
+  \        CASE\n            WHEN \"OptyPipelineStatusValue\" IN ('random', 'random',\
+  \ 'random') THEN 'random'\n            ELSE 'random'\n        END as OPTY_SUBMIT_COMMIT_EXPECT_FLG,\n\
+  \        CASE\n            WHEN \"OptyPipelineStatusValue\" IN ('random', 'random',\
+  \ 'random', 'random') THEN 'random'\n            ELSE 'random'\n        END as OPTY_SUBMIT_COMMIT_EXPECT_UPSIDE_FLG,\n\
+  \        CASE\n            WHEN \"OptyPipelineStatusValue\" IN ('random', 'random')\
+  \ THEN 'random'\n            ELSE 'random'\n        END as OPTY_SUBMIT_COMMIT_FLG,\n\
+  \        CASE\n            WHEN \"OptyStageValue\" IN(\n                'random',\n\
+  \                'random',\n                'random',\n                'random',\n\
+  \                'random'\n            ) THEN 'random'\n            ELSE 'random'\n\
+  \        END as NNACV_MATURE_FLG,\n        CASE\n            WHEN \"OptyStageValue\"\
+  \ IN(\n                'random',\n                'random',\n                'random',\n\
+  \                'random',\n                'random',\n                'random',\n\
+  \                'random',\n                'random'\n            )\n          \
+  \  AND LOWER(\"OptyPipelineStatusValue\") not in(\n                'random',\n \
+  \               'random',\n                'random',\n                'random',\n\
+  \                'random',\n                'random'\n            ) OR OPTY_CLOSED_WON_LOST_RENEWAL_FLG\
+  \ = 'random' THEN 'random'\n            ELSE 'random'\n        END as IS_SALES_ACTIVE_PIPELINE_FLG\n\
+  \    FROM ODS_LS.SURF.SALES_OPPORTUNITY\n  ),\n\nSALES_OPPORTUNITY_ITEM\nAS(\n \
+  \   SELECT  OLI.*,\n            PD.\"ProductSysID\",\n            CASE\n       \
+  \             WHEN (\n                        (\n                            (\"\
+  OptyItemFlags\") IS NULL\n                            OR (\"OptyItemFlags\" = 'random')\n\
+  \                        )\n                        OR (\n                     \
+  \       REGEXP_INSTR(\n                                \"OptyItemFlags\",\n    \
+  \                            'random'\n                            ) = 'random'\n\
+  \                            AND REGEXP_INSTR(\n                               \
+  \ \"OptyItemFlags\",\n                                'random'\n               \
+  \             ) = 'random'\n                        )\n                    )\n \
+  \                   AND (\n                        (\"OptyItemQuoteItemStepInFlag\"\
+  ) IS NULL\n                        OR \"OptyItemQuoteItemStepInFlag\" = 'random'\n\
+  \                    )\n                    AND (\n                        PD.\"\
+  ProductFamily3Value\" != 'random'\n                        or (PD.\"ProductFamily3Value\"\
+  ) IS NULL\n                    )\n                    and (\n                  \
+  \      PD.\"ProductBusinessUnitValue\" != 'random'\n                        or (PD.\"\
+  ProductBusinessUnitValue\") IS NULL\n                    )\n                   \
+  \ AND (\n                        (\"OptyLinePriceResetPrimaryLineSysID\") IS NULL\n\
+  \                        OR (\"OptyLinePriceResetPrimaryLineSysID\" = 'random')\n\
+  \                    ) THEN 'random'\n                    ELSE 'random'\n      \
+  \          END as OPTY_ITEM_ACTIVE_FLAG,\n                CASE\n               \
+  \     WHEN LOWER(\"OptyItemQuoteItemIsMainItem\") = 'random' THEN 'random'\n   \
+  \                 ELSE 'random'\n                END as MAIN_QUOTE_ITEM_FLAG\n \
+  \   FROM ODS_LS.SURF.SALES_OPPORTUNITY_ITEM OLI\n    LEFT JOIN (SELECT \"ProductFamily3Value\"\
+  ,\"ProductBusinessUnitValue\",\"ProductSysID\"\n               FROM ODS_LS.SURF.SALES_PRODUCT\n\
+  \              ) PD ON OLI.\"OptyItemProductSysID\" = PD.\"ProductSysID\"\n  )\n\
+  \n\nselect\n    QTR.QUARTER_DT as SALES_QUARTER_DT,\n    SO.\"OptySalesQuarter\"\
+  \ as SALES_QUARTER_YYQQ,\n    QTR.QUARTER_ID as SALES_QUARTER_ID,\n    HASH(\"OptyItemOpportunitySysID\"\
+  ) as OPTY_ID,\n    SO.\"OptyNumber\" as OPTY_NUMBER,\n    HASH(\"OptyItemLineItemNumber\"\
+  ) as OPTY_ITEM_ID,--SS 1.5/Avantika/Updated on: 04-01-2024/Release on: 02-02-2024/\
+  \ Release Type: Regular\n    \"OptyItemLineItemNumber\" as OPTY_ITEM_NUMBER,\n \
+  \   hash(SO.\"OptyAccountSysID\") as ACCOUNT_ID,\n    HASH(OLI.\"ProductSysID\"\
+  ) as PRODUCT_ID,\n    hash(SO.\"OptyTerritorySysID\") as TERRITORY_ID,\n    NVL(TERR.GEO_ID,\
+  \ HASH(TERR.GEO_ID)) as GEO_ID,\n    \"OptyItemNetNewACVAmount\" as NNACV_LC,\n\
+  \    NNACV_LC / FXRATE.\"CFXRate\" as NNACV_USD_CY_FX,\n    \"OptyItemNetNewACVAmount_USD\"\
+  \ as NNACV_USD_DAILY,\n    case when \"OptyStageValue\" in ('random', 'random')\n\
+  \         then NNACV_LC\n         else (NNACV_LC * \"OptyWeightedPercentage\") /\
+  \ 'random'\n    end as NNACV_WEIGHTED_LC,\n    case when \"OptyStageValue\" in ('random',\
+  \ 'random')\n         then NNACV_USD_DAILY\n         else (NNACV_USD_DAILY * \"\
+  OptyWeightedPercentage\") / 'random'\n    end as NNACV_WEIGHTED_USD_DAILY,\n   \
+  \ case when \"OptyStageValue\" in ('random', 'random')\n         then NNACV_USD_CY_FX\n\
+  \         else (NNACV_USD_CY_FX * \"OptyWeightedPercentage\") / 'random'\n    end\
+  \ as NNACV_WEIGHTED_USD_CY_FX,\n    CASE\n        WHEN OPTY_CLOSED_WON_LOST_FLG\
+  \ = 'random' THEN NNACV_LC\n        ELSE 'random'\n    END as NNACV_CLOSED_LC,\n\
+  \    CASE\n        WHEN OPTY_CLOSED_WON_LOST_FLG = 'random' THEN NNACV_USD_CY_FX\n\
+  \        ELSE 'random'\n    END as NNACV_CLOSED_USD_CY_FX,\n    CASE\n        WHEN\
+  \ OPTY_CLOSED_WON_LOST_FLG = 'random' THEN NNACV_USD_DAILY\n        ELSE 'random'\n\
+  \    END as NNACV_CLOSED_USD_DAILY,\n    CASE\n        WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG\
+  \ = 'random' THEN NNACV_LC\n        WHEN OPTY_SUBMIT_COMMIT_EXPECT_FLG = 'random'\
+  \ THEN NNACV_LC\n        ELSE 'random'\n    END as NNACV_EXPECT_LC,\n    CASE\n\
+  \        WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG = 'random' THEN NNACV_USD_CY_FX\n\
+  \        WHEN OPTY_SUBMIT_COMMIT_EXPECT_FLG = 'random' THEN NNACV_USD_CY_FX\n  \
+  \      ELSE 'random'\n    END as NNACV_EXPECT_USD_CY_FX,\n    CASE\n        WHEN\
+  \ OPTY_CLOSED_WON_LOST_RENEWAL_FLG = 'random' THEN NNACV_USD_DAILY\n        WHEN\
+  \ OPTY_SUBMIT_COMMIT_EXPECT_FLG = 'random' THEN NNACV_USD_DAILY\n        ELSE 'random'\n\
+  \    END as NNACV_EXPECT_USD_DAILY,\n    CASE\n        WHEN NNACV_MATURE_FLG = 'random'\
+  \ THEN NNACV_LC\n        ELSE 'random'\n    END as NNACV_MATURE_LC,\n    CASE\n\
+  \        WHEN NNACV_MATURE_FLG = 'random' THEN NNACV_USD_CY_FX\n        ELSE 'random'\n\
+  \    END as NNACV_MATURE_USD_CY_FX,\n    CASE\n        WHEN NNACV_MATURE_FLG = 'random'\
+  \ THEN NNACV_USD_DAILY\n        ELSE 'random'\n    END as NNACV_MATURE_USD_DAILY,\n\
+  \    CASE\n        WHEN SO.\"OptyPipelineStatusValue\" != 'random' THEN NNACV_LC\n\
+  \        ELSE 'random'\n    END as NNACV_OPEN_LC,\n    CASE\n        WHEN SO.\"\
+  OptyPipelineStatusValue\" != 'random' THEN NNACV_USD_CY_FX\n        ELSE 'random'\n\
+  \    END as NNACV_OPEN_USD_CY_FX,\n    CASE\n        WHEN SO.\"OptyPipelineStatusValue\"\
+  \ != 'random' THEN NNACV_USD_DAILY\n        ELSE 'random'\n    END as NNACV_OPEN_USD_DAILY,\n\
+  \    CASE\n        WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG = 'random' THEN NNACV_LC\n\
+  \        WHEN SO.\"OptyPipelineStatusValue\" = 'random' THEN NNACV_LC\n        ELSE\
+  \ 'random'\n    END as NNACV_SUBMITTED_LC,\n    CASE\n        WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG\
+  \ = 'random' THEN NNACV_USD_CY_FX\n        WHEN SO.\"OptyPipelineStatusValue\" =\
+  \ 'random' THEN NNACV_USD_CY_FX\n        ELSE 'random'\n    END as NNACV_SUBMITTED_USD_CY_FX,\n\
+  \    CASE\n        WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG = 'random' THEN NNACV_USD_DAILY\n\
+  \        WHEN SO.\"OptyPipelineStatusValue\" = 'random' THEN NNACV_USD_DAILY\n \
+  \       ELSE 'random'\n    END as NNACV_SUBMITTED_USD_DAILY,\n    CASE\n       \
+  \ WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG = 'random' THEN NNACV_LC\n        WHEN OPTY_SUBMIT_COMMIT_EXPECT_UPSIDE_FLG\
+  \ = 'random' THEN NNACV_LC\n        ELSE 'random'\n    END as NNACV_UPSIDE_LC,\n\
+  \    CASE\n        WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG = 'random' THEN NNACV_USD_CY_FX\n\
+  \        WHEN OPTY_SUBMIT_COMMIT_EXPECT_UPSIDE_FLG = 'random' THEN NNACV_USD_CY_FX\n\
+  \        ELSE 'random'\n    END as NNACV_UPSIDE_USD_CY_FX,\n    CASE\n        WHEN\
+  \ OPTY_CLOSED_WON_LOST_RENEWAL_FLG = 'random' THEN NNACV_USD_DAILY\n        WHEN\
+  \ OPTY_SUBMIT_COMMIT_EXPECT_UPSIDE_FLG = 'random' THEN NNACV_USD_DAILY\n       \
+  \ ELSE 'random'\n    END as NNACV_UPSIDE_USD_DAILY,\n    CASE\n        WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG\
+  \ = 'random' THEN NNACV_LC\n        WHEN OPTY_SUBMIT_COMMIT_FLG = 'random' THEN\
+  \ NNACV_LC\n        ELSE 'random'\n    END as NNACV_COMMIT_LC,\n    CASE\n     \
+  \   WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG = 'random' THEN NNACV_USD_CY_FX\n    \
+  \    WHEN OPTY_SUBMIT_COMMIT_FLG = 'random' THEN NNACV_USD_CY_FX\n        ELSE 'random'\n\
+  \    END as NNACV_COMMIT_USD_CY_FX,\n    CASE\n        WHEN OPTY_CLOSED_WON_LOST_RENEWAL_FLG\
+  \ = 'random' THEN NNACV_USD_DAILY\n        WHEN OPTY_SUBMIT_COMMIT_FLG = 'random'\
+  \ THEN NNACV_USD_DAILY\n        ELSE 'random'\n    END as NNACV_COMMIT_USD_DAILY,\n\
+  \    NNACV_EXPECT_LC as NNACV_BUILD_LC,\n    NNACV_EXPECT_USD_CY_FX as NNACV_BUILD_USD_CY_FX,\n\
+  \    NNACV_EXPECT_USD_DAILY as NNACV_BUILD_USD_DAILY,\n    \"OptyItemTotalValueAmount\"\
+  \ as TOTAL_VALUE_AMOUNT_LC,\n    TOTAL_VALUE_AMOUNT_LC / FXRATE.\"CFXRate\" as TOTAL_VALUE_AMOUNT_USD_CY_FX,\n\
+  \    \"OptyItemTotalValueAmount_USD\" as TOTAL_VALUE_AMOUNT_USD_DAILY,\n    \"OptyItemVariablePriceACV\"\
+  \ as VARIABLE_PRICE_ACV_LC,\n    VARIABLE_PRICE_ACV_LC / FXRATE.\"CFXRate\" as VARIABLE_PRICE_ACV_USD_CY_FX,\n\
+  \    \"OptyItemUSDVariablePriceACV\" as VARIABLE_PRICE_ACV_USD_DAILY,\n    \"OptyItemAnnualContractValueAmount\"\
+  \ as ACV_LC,\n    ACV_LC / FXRATE.\"CFXRate\" as ACV_USD_CY_FX,\n    \"OptyItemAnnualContractAmount_USD\"\
+  \ as ACV_USD_DAILY,\n    \"OptyItemAdjustment\" as ADJUSTMENT_LC,\n    ADJUSTMENT_LC\
+  \ / FXRATE.\"CFXRate\" as ADJUSTMENT_USD_CY_FX,\n    \"OptyItemAdjustmentAmount_USD\"\
+  \ as ADJUSTMENT_USD_DAILY,\n    \"OptyItemUnadjustedAmount\" as UNADJUSTMENT_LC,\n\
+  \    UNADJUSTMENT_LC / FXRATE.\"CFXRate\" as UNADJUSTMENT_USD_CY_FX,\n    \"OptyItemUnadjustedAmount_USD\"\
+  \ as UNADJUSTMENT_USD_DAILY,\n    \"OptyItemContractLineACV\" as RENEWAL_ACV_LC,\
+  \ --SS 1.5/Jay Modi/Updated on: 19-06-2024/Release on: 19-07-2024/ Release Type:\
+  \ RTB\n    RENEWAL_ACV_LC / FXRATE.\"CFXRate\" as RENEWAL_ACV_USD_CY_FX, --SS 1.5/Jay\
+  \ Modi/Updated on: 19-06-2024/Release on: 19-07-2024/ Release Type: RTB\n    \"\
+  OptyItemContractLineACV_USD\" as RENEWAL_ACV_USD_DAILY, --SS 1.5/Jay Modi/Updated\
+  \ on: 19-06-2024/Release on: 19-07-2024/ Release Type: RTB\n    \"OptyItemAnnualListAmount\"\
+  \ as ANNUAL_LIST_PRICE_LC,\n    ANNUAL_LIST_PRICE_LC / FXRATE.\"CFXRate\" as ANNUAL_LIST_PRICE_USD_CY_FX,\n\
+  \    \"OptyItemAnnualListAmount_USD\" as ANNUAL_LIST_PRICE_USD_DAILY,\n    \"OptyItemBasePrice\"\
+  \ as BASE_PRICE,\n    \"OptyItemBaseAmount\" as BASE_AMOUNT_PRICE_LC,\n    BASE_AMOUNT_PRICE_LC\
+  \ / FXRATE.\"CFXRate\" as BASE_AMOUNT_PRICE_USD_CY_FX,\n    \"OptyItemBaseAmount_USD\"\
+  \ as BASE_AMOUNT_PRICE_USD_DAILY,\n    \"OptyItemFixedListPrice\" as FIXED_LIST_PRICE,\n\
+  \    nvl(\n        try_to_number(\n            REGEXP_REPLACE(OLI.\"OptyItemListPriceString\"\
+  , 'random', 'random')\n        ),\n        'random'\n    ) as LIST_PRICE_LC,\n \
+  \   nvl(\n        try_to_number(\n            REGEXP_REPLACE(OLI.\"OptyItemListPriceString\"\
+  , 'random', 'random')\n        ),\n        'random'\n    ) / FXRATE.\"CFXRate\"\
+  \ as LIST_PRICE_USD_CY_FX,\n\t  nvl(\n        try_to_number(\n            REGEXP_REPLACE(OLI.\"\
+  OptyItemListPriceUSD\", 'random', 'random')\n        ),\n        'random'\n    )\
+  \  as LIST_PRICE_USD_DAILY,\n    \"OptyItemSalesAmount\" as SALES_AMOUNT_PRICE_LC,\n\
+  \    SALES_AMOUNT_PRICE_LC / FXRATE.\"CFXRate\" as SALES_AMOUNT_PRICE_USD_CY_FX,\n\
+  \    \"OptyItemSalesAmount_USD\" as SALES_AMOUNT_PRICE_USD_DAILY,\n    nvl(\n  \
+  \      try_to_number(\n            REGEXP_REPLACE(OLI.\"OptyItemSalesPriceString\"\
+  , 'random', 'random')\n        ),\n        'random'\n    ) as SALES_PRICE_LC,\n\
+  \    nvl(\n        try_to_number(\n            REGEXP_REPLACE(OLI.\"OptyItemSalesPriceString\"\
+  , 'random', 'random')\n        ),\n        'random'\n    ) / FXRATE.\"CFXRate\"\
+  \ as SALES_PRICE_USD_CY_FX,\n    nvl(\n        try_to_number(\n            REGEXP_REPLACE(OLI.\"\
+  OptyItemSalesPriceUSD\", 'random', 'random')\n        ),\n        'random'\n   \
+  \ ) as SALES_PRICE_USD_DAILY,\n    \"OptyItemQuantity\" as OPTY_ITEM_QUANTITY,\n\
+  \    \"OptyItemNetNewQuantity\" as NET_NEW_QUANTITY,\n    \"OptyItemContractLineQuantity\"\
+  \ as CONTRACT_LINE_QUANTITY,\n    \"OptyItemDataCenter\" as DATACENTER,\n    \"\
+  OptyItemDealRegDiscount\" as DEAL_REGULAR_DISCOUNT,\n    \"OptyItemDescription\"\
+  \ as DESCRIPTION,\n    \"OptyItemDGErrorCode\" as DG_ERROR_CODE,\n    \"OptyItemDGErrorMessage\"\
+  \ as DG_ERROR_MESSAGE,\n    \"OptyItemDiscountGuideline\" as DISCOUNT_GUIDELINE,\n\
+  \    \"OptyItemDiscountPercent\" as DISCOUNT_PCT,\n    \"OptyItemDiscretion\" as\
+  \ DISCRETION,\n    \"OptyItemDiscretionErrorCode\" as DISCRETION_ERROR_CODE,\n \
+  \   \"OptyItemDiscretionErrorMessage\" as DISCRETION_ERROR_MESSAGE,\n    \"OptyItemFlagsValue\"\
+  \ as FLAGS_VALUE,\n    \"OptyItemFloorPrice\" as FLOOR_PRICE,\n    \"OptyItemInternalMarginPercent\"\
+  \ as MARGIN_PCT_INTERNAL,\n    \"OptyItemPartnerMarginPercent\" as MARGIN_PCT_PARTNER,\n\
+  \    \"OptyItemMinDealsThresholdApprovalValue\" as MINDEALS_THRESHOLD_APPROVAL_VALUE,\n\
+  \    \"OptyItemNotes\" as OPTY_ITEM_NOTES,\n    \"OptyItemRevRecTypeValue\" as OPTY_ITEM_REV_REC_TYPE,\n\
+  \    \"OptyItemQuoteItemStepInFlag\" as OPTY_ITEM_STEPIN_FLAG,\n    \"OptyLinePriceResetPrimaryLine\"\
+  \ as OPTY_LINE_PRICE_RESET_PRIMARY_LINE,\n    \"OptyItemPartnerDiscount\" as PARTNER_DISCOUNT,\n\
+  \    \"OptyItemPreapprovedDiscount\" as PRE_APPROVED_DISCOUNT,\n    \"OptyItemPriceBookValue\"\
+  \ as PRICE_BOOK_VALUE,\n    \"OptyItemPromotionalDiscount\" as PROMOTIONAL_DISCOUNT,\n\
+  \    \"OptyItemQuoteVersion\" as QUOTE_VERSION,\n    \"OptyItemReasonFor100PercentDiscountValue\"\
+  \ as FULL_DISCOUNT_REASON,\n    \"OptyItemResellerDiscount\" as RESELLER_DISCOUNT,\n\
+  \    \"OptyItemSource\" as OPTY_ITEM_SOURCE,\n    \"OptyItemTotalDiscountPercent\"\
+  \ as TOTAL_DISCOUNT_PCT,\n    OPTY_CLOSED_WON_LOST_FLG as IS_CLOSED,\n    IS_SALES_ACTIVE_PIPELINE_FLG\
+  \ as IS_SALES_ACTIVE_PIPELINE,\n    OPTY_ITEM_ACTIVE_FLAG as IS_OPTY_ITEM_ACTIVE,\n\
+  \    MAIN_QUOTE_ITEM_FLAG as IS_MAIN_QUOTE_ITEM,\n    \"OptyItemOptyQuotedInCallidus\"\
+  \ as IS_QUOTED_IN_CALLIDUS,\n    \"OptyItemTerm\" as OPTY_ITEM_TERM,\n    \"OptyItemTermStartDate\"\
+  \ as TERM_START_TS,\n    \"OptyItemTermEndDate\" as TERM_END_TS,\n    \"OptyItemTermMonthsAndDays\"\
+  \ as TERM_MONTH_AND_DAYS,\n    \"OptyItemOpportunitySysID\" as OPPORTUNITY_SYSID,\n\
+  \    \"OptyLinePriceResetPrimaryLineSysID\" as OPTY_ITEM_PRICE_RESET_PRIMARYLINE_SYSID,\n\
+  \    \"OptyItemProductSysID\" as PRODUCT_SYSID,\n    \"OptyItemProductPriceSysID\"\
+  \ as PRODUCT_PRICE_SYSID,\n    \"OptyItemLineItemSysID\" as OPTY_ITEM_SYSID,\n \
+  \   \"OptyItemQuoteSysID\" as QUOTE_SYSID,\n    \"OptyItemProductCodeInLineSysID\"\
+  \ as PRODUCT_CODE_INLINE_SYSID,\n    \"OptyItemMinDealsThresholdApproval\" as MINDEALS_THRESHOLD_APPROVAL_SYSID,\n\
+  \    \"OptyItemFlags\" as FLAGS_SYSID,\n    \"OptyItemCreatedBy\" as CREATED_BY,\n\
+  \    \"OptyItemSysUpdatedBy\" as SYS_UPDATED_BY,\n    \"OptyItemCreatedOn\" as CREATED_TS,\n\
+  \    \"OptyItemUpdatedOn\" as UPDATED_TS\nFROM SALES_OPPORTUNITY_ITEM OLI\nLEFT\
+  \ JOIN SALES_OPPORTUNITY SO ON OLI.\"OptyItemOpportunitySysID\" = SO.\"OptySysID\"\
+  \nLEFT JOIN EDW.ENTERPRISE.DIM_QUARTER QTR on SO.\"OptySalesQuarter\" = QTR.QUARTER_YYQQ\n\
+  LEFT JOIN EDW.ENTERPRISE.DIM_TERRITORY TERR ON SO.\"OptyTerritorySysID\" = TERR.TERRITORY_SYSID\n\
+  LEFT JOIN FXRATE ON OLI.\"OptyItemCurrencyCode\" = FXRATE.\"CFXCurrency\"\nwhere\
+  \ OLI.\"OptyItemLineItemNumber\" IS not NULL --SS 1.5/Avantika/Updated on: 04-01-2024/Release\
+  \ on: 02-02-2024/ Release Type: Regular\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

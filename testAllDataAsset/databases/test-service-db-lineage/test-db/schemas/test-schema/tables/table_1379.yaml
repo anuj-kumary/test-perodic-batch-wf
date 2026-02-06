@@ -1,0 +1,62 @@
+name: table_1379
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1379
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1379.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_USGAE_TREND_FOR_RENEWALS(\n\t\"AcctNumber\"\
+  ,\n\t\"AccountKey\",\n\t\"OwnerBU\",\n\t\"ApplicationName\",\n\t\"AdoptionStatus\"\
+  ,\n\t\"SnapshotDate\",\n\t\"Definition\",\n\t\"DefinitionDesc\",\n\t\"CurrentUsageValue\"\
+  ,\n\t\"MOMChange\"\n) as\n\nselect a.* from (\nselect distinct a.account_no \"AcctNumber\"\
+  ,sa.\"AccountKey\", a.owner_bu \"OwnerBU\", a.application_name \"ApplicationName\"\
+  , \"AdoptionStatus\", c.snapshot_date \"SnapshotDate\", c.definition \"Definition\"\
+  ,\n    c.definition_description \"DefinitionDesc\", c.current_usage_value \"CurrentUsageValue\"\
+  ,c.mom_change \"MOMChange\"\nfrom CDL_LS.CUSTOMER_RPT.RPT_USAGE_APP_DEFINTION_DETAIL\
+  \ a\ninner join\n(select max(snapshot_date) snapshot_date from CDL_LS.CUSTOMER_RPT.RPT_USAGE_APP_DEFINTION_DETAIL\
+  \ ) b\non a.snapshot_date = b.snapshot_date\nleft join\n(select snapshot_date, account_no,definition,\
+  \ application_name, definition_description, current_usage_value,mom_change  from\
+  \ CDL_LS.CUSTOMER_RPT.RPT_USAGE_APP_DEFINTION_DETAIL\n--where account_no = 'ACCT0001248'\n\
+  --and owner_bu = 'ITSM'\n) c\non a.account_no = c.account_no\nand a.application_name\
+  \ = c.application_name\nleft join ods_ls.surf.sales_account SA\non a.account_no\
+  \ = sa.\"AcctNumber\"\n) a\ninner join EDW_LS.CUSTOMER_CD_EM.TBL_DISPLAY_DEFN_FOR_CD_RENEWALS\
+  \ d\non a.\"Definition\" = d.\"DEFINITION\"\nwhere d.display_flag = 'random'\n--where\
+  \ a.\"AcctNumber\" = 'ACCT0001248'\n--and a.\"OwnerBU\" = 'ITSM'\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

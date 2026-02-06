@@ -1,0 +1,52 @@
+name: table_1420
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1420
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1420.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_FACT_OPTY_STAGE_MOVEMENT(\n\t\"OptyNumber\"\
+  ,\n\t\"OpportunityCreatedOn\",\n\t\"OptyStage\",\n\t\"FromDate\",\n\t\"ToDate\"\
+  ,\n\t\"Active\",\n\t\"Deleted\",\n\t\"DeletedDate\"\n) as\nselect\nO.\"OptyNumber\"\
+  ,\nD.\"OpportunityCreatedOn\",\nO.\"OptyStage\",\nO.\"FromDate\",\nO.\"ToDate\"\
+  ,\nO.\"Active\",\nO.\"Deleted\",\nO.\"DeletedDate\"\nfrom  EDW_LS.\"MARKETING\"\
+  .\"TBL_OPTY_STAGE_MOVEMENT\" O\nleft join  ODS_LS.DYNAMICS365.OPPORTUNITIES D ON\
+  \ D.\"OpportunityNumber\"= O.\"OptyNumber\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

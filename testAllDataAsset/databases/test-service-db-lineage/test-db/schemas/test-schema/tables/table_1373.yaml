@@ -1,0 +1,1746 @@
+name: table_1373
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1373
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1373.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_PRODUCT_DASHBOARD_QTR_END_METRICS(\n\t\
+  RECORD_TYPE,\n\tSALES_QUARTER,\n\tQUARTER_FLAG,\n\tPRODUCT_SORT,\n\tPRODUCT,\n\t\
+  WORKFLOW,\n\tNNACV,\n\tNNACV_YOY_GROWTH,\n\tQTR_P2P,\n\tCACV,\n\tCACV_YOY_GROWTH,\n\
+  \tNNACV_FX,\n\tNNACV_YOY_GROWTH_FX,\n\tQTR_P2P_FX,\n\tCACV_FX,\n\tCACV_YOY_GROWTH_FX\n\
+  ) as\n\n/********************************************************************************************************************************\n\
+  \ \t\t* Program  Name              :     Product Dashboard Quarter End Metrics\n\
+  \ \t\t* Development Request # \t :\n \t\t* Date Created               : \t   2023-09-27\n\
+  \ \t\t* Developed By               :     Satish\n \t\t* Brief Description      \
+  \    : \t   Product Dashboard Quarter End Metrics code\n \t\t* ---------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n\t\t* 2023-11-01\tSatish\t: Added Workflow, Gen AI and CY\
+  \ plan numbers\n\t\t* 2024-06-10\tSatish\t: Updated Process Mining Standalone to\
+  \ Process Mining\n\t\t* 2024-06-26\tSatish\t: Added MCO and RO Industry SKUs Logic\n\
+  \ ********************************************************************************************************************************/\n\
+  \nWITH CTE_COMMON_CALC AS (SELECT * FROM CDL_LS.\"FINANCE_FPA_RPT\".\"COMMON_CALC_COLUMNS\"\
+  ),\n\tCTE_BOOKING_UNIVERSE AS (SELECT * FROM CDL_LS.\"FINANCE_FPA_RPT\".\"BOOKINGS_UNIVERSE\"\
+  ),\n\tCTE_PBR_METRICS AS (SELECT * FROM CDL_LS.PRODUCT_ER.PRODUCT_PBR_METRICS)\n\
+  \nSELECT  'random' RECORD_TYPE\n        , RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') SALES_QUARTER\n        , 'random'\
+  \ QUARTER_FLAG\n        , PRODUCT_SORT\n        , PQD.PRODUCT\n\t\t, WORKFLOW\n\
+  \        , ROUND(SUM(NNACV)/'random','random') NNACV\n        , CASE WHEN (SUM(STLY_NNACV)='random')\
+  \ THEN 'random'\n            ELSE CAST(ROUND(((SUM(NNACV) - SUM(STLY_NNACV))/SUM(STLY_NNACV)*'random'))\
+  \ || 'random' AS VARCHAR)\n            END  NNACV_YOY_GROWTH\n        , CASE WHEN\
+  \ (ROUND(MAX(PQ.QUOTA)) = 'random' OR MAX(PQ.QUOTA) IS NULL)  THEN 'random'\n  \
+  \          ELSE CAST(ROUND((SUM(NNACV)/MAX(PQ.QUOTA)*'random')) || 'random' AS VARCHAR)\n\
+  \            END QTR_P2P\n        , ROUND(SUM(CACV)/'random','random') CACV\n  \
+  \      , CASE WHEN (SUM(STLY_CACV)='random') THEN 'random'\n            ELSE CAST(ROUND(((SUM(CACV)\
+  \ - SUM(STLY_CACV))/sum(STLY_CACV)*'random')) || 'random' AS VARCHAR)\n        \
+  \    END CACV_YOY_GROWTH\n\t\t, ROUND(SUM(NNACV_FX)/'random','random') NNACV_FX\n\
+  \        , CASE WHEN (SUM(STLY_NNACV_FX)='random') THEN 'random'\n            ELSE\
+  \ CAST(ROUND(((SUM(NNACV_FX) - SUM(STLY_NNACV_FX))/SUM(STLY_NNACV_FX)*'random'))\
+  \ || 'random' AS VARCHAR)\n            END  NNACV_YOY_GROWTH_FX\n        , CASE\
+  \ WHEN (ROUND(MAX(PQ.QUOTA)) = 'random' OR MAX(PQ.QUOTA) IS NULL) THEN 'random'\n\
+  \            ELSE CAST(ROUND((SUM(NNACV_FX)/MAX(PQ.QUOTA)*'random')) || 'random'\
+  \ AS VARCHAR)\n            END QTR_P2P_FX\n        , ROUND(SUM(CACV_FX)/'random','random')\
+  \ CACV_FX\n        , CASE WHEN (SUM(STLY_CACV_FX)='random') THEN 'random'\n    \
+  \        ELSE CAST(ROUND(((SUM(CACV_FX) - SUM(STLY_CACV_FX))/sum(STLY_CACV_FX)*'random'))\
+  \ || 'random' AS VARCHAR)\n            END CACV_YOY_GROWTH_FX\nFROM (\n\n/*\nSELECT\
+  \ BUD.WORKFLOW, BUD.PRODUCT, BUD.PRODUCT_SORT\n        , BUD.NNACV, BUD.CACV, BUD.STLY_NNACV,\
+  \ BUD.STLY_CACV\n\t\t, BUD.NNACV_FX, BUD.CACV_FX, BUD.STLY_NNACV_FX, BUD.STLY_CACV_FX\n\
+  \        , QD.\"Quota\" QUOTA\nFROM (\nSELECT \"BUWorkFlow\" WORKFLOW, \"ProductBusinessUnitValue\"\
+  , PRODUCT, PRODUCT_SORT\n        , SUM(NNACV) NNACV, SUM(CACV) CACV, SUM(STLY_NNACV)\
+  \ STLY_NNACV, SUM(STLY_CACV) STLY_CACV\n\t\t, SUM(NNACV_FX) NNACV_FX, SUM(CACV_FX)\
+  \ CACV_FX, SUM(STLY_NNACV_FX) STLY_NNACV_FX, SUM(STLY_CACV_FX) STLY_CACV_FX\nFROM\
+  \ (\n        SELECT \"BUWorkFlow\", \"ProductBusinessUnitValue\", CASE WHEN \"ProductBusinessUnitValue\"\
+  \ = 'FSM' THEN 'FSM'\n               WHEN \"ProductBusinessUnitValue\" = 'Customer\
+  \ Service' THEN 'CSM'\n               WHEN \"ProductBusinessUnitValue\" = 'Security'\
+  \ THEN 'SecOps (SIR & VR total)'\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'Workplace' THEN 'WSD'\n               WHEN \"ProductBusinessUnitValue\" = 'Legal'\
+  \ THEN 'LSD'\n               WHEN \"ProductBusinessUnitValue\" = 'HR' THEN 'HRSD'\n\
+  \               WHEN \"ProductBusinessUnitValue\" = 'ITSM' THEN 'ITSM all'\n   \
+  \            WHEN \"ProductBusinessUnitValue\" = 'Automation Engine' THEN \"ProductBusinessUnitValue\"\
+  \n            ELSE \"ProductBusinessUnitValue\"\n         END PRODUCT\n        ,\
+  \ CASE WHEN \"ProductBusinessUnitValue\" = 'FSM' THEN 5\n               WHEN \"\
+  ProductBusinessUnitValue\" = 'Customer Service' THEN 6\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'Security' THEN 10\n               WHEN \"ProductBusinessUnitValue\" = 'Workplace'\
+  \ THEN 15\n               WHEN \"ProductBusinessUnitValue\" = 'Legal' THEN 16\n\
+  \               WHEN \"ProductBusinessUnitValue\" = 'HR' THEN 17\n             \
+  \  WHEN \"ProductBusinessUnitValue\" = 'ITSM' THEN 18\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'Automation Engine' THEN 24\n            ELSE 99\n\n         END PRODUCT_SORT\n\
+  \        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)), 5) then \"FinNNACV_CC\" else\
+  \ 0 end NNACV\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)), 5) then \"CumulativeNetNewACV\"\
+  \ else 0 end  CACV\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-15)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-15)), 5) then \"FinNNACV_CC\" else\
+  \ 0 end STLY_NNACV\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-15)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-15)), 5) then \"CumulativeNetNewACV\"\
+  \ else 0 end  STLY_CACV\n\t\t, case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)), 5) then \"FinNNACVDCConstFX_CC\"\
+  \ else 0 end NNACV_FX\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)), 5) then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 0 end  CACV_FX\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-15)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-15)), 5) then \"FinNNACVDCConstFX_CC\"\
+  \ else 0 end STLY_NNACV_FX\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-15)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'America/Los_Angeles',CURRENT_TIMESTAMP()),-15)), 5) then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 0 end  STLY_CACV_FX\n         from CDL_LS.\"FINANCE_FPA_RPT\".\"COMMON_CALC_COLUMNS\"\
+  \n         where \"OptySalesQuarter\" < RIGHT(YEAR(convert_timezone( 'America/Los_Angeles',CURRENT_TIMESTAMP()))\
+  \ ||'-Q'|| QUARTER(convert_timezone( 'America/Los_Angeles',CURRENT_TIMESTAMP())),\
+  \ 5)\n           and (\"OptyStage\" = '8 - Closed Won (100%)'\n                or\
+  \ (\"OptyType\" = 'Renewal'\n                    and \"OptyStage\" = '8 - Closed\
+  \ Lost (100%)'))\n            --and \"ProductBusinessUnitValue\" IN ('FSM', 'Customer\
+  \ Service', 'ITSM', 'Security', 'Workplace', 'Legal', 'Automation Engine', 'HR')\n\
+  \t\t\tand \"ProductBusinessUnitValue\" IN ('FSM', 'Customer Service', 'ITSM', 'Security',\
+  \ 'Workplace', 'Legal', 'Automation Engine', 'HR')\n)\nGROUP BY \"BUWorkFlow\",\
+  \ \"ProductBusinessUnitValue\", PRODUCT, PRODUCT_SORT\n) BUD\nLEFT JOIN (select\
+  \ pq.\"BusinessUnit\",\n     pq.\"ProdQuotaQuarter\",\n     ROUND(SUM(pq.\"Quota\"\
+  )) \"Quota\"\n      from EDW_LS.\"SALES_EM\".\"EM_SALES_PRODUCT_QUOTA_RT\" pq\n\
+  \      where \"ProdQuotaQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'America/Los_Angeles',CURRENT_TIMESTAMP()),\
+  \ -3)) ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone( 'America/Los_Angeles',CURRENT_TIMESTAMP()),\
+  \ -3)), 5)\nand \"BusinessUnit\" IN ('ITAM', 'FSM', 'Customer Service', 'ITSM',\
+  \ 'Security', 'Workplace', 'Legal', 'Automation Engine', 'HR')\nand \"BusinessUnit\"\
+  \ is not null\n      group by pq.\"BusinessUnit\",\n     pq.\"ProdQuotaQuarter\"\
+  ) QD ON QD.\"BusinessUnit\" = BUD.\"ProductBusinessUnitValue\"\n\n\n    UNION ALL\n\
+  */\n\nselect CASE WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random'\
+  \ AND \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'random' AND \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ NOT IN ('random', 'random') THEN 'random'\n                WHEN \"ProductFamily1Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n\t\t\t  \
+  \ WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"\
+  ProductFamily1Value\" = 'random' AND \"ProductFamily2Value\" <> 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" IN ('random', 'random') THEN 'random'\n\
+  \               --WHEN \"ProductFamily3Value\" LIKE '%Process Mining%' AND \"ProductFamily2Value\"\
+  \ <> 'Celonis Product Tier' THEN 'Other'\n\t\t\t   WHEN \"ProductFamily3Value\"\
+  \ = 'random' THEN 'random'\n\t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN\
+  \ 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ IN ('random', 'random') THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" =\
+  \ 'random' THEN 'random'\n            ELSE 'random'\n         END WORKFLOW\n\t\t\
+  , CASE WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random'\
+  \ AND \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'random' AND \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ NOT IN ('random', 'random') THEN 'random'\n                WHEN \"ProductFamily1Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n\t\t\t  \
+  \ WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"\
+  ProductFamily1Value\" = 'random' AND \"ProductFamily2Value\" <> 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" IN ('random', 'random') THEN 'random'\n\
+  \               --WHEN \"ProductFamily3Value\" LIKE '%Process Mining%' AND \"ProductFamily2Value\"\
+  \ <> 'Celonis Product Tier' THEN 'Process Mining Standalone'\n\t\t\t   WHEN \"ProductFamily3Value\"\
+  \ = 'random' THEN 'random'\n\t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN\
+  \ 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ IN ('random', 'random') THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" =\
+  \ 'random' THEN 'random'\n            ELSE \"ProductBusinessUnitValue\"\n      \
+  \   END PRODUCT\n        , CASE WHEN \"ProductBusinessUnitValue\" = 'random' AND\
+  \ \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n          \
+  \     WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\" =\
+  \ 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random'\
+  \ AND \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\"\
+  \ = 'random' AND \"ProductBusinessUnitValue\" NOT IN ('random', 'random'\t) THEN\
+  \ 'random'\n                WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n        \
+  \       WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n               WHEN\
+  \ \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\"\
+  \ IN ('random', 'random') THEN 'random'\n               WHEN \"ProductFamily1Value\"\
+  \ = 'random' AND \"ProductFamily2Value\" <> 'random' THEN 'random'\n           \
+  \    --WHEN \"ProductFamily3Value\" LIKE '%Process Mining%' AND \"ProductFamily2Value\"\
+  \ <> 'Celonis Product Tier'  THEN 2\n\t\t\t   WHEN \"ProductFamily3Value\" = 'random'\
+  \ THEN 'random'\n\t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN 'random'\n\
+  \t\t\t   WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ IN ('random', 'random') THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" =\
+  \ 'random' THEN 'random'\n            ELSE 'random'\n\n         END PRODUCT_SORT\n\
+  \        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACV_CC\" else\
+  \ 'random' end NNACV\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACV\"\
+  \ else 'random' end  CACV\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACV_CC\" else\
+  \ 'random' end STLY_NNACV\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACV\"\
+  \ else 'random' end STLY_CACV\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACVDCConstFX_CC\"\
+  \ else 'random' end NNACV_FX\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 'random' end  CACV_FX\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACVDCConstFX_CC\"\
+  \ else 'random' end STLY_NNACV_FX\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 'random' end STLY_CACV_FX\n\t\t, 'random' QUOTA\n         from CTE_COMMON_CALC\n\
+  \         where \"OptySalesQuarter\" < RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           and (\"OptyStage\" = 'random'\n                or (\"OptyType\" = 'random'\n\
+  \                    and \"OptyStage\" = 'random'))\n\nUNION ALL\n\nSELECT 'random'\
+  \ WORKFLOW\n\t\t, 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n        , case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACV_CC\" else 'random' end NNACV\n        , case when \"\
+  OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"CumulativeNetNewACV\" else 'random' end  CACV\n        , case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACV_CC\" else 'random' end STLY_NNACV\n        , case when\
+  \ \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"CumulativeNetNewACV\" else 'random' end STLY_CACV\n\t\t, case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACVDCConstFX_CC\" else 'random' end NNACV_FX\n        ,\
+  \ case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"CumulativeNetNewACVDCConstFX_CC\" else 'random' end  CACV_FX\n\
+  \        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACVDCConstFX_CC\"\
+  \ else 'random' end STLY_NNACV_FX\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 'random' end STLY_CACV_FX\n        , 'random' QUOTA\n         FROM CTE_COMMON_CALC\n\
+  \         WHERE \"OptySalesQuarter\" < RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n            AND \"ProductFamily2Value\"\
+  \ = 'random'\n\n UNION ALL\n\n--Start of ITSM Ent/Pro/Std Net NNACV Code\n\nSELECT\
+  \ WORKFLOW, PRODUCT, PRODUCT_SORT, ROUND(SUM(NNACV)) NNACV, ROUND(SUM(CACV)) CACV,\
+  \ ROUND(SUM(STLY_NNACV)) STLY_NNACV\n        , ROUND(SUM(STLY_CACV)) STLY_CACV\n\
+  \t\t, ROUND(SUM(NNACV_FX)) NNACV_FX, ROUND(SUM(CACV_FX)) CACV_FX, ROUND(SUM(STLY_NNACV_FX))\
+  \ STLY_NNACV_FX\n        , ROUND(SUM(STLY_CACV_FX)) STLY_CACV_FX\n\t\t, 'random'\
+  \ QUOTA\nFROM (\nSELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then ROUND(\"NetEntNNACV\"\
+  ) ELSE 'random' END) NNACV\n    , 'random' CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN ROUND(\"NetEntNNACV\") ELSE 'random' END) STLY_NNACV\n    , 'random'\
+  \ STLY_CACV\n\t, SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then ROUND(\"NetEntNNACV_FX\"\
+  ) ELSE 'random' END) NNACV_FX\n    , 'random' CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN ROUND(\"NetEntNNACV_FX\") ELSE 'random' END) STLY_NNACV_FX\n  \
+  \  , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\nWHERE \"Metric\" = 'random'\n\
+  AND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\nOR \"OptySalesQuarter\" =\
+  \ RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n    )\nGROUP BY \"BUWorkFlow\"\n\nUNION ALL\n\nSELECT \"BUWorkFlow\"\
+  \ WORKFLOW\n\t, 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n    , SUM(CASE WHEN\
+  \ \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then ROUND(\"NetEntPlusNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetEntPlusNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then ROUND(\"NetEntPlusNNACV_FX\") ELSE 'random' END) NNACV_FX\n   \
+  \ , 'random' CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetEntPlusNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n    )\nGROUP BY \"BUWorkFlow\"\n\nUNION ALL\n\nSELECT \"BUWorkFlow\"\
+  \ WORKFLOW\n\t, 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n    , SUM(CASE WHEN\
+  \ \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then ROUND(\"NetProNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then ROUND(\"NetProNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random'\
+  \ CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n    )\nGROUP BY \"BUWorkFlow\"\n\nUNION ALL\n\nSELECT \"BUWorkFlow\"\
+  \ WORKFLOW\n\t, 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n    , SUM(CASE WHEN\
+  \ \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then ROUND(\"NetProPlusNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProPlusNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then ROUND(\"NetProPlusNNACV_FX\") ELSE 'random' END) NNACV_FX\n   \
+  \ , 'random' CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProPlusNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n    )\nGROUP BY \"BUWorkFlow\"\n\nUNION ALL\n\nSELECT \"BUWorkFlow\"\
+  \ WORKFLOW\n\t, 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n    , SUM(CASE WHEN\
+  \ \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then ROUND(\"NetStdNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetStdNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then ROUND(\"NetStdNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random'\
+  \ CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetStdNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n    )\nGROUP BY \"BUWorkFlow\"\n\n--End of ITSM Ent/Pro/Std Net NNACV\
+  \ Code\n\nUNION ALL\n\n--Start of ITSM Ent/Pro/Std CACV Code\n\nselect WORKFLOW\n\
+  \t\t, CASE WHEN \"DealPackageType\" = 'random' THEN 'random'\n            WHEN \"\
+  DealPackageType\" = 'random' THEN 'random'\n\t\t\tWHEN \"DealPackageType\" = 'random'\
+  \ THEN 'random'\n\t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n     \
+  \       ELSE 'random' END PRODUCT\n        , CASE WHEN \"DealPackageType\" = 'random'\
+  \ THEN 'random'\n\t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n     \
+  \       WHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\tWHEN \"DealPackageType\"\
+  \ = 'random' THEN 'random'\n            ELSE 'random' END PRODUCT_SORT\n       \
+  \ , 'random' NNACV\n        , sum(CACV) CACV\n        , 'random' STLY_NNACV\n  \
+  \      , sum(STLY_CACV) STLY_CACV\n\t\t, 'random' NNACV_FX\n        , sum(CACV_FX)\
+  \ CACV_FX\n        , 'random' STLY_NNACV_FX\n        , sum(STLY_CACV_FX) STLY_CACV_FX\n\
+  from (\nSELECT iq.\"Workflow\" WORKFLOW, iq.\"ProductBusinessUnitValue\",\"OptySalesQuarter\"\
+  \n        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"CumulativeNetNewACV\"\
+  \n            ELSE 'random' END CACV\n        , CASE WHEN \"OptySalesQuarter\" <=\
+  \ RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"CumulativeNetNewACV\" ELSE 'random' END STLY_CACV\n        ,\
+  \ CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACVDCConstFX_CC\"\n            ELSE 'random' END CACV_FX\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACVDCConstFX_CC\"\
+  \ ELSE 'random' END STLY_CACV_FX\n\t\t, case when HORIZONTAL_PRODUCT_PACKAGE = 'random'\
+  \ then 'random'\n\t\t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\
+  \t\t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n            when\
+  \ iq.\"ProductFamily3Value\" = 'random' then 'random'\n\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and sp.\"ProductFamily3Value\" like 'random' then 'random'\n\t\t\t\
+  when sp.\"ProductBusinessUnitValue\" = 'random' and (lower(to_char(sp.\"ProductDescription\"\
+  )) like 'random' and sp.\"ProductFamily3Value\" in ('random', 'random' )) then 'random'\n\
+  \t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random'\n\t\t\t\tand lower(to_char(sp.\"ProductFullName\")) like 'random'\
+  \ then 'random'\n\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and ((lower(to_char(sp.\"\
+  ProductDescription\")) like 'random'\n\t\t\t\t\t\t\t\t\t\t  or lower(to_char(sp.\"\
+  ProductDescription\")) like 'random') ) then 'random'\n\t\t   when sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and (sp.\"ProductFamily3Value\" like 'random' or sp.\"ProductFamily3Value\"\
+  \ like 'random' or sp.\"ProductFamily3Value\" like 'random')  then 'random'\n\t\t\
+  \   when sp.\"ProductBusinessUnitValue\" = 'random' and sp.\"ProductSKU\" like 'random'\
+  \ and lower(sp.\"ProductDescription\") LIKE 'random'\n\t\t\t\t\t and lower(sp.\"\
+  ProductDescription\") LIKE 'random' and lower(sp.\"ProductDescription\") LIKE 'random'\
+  \ and (lower(sp.\"ProductDescription\") LIKE 'random'  or lower(sp.\"ProductDescription\"\
+  ) LIKE 'random')\n\t\t\t\t\t and (lower(to_char(sp.\"ProductDescription\")) not\
+  \ like 'random') and (lower(to_char(sp.\"ProductDescription\")) not like 'random')\n\
+  \t\t\t\t\t and (lower(to_char(sp.\"ProductDescription\")) not like 'random') then\
+  \ 'random'\n\n               else 'random' end \"DealPackageType\"\n\n     FROM\
+  \ CTE_BOOKING_UNIVERSE iq\n    LEFT JOIN CDL_LS.\"SALES_SS_RPT\".\"RPT_UNIFIEDSS_FACT_SALES_COMBINED\"\
+  \ fsc on iq.\"OptyItemLineItemNumber\" = fsc.\"LineItemNumber\"\n    LEFT JOIN \
+  \ (select distinct  \"ProductCode\", \"ProductSKU\", \"ProductBusinessUnitValue\"\
+  , \"ProductFamily3Value\", \"ProductFullName\"\n                               \
+  \ , \"ProductNowBuyingProgramFlag\", \"ProductDescription\" , \"ProductName\"\n\
+  \                              from (select distinct  \"ProductCode\", \"ProductSKU\"\
+  , \"ProductBusinessUnitValue\", \"ProductFamily3Value\", \"ProductFullName\"\n \
+  \                               , \"ProductNowBuyingProgramFlag\", \"ProductDescription\"\
+  \ , \"ProductName\"\n                                , row_number() over(partition\
+  \ by \"ProductCode\" order by \"ProductBusinessUnitValue\") rnk\n              \
+  \                from ODS_LS.\"SURF\".\"SALES_PRODUCT\"\n                      \
+  \          ) where rnk = 'random'\n                ) sp on sp.\"ProductCode\"= fsc.\"\
+  ProductCode_CRM\"\n    LEFT JOIN (SELECT LINE_ITEM_NUMBER, HORIZONTAL_PRODUCT_PACKAGE\n\
+  \t\t\t\tFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS\n\t\t\t\tWHERE record_type\
+  \ = 'random'\n\t\t\t\tAND HORIZONTAL_PRODUCT = 'random'\n\t\t\t\tAND NNACV_USD <>\
+  \ 'random' ) GI ON GI.LINE_ITEM_NUMBER = iq.\"OptyItemLineItemNumber\"\n     WHERE\
+  \ iq.\"ProductBusinessUnitValue\" IS not NULL\n     AND iq.\"ProductBusinessUnitValue\"\
+  \ = 'random'\n     AND iq.\"OptySalesQuarter\" <RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \t AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n)\ngroup by WORKFLOW\n\t\t\
+  , \"ProductBusinessUnitValue\"\n        , \"DealPackageType\"\n\n)\nGROUP BY WORKFLOW,\
+  \ PRODUCT, PRODUCT_SORT\n\n--End of ITSM Ent/Pro/Std CACV Code\n\nUNION ALL\n\n\
+  --Start of Code for SIR, VR\n\nSELECT 'random' WORKFLOW\n\t\t, 'random' PRODUCT\n\
+  \        , 'random' PRODUCT_SORT\n        , CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') THEN \"FinNNACV_CC\"\n        WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACV_CC\"/'random'\n        ELSE 'random' END NNACV\n   \
+  \     , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') THEN \"CumulativeNetNewACV\"\n        WHEN \"\
+  OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"CumulativeNetNewACV\"/'random'\n        ELSE 'random' END  CACV\n\
+  \        , CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') then \"FinNNACV_CC\"\n        WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACV_CC\"/'random'\n        ELSE 'random' END STLY_NNACV\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') then \"CumulativeNetNewACV\"\n        WHEN \"\
+  OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"CumulativeNetNewACV\"/'random'\n        ELSE 'random' END STLY_CACV\n\
+  \t\t, CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random')\
+  \ THEN \"FinNNACVDCConstFX_CC\"\n        WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"FinNNACVDCConstFX_CC\"\
+  /'random'\n        ELSE 'random' END NNACV_FX\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random')\
+  \ THEN \"CumulativeNetNewACVDCConstFX_CC\"\n        WHEN \"OptySalesQuarter\" <=\
+  \ RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"/'random'\n        ELSE 'random'\
+  \ END  CACV_FX\n        , CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') then \"FinNNACVDCConstFX_CC\"\n        WHEN\
+  \ \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACVDCConstFX_CC\"/'random'\n        ELSE 'random' END STLY_NNACV_FX\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\n \
+  \       WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"/'random'\n        ELSE 'random'\
+  \ END STLY_CACV_FX\n        , 'random' QUOTA\n         from CTE_COMMON_CALC\n  \
+  \       where \"OptySalesQuarter\" < RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n            AND \"ProductBusinessUnitValue\"\
+  \ = 'random'\n            AND \"ProductFamily3Value\" IN ('random', 'random', 'random','random',\
+  \ 'random','random', 'random', 'random', 'random')\n\nUNION ALL\n\nSELECT 'random'\
+  \ WORKFLOW\n\t\t, 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n        , CASE\
+  \ WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n\
+  \                    , 'random', 'random') THEN \"FinNNACV_CC\"\n        WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACV_CC\"/'random'\n        ELSE 'random' END NNACV\n   \
+  \     , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random') THEN\
+  \ \"CumulativeNetNewACV\"\n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"CumulativeNetNewACV\"\
+  /'random'\n        ELSE 'random' END  CACV\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n\
+  \                    , 'random', 'random') then \"FinNNACV_CC\"\n        WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACV_CC\"/'random'\n        ELSE 'random' END STLY_NNACV\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random') then\
+  \ \"CumulativeNetNewACV\"\n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"CumulativeNetNewACV\"\
+  /'random'\n        ELSE 'random' END STLY_CACV\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n\
+  \                    , 'random', 'random') THEN \"FinNNACVDCConstFX_CC\"\n     \
+  \   WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACVDCConstFX_CC\"/'random'\n        ELSE 'random' END NNACV_FX\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random') THEN\
+  \ \"CumulativeNetNewACVDCConstFX_CC\"\n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"\
+  /'random'\n        ELSE 'random' END  CACV_FX\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n\
+  \                    , 'random', 'random') then \"FinNNACVDCConstFX_CC\"\n     \
+  \   WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACVDCConstFX_CC\"/'random'\n        ELSE 'random' END STLY_NNACV_FX\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random') then\
+  \ \"CumulativeNetNewACVDCConstFX_CC\"\n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"\
+  /'random'\n        ELSE 'random' END STLY_CACV_FX\n\t\t, 'random' QUOTA\n      \
+  \   from CTE_COMMON_CALC\n         where \"OptySalesQuarter\" < RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random')\n           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\"\
+  \ = 'random'\n                    AND \"OptyStage\" = 'random'))\n            AND\
+  \ \"ProductBusinessUnitValue\" = 'random'\n            AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random','random',\
+  \ 'random','random', 'random', 'random', 'random')\n\n--End of Code for SIR, VR\n\
+  UNION ALL\n--Start of CSM Net NNACV Code\n\nSELECT WORKFLOW, PRODUCT, PRODUCT_SORT,\
+  \ ROUND(SUM(NNACV)) NNACV, ROUND(SUM(CACV)) CACV, ROUND(SUM(STLY_NNACV)) STLY_NNACV\n\
+  \        , ROUND(SUM(STLY_CACV)) STLY_CACV\n\t\t, ROUND(SUM(NNACV_FX)) NNACV_FX,\
+  \ ROUND(SUM(CACV_FX)) CACV_FX, ROUND(SUM(STLY_NNACV_FX)) STLY_NNACV_FX\n       \
+  \ , ROUND(SUM(STLY_CACV_FX)) STLY_CACV_FX\n\t\t, 'random' QUOTA\nFROM (\nSELECT\
+  \ \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n \
+  \   , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then ROUND(\"NetProPlusNNACV\"\
+  ) ELSE 'random' END) NNACV\n    , 'random' CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN ROUND(\"NetProPlusNNACV\") ELSE 'random' END) STLY_NNACV\n    ,\
+  \ 'random' STLY_CACV\n\t, SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then ROUND(\"NetProPlusNNACV_FX\"\
+  ) ELSE 'random' END) NNACV_FX\n    , 'random' CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN ROUND(\"NetProPlusNNACV_FX\") ELSE 'random' END) STLY_NNACV_FX\n\
+  \    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\nWHERE \"Metric\" = 'random'\n\
+  AND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\nOR \"OptySalesQuarter\" =\
+  \ RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n    )\nGROUP BY \"BUWorkFlow\"\n\n)\ngroup by  WORKFLOW, PRODUCT, PRODUCT_SORT\n\
+  \nUNION ALL\n\n\nSELECT WORKFLOW, PRODUCT, PRODUCT_SORT, ROUND(SUM(NNACV)) NNACV,\
+  \ ROUND(SUM(CACV)) CACV, ROUND(SUM(STLY_NNACV)) STLY_NNACV\n        , ROUND(SUM(STLY_CACV))\
+  \ STLY_CACV\n\t\t, ROUND(SUM(NNACV_FX)) NNACV_FX, ROUND(SUM(CACV_FX)) CACV_FX, ROUND(SUM(STLY_NNACV_FX))\
+  \ STLY_NNACV_FX\n        , ROUND(SUM(STLY_CACV_FX)) STLY_CACV_FX\n\t\t, 'random'\
+  \ QUOTA\nFROM (\nSELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then ROUND(\"NetProNNACV\"\
+  ) ELSE 'random' END) NNACV\n    , 'random' CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN ROUND(\"NetProNNACV\") ELSE 'random' END) STLY_NNACV\n    , 'random'\
+  \ STLY_CACV\n\t, SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then ROUND(\"NetProNNACV_FX\"\
+  ) ELSE 'random' END) NNACV_FX\n    , 'random' CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN ROUND(\"NetProNNACV_FX\") ELSE 'random' END) STLY_NNACV_FX\n  \
+  \  , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\nWHERE \"Metric\" = 'random'\n\
+  AND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\nOR \"OptySalesQuarter\" =\
+  \ RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n    )\nGROUP BY \"BUWorkFlow\"\n\n)\ngroup by  WORKFLOW, PRODUCT, PRODUCT_SORT\n\
+  \n--End of CSM Net NNACV Code\n\nUNION ALL\n\n--Start of CSM Pro CACV Code\n\n\n\
+  \n\nselect WORKFLOW\n\t\t, CASE WHEN \"DealPackageType\" = 'random' THEN 'random'\n\
+  \t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n            ELSE 'random'\
+  \ END PRODUCT\n        , CASE WHEN \"DealPackageType\" = 'random' THEN 'random'\n\
+  \            WHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\tELSE 'random'\
+  \ END PRODUCT_SORT\n        , 'random' NNACV\n        , sum(CACV) CACV\n       \
+  \ , 'random' STLY_NNACV\n        , sum(STLY_CACV) STLY_CACV\n\t\t, 'random' NNACV_FX\n\
+  \        , sum(CACV_FX) CACV_FX\n        , 'random' STLY_NNACV_FX\n        , sum(STLY_CACV_FX)\
+  \ STLY_CACV_FX\n\t\t, 'random' QUOTA\nfrom (\nSELECT iq.\"Workflow\" WORKFLOW, iq.\"\
+  ProductBusinessUnitValue\",\"OptySalesQuarter\"\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"CumulativeNetNewACV\"\n            ELSE 'random' END CACV\n \
+  \       , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACV\"\
+  \ ELSE 'random' END STLY_CACV\n        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"FinNNACVDCConstFX_CC\"\
+  \n            ELSE 'random' END CACV_FX\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACVDCConstFX_CC\" ELSE 'random' END STLY_CACV_FX\n\t\t,\
+  \ case when HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\t\t\twhen HORIZONTAL_PRODUCT_PACKAGE\
+  \ = 'random' then 'random'\n\t\t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then\
+  \ 'random'\n            when sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"\
+  ProductFamily3Value\") like 'random' then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and (lower(sp.\"ProductFamily3Value\") like 'random' or lower(sp.\"\
+  ProductFamily3Value\") like 'random' )\n\t\t\t\t\t\t\tand (lower(sp.\"ProductDescription\"\
+  ) like 'random' or lower(sp.\"ProductDescription\") like 'random'  or lower(sp.\"\
+  ProductDescription\") like 'random') then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and lower(sp.\"ProductFamily3Value\") like 'random' and lower(sp.\"\
+  ProductName\") like 'random' and\n\t\t\t\t\t\t\t(lower(sp.\"ProductDescription\"\
+  ) like 'random' or lower(sp.\"ProductDescription\") like 'random'  or lower(sp.\"\
+  ProductDescription\") like 'random' ) then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and lower(sp.\"ProductFamily3Value\") like 'random' then 'random'\n\
+  \t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' and\n\t\t\t\t\t\t\t(lower(sp.\"ProductDescription\") like 'random'\
+  \ or lower(sp.\"ProductDescription\") like 'random' ) and (lower(sp.\"ProductDescription\"\
+  ) not like 'random' and lower(sp.\"ProductDescription\") not like 'random' and lower(sp.\"\
+  ProductDescription\") not like 'random' ) then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and lower(sp.\"ProductFamily3Value\") like 'random' and lower(sp.\"\
+  ProductName\") like 'random' and\n\t\t\t\t\t\t\t(lower(sp.\"ProductDescription\"\
+  ) like 'random' or lower(sp.\"ProductDescription\") like 'random' ) and (lower(sp.\"\
+  ProductDescription\") not like 'random' and lower(sp.\"ProductDescription\") not\
+  \ like 'random' and lower(sp.\"ProductDescription\") not like 'random' ) then 'random'\n\
+  \t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" =\
+  \ 'random' and lower(sp.\"ProductFamily3Value\") = 'random' then 'random'\n\n  \
+  \             else 'random' end \"DealPackageType\"\n\n    FROM CTE_BOOKING_UNIVERSE\
+  \ iq\n\tLEFT JOIN  (select distinct  \"ProductCode\", \"ProductSKU\", \"ProductBusinessUnitValue\"\
+  , \"ProductFamily3Value\", \"ProductFullName\"\n                               \
+  \ , \"ProductNowBuyingProgramFlag\", \"ProductDescription\" , \"ProductName\"\n\
+  \                              from (select distinct  \"ProductCode\", \"ProductSKU\"\
+  , \"ProductBusinessUnitValue\", \"ProductFamily3Value\", \"ProductFullName\"\n \
+  \                               , \"ProductNowBuyingProgramFlag\", \"ProductDescription\"\
+  \ , \"ProductName\"\n                                , row_number() over(partition\
+  \ by \"ProductCode\" order by \"ProductBusinessUnitValue\") rnk\n              \
+  \                from ODS_LS.\"SURF\".\"SALES_PRODUCT\"\n                      \
+  \          ) where rnk = 'random'\n                ) sp on sp.\"ProductCode\"=iq.\"\
+  ProductCode\"\n    LEFT JOIN (SELECT LINE_ITEM_NUMBER, HORIZONTAL_PRODUCT_PACKAGE\n\
+  \    \t\t\t\tFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS\n    \t\t\t\tWHERE\
+  \ record_type = 'random'\n    \t\t\t\tAND HORIZONTAL_PRODUCT = 'random'\n    \t\t\
+  \t\tAND NNACV_USD <> 'random' ) GI ON GI.LINE_ITEM_NUMBER = iq.\"OptyItemLineItemNumber\"\
+  \n     WHERE iq.\"ProductBusinessUnitValue\" IS not NULL\n     AND iq.\"ProductBusinessUnitValue\"\
+  \ = 'random'\n     AND iq.\"OptySalesQuarter\" <RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \t AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n)\nWHERE \"DealPackageType\"\
+  \ IN ('random','random')\ngroup by WORKFLOW, \"DealPackageType\"\n\n\n\n--End of\
+  \ CSM Pro CACV Code\n\nUNION ALL\n\n--Start of Gen AI Code\n\nSELECT 'random' WORKFLOW\n\
+  \t\t, 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n        , case when \"\
+  OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACV_CC\" else 'random' end NNACV\n        , case when \"\
+  OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"CumulativeNetNewACV\" else 'random' end  CACV\n        , case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACV_CC\" else 'random' end STLY_NNACV\n        , case when\
+  \ \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"CumulativeNetNewACV\" else 'random' end STLY_CACV\n\t\t, case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACVDCConstFX_CC\" else 'random' end NNACV_FX\n        ,\
+  \ case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"CumulativeNetNewACVDCConstFX_CC\" else 'random' end  CACV_FX\n\
+  \        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACVDCConstFX_CC\"\
+  \ else 'random' end STLY_NNACV_FX\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 'random' end STLY_CACV_FX\n        , 'random' QUOTA\nFROM CTE_COMMON_CALC\
+  \ cc\nLEFT JOIN (SELECT DISTINCT \"LineItemNumber\", \"GenAIFlag\"\nFROM EDW_LS.PRODUCT_EM.EM_PRODUCT_GEN_AI\
+  \ WHERE \"RecordType\" = 'random') gl ON gl.\"LineItemNumber\" = cc.\"OptyItemLineItemNumber\"\
+  \nWHERE \"OptySalesQuarter\" < RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n            AND gl.\"GenAIFlag\"\
+  \ = 'random'\n\n\n--End of Gen AI Code\n\nUNION ALL\n\n--Start of Process Mining\
+  \ Code\n\nSELECT  'random' WORKFLOW\n\t\t, 'random' PRODUCT\n        , 'random'\
+  \ PRODUCT_SORT\n        , case when SALES_QUARTER = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then NNACV_USD else 'random'\
+  \ end NNACV\n        , case when SALES_QUARTER <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then NNACV_CLOSED_USD else\
+  \ 'random' end  CACV\n        , case when SALES_QUARTER = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then NNACV_USD else 'random'\
+  \ end STLY_NNACV\n        , case when SALES_QUARTER <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then NNACV_CLOSED_USD else\
+  \ 'random' end STLY_CACV\n\t\t, case when SALES_QUARTER = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then NNACV_USD_CY_FX else\
+  \ 'random' end NNACV_FX\n        , case when SALES_QUARTER <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then NNACV_CLOSED_USD_CFX\
+  \ else 'random' end  CACV_FX\n        , case when SALES_QUARTER = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then NNACV_USD_CY_FX else\
+  \ 'random' end STLY_NNACV_FX\n        , case when SALES_QUARTER <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then NNACV_CLOSED_USD_CFX\
+  \ else 'random' end STLY_CACV_FX\n        , 'random' QUOTA\nFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS\
+  \ HP\nWHERE HORIZONTAL_PRODUCT = 'random'\nAND SALES_QUARTER < RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random')\n           and (OPPORTUNITY_STAGE = 'random'\n                or (OPPORTUNITY_TYPE\
+  \ = 'random'\n                    and OPPORTUNITY_STAGE = 'random')\n          \
+  \      )\n\n--End of Process Mining Code\n\n) PQD\nLEFT JOIN EDW_LS.PRODUCT_EM.CROSS_BU_PRODUCT_QUOTA\
+  \ PQ ON PQ.PRODUCT = PQD.PRODUCT AND PQ.SALES_QUARTER = RIGHT(YEAR(convert_timezone(\
+  \ 'random',ADD_MONTHS(CURRENT_TIMESTAMP(),'random'))) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',ADD_MONTHS(CURRENT_TIMESTAMP(),'random'))), 'random')\n\nWHERE PRODUCT_SORT\
+  \ <'random'\ngroup by  WORKFLOW, PQD.PRODUCT, PRODUCT_SORT\n\nUNION ALL\n\n--Start\
+  \ of Current Quarter Code\n\nSELECT  'random' RECORD_TYPE\n        , RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') SALES_QUARTER\n        , 'random' QUARTER_FLAG\n        , PRODUCT_SORT\n\
+  \        , CQD.PRODUCT\n\t\t, WORKFLOW\n        , ROUND(SUM(NNACV)/'random','random')\
+  \ NNACV\n        , CASE WHEN (SUM(STLY_NNACV)='random') THEN 'random'\n        \
+  \    ELSE CAST(ROUND(((SUM(NNACV) - SUM(STLY_NNACV))/SUM(STLY_NNACV)*'random'))\
+  \ || 'random' AS VARCHAR)\n            END  NNACV_YOY_GROWTH\n        , CASE WHEN\
+  \ (ROUND(MAX(PQ.QUOTA)) = 'random' OR MAX(PQ.QUOTA) IS NULL) THEN 'random'\n   \
+  \         ELSE CAST(ROUND((SUM(NNACV)/MAX(PQ.QUOTA)*'random')) || 'random' AS VARCHAR)\n\
+  \            END QTR_P2P\n        , ROUND(SUM(CACV)/'random','random') CACV\n  \
+  \      , CASE WHEN (SUM(STLY_CACV)='random') THEN 'random'\n            ELSE CAST(ROUND(((SUM(CACV)\
+  \ - SUM(STLY_CACV))/sum(STLY_CACV)*'random')) || 'random' AS VARCHAR)\n        \
+  \    END CACV_YOY_GROWTH\n\t\t, ROUND(SUM(NNACV_FX)/'random','random') NNACV_FX\n\
+  \        , CASE WHEN (SUM(STLY_NNACV_FX)='random') THEN 'random'\n            ELSE\
+  \ CAST(ROUND(((SUM(NNACV_FX) - SUM(STLY_NNACV_FX))/SUM(STLY_NNACV_FX)*'random'))\
+  \ || 'random' AS VARCHAR)\n            END  NNACV_YOY_GROWTH_FX\n        , CASE\
+  \ WHEN (ROUND(MAX(PQ.QUOTA)) = 'random' OR MAX(PQ.QUOTA) IS NULL) THEN 'random'\n\
+  \            ELSE CAST(ROUND((SUM(NNACV_FX)/MAX(PQ.QUOTA)*'random')) || 'random'\
+  \ AS VARCHAR)\n            END QTR_P2P_FX\n        , ROUND(SUM(CACV_FX)/'random','random')\
+  \ CACV_FX\n        , CASE WHEN (SUM(STLY_CACV_FX)='random') THEN 'random'\n    \
+  \        ELSE CAST(ROUND(((SUM(CACV_FX) - SUM(STLY_CACV_FX))/sum(STLY_CACV_FX)*'random'))\
+  \ || 'random' AS VARCHAR)\n            END CACV_YOY_GROWTH_FX\nFROM (\nselect CASE\
+  \ WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random' AND\
+  \ \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'random' AND \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ NOT IN ('random', 'random') THEN 'random'\n                WHEN \"ProductFamily1Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n\t\t\t  \
+  \ WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"\
+  ProductFamily1Value\" = 'random' AND \"ProductFamily2Value\" <> 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" IN ('random', 'random') THEN 'random'\n\
+  \               --WHEN \"ProductFamily3Value\" LIKE '%Process Mining%' AND \"ProductFamily2Value\"\
+  \ <> 'Celonis Product Tier' THEN 'Other'\n\t\t\t   WHEN \"ProductFamily3Value\"\
+  \ = 'random' THEN 'random'\n\t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN\
+  \ 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ IN ('random', 'random') THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" =\
+  \ 'random' THEN 'random'\n            ELSE 'random'\n         END WORKFLOW\n\t\t\
+  , CASE WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random'\
+  \ AND \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'random' AND \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ NOT IN ('random', 'random') THEN 'random'\n                WHEN \"ProductFamily1Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n\t\t\t  \
+  \ WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"\
+  ProductFamily1Value\" = 'random' AND \"ProductFamily2Value\" <> 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" IN ('random', 'random') THEN 'random'\n\
+  \               --WHEN \"ProductFamily3Value\" LIKE '%Process Mining%' AND \"ProductFamily2Value\"\
+  \ <> 'Celonis Product Tier' THEN 'Process Mining Standalone'\n\t\t\t   WHEN \"ProductFamily3Value\"\
+  \ = 'random' THEN 'random'\n\t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN\
+  \ 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ IN ('random', 'random') THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" =\
+  \ 'random' THEN 'random'\n            ELSE \"ProductBusinessUnitValue\"\n      \
+  \   END PRODUCT\n        , CASE WHEN \"ProductBusinessUnitValue\" = 'random' AND\
+  \ \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n          \
+  \     WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\" =\
+  \ 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random'\
+  \ AND \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\"\
+  \ = 'random' AND \"ProductBusinessUnitValue\" NOT IN ('random', 'random') THEN 'random'\n\
+  \                WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n       \
+  \        WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n               WHEN\
+  \ \"ProductFamily1Value\" = 'random' THEN 'random'\n               WHEN \"ProductFamily2Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\" IN ('random',\
+  \ 'random') THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random'\
+  \ AND \"ProductFamily2Value\" <> 'random' THEN 'random'\n               --WHEN \"\
+  ProductFamily3Value\" LIKE '%Process Mining%' AND \"ProductFamily2Value\" <> 'Celonis\
+  \ Product Tier'  THEN 2\n\t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN 'random'\n\
+  \t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN 'random'\n\t\t\t   WHEN \"\
+  ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\" IN ('random',\
+  \ 'random') THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" = 'random' THEN\
+  \ 'random'\n            ELSE 'random'\n\n         END PRODUCT_SORT\n        , case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then \"FinNNACV_CC\" else 'random' end NNACV\n        , case when \"OptySalesQuarter\"\
+  \ <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random') then \"CumulativeNetNewACV\" else 'random'\
+  \ end  CACV\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACV_CC\" else\
+  \ 'random' end STLY_NNACV\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACV\"\
+  \ else 'random' end STLY_CACV\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then \"FinNNACVDCConstFX_CC\" else 'random' end NNACV_FX\n        ,\
+  \ case when \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then \"CumulativeNetNewACVDCConstFX_CC\" else 'random' end  CACV_FX\n        ,\
+  \ case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACVDCConstFX_CC\" else 'random' end STLY_NNACV_FX\n    \
+  \    , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 'random' end STLY_CACV_FX\n\t\t, 'random' QUOTA\n         from CTE_COMMON_CALC\n\
+  \         where \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n\nUNION ALL\n\nSELECT 'random'\
+  \ WORKFLOW\n\t\t, 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n        , case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then \"FinNNACV_CC\" else 'random' end NNACV\n        , case when \"OptySalesQuarter\"\
+  \ <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random') then \"CumulativeNetNewACV\" else 'random'\
+  \ end  CACV\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACV_CC\" else\
+  \ 'random' end STLY_NNACV\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACV\"\
+  \ else 'random' end STLY_CACV\n        , case when \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then \"FinNNACVDCConstFX_CC\" else 'random' end NNACV_FX\n        ,\
+  \ case when \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then \"CumulativeNetNewACVDCConstFX_CC\" else 'random' end  CACV_FX\n        ,\
+  \ case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACVDCConstFX_CC\" else 'random' end STLY_NNACV_FX\n    \
+  \    , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 'random' end STLY_CACV_FX\n\t\t, 'random' QUOTA\n         FROM CTE_COMMON_CALC\n\
+  \         WHERE \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n            AND \"ProductFamily2Value\"\
+  \ = 'random'\n\n UNION ALL\n\n--Start of ITSM Ent/Pro/Std Net NNACV Code\n\nSELECT\
+  \ WORKFLOW, PRODUCT, PRODUCT_SORT, ROUND(SUM(NNACV)) NNACV, ROUND(SUM(CACV)) CACV,\
+  \ ROUND(SUM(STLY_NNACV)) STLY_NNACV\n        , ROUND(SUM(STLY_CACV)) STLY_CACV\n\
+  \t\t, ROUND(SUM(NNACV_FX)) NNACV_FX, ROUND(SUM(CACV_FX)) CACV_FX, ROUND(SUM(STLY_NNACV_FX))\
+  \ STLY_NNACV_FX\n        , ROUND(SUM(STLY_CACV_FX)) STLY_CACV_FX\n\t\t, 'random'\
+  \ QUOTA\nFROM (\nSELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then ROUND(\"NetEntNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetEntNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then ROUND(\"NetEntNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random' CACV_FX\n\
+  \    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetEntNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n    )\nGROUP BY \"BUWorkFlow\"\
+  \n\nUNION ALL\n\nSELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then ROUND(\"NetEntPlusNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetEntPlusNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then ROUND(\"NetEntPlusNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random'\
+  \ CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetEntPlusNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n    )\nGROUP BY \"BUWorkFlow\"\
+  \n\nUNION ALL\n\nSELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then ROUND(\"NetProNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then ROUND(\"NetProNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random' CACV_FX\n\
+  \    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n    )\nGROUP BY \"BUWorkFlow\"\
+  \n\nUNION ALL\n\nSELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then ROUND(\"NetProPlusNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProPlusNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then ROUND(\"NetProPlusNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random'\
+  \ CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProPlusNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n    )\nGROUP BY \"BUWorkFlow\"\
+  \n\nUNION ALL\n\nSELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then ROUND(\"NetStdNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetStdNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then ROUND(\"NetStdNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random' CACV_FX\n\
+  \    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetStdNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n    )\nGROUP BY \"BUWorkFlow\"\
+  \n\n--End of ITSM Ent/Pro/Std Net NNACV Code\n\nUNION ALL\n\n--Start of ITSM Ent/Pro/Std\
+  \ CACV Code\n\nselect WORKFLOW\n\t\t, CASE WHEN \"DealPackageType\" = 'random' THEN\
+  \ 'random'\n            WHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\t\
+  WHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\tWHEN \"DealPackageType\"\
+  \ = 'random' THEN 'random'\n            ELSE 'random' END PRODUCT\n        , CASE\
+  \ WHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\tWHEN \"DealPackageType\"\
+  \ = 'random' THEN 'random'\n            WHEN \"DealPackageType\" = 'random' THEN\
+  \ 'random'\n\t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n          \
+  \  ELSE 'random' END PRODUCT_SORT\n        , 'random' NNACV\n        , sum(CACV)\
+  \ CACV\n        , 'random' STLY_NNACV\n        , sum(STLY_CACV) STLY_CACV\n\t\t\
+  , 'random' NNACV_FX\n        , sum(CACV_FX) CACV_FX\n        , 'random' STLY_NNACV_FX\n\
+  \        , sum(STLY_CACV_FX) STLY_CACV_FX\nfrom (\nSELECT iq.\"Workflow\" WORKFLOW,\
+  \ iq.\"ProductBusinessUnitValue\",\"OptySalesQuarter\"\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random') THEN \"CumulativeNetNewACV\"\n     \
+  \       ELSE 'random' END CACV\n        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACV\"\
+  \ ELSE 'random' END STLY_CACV\n        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') THEN \"FinNNACVDCConstFX_CC\"\n            ELSE 'random' END CACV_FX\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACVDCConstFX_CC\"\
+  \ ELSE 'random' END STLY_CACV_FX\n\t\t, case when HORIZONTAL_PRODUCT_PACKAGE = 'random'\
+  \ then 'random'\n\t\t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\
+  \t\t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n            when\
+  \ iq.\"ProductFamily3Value\" = 'random' then 'random'\n\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and sp.\"ProductFamily3Value\" like 'random' then 'random'\n\t\t\t\
+  when sp.\"ProductBusinessUnitValue\" = 'random' and (lower(to_char(sp.\"ProductDescription\"\
+  )) like 'random' and sp.\"ProductFamily3Value\" in ('random', 'random' )) then 'random'\n\
+  \t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random'\n\t\t\t\tand lower(to_char(sp.\"ProductFullName\")) like 'random'\
+  \ then 'random'\n\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and ((lower(to_char(sp.\"\
+  ProductDescription\")) like 'random'\n\t\t\t\t\t\t\t\t\t\t  or lower(to_char(sp.\"\
+  ProductDescription\")) like 'random') ) then 'random'\n\t\t   when sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and (sp.\"ProductFamily3Value\" like 'random' or sp.\"ProductFamily3Value\"\
+  \ like 'random' or sp.\"ProductFamily3Value\" like 'random')  then 'random'\n\t\t\
+  \   when sp.\"ProductBusinessUnitValue\" = 'random' and sp.\"ProductSKU\" like 'random'\
+  \ and lower(sp.\"ProductDescription\") LIKE 'random'\n\t\t\t\t\t and lower(sp.\"\
+  ProductDescription\") LIKE 'random' and lower(sp.\"ProductDescription\") LIKE 'random'\
+  \ and (lower(sp.\"ProductDescription\") LIKE 'random'  or lower(sp.\"ProductDescription\"\
+  ) LIKE 'random')\n\t\t\t\t\t and (lower(to_char(sp.\"ProductDescription\")) not\
+  \ like 'random') and (lower(to_char(sp.\"ProductDescription\")) not like 'random')\n\
+  \t\t\t\t\t and (lower(to_char(sp.\"ProductDescription\")) not like 'random') then\
+  \ 'random'\n\n               else 'random' end \"DealPackageType\"\n\n     FROM\
+  \ CTE_BOOKING_UNIVERSE iq\n    LEFT JOIN CDL_LS.\"SALES_SS_RPT\".\"RPT_UNIFIEDSS_FACT_SALES_COMBINED\"\
+  \ fsc on iq.\"OptyItemLineItemNumber\" = fsc.\"LineItemNumber\"\n    LEFT JOIN \
+  \ (select distinct  \"ProductCode\", \"ProductSKU\", \"ProductBusinessUnitValue\"\
+  , \"ProductFamily3Value\", \"ProductFullName\"\n                               \
+  \ , \"ProductNowBuyingProgramFlag\", \"ProductDescription\" , \"ProductName\"\n\
+  \                              from (select distinct  \"ProductCode\", \"ProductSKU\"\
+  , \"ProductBusinessUnitValue\", \"ProductFamily3Value\", \"ProductFullName\"\n \
+  \                               , \"ProductNowBuyingProgramFlag\", \"ProductDescription\"\
+  \ , \"ProductName\"\n                                , row_number() over(partition\
+  \ by \"ProductCode\" order by \"ProductBusinessUnitValue\") rnk\n              \
+  \                from ODS_LS.\"SURF\".\"SALES_PRODUCT\"\n                      \
+  \          ) where rnk = 'random'\n                ) sp on sp.\"ProductCode\"= fsc.\"\
+  ProductCode_CRM\"\n\tLEFT JOIN (SELECT LINE_ITEM_NUMBER, HORIZONTAL_PRODUCT_PACKAGE\n\
+  \t\t\t\tFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS\n\t\t\t\tWHERE record_type\
+  \ = 'random'\n\t\t\t\tAND HORIZONTAL_PRODUCT = 'random'\n\t\t\t\tAND NNACV_USD <>\
+  \ 'random' ) GI ON GI.LINE_ITEM_NUMBER = iq.\"OptyItemLineItemNumber\"\n     WHERE\
+  \ iq.\"ProductBusinessUnitValue\" IS not NULL\n     AND iq.\"ProductBusinessUnitValue\"\
+  \ = 'random'\n     AND iq.\"OptySalesQuarter\" <=RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \t AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n)\ngroup by WORKFLOW\n\t\t\
+  , \"ProductBusinessUnitValue\"\n        , \"DealPackageType\"\n\n)\nGROUP BY WORKFLOW,\
+  \ PRODUCT, PRODUCT_SORT\n\n--End of ITSM Ent/Pro/Std CACV Code\n\nUNION ALL\n\n\
+  --Start of Code for SIR, VR\n\nSELECT 'random' WORKFLOW\n\t\t, 'random' PRODUCT\n\
+  \        , 'random' PRODUCT_SORT\n        , CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random')\
+  \ THEN \"FinNNACV_CC\"\n        WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') THEN \"FinNNACV_CC\"/'random'\n        ELSE 'random' END NNACV\n   \
+  \     , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \        AND \"ProductFamily3Value\" IN ('random', 'random', 'random') THEN \"CumulativeNetNewACV\"\
+  \n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ THEN \"CumulativeNetNewACV\"/'random'\n        ELSE 'random' END  CACV\n     \
+  \   , CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random')\
+  \ then \"FinNNACV_CC\"\n        WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"FinNNACV_CC\"/'random'\n\
+  \        ELSE 'random' END STLY_NNACV\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random')\
+  \ then \"CumulativeNetNewACV\"\n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"CumulativeNetNewACV\"\
+  /'random'\n        ELSE 'random' END STLY_CACV\n\t\t, CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') THEN \"FinNNACVDCConstFX_CC\"\n        WHEN\
+  \ \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ THEN \"FinNNACVDCConstFX_CC\"/'random'\n        ELSE 'random' END NNACV_FX\n \
+  \       , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \        AND \"ProductFamily3Value\" IN ('random', 'random', 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"\
+  \n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ THEN \"CumulativeNetNewACVDCConstFX_CC\"/'random'\n        ELSE 'random' END \
+  \ CACV_FX\n        , CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') then \"FinNNACVDCConstFX_CC\"\n        WHEN\
+  \ \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACVDCConstFX_CC\"/'random'\n        ELSE 'random' END STLY_NNACV_FX\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\n \
+  \       WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"/'random'\n        ELSE 'random'\
+  \ END STLY_CACV_FX\n        , 'random' QUOTA\n         from CTE_COMMON_CALC\n  \
+  \       where \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n            AND \"ProductBusinessUnitValue\"\
+  \ = 'random'\n            AND \"ProductFamily3Value\" IN ('random', 'random', 'random','random',\
+  \ 'random','random', 'random', 'random', 'random')\n\nUNION ALL\n\nSELECT 'random'\
+  \ WORKFLOW\n\t\t, 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n        , CASE\
+  \ WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n        \
+  \            , 'random', 'random') THEN \"FinNNACV_CC\"\n        WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random') THEN \"FinNNACV_CC\"/'random'\n    \
+  \    ELSE 'random' END NNACV\n        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n\
+  \                    , 'random', 'random') THEN \"CumulativeNetNewACV\"\n      \
+  \  WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ THEN \"CumulativeNetNewACV\"/'random'\n        ELSE 'random' END  CACV\n     \
+  \   , CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n\
+  \                    , 'random', 'random') then \"FinNNACV_CC\"\n        WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"FinNNACV_CC\"/'random'\n        ELSE 'random' END STLY_NNACV\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random') then\
+  \ \"CumulativeNetNewACV\"\n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"CumulativeNetNewACV\"\
+  /'random'\n        ELSE 'random' END STLY_CACV\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random') THEN\
+  \ \"FinNNACVDCConstFX_CC\"\n        WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') THEN \"FinNNACVDCConstFX_CC\"/'random'\n        ELSE 'random' END NNACV_FX\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n        \
+  \            , 'random', 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"\n  \
+  \      WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ THEN \"CumulativeNetNewACVDCConstFX_CC\"/'random'\n        ELSE 'random' END \
+  \ CACV_FX\n        , CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n        AND \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random') then\
+  \ \"FinNNACVDCConstFX_CC\"\n        WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN \"FinNNACVDCConstFX_CC\"\
+  /'random'\n        ELSE 'random' END STLY_NNACV_FX\n        , CASE WHEN \"OptySalesQuarter\"\
+  \ <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\n        AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n\
+  \                    , 'random', 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \n        WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"/'random'\n        ELSE 'random'\
+  \ END STLY_CACV_FX\n\t\t, 'random' QUOTA\n         from CTE_COMMON_CALC\n      \
+  \   where \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n            AND \"ProductBusinessUnitValue\"\
+  \ = 'random'\n            AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n\
+  \                    , 'random', 'random','random', 'random','random', 'random',\
+  \ 'random', 'random')\n\n--End of Code for SIR, VR\nUNION ALL\n--Start of CSM Net\
+  \ NNACV Code\n\nSELECT WORKFLOW, PRODUCT, PRODUCT_SORT, ROUND(SUM(NNACV)) NNACV,\
+  \ ROUND(SUM(CACV)) CACV, ROUND(SUM(STLY_NNACV)) STLY_NNACV\n        , ROUND(SUM(STLY_CACV))\
+  \ STLY_CACV\n\t\t, ROUND(SUM(NNACV_FX)) NNACV_FX, ROUND(SUM(CACV_FX)) CACV_FX, ROUND(SUM(STLY_NNACV_FX))\
+  \ STLY_NNACV_FX\n        , ROUND(SUM(STLY_CACV_FX)) STLY_CACV_FX\n\t\t, 'random'\
+  \ QUOTA\nFROM (\nSELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then ROUND(\"NetProPlusNNACV\") ELSE 'random' END) NNACV\n    , 'random'\
+  \ CACV\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProPlusNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then ROUND(\"NetEntPlusNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random'\
+  \ CACV_FX\n    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetEntPlusNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n    )\nGROUP BY \"BUWorkFlow\"\
+  \n\n)\ngroup by  WORKFLOW, PRODUCT, PRODUCT_SORT\n\nUNION ALL\n\n\nSELECT WORKFLOW,\
+  \ PRODUCT, PRODUCT_SORT, ROUND(SUM(NNACV)) NNACV, ROUND(SUM(CACV)) CACV, ROUND(SUM(STLY_NNACV))\
+  \ STLY_NNACV\n        , ROUND(SUM(STLY_CACV)) STLY_CACV\n\t\t, ROUND(SUM(NNACV_FX))\
+  \ NNACV_FX, ROUND(SUM(CACV_FX)) CACV_FX, ROUND(SUM(STLY_NNACV_FX)) STLY_NNACV_FX\n\
+  \        , ROUND(SUM(STLY_CACV_FX)) STLY_CACV_FX\n\t\t, 'random' QUOTA\nFROM (\n\
+  SELECT \"BUWorkFlow\" WORKFLOW\n\t, 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n\
+  \    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then ROUND(\"NetProNNACV\") ELSE 'random' END) NNACV\n    , 'random' CACV\n  \
+  \  , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProNNACV\"\
+  ) ELSE 'random' END) STLY_NNACV\n    , 'random' STLY_CACV\n\t, SUM(CASE WHEN \"\
+  OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then ROUND(\"NetProNNACV_FX\") ELSE 'random' END) NNACV_FX\n    , 'random' CACV_FX\n\
+  \    , SUM(CASE WHEN \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') THEN ROUND(\"NetProNNACV_FX\"\
+  ) ELSE 'random' END) STLY_NNACV_FX\n    , 'random' STLY_CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND (\"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random')\nOR \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n    )\nGROUP BY \"BUWorkFlow\"\
+  \n\n)\ngroup by  WORKFLOW, PRODUCT, PRODUCT_SORT\n\n--End of CSM Net NNACV Code\n\
+  \nUNION ALL\n\n--Start of CSM Pro CACV Code\n\nselect WORKFLOW\n\t\t, CASE WHEN\
+  \ \"DealPackageType\" = 'random' THEN 'random'\n\t\t\tWHEN \"DealPackageType\" =\
+  \ 'random' THEN 'random'\n            ELSE 'random' END PRODUCT\n        , CASE\
+  \ WHEN \"DealPackageType\" = 'random' THEN 'random'\n            WHEN \"DealPackageType\"\
+  \ = 'random' THEN 'random'\n\t\t\tELSE 'random' END PRODUCT_SORT\n        , 'random'\
+  \ NNACV\n        , sum(CACV) CACV\n        , 'random' STLY_NNACV\n        , sum(STLY_CACV)\
+  \ STLY_CACV\n\t\t, 'random' NNACV_FX\n        , sum(CACV_FX) CACV_FX\n        ,\
+  \ 'random' STLY_NNACV_FX\n        , sum(STLY_CACV_FX) STLY_CACV_FX\n\t\t, 'random'\
+  \ QUOTA\nfrom (\nSELECT iq.\"Workflow\" WORKFLOW, iq.\"ProductBusinessUnitValue\"\
+  ,\"OptySalesQuarter\"\n        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') THEN \"CumulativeNetNewACV\"\n            ELSE 'random' END CACV\n \
+  \       , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACV\"\
+  \ ELSE 'random' END STLY_CACV\n        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') THEN \"FinNNACVDCConstFX_CC\"\n            ELSE 'random' END CACV_FX\n\
+  \        , CASE WHEN \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"FinNNACVDCConstFX_CC\"\
+  \ ELSE 'random' END STLY_CACV_FX\n\t\t, case when HORIZONTAL_PRODUCT_PACKAGE = 'random'\
+  \ then 'random'\n\t\t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\
+  \t\t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\t\t\twhen sp.\"\
+  ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\") like\
+  \ 'random' then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random'\
+  \ and (lower(sp.\"ProductFamily3Value\") like 'random' or lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' )\n\t\t\t\t\t\t\tand (lower(sp.\"ProductDescription\") like 'random'\
+  \ or lower(sp.\"ProductDescription\") like 'random'  or lower(sp.\"ProductDescription\"\
+  ) like 'random') then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" =\
+  \ 'random' and lower(sp.\"ProductFamily3Value\") like 'random' and lower(sp.\"ProductName\"\
+  ) like 'random' and\n\t\t\t\t\t\t\t(lower(sp.\"ProductDescription\") like 'random'\
+  \ or lower(sp.\"ProductDescription\") like 'random'  or lower(sp.\"ProductDescription\"\
+  ) like 'random' ) then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and lower(sp.\"ProductFamily3Value\") like 'random' then 'random'\n\
+  \t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' and\n\t\t\t\t\t\t\t(lower(sp.\"ProductDescription\") like 'random'\
+  \ or lower(sp.\"ProductDescription\") like 'random' ) and (lower(sp.\"ProductDescription\"\
+  ) not like 'random' and lower(sp.\"ProductDescription\") not like 'random' and lower(sp.\"\
+  ProductDescription\") not like 'random' ) then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and lower(sp.\"ProductFamily3Value\") like 'random' and lower(sp.\"\
+  ProductName\") like 'random' and\n\t\t\t\t\t\t\t(lower(sp.\"ProductDescription\"\
+  ) like 'random' or lower(sp.\"ProductDescription\") like 'random' ) and (lower(sp.\"\
+  ProductDescription\") not like 'random' and lower(sp.\"ProductDescription\") not\
+  \ like 'random' and lower(sp.\"ProductDescription\") not like 'random' ) then 'random'\n\
+  \t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" =\
+  \ 'random' and lower(sp.\"ProductFamily3Value\") = 'random' then 'random'\n\n  \
+  \             else 'random' end \"DealPackageType\"\n\n     FROM CTE_BOOKING_UNIVERSE\
+  \ iq\n\tLEFT JOIN  (select distinct  \"ProductCode\", \"ProductSKU\", \"ProductBusinessUnitValue\"\
+  , \"ProductFamily3Value\", \"ProductFullName\"\n                               \
+  \ , \"ProductNowBuyingProgramFlag\", \"ProductDescription\" , \"ProductName\"\n\
+  \                              from (select distinct  \"ProductCode\", \"ProductSKU\"\
+  , \"ProductBusinessUnitValue\", \"ProductFamily3Value\", \"ProductFullName\"\n \
+  \                               , \"ProductNowBuyingProgramFlag\", \"ProductDescription\"\
+  \ , \"ProductName\"\n                                , row_number() over(partition\
+  \ by \"ProductCode\" order by \"ProductBusinessUnitValue\") rnk\n              \
+  \                from ODS_LS.\"SURF\".\"SALES_PRODUCT\"\n                      \
+  \          ) where rnk = 'random'\n                ) sp on sp.\"ProductCode\"=iq.\"\
+  ProductCode\"\n\tLEFT JOIN (SELECT LINE_ITEM_NUMBER, HORIZONTAL_PRODUCT_PACKAGE\n\
+  \    \t\t\t\tFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS\n    \t\t\t\tWHERE\
+  \ record_type = 'random'\n    \t\t\t\tAND HORIZONTAL_PRODUCT = 'random'\n    \t\t\
+  \t\tAND NNACV_USD <> 'random' ) GI ON GI.LINE_ITEM_NUMBER = iq.\"OptyItemLineItemNumber\"\
+  \n     WHERE iq.\"ProductBusinessUnitValue\" IS not NULL\n     AND iq.\"ProductBusinessUnitValue\"\
+  \ = 'random'\n     AND iq.\"OptySalesQuarter\" <=RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \t AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n)\nWHERE \"DealPackageType\"\
+  \ = 'random'\ngroup by WORKFLOW, \"DealPackageType\"\n\n--End of CSM Pro CACV Code\n\
+  \nUNION ALL\n\n--Start of Gen AI Code\n\nSELECT 'random' WORKFLOW\n\t\t, 'random'\
+  \ PRODUCT\n        , 'random' PRODUCT_SORT\n        , case when \"OptySalesQuarter\"\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random') then \"FinNNACV_CC\" else 'random' end\
+  \ NNACV\n        , case when \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then \"CumulativeNetNewACV\" else 'random' end  CACV\n        , case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACV_CC\" else 'random' end STLY_NNACV\n        , case when\
+  \ \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"CumulativeNetNewACV\" else 'random' end STLY_CACV\n\t\t, case\
+  \ when \"OptySalesQuarter\" = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then \"FinNNACVDCConstFX_CC\" else 'random' end NNACV_FX\n        , case when\
+  \ \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then \"CumulativeNetNewACVDCConstFX_CC\" else 'random' end  CACV_FX\n        ,\
+  \ case when \"OptySalesQuarter\" = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then \"FinNNACVDCConstFX_CC\" else 'random' end STLY_NNACV_FX\n    \
+  \    , case when \"OptySalesQuarter\" <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random') then \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ else 'random' end STLY_CACV_FX\n        , 'random' QUOTA\nFROM CTE_COMMON_CALC\
+  \ cc\nLEFT JOIN (SELECT DISTINCT \"LineItemNumber\", \"GenAIFlag\"\nFROM EDW_LS.PRODUCT_EM.EM_PRODUCT_GEN_AI\
+  \ WHERE \"RecordType\" = 'random') gl ON gl.\"LineItemNumber\" = cc.\"OptyItemLineItemNumber\"\
+  \nWHERE \"OptySalesQuarter\" <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n            AND gl.\"GenAIFlag\"\
+  \ = 'random'\n\n\n--End of Gen AI Code\n\nUNION ALL\n\n--Start of Process Mining\
+  \ Code\n\nSELECT 'random' WORKFLOW\n\t\t, 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n\
+  \        , case when SALES_QUARTER = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then NNACV_USD else 'random' end NNACV\n        , case when SALES_QUARTER <= RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') then NNACV_CLOSED_USD else 'random' end  CACV\n        , case when SALES_QUARTER\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then NNACV_USD else 'random' end STLY_NNACV\n        , case when SALES_QUARTER\
+  \ <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then NNACV_CLOSED_USD else 'random' end STLY_CACV\n\t\t, case when SALES_QUARTER\
+  \ = RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())), 'random') then NNACV_USD_CY_FX else 'random' end\
+  \ NNACV_FX\n        , case when SALES_QUARTER <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\
+  \ then NNACV_CLOSED_USD_CFX else 'random' end  CACV_FX\n        , case when SALES_QUARTER\
+  \ = RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then NNACV_USD_CY_FX else 'random' end STLY_NNACV_FX\n        , case\
+  \ when SALES_QUARTER <= RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random') then NNACV_CLOSED_USD_CFX else 'random' end STLY_CACV_FX\n        ,\
+  \ 'random' QUOTA\nFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS HP\nWHERE HORIZONTAL_PRODUCT\
+  \ = 'random'\nAND SALES_QUARTER <= RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (OPPORTUNITY_STAGE = 'random'\n                OR (OPPORTUNITY_TYPE\
+  \ = 'random'\n                    AND OPPORTUNITY_STAGE = 'random'))\n\n--End of\
+  \ Process Mining Code\n\n) CQD\n\nLEFT JOIN EDW_LS.PRODUCT_EM.CROSS_BU_PRODUCT_QUOTA\
+  \ PQ ON PQ.PRODUCT = CQD.PRODUCT AND PQ.SALES_QUARTER = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random')\n\nWHERE PRODUCT_SORT <'random'\ngroup by  WORKFLOW, CQD.PRODUCT, PRODUCT_SORT\n\
+  \n--End of Current Quarter Code\n\n--Trend data for NNACV, CACV\n\nUNION ALL\n\n\
+  SELECT  'random' RECORD_TYPE\n        , \"OptySalesQuarter\" SALES_QUARTER\n   \
+  \     , QUARTER_FLAG\n        , PRODUCT_SORT\n        , PRODUCT\n\t\t, WORKFLOW\n\
+  \        , ROUND(SUM(NNACV)/'random','random') NNACV\n        , 'random'NNACV_YOY_GROWTH\n\
+  \        , 'random' QTR_P2P\n        , ROUND(SUM(CACV)/'random','random') CACV\n\
+  \        , 'random' CACV_YOY_GROWTH\n\t\t, ROUND(SUM(NNACV_FX)/'random','random')\
+  \ NNACV_FX\n        , 'random'NNACV_YOY_GROWTH_FX\n        , 'random' QTR_P2P_FX\n\
+  \        , ROUND(SUM(CACV_FX)/'random','random') CACV_FX\n        , 'random' CACV_YOY_GROWTH_FX\n\
+  FROM (\nSELECT \"OptySalesQuarter\", WORKFLOW, PRODUCT, PRODUCT_SORT\n        ,\
+  \ CASE\n        WHEN \"OptySalesQuarter\"=RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')), 'random') then 'random'\n        WHEN\
+  \ \"OptySalesQuarter\"=RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')), 'random') then 'random'\n        WHEN \"OptySalesQuarter\"=RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')), 'random') then 'random'\n      WHEN\
+  \ \"OptySalesQuarter\"=RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')), 'random') then 'random'\n       WHEN \"OptySalesQuarter\"=RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')), 'random') then 'random'\n       WHEN\
+  \ \"OptySalesQuarter\"=RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')), 'random') then 'random'\n       WHEN \"OptySalesQuarter\"=RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')), 'random') then 'random'\n       WHEN\
+  \ \"OptySalesQuarter\"=RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')), 'random') then 'random'\n       ELSE 'random'\n       END QUARTER_FLAG\n\
+  \        , NNACV, SUM(CACV) OVER (PARTITION BY PRODUCT, PRODUCT_SORT ORDER BY \"\
+  OptySalesQuarter\") CACV\n\t\t, NNACV_FX, SUM(CACV_FX) OVER (PARTITION BY PRODUCT,\
+  \ PRODUCT_SORT ORDER BY \"OptySalesQuarter\") CACV_FX\nFROM (\nSELECT \"OptySalesQuarter\"\
+  , WORKFLOW, PRODUCT, PRODUCT_SORT\n        , SUM(NNACV) NNACV\n        , SUM(CACV)\
+  \ CACV\n\t\t, SUM(NNACV_FX) NNACV_FX\n        , SUM(CACV_FX) CACV_FX\nFROM (\n/*\n\
+  SELECT \"OptySalesQuarter\", \"BUWorkFlow\" WORKFLOW, \"ProductBusinessUnitValue\"\
+  , CASE WHEN \"ProductBusinessUnitValue\" = 'FSM' THEN 'FSM'\n               WHEN\
+  \ \"ProductBusinessUnitValue\" = 'Customer Service' THEN 'CSM'\n               WHEN\
+  \ \"ProductBusinessUnitValue\" = 'Security' THEN 'SecOps (SIR & VR total)'\n   \
+  \            WHEN \"ProductBusinessUnitValue\" = 'Workplace' THEN 'WSD'\n      \
+  \         WHEN \"ProductBusinessUnitValue\" = 'Legal' THEN 'LSD'\n             \
+  \  WHEN \"ProductBusinessUnitValue\" = 'HR' THEN 'HRSD'\n               WHEN \"\
+  ProductBusinessUnitValue\" = 'ITSM' THEN 'ITSM all'\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'Automation Engine' THEN \"ProductBusinessUnitValue\"\n            ELSE \"ProductBusinessUnitValue\"\
+  \n         END PRODUCT\n        , CASE WHEN \"ProductBusinessUnitValue\" = 'FSM'\
+  \ THEN 5\n               WHEN \"ProductBusinessUnitValue\" = 'Customer Service'\
+  \ THEN 6\n               WHEN \"ProductBusinessUnitValue\" = 'Security' THEN 10\n\
+  \               WHEN \"ProductBusinessUnitValue\" = 'Workplace' THEN 15\n      \
+  \         WHEN \"ProductBusinessUnitValue\" = 'Legal' THEN 16\n               WHEN\
+  \ \"ProductBusinessUnitValue\" = 'HR' THEN 17\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'ITSM' THEN 18\n               WHEN \"ProductBusinessUnitValue\" = 'Automation\
+  \ Engine' THEN 24\n            ELSE 99\n\n         END PRODUCT_SORT\n        , \"\
+  FinNNACV_CC\" NNACV\n        , \"CumulativeNetNewACV\" CACV\n\t\t, \"FinNNACVDCConstFX_CC\"\
+  \ NNACV_FX\n        , \"CumulativeNetNewACVDCConstFX_CC\" CACV_FX\n         from\
+  \ CDL_LS.\"FINANCE_FPA_RPT\".\"COMMON_CALC_COLUMNS\"\n         where \"OptySalesQuarter\"\
+  \ < RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3))\
+  \ ||'-Q'|| QUARTER(ADD_MONTHS(convert_timezone( 'America/Los_Angeles',CURRENT_TIMESTAMP()),-3)),\
+  \ 5)\n           and (\"OptyStage\" = '8 - Closed Won (100%)'\n                or\
+  \ (\"OptyType\" = 'Renewal'\n                    and \"OptyStage\" = '8 - Closed\
+  \ Lost (100%)'))\n            --and \"ProductBusinessUnitValue\" = 'ITSM'\n    \
+  \        AND \"ProductBusinessUnitValue\" not IN ('Education Services',\n      \
+  \            'Events',\n                  'Professional Services',\n           \
+  \       'Undefined',\n                  'PA',\n                  'Performance Analytics',\n\
+  \                  'Customer Success')\n            and \"ProductBusinessUnitValue\"\
+  \ IN ('FSM', 'Customer Service', 'ITSM', 'Security', 'Workplace', 'Legal', 'Automation\
+  \ Engine', 'HR')\n\n UNION ALL\n\n*/\n\nselect \"OptySalesQuarter\"\n\t\t, CASE\
+  \ WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random' AND\
+  \ \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\"\
+  \ = 'random' AND \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n\
+  \               WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\"\
+  \ NOT IN ('random', 'random') THEN 'random'\n                WHEN \"ProductFamily1Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n\
+  \t\t\t   WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN\
+  \ \"ProductFamily1Value\" = 'random' AND \"ProductFamily2Value\" <> 'random' THEN\
+  \ 'random'\n               WHEN \"ProductFamily1Value\" IN ('random', 'random')\
+  \ THEN 'random'\n               --WHEN \"ProductFamily3Value\" LIKE '%Process Mining%'\
+  \ AND \"ProductFamily2Value\" <> 'Celonis Product Tier' THEN 'Other'\n\t\t\t   WHEN\
+  \ \"ProductFamily3Value\" = 'random' THEN 'random'\n\t\t\t   WHEN \"ProductFamily3Value\"\
+  \ = 'random' THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" = 'random' AND\
+  \ \"ProductBusinessUnitValue\" IN ('random', 'random') THEN 'random'\n\t\t\t   WHEN\
+  \ \"ProductFamily1Value\" = 'random' THEN 'random'\n            ELSE 'random'\n\
+  \         END WORKFLOW, \"ProductBusinessUnitValue\"\n\t\t, CASE WHEN \"ProductBusinessUnitValue\"\
+  \ = 'random' AND \"ProductFamily2Value\" = 'random' THEN 'random'\n            \
+  \   WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random' AND\
+  \ \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n          \
+  \     WHEN \"ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\" NOT\
+  \ IN ('random', 'random') THEN 'random'\n                WHEN \"ProductFamily1Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random'\
+  \ THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n\
+  \               WHEN \"ProductFamily2Value\" = 'random' THEN 'random'\n        \
+  \       WHEN \"ProductFamily1Value\" = 'random' AND \"ProductFamily2Value\" <> 'random'\
+  \ THEN 'random'\n               WHEN \"ProductFamily1Value\" IN ('random', 'random')\
+  \ THEN 'random'\n               --WHEN \"ProductFamily3Value\" LIKE '%Process Mining%'\
+  \ AND \"ProductFamily2Value\" <> 'Celonis Product Tier' THEN 'Process Mining Standalone'\n\
+  \t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN 'random'\n\t\t\t   WHEN \"\
+  ProductFamily3Value\" = 'random' THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\"\
+  \ = 'random' AND \"ProductBusinessUnitValue\" IN ('random', 'random') THEN 'random'\n\
+  \t\t\t   WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n            ELSE\
+  \ \"ProductBusinessUnitValue\"\n         END PRODUCT\n        , CASE WHEN \"ProductBusinessUnitValue\"\
+  \ = 'random' AND \"ProductFamily2Value\" NOT IN ('random', 'random') THEN 'random'\n\
+  \               WHEN \"ProductBusinessUnitValue\" = 'random' AND \"ProductFamily2Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductBusinessUnitValue\" = 'random'\
+  \ AND \"ProductFamily2Value\" = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\"\
+  \ = 'random' AND \"ProductBusinessUnitValue\" NOT IN ('random', 'random') THEN 'random'\n\
+  \                WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n       \
+  \        WHEN \"ProductFamily1Value\" = 'random' THEN 'random'\n               WHEN\
+  \ \"ProductFamily1Value\" = 'random' THEN 'random'\n               WHEN \"ProductFamily2Value\"\
+  \ = 'random' THEN 'random'\n               WHEN \"ProductFamily1Value\" IN ('random',\
+  \ 'random') THEN 'random'\n               WHEN \"ProductFamily1Value\" = 'random'\
+  \ AND \"ProductFamily2Value\" <> 'random' THEN 'random'\n               --WHEN \"\
+  ProductFamily3Value\" LIKE '%Process Mining%' AND \"ProductFamily2Value\" <> 'Celonis\
+  \ Product Tier' THEN 2\n\t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN 'random'\n\
+  \t\t\t   WHEN \"ProductFamily3Value\" = 'random' THEN 'random'\n\t\t\t   WHEN \"\
+  ProductFamily1Value\" = 'random' AND \"ProductBusinessUnitValue\" IN ('random',\
+  \ 'random') THEN 'random'\n\t\t\t   WHEN \"ProductFamily1Value\" = 'random' THEN\
+  \ 'random'\n            ELSE 'random'\n\n         END PRODUCT_SORT\n        , \"\
+  FinNNACV_CC\" NNACV\n        , \"CumulativeNetNewACV\" CACV\n\t\t, \"FinNNACVDCConstFX_CC\"\
+  \ NNACV_FX\n        , \"CumulativeNetNewACVDCConstFX_CC\" CACV_FX\n         from\
+  \ CTE_COMMON_CALC\n         where \"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n           and (\"OptyStage\"\
+  \ = 'random'\n                or (\"OptyType\" = 'random'\n                    and\
+  \ \"OptyStage\" = 'random'))\n\nUNION ALL\n\nSELECT \"OptySalesQuarter\", 'random'\
+  \ WORKFLOW, \"ProductBusinessUnitValue\"\n        , 'random' PRODUCT\n        ,\
+  \ 'random' PRODUCT_SORT\n        , \"FinNNACV_CC\" NNACV\n        , \"CumulativeNetNewACV\"\
+  \ CACV\n\t\t, \"FinNNACVDCConstFX_CC\" NNACV_FX\n        , \"CumulativeNetNewACVDCConstFX_CC\"\
+  \ CACV_FX\nFROM CTE_COMMON_CALC\nWHERE \"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n           AND (\"OptyStage\"\
+  \ = 'random'\n                OR (\"OptyType\" = 'random'\n                    AND\
+  \ \"OptyStage\" = 'random'))\n            AND \"ProductFamily2Value\" = 'random'\n\
+  \nUNION ALL\n\n--Start of ITSM Ent/Pro/Std Qtr trend Net NNACV Code\n\nSELECT \"\
+  OptySalesQuarter\", \"BUWorkFlow\" WORKFLOW, \"BusinessUnit\"\n    , 'random' PRODUCT\n\
+  \    , 'random' PRODUCT_SORT\n    , ROUND(SUM(\"NetEntNNACV\")) NNACV\n    , 'random'\
+  \ CACV\n\t, ROUND(SUM(\"NetEntNNACV_FX\")) NNACV_FX\n    , 'random' CACV_FX\nFROM\
+  \ CTE_PBR_METRICS\nWHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\n\
+  AND \"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\nGROUP BY \"OptySalesQuarter\", \"BUWorkFlow\", \"BusinessUnit\"\n\n\
+  UNION ALL\n\nSELECT \"OptySalesQuarter\", \"BUWorkFlow\" WORKFLOW, \"BusinessUnit\"\
+  \n    , 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n    , ROUND(SUM(\"NetEntPlusNNACV\"\
+  )) NNACV\n    , 'random' CACV\n\t, ROUND(SUM(\"NetEntPlusNNACV_FX\")) NNACV_FX\n\
+  \    , 'random' CACV_FX\nFROM CTE_PBR_METRICS\nWHERE \"Metric\" = 'random'\nAND\
+  \ \"BusinessUnit\" = 'random'\nAND \"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\nGROUP BY \"OptySalesQuarter\"\
+  , \"BUWorkFlow\", \"BusinessUnit\"\n\nUNION ALL\n\nSELECT \"OptySalesQuarter\",\
+  \ \"BUWorkFlow\" WORKFLOW, \"BusinessUnit\"\n    , 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , ROUND(SUM(\"NetProNNACV\")) NNACV\n    , 'random' CACV\n\t\
+  , ROUND(SUM(\"NetProNNACV_FX\")) NNACV_FX\n    , 'random' CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND \"OptySalesQuarter\"\
+  \ < RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\nGROUP BY \"OptySalesQuarter\", \"BUWorkFlow\", \"BusinessUnit\"\n\n\
+  UNION ALL\n\nSELECT \"OptySalesQuarter\", \"BUWorkFlow\" WORKFLOW, \"BusinessUnit\"\
+  \n    , 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n    , ROUND(SUM(\"NetProPlusNNACV\"\
+  )) NNACV\n    , 'random' CACV\n\t, ROUND(SUM(\"NetProPlusNNACV_FX\")) NNACV_FX\n\
+  \    , 'random' CACV_FX\nFROM CTE_PBR_METRICS\nWHERE \"Metric\" = 'random'\nAND\
+  \ \"BusinessUnit\" = 'random'\nAND \"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\nGROUP BY \"OptySalesQuarter\"\
+  , \"BUWorkFlow\", \"BusinessUnit\"\n\nUNION ALL\n\nSELECT \"OptySalesQuarter\",\
+  \ \"BUWorkFlow\" WORKFLOW, \"BusinessUnit\"\n    , 'random' PRODUCT\n    , 'random'\
+  \ PRODUCT_SORT\n    , ROUND(SUM(\"NetStdNNACV\")) NNACV\n    , 'random' CACV\n\t\
+  , ROUND(SUM(\"NetStdNNACV_FX\")) NNACV_FX\n    , 'random' CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND \"OptySalesQuarter\"\
+  \ < RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\nGROUP BY \"OptySalesQuarter\", \"BUWorkFlow\", \"BusinessUnit\"\n\n\
+  --End of ITSM Ent/Pro/Std Quarter trend Net NNACV Code\n\nUNION ALL\n\n--Start of\
+  \ ITSM Ent/Pro/Std Quarter trend CACV Code\n\n    select \"OptySalesQuarter\", WORKFLOW,\
+  \  \"ProductBusinessUnitValue\"\n            , CASE WHEN \"DealPackageType\" = 'random'\
+  \ THEN 'random'\n\t\t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\
+  \t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\t\tWHEN \"DealPackageType\"\
+  \ = 'random' THEN 'random'\n\t\t\t\tELSE 'random' END PRODUCT\n\t\t\t, CASE WHEN\
+  \ \"DealPackageType\" = 'random' THEN 'random'\n\t\t\t\tWHEN \"DealPackageType\"\
+  \ = 'random' THEN 'random'\n\t\t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n\
+  \t\t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\t\tELSE 'random'\
+  \ END PRODUCT_SORT\n            , 'random' NNACV\n            , sum(CACV) CACV\n\
+  \t\t\t, 'random' NNACV_FX\n            , sum(CACV_FX) CACV_FX\n    from (\n    SELECT\
+  \ iq.\"Workflow\" WORKFLOW, iq.\"ProductBusinessUnitValue\",\"OptySalesQuarter\"\
+  \n            , \"CumulativeNetNewACV\" CACV\n\t\t\t, \"FinNNACVDCConstFX_CC\" CACV_FX\n\
+  \            , case when HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\t\
+  \t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\t\t\twhen HORIZONTAL_PRODUCT_PACKAGE\
+  \ = 'random' then 'random'\n            when iq.\"ProductFamily3Value\" = 'random'\
+  \ then 'random'\n\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and sp.\"\
+  ProductFamily3Value\" like 'random' then 'random'\n\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and (lower(to_char(sp.\"ProductDescription\")) like 'random' and sp.\"\
+  ProductFamily3Value\" in ('random', 'random' )) then 'random'\n\t\t\twhen sp.\"\
+  ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\") like\
+  \ 'random'\n\t\t\t\tand lower(to_char(sp.\"ProductFullName\")) like 'random' then\
+  \ 'random'\n\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and ((lower(to_char(sp.\"\
+  ProductDescription\")) like 'random'\n\t\t\t\t\t\t\t\t\t\t  or lower(to_char(sp.\"\
+  ProductDescription\")) like 'random') ) then 'random'\n\t\t   when sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and (sp.\"ProductFamily3Value\" like 'random' or sp.\"ProductFamily3Value\"\
+  \ like 'random' or sp.\"ProductFamily3Value\" like 'random')  then 'random'\n\t\t\
+  \   when sp.\"ProductBusinessUnitValue\" = 'random' and sp.\"ProductSKU\" like 'random'\
+  \ and lower(sp.\"ProductDescription\") LIKE 'random'\n\t\t\t\t\t and lower(sp.\"\
+  ProductDescription\") LIKE 'random' and lower(sp.\"ProductDescription\") LIKE 'random'\
+  \ and (lower(sp.\"ProductDescription\") LIKE 'random'  or lower(sp.\"ProductDescription\"\
+  ) LIKE 'random')\n\t\t\t\t\t and (lower(to_char(sp.\"ProductDescription\")) not\
+  \ like 'random') and (lower(to_char(sp.\"ProductDescription\")) not like 'random')\n\
+  \t\t\t\t\t and (lower(to_char(sp.\"ProductDescription\")) not like 'random') then\
+  \ 'random'\n\n               else 'random' end \"DealPackageType\"\n\n         FROM\
+  \ CTE_BOOKING_UNIVERSE iq\n        LEFT JOIN CDL_LS.\"SALES_SS_RPT\".\"RPT_UNIFIEDSS_FACT_SALES_COMBINED\"\
+  \ fsc on iq.\"OptyItemLineItemNumber\" = fsc.\"LineItemNumber\"\n        LEFT JOIN\
+  \  (select distinct  \"ProductCode\", \"ProductSKU\", \"ProductBusinessUnitValue\"\
+  , \"ProductFamily3Value\", \"ProductFullName\"\n                               \
+  \     , \"ProductNowBuyingProgramFlag\", \"ProductDescription\" , \"ProductName\"\
+  \n                                  from (select distinct  \"ProductCode\", \"ProductSKU\"\
+  , \"ProductBusinessUnitValue\", \"ProductFamily3Value\", \"ProductFullName\"\n \
+  \                                   , \"ProductNowBuyingProgramFlag\", \"ProductDescription\"\
+  \ , \"ProductName\"\n                                    , row_number() over(partition\
+  \ by \"ProductCode\" order by \"ProductBusinessUnitValue\") rnk\n              \
+  \                    from ODS_LS.\"SURF\".\"SALES_PRODUCT\"\n                  \
+  \                  ) where rnk = 'random'\n                    ) sp on sp.\"ProductCode\"\
+  = fsc.\"ProductCode_CRM\"\n\t\tLEFT JOIN (SELECT LINE_ITEM_NUMBER, HORIZONTAL_PRODUCT_PACKAGE\n\
+  \t\t\t\tFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS\n\t\t\t\tWHERE record_type\
+  \ = 'random'\n\t\t\t\tAND HORIZONTAL_PRODUCT = 'random'\n\t\t\t\tAND NNACV_USD <>\
+  \ 'random' ) GI ON GI.LINE_ITEM_NUMBER = iq.\"OptyItemLineItemNumber\"\n       \
+  \  WHERE iq.\"ProductBusinessUnitValue\" IS not NULL\n         AND iq.\"ProductBusinessUnitValue\"\
+  \ = 'random'\n         AND iq.\"OptySalesQuarter\" <RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n    )\n    group by \"OptySalesQuarter\"\
+  , WORKFLOW, \"ProductBusinessUnitValue\", \"DealPackageType\"\n\n--End of ITSM Ent/Pro/Std\
+  \ Quarter trend CACV Code\n\nUNION ALL\n\n--Start of Quarter trend Code for SIR,\
+  \ VR\n\nSELECT \"OptySalesQuarter\", 'random' WORKFLOW, \"ProductBusinessUnitValue\"\
+  \n        , 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n        , CASE WHEN\
+  \ \"ProductFamily3Value\" IN ('random', 'random', 'random') THEN \"FinNNACV_CC\"\
+  \n        ELSE \"FinNNACV_CC\"/'random'\n        END NNACV\n        , CASE WHEN\
+  \ \"ProductFamily3Value\" IN ('random', 'random', 'random') THEN \"CumulativeNetNewACV\"\
+  \n        ELSE \"CumulativeNetNewACV\"/'random' END CACV\n\t\t, CASE WHEN \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random') THEN \"FinNNACVDCConstFX_CC\"\n        ELSE\
+  \ \"FinNNACVDCConstFX_CC\"/'random'\n        END NNACV_FX\n        , CASE WHEN \"\
+  ProductFamily3Value\" IN ('random', 'random', 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"\
+  \n        ELSE \"CumulativeNetNewACVDCConstFX_CC\"/'random' END CACV_FX\n      \
+  \   from CTE_COMMON_CALC\n         where \"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n           and (\"OptyStage\"\
+  \ = 'random'\n                or (\"OptyType\" = 'random'\n                    and\
+  \ \"OptyStage\" = 'random'))\n            AND \"ProductBusinessUnitValue\" = 'random'\n\
+  \            AND \"ProductFamily3Value\" IN ('random', 'random', 'random','random',\
+  \ 'random','random', 'random', 'random', 'random')\n\nUNION ALL\n\nSELECT \"OptySalesQuarter\"\
+  , 'random' WORKFLOW, \"ProductBusinessUnitValue\"\n        , 'random' PRODUCT\n\
+  \        , 'random' PRODUCT_SORT\n        , CASE WHEN \"ProductFamily3Value\" IN\
+  \ ('random', 'random', 'random'\n                    , 'random', 'random') THEN\
+  \ \"FinNNACV_CC\"\n            ELSE \"FinNNACV_CC\"/'random' END NNACV\n       \
+  \ , CASE WHEN \"ProductFamily3Value\" IN ('random', 'random', 'random'\n       \
+  \             , 'random', 'random') THEN \"CumulativeNetNewACV\"\n            ELSE\
+  \ \"CumulativeNetNewACV\"/'random' END CACV\n\t\t, CASE WHEN \"ProductFamily3Value\"\
+  \ IN ('random', 'random', 'random'\n                    , 'random', 'random') THEN\
+  \ \"FinNNACVDCConstFX_CC\"\n            ELSE \"FinNNACVDCConstFX_CC\"/'random' END\
+  \ NNACV_FX\n        , CASE WHEN \"ProductFamily3Value\" IN ('random', 'random',\
+  \ 'random'\n                    , 'random', 'random') THEN \"CumulativeNetNewACVDCConstFX_CC\"\
+  \n            ELSE \"CumulativeNetNewACVDCConstFX_CC\"/'random' END CACV_FX\n  \
+  \       from CTE_COMMON_CALC\n         where \"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n           and (\"OptyStage\"\
+  \ = 'random'\n                or (\"OptyType\" = 'random'\n                    and\
+  \ \"OptyStage\" = 'random'))\n            AND \"ProductBusinessUnitValue\" = 'random'\n\
+  \            AND \"ProductFamily3Value\" IN ('random', 'random', 'random'\n    \
+  \                , 'random', 'random','random', 'random','random', 'random', 'random',\
+  \ 'random')\n\n--End of  Quarter trend Code for SIR, VR\n\nUNION ALL\n\n--Start\
+  \ of Quarter trend code for CSM NNACV\n\n\nSELECT \"OptySalesQuarter\", \"BUWorkFlow\"\
+  \ WORKFLOW, \"BusinessUnit\"\n    , 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n\
+  \    , ROUND(SUM(\"NetProPlusNNACV\")) NNACV\n    , 'random' CACV\n\t, ROUND(SUM(\"\
+  NetProPlusNNACV_FX\")) NNACV_FX\n    , 'random' CACV_FX\nFROM CTE_PBR_METRICS\n\
+  WHERE \"Metric\" = 'random'\nAND \"BusinessUnit\" = 'random'\nAND \"OptySalesQuarter\"\
+  \ < RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random'))\
+  \ ||'random'|| QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),'random')),\
+  \ 'random')\nGROUP BY \"OptySalesQuarter\", \"BUWorkFlow\", \"BusinessUnit\"\n\n\
+  UNION ALL\n\nSELECT \"OptySalesQuarter\", \"BUWorkFlow\" WORKFLOW, \"BusinessUnit\"\
+  \n    , 'random' PRODUCT\n    , 'random' PRODUCT_SORT\n    , ROUND(SUM(\"NetProNNACV\"\
+  )) NNACV\n    , 'random' CACV\n\t, ROUND(SUM(\"NetProNNACV_FX\")) NNACV_FX\n   \
+  \ , 'random' CACV_FX\nFROM CTE_PBR_METRICS\nWHERE \"Metric\" = 'random'\nAND \"\
+  BusinessUnit\" = 'random'\nAND \"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\nGROUP BY \"OptySalesQuarter\"\
+  , \"BUWorkFlow\", \"BusinessUnit\"\n\n--Start of Quarter trend code for CSM NNACV\n\
+  \n\nUNION ALL\n\n--Start of CSM Pro Quarter trend CACV Code\n\n    select \"OptySalesQuarter\"\
+  , WORKFLOW,  \"ProductBusinessUnitValue\"\n            , CASE WHEN \"DealPackageType\"\
+  \ = 'random' THEN 'random'\n\t\t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n\
+  \t\t\t\tELSE 'random' END PRODUCT\n\t\t\t, CASE WHEN \"DealPackageType\" = 'random'\
+  \ THEN 'random'\n\t\t\t\tWHEN \"DealPackageType\" = 'random' THEN 'random'\n\t\t\
+  \t\tELSE 'random' END PRODUCT_SORT\n            , 'random' NNACV\n            ,\
+  \ sum(CACV) CACV\n\t\t\t, 'random' NNACV_FX\n            , sum(CACV_FX) CACV_FX\n\
+  \    from (\n    SELECT iq.\"Workflow\" WORKFLOW, iq.\"ProductBusinessUnitValue\"\
+  ,\"OptySalesQuarter\"\n            , \"CumulativeNetNewACV\" CACV\n\t\t\t, \"FinNNACVDCConstFX_CC\"\
+  \ CACV_FX\n            , case when HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\
+  \t\t\twhen HORIZONTAL_PRODUCT_PACKAGE = 'random' then 'random'\n\t\t\twhen HORIZONTAL_PRODUCT_PACKAGE\
+  \ = 'random' then 'random'\n\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random'\
+  \ and lower(sp.\"ProductFamily3Value\") like 'random' then 'random'\n\t\t\t\t\t\
+  when sp.\"ProductBusinessUnitValue\" = 'random' and (lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' or lower(sp.\"ProductFamily3Value\") like 'random' )\n\t\t\t\t\t\
+  \t\tand (lower(sp.\"ProductDescription\") like 'random' or lower(sp.\"ProductDescription\"\
+  ) like 'random'  or lower(sp.\"ProductDescription\") like 'random') then 'random'\n\
+  \t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' and lower(sp.\"ProductName\") like 'random' and\n\t\t\t\t\t\t\t\
+  (lower(sp.\"ProductDescription\") like 'random' or lower(sp.\"ProductDescription\"\
+  ) like 'random'  or lower(sp.\"ProductDescription\") like 'random' ) then 'random'\n\
+  \t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" =\
+  \ 'random' and lower(sp.\"ProductFamily3Value\") like 'random' and\n\t\t\t\t\t\t\
+  \t(lower(sp.\"ProductDescription\") like 'random' or lower(sp.\"ProductDescription\"\
+  ) like 'random' ) and (lower(sp.\"ProductDescription\") not like 'random' and lower(sp.\"\
+  ProductDescription\") not like 'random' and lower(sp.\"ProductDescription\") not\
+  \ like 'random' ) then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\"\
+  \ = 'random' and lower(sp.\"ProductFamily3Value\") like 'random' and lower(sp.\"\
+  ProductName\") like 'random' and\n\t\t\t\t\t\t\t(lower(sp.\"ProductDescription\"\
+  ) like 'random' or lower(sp.\"ProductDescription\") like 'random' ) and (lower(sp.\"\
+  ProductDescription\") not like 'random' and lower(sp.\"ProductDescription\") not\
+  \ like 'random' and lower(sp.\"ProductDescription\") not like 'random' ) then 'random'\n\
+  \t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" = 'random' and lower(sp.\"ProductFamily3Value\"\
+  ) like 'random' then 'random'\n\t\t\t\t\twhen sp.\"ProductBusinessUnitValue\" =\
+  \ 'random' and lower(sp.\"ProductFamily3Value\") = 'random' then 'random'\n\n  \
+  \             else 'random' end \"DealPackageType\"\n\n         FROM CTE_BOOKING_UNIVERSE\
+  \ iq\n        LEFT JOIN  (select distinct  \"ProductCode\", \"ProductSKU\", \"ProductBusinessUnitValue\"\
+  , \"ProductFamily3Value\", \"ProductFullName\"\n                               \
+  \ , \"ProductNowBuyingProgramFlag\", \"ProductDescription\" , \"ProductName\"\n\
+  \                              from (select distinct  \"ProductCode\", \"ProductSKU\"\
+  , \"ProductBusinessUnitValue\", \"ProductFamily3Value\", \"ProductFullName\"\n \
+  \                               , \"ProductNowBuyingProgramFlag\", \"ProductDescription\"\
+  \ , \"ProductName\"\n                                , row_number() over(partition\
+  \ by \"ProductCode\" order by \"ProductBusinessUnitValue\") rnk\n              \
+  \                from ODS_LS.\"SURF\".\"SALES_PRODUCT\"\n                      \
+  \          ) where rnk = 'random'\n                ) sp on sp.\"ProductCode\"=iq.\"\
+  ProductCode\"\n\t\tLEFT JOIN (SELECT LINE_ITEM_NUMBER, HORIZONTAL_PRODUCT_PACKAGE\n\
+  \    \t\t\t\tFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS\n    \t\t\t\tWHERE\
+  \ record_type = 'random'\n    \t\t\t\tAND HORIZONTAL_PRODUCT = 'random'\n    \t\t\
+  \t\tAND NNACV_USD <> 'random' ) GI ON GI.LINE_ITEM_NUMBER = iq.\"OptyItemLineItemNumber\"\
+  \n         WHERE iq.\"ProductBusinessUnitValue\" IS not NULL\n         AND iq.\"\
+  ProductBusinessUnitValue\" = 'random'\n         AND iq.\"OptySalesQuarter\" < RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\n\t\t AND (\"OptyStage\" =\
+  \ 'random'\n                OR (\"OptyType\" = 'random'\n                    AND\
+  \ \"OptyStage\" = 'random'))\n    )\n\tWHERE \"DealPackageType\" = 'random'\n  \
+  \  group by \"OptySalesQuarter\", WORKFLOW, \"ProductBusinessUnitValue\", \"DealPackageType\"\
+  \n\n--End of CSM Pro Quarter trend CACV Code\n\nUNION ALL\n\n--Start of Gen AI Code\n\
+  \nSELECT \"OptySalesQuarter\", 'random' WORKFLOW, \"ProductBusinessUnitValue\"\n\
+  \t\t, 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n        , \"FinNNACV_CC\"\
+  \ NNACV\n        , \"CumulativeNetNewACV\" CACV\n\t\t, \"FinNNACVDCConstFX_CC\"\
+  \ NNACV_FX\n        , \"CumulativeNetNewACVDCConstFX_CC\" CACV_FX\nFROM CTE_COMMON_CALC\
+  \ cc\nLEFT JOIN (SELECT DISTINCT \"LineItemNumber\", \"GenAIFlag\"\nFROM EDW_LS.PRODUCT_EM.EM_PRODUCT_GEN_AI\
+  \ WHERE \"RecordType\" = 'random') gl ON gl.\"LineItemNumber\" = cc.\"OptyItemLineItemNumber\"\
+  \nWHERE \"OptySalesQuarter\" < RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (\"OptyStage\" = 'random'\n                OR (\"OptyType\" = 'random'\n\
+  \                    AND \"OptyStage\" = 'random'))\n            AND gl.\"GenAIFlag\"\
+  \ = 'random'\n\n\n--End of Gen AI Code\n\nUNION ALL\n\n--Start of Process Mining\
+  \ Code\n\nSELECT SALES_QUARTER, 'random' WORKFLOW, PRODUCT_BUSINESS_UNIT\n\t\t,\
+  \ 'random' PRODUCT\n        , 'random' PRODUCT_SORT\n        , NNACV_USD NNACV\n\
+  \        , NNACV_CLOSED_USD CACV\n\t\t, NNACV_USD_CY_FX NNACV_FX\n        , NNACV_CLOSED_USD_CFX\
+  \ CACV_FX\nFROM EDW_LS.PRODUCT_EM.V_EM_HORIZONTAL_PRODUCTS HP\nWHERE HORIZONTAL_PRODUCT\
+  \ = 'random'\nAND SALES_QUARTER < RIGHT(YEAR(convert_timezone( 'random',CURRENT_TIMESTAMP()))\
+  \ ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())), 'random')\n\
+  \           AND (OPPORTUNITY_STAGE = 'random'\n                OR (OPPORTUNITY_TYPE\
+  \ = 'random'\n                    AND OPPORTUNITY_STAGE = 'random'))\n\n--End of\
+  \ Process Ming Code\n\n)\nGROUP BY \"OptySalesQuarter\", WORKFLOW, PRODUCT, PRODUCT_SORT\n\
+  )\n)\nWHERE QUARTER_FLAG IS not NULL\nAND \"OptySalesQuarter\" >= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()),'random')), 'random')\nAND PRODUCT_SORT < 'random'\n\
+  GROUP BY \"OptySalesQuarter\", QUARTER_FLAG, WORKFLOW, PRODUCT, PRODUCT_SORT\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

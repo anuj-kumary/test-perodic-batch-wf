@@ -1,0 +1,63 @@
+name: table_1371
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1371
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1371.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PIPELINE_CONVERSION_JG_0803(\n\
+  \tBU_ID,\n\tQUARTER_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tQUARTER_YYQQ,\n\tFINAL_PREDICTED_NNACV,\n\
+  \tFINAL_PREDICTED_NNACV_LAST_WEEK,\n\tFINAL_PREDICTED_NNACV_WTD,\n\tFINAL_PREDICTED_NNACV_STLY,\n\
+  \tFINAL_PREDICTED_NNACV_STLY_LW,\n\tTERRITORY_SYSID\n) as\nSELECT distinct\n\t CASE\
+  \ WHEN PPC.\"PLSBUGroup\"='random' THEN HASH('random')\n\t\t  WHEN PPC.\"PLSBUGroup\"\
+  ='random' THEN HASH('random')\n\t\t  WHEN PPC.\"PLSBUGroup\"='random' THEN HASH('random')\n\
+  \t\t  WHEN PPC.\"PLSBUGroup\"='random' THEN  HASH('random')\n\t ELSE HASH(PPC.\"\
+  PLSBUGroup\") END AS BU_ID\n\t,QTR.QUARTER_ID AS QUARTER_ID\n\t,TERR.TERRITORY_ID\
+  \ AS TERRITORY_ID\n\t,HASH(TERR.\"GEO\") AS GEO_ID\n\t,QTR.QUARTER_YYQQ AS QUARTER_YYQQ\n\
+  \t,PPC.\"FinalPredictedNNACV\" AS FINAL_PREDICTED_NNACV\n\t,PPC.\"FinalPredictedNNACV_Last_Week\"\
+  \ AS FINAL_PREDICTED_NNACV_LAST_WEEK\n\t,PPC.\"FinalPredictedNNACV_WTD\" AS  FINAL_PREDICTED_NNACV_WTD\n\
+  \t,PPC.\"FinalPredictedNNACV_STLY\" AS FINAL_PREDICTED_NNACV_STLY\n\t,PPC.\"FinalPredictedNNACV_STLYLW\"\
+  \ AS FINAL_PREDICTED_NNACV_STLY_LW\n\t,PPC.\"TerritorySysID\" AS TERRITORY_SYSID\n\
+  FROM EDW_LS.SALES_EM.EM_SALES_PLS_PIPELINE_CONVERSION_RT PPC\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_BU\
+  \ BU ON BU.BU=PPC.\"PLSBUGroup\"\nLEFT OUTER JOIN (SELECT DISTINCT QUARTER_ID, QUARTER_DT,\
+  \ QUARTER_YYQQ FROM EDW.ENTERPRISE.DIM_QUARTER) QTR on PPC.\"Quarter\" = QTR.QUARTER_YYQQ\n\
+  LEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY TERR ON PPC.\"TerritorySysID\" = TERR.TERRITORY_SYSID\n\
+  WHERE PPC.\"TerritorySysID\" IS not NULL;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

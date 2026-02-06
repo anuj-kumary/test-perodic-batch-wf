@@ -1,0 +1,54 @@
+name: table_1402
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1402
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1402.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_VDR_RISK_ASMT_M2M_ASMT_QUESTIONNIRE_TEMPLATE(\n\
+  \tVENDOR_RISK_ASSESSMENT,\n\tSYS_CREATED_BY,\n\tDV_METRIC_TYPE,\n\tDV_VENDOR_RISK_ASSESSMENT,\n\
+  \tQUES_PERCENT_COMPLETE,\n\tSYS_CREATED_ON\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"VENDOR_RISK_ASSESSMENT\" as \"VENDOR_RISK_ASSESSMENT\",\n       \"SYS_CREATED_BY\"\
+  \ as \"SYS_CREATED_BY\",\n       \"DV_METRIC_TYPE\" as \"DV_METRIC_TYPE\",\n   \
+  \    \"DV_VENDOR_RISK_ASSESSMENT\" as \"DV_VENDOR_RISK_ASSESSMENT\",\n       \"\
+  QUES_PERCENT_COMPLETE\" as \"QUES_PERCENT_COMPLETE\",\n       \"SYS_CREATED_ON\"\
+  \ as \"SYS_CREATED_ON\"\nFROM \"RDS\".\"SURF\".\"SN_VDR_RISK_ASMT_M2M_ASMT_QUESTIONNAIRE_TEMPLATE\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

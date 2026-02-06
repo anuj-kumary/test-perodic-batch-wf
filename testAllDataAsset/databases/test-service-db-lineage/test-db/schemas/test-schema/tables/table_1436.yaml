@@ -1,0 +1,303 @@
+name: table_1436
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1436
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1436.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SURVIVOR_OPP_ACCOUNT(\n\t\"OptyItemLineItemNumber\"\
+  ,\n\t\"SurvivorOpportunityNumber\",\n\t\"OptyParentNumber\",\n\t\"OptyNumber\",\n\
+  \t\"OptyRenewalStatus\",\n\t\"OptyStage\",\n\t\"FinNNACV_CC\",\n\t\"OptySalesQuarter\"\
+  ,\n\t\"OptyItemNetNewACV\",\n\t\"SFixedDataDocCurrReferralFees\",\n\t\"FinNNACVDC_CC\"\
+  ,\n\t\"OptyAccountSysID\",\n\t\"ProductBusinessUnitValue_CC\",\n\t\"IsFixed\",\n\
+  \t\"SurvivorOptyAcctNumber\",\n\t\"SurvivorOptyAcctName\",\n\t\"RenewalACV_CC\"\
+  ,\n\t\"ProductBusinessUnitValue\",\n\t\"DNBBusinessName\",\n\t\"AcctCustomerHQ\"\
+  ,\n\t\"CumulativeNetNewACV_CC\",\n\t\"OptyItemRenewalACV_USD_CC\",\n\t\"AcctNumber\"\
+  ,\n\t\"AcctName\",\n\t\"OptyTerritorySysID\",\n\t\"AccountConsolidationFlag_CC\"\
+  ,\n\t\"RenewalACVAC_CC\",\n\t\"OptyParentSysID\",\n\t\"OptyParentName\",\n\t\"SalesNNACV_USD_CC\"\
+  ,\n\t\"SalesNNACVDC_CC\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"OptyItemLineItemNumber\"\
+  \ as \"OptyItemLineItemNumber\",\n       \"SurvivorOpportunityNumber\" as \"SurvivorOpportunityNumber\"\
+  ,\n       \"OptyParentNumber\" as \"OptyParentNumber\",\n       \"OptyNumber\" as\
+  \ \"OptyNumber\",\n       \"OptyRenewalStatus\" as \"OptyRenewalStatus\",\n    \
+  \   \"OptyStage\" as \"OptyStage\",\n       CAST(\"FinNNACV_CC\" AS FLOAT) as \"\
+  FinNNACV_CC\",\n       \"OptySalesQuarter\" as \"OptySalesQuarter\",\n       CAST(\"\
+  OptyItemNetNewACV\" AS FLOAT) as \"OptyItemNetNewACV\",\n       \"SFixedDataDocCurrReferralFees\"\
+  \ as \"SFixedDataDocCurrReferralFees\",\n       CAST(\"FinNNACVDC_CC\" AS FLOAT)\
+  \ as \"FinNNACVDC_CC\",\n       \"OptyAccountSysID\" as \"OptyAccountSysID\",\n\
+  \       \"ProductBusinessUnitValue_CC\" as \"ProductBusinessUnitValue_CC\",\n  \
+  \     \"IsFixed\" as \"IsFixed\",\n       \"SurvivorOptyAcctNumber_CC\" as \"SurvivorOptyAcctNumber\"\
+  ,\n       \"SurvivorOptyAcctName_CC\" as \"SurvivorOptyAcctName\",\n       CAST(\"\
+  RenewalACV_CC\" AS FLOAT) as \"RenewalACV_CC\",\n       \"ProductBusinessUnitValue\"\
+  \ as \"ProductBusinessUnitValue\",\n       \"DNBBusinessName\" as \"DNBBusinessName\"\
+  ,\n       \"AcctCustomerHQ\" as \"AcctCustomerHQ\",\n       CAST(\"CumulativeNetNewACV_CC\"\
+  \ AS FLOAT) as \"CumulativeNetNewACV_CC\",\n       CAST(\"OptyItemRenewalACV_USD_CC\"\
+  \ AS FLOAT) as \"OptyItemRenewalACV_USD_CC\",\n       \"AcctNumber\" as \"AcctNumber\"\
+  ,\n       \"AcctName\" as \"AcctName\",\n       \"OptyTerritorySysID\" as \"OptyTerritorySysID\"\
+  ,\n       \"AccountConsolidationFlag_CC\" as \"AccountConsolidationFlag_CC\",\n\
+  \       CAST(\"RenewalACVAC_CC\" AS FLOAT) as \"RenewalACVAC_CC\",\n       \"OptyParentSysID\"\
+  \ as \"OptyParentSysID\",\n       \"OptyParentName\" as \"OptyParentName\",\n  \
+  \     CAST(\"SalesNNACV_USD_CC\" AS FLOAT) as \"SalesNNACV_USD_CC\",\n       CAST(\"\
+  SalesNNACVDC_CC\" AS FLOAT) as \"SalesNNACVDC_CC\"\nFROM\n  (SELECT \"OptyItemLineItemNumber\"\
+  \ as \"OptyItemLineItemNumber\",\n          \"SurvivorOpportunityNumber\" as \"\
+  SurvivorOpportunityNumber\",\n          \"OptyParentNumber\" as \"OptyParentNumber\"\
+  ,\n          \"OptyNumber\" as \"OptyNumber\",\n          \"SurvivorOptyAcctNumber\"\
+  \ as \"SurvivorOptyAcctNumber\",\n          \"OptyRenewalStatus\" as \"OptyRenewalStatus\"\
+  ,\n          \"OptyStage\" as \"OptyStage\",\n          \"FinNNACV_CC\" as \"FinNNACV_CC\"\
+  ,\n          \"OptySalesQuarter\" as \"OptySalesQuarter\",\n          \"OptyItemNetNewACV\"\
+  \ as \"OptyItemNetNewACV\",\n          \"SFixedDataDocCurrReferralFees\" as \"SFixedDataDocCurrReferralFees\"\
+  ,\n          \"FinNNACVDC_CC\" as \"FinNNACVDC_CC\",\n          \"OptyAccountSysID\"\
+  \ as \"OptyAccountSysID\",\n          \"ProductBusinessUnitValue_CC\" as \"ProductBusinessUnitValue_CC\"\
+  ,\n          \"IsFixed\" as \"IsFixed\",\n          \"SurvivorOptyAcctName\" as\
+  \ \"SurvivorOptyAcctName\",\n          \"RenewalACV_CC\" as \"RenewalACV_CC\",\n\
+  \          \"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\",\n     \
+  \     \"DNBBusinessName\" as \"DNBBusinessName\",\n          \"AcctCustomerHQ\"\
+  \ as \"AcctCustomerHQ\",\n          \"CumulativeNetNewACV_CC\" as \"CumulativeNetNewACV_CC\"\
+  ,\n          \"OptyItemCSNetNewACV_USD_CC\" as \"OptyItemCSNetNewACV_USD_CC\",\n\
+  \          \"OptyItemCSDocCurrNetNewACV_CC\" as \"OptyItemCSDocCurrNetNewACV_CC\"\
+  ,\n          \"OptyItemRenewalACV_USD_CC\" as \"OptyItemRenewalACV_USD_CC\",\n \
+  \         \"AcctNumber\" as \"AcctNumber\",\n          \"AcctName\" as \"AcctName\"\
+  ,\n          \"OptyTerritorySysID\" as \"OptyTerritorySysID\",\n          \"OptyParentSysID\"\
+  \ as \"OptyParentSysID\",\n          \"OptyParentOrderTermEndDate\" as \"OptyParentOrderTermEndDate\"\
+  ,\n          \"OptyContEndDate\" as \"OptyContEndDate\",\n          \"AccountConsolidationFlag_CC\"\
+  \ as \"AccountConsolidationFlag_CC\",\n          \"OptyRenewalStatus_CC\" as \"\
+  OptyRenewalStatus_CC\",\n          \"RenewalACVAC_CC\" as \"RenewalACVAC_CC\",\n\
+  \          \"OptyParentName\" as \"OptyParentName\",\n          \"SalesNNACV_USD_CC\"\
+  \ as \"SalesNNACV_USD_CC\",\n          \"SalesNNACVDC_CC\" as \"SalesNNACVDC_CC\"\
+  ,\n          IFF((\"SurvivorOptyAcctNumber\") IS NULL\n              or \"SurvivorOptyAcctNumber\"\
+  \ = 'random', \"AcctNumber\", \"SurvivorOptyAcctNumber\") as \"SurvivorOptyAcctNumber_CC\"\
+  ,\n          IFF((\"SurvivorOptyAcctName\") IS NULL\n              or \"SurvivorOptyAcctName\"\
+  \ = 'random', \"AcctName\", \"SurvivorOptyAcctName\") as \"SurvivorOptyAcctName_CC\"\
+  \n   FROM\n     (SELECT \"SurvivorOppNumber\".\"OptyItemLineItemNumber\" as \"OptyItemLineItemNumber\"\
+  ,\n             \"SurvivorOppNumber\".\"SurvivorOpportunityNumber\" as \"SurvivorOpportunityNumber\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyParentNumber\" as \"OptyParentNumber\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyNumber\" as \"OptyNumber\",\n      \
+  \       \"SurvivorOppAcctNumber\".\"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyRenewalStatus\" as \"OptyRenewalStatus\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyStage\" as \"OptyStage\",\n        \
+  \     \"SurvivorOppNumber\".\"FinNNACV_CC\" as \"FinNNACV_CC\",\n             \"\
+  SurvivorOppNumber\".\"OptySalesQuarter\" as \"OptySalesQuarter\",\n            \
+  \ \"SurvivorOppNumber\".\"OptyItemNetNewACV\" as \"OptyItemNetNewACV\",\n      \
+  \       \"SurvivorOppNumber\".\"SFixedDataDocCurrReferralFees\" as \"SFixedDataDocCurrReferralFees\"\
+  ,\n             \"SurvivorOppNumber\".\"FinNNACVDC_CC\" as \"FinNNACVDC_CC\",\n\
+  \             \"SurvivorOppNumber\".\"OptyAccountSysID\" as \"OptyAccountSysID\"\
+  ,\n             \"SurvivorOppNumber\".\"ProductBusinessUnitValue_CC\" as \"ProductBusinessUnitValue_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"IsFixed\" as \"IsFixed\",\n            \
+  \ \"SurvivorOppAcctNumber\".\"SurvivorOptyAcctName\" as \"SurvivorOptyAcctName\"\
+  ,\n             \"SurvivorOppNumber\".\"RenewalACV_CC\" as \"RenewalACV_CC\",\n\
+  \             \"SurvivorOppNumber\".\"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\"\
+  ,\n             \"SurvivorOppAcctNumber\".\"DNBBusinessName\" as \"DNBBusinessName\"\
+  ,\n             \"SurvivorOppAcctNumber\".\"AcctCustomerHQ\" as \"AcctCustomerHQ\"\
+  ,\n             \"SurvivorOppNumber\".\"CumulativeNetNewACV_CC\" as \"CumulativeNetNewACV_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyItemCSNetNewACV_USD_CC\" as \"OptyItemCSNetNewACV_USD_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyItemCSDocCurrNetNewACV_CC\" as \"OptyItemCSDocCurrNetNewACV_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyItemRenewalACV_USD_CC\" as \"OptyItemRenewalACV_USD_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"AcctNumber\" as \"AcctNumber\",\n      \
+  \       \"SurvivorOppNumber\".\"AcctName\" as \"AcctName\",\n             \"SurvivorOppNumber\"\
+  .\"OptyTerritorySysID\" as \"OptyTerritorySysID\",\n             \"SurvivorOppNumber\"\
+  .\"OptyParentSysID\" as \"OptyParentSysID\",\n             \"SurvivorOppNumber\"\
+  .\"OptyParentOrderTermEndDate\" as \"OptyParentOrderTermEndDate\",\n           \
+  \  \"SurvivorOppNumber\".\"OptyContEndDate\" as \"OptyContEndDate\",\n         \
+  \    \"SurvivorOppNumber\".\"AccountConsolidationFlag_CC\" as \"AccountConsolidationFlag_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyRenewalStatus_CC\" as \"OptyRenewalStatus_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"RenewalACVAC_CC\" as \"RenewalACVAC_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"OptyParentName\" as \"OptyParentName\",\n\
+  \             \"SurvivorOppNumber\".\"SalesNNACV_USD_CC\" as \"SalesNNACV_USD_CC\"\
+  ,\n             \"SurvivorOppNumber\".\"SalesNNACVDC_CC\" as \"SalesNNACVDC_CC\"\
+  \n      FROM\n        (SELECT \"OptyItemLineItemNumber\" as \"OptyItemLineItemNumber\"\
+  ,\n                \"OptyParentNumber\" as \"OptyParentNumber\",\n             \
+  \   \"OptyNumber\" as \"OptyNumber\",\n                \"OptyRenewalStatus\" as\
+  \ \"OptyRenewalStatus\",\n                \"OptyStage\" as \"OptyStage\",\n    \
+  \            \"ProductFamily3Value\" as \"ProductFamily3Value\",\n             \
+  \   \"IsFixed\" as \"IsFixed\",\n                \"OptyPipelineStatus\" as \"OptyPipelineStatus\"\
+  ,\n                \"OptyType\" as \"OptyType\",\n                \"OptyLinePriceResetPrimaryLineSysID\"\
+  \ as \"OptyLinePriceResetPrimaryLineSysID\",\n                \"OptyItemNetNewACV_USD\"\
+  \ as \"OptyItemNetNewACV_USD\",\n                \"SFixedDataReferralFees\" as \"\
+  SFixedDataReferralFees\",\n                \"ProductCode\" as \"ProductCode\",\n\
+  \                \"OptySalesQuarter\" as \"OptySalesQuarter\",\n               \
+  \ \"OptyItemNetNewACV\" as \"OptyItemNetNewACV\",\n                \"SFixedDataDocCurrReferralFees\"\
+  \ as \"SFixedDataDocCurrReferralFees\",\n                \"OptyAccountSysID\" as\
+  \ \"OptyAccountSysID\",\n                \"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\"\
+  ,\n                \"OptyItemFlags\" as \"OptyItemFlags\",\n                \"ProductFamily1Value\"\
+  \ as \"ProductFamily1Value\",\n                \"SFixedDataAcquiredNewNewACV\" as\
+  \ \"SFixedDataAcquiredNewNewACV\",\n                \"OptyItemCSNetNewACV_USD_CC\"\
+  \ as \"OptyItemCSNetNewACV_USD_CC\",\n                \"OptyItemCSDocCurrNetNewACV_CC\"\
+  \ as \"OptyItemCSDocCurrNetNewACV_CC\",\n                \"ProductFamily2Value\"\
+  \ as \"ProductFamily2Value\",\n                \"OptyItemRenewalACV_USD\" as \"\
+  OptyItemRenewalACV_USD_CC\",\n                \"AcctNumber\" as \"AcctNumber\",\n\
+  \                \"AcctName\" as \"AcctName\",\n                \"OptyTerritorySysID\"\
+  \ as \"OptyTerritorySysID\",\n                \"OptyParentSysID\" as \"OptyParentSysID\"\
+  ,\n                \"OptyParentOrderTermEndDate\" as \"OptyParentOrderTermEndDate\"\
+  ,\n                \"OptyContEndDate\" as \"OptyContEndDate\",\n               \
+  \ \"OptyItemCSRenewalACV_USD_CC\" as \"OptyItemCSRenewalACV_USD_CC\",\n        \
+  \        \"OptyParentName\" as \"OptyParentName\",\n                \"SalesNNACV_USD_CC\"\
+  \ as \"SalesNNACV_USD_CC\",\n                \"SalesNNACVDC_CC\" as \"SalesNNACVDC_CC\"\
+  ,\n                IFF((\"OptyParentNumber\") IS NULL , \"OptyNumber\", \"OptyParentNumber\"\
+  ) as \"OptyParentNumber_CC\",\n                IFF((\"OptyParentNumber_CC\") IS\
+  \ NULL\n                    or \"OptyParentNumber_CC\" = 'random',(\"OptyNumber\"\
+  ) ,\"OptyParentNumber_CC\") as \"SurvivorOpportunityNumber\",\n                IFF(\"\
+  IsFixed\"='random', 'random', IFF((\"OptyPipelineStatus\" not in('random', 'random',\
+  \ 'random', 'random', 'random')\n                                             AND\
+  \ (\"OptyType\" != 'random')\n                                             AND (\"\
+  ProductFamily3Value\" != 'random')\n                                           \
+  \  AND (\"OptyStage\" not in('random', 'random', 'random', 'random')\n         \
+  \                                         or ((\"OptyStage\"='random'\n        \
+  \                                               and \"OptyType\"='random')))\n \
+  \                                            AND (\"OptyLinePriceResetPrimaryLineSysID\"\
+  \ IS NULL\n                                                  or (\"OptyLinePriceResetPrimaryLineSysID\"\
+  = 'random'))) , 'random', 'random')) as \"BookingsPipelineFilter_CC\",\n       \
+  \         IFF(\"ProductBusinessUnitValue\"='random'\n                    and \"\
+  ProductFamily2Value\"='random', \"OptyItemCSNetNewACV_USD_CC\", (IFF(\"IsFixed\"\
+  \ = 'random', (\"OptyItemNetNewACV_USD\"+\"SFixedDataReferralFees\") , ((\"OptyItemNetNewACV_USD\"\
+  ) - (IFF(RTRIM(\"ProductCode\") in('random', 'random') , (\"OptyItemNetNewACV_USD\"\
+  ) , 'random')))) - IFF(\"ProductFamily1Value\" = 'random', \"OptyItemNetNewACV_USD\"\
+  , 'random'))) as \"FinNNACV_CC\",\n                IFF(\"IsFixed\" = 'random', \"\
+  SFixedDataDocCurrReferralFees\", IFF(RTRIM(\"ProductCode\") in ('random', 'random'),\
+  \ \"OptyItemNetNewACV\"*'random', 'random')) as \"DocCurrReferralFee_CC\",\n   \
+  \             IFF(\"ProductBusinessUnitValue\"='random'\n                    and\
+  \ \"ProductFamily2Value\"='random', \"OptyItemCSDocCurrNetNewACV_CC\", (\"OptyItemNetNewACV\"\
+  \ - (IFF(\"ProductFamily1Value\" = 'random', \"OptyItemNetNewACV\", 'random')))\
+  \ +\"DocCurrReferralFee_CC\") as \"FinNNACVDC_CC\",\n                IFF(\"ProductBusinessUnitValue\"\
+  \ in('random', 'random'), 'random', \"ProductBusinessUnitValue\") as \"ProductBusinessUnitValue_CC\"\
+  ,\n                IFF(\"OptyStage\" = 'random', 'random', (IFF(\"IsFixed\" = 'random'\n\
+  \                                                                    and \"OptyStage\"\
+  \ != 'random', \"OptyItemRenewalACV_USD_CC\", (IFF(\"OptyType\" = 'random'\n   \
+  \                                                                              \
+  \                                                                  and \"OptyStage\"\
+  \ != 'random', \"OptyItemRenewalACV_USD_CC\", 'random'))))) as \"RenewalACV_CC\"\
+  ,\n                \"FinNNACV_CC\" + (CASE\n                                   \
+  \  WHEN \"SFixedDataAcquiredNewNewACV\" IS NULL THEN 'random'\n                \
+  \                     ELSE \"SFixedDataAcquiredNewNewACV\"\n                   \
+  \              END) as \"CumulativeNetNewACV_CC\",\n                IFF(\"OptyType\"\
+  \ = 'random', \"OptyRenewalStatus\", 'random') as \"OptyRenewalStatus_CC\",\n  \
+  \              IFF(\"OptyRenewalStatus_CC\"='random'\n                    and \"\
+  OptyStage\"='random', IFF(\"OptyContEndDate\"<\"OptyParentOrderTermEndDate\", 'random',\
+  \ 'random'), 'random') as \"AccountConsolidationFlag_CC\",\n                IFF(\"\
+  AccountConsolidationFlag_CC\"= 'random',(\"RenewalACV_CC\"-\"FinNNACV_CC\") ,\"\
+  RenewalACV_CC\") as \"RenewalACVAC_CC\"\n         FROM\n           (SELECT \"Projection_7\"\
+  .\"OptyItemLineItemNumber\" as \"OptyItemLineItemNumber\",\n                   \"\
+  Projection_7\".\"OptyParentNumber\" as \"OptyParentNumber\",\n                 \
+  \  \"Projection_7\".\"OptyNumber\" as \"OptyNumber\",\n                   \"Projection_7\"\
+  .\"OptyRenewalStatus\" as \"OptyRenewalStatus\",\n                   \"Projection_7\"\
+  .\"OptyStage\" as \"OptyStage\",\n                   \"Projection_7\".\"ProductFamily3Value\"\
+  \ as \"ProductFamily3Value\",\n                   \"Projection_7\".\"IsFixed\" as\
+  \ \"IsFixed\",\n                   \"Projection_7\".\"OptyPipelineStatus\" as \"\
+  OptyPipelineStatus\",\n                   \"Projection_7\".\"OptyType\" as \"OptyType\"\
+  ,\n                   \"Projection_7\".\"OptyLinePriceResetPrimaryLineSysID\" as\
+  \ \"OptyLinePriceResetPrimaryLineSysID\",\n                   \"Projection_7\".\"\
+  OptyItemNetNewACV_USD\" as \"OptyItemNetNewACV_USD\",\n                   \"Projection_7\"\
+  .\"SFixedDataReferralFees\" as \"SFixedDataReferralFees\",\n                   \"\
+  Projection_7\".\"ProductCode\" as \"ProductCode\",\n                   \"Projection_7\"\
+  .\"OptySalesQuarter\" as \"OptySalesQuarter\",\n                   \"Projection_7\"\
+  .\"OptyItemNetNewACV\" as \"OptyItemNetNewACV\",\n                   \"Projection_7\"\
+  .\"SFixedDataDocCurrReferralFees\" as \"SFixedDataDocCurrReferralFees\",\n     \
+  \              \"Projection_7\".\"OptyAccountSysID\" as \"OptyAccountSysID\",\n\
+  \                   \"Projection_7\".\"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\"\
+  ,\n                   \"Projection_7\".\"OptyItemFlags\" as \"OptyItemFlags\",\n\
+  \                   \"Projection_7\".\"ProductFamily1Value\" as \"ProductFamily1Value\"\
+  ,\n                   \"Projection_7\".\"SFixedDataAcquiredNewNewACV\" as \"SFixedDataAcquiredNewNewACV\"\
+  ,\n                   \"Projection_7\".\"OptyItemCSNetNewACV_USD_CC\" as \"OptyItemCSNetNewACV_USD_CC\"\
+  ,\n                   \"Projection_7\".\"OptyItemCSDocCurrNetNewACV_CC\" as \"OptyItemCSDocCurrNetNewACV_CC\"\
+  ,\n                   \"Projection_7\".\"ProductFamily2Value\" as \"ProductFamily2Value\"\
+  ,\n                   \"Projection_7\".\"OptyItemRenewalACV_USD\" as \"OptyItemRenewalACV_USD\"\
+  ,\n                   \"Projection_7\".\"AcctNumber\" as \"AcctNumber\",\n     \
+  \              \"Projection_7\".\"AcctName\" as \"AcctName\",\n                \
+  \   \"Projection_7\".\"OptyTerritorySysID\" as \"OptyTerritorySysID\",\n       \
+  \            \"Projection_7\".\"OptyParentSysID\" as \"OptyParentSysID\",\n    \
+  \               \"Projection_6\".\"OptyOrderTermEndDate\" as \"OptyParentOrderTermEndDate\"\
+  ,\n                   \"Projection_7\".\"OptyContEndDate\" as \"OptyContEndDate\"\
+  ,\n                   \"Projection_7\".\"OptyItemCSRenewalACV_USD_CC\" as \"OptyItemCSRenewalACV_USD_CC\"\
+  ,\n                   \"Projection_7\".\"OptyParentName\" as \"OptyParentName\"\
+  ,\n                   \"Projection_7\".\"SalesNNACV_USD_CC\" as \"SalesNNACV_USD_CC\"\
+  ,\n                   \"Projection_7\".\"SalesNNACVDC_CC\" as \"SalesNNACVDC_CC\"\
+  \n            FROM\n              (SELECT \"ProductFamily2Value\" as \"ProductFamily2Value\"\
+  ,\n                      \"OptyItemCSDocCurrNetNewACV_CC\" as \"OptyItemCSDocCurrNetNewACV_CC\"\
+  ,\n                      \"OptyItemCSNetNewACV_USD_CC\" as \"OptyItemCSNetNewACV_USD_CC\"\
+  ,\n                      \"SFixedDataAcquiredNewNewACV\" as \"SFixedDataAcquiredNewNewACV\"\
+  ,\n                      \"ProductFamily1Value\" as \"ProductFamily1Value\",\n \
+  \                     \"OptyItemFlags\" as \"OptyItemFlags\",\n                \
+  \      \"ProductBusinessUnitValue\" as \"ProductBusinessUnitValue\",\n         \
+  \             \"OptyAccountSysID\" as \"OptyAccountSysID\",\n                  \
+  \    \"SFixedDataDocCurrReferralFees\" as \"SFixedDataDocCurrReferralFees\",\n \
+  \                     \"OptyItemNetNewACV\" as \"OptyItemNetNewACV\",\n        \
+  \              \"OptySalesQuarter\" as \"OptySalesQuarter\",\n                 \
+  \     \"ProductCode\" as \"ProductCode\",\n                      \"SFixedDataReferralFees\"\
+  \ as \"SFixedDataReferralFees\",\n                      \"OptyItemNetNewACV_USD\"\
+  \ as \"OptyItemNetNewACV_USD\",\n                      \"OptyLinePriceResetPrimaryLineSysID\"\
+  \ as \"OptyLinePriceResetPrimaryLineSysID\",\n                      \"OptyType\"\
+  \ as \"OptyType\",\n                      \"OptyPipelineStatus\" as \"OptyPipelineStatus\"\
+  ,\n                      \"IsFixed\" as \"IsFixed\",\n                      \"ProductFamily3Value\"\
+  \ as \"ProductFamily3Value\",\n                      \"OptyStage\" as \"OptyStage\"\
+  ,\n                      \"OptyRenewalStatus\" as \"OptyRenewalStatus\",\n     \
+  \                 \"OptyNumber\" as \"OptyNumber\",\n                      \"OptyParentNumber\"\
+  \ as \"OptyParentNumber\",\n                      \"OptyItemLineItemNumber\" as\
+  \ \"OptyItemLineItemNumber\",\n                      \"OptyItemRenewalACV_USD\"\
+  \ as \"OptyItemRenewalACV_USD\",\n                      \"AcctNumber\" as \"AcctNumber\"\
+  ,\n                      \"AcctName\" as \"AcctName\",\n                      \"\
+  OptyTerritorySysID\" as \"OptyTerritorySysID\",\n                      \"OptyParentSysID\"\
+  \ as \"OptyParentSysID\",\n                      \"SOptyContractEndDate\" as \"\
+  OptyContEndDate\",\n                      \"OptyItemCSRenewalACV_USD_CC\" as \"\
+  OptyItemCSRenewalACV_USD_CC\",\n                      \"OptyParentName\" as \"OptyParentName\"\
+  ,\n                      \"OptyItemNetNewACV_USD\" as \"SalesNNACV_USD_CC\",\n \
+  \                     \"OptyItemNetNewACV\" as \"SalesNNACVDC_CC\"\n           \
+  \    FROM \"EDW_LS\".\"PRODUCT_EM\".\"BUPIPELINE_ST_DATA\")\"Projection_7\"\n  \
+  \          LEFT JOIN\n              (SELECT \"OptySysID\" as \"OptySysID\",\n  \
+  \                    \"OptyOrderTermEndDate\" as \"OptyOrderTermEndDate\"\n    \
+  \           FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\")\"Projection_6\" ON \"\
+  Projection_7\".\"OptyParentSysID\" = \"Projection_6\".\"OptySysID\")\"Join_5\" /*WHERE\
+  \ (\"BookingsPipelineFilter_CC\" ='Y')  AND (((\"OptyItemFlags\") IS NULL   or \"\
+  OptyItemFlags\" = '')  or ((not REGEXP_LIKE(\"OptyItemFlags\",'.*38bc0a25605411c006ff177ed89caef5.*')\
+  \ )  and (not REGEXP_LIKE(\"OptyItemFlags\",'.*e74e1723d9567100656052706e3b2eba.*')\
+  \ ) ) )*/ )\"SurvivorOppNumber\"\n      LEFT JOIN\n        (SELECT \"Projection_22\"\
+  .\"OptyNumber\" as \"OptyNumber\",\n                \"Projection_23\".\"AcctNumber\"\
+  \ as \"SurvivorOptyAcctNumber\",\n                \"Projection_23\".\"AcctName\"\
+  \ as \"SurvivorOptyAcctName\",\n                \"Projection_23\".\"DNBBusinessName\"\
+  \ as \"DNBBusinessName\",\n                \"Projection_23\".\"AcctCustomerHQ\"\
+  \ as \"AcctCustomerHQ\"\n         FROM\n           (SELECT \"OptyNumber\" as \"\
+  OptyNumber\",\n                   \"OptyAccountSysID\" as \"OptyAccountSysID\"\n\
+  \            FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\")\"Projection_22\"\n\
+  \         LEFT JOIN\n           (SELECT \"AcctSysID\" as \"AcctSysID\",\n      \
+  \             \"AcctNumber\" as \"AcctNumber\",\n                   \"AcctName\"\
+  \ as \"AcctName\",\n                   \"DNBBusinessName\" as \"DNBBusinessName\"\
+  ,\n                   \"AcctCustomerHQ\" as \"AcctCustomerHQ\"\n            FROM\
+  \ \"EDW_LS\".\"SALES_EM\".\"EM_SALES_ACCOUNT_RT\")\"Projection_23\" ON \"Projection_22\"\
+  .\"OptyAccountSysID\" = \"Projection_23\".\"AcctSysID\")\"SurvivorOppAcctNumber\"\
+  \ ON \"SurvivorOppNumber\".\"SurvivorOpportunityNumber\" = \"SurvivorOppAcctNumber\"\
+  .\"OptyNumber\")\"Join_1\")Projection_9;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

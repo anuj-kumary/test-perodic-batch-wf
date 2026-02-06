@@ -1,0 +1,56 @@
+name: table_1427
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1427
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1427.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_NPS_COMMENTS_DESC(\n\tGEO,\n\tAREA,\n\
+  \t\"Account_Name\",\n\tACCT_NO,\n\t\"PrevYrACV\",\n\t\"CurrYearACV\",\n\tLOYALTY_SCORE,\n\
+  \t\"Loyalty\",\n\tSURVEY,\n\tCOMMENTS_1\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"GEO\" as \"GEO\",\n       \"AREA\" as \"AREA\",\n       \"Account_Name\" as\
+  \ \"Account_Name\",\n       \"ACCT_NO\" as \"ACCT_NO\",\n       ROUND(SUM(\"PrevYrACV\"\
+  )) as \"PrevYrACV\",\n       ROUND(SUM(\"CurrYearACV\")) as \"CurrYearACV\",\n \
+  \      SUM(\"LOYALTY_SCORE\") as \"LOYALTY_SCORE\",\n       \"Loyalty\" as \"Loyalty\"\
+  ,\n       \"SURVEY\" as \"SURVEY\",\n       \"COMMENTS_1\" as \"COMMENTS_1\"\nFROM\
+  \ \"EDW_LS\".\"CUSTOMER_EM\".\"TF_NPS_COMMENTS_DESC\"\nGROUP BY \"GEO\",\n     \
+  \    \"AREA\",\n         \"Account_Name\",\n         \"ACCT_NO\",\n         \"Loyalty\"\
+  ,\n         \"SURVEY\",\n         \"COMMENTS_1\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
