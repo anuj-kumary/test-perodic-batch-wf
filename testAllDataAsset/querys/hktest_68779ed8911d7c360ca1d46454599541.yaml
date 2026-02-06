@@ -1,0 +1,44 @@
+name: 68779ed8911d7c360ca1d46454599541
+fullyQualifiedName: hktest.68779ed8911d7c360ca1d46454599541
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"1067c449-1123-409b-88c7-98614f62bedd\",\"type\":\"table\"\
+        ,\"name\":\"SNAPSHOT_RUN_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SNAPSHOT_RUN_RESULTS\"\
+        ,\"displayName\":\"SNAPSHOT_RUN_RESULTS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 156.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"OWNER\")) AS mean, count(\"OWNER\") AS \"valuesCount\", count(DISTINCT\
+  \ \"OWNER\") AS \"distinctCount\", MIN(LEN(\"OWNER\")) AS min, MAX(LEN(\"OWNER\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"OWNER\" IS ?) THEN ? ELSE ? END), ?) AS \"\
+  nullCount\", STDDEV_POP(LEN(\"OWNER\")) AS stddev, SUM(LEN(\"OWNER\")) AS sum \n\
+  FROM \"DBT_SAMPLE_ELEMENTARY\".\"SNAPSHOT_RUN_RESULTS\"\n LIMIT ?"
+checksum: 68779ed8911d7c360ca1d46454599541
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 1067c449-1123-409b-88c7-98614f62bedd
+    type: table
+    name: SNAPSHOT_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SNAPSHOT_RUN_RESULTS
+    displayName: SNAPSHOT_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

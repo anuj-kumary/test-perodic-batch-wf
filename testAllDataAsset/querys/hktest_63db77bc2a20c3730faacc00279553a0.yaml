@@ -1,0 +1,34 @@
+name: 63db77bc2a20c3730faacc00279553a0
+fullyQualifiedName: hktest.63db77bc2a20c3730faacc00279553a0
+owners: []
+duration: 56.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"COMPETITOR_2_REFERENCE_C\"\
+  \ AS \"COMPETITOR_2_REFERENCE_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT\
+  \ c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"COMPETITOR_2_REFERENCE_C\" AS \"COMPETITOR_2_REFERENCE_C\"\
+  \ \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"COMPETITOR_2_REFERENCE_C\") AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\
+  \ GROUP BY \"COMPETITOR_2_REFERENCE_C\" \nHAVING count(\"COMPETITOR_2_REFERENCE_C\"\
+  ) = ?) AS only_once\n LIMIT ?"
+checksum: 63db77bc2a20c3730faacc00279553a0
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

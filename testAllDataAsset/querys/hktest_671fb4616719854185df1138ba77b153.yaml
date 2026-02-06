@@ -1,0 +1,29 @@
+name: 671fb4616719854185df1138ba77b153
+fullyQualifiedName: hktest.671fb4616719854185df1138ba77b153
+owners: []
+duration: 749.0
+users: []
+query: "SELECT avg(\"C_NATIONKEY\") AS mean, count(\"C_NATIONKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"C_NATIONKEY\") AS \"distinctCount\", MIN(\"C_NATIONKEY\") AS\
+  \ min, MAX(\"C_NATIONKEY\") AS max, coalesce(SUM(CASE WHEN (\"C_NATIONKEY\" IS ?)\
+  \ THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"C_NATIONKEY\") AS stddev,\
+  \ SUM(\"C_NATIONKEY\") AS sum \nFROM \"TPCH_SF100\".\"CUSTOMER\"\n LIMIT ?"
+checksum: 671fb4616719854185df1138ba77b153
+queryDate: 1752364800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: dc092bc6-2f58-414c-a722-42aa3ec1674e
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

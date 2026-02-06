@@ -1,0 +1,32 @@
+name: 6337d16b324fd277f34a1a1ad1b8139f
+fullyQualifiedName: hktest.6337d16b324fd277f34a1a1ad1b8139f
+owners: []
+duration: 77.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_STATE\" AS \"CC_STATE\" \nFROM \"TPCDS_SF10TCL\".\"CALL_CENTER\" AS \"CALL_CENTER_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\" AS \n\
+  (SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_STATE\" AS \"CC_STATE\" \n\
+  FROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"CC_STATE\") ASC) AS median, percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"CC_STATE\") ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"CC_STATE\") ASC) AS \"thirdQuartile\" \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \n LIMIT ?"
+checksum: 6337d16b324fd277f34a1a1ad1b8139f
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ce0a6904-d515-40d5-8ca9-6848df3ef2a4
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

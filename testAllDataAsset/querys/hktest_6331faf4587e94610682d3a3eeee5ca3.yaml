@@ -1,0 +1,33 @@
+name: 6331faf4587e94610682d3a3eeee5ca3
+fullyQualifiedName: hktest.6331faf4587e94610682d3a3eeee5ca3
+owners: []
+duration: 98.0
+users: []
+query: "WITH e1e55cb3593a67b4598950cbcd482369_rnd AS \n(SELECT \"CUSTOMER_DEMOGRAPHICS_1\"\
+  .\"CD_DEP_EMPLOYED_COUNT\" AS \"CD_DEP_EMPLOYED_COUNT\" \nFROM \"TPCDS_SF100TCL\"\
+  .\"CUSTOMER_DEMOGRAPHICS\" AS \"CUSTOMER_DEMOGRAPHICS_1\" TABLESAMPLE ROW(? ROWS)),\
+  \ \ne1e55cb3593a67b4598950cbcd482369_sample AS \n(SELECT e1e55cb3593a67b4598950cbcd482369_rnd.\"\
+  CD_DEP_EMPLOYED_COUNT\" AS \"CD_DEP_EMPLOYED_COUNT\" \nFROM e1e55cb3593a67b4598950cbcd482369_rnd)\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"CD_DEP_EMPLOYED_COUNT\" ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY \"CD_DEP_EMPLOYED_COUNT\"\
+  \ ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY \"CD_DEP_EMPLOYED_COUNT\"\
+  \ ASC) AS \"thirdQuartile\" \nFROM e1e55cb3593a67b4598950cbcd482369_sample\n LIMIT\
+  \ ?"
+checksum: 6331faf4587e94610682d3a3eeee5ca3
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 57c2153e-5713-4330-9246-b4563c64f8b5
+    type: table
+    name: CUSTOMER_DEMOGRAPHICS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CUSTOMER_DEMOGRAPHICS
+    displayName: CUSTOMER_DEMOGRAPHICS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

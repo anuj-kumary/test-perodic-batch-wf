@@ -1,0 +1,36 @@
+name: 64898f6c46bc6a36330e785d9b913ee5
+fullyQualifiedName: hktest.64898f6c46bc6a36330e785d9b913ee5
+owners: []
+duration: 2453.0
+users: []
+query: "WITH \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\" AS \n(SELECT \"INVENTORY_1\"\
+  .\"INV_QUANTITY_ON_HAND\" AS \"INV_QUANTITY_ON_HAND\" \nFROM \"TPCDS_SF10TCL\".\"\
+  INVENTORY\" AS \"INVENTORY_1\" TABLESAMPLE ROW(? ROWS)), \n\"23c6d3d8dee11d726d3c9e52099b7d02_sample\"\
+  \ AS \n(SELECT \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\".\"INV_QUANTITY_ON_HAND\"\
+  \ AS \"INV_QUANTITY_ON_HAND\" \nFROM \"23c6d3d8dee11d726d3c9e52099b7d02_rnd\")\n\
+  \ SELECT count(CASE WHEN (\"INV_QUANTITY_ON_HAND\" >= ? AND \"INV_QUANTITY_ON_HAND\"\
+  \ < ?) THEN \"INV_QUANTITY_ON_HAND\" END) AS \"33.000 to 287.612\", count(CASE WHEN\
+  \ (\"INV_QUANTITY_ON_HAND\" >= ? AND \"INV_QUANTITY_ON_HAND\" < ?) THEN \"INV_QUANTITY_ON_HAND\"\
+  \ END) AS \"287.612 to 542.225\", count(CASE WHEN (\"INV_QUANTITY_ON_HAND\" >= ?\
+  \ AND \"INV_QUANTITY_ON_HAND\" < ?) THEN \"INV_QUANTITY_ON_HAND\" END) AS \"542.225\
+  \ to 796.837\", count(CASE WHEN (\"INV_QUANTITY_ON_HAND\" >= ?) THEN \"INV_QUANTITY_ON_HAND\"\
+  \ END) AS \"796.837 and up\" \nFROM \"23c6d3d8dee11d726d3c9e52099b7d02_sample\"\n\
+  \ LIMIT ?"
+checksum: 64898f6c46bc6a36330e785d9b913ee5
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ffea4f28-c8ee-464d-89d2-8e1f32caad82
+    type: table
+    name: INVENTORY
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.INVENTORY
+    displayName: INVENTORY
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

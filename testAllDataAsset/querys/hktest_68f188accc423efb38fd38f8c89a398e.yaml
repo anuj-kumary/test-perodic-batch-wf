@@ -1,0 +1,55 @@
+name: 68f188accc423efb38fd38f8c89a398e
+fullyQualifiedName: hktest.68f188accc423efb38fd38f8c89a398e
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"8ce40df4-adcb-4191-a383-87ff2c9aa5e8\",\"type\":\"table\"\
+        ,\"name\":\"DBT_SOURCE_FRESHNESS_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SOURCE_FRESHNESS_RESULTS\"\
+        ,\"displayName\":\"DBT_SOURCE_FRESHNESS_RESULTS\",\"deleted\":false}]"
+  previousVersion: 1.1
+  changeSummary: {}
+owners: []
+duration: 406.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "create or replace   view dbt_db.DBT_SAMPLE_elementary.alerts_dbt_source_freshness\n\
+  \  \n   as (\n    \n\nwith results as (\n  select * from dbt_db.DBT_SAMPLE_elementary.dbt_source_freshness_results\n\
+  ),\n\nsources as (\n  select * from dbt_db.DBT_SAMPLE_elementary.dbt_sources\n)\n\
+  \nselect\n  results.source_freshness_execution_id as alert_id,\n  results.max_loaded_at,\n\
+  \  results.snapshotted_at,\n  cast(results.generated_at as timestamp) as detected_at,\n\
+  \  results.max_loaded_at_time_ago_in_s,\n  results.status,\n  results.error,\n \
+  \ results.warn_after,\n  results.error_after,\n  results.filter,\n  sources.unique_id,\n\
+  \  sources.database_name,\n  sources.schema_name,\n  sources.source_name,\n  sources.identifier,\n\
+  \  sources.tags,\n  sources.meta,\n  sources.owner,\n  sources.package_name,\n \
+  \ sources.path,\n  -- These columns below are deprecated. We add them since this\
+  \ view\n  -- was used to be loaded into an incremental model with those columns,\
+  \ their names were later changed\n  -- and Databricks doesn't respect `on_schema_change\
+  \ = 'append_new_columns'` properly, as described here -\n  -- https://docs.databricks.com/en/delta/update-schema.html#automatic-schema-evolution-for-delta-lake-merge\n\
+  \  results.error_after as freshness_error_after,\n  results.warn_after as freshness_warn_after,\n\
+  \  results.filter as freshness_filter\nfrom results\njoin sources on results.unique_id\
+  \ = sources.unique_id\nwhere ? and lower(status) != ?\n  );"
+checksum: 68f188accc423efb38fd38f8c89a398e
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: b21cf3a8-f359-4fc0-bb37-9adc6339b7cc
+    type: table
+    name: DBT_SOURCES
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SOURCES
+    displayName: DBT_SOURCES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

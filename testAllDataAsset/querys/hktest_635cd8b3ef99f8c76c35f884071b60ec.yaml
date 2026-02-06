@@ -1,0 +1,31 @@
+name: 635cd8b3ef99f8c76c35f884071b60ec
+fullyQualifiedName: hktest.635cd8b3ef99f8c76c35f884071b60ec
+owners: []
+duration: 103.0
+users: []
+query: "WITH \"9be203cdfef8628939c9942fb61fdae3_rnd\" AS \n(SELECT \"PART_1\".\"P_CONTAINER\"\
+  \ AS \"P_CONTAINER\" \nFROM \"TPCH_SF10\".\"PART\" AS \"PART_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"9be203cdfef8628939c9942fb61fdae3_sample\" AS \n(SELECT \"9be203cdfef8628939c9942fb61fdae3_rnd\"\
+  .\"P_CONTAINER\" AS \"P_CONTAINER\" \nFROM \"9be203cdfef8628939c9942fb61fdae3_rnd\"\
+  )\n SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"P_CONTAINER\") AS\
+  \ count_1 \nFROM \"9be203cdfef8628939c9942fb61fdae3_sample\" GROUP BY \"P_CONTAINER\"\
+  \ \nHAVING count(\"P_CONTAINER\") = ?) AS only_once\n LIMIT ?"
+checksum: 635cd8b3ef99f8c76c35f884071b60ec
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: edafde3d-6c1b-476a-9f4c-7225f6146b68
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

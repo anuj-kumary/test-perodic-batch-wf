@@ -1,0 +1,44 @@
+name: 65dea58da2aebee45aaefb510addf022
+fullyQualifiedName: hktest.65dea58da2aebee45aaefb510addf022
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"47446995-13cc-44ba-aa77-73e9475e23c0\",\"type\":\"table\"\
+        ,\"name\":\"ADDRESS\",\"fullyQualifiedName\":\"hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.ADDRESS\"\
+        ,\"displayName\":\"ADDRESS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 37.0
+users: []
+query: "SELECT count(CASE WHEN (\"ADDRESSID\" >= ? AND \"ADDRESSID\" < ?) THEN \"\
+  ADDRESSID\" END) AS \"1.000 to 40.526\", count(CASE WHEN (\"ADDRESSID\" >= ? AND\
+  \ \"ADDRESSID\" < ?) THEN \"ADDRESSID\" END) AS \"40.526 to 80.053\", count(CASE\
+  \ WHEN (\"ADDRESSID\" >= ? AND \"ADDRESSID\" < ?) THEN \"ADDRESSID\" END) AS \"\
+  80.053 to 119.579\", count(CASE WHEN (\"ADDRESSID\" >= ? AND \"ADDRESSID\" < ?)\
+  \ THEN \"ADDRESSID\" END) AS \"119.579 to 159.105\", count(CASE WHEN (\"ADDRESSID\"\
+  \ >= ? AND \"ADDRESSID\" < ?) THEN \"ADDRESSID\" END) AS \"159.105 to 198.631\"\
+  , count(CASE WHEN (\"ADDRESSID\" >= ? AND \"ADDRESSID\" < ?) THEN \"ADDRESSID\"\
+  \ END) AS \"198.631 to 238.158\", count(CASE WHEN (\"ADDRESSID\" >= ?) THEN \"ADDRESSID\"\
+  \ END) AS \"238.158 and up\" \nFROM \"MSSQLBANKING_CUSTOMER\".\"ADDRESS\"\n LIMIT\
+  \ ?"
+checksum: 65dea58da2aebee45aaefb510addf022
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 47446995-13cc-44ba-aa77-73e9475e23c0
+    type: table
+    name: ADDRESS
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.ADDRESS
+    displayName: ADDRESS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

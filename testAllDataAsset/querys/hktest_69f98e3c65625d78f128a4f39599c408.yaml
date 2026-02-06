@@ -1,0 +1,28 @@
+name: 69f98e3c65625d78f128a4f39599c408
+fullyQualifiedName: hktest.69f98e3c65625d78f128a4f39599c408
+owners: []
+duration: 98.0
+users: []
+query: "SELECT avg(\"TRANSACTID\") AS mean, count(\"TRANSACTID\") AS \"valuesCount\"\
+  , count(DISTINCT \"TRANSACTID\") AS \"distinctCount\", MIN(\"TRANSACTID\") AS min,\
+  \ MAX(\"TRANSACTID\") AS max, coalesce(SUM(CASE WHEN (\"TRANSACTID\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"TRANSACTID\") AS stddev, SUM(\"\
+  TRANSACTID\") AS sum \nFROM \"MSSQLBANKING_STG\".\"TRANSACT\"\n LIMIT ?"
+checksum: 69f98e3c65625d78f128a4f39599c408
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 90f072c6-07f9-41e4-9dbf-68d6c57530fc
+    type: table
+    name: TRANSACT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.TRANSACT
+    displayName: TRANSACT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

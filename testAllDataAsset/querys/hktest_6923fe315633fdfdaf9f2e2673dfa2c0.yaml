@@ -1,0 +1,28 @@
+name: 6923fe315633fdfdaf9f2e2673dfa2c0
+fullyQualifiedName: hktest.6923fe315633fdfdaf9f2e2673dfa2c0
+owners: []
+duration: 259.0
+users: []
+query: "SELECT avg(LEN(\"STREET\")) AS mean, count(\"STREET\") AS \"valuesCount\"\
+  , count(DISTINCT \"STREET\") AS \"distinctCount\", MIN(LEN(\"STREET\")) AS min,\
+  \ MAX(LEN(\"STREET\")) AS max, coalesce(SUM(CASE WHEN (\"STREET\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"STREET\")) AS stddev, SUM(LEN(\"\
+  STREET\")) AS sum \nFROM \"MSSQLBANKING_CUSTOMER\".\"ADDRESS\"\n LIMIT ?"
+checksum: 6923fe315633fdfdaf9f2e2673dfa2c0
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 47446995-13cc-44ba-aa77-73e9475e23c0
+    type: table
+    name: ADDRESS
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.ADDRESS
+    displayName: ADDRESS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

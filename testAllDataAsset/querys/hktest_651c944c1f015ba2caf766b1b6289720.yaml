@@ -1,0 +1,33 @@
+name: 651c944c1f015ba2caf766b1b6289720
+fullyQualifiedName: hktest.651c944c1f015ba2caf766b1b6289720
+owners: []
+duration: 335.0
+users: []
+query: "WITH \"2b911c015ed17a423c74ab9987330e60_rnd\" AS \n(SELECT \"ITEM_1\".\"I_CURRENT_PRICE\"\
+  \ AS \"I_CURRENT_PRICE\" \nFROM \"TPCDS_SF10TCL\".\"ITEM\" AS \"ITEM_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"2b911c015ed17a423c74ab9987330e60_sample\" AS \n(SELECT \"2b911c015ed17a423c74ab9987330e60_rnd\"\
+  .\"I_CURRENT_PRICE\" AS \"I_CURRENT_PRICE\" \nFROM \"2b911c015ed17a423c74ab9987330e60_rnd\"\
+  )\n SELECT avg(\"I_CURRENT_PRICE\") AS mean, count(\"I_CURRENT_PRICE\") AS \"valuesCount\"\
+  , count(DISTINCT \"I_CURRENT_PRICE\") AS \"distinctCount\", MIN(\"I_CURRENT_PRICE\"\
+  ) AS min, MAX(\"I_CURRENT_PRICE\") AS max, coalesce(SUM(CASE WHEN (\"I_CURRENT_PRICE\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"I_CURRENT_PRICE\"\
+  ) AS stddev, SUM(\"I_CURRENT_PRICE\") AS sum \nFROM \"2b911c015ed17a423c74ab9987330e60_sample\"\
+  \n LIMIT ?"
+checksum: 651c944c1f015ba2caf766b1b6289720
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7fa3f404-d523-4604-a631-15abcfd7ae31
+    type: table
+    name: ITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.ITEM
+    displayName: ITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

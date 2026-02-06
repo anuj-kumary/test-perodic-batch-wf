@@ -1,0 +1,35 @@
+name: 63b6217ca4fc910f2f0e2af4f0338f43
+fullyQualifiedName: hktest.63b6217ca4fc910f2f0e2af4f0338f43
+owners: []
+duration: 85.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"LEVEL_2_CROSS_INTEREST_BACKLOG_C\"\
+  \ AS \"LEVEL_2_CROSS_INTEREST_BACKLOG_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT\
+  \ c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"LEVEL_2_CROSS_INTEREST_BACKLOG_C\" AS \"\
+  LEVEL_2_CROSS_INTEREST_BACKLOG_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"LEVEL_2_CROSS_INTEREST_BACKLOG_C\"\
+  ) AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"LEVEL_2_CROSS_INTEREST_BACKLOG_C\"\
+  \ \nHAVING count(\"LEVEL_2_CROSS_INTEREST_BACKLOG_C\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 63b6217ca4fc910f2f0e2af4f0338f43
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

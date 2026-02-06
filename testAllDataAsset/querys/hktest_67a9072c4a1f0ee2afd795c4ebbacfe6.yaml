@@ -1,0 +1,30 @@
+name: 67a9072c4a1f0ee2afd795c4ebbacfe6
+fullyQualifiedName: hktest.67a9072c4a1f0ee2afd795c4ebbacfe6
+owners: []
+duration: 88.0
+users: []
+query: "WITH \"1301ccfe5993f8410d241f4d575945c8_rnd\" AS \n(SELECT \"TIME_DIM_1\"\
+  .\"T_HOUR\" AS \"T_HOUR\" \nFROM \"TPCDS_SF10TCL\".\"TIME_DIM\" AS \"TIME_DIM_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"1301ccfe5993f8410d241f4d575945c8_sample\" AS \n\
+  (SELECT \"1301ccfe5993f8410d241f4d575945c8_rnd\".\"T_HOUR\" AS \"T_HOUR\" \nFROM\
+  \ \"1301ccfe5993f8410d241f4d575945c8_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"T_HOUR\") AS count_1 \nFROM \"1301ccfe5993f8410d241f4d575945c8_sample\"\
+  \ GROUP BY \"T_HOUR\" \nHAVING count(\"T_HOUR\") = ?) AS only_once\n LIMIT ?"
+checksum: 67a9072c4a1f0ee2afd795c4ebbacfe6
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 1b1e42e5-1548-4606-a964-064e7e20378d
+    type: table
+    name: TIME_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.TIME_DIM
+    displayName: TIME_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

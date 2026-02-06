@@ -1,0 +1,32 @@
+name: 668495f7836c8ab549870feafd58a395
+fullyQualifiedName: hktest.668495f7836c8ab549870feafd58a395
+owners: []
+duration: 548.0
+users: []
+query: "WITH \"5856cac33d051363dc9eeb2de9e675ce_rnd\" AS \n(SELECT \"WEB_RETURNS_1\"\
+  .\"WR_REVERSED_CHARGE\" AS \"WR_REVERSED_CHARGE\" \nFROM \"TPCDS_SF100TCL\".\"WEB_RETURNS\"\
+  \ AS \"WEB_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"5856cac33d051363dc9eeb2de9e675ce_sample\"\
+  \ AS \n(SELECT \"5856cac33d051363dc9eeb2de9e675ce_rnd\".\"WR_REVERSED_CHARGE\" AS\
+  \ \"WR_REVERSED_CHARGE\" \nFROM \"5856cac33d051363dc9eeb2de9e675ce_rnd\")\n SELECT\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"WR_REVERSED_CHARGE\" ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"WR_REVERSED_CHARGE\" ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY \"WR_REVERSED_CHARGE\" ASC) AS \"thirdQuartile\"\
+  \ \nFROM \"5856cac33d051363dc9eeb2de9e675ce_sample\"\n LIMIT ?"
+checksum: 668495f7836c8ab549870feafd58a395
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: c0d42425-f509-4e1e-a280-aa20852ebf64
+    type: table
+    name: WEB_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_RETURNS
+    displayName: WEB_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

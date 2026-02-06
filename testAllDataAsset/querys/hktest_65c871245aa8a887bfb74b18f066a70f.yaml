@@ -1,0 +1,31 @@
+name: 65c871245aa8a887bfb74b18f066a70f
+fullyQualifiedName: hktest.65c871245aa8a887bfb74b18f066a70f
+owners: []
+duration: 821.0
+users: []
+query: "WITH \"534e5b12fce522f81d9c91fd466b84a9_rnd\" AS \n(SELECT \"STORE_SALES_1\"\
+  .\"SS_SOLD_TIME_SK\" AS \"SS_SOLD_TIME_SK\" \nFROM \"TPCDS_SF100TCL\".\"STORE_SALES\"\
+  \ AS \"STORE_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"534e5b12fce522f81d9c91fd466b84a9_sample\"\
+  \ AS \n(SELECT \"534e5b12fce522f81d9c91fd466b84a9_rnd\".\"SS_SOLD_TIME_SK\" AS \"\
+  SS_SOLD_TIME_SK\" \nFROM \"534e5b12fce522f81d9c91fd466b84a9_rnd\")\n SELECT count(*)\
+  \ AS \"uniqueCount\" \nFROM (SELECT count(\"SS_SOLD_TIME_SK\") AS count_1 \nFROM\
+  \ \"534e5b12fce522f81d9c91fd466b84a9_sample\" GROUP BY \"SS_SOLD_TIME_SK\" \nHAVING\
+  \ count(\"SS_SOLD_TIME_SK\") = ?) AS only_once\n LIMIT ?"
+checksum: 65c871245aa8a887bfb74b18f066a70f
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8ac2014f-2667-4186-a6c8-8754e351d4ef
+    type: table
+    name: STORE_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE_SALES
+    displayName: STORE_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,32 @@
+name: 641c244afdac44571d3bd5e65a0067a3
+fullyQualifiedName: hktest.641c244afdac44571d3bd5e65a0067a3
+owners: []
+duration: 54.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"GA_DASHBOARD_CALL_COMPLETE_C\"\
+  \ AS \"GA_DASHBOARD_CALL_COMPLETE_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT\
+  \ c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"GA_DASHBOARD_CALL_COMPLETE_C\" AS \"GA_DASHBOARD_CALL_COMPLETE_C\"\
+  \ \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n SELECT ? AS anon_1, ? AS anon__1,\
+  \ ? AS anon__2 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT ?"
+checksum: 641c244afdac44571d3bd5e65a0067a3
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

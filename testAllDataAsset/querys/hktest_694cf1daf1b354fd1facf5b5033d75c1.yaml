@@ -1,0 +1,36 @@
+name: 694cf1daf1b354fd1facf5b5033d75c1
+fullyQualifiedName: hktest.694cf1daf1b354fd1facf5b5033d75c1
+owners: []
+duration: 442.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_REFUNDED_ADDR_SK\" AS \"CR_REFUNDED_ADDR_SK\" \nFROM \"TPCDS_SF100TCL\".\"\
+  CATALOG_RETURNS\" AS \"CATALOG_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_REFUNDED_ADDR_SK\"\
+  \ AS \"CR_REFUNDED_ADDR_SK\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n\
+  \ SELECT count(CASE WHEN (\"CR_REFUNDED_ADDR_SK\" >= ? AND \"CR_REFUNDED_ADDR_SK\"\
+  \ < ?) THEN \"CR_REFUNDED_ADDR_SK\" END) AS \"499.205K to 13.431M\", count(CASE\
+  \ WHEN (\"CR_REFUNDED_ADDR_SK\" >= ? AND \"CR_REFUNDED_ADDR_SK\" < ?) THEN \"CR_REFUNDED_ADDR_SK\"\
+  \ END) AS \"13.431M to 26.362M\", count(CASE WHEN (\"CR_REFUNDED_ADDR_SK\" >= ?\
+  \ AND \"CR_REFUNDED_ADDR_SK\" < ?) THEN \"CR_REFUNDED_ADDR_SK\" END) AS \"26.362M\
+  \ to 39.294M\", count(CASE WHEN (\"CR_REFUNDED_ADDR_SK\" >= ?) THEN \"CR_REFUNDED_ADDR_SK\"\
+  \ END) AS \"39.294M and up\" \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\"\n\
+  \ LIMIT ?"
+checksum: 694cf1daf1b354fd1facf5b5033d75c1
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b9619de9-ba22-4783-99e0-09f868de5c08
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

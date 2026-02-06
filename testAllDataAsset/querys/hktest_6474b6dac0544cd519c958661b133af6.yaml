@@ -1,0 +1,36 @@
+name: 6474b6dac0544cd519c958661b133af6
+fullyQualifiedName: hktest.6474b6dac0544cd519c958661b133af6
+owners: []
+duration: 124.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"COMPILE_COMPLETED_AT\")) AS mean, count(\"COMPILE_COMPLETED_AT\"\
+  ) AS \"valuesCount\", count(DISTINCT \"COMPILE_COMPLETED_AT\") AS \"distinctCount\"\
+  , MIN(LEN(\"COMPILE_COMPLETED_AT\")) AS min, MAX(LEN(\"COMPILE_COMPLETED_AT\"))\
+  \ AS max, coalesce(SUM(CASE WHEN (\"COMPILE_COMPLETED_AT\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(LEN(\"COMPILE_COMPLETED_AT\")) AS stddev, SUM(LEN(\"\
+  COMPILE_COMPLETED_AT\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"MODEL_RUN_RESULTS\"\
+  \n LIMIT ?"
+checksum: 6474b6dac0544cd519c958661b133af6
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: b47b343a-03e8-409a-9861-bffd086dce6c
+    type: table
+    name: MODEL_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.MODEL_RUN_RESULTS
+    displayName: MODEL_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

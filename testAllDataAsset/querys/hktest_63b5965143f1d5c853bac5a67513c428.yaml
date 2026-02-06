@@ -1,0 +1,29 @@
+name: 63b5965143f1d5c853bac5a67513c428
+fullyQualifiedName: hktest.63b5965143f1d5c853bac5a67513c428
+owners: []
+duration: 60.0
+users: []
+query: "WITH \"15654034cbdd968287bfce1af0796a2f_rnd\" AS \n(SELECT \"CUSTOMERCONTACTHISTORY_1\"\
+  .\"CONTACTDATE\" AS \"CONTACTDATE\" \nFROM \"MSSQLBANKING_CUSTOMER\".\"CUSTOMERCONTACTHISTORY\"\
+  \ AS \"CUSTOMERCONTACTHISTORY_1\" TABLESAMPLE ROW(? ROWS)), \n\"15654034cbdd968287bfce1af0796a2f_sample\"\
+  \ AS \n(SELECT \"15654034cbdd968287bfce1af0796a2f_rnd\".\"CONTACTDATE\" AS \"CONTACTDATE\"\
+  \ \nFROM \"15654034cbdd968287bfce1af0796a2f_rnd\")\n SELECT ? AS anon_1, ? AS anon__1,\
+  \ ? AS anon__2 \nFROM \"15654034cbdd968287bfce1af0796a2f_sample\"\n LIMIT ?"
+checksum: 63b5965143f1d5c853bac5a67513c428
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 89d6207d-337a-44ca-a3d6-ad1b8a3bfc69
+    type: table
+    name: CUSTOMERCONTACTHISTORY
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERCONTACTHISTORY
+    displayName: CUSTOMERCONTACTHISTORY
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

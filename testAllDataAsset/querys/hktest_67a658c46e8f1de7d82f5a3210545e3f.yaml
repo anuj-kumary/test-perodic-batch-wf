@@ -1,0 +1,35 @@
+name: 67a658c46e8f1de7d82f5a3210545e3f
+fullyQualifiedName: hktest.67a658c46e8f1de7d82f5a3210545e3f
+owners: []
+duration: 119.0
+users: []
+query: "WITH \"8511959cacf194b495273e731f3ed7de_rnd\" AS \n(SELECT \"WEB_PAGE_1\"\
+  .\"WP_ACCESS_DATE_SK\" AS \"WP_ACCESS_DATE_SK\" \nFROM \"TPCDS_SF10TCL\".\"WEB_PAGE\"\
+  \ AS \"WEB_PAGE_1\" TABLESAMPLE ROW(? ROWS)), \n\"8511959cacf194b495273e731f3ed7de_sample\"\
+  \ AS \n(SELECT \"8511959cacf194b495273e731f3ed7de_rnd\".\"WP_ACCESS_DATE_SK\" AS\
+  \ \"WP_ACCESS_DATE_SK\" \nFROM \"8511959cacf194b495273e731f3ed7de_rnd\")\n SELECT\
+  \ count(CASE WHEN (\"WP_ACCESS_DATE_SK\" >= ? AND \"WP_ACCESS_DATE_SK\" < ?) THEN\
+  \ \"WP_ACCESS_DATE_SK\" END) AS \"2.453M to 2.453M\", count(CASE WHEN (\"WP_ACCESS_DATE_SK\"\
+  \ >= ? AND \"WP_ACCESS_DATE_SK\" < ?) THEN \"WP_ACCESS_DATE_SK\" END) AS \"2.453M\
+  \ to 2.453M\", count(CASE WHEN (\"WP_ACCESS_DATE_SK\" >= ? AND \"WP_ACCESS_DATE_SK\"\
+  \ < ?) THEN \"WP_ACCESS_DATE_SK\" END) AS \"2.453M to 2.453M\", count(CASE WHEN\
+  \ (\"WP_ACCESS_DATE_SK\" >= ?) THEN \"WP_ACCESS_DATE_SK\" END) AS \"2.453M and up\"\
+  \ \nFROM \"8511959cacf194b495273e731f3ed7de_sample\"\n LIMIT ?"
+checksum: 67a658c46e8f1de7d82f5a3210545e3f
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 15850230-c0de-41cd-9f07-b1bdcb2d47b6
+    type: table
+    name: WEB_PAGE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_PAGE
+    displayName: WEB_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

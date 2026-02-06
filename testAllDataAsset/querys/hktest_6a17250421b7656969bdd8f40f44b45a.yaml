@@ -1,0 +1,50 @@
+name: 6a17250421b7656969bdd8f40f44b45a
+fullyQualifiedName: hktest.6a17250421b7656969bdd8f40f44b45a
+owners: []
+duration: 1358.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: |-
+  CREATE OR REPLACE VIEW VW_SF_TRANS_WAREHOUSE_LIST_UQ (
+      NAME, STATE, TYPE, SIZE, MIN_CLUSTER_COUNT, MAX_CLUSTER_COUNT,
+      STARTED_CLUSTERS, RUNNING, QUEUED, IS_DEFAULT, IS_CURRENT,
+      AUTO_SUSPEND, AUTO_RESUME, AVAILABLE, PROVISIONING, QUIESCING, OTHER,
+      CREATED_ON, RESUMED_ON, UPDATED_ON, OWNER, COMMENT,
+      ENABLE_QUERY_ACCELERATION, QUERY_ACCELERATION_MAX_SCALE_FACTOR,
+      RESOURCE_MONITOR, ACTIVES, PENDINGS, FAILED, SUSPENDED,
+      UUID, SCALING_POLICY, BUDGET, OWNER_ROLE_TYPE, RESOURCE_CONSTRAINT, LAST_UPDT_DTTM
+  ) COMMENT = ?
+  AS
+  SELECT
+      name, state, type, size, min_cluster_count, max_cluster_count,
+      started_clusters, running, queued, is_default, is_current,
+      auto_suspend, auto_resume, available, provisioning, quiescing, other,
+      created_on, resumed_on, updated_on, owner, comment,
+      enable_query_acceleration, query_acceleration_max_scale_factor,
+      resource_monitor, actives, pendings, failed, suspended,
+      uuid, scaling_policy, ? AS budget,
+      owner_role_type, resource_constraint, last_updt_dttm
+  FROM MT_DB.SERVICENOW_TEST.TRANS_WAREHOUSE_LIST;
+checksum: 6a17250421b7656969bdd8f40f44b45a
+queryDate: 1747267200000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: a7e7d580-5b70-4785-9c4f-4537a02658c1
+    type: table
+    name: TRANS_WAREHOUSE_LIST
+    fullyQualifiedName: hktest.MT_DB.SERVICENOW_TEST.TRANS_WAREHOUSE_LIST
+    displayName: TRANS_WAREHOUSE_LIST
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

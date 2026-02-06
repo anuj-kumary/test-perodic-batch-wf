@@ -1,0 +1,38 @@
+name: 69f52b00805984b825130d63528b0e57
+fullyQualifiedName: hktest.69f52b00805984b825130d63528b0e57
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"d1421023-d4ef-4bea-ad0f-0b3f8a230893\",\"type\":\"table\"\
+        ,\"name\":\"PERSONS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.PERSONS\"\
+        ,\"displayName\":\"PERSONS\",\"deleted\":false}]"
+  previousVersion: 1.5
+  changeSummary: {}
+owners: []
+duration: 193.0
+users: []
+query: "SELECT avg(\"PERSON_ID\") AS mean, count(\"PERSON_ID\") AS \"valuesCount\"\
+  , count(DISTINCT \"PERSON_ID\") AS \"distinctCount\", MIN(\"PERSON_ID\") AS min,\
+  \ MAX(\"PERSON_ID\") AS max, coalesce(SUM(CASE WHEN (\"PERSON_ID\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"PERSON_ID\") AS stddev, SUM(\"\
+  PERSON_ID\") AS sum \nFROM \"E2E_TEST\".\"PERSONS\"\n LIMIT ?"
+checksum: 69f52b00805984b825130d63528b0e57
+queryDate: 1752537600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d1421023-d4ef-4bea-ad0f-0b3f8a230893
+    type: table
+    name: PERSONS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.PERSONS
+    displayName: PERSONS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

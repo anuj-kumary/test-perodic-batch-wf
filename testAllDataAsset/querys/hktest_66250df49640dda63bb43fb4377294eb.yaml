@@ -1,0 +1,26 @@
+name: 66250df49640dda63bb43fb4377294eb
+fullyQualifiedName: hktest.66250df49640dda63bb43fb4377294eb
+owners: []
+duration: 95.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"TRANSACTTYPE\")\
+  \ AS count_1 \nFROM \"MSSQLBANKING_STG\".\"TRANSACT\" GROUP BY \"TRANSACTTYPE\"\
+  \ \nHAVING count(\"TRANSACTTYPE\") = ?) AS only_once\n LIMIT ?"
+checksum: 66250df49640dda63bb43fb4377294eb
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 90f072c6-07f9-41e4-9dbf-68d6c57530fc
+    type: table
+    name: TRANSACT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.TRANSACT
+    displayName: TRANSACT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

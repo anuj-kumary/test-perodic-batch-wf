@@ -1,0 +1,32 @@
+name: 65bb45c1644ef257411ebd49f7f9df86
+fullyQualifiedName: hktest.65bb45c1644ef257411ebd49f7f9df86
+owners: []
+duration: 159.0
+users: []
+query: "WITH adfef0ee9e70ee3dd0bfe4071ec08e08_rnd AS \n(SELECT \"CUSTOMER_ADDRESS_1\"\
+  .\"CA_SUITE_NUMBER\" AS \"CA_SUITE_NUMBER\" \nFROM \"TPCDS_SF10TCL\".\"CUSTOMER_ADDRESS\"\
+  \ AS \"CUSTOMER_ADDRESS_1\" TABLESAMPLE ROW(? ROWS)), \nadfef0ee9e70ee3dd0bfe4071ec08e08_sample\
+  \ AS \n(SELECT adfef0ee9e70ee3dd0bfe4071ec08e08_rnd.\"CA_SUITE_NUMBER\" AS \"CA_SUITE_NUMBER\"\
+  \ \nFROM adfef0ee9e70ee3dd0bfe4071ec08e08_rnd)\n SELECT percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"CA_SUITE_NUMBER\") ASC) AS median, percentile_cont(?) WITHIN\
+  \ GROUP (ORDER BY LEN(\"CA_SUITE_NUMBER\") ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"CA_SUITE_NUMBER\") ASC) AS \"thirdQuartile\" \nFROM\
+  \ adfef0ee9e70ee3dd0bfe4071ec08e08_sample\n LIMIT ?"
+checksum: 65bb45c1644ef257411ebd49f7f9df86
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d74af634-8230-43b9-938f-a6ec3f6f3df5
+    type: table
+    name: CUSTOMER_ADDRESS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CUSTOMER_ADDRESS
+    displayName: CUSTOMER_ADDRESS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
