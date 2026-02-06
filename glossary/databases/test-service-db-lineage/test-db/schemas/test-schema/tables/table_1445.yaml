@@ -1,0 +1,114 @@
+name: table_1445
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1445
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1445.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_MARKETING_INTERACTIONS(\n\t\"InteractionNumber\"\
+  ,\n\t\"InteractionDate\",\n\t\"InteractionQuarter\",\n\t\"LeadNumber\",\n\t\"LeadName\"\
+  ,\n\t\"JobRole\",\n\t\"JobLevel\",\n\t\"Campaign\",\n\t\"LeadStatus\",\n\t\"AccountNumber\"\
+  ,\n\t\"AccountSysID\",\n\t\"AccountKey\",\n\t\"AccountName\",\n\t\"AccountType\"\
+  ,\n\t\"AccountGeo\",\n\t\"AccountSegment\",\n\tBU,\n\t\"LeadActive\",\n\t\"CampaignActive\"\
+  ,\n\t\"MQLFlag\",\n\t\"SALFlag\",\n\t\"JobLevelOrder\",\n\t\"XCord\",\n\t\"YCord\"\
+  ,\n\t\"Prev4Quarter\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"InteractionNumber\"\
+  \ as \"InteractionNumber\",\n       \"InteractionDate\" as \"InteractionDate\",\n\
+  \       \"InteractionQuarter\" as \"InteractionQuarter\",\n       \"LeadNumber\"\
+  \ as \"LeadNumber\",\n       \"LeadName\" as \"LeadName\",\n       \"JobRole\" as\
+  \ \"JobRole\",\n       \"JobLevel\" as \"JobLevel\",\n       \"Campaign\" as \"\
+  Campaign\",\n       \"LeadStatus\" as \"LeadStatus\",\n       \"AccountNumber\"\
+  \ as \"AccountNumber\",\n       \"AccountSysID\" as \"AccountSysID\",\n       \"\
+  AccountKey\" as \"AccountKey\",\n       \"AccountName\" as \"AccountName\",\n  \
+  \     \"AccountType\" as \"AccountType\",\n       \"AccountGeo\" as \"AccountGeo\"\
+  ,\n       \"AccountSegment\" as \"AccountSegment\",\n       \"BU\" as \"BU\",\n\
+  \       \"LeadActive\" as \"LeadActive\",\n       \"CampaignActive\" as \"CampaignActive\"\
+  ,\n       \"MQLFlag\" as \"MQLFlag\",\n       \"SALFlag\" as \"SALFlag\",\n    \
+  \   CASE\n           WHEN \"Job_Level\" IS NULL then 'random'\n           else IFF(\"\
+  JobLevel\"='random', 'random', IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"\
+  ='random', 'random', IFF(\"JobLevel\"='random', 'random', 'random'))))\n       END\
+  \ as \"JobLevelOrder\",\n       CASE\n           WHEN \"Job_Level\" IS NULL then\
+  \ 'random'\n           else IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"\
+  ='random', 'random', IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"='random',\
+  \ 'random', 'random'))))\n       END as \"XCord\",\n       CASE\n           WHEN\
+  \ \"Job_Level\" IS NULL then 'random'\n           else IFF(\"JobLevel\"='random',\
+  \ 'random', IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"='random', 'random',\
+  \ IFF(\"JobLevel\"='random', 'random', 'random'))))\n       END as \"YCord\",\n\
+  \       IFF((RIGHT(YEAR(DATEADD(DAY, 'random', to_date(current_date))) ||'random'||\
+  \ QUARTER(DATEADD(DAY, 'random', to_date(current_date))), 'random') <\"InteractionQuarter\"\
+  \n            AND \"InteractionQuarter\"<= RIGHT(YEAR(CURRENT_TIMESTAMP)||'random'||QUARTER(CURRENT_TIMESTAMP),\
+  \ 'random')), 'random', 'random') as \"Prev4Quarter\"\nFROM\n  (SELECT distinct\
+  \ \"TotalInteractionNumber\" as \"InteractionNumber\",\n                   \"CampaignAssociationDate\"\
+  \ as \"InteractionDate\",\n                   \"Quarter\" as \"InteractionQuarter\"\
+  ,\n                   \"LeadNumberTI\" as \"LeadNumber\",\n                   \"\
+  Lead Name\" as \"LeadName\",\n                   \"Job Role\" as \"JobRole\",\n\
+  \                   \"Job Level\" as \"Job_Level\",\n                   \"Campaign\"\
+  \ as \"Campaign\",\n                   \"LeadStatus\" as \"LeadStatus\",\n     \
+  \              \"LeadActive\" as \"LeadActive\",\n                   \"AccountNumber\"\
+  \ as \"AccountNumber\",\n                   \"AccountSysId\" as \"AccountSysID\"\
+  ,\n                   \"AccountName\" as \"AccountName\",\n                   \"\
+  AccountType\" as \"AccountType\",\n                   \"Geo\" as \"AccountGeo\"\
+  ,\n                   \"AccountSegment\" as \"AccountSegment\",\n              \
+  \     \"BU\" as \"BU\",\n                   \"ChActive\" as \"CampaignActive\",\n\
+  \                   \"MQL Flag\" as \"MQLFlag\",\n                   \"SAL Flag\"\
+  \ as \"SALFlag\",\n                   CONCAT(\"AccountSysID\", \"AccountNumber\"\
+  ) as \"AccountKey\",\n                   CASE\n                       WHEN \"Job_Level\"\
+  \ IS NULL then 'random'\n                       else IFF((\"Job_Level\"='random'\n\
+  \                                 or \"Job_Level\"='random') , 'random', IFF((\"\
+  Job_Level\"='random'\n                                                         \
+  \                    or \"Job_Level\"='random'\n                               \
+  \                                              or \"Job_Level\"='random') ,'random',\
+  \ IFF((\"Job_Level\"='random'\n                                                \
+  \                                                                              or\
+  \ \"Job_Level\"='random'\n                                                     \
+  \                                                                         or \"\
+  Job_Level\"='random'\n                                                         \
+  \                                                                     or \"Job_Level\"\
+  ='random') ,'random', IFF((\"Job_Level\"='random'\n                            \
+  \                                                                              \
+  \                                                                           or \"\
+  Job_Level\"='random'\n                                                         \
+  \                                                                              \
+  \                                              or \"Job_Level\"='random'\n     \
+  \                                                                              \
+  \                                                                              \
+  \                    or \"Job_Level\"='random') ,'random', 'random'))))\n      \
+  \             END as \"JobLevel\"\n   FROM EDW_LS.MARKETING_EM.EM_MKT_TOTAL_INTERACTION_RT\n\
+  \   WHERE \"LeadActive\" = 'random'\n     AND \"MQLFlag\" = 'random' )Projection_2;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

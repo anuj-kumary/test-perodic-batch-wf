@@ -1,0 +1,122 @@
+name: table_1439
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1439
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1439.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_MARKETING_MEETINGS(\n\t\"JobLevelOrder\"\
+  ,\n\t\"XCord\",\n\t\"YCord\",\n\t\"ActivityNumber\",\n\t\"MeetingType\",\n\t\"MeetingStatus\"\
+  ,\n\t\"MeetingState\",\n\t\"LeadName\",\n\t\"MeetingLeadNumber\",\n\t\"JobRole\"\
+  ,\n\t\"JobLevel\",\n\t\"ActivityDueDate\",\n\t\"ActivityQuarter\",\n\t\"AccountNumber\"\
+  ,\n\t\"AccountName\",\n\t\"ActivityAccountSysID\",\n\t\"AccountKey\",\n\t\"AccountType\"\
+  ,\n\t\"AccountSegment\",\n\t\"Geo\",\n\t\"Area\",\n\t\"AccountTypeSURF\",\n\tBU,\n\
+  \t\"ActivityAssignedTo\",\n\t\"ActivityAssignedToDepartment\",\n\t\"ActivityAssignedToManager\"\
+  ,\n\t\"UpcomingMeetingFlag\",\n\t\"ActivityYear\",\n\t\"ActivityQuarterText\"\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT CASE\n           WHEN \"JobLevel\" IS NULL\
+  \ then 'random'\n           else IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"\
+  ='random', 'random', IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"='random',\
+  \ 'random', 'random'))))\n       END as \"JobLevelOrder\",\n       CASE\n      \
+  \     WHEN \"JobLevel\" IS NULL then 'random'\n           else IFF(\"JobLevel\"\
+  ='random', 'random', IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"='random',\
+  \ 'random', IFF(\"JobLevel\"='random', 'random', 'random'))))\n       END as \"\
+  XCord\",\n       CASE\n           WHEN \"JobLevel\" IS NULL then 'random'\n    \
+  \       else IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"='random', 'random',\
+  \ IFF(\"JobLevel\"='random', 'random', IFF(\"JobLevel\"='random', 'random', 'random'))))\n\
+  \       END as \"YCord\",\n       \"ActivityNumber\" as \"ActivityNumber\",\n  \
+  \     \"MeetingType\" as \"MeetingType\",\n       \"MeetingStatus\" as \"MeetingStatus\"\
+  ,\n       \"MeetingState\" as \"MeetingState\",\n       \"Lead_Name\" as \"LeadName\"\
+  ,\n       \"MeetingLeadNumber\" as \"MeetingLeadNumber\",\n       \"JobRole\" as\
+  \ \"JobRole\",\n       \"JobLevel\" as \"JobLevel\",\n       \"ActivityDueDate\"\
+  \ as \"ActivityDueDate\",\n       \"ActivityQuarter\" as \"ActivityQuarter\",\n\
+  \       \"AccountNumber\" as \"AccountNumber\",\n       \"AccountName\" as \"AccountName\"\
+  ,\n       \"ActivityAccountSysID\" as \"ActivityAccountSysID\",\n       \"AccountKey\"\
+  \ as \"AccountKey\",\n       \"AccountType\" as \"AccountType\",\n       \"AccountSegment\"\
+  \ as \"AccountSegment\",\n       \"Geo\" as \"Geo\",\n       \"Area\" as \"Area\"\
+  ,\n       \"AccountTypeSURF\" as \"AccountTypeSURF\",\n       \"BU\" as \"BU\",\n\
+  \       \"ActivityAssignedTo\" as \"ActivityAssignedTo\",\n       \"ActivityAssignedToDepartment\"\
+  \ as \"ActivityAssignedToDepartment\",\n       \"ActivityAssignedToManager\" as\
+  \ \"ActivityAssignedToManager\",\n       \"UpcomingMeetingFlag\" as \"UpcomingMeetingFlag\"\
+  ,\n       \"ActivityYear\" as \"ActivityYear\",\n       \"ActivityQuarterText\"\
+  \ as \"ActivityQuarterText\"\nFROM\n  (SELECT \"ActivityNumber\" as \"ActivityNumber\"\
+  ,\n          \"MeetingType\" as \"MeetingType\",\n          \"Meetingstatus\" as\
+  \ \"MeetingStatus\",\n          \"MeetingState\" as \"MeetingState\",\n        \
+  \  \"Lead Name\" as \"Lead_Name\",\n          \"MeetingLeadNumber\" as \"MeetingLeadNumber\"\
+  ,\n          \"Job Role\" as \"JobRole\",\n          \"Job Level\" as \"Job_Level\"\
+  ,\n          \"ActivityDueDate\" as \"ActivityDueDate\",\n          \"Quarter\"\
+  \ as \"ActivityQuarter\",\n          \"AccountNumber\" as \"AccountNumber\",\n \
+  \         \"AccountName\" as \"AccountName\",\n          \"ActivityAccountSysID\"\
+  \ as \"ActivityAccountSysID\",\n          \"AccountType\" as \"AccountType\",\n\
+  \          \"AccountSegment\" as \"AccountSegment\",\n          \"Geo\" as \"Geo\"\
+  ,\n          \"Area\" as \"Area\",\n          \"CUSTOMERTYPE\" as \"CUSTOMERTYPE\"\
+  ,\n          \"AccountTypeSURF\" as \"AccountTypeSURF\",\n          \"BU\" as \"\
+  BU\",\n          \"ActivityAssignedTo\" as \"ActivityAssignedTo\",\n          \"\
+  ActivityAssignedToDepartment\" as \"ActivityAssignedToDepartment\",\n          \"\
+  ActivityAssignedToManager\" as \"ActivityAssignedToManager\",\n          CASE\n\
+  \              WHEN \"MeetingState\" IS NULL then 'random'\n              else IFF(\"\
+  MeetingState\" = 'random'\n                       and not (regexp_like(\"MeetingStatus\"\
+  , 'random')\n                                or regexp_like(\"MeetingStatus\", 'random')\n\
+  \                                or regexp_like(\"MeetingStatus\", 'random')) ,'random',\
+  \ 'random')\n          END as \"UpcomingMeetingFlag\",\n          CONCAT(\"ActivityAccountSysID\"\
+  , \"AccountNumber\") as \"AccountKey\",\n          CASE\n              WHEN \"Job_Level\"\
+  \ IS NULL then 'random'\n              else IFF((\"Job_Level\"='random'\n      \
+  \                  or \"Job_Level\"='random') , 'random', IFF((\"Job_Level\"='random'\n\
+  \                                                                    or \"Job_Level\"\
+  ='random'\n                                                                    or\
+  \ \"Job_Level\"='random') ,'random', IFF((\"Job_Level\"='random'\n             \
+  \                                                                              \
+  \                          or \"Job_Level\"='random'\n                         \
+  \                                                                              \
+  \              or \"Job_Level\"='random'\n                                     \
+  \                                                                              \
+  \  or \"Job_Level\"='random') ,'random', IFF((\"Job_Level\"='random'\n         \
+  \                                                                              \
+  \                                                                              \
+  \       or \"Job_Level\"='random'\n                                            \
+  \                                                                              \
+  \                                                  or \"Job_Level\"='random'\n \
+  \                                                                              \
+  \                                                                              \
+  \               or \"Job_Level\"='random') ,'random', 'random'))))\n          END\
+  \ as \"JobLevel\",\n          Year(\"ActivityDueDate\") as \"ActivityYear\",\n \
+  \         RIGHT(\"ActivityQuarter\", 'random') as \"ActivityQuarterText\"\n   FROM\
+  \ \"EDW_LS\".\"MARKETING_EM\".\"EM_MKT_MEETINGS_RT\"\n   WHERE \"MeetingType\" =\
+  \ 'random'\n     AND \"ActivityAccountSysID\" IS not NULL )Projection_2;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

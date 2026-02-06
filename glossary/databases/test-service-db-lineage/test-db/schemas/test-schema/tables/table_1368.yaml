@@ -1,0 +1,83 @@
+name: table_1368
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1368
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1368.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PIPELINE_CONVERSION_RT_BKP01032024(\n\
+  \tBU_ID,\n\tQUARTER_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tQUARTER_YYQQ,\n\tFINAL_PREDICTED_NNACV,\n\
+  \tFINAL_PREDICTED_NNACV_LAST_WEEK,\n\tDAYS_7_ML_VALUE,\n\tDAYS_365_ML_VALUE,\n\t\
+  DAYS_372_ML_VALUE,\n\tHISTORICAL_ABILITY_AVG,\n\tHISTORICAL_AVG_TOTAL_COVERAGE,\n\
+  \tHISTORICAL_OPEN_PIPELINE,\n\tQUOTA_PULL,\n\tSTD_DEV_OPEN_PIPELINE_WEIGHT,\n\t\
+  PREDICTED_CLOSED,\n\tAVG_OPEN_PIPELINE_WEIGHT,\n\tABILITY_TO_CLOSE,\n\tTERRITORY_SYSID\n\
+  ) as SELECT\n     CASE WHEN PD.\"PLSBUGroup\"='random' THEN  HASH('random')\n\t\
+  \      WHEN PD.\"PLSBUGroup\"='random' THEN HASH('random')\n\t\t  WHEN PD.\"PLSBUGroup\"\
+  ='random' THEN HASH('random')\n\t ELSE HASH(PD.\"PLSBUGroup\") END AS BU_ID\n\t\
+  ,QTR.QUARTER_ID AS QUARTER_ID\n\t,TERR.TERRITORY_ID AS TERRITORY_ID\n\t,HASH(PD.\"\
+  TerrGeo\") AS GEO_ID\n\t,QTR.QUARTER_YYQQ AS QUARTER_YYQQ\n\t,'random' AS FINAL_PREDICTED_NNACV\n\
+  \t,'random' AS FINAL_PREDICTED_NNACV_LAST_WEEK\n\t,PD.\"Last7DayMLValue\" AS DAYS_7_ML_VALUE\n\
+  \t,'random' AS DAYS_365_ML_VALUE\n\t,'random' AS DAYS_372_ML_VALUE\n\t,PD.\"HistoricalAbility_Average\"\
+  \ AS HISTORICAL_ABILITY_AVG\n\t,PD.\"HistAvgTotalCoverage\" AS HISTORICAL_AVG_TOTAL_COVERAGE\n\
+  \t,PD.\"HistOpenPipeline\" AS HISTORICAL_OPEN_PIPELINE\n\t,PD.\"Quota Pull\" AS\
+  \ QUOTA_PULL\n\t,PD.\"StdDevOpenPipelineWeight\" AS STD_DEV_OPEN_PIPELINE_WEIGHT\n\
+  \t,'random' AS PREDICTED_CLOSED\n\t,PD.\"AverageOpenPipelineWeight\" AS AVG_OPEN_PIPELINE_WEIGHT\n\
+  \t,PD.\"Abilitytoclose\" AS ABILITY_TO_CLOSE\n\t,PD.\"TerritorySysID\" AS TERRITORY_SYSID\n\
+  FROM EDW_LS.SALES_EM.PREDICTION_DRILLDOWN PD\nINNER JOIN (SELECT DISTINCT QUARTER_ID,\
+  \ QUARTER_DT, QUARTER_YYQQ FROM EDW.ENTERPRISE.DIM_QUARTER) QTR on PD.\"SalesQuarter\"\
+  \ = QTR.QUARTER_YYQQ\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY TERR ON PD.\"\
+  TerritorySysID\" = TERR.TERRITORY_SYSID\nUNION ALL\nSELECT\n\t CASE WHEN PPC.\"\
+  PLSBUGroup\"='random' THEN  HASH('random')\n\t      WHEN PPC.\"PLSBUGroup\"='random'\
+  \ THEN HASH('random')\n\t\t  WHEN PPC.\"PLSBUGroup\"='random' THEN HASH('random')\n\
+  \t ELSE HASH(PPC.\"PLSBUGroup\") END AS BU_ID\n\t,QTR.QUARTER_ID AS QUARTER_ID\n\
+  \t,TERR.TERRITORY_ID AS TERRITORY_ID\n\t,HASH(PPC.\"Geo\") AS GEO_ID\n\t,QTR.QUARTER_YYQQ\
+  \ AS QUARTER_YYQQ\n\t,PPC.\"FinalPredictedNNACV\" AS FINAL_PREDICTED_NNACV\n\t,PPC.\"\
+  FinalPredictedNNACV_Last_Week\" AS FINAL_PREDICTED_NNACV_LAST_WEEK\n\t,'random'\
+  \ AS DAYS_7_ML_VALUE\n\t,PPC.\"FinalPredictedNNACV_STLY\" AS DAYS_365_ML_VALUE\n\
+  \t,PPC.\"FinalPredictedNNACV_STLYLW\" AS DAYS_372_ML_VALUE\n\t,'random' AS HISTORICAL_ABILITY_AVG\n\
+  \t,'random' AS HISTORICAL_AVG_TOTAL_COVERAGE\n\t,'random' AS HISTORICAL_OPEN_PIPELINE\n\
+  \t,'random' AS QUOTA_PULL\n\t,'random' AS STD_DEV_OPEN_PIPELINE_WEIGHT\n\t,PPC.\"\
+  FinalPredictedNNACV\" AS PREDICTED_CLOSED\n\t,'random' AS AVG_OPEN_PIPELINE_WEIGHT\n\
+  \t,'random' AS ABILITY_TO_CLOSE\n\t,PPC.\"TerritorySysID\" AS TERRITORY_SYSID\n\
+  FROM EDW_LS.SALES_EM.EM_SALES_PLS_PIPELINE_CONVERSION_RT PPC\nLEFT OUTER JOIN (SELECT\
+  \ DISTINCT QUARTER_ID, QUARTER_DT, QUARTER_YYQQ FROM EDW.ENTERPRISE.DIM_QUARTER)\
+  \ QTR on PPC.\"Quarter\" = QTR.QUARTER_YYQQ\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY\
+  \ TERR ON PPC.\"TerritorySysID\" = TERR.TERRITORY_SYSID;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

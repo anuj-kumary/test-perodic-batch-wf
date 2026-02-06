@@ -1,0 +1,86 @@
+name: table_1382
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1382
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1382.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_MRKT_SALES_LEAD_MONTHLY(\n\t\"SalesLeadMSysID\"\
+  ,\n\t\"SalesLeadMGeoRegion\",\n\t\"SalesLeadMJobRole\",\n\t\"SalesLeadMGeoRegion_1\"\
+  ,\n\t\"SalesLeadMJobRole_1\",\n\t\"SalesLeadMSysID_1\",\n\t\"SalesLeadMGeoRegion_2\"\
+  ,\n\t\"SalesLeadMJobRole_2\",\n\t\"SalesLeadMjobLevel\",\n\t\"SalesLeadMNumber\"\
+  ,\n\t\"SalesLEadMLeadStatus\",\n\t\"LeadName\",\n\t\"SalesLeadMAccountSysID\",\n\
+  \t\"SalesLeadMExtractDate\",\n\t\"SalesLeadMDVAssignTo\",\n\t\"SalesLeadMCountry\"\
+  ,\n\t\"SalesLeadMState\",\n\t\"SalesLeadMSysCreatedOn\",\n\t\"SalesLeadMSourceMostRecentBU\"\
+  ,\n\t\"SalesLeadMLeadScore\",\n\t\"SalesLeadMContact\",\n\t\"SalesLeadMBusinessUnit\"\
+  ,\n\t\"SalesLeadMJobRoleFunction\",\n\t\"SalesLeadMDVJobRoleFunction\",\n\t\"SalesLeadMJobFunction\"\
+  \n) as\nSELECT \"SalesLeadMSysID\" as \"SalesLeadMSysID\",\n       \"SalesLeadMGeoRegion\"\
+  \ as \"SalesLeadMGeoRegion\",\n       \"SalesLeadMJobRole\" as \"SalesLeadMJobRole\"\
+  ,\n       \"SalesLeadMGeoRegion\" as \"SalesLeadMGeoRegion_1\",\n       \"SalesLeadMJobRole\"\
+  \ as \"SalesLeadMJobRole_1\",\n       \"SalesLeadMSysID\" as \"SalesLeadMSysID_1\"\
+  ,\n       \"SalesLeadMGeoRegion\" as \"SalesLeadMGeoRegion_2\",\n       \"SalesLeadMJobRole\"\
+  \ as \"SalesLeadMJobRole_2\",\n       \"SalesLeadMjobLevel\" as \"SalesLeadMjobLevel\"\
+  ,\n       \"SalesLeadMNumber\" as \"SalesLeadMNumber\",\n       \"SalesLEadMLeadStatus\"\
+  \ as \"SalesLEadMLeadStatus\",\n       \"LeadName\" as \"LeadName\",\n       \"\
+  SalesLeadMAccountSysID\" as \"SalesLeadMAccountSysID\",\n       \"SalesLeadMExtractDate\"\
+  \ as \"SalesLeadMExtractDate\",\n       \"SalesLeadMDVAssignTo\" as \"SalesLeadMDVAssignTo\"\
+  ,\n       \"SalesLeadMCountry\" as \"SalesLeadMCountry\",\n       \"DV_STATE\" as\
+  \ \"SalesLeadMState\",\n       \"SYS_CREATED_ON\" as \"SalesLeadMSysCreatedOn\"\
+  ,\n       \"U_LEAD_SOURCE_MOST_RECENT_BU\" as \"SalesLeadMSourceMostRecentBU\",\n\
+  \       \"U_LEAD_SCORE\" as \"SalesLeadMLeadScore\",\n       \"CONTACT\" as \"SalesLeadMContact\"\
+  ,\n       \"DV_U_BUSINESS_UNIT\" as \"SalesLeadMBusinessUnit\",\n       \"SalesLeadMJobRoleFunction\"\
+  \ as \"SalesLeadMJobRoleFunction\",\n       \"SalesLeadMDVJobRoleFunction\" as \"\
+  SalesLeadMDVJobRoleFunction\",\n       \"U_JOB_FUNCTION\" as \"SalesLeadMJobFunction\"\
+  \nFROM\n  (SELECT \"SYS_ID\" as \"SalesLeadMSysID\",\n          \"DV_U_GEO_REGION\"\
+  \ as \"SalesLeadMGeoRegion\",\n          \"DV_U_JOB_ROLE\" as \"SalesLeadMJobRole\"\
+  ,\n          \"DV_U_JOB_LEVEL\" as \"SalesLeadMjobLevel\",\n          \"NUMBER\"\
+  \ as \"SalesLeadMNumber\",\n          \"DV_LEAD_STATUS\" as \"SalesLEadMLeadStatus\"\
+  ,\n          \"NAME\" as \"LeadName\",\n          \"ACCOUNT\" as \"SalesLeadMAccountSysID\"\
+  ,\n          \"EXTRACT_DATE\" as \"SalesLeadMExtractDate\",\n          \"DV_ASSIGNED_TO\"\
+  \ as \"SalesLeadMDVAssignTo\",\n          \"COUNTRY\" as \"SalesLeadMCountry\",\n\
+  \          \"DV_STATE\" as \"DV_STATE\",\n          \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n          \"U_LEAD_SOURCE_MOST_RECENT_BU\" as \"U_LEAD_SOURCE_MOST_RECENT_BU\"\
+  ,\n          \"U_LEAD_SCORE\" as \"U_LEAD_SCORE\",\n          \"CONTACT\" as \"\
+  CONTACT\",\n          \"DV_U_BUSINESS_UNIT\" as \"DV_U_BUSINESS_UNIT\",\n      \
+  \    \"U_JOB_FUNCTION\" as \"U_JOB_FUNCTION\",\n          \"U_JOB_ROLE_FUNCTION\"\
+  \ as \"SalesLeadMJobRoleFunction\",\n          \"DV_U_JOB_ROLE_FUNCTION\" as \"\
+  SalesLeadMDVJobRoleFunction\"\n   FROM \"RDS\".\"SURF\".\"ST_MRKT_SALES_LEAD_MONTHLY\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

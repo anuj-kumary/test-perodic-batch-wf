@@ -1,0 +1,384 @@
+name: table_1405
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1405
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1405.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_PRODUCT_CUSTOMER_SUMMARY(\n\tACCOUNT_NUMBER,\n\
+  \tACCOUNT_NAME,\n\tACCOUNT_KEY,\n\tACCOUNT_SYSID,\n\tACCOUNT_MDM_ID,\n\tREPORTING_TERRITORY_GEO,\n\
+  \tTERRITORY_GEO,\n\tTERRITORY_MAJOR_AREA,\n\tTERRITORY_AREA,\n\tTERRITORY_REGION,\n\
+  \tTERRITORY_DISTRICT,\n\tTERRITORY,\n\tTERRITORY_SYS_ID,\n\tACCOUNT_SEGEMENT,\n\t\
+  INDUSTRY_CATEGORY,\n\tINDUSTRY_SEGMENT,\n\tCUSTOMER_SUCCESS_EXEC,\n\tEXECUTIVE_SPONSER,\n\
+  \tDEAL_CHAMPION,\n\tACCOUNT_SERVICE_PROVIDER,\n\tBU_WORKFLOW,\n\tBU_COMBINED,\n\t\
+  BU_MODIFIED,\n\tPRODUCT_FAMILY3,\n\tRISK_LEVEL,\n\tRISK_REASON_CODE,\n\tMATURITY_LEVEL,\n\
+  \tPROGRAM_NAME,\n\tNEXT_RENEWAL_DATE,\n\tSALES_QUARTER,\n\tCURRENT_QUARTER,\n\t\
+  FIRST_LICENSED,\n\tPROD_VERSION,\n\tTARGET_PRED,\n\tTARGET_PRED_PROB,\n\tINSIGHT_SUMMARY,\n\
+  \tPRODUCT_CODES_BUS,\n\tPRODUCT_FULL_NAME_BU,\n\tPRODUCT_FULL_NAME_OTHERBUS,\n\t\
+  PIPELINE_NNACV,\n\tRENEWAL_ACV,\n\tCACV,\n\tPIPELINE_NNACV_FX,\n\tRENEWAL_ACV_FX,\n\
+  \tCACV_FX,\n\tOVER_USD,\n\tUNDER_USD,\n\tTAM,\n\tPIPELINE_NNACV_GROUP,\n\tRENEWAL_ACV_GROUP,\n\
+  \tCACV_GROUP,\n\tIN_USE_APPS,\n\tENTITLED_APPS_NM,\n\tENTITLED_APPS,\n\tEXISTING_CUSTOMER,\n\
+  \tCUSTOMER_WITH_PRO_SKU,\n\tVERSION_FLAG,\n\tPLATFORM_FLAG,\n\tBSU_ONLY_FLAG,\n\t\
+  USER_BIN,\n\tUSER_ID,\n\tMETRIC\n) as\n\n\n\n\tSELECT\n    sa.account_number,\n\
+  \    sa.account_name,\n    sa.account_mdm_id||sa.account_number account_key,\n \
+  \   sa.account_sysid,\n    sa.account_mdm_id,\n    sa.account_geo reporting_territory_geo,\n\
+  \    base.'random' territory_geo,\n    sa.account_major_area territory_major_area,\n\
+  \tsa.account_area territory_area,\n\tsa.account_region territory_region,\n\tsa.account_district\
+  \ territory_district,\n\tsa.account_report_territory territory,\n\tsa.account_territory_sysid\
+  \ territory_sys_id,\n\tcase\n           when (bs.'random' is null\n            \
+  \     or bs.'random'='random') then sa.account_segment\n           else bs.'random'\n\
+  \       end account_segment,\n       case\n           when (bs.'random' is null\n\
+  \                 or bs.'random'='random') then IFNULL(sa.industry_category, 'random')\n\
+  \           else bs.'random'\n       end industry_category,\n       case\n     \
+  \      when bs.'random' is not null\n                then IFNULL(sa.gp_industry_segment_override,\
+  \ 'random')\n           else IFNULL(sa.industry_segment, 'random')\n       end industry_segment,\n\
+  \    pds.'random' customer_success_exec,\n    dchmp.'random' executive_sponser,\n\
+  \    dchmp.'random' deal_champion,\n    sa.service_provider_status account_service_provider,\n\
+  \    pd.'random' bu_workflow,\n\tbase.'random' bu_combined,\n\tpd.'random' bu_modified,\n\
+  \    pf3.'random' product_family3,\n\tIFNULL(pds.'random', 'random') risk_level,\n\
+  \       pds.'random' risk_reason_code,\n\tcase\n           when (base.'random' in\
+  \ ('random',\n                                                'random',\n      \
+  \                                          'random',\n                         \
+  \                       'random',\n                                            \
+  \    'random',\n                                                'random',\n    \
+  \                                            'random',\n                       \
+  \                         'random',\n                                          \
+  \      'random')) then 'random'\n           else IFNULL(pds.'random', 'random')\n\
+  \       end maturity_level,\n\tmqact.'random' program_name,\n\tpds.'random' next_renewal_date,\n\
+  \tar.'random' sales_quarter,\n\tRIGHT(YEAR(pds.'random') ||'random'|| QUARTER(pds.'random'),\
+  \ 'random') current_quarter,\n\tpds.'random' first_licensed,\n\tpds.'random' prod_version,\n\
+  \tup.target_pred,\n\tup.target_pred_prob,\n    up.insight_summary,\n\tsku.'random'\
+  \ product_codes_bus,\n    sku.'random' product_full_name_bu,\n    sku.'random' product_full_name_otherbus,\n\
+  \    smc.'random' pipeline_nnacv,\n\tar.'random' renewal_acv,\n\tpro.'random' cacv,\n\
+  \tsmc.'random' pipeline_nnacv_fx,\n\tar.'random' renewal_acv_fx,\n\tpro.'random'\
+  \ cacv_fx,\n\tsubs.'random' over_usd,\n    subs.'random' under_usd,\n    TAM_DATA.tam,\n\
+  \tIFF((smc.'random'<'random'\n                  or (smc.'random') IS NULL) , 'random',\
+  \ IFF(smc.'random'>='random', 'random', 'random'))\n pipeline_nnacv_group,\n\tIFF((ar.'random'<'random'\n\
+  \                  or (ar.'random') IS NULL) , 'random', IFF(ar.'random'>='random',\
+  \ 'random', 'random')) renewal_acv_group,\n\tIFF((pro.'random'<'random'\n      \
+  \            or (pro.'random') IS NULL) ,'random', IFF((pro.'random'>='random'\n\
+  \                                                      and pro.'random'<'random')\
+  \ ,'random', IFF((pro.'random'>='random'\n                                     \
+  \                                                       and pro.'random'<'random')\
+  \ ,'random', IFF(pro.'random'>='random'\n                                      \
+  \                                                                              \
+  \              and pro.'random'<'random', 'random', IFF(pro.'random'>='random'\n\
+  \                                                                              \
+  \                                                                              \
+  \           and pro.'random'<'random', 'random', IFF(pro.'random'>='random', 'random',\
+  \ 'random')))))) cacv_group,\n\tina.'random' in_use_apps,\n    ina.'random' entitled_apps_nm,\n\
+  \tina.'random' entitled_apps,\n    'random' existing_customer,\n\tcase\n       \
+  \    when pro.'random'='random' then 'random'\n           else 'random'\n      \
+  \ end customer_with_pro_sku,\n\tpro.'random' version_flag,\n\tpds.'random' platform_flag,\n\
+  \    CASE WHEN bsu.'random' IS NULL THEN 'random' ELSE 'random' END bsu_only_flag,\n\
+  \tsi.'random' user_bin,\n\tsi.'random' user_id,\n\t'random' metric\nfrom\n    (\n\
+  \    select distinct 'random',\n            'random',\n            'random',\n \
+  \           'random'\n    from (\n        select\n            distinct 'random',\n\
+  \            'random',\n            'random',\n            'random',\n         \
+  \   case when 'random' > 'random' and 'random' > 'random' then 'random' else 'random'\
+  \ end 'random'\n        from\n            (\n                select\n          \
+  \          'random',\n                    'random',\n                    'random',\n\
+  \                    'random',\n                    SUM('random') OVER (PARTITION\
+  \ BY 'random') 'random',\n                    SUM('random') OVER (\n           \
+  \             PARTITION BY 'random',\n                        'random'\n       \
+  \             ) 'random',\n                    RANK() over(\n                  \
+  \      partition by 'random',\n                        'random'\n              \
+  \          order by\n                            'random',\n                   \
+  \         'random' desc\n                    ) rnk\n                from\n     \
+  \               CDL_LS.'random'.'random'\n                where\n              \
+  \      'random' <= RIGHT(\n                        YEAR(\n                     \
+  \       convert_timezone('random', CURRENT_TIMESTAMP())\n                      \
+  \  ) || 'random' || QUARTER(\n                            convert_timezone('random',\
+  \ CURRENT_TIMESTAMP())\n                        ),\n                        'random'\n\
+  \                    )\n                    and ('random' = 'random'\n         \
+  \               or ('random' = 'random'\n                            and 'random'\
+  \ = 'random'))\n                    and 'random' not in (\n                    \
+  \    'random',\n                        'random',\n                        'random'\n\
+  \                    )\n            )\n        where\n            rnk = 'random'\n\
+  \            )\nwhere 'random'= 'random'\n    ) base\n    LEFT JOIN CDL.ENTERPRISE.V_DIM_ACCOUNT\
+  \ sa on sa.ACCOUNT_NUMBER = base.'random'\n    LEFT JOIN ODS_LS.'random'.'random'\
+  \ bs on bs.'random'=base.'random'\n    LEFT JOIN (SELECT distinct 'random','random','random',\n\
+  \            LISTAGG('random', 'random') within group (ORDER BY 'random') AS 'random'\n\
+  \            FROM EDW_LS.CUSTOMER_CD_EM.CUSTOMER_INDEX_DEAL_CHAMP\n            GROUP\
+  \ BY 'random','random','random'\n            ) dchmp ON dchmp.'random' = base.'random'\n\
+  \    LEFT JOIN\n            (\tSELECT distinct 'random', 'random'\n        \tFROM\
+  \ EDW_LS.SALES_D365_EM.EM_PROGRAMS\n        \tWHERE 'random' = 'random'\n      \
+  \      AND 'random' = 'random'\n            AND 'random' = 'random'\n          \
+  \  AND ('random' >= ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random') OR 'random' IS NULL)\n        ) mqact ON sa.account_sysid = mqact.'random'\n\
+  \    LEFT JOIN\n             (SELECT 'random' ,\n                     'random',\n\
+  \                     'random' as 'random'\n              FROM ODS_LS.'random'.'random'\n\
+  \              GROUP BY 'random',\n                       'random',\n          \
+  \             'random'\n            ) pd on pd.'random' = base.'random'\n    LEFT\
+  \ JOIN (\n            select 'random',\n              'random',\n              'random',\n\
+  \              'random',\n              'random' ,\n              min('random')\
+  \ 'random',\n              'random',\n              'random' ,\n              min('random')\
+  \ 'random',\n              'random'\n       FROM EDW_LS.'random'.'random' a\n  \
+  \     INNER JOIN EDW_LS.'random'.'random' dsa on dsa.'random' = 'random'\n     \
+  \  WHERE a.'random' = 'random'\n         AND dsa.'random' = 'random'\n       GROUP\
+  \ BY 'random',\n              'random',\n              'random',\n             \
+  \ 'random',\n              'random',\n              'random',\n              'random',\n\
+  \              'random'\n       UNION ALL\n       SELECT 'random',\n           \
+  \ 'random',\n                    'random',\n                    'random',\n    \
+  \                'random' ,\n                    min('random') 'random',\n     \
+  \               'random',\n                    'random' ,\n                    min('random')\
+  \ 'random',\n                    'random'\n       FROM EDW_LS.'random'.'random'\
+  \ a\n       INNER JOIN EDW_LS.'random'.'random' dsa on dsa.'random' = 'random'\n\
+  \       WHERE a.'random' = 'random'\n         AND dsa.'random' = 'random'\n    \
+  \    GROUP BY 'random',\n                  'random',\n                  'random',\n\
+  \                  'random',\n                  'random',\n                  'random',\n\
+  \                  'random',\n                  'random'\n         ) pds on pds.'random'\
+  \ = base.'random' and pds.'random' = base.'random'\n\n    LEFT JOIN\n          (select\
+  \ 'random' ,\n                  'random' ,\n                  SUM('random') 'random',\n\
+  \        \t\t  SUM('random') 'random'\n           from\n             (select 'random'\
+  \ ,\n                     'random' ,\n                     'random' as 'random',\n\
+  \        \t\t\t 'random' as 'random'\n              from CDL_LS.'random'.'random'\n\
+  \              where 'random'='random'\n                and 'random' = RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random') )\n           group by 'random',\n                    'random') smc\
+  \ on smc.'random' = base.'random'\n        and smc.'random' = base.'random'\n\n\n\
+  \    LEFT JOIN\n          (select 'random',\n                  'random',\n     \
+  \             'random',\n                  'random',\n        \t\t  'random'\n \
+  \          from\n             (select 'random',\n                     'random',\n\
+  \                     'random',\n                     SUM('random') 'random' ,\n\
+  \        \t\t\t SUM('random') 'random',\n                     RANK() over (partition\
+  \ by 'random',\n                                               'random'\n      \
+  \                            order by 'random') rnk\n              from CDL_LS.'random'.'random'\n\
+  \              where 'random'='random'\n                and 'random' >= RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random')\n                and 'random' <= RIGHT(YEAR(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')) ||'random'|| QUARTER(ADD_MONTHS(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()), 'random')), 'random')\n                and 'random'\
+  \ <> 'random'\n              group by 'random',\n                       'random',\n\
+  \                       'random'\n              having SUM('random') <> 'random')\n\
+  \           where rnk = 'random' )ar on ar.'random' = base.'random'\n        and\
+  \ ar.'random' = base.'random'\n    LEFT JOIN\n              (SELECT 'random',\n\
+  \                      'random',\n                      'random',\n            \
+  \          'random',\n                      CASE\n                          WHEN\
+  \ 'random' = 'random' then 'random'\n                          WHEN 'random' = 'random'\
+  \ then 'random'\n                          WHEN 'random' = 'random' then 'random'\n\
+  \                          ELSE null\n                      END 'random',\n    \
+  \                  'random',\n                      'random'\n\n              FROM\n\
+  \                  (SELECT 'random',\n                      'random',\n        \
+  \              MAX('random') 'random' ,\n                      MAX('random') 'random',\n\
+  \                      MAX('random') 'random',\n                      SUM('random')\
+  \ 'random' ,\n                      SUM('random') 'random'\n                   FROM\n\
+  \                     (SELECT 'random',\n                             'random',\n\
+  \                             'random' ,\n                             'random'\
+  \ ,\n                             'random',\n                             'random',\n\
+  \                             case\n                                 when 'random'\
+  \ = 'random' then 'random'\n                                 else 'random'\n   \
+  \                          end 'random' ,\n                             case\n \
+  \                                when 'random' = 'random' and 'random' = 'random'\
+  \ and 'random' = 'random' then 'random'\n                                    when\
+  \ 'random' <> 'random' and'random' = 'random' then 'random'\n                  \
+  \                  else null\n                             end 'random' ,\n    \
+  \                         case\n                                 when 'random' =\
+  \ 'random' and 'random' = 'random' then 'random'\n                             \
+  \       when 'random' = 'random' then 'random'\n                               \
+  \  else 'random'\n                             end 'random',\n                \t\
+  \t\t 'random'\n                      from EDW_LS.'random'.'random'\n           \
+  \           where 'random' is not null )\n                   group by 'random',\n\
+  \                            'random'\n            )\n            )pro on pro.'random'\
+  \ = base.'random' and pro.'random' = base.'random'\n    LEFT JOIN\n        (SELECT\
+  \ distinct 'random',  trim(VALUE) 'random', 'random', 'random', 'random'\n     \
+  \   FROM EDW_LS.'random'.'random' csmu, LATERAL SPLIT_TO_TABLE(csmu.'random', 'random')\n\
+  \        ) up on up.'random'=base.'random' and up.'random' = base.'random'\n\n\n\
+  \n    LEFT JOIN\n      (SELECT DISTINCT 'random',\n                       'random',\n\
+  \                       'random',\n                       'random',\n          \
+  \             'random'\n       FROM EDW_LS.'random'.'random' a\n       INNER JOIN\
+  \ EDW_LS.'random'.'random' dsa on dsa.'random' = 'random'\n       WHERE a.'random'\
+  \ = 'random'\n         AND dsa.'random' = 'random'\n       UNION ALL\n       SELECT\
+  \ DISTINCT 'random',\n                         'random',\n                     \
+  \    'random',\n                         'random',\n                         'random'\n\
+  \       FROM EDW_LS.'random'.'random' a\n       INNER JOIN EDW_LS.'random'.'random'\
+  \ dsa on dsa.'random' = 'random'\n       WHERE a.'random' = 'random'\n         AND\
+  \ dsa.'random' = 'random' ) ina on ina.'random' = base.'random'\n            AND\
+  \ ina.'random' = base.'random'\n    LEFT JOIN  EDW_LS.PRODUCT_COMPLIANCE_EM.CS_ACCT_BU_ALL\
+  \ subs on subs.'random'  = base.'random'\n        and subs.'random'= base.'random'\n\
+  \    LEFT JOIN\n            (\n                SELECT  DISTINCT TAM.ACCOUNT_NUMBER,\
+  \ SP.'random', TAM.TAM\n                FROM ODS_LS.'random'.'random' TAM\n    \
+  \            LEFT JOIN\n                (\n                    SELECT DISTINCT\n\
+  \                    CASE WHEN 'random' IN ('random','random','random','random')\n\
+  \                    THEN 'random'ELSE 'random'\n                    END AS 'random',\n\
+  \                    'random'\n                    FROM ODS_LS.'random'.'random'\n\
+  \                ) SP\n                ON TAM.BU = SP.'random'\n            ) TAM_DATA\
+  \ ON TAM_DATA.'random'  = base.'random'\n                AND TAM_DATA.'random'=\
+  \ base.'random'\n    LEFT JOIN (SELECT DISTINCT 'random', 'random', 'random' AS\
+  \ 'random'\n                FROM (\n                SELECT 'random', 'random',\n\
+  \                         Round(SUM('random') OVER (PARTITION BY 'random', 'random'),'random')\
+  \ AS all_total,\n                         Round(SUM(CASE WHEN 'random' LIKE 'random'\
+  \ THEN 'random' ELSE 'random' END)\n                             OVER (PARTITION\
+  \ BY 'random', 'random'),'random') AS stakeholder_total\n                  FROM\
+  \ CDL_LS.'random'.'random'\n                  WHERE 'random' = 'random' and ('random'\
+  \  = 'random' or ('random' = 'random' and 'random'  = 'random'))\n             \
+  \   ) subquery\n                WHERE stakeholder_total = all_total and all_total\
+  \ > 'random') bsu ON base.'random' = bsu.'random'             and bsu.'random' =\
+  \ base.'random'\n    LEFT JOIN\n          (select distinct 'random',\n         \
+  \                  'random',\n                           'random'\n           from\
+  \ EDW_LS.'random'.'random' a\n           inner join EDW_LS.'random'.'random' dsa\
+  \ on dsa.'random' = 'random'\n           where a.'random' = 'random'\n         \
+  \    and dsa.'random' = 'random'\n           union select distinct 'random',\n \
+  \                                'random',\n                                 'random'\n\
+  \           from EDW_LS.'random'.'random' a\n           inner join EDW_LS.'random'.'random'\
+  \ dsa on dsa.'random' = 'random'\n           where a.'random' = 'random'\n     \
+  \        and dsa.'random' = 'random' ) si on si.'random' = sa.account_territory_sysid\n\
+  \nLEFT JOIN\n        (\n\n        select\n          'random',\n          'random',\n\
+  \          'random',\n          'random',\n          'random'\n        from\n\n\
+  \           (\n            select\n              ec.'random',\n              ec.'random'\
+  \ 'random',\n              case when cd.'random' is null then od.'random' else cd.'random'\
+  \ end 'random',\n              case when cd.'random' is null then od.'random' else\
+  \ cd.'random' end 'random',\n              case when cd.'random' is null then od.'random'\
+  \ else cd.'random' end 'random'\n            from\n              (\n           \
+  \     select\n                  'random', 'random', 'random',\n                \
+  \  case when 'random' > 'random' and 'random' > 'random' then 'random' else 'random'\
+  \ end 'random',\n                  round(sum('random')) 'random'\n             \
+  \   from\n                  (\n\n                    select\n                  \
+  \    'random', 'random', 'random', 'random', 'random',\n                      sum('random')\
+  \ OVER (PARTITION BY 'random') 'random',\n                      sum('random') OVER\
+  \ ( PARTITION BY 'random', 'random') 'random',\n                      sum('random')\
+  \ 'random'\n                    from  CDL_LS.FINANCE_FPA_RPT.COMMON_CALC_COLUMNS\n\
+  \                    where\n                      'random' < RIGHT(YEAR(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())) ||'random'|| QUARTER(convert_timezone( 'random',CURRENT_TIMESTAMP())),\
+  \ 'random')\n                      and ('random' = 'random' or ( 'random' = 'random'\
+  \ and 'random' = 'random'))\n                      and 'random' not like 'random'\n\
+  \                      and 'random' is NOT NULL\n\n                    group by\n\
+  \                      'random', 'random',  'random', 'random', 'random', 'random'\n\
+  \n                  )\n                group by\n                  'random', 'random',\
+  \ 'random', 'random', 'random'\n              ) ec\n\n\n              left join\n\
+  \              (\n                        select distinct\n                    \
+  \      'random', 'random', 'random',\n                          LISTAGG('random',\
+  \ 'random')  WITHIN GROUP (ORDER BY 'random','random') OVER (PARTITION BY 'random',\
+  \ 'random', 'random')\n                          AS 'random',\n\n              \
+  \            RTRIM(\n                              LTRIM(\n                    \
+  \              replace(\n                                      replace(\n      \
+  \                                    LISTAGG('random', 'random')  WITHIN GROUP (ORDER\
+  \ BY 'random','random') OVER (PARTITION BY 'random', 'random'),\n              \
+  \                            LISTAGG('random', 'random')  WITHIN GROUP (ORDER BY\
+  \ 'random','random') OVER (PARTITION BY 'random', 'random', 'random'),'random'\n\
+  \                                             ),\n                             \
+  \     'random','random')\n                              ,'random')\n           \
+  \               ,'random')  AS 'random',\n\n                            LISTAGG('random',\
+  \ 'random')  WITHIN GROUP (ORDER BY 'random','random') OVER (PARTITION BY 'random',\
+  \ 'random')\n                          AS 'random',\n\n                        \
+  \  LISTAGG('random', 'random')  WITHIN GROUP (ORDER BY 'random','random') OVER (PARTITION\
+  \ BY 'random', 'random', 'random')\n                          AS 'random',\n\n\n\
+  \                          RTRIM(\n                              LTRIM(\n      \
+  \                            replace(\n                                      replace(\n\
+  \                                          LISTAGG('random', 'random')  WITHIN GROUP\
+  \ (ORDER BY 'random','random') OVER (PARTITION BY 'random', 'random'),\n       \
+  \                                   LISTAGG('random', 'random')  WITHIN GROUP (ORDER\
+  \ BY 'random','random') OVER (PARTITION BY 'random', 'random', 'random'),'random'\n\
+  \                                             ),\n                             \
+  \     'random','random')\n                              ,'random')\n           \
+  \               ,'random')  AS 'random',\n\n                            LISTAGG('random',\
+  \ 'random')  WITHIN GROUP (ORDER BY 'random','random') OVER (PARTITION BY 'random',\
+  \ 'random')\n                          AS 'random'\n\n                        FROM\n\
+  \                        (\n                        SELECT DISTINCT sa.'random',\
+  \ sa.'random', sp.'random', sp.'random', sp.'random'\n                        from\n\
+  \                          ODS_LS.SURF.SALES_ACCOUNT sa\n                      \
+  \    left join ODS_LS.SURF.SALES_CONTRACT sc on sc.'random' = sa.'random'\n    \
+  \                      left join ODS_LS.SURF.SALES_CONTRACT_ITEMS sci on sci.'random'\
+  \ = sc.'random'\n                          left join ODS_LS.SURF.SALES_PRODUCT_PRICE\
+  \ spp on spp.'random' = sci.'random'\n                          left join ODS_LS.SURF.SALES_PRODUCT\
+  \ sp on sp.'random' = spp.'random'\n                        where\n            \
+  \              (sa.'random' = 'random' or sa.'random' is null)\n               \
+  \           and sc.'random' = 'random'\n                          and sc.'random'\
+  \ <> 'random'\n                          and sc.'random' not like 'random'\n   \
+  \                       and 'random' is NOT NULL\n\n                        )\n\
+  \              ) cd\n              on ec.'random' = cd.'random'\n              and\
+  \ ec.'random' = cd.'random'\n\n\n              left join\n              (\n\n  \
+  \             select distinct cc.'random', cc.'random',\n                LISTAGG('random',\
+  \ 'random')  WITHIN GROUP (ORDER BY 'random','random')\n                OVER (PARTITION\
+  \ BY 'random', 'random') AS 'random',\n\n                          RTRIM(\n    \
+  \                          LTRIM(\n                                  replace(\n\
+  \                                      replace(\n                              \
+  \            LISTAGG('random', 'random')  WITHIN GROUP (ORDER BY 'random','random')\
+  \ OVER (PARTITION BY 'random'),\n                                          LISTAGG('random',\
+  \ 'random')  WITHIN GROUP (ORDER BY 'random','random') OVER (PARTITION BY 'random',\
+  \ 'random'),'random'\n                                             ),\n        \
+  \                          'random','random')\n                              ,'random')\n\
+  \                          ,'random')  AS 'random',\n\n                        \
+  \    LISTAGG('random', 'random')  WITHIN GROUP (ORDER BY 'random','random') OVER\
+  \ (PARTITION BY 'random')\n                          AS 'random',\n\n          \
+  \                LISTAGG('random', 'random')  WITHIN GROUP (ORDER BY 'random','random')\
+  \ OVER (PARTITION BY 'random', 'random')\n                          AS 'random',\n\
+  \n\n                          RTRIM(\n                              LTRIM(\n   \
+  \                               replace(\n                                     \
+  \ replace(\n                                          LISTAGG('random', 'random')\
+  \  WITHIN GROUP (ORDER BY 'random','random') OVER (PARTITION BY 'random'),\n   \
+  \                                       LISTAGG('random', 'random')  WITHIN GROUP\
+  \ (ORDER BY 'random','random') OVER (PARTITION BY 'random', 'random'),'random'\n\
+  \                                             ),\n                             \
+  \     'random','random')\n                              ,'random')\n           \
+  \               ,'random')  AS 'random',\n\n                            LISTAGG('random',\
+  \ 'random')  WITHIN GROUP (ORDER BY 'random','random') OVER (PARTITION BY 'random')\n\
+  \                          AS 'random'\n        FROM\n        (\n              \
+  \  select distinct 'random', 'random', 'random'\n                from (\n      \
+  \          select 'random', 'random' , 'random', 'random',\n                'random',\
+  \ 'random','random', 'random', 'random',\n                'random', 'random', 'random','random',\n\
+  \                sum('random')\n                over (partition by 'random', 'random',\
+  \ 'random' order by 'random') 'random',\n                sum('random')\n       \
+  \         over (partition by 'random', 'random', 'random' order by 'random') 'random'\n\
+  \                from CDL_LS.'random'.'random'\n                where 'random'<=\
+  \ RIGHT(YEAR(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()), 'random'))\
+  \ ||'random'||\n                QUARTER(ADD_MONTHS(convert_timezone( 'random',CURRENT_TIMESTAMP()),\
+  \ 'random')), 'random')\n                and 'random' is not null\n            \
+  \    and 'random' not like 'random'\n                and 'random' not in (\n   \
+  \             'random','random','random',\n                'random','random','random','random')\n\
+  \                ) where 'random'>'random' and 'random' >'random'\n        )cc\n\
+  \        LEFT join\n        (select distinct  'random' AS 'random', 'random'\n \
+  \       from (\n                 select distinct  'random', 'random', 'random',\n\
+  \                 row_number() over(partition by 'random' order by 'random') rnk\n\
+  \                 from ODS_LS.'random'.'random'\n               ) where rnk = 'random'\n\
+  \        ) oip on oip.'random'=cc.'random'\n\n\n              ) od on od.'random'\
+  \ = ec.'random'\n              and od.'random' = ec.'random'\n              where\n\
+  \              ec.'random' = 'random'\n          )\n\n        ) sku ON sku.'random'\
+  \ = base.'random' AND sku.'random' = base.'random'\n        LEFT JOIN\n        \
+  \    (\n                select\n                    distinct 'random',\n       \
+  \             'random',\n                    'random'\n                from\n  \
+  \                  EDW_LS.'random'.'random'\n                where\n           \
+  \         'random' >= 'random'\n                    and 'random' NOT LIKE 'random'\n\
+  \                    and 'random' is not null\n                    and 'random'\
+  \ not in (\n                        'random',\n                        'random',\n\
+  \                        'random',\n                        'random'\n         \
+  \           )\n                    and 'random' is not null\n            ) pf3 on\
+  \ pf3.'random' = base.'random' and pf3.'random' = base.'random'\n\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

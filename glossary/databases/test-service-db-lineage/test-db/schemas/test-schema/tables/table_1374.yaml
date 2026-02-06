@@ -1,0 +1,64 @@
+name: table_1374
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1374
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1374.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SALES_ALERTS_MANAGERS(\n\t\"AlertSysID\"\
+  ,\n\t\"Number\",\n\t\"AlertType\",\n\t\"Status\",\n\t\"Stage\",\n\t\"SalesAccount\"\
+  ,\n\t\"SalesAccountSysID\",\n\t\"SalesAccountTerritoryName\",\n\t\"SalesAccountTerritorySysID\"\
+  ,\n\t\"EmployeeName\",\n\t\"EmployeeSysID\",\n\t\"EmployeeManager\",\n\t\"EmployeeManagerSysID\"\
+  ,\n\t\"RequestSysID\",\n\t\"RequestNumber\",\n\t\"PotentialNetNewACV\",\n\t\"EmployeeSalesTerritoryName\"\
+  ,\n\t\"EmployeeSalesTerritorySysID\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"\
+  ALERT_SYS_ID\" as \"AlertSysID\",\n       \"NUMBER\" as \"Number\",\n       \"ALERT_TYPE\"\
+  \ as \"AlertType\",\n       \"STATUS\" as \"Status\",\n       \"STAGE\" as \"Stage\"\
+  ,\n       \"SALES_ACCOUNT\" as \"SalesAccount\",\n       \"SALES_ACCOUNT_SYS_ID\"\
+  \ as \"SalesAccountSysID\",\n       \"SALES_ACCOUNT_TERRITORY_NAME\" as \"SalesAccountTerritoryName\"\
+  ,\n       \"SALES_ACCOUNT_TERRITORY_SYS_ID\" as \"SalesAccountTerritorySysID\",\n\
+  \       \"EMPLOYEE_NAME\" as \"EmployeeName\",\n       \"EMPLOYEE_SYS_ID\" as \"\
+  EmployeeSysID\",\n       \"EMPLOYEE_MANAGER\" as \"EmployeeManager\",\n       \"\
+  EMPLOYEE_MANAGER_SYS_ID\" as \"EmployeeManagerSysID\",\n       \"REQUEST_SYS_ID\"\
+  \ as \"RequestSysID\",\n       \"REQUEST_NUMBER\" as \"RequestNumber\",\n      \
+  \ \"POTENTIAL_NET_NEW_ACV\" as \"PotentialNetNewACV\",\n       \"EMPLOYEE_SALES_TERRITORY_NAME\"\
+  \ as \"EmployeeSalesTerritoryName\",\n       \"EMPLOYEE_SALES_TERRITORY_SYS_ID\"\
+  \ as \"EmployeeSalesTerritorySysID\"\nFROM \"EDW_LS\".\"CUSTOMER_EM\".\"FN_GETSALESALERTMANAGERS\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

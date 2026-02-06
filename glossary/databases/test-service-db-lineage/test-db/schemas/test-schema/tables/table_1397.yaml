@@ -1,0 +1,60 @@
+name: table_1397
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1397
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1397.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SOLUTION_OFFERING_ASSOCIATION(\n\t\"OptySysID\"\
+  ,\n\t\"OptyName\",\n\t\"PSOAName\",\n\t\"PSOANumber\",\n\t\"PSOASysID\",\n\t\"DealRegSysID\"\
+  ,\n\t\"DealRegName\",\n\t\"DemandAcceleratorSysID\",\n\t\"DemandAccelerator\",\n\
+  \t\"SolutionOfferingType\",\n\tGUID,\n\t\"SolutionOfferingSysID\",\n\t\"SolutionOfferingName\"\
+  ,\n\t\"PartnerSysID\",\n\t\"PartnerName\",\n\t\"UActive\",\n\t\"Primary\"\n) as\n\
+  \nselect distinct\n\"U_OPPORTUNITY\" as \"OptySysID\",\n\"DV_U_OPPORTUNITY\" as\
+  \ \"OptyName\",\n\"U_NAME\" as \"PSOAName\",\n\"U_NUMBER\" as \"PSOANumber\",\n\"\
+  SYS_ID\" as \"PSOASysID\",\n\"U_DEAL_REGISTRATION\" as \"DealRegSysID\",\n\"DV_U_DEAL_REGISTRATION\"\
+  \ as \"DealRegName\",\n\"U_DEMAND_ACCELERATOR\" as \"DemandAcceleratorSysID\",\n\
+  \"DV_U_DEMAND_ACCELERATOR\" as \"DemandAccelerator\",\n\"DV_U_IDEA_TYPE\" as \"\
+  SolutionOfferingType\",\n\"U_CRM_ID\" as \"GUID\",\n\"U_INNOVATION_IDEA_NUMBER\"\
+  \ as \"SolutionOfferingSysID\",\n\"DV_U_INNOVATION_IDEA_NUMBER\" as \"SolutionOfferingName\"\
+  ,\n\"U_PARTNER\" as \"PartnerSysID\",\n\"DV_U_PARTNER\" as \"PartnerName\",\n\"\
+  U_ACTIVE\" as \"UActive\",\n\"U_PRIMARY\" as \"Primary\"\nfrom RDS.SURF.U_SOLUTION_OFFERING_ASSOCIATION\n\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

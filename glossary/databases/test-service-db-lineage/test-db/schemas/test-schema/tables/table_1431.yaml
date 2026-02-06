@@ -1,0 +1,65 @@
+name: table_1431
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1431
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1431.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_NPS_CACV_LOYALTY(\n\tSURVEY,\n\tGEO,\n\
+  \tAREA,\n\tDV_U_ACCOUNT_TERRITORY,\n\tDV_CD_ACCOUNT,\n\t\"Account_Name\",\n\tACCT_NO,\n\
+  \t\"PrevYrACV\",\n\t\"CurrYearACV\",\n\tLOYALTY_SCORE,\n\tRESPONDENT_COUNT,\n\t\"\
+  Loyalty\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SURVEY\" as \"SURVEY\",\n \
+  \      \"GEO\" as \"GEO\",\n       \"AREA\" as \"AREA\",\n       \"DV_U_ACCOUNT_TERRITORY\"\
+  \ as \"DV_U_ACCOUNT_TERRITORY\",\n       \"DV_CD_ACCOUNT\" as \"DV_CD_ACCOUNT\"\
+  ,\n       \"Account_Name\" as \"Account_Name\",\n       \"ACCT_NO\" as \"ACCT_NO\"\
+  ,\n       SUM(\"PrevYrACV\") as \"PrevYrACV\",\n       SUM(\"CurrYearACV\") as \"\
+  CurrYearACV\",\n       SUM(\"LOYALTY_SCORE\") as \"LOYALTY_SCORE\",\n       SUM(\"\
+  RESPONDENT_COUNT\") as \"RESPONDENT_COUNT\",\n       \"Loyalty\" as \"Loyalty\"\n\
+  FROM\n  (SELECT \"SURVEY\" as \"SURVEY\",\n          \"GEO\" as \"GEO\",\n     \
+  \     \"AREA\" as \"AREA\",\n          \"DV_U_ACCOUNT_TERRITORY\" as \"DV_U_ACCOUNT_TERRITORY\"\
+  ,\n          \"DV_CD_ACCOUNT\" as \"DV_CD_ACCOUNT\",\n          \"Account_Name\"\
+  \ as \"Account_Name\",\n          \"ACCT_NO\" as \"ACCT_NO\",\n          \"PrevYrACV\"\
+  \ as \"PrevYrACV\",\n          \"CurrYearACV\" as \"CurrYearACV\",\n          \"\
+  LOYALTY_SCORE\" as \"LOYALTY_SCORE\",\n          \"RESPONDENT_COUNT\" as \"RESPONDENT_COUNT\"\
+  ,\n          \"Loyalty\" as \"Loyalty\"\n   FROM \"EDW_LS\".\"CUSTOMER_EM\".\"NPS_CACV_LOYALTY\"\
+  )Projection_1\nGROUP BY \"SURVEY\",\n         \"GEO\",\n         \"AREA\",\n   \
+  \      \"DV_U_ACCOUNT_TERRITORY\",\n         \"DV_CD_ACCOUNT\",\n         \"Account_Name\"\
+  ,\n         \"ACCT_NO\",\n         \"Loyalty\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

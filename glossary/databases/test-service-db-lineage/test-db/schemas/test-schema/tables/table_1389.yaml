@@ -1,0 +1,213 @@
+name: table_1389
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1389
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1389.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_USAGE_WITH_DOWNSELL_RISK_DATA(\n\t\"\
+  UserID\",\n\t\"EmployeeName\",\n\t\"EmployeeNumber\",\n\t\"Department\",\n\t\"HireDate\"\
+  ,\n\t\"Title\",\n\tUSER_NAME,\n\tP4,\n\t\"Level2\",\n\t\"Level3\",\n\t\"Level4\"\
+  ,\n\t\"Level5\",\n\t\"Level6\",\n\t\"Level7\",\n\t\"Level8\",\n\t\"EmpActive\",\n\
+  \t\"Platform\",\n\t\"OnboardedOn\",\n\t\"RecentAccess\",\n\t\"MonthName\",\n\t\"\
+  MonthNumber\",\n\t\"Week_Year\",\n\t\"WeekNumberOfYear\",\n\t\"CMonth\",\n\t\"Date\"\
+  ,\n\t\"Project\",\n\t\"Dashboard\",\n\t\"Tab\",\n\t\"UsageDate\",\n\t\"Hits\",\n\
+  \t\"Accessed\",\n\t\"Usage30\",\n\t\"Usage60\",\n\t\"HasAccessed30\",\n\t\"HasAccessed60\"\
+  ,\n\t\"AcctNumber\",\n\t\"AcctName\",\n\t\"BUGroup\",\n\t\"AtRiskAlertNumber\",\n\
+  \t\"AcctAtRiskAlertStatus\",\n\t\"AlertType\",\n\t\"AcctAtRiskAlertStage\",\n\t\"\
+  Severity\",\n\t\"AlertMonth\",\n\t\"AcctRiskAlertCreatedOn\",\n\t\"AcctRiskAlertUpdatedOn\"\
+  ,\n\t\"AcctRiskAlertAssignedTo\",\n\t\"AlertClosedOn\",\n\t\"ReasonCode1\",\n\t\"\
+  ReasonCode2\",\n\t\"ReasonCode3\",\n\t\"ReasonCode4\",\n\t\"Application\",\n\t\"\
+  ContractRenewalDate\",\n\t\"Score_CC\",\n\t\"BUDownSellReason\",\n\t\"BUDownSellSource\"\
+  ,\n\t\"ContractRenewalQuarter\",\n\t\"Risk\",\n\t\"NumberOfDaysSinceLastResponse\"\
+  ,\n\t\"MetricName\",\n\t\"DisplayPredictiveScoreFlag\",\n\t\"Category1\",\n\t\"\
+  Category2\",\n\t\"Category3\",\n\t\"Category4\",\n\t\"MetricValue_CC\",\n\t\"Score_Severity_CC\"\
+  ,\n\t\"RiskConfirmedStatus\",\n\t\"BUDownSellScore_CC\",\n\t\"BUDownSellSeverity_CC\"\
+  ,\n\t\"AlertGeneratedFlag\",\n\t\"FirstAlertGeneratedDate\",\n\t\"AlertRenewalType\"\
+  ,\n\t\"AccountAtRiskFlag\",\n\t\"FirstAtRiskIdentifiedDate\",\n\t\"ConfusionMetrixLegend\"\
+  ,\n\t\"Last4QuartersFlag\",\n\t\"Last8QuarterFlag\",\n\t\"AccountSeverityBreakdown\"\
+  ,\n\tRISK_SCORE,\n\t\"AcctMDMID\",\n\t\"PilotAccount\",\n\t\"PilotFlag\",\n\t\"\
+  AlertDescription\",\n\t\"ProductDescription\",\n\t\"AlertSysID\",\n\t\"AccountSysID\"\
+  ,\n\t\"P4UserID\",\n\t\"L2UserID\",\n\t\"L3UserID\",\n\t\"L4UserID\",\n\t\"L5UserID\"\
+  ,\n\t\"L6UserID\",\n\t\"L7UserID\",\n\t\"RecordType\",\n\t\"30DaysAccessFlag\",\n\
+  \t\"TotalHits30days\",\n\t\"Accessed30days\",\n\t\"UsageSinceGolive\",\n\t\"NumofAlerts-NoSP\"\
+  ,\n\t\"NumofAlerts-FlightSP\",\n\t\"SP_NotStarted30days\",\n\t\"SP_NotStarted>30days\"\
+  ,\n\t\"NumofWIPAlerts-FlightSP\",\n\t\"NumofCCAlerts-FlightSP\",\n\t\"NumofRejAlerts-FlightSP\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"USERID\" as \"UserID\",\n       \"EmployeeName\"\
+  \ as \"EmployeeName\",\n       \"EmployeeNumber\" as \"EmployeeNumber\",\n     \
+  \  \"Department\" as \"Department\",\n       \"HireDate\" as \"HireDate\",\n   \
+  \    \"Title\" as \"Title\",\n       \"USER_NAME\" as \"USER_NAME\",\n       \"\
+  P4\" as \"P4\",\n       \"Level2\" as \"Level2\",\n       \"Level3\" as \"Level3\"\
+  ,\n       \"Level4\" as \"Level4\",\n       \"Level5\" as \"Level5\",\n       \"\
+  Level6\" as \"Level6\",\n       \"Level7\" as \"Level7\",\n       \"Level8\" as\
+  \ \"Level8\",\n       \"EmpActive\" as \"EmpActive\",\n       \"Platform\" as \"\
+  Platform\",\n       \"OnboardedOn\" as \"OnboardedOn\",\n       \"RecentAccess\"\
+  \ as \"RecentAccess\",\n       \"MonthName\" as \"MonthName\",\n       \"MonthNumber\"\
+  \ as \"MonthNumber\",\n       \"Week_Year\" as \"Week_Year\",\n       \"WeekNumberOfYear\"\
+  \ as \"WeekNumberOfYear\",\n       \"CMonth\" as \"CMonth\",\n       \"Date\" as\
+  \ \"Date\",\n       \"Project\" as \"Project\",\n       \"Dashboard\" as \"Dashboard\"\
+  ,\n       \"Tab\" as \"Tab\",\n       \"UsageDate\" as \"UsageDate\",\n       \"\
+  Hits\" as \"Hits\",\n       \"Accessed\" as \"Accessed\",\n       \"Usage30\" as\
+  \ \"Usage30\",\n       \"Usage60\" as \"Usage60\",\n       \"HasAccessed30\" as\
+  \ \"HasAccessed30\",\n       \"HasAccessed60\" as \"HasAccessed60\",\n       \"\
+  AcctNumber\" as \"AcctNumber\",\n       \"AcctName\" as \"AcctName\",\n       \"\
+  BUGroup\" as \"BUGroup\",\n       \"AtRiskAlertNumber\" as \"AtRiskAlertNumber\"\
+  ,\n       \"AcctAtRiskAlertStatus\" as \"AcctAtRiskAlertStatus\",\n       \"AlertType\"\
+  \ as \"AlertType\",\n       \"AcctAtRiskAlertStage\" as \"AcctAtRiskAlertStage\"\
+  ,\n       \"Severity\" as \"Severity\",\n       \"AlertMonth\" as \"AlertMonth\"\
+  ,\n       \"AcctRiskAlertCreatedOn\" as \"AcctRiskAlertCreatedOn\",\n       \"AcctRiskAlertUpdatedOn\"\
+  \ as \"AcctRiskAlertUpdatedOn\",\n       \"AcctRiskAlertAssignedTo\" as \"AcctRiskAlertAssignedTo\"\
+  ,\n       \"AlertClosedOn\" as \"AlertClosedOn\",\n       \"ReasonCode1\" as \"\
+  ReasonCode1\",\n       \"ReasonCode2\" as \"ReasonCode2\",\n       \"ReasonCode3\"\
+  \ as \"ReasonCode3\",\n       \"ReasonCode4\" as \"ReasonCode4\",\n       \"Application\"\
+  \ as \"Application\",\n       \"ContractRenewalDate\" as \"ContractRenewalDate\"\
+  ,\n       \"Score_CC\" as \"Score_CC\",\n       \"BUDownSellReason\" as \"BUDownSellReason\"\
+  ,\n       \"BUDownSellSource\" as \"BUDownSellSource\",\n       \"ContractRenewalQuarter\"\
+  \ as \"ContractRenewalQuarter\",\n       \"Risk\" as \"Risk\",\n       \"NumberOfDaysSinceLastResponse\"\
+  \ as \"NumberOfDaysSinceLastResponse\",\n       \"MetricName\" as \"MetricName\"\
+  ,\n       \"DisplayPredictiveScoreFlag\" as \"DisplayPredictiveScoreFlag\",\n  \
+  \     \"Category1\" as \"Category1\",\n       \"Category2\" as \"Category2\",\n\
+  \       \"Category3\" as \"Category3\",\n       \"Category4\" as \"Category4\",\n\
+  \       \"MetricValue_CC\" as \"MetricValue_CC\",\n       \"Score_Severity_CC\"\
+  \ as \"Score_Severity_CC\",\n       \"RiskConfirmedStatus\" as \"RiskConfirmedStatus\"\
+  ,\n       \"BUDownSellScore_CC\" as \"BUDownSellScore_CC\",\n       \"BUDownSellSeverity_CC\"\
+  \ as \"BUDownSellSeverity_CC\",\n       \"AlertGeneratedFlag\" as \"AlertGeneratedFlag\"\
+  ,\n       \"FirstAlertGeneratedDate\" as \"FirstAlertGeneratedDate\",\n       \"\
+  AlertRenewalType\" as \"AlertRenewalType\",\n       \"AccountAtRiskFlag\" as \"\
+  AccountAtRiskFlag\",\n       \"FirstAtRiskIdentifiedDate\" as \"FirstAtRiskIdentifiedDate\"\
+  ,\n       \"ConfusionMetrixLegend\" as \"ConfusionMetrixLegend\",\n       \"Last4QuartersFlag\"\
+  \ as \"Last4QuartersFlag\",\n       \"Last8QuarterFlag\" as \"Last8QuarterFlag\"\
+  ,\n       \"AccountSeverityBreakdown\" as \"AccountSeverityBreakdown\",\n      \
+  \ \"RISK_SCORE\" as \"RISK_SCORE\",\n       \"AcctMDMID\" as \"AcctMDMID\",\n  \
+  \     \"PilotAccount\" as \"PilotAccount\",\n       \"PilotFlag\" as \"PilotFlag\"\
+  ,\n       \"AlertDescription\" as \"AlertDescription\",\n       \"ProductDescription\"\
+  \ as \"ProductDescription\",\n       \"AlertSysID\" as \"AlertSysID\",\n       \"\
+  AccountSysID\" as \"AccountSysID\",\n       \"P4UserID\" as \"P4UserID\",\n    \
+  \   \"L2UserID\" as \"L2UserID\",\n       \"L3UserID\" as \"L3UserID\",\n      \
+  \ \"L4UserID\" as \"L4UserID\",\n       \"L5UserID\" as \"L5UserID\",\n       \"\
+  L6UserID\" as \"L6UserID\",\n       \"L7UserID\" as \"L7UserID\",\n       \"RecordType\"\
+  \ as \"RecordType\",\n       case\n           when \"Date\" IS NULL then 'random'\n\
+  \           else IFF(\"Date\" > DATEADD(DAY, 'random', CURRENT_DATE), 'random',\
+  \ 'random')\n       end as \"30DaysAccessFlag\",\n       \"TotalHits30days\" as\
+  \ \"TotalHits30days\",\n       case\n           when \"TotalHits30days\" IS NULL\
+  \ then 'random'\n           else IFF(\"TotalHits30days\">'random', 'random', 'random')\n\
+  \       end as \"Accessed30days\",\n       \"UsageSinceGolive\" as \"UsageSinceGolive\"\
+  ,\n       \"NumofAlerts-NoSP\" as \"NumofAlerts-NoSP\",\n       \"NumofAlerts-FlightSP\"\
+  \ as \"NumofAlerts-FlightSP\",\n       \"SP_NotStarted30days\" as \"SP_NotStarted30days\"\
+  ,\n       \"SP_NotStarted>30days\" as \"SP_NotStarted>30days\",\n       \"NumofWIPAlerts-FlightSP\"\
+  \ as \"NumofWIPAlerts-FlightSP\",\n       \"NumofCCAlerts-FlightSP\" as \"NumofCCAlerts-FlightSP\"\
+  ,\n       \"NumofRejAlerts-FlightSP\" as \"NumofRejAlerts-FlightSP\"\nFROM\n  (SELECT\
+  \ distinct \"USERID\" as \"USERID\",\n                   \"EmployeeName\" as \"\
+  EmployeeName\",\n                   \"EmployeeNumber\" as \"EmployeeNumber\",\n\
+  \                   \"Department\" as \"Department\",\n                   \"HireDate\"\
+  \ as \"HireDate\",\n                   \"Title\" as \"Title\",\n               \
+  \    \"USER_NAME\" as \"USER_NAME\",\n                   \"P4\" as \"P4\",\n   \
+  \                \"Level2\" as \"Level2\",\n                   \"Level3\" as \"\
+  Level3\",\n                   \"Level4\" as \"Level4\",\n                   \"Level5\"\
+  \ as \"Level5\",\n                   \"Level6\" as \"Level6\",\n               \
+  \    \"Level7\" as \"Level7\",\n                   \"Level8\" as \"Level8\",\n \
+  \                  \"EmpActive\" as \"EmpActive\",\n                   \"Platform\"\
+  \ as \"Platform\",\n                   \"OnboardedOn\" as \"OnboardedOn\",\n   \
+  \                \"RecentAccess\" as \"RecentAccess\",\n                   \"MonthName\"\
+  \ as \"MonthName\",\n                   \"MonthNumber\" as \"MonthNumber\",\n  \
+  \                 \"Week_Year\" as \"Week_Year\",\n                   \"WeekNumberOfYear\"\
+  \ as \"WeekNumberOfYear\",\n                   \"CMonth\" as \"CMonth\",\n     \
+  \              \"Date\" as \"Date\",\n                   \"Project\" as \"Project\"\
+  ,\n                   \"Dashboard\" as \"Dashboard\",\n                   \"Tab\"\
+  \ as \"Tab\",\n                   \"UsageDate\" as \"UsageDate\",\n            \
+  \       \"Hits\" as \"Hits\",\n                   \"Accessed\" as \"Accessed\",\n\
+  \                   \"Usage30\" as \"Usage30\",\n                   \"Usage60\"\
+  \ as \"Usage60\",\n                   \"HasAccessed30\" as \"HasAccessed30\",\n\
+  \                   \"AcctNumber\" as \"AcctNumber\",\n                   \"AcctName\"\
+  \ as \"AcctName\",\n                   \"BUGroup\" as \"BUGroup\",\n           \
+  \        \"AtRiskAlertNumber\" as \"AtRiskAlertNumber\",\n                   \"\
+  AcctAtRiskAlertStatus\" as \"AcctAtRiskAlertStatus\",\n                   \"AlertType\"\
+  \ as \"AlertType\",\n                   \"AcctAtRiskAlertStage\" as \"AcctAtRiskAlertStage\"\
+  ,\n                   \"Severity\" as \"Severity\",\n                   \"AlertMonth\"\
+  \ as \"AlertMonth\",\n                   \"AcctRiskAlertCreatedOn\" as \"AcctRiskAlertCreatedOn\"\
+  ,\n                   \"AcctRiskAlertUpdatedOn\" as \"AcctRiskAlertUpdatedOn\",\n\
+  \                   \"AcctRiskAlertAssignedTo\" as \"AcctRiskAlertAssignedTo\",\n\
+  \                   \"AlertClosedOn\" as \"AlertClosedOn\",\n                  \
+  \ \"ReasonCode1\" as \"ReasonCode1\",\n                   \"ReasonCode2\" as \"\
+  ReasonCode2\",\n                   \"ReasonCode3\" as \"ReasonCode3\",\n       \
+  \            \"ReasonCode4\" as \"ReasonCode4\",\n                   \"Application\"\
+  \ as \"Application\",\n                   \"ContractRenewalDate\" as \"ContractRenewalDate\"\
+  ,\n                   \"Score_CC\" as \"Score_CC\",\n                   \"BUDownSellReason\"\
+  \ as \"BUDownSellReason\",\n                   \"BUDownSellSource\" as \"BUDownSellSource\"\
+  ,\n                   \"ContractRenewalQuarter\" as \"ContractRenewalQuarter\",\n\
+  \                   \"Risk\" as \"Risk\",\n                   \"NumberOfDaysSinceLastResponse\"\
+  \ as \"NumberOfDaysSinceLastResponse\",\n                   \"MetricName\" as \"\
+  MetricName\",\n                   \"DisplayPredictiveScoreFlag\" as \"DisplayPredictiveScoreFlag\"\
+  ,\n                   \"Category1\" as \"Category1\",\n                   \"Category2\"\
+  \ as \"Category2\",\n                   \"Category3\" as \"Category3\",\n      \
+  \             \"Category4\" as \"Category4\",\n                   \"MetricValue_CC\"\
+  \ as \"MetricValue_CC\",\n                   \"Score_Severity_CC\" as \"Score_Severity_CC\"\
+  ,\n                   \"RiskConfirmedStatus\" as \"RiskConfirmedStatus\",\n    \
+  \               \"BUDownSellScore_CC\" as \"BUDownSellScore_CC\",\n            \
+  \       \"BUDownSellSeverity_CC\" as \"BUDownSellSeverity_CC\",\n              \
+  \     \"AlertGeneratedFlag\" as \"AlertGeneratedFlag\",\n                   \"FirstAlertGeneratedDate\"\
+  \ as \"FirstAlertGeneratedDate\",\n                   \"AlertRenewalType\" as \"\
+  AlertRenewalType\",\n                   \"AccountAtRiskFlag\" as \"AccountAtRiskFlag\"\
+  ,\n                   \"FirstAtRiskIdentifiedDate\" as \"FirstAtRiskIdentifiedDate\"\
+  ,\n                   \"ConfusionMetrixLegend\" as \"ConfusionMetrixLegend\",\n\
+  \                   \"Last4QuartersFlag\" as \"Last4QuartersFlag\",\n          \
+  \         \"Last8QuarterFlag\" as \"Last8QuarterFlag\",\n                   \"AccountSeverityBreakdown\"\
+  \ as \"AccountSeverityBreakdown\",\n                   \"RISK_SCORE\" as \"RISK_SCORE\"\
+  ,\n                   \"AcctMDMID\" as \"AcctMDMID\",\n                   \"PilotAccount\"\
+  \ as \"PilotAccount\",\n                   \"PilotFlag\" as \"PilotFlag\",\n   \
+  \                \"AlertDescription\" as \"AlertDescription\",\n               \
+  \    \"ProductDescription\" as \"ProductDescription\",\n                   \"AlertSysID\"\
+  \ as \"AlertSysID\",\n                   \"AccountSysID\" as \"AccountSysID\",\n\
+  \                   \"P4UserID\" as \"P4UserID\",\n                   \"L2UserID\"\
+  \ as \"L2UserID\",\n                   \"L3UserID\" as \"L3UserID\",\n         \
+  \          \"L4UserID\" as \"L4UserID\",\n                   \"L5UserID\" as \"\
+  L5UserID\",\n                   \"L6UserID\" as \"L6UserID\",\n                \
+  \   \"L7UserID\" as \"L7UserID\",\n                   \"RecordType\" as \"RecordType\"\
+  ,\n                   \"TotalHits30days\" as \"TotalHits30days\",\n            \
+  \       \"UsageSinceGolive\" as \"UsageSinceGolive\",\n                   \"HasAccessed60\"\
+  \ as \"HasAccessed60\",\n                   \"NumofAlerts-NoSP\" as \"NumofAlerts-NoSP\"\
+  ,\n                   \"NumofAlerts-FlightSP\" as \"NumofAlerts-FlightSP\",\n  \
+  \                 \"SP_NotStarted30days\" as \"SP_NotStarted30days\",\n        \
+  \           \"SP_NotStarted>30days\" as \"SP_NotStarted>30days\",\n            \
+  \       \"NumofWIPAlerts-FlightSP\" as \"NumofWIPAlerts-FlightSP\",\n          \
+  \         \"NumofCCAlerts-FlightSP\" as \"NumofCCAlerts-FlightSP\",\n          \
+  \         \"NumofRejAlerts-FlightSP\" as \"NumofRejAlerts-FlightSP\"\n   FROM \"\
+  EDW_LS\".\"CUSTOMER_EM\".\"USAGE_WITH_DOWNSELL_RISK_DATA\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

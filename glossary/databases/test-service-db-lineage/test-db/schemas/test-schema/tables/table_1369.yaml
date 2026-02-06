@@ -1,0 +1,292 @@
+name: table_1369
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1369
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1369.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SUPPORT_SURVEY(\n\t\"AccountNumber\",\n\t\
+  \"AccountName\",\n\t\"SurveyTakenBy\",\n\t\"IncidentNumber\",\n\t\"CurrentMonth\"\
+  ,\n\t\"MonthNumber\",\n\t\"QuarterNumber\",\n\t\"SurveyQuarter\",\n\t\"CurrentQuarter\"\
+  ,\n\t\"OverallSupportExperienceForThisIncident\",\n\t\"TimelinesOfIncidentResolution\"\
+  ,\n\t\"KnowledgeTechnicalCompetenceOfEngineer\",\n\t\"OverallSatisfactionServiceNowPlatform\"\
+  ,\n\t\"CourtesyRespectfulnessOfEngineer\",\n\t\"ResolutionToThisIncidentMetRequirements\"\
+  ,\n\t\"Month\",\n\t\"CustomerSupportComments\",\n\t\"Quarter\",\n\t\"INTSysID\"\
+  ,\n\t\"IncidentURL\",\n\t\"MonthDate\",\n\tACCOUNT_SYS_ID,\n\t\"AccountKey\",\n\t\
+  \"Customer_Support_Comments\",\n\t\"Last12Months\",\n\t\"TypeOfSurvey\",\n\t\"Dummy\"\
+  \n) as\nSELECT \"AccountNumber\",\n       \"AccountName\",\n       \"SurveyTakenBy\"\
+  ,\n       \"IncidentNumber\",\n       \"CurrentMonth\",\n       \"MonthNumber\"\
+  ,\n       \"QuarterNumber\",\n       \"SurveyQuarter\",\n       \"CurrentQuarter\"\
+  ,\n       \"OverallSupportExperienceForThisIncident\",\n       \"TimelinesOfIncidentResolution\"\
+  ,\n       \"KnowledgeTechnicalCompetenceOfEngineer\",\n       \"OverallSatisfactionServiceNowPlatform\"\
+  ,\n       \"CourtesyRespectfulnessOfEngineer\",\n       \"ResolutionToThisIncidentMetRequirements\"\
+  ,\n       \"Month\",\n       \"CustomerSupportComments\",\n       \"Quarter\",\n\
+  \       \"INTSysID\",\n       \"IncidentURL\",\n       \"MonthDate\",\n       \"\
+  ACCOUNT_SYS_ID\",\n       \"AccountKey\",\n       \"Customer_Support_Comments\"\
+  ,\n       \"Last12Months\",\n       \"TypeOfSurvey\",\n       \"Dummy\"\nFROM\n\
+  \  (-- SEMANTIC LAYER BEGINS\nSELECT \"U_NUMBER\" as \"AccountNumber\",\n      \
+  \ \"ACCOUNT_NAME\" as \"AccountName\",\n       \"DV_TAKEN_BY\" as \"SurveyTakenBy\"\
+  ,\n       \"IncidentNumber\" as \"IncidentNumber\",\n       'random' as \"IncidentURL\"\
+  ,\n       \"CURRENT_MONTH\" as \"CurrentMonth\",\n       \"Month_Number\" as \"\
+  MonthNumber\",\n       \"Quarter_Number\" as \"QuarterNumber\",\n       \"QUARTER\"\
+  \ as \"SurveyQuarter\",\n       \"CURRENT_QUARTER\" as \"CurrentQuarter\",\n   \
+  \    \"Overall_Support_Experience_For_This_Incident\" as \"OverallSupportExperienceForThisIncident\"\
+  ,\n       \"Timeliness_Of_Incident_Resolution\" as \"TimelinesOfIncidentResolution\"\
+  ,\n       \"Knowledge_Technical_Competence_Of_Engineer\" as \"KnowledgeTechnicalCompetenceOfEngineer\"\
+  ,\n       \"Overall_Satisfaction_ServiceNow_Platform\" as \"OverallSatisfactionServiceNowPlatform\"\
+  ,\n       \"Courtesy_Respectfulness_of_Engineer\" as \"CourtesyRespectfulnessOfEngineer\"\
+  ,\n       \"Resolution_To_This_Incident_Met_Requirements\" as \"ResolutionToThisIncidentMetRequirements\"\
+  ,\n       SUM(\"Count\") as \"Dummy\",\n       \"Month\" as \"Month\",\n       CASE\n\
+  \           WHEN \"MonthNumber\":: VARCHAR('random') || 'random' like 'random' THEN\
+  \ TO_DATE(\"MonthNumber\":: VARCHAR('random') || 'random', 'random')\n         \
+  \  WHEN \"MonthNumber\":: VARCHAR('random') || 'random' not like 'random' THEN TO_DATE(\"\
+  MonthNumber\":: VARCHAR('random') || 'random', 'random')\n           ELSE 'random'\n\
+  \       END as \"MonthDate\",\n       \"ACCOUNT_SYS_ID\" as \"ACCOUNT_SYS_ID\",\n\
+  \       TRIM(\"ACCOUNT_SYS_ID\") || TRIM(\"AccountNumber\") as \"AccountKey\",\n\
+  \       'random' as \"Customer_Support_Comments\",\n       \"Customer_Support_Comments\"\
+  \ as \"CustomerSupportComments\",\n       CASE\n           WHEN \"MonthDate\" IS\
+  \ NULL then 'random'\n           else IFF(\"MonthDate\" >= ADD_MONTHS(CURRENT_TIMESTAMP,\
+  \ 'random'), 'random', 'random')\n       END as \"Last12Months\",\n       'random'\
+  \ as \"TypeOfSurvey\",\n       \"QuarterFormatted\" as \"Quarter\",\n       \"INTSysID\"\
+  \ as \"INTSysID\"\n   FROM\n     (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n       \
+  \      \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\",\n             \"DV_TASK\" as \"INCIDENT_NUM\"\
+  ,\n             \"DV_TAKEN_BY\" as \"DV_TAKEN_BY\",\n             \"CURRENT_QUARTER\"\
+  \ as \"CURRENT_QUARTER\",\n             \"QUARTER\" as \"QUARTER\",\n          \
+  \   \"Quarter_Number\" as \"Quarter_Number\",\n             \"Month\" as \"Month\"\
+  ,\n             \"Month_Number\" as \"Month_Number\",\n             \"Resolution_To_This_Incident_Met_Requirements\"\
+  \ as \"Resolution_To_This_Incident_Met_Requirements\",\n             \"Courtesy_Respectfulness_of_Engineer\"\
+  \ as \"Courtesy_Respectfulness_of_Engineer\",\n             \"Overall_Satisfaction_ServiceNow_Platform\"\
+  \ as \"Overall_Satisfaction_ServiceNow_Platform\",\n             \"Knowledge_Technical_Competence_Of_Engineer\"\
+  \ as \"Knowledge_Technical_Competence_Of_Engineer\",\n             \"Timeliness_Of_Incident_Resolution\"\
+  \ as \"Timeliness_Of_Incident_Resolution\",\n             \"Overall_Support_Experience_For_This_Incident\"\
+  \ as \"Overall_Support_Experience_For_This_Incident\",\n             \"Customer_Support_Comments\"\
+  \ as \"Customer_Support_Comments_Orig\",\n             \"CURRENT_MONTH\" as \"CURRENT_MONTH\"\
+  ,\n             \"Count\" as \"Count\",\n             \"ACCOUNT_SYS_ID\" as \"ACCOUNT_SYS_ID\"\
+  ,\n             \"QuarterFormatted\" as \"QuarterFormatted\",\n             \"INTSysID\"\
+  \ as \"INTSysID\",\n             IFF((\"QUARTER\") IS NULL , 'random', \"Month\"\
+  ) as \"MONTH\",\n             IFF((\"INCIDENT_NUM\") IS NULL , 'random', \"INCIDENT_NUM\"\
+  ) as \"IncidentNumber\",\n             IFF((\"Customer_Support_Comments_Orig\")\
+  \ IS NULL , 'random', \"Customer_Support_Comments_Orig\") as \"Customer_Support_Comments\"\
+  \n      FROM\n        (SELECT \"Projection_3\".\"ACCOUNT_NAME\" as \"ACCOUNT_NAME\"\
+  ,\n                \"Projection_3\".\"U_NUMBER\" as \"U_NUMBER\",\n            \
+  \    \"Projection_3\".\"CURRENT_QUARTER\" as \"CURRENT_QUARTER\",\n            \
+  \    \"Projection_3\".\"Quarter_Number\" as \"Quarter_Number\",\n              \
+  \  \"Projection_3\".\"Month\" as \"Month\",\n                \"Projection_3\".\"\
+  Month_Number\" as \"Month_Number\",\n                \"Projection_3\".\"CURRENT_MONTH\"\
+  \ as \"CURRENT_MONTH\",\n                \"Join_3\".\"Count\" as \"Count\",\n  \
+  \              \"Join_3\".\"Overall_Support_Experience_For_This_Incident\" as \"\
+  Overall_Support_Experience_For_This_Incident\",\n                \"Join_3\".\"Timeliness_Of_Incident_Resolution\"\
+  \ as \"Timeliness_Of_Incident_Resolution\",\n                \"Join_3\".\"Knowledge_Technical_Competence_Of_Engineer\"\
+  \ as \"Knowledge_Technical_Competence_Of_Engineer\",\n                \"Join_3\"\
+  .\"Overall_Satisfaction_ServiceNow_Platform\" as \"Overall_Satisfaction_ServiceNow_Platform\"\
+  ,\n                \"Join_3\".\"Courtesy_Respectfulness_of_Engineer\" as \"Courtesy_Respectfulness_of_Engineer\"\
+  ,\n                \"Join_3\".\"Resolution_To_This_Incident_Met_Requirements\" as\
+  \ \"Resolution_To_This_Incident_Met_Requirements\",\n                \"Join_3\"\
+  .\"Customer_Support_Comments\" as \"Customer_Support_Comments\",\n             \
+  \   \"Projection_3\".\"CORE_COMPANY_SYS_ID\" as \"COMPANY\",\n                \"\
+  Join_3\".\"DV_TAKEN_BY\" as \"DV_TAKEN_BY\",\n                \"Join_3\".\"DV_TASK\"\
+  \ as \"DV_TASK\",\n                \"Join_3\".\"QUARTER\" as \"QUARTER\",\n    \
+  \            \"Projection_3\".\"ACCOUNT_SYS_ID\" as \"ACCOUNT_SYS_ID\",\n      \
+  \          \"Join_3\".\"QuarterFormatted\" as \"QuarterFormatted\",\n          \
+  \      \"Join_3\".\"INTSysID\" as \"INTSysID\"\n         FROM\n           (SELECT\
+  \ \"Aggregation_2\".\"YEAR\" as \"YEAR\",\n                   \"Aggregation_2\"\
+  .\"Month_Number\" as \"Month_Number\",\n                   \"Aggregation_2\".\"\
+  Quarter\" as \"Quarter\",\n                   \"Aggregation_2\".\"QUARTER\" as \"\
+  QUARTER\",\n                   \"Aggregation_2\".\"DV_TASK\" as \"DV_TASK\",\n \
+  \                  \"Aggregation_2\".\"DV_TAKEN_BY\" as \"DV_TAKEN_BY\",\n     \
+  \              \"Aggregation_2\".\"COMPANY\" as \"COMPANY\",\n                 \
+  \  \"Aggregation_2\".\"Resolution_To_This_Incident_Met_Requirements\" as \"Resolution_To_This_Incident_Met_Requirements\"\
+  ,\n                   \"Aggregation_2\".\"Courtesy_Respectfulness_of_Engineer\"\
+  \ as \"Courtesy_Respectfulness_of_Engineer\",\n                   \"Aggregation_2\"\
+  .\"Overall_Satisfaction_ServiceNow_Platform\" as \"Overall_Satisfaction_ServiceNow_Platform\"\
+  ,\n                   \"Aggregation_2\".\"Knowledge_Technical_Competence_Of_Engineer\"\
+  \ as \"Knowledge_Technical_Competence_Of_Engineer\",\n                   \"Aggregation_2\"\
+  .\"Timeliness_Of_Incident_Resolution\" as \"Timeliness_Of_Incident_Resolution\"\
+  ,\n                   \"Aggregation_2\".\"Overall_Support_Experience_For_This_Incident\"\
+  \ as \"Overall_Support_Experience_For_This_Incident\",\n                   \"Aggregation_2\"\
+  .\"Count\" as \"Count\",\n                   \"Projection_6\".\"Customer_Support_Comments\"\
+  \ as \"Customer_Support_Comments\",\n                   \"Aggregation_2\".\"QuarterFormatted\"\
+  \ as \"QuarterFormatted\",\n                   \"Aggregation_2\".\"INTSysID\" as\
+  \ \"INTSysID\"\n            FROM\n              (SELECT \"COMPANY\" as \"COMPANY\"\
+  ,\n                      \"DV_TAKEN_BY\" as \"DV_TAKEN_BY\",\n                 \
+  \     \"DV_TASK\" as \"DV_TASK\",\n                      \"YEAR\" as \"YEAR\",\n\
+  \                      \"Quarter\" as \"Quarter\",\n                      \"Month_Number\"\
+  \ as \"Month_Number\",\n                      \"QUARTER\" as \"QUARTER\",\n    \
+  \                  SUM(\"Resolution_To_This_Incident_Met_Requirements\") as \"Resolution_To_This_Incident_Met_Requirements\"\
+  ,\n                      SUM(\"Courtesy_Respectfulness_of_Engineer\") as \"Courtesy_Respectfulness_of_Engineer\"\
+  ,\n                      SUM(\"Overall_Satisfaction_ServiceNow_Platform\") as \"\
+  Overall_Satisfaction_ServiceNow_Platform\",\n                      SUM(\"Knowledge_Technical_Competence_Of_Engineer\"\
+  ) as \"Knowledge_Technical_Competence_Of_Engineer\",\n                      SUM(\"\
+  Timeliness_Of_Incident_Resolution\") as \"Timeliness_Of_Incident_Resolution\",\n\
+  \                      SUM(\"Overall_Support_Experience_For_This_Incident\") as\
+  \ \"Overall_Support_Experience_For_This_Incident\",\n                      COUNT(\"\
+  ANSWER_INTEGER\") as \"Count\",\n                      \"QuarterFormatted\" as \"\
+  QuarterFormatted\",\n                      \"INTSysID\" as \"INTSysID\"\n      \
+  \         FROM\n                 (SELECT distinct \"Question\" as \"QUESTION\",\n\
+  \                                  \"CSATScore\" as \"ANSWER_INTEGER\",\n      \
+  \                            \"CCSysID\" as \"COMPANY\",\n                     \
+  \             \"CompletedDate\" as \"TAKEN_ON\",\n                             \
+  \     \"TakenBy\" as \"DV_TAKEN_BY\",\n                                  \"CaseNumber\"\
+  \ as \"DV_TASK\",\n                                  \"Response\" as \"RESPONSE\"\
+  ,\n                                  \"CaseSysId\" as \"INTSysID\",\n          \
+  \                        YEAR(\"TAKEN_ON\") as \"YEAR\",\n                     \
+  \             RIGHT(YEAR(\"TAKEN_ON\") ||'random'|| QUARTER(\"TAKEN_ON\"), 'random')\
+  \ as \"Quarter\",\n                                  YEAR(\"TAKEN_ON\") *'random'\
+  \ + MONTH(\"TAKEN_ON\") as \"Month_Number\",\n                                 \
+  \ YEAR(\"TAKEN_ON\") ||'random'|| QUARTER(\"TAKEN_ON\") as \"QUARTER\",\n      \
+  \                            IFF(LEFT(\"QUESTION\", 'random') ='random', \"ANSWER_INTEGER\"\
+  , 'random') as \"Resolution_To_This_Incident_Met_Requirements\",\n             \
+  \                     IFF(LEFT(\"QUESTION\", 'random') ='random', \"ANSWER_INTEGER\"\
+  , 'random') as \"Courtesy_Respectfulness_of_Engineer\",\n                      \
+  \            IFF(LEFT(\"QUESTION\", 'random') ='random', \"ANSWER_INTEGER\", 'random')\
+  \ as \"Overall_Satisfaction_ServiceNow_Platform\",\n                           \
+  \       IFF(LEFT(\"QUESTION\", 'random') ='random', \"ANSWER_INTEGER\", 'random')\
+  \ as \"Knowledge_Technical_Competence_Of_Engineer\",\n                         \
+  \         IFF(LEFT(\"QUESTION\", 'random') ='random', \"ANSWER_INTEGER\", 'random')\
+  \ as \"Timeliness_Of_Incident_Resolution\",\n                                  IFF(LEFT(\"\
+  QUESTION\", 'random') ='random', \"ANSWER_INTEGER\", 'random') as \"Overall_Support_Experience_For_This_Incident\"\
+  ,\n                                  RIGHT(YEAR(\"TAKEN_ON\") ||'random'|| QUARTER(\"\
+  TAKEN_ON\"), 'random') as \"QuarterFormatted\"\n                  FROM EDW_LS.\"\
+  PRODUCT_GTS_EM\".\"EM_ACCOUNT_CSAT\")\"Projection_1\"\n               GROUP BY \"\
+  COMPANY\",\n                        \"DV_TAKEN_BY\",\n                        \"\
+  DV_TASK\",\n                        \"YEAR\",\n                        \"Quarter\"\
+  ,\n                        \"Month_Number\",\n                        \"QUARTER\"\
+  ,\n                        \"QuarterFormatted\",\n                        \"INTSysID\"\
+  )\"Aggregation_2\"\n            LEFT JOIN\n              (SELECT \"CaseNumber\"\
+  \ as \"DV_TASK\",\n                      \"Question\" as \"QUESTION\",\n       \
+  \               \"Response\" as \"RESPONSE\",\n                      CASE\n    \
+  \                      WHEN \"QUESTION\" IS NULL then 'random'\n               \
+  \           else IFF(\"QUESTION\"='random', \"RESPONSE\", 'random')\n          \
+  \            END as \"Customer_Support_Comments\"\n               FROM EDW_LS.\"\
+  PRODUCT_GTS_EM\".\"EM_ACCOUNT_CSAT\"\n               WHERE \"QUESTION\" = 'random'\
+  \ )\"Projection_6\" ON \"Aggregation_2\".\"DV_TASK\" = \"Projection_6\".\"DV_TASK\"\
+  )\"Join_3\"\n         RIGHT JOIN\n           (SELECT \"CORE_COMPANY_SYS_ID\" as\
+  \ \"CORE_COMPANY_SYS_ID\",\n                   \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\"\
+  ,\n                   \"U_NUMBER\" as \"U_NUMBER\",\n                   \"Year\"\
+  \ as \"Year\",\n                   \"Quarter\" as \"Quarter\",\n               \
+  \    \"CURRENT_QUARTER\" as \"CURRENT_QUARTER\",\n                   \"Quarter_Number\"\
+  \ as \"Quarter_Number\",\n                   \"Month\" as \"Month\",\n         \
+  \          \"Month_Number\" as \"Month_Number\",\n                   \"CURRENT_MONTH\"\
+  \ as \"CURRENT_MONTH\",\n                   \"ACCOUNT_SYS_ID\" as \"ACCOUNT_SYS_ID\"\
+  \n            FROM\n              (SELECT \"Aggregation_1\".\"Quarter\" as \"Quarter\"\
+  ,\n                      \"Aggregation_1\".\"Year\" as \"Year\",\n             \
+  \         \"Aggregation_1\".\"CURRENT_QUARTER\" as \"CURRENT_QUARTER\",\n      \
+  \                \"Aggregation_1\".\"Quarter_Number\" as \"Quarter_Number\",\n \
+  \                     \"Aggregation_1\".\"Month\" as \"Month\",\n              \
+  \        \"Aggregation_1\".\"Month_Number\" as \"Month_Number\",\n             \
+  \         \"Aggregation_1\".\"CURRENT_MONTH\" as \"CURRENT_MONTH\",\n          \
+  \            \"Aggregation_3\".\"U_NUMBER\" as \"U_NUMBER\",\n                 \
+  \     \"Aggregation_3\".\"ACCOUNT_NAME\" as \"ACCOUNT_NAME\",\n                \
+  \      \"Aggregation_3\".\"CORE_COMPANY_SYS_ID\" as \"CORE_COMPANY_SYS_ID\",\n \
+  \                     \"Aggregation_3\".\"ACCOUNT_SYS_ID\" as \"ACCOUNT_SYS_ID\"\
+  \n               FROM\n                 (SELECT \"U_NUMBER\" as \"U_NUMBER\",\n\
+  \                         \"ACCOUNT_NAME\" as \"ACCOUNT_NAME\",\n              \
+  \           \"CORE_COMPANY_SYS_ID\" as \"CORE_COMPANY_SYS_ID\",\n              \
+  \           \"ACCOUNT_SYS_ID\" as \"ACCOUNT_SYS_ID\",\n                        \
+  \ \"DUMMY\" as \"DUMMY\"\n                  FROM\n                    (SELECT \"\
+  AcctNumber\" as \"U_NUMBER\",\n                            \"AcctName\" as \"ACCOUNT_NAME\"\
+  ,\n                            \"CoreCompanySysID\" as \"CORE_COMPANY_SYS_ID\",\n\
+  \                            \"AcctSysID\" as \"ACCOUNT_SYS_ID\",\n            \
+  \                'random' as \"DUMMY\"\n                     FROM EDW_LS.\"CUSTOMER_EM\"\
+  .\"EM_CUSTOMER_BASE\"\n\t\t\t\t\t WHERE \"RecordType\"='random')\"Projection_2\"\
+  \n                  GROUP BY \"U_NUMBER\",\n                           \"ACCOUNT_NAME\"\
+  ,\n                           \"CORE_COMPANY_SYS_ID\",\n                       \
+  \    \"ACCOUNT_SYS_ID\",\n                           \"DUMMY\")\"Aggregation_3\"\
+  \n               INNER JOIN\n                 (SELECT MAX(\"U_DATE\") as \"U_DATE\"\
+  ,\n                         \"U_YEAR_NUM\" as \"U_YEAR_NUM\",\n                \
+  \         \"U_QUARTER_NUM_OF_YEAR\" as \"U_QUARTER_NUM_OF_YEAR\",\n            \
+  \             \"U_MONTH_NAME_ABBR\" as \"U_MONTH_NAME_ABBR\",\n                \
+  \         \"DUMMY\" as \"DUMMY\",\n                         \"Quarter\" as \"Quarter\"\
+  ,\n                         \"Year\" as \"Year\",\n                         \"CURRENT_YEAR\"\
+  \ as \"CURRENT_YEAR\",\n                         \"CURRENT_QUARTER\" as \"CURRENT_QUARTER\"\
+  ,\n                         \"Quarter_Number\" as \"Quarter_Number\",\n        \
+  \                 \"Month\" as \"Month\",\n                         \"Month_Number\"\
+  \ as \"Month_Number\",\n                         \"CURRENT_MONTH\" as \"CURRENT_MONTH\"\
+  \n                  FROM\n                    (SELECT \"U_DATE\" as \"U_DATE\",\n\
+  \                            \"U_YEAR_NUM\" as \"U_YEAR_NUM\",\n               \
+  \             \"U_QUARTER_NUM_OF_YEAR\" as \"U_QUARTER_NUM_OF_YEAR\",\n        \
+  \                    \"U_MONTH_NAME_ABBR\" as \"U_MONTH_NAME_ABBR\",\n         \
+  \                   \"U_MONTH_NUM_OF_YEAR\" as \"U_MONTH_NUM_OF_YEAR\",\n      \
+  \                      'random' as \"DUMMY\",\n                            RIGHT(YEAR(\"\
+  U_DATE\") ||'random'|| QUARTER(\"U_DATE\"), 'random') as \"Quarter\",\n        \
+  \                    EXTRACT(YEAR\n                                    from \"U_DATE\"\
+  ) as \"Year\",\n                            EXTRACT(YEAR\n                     \
+  \               from current_date) as \"CURRENT_YEAR\",\n                      \
+  \      EXTRACT(YEAR\n                                    from current_date) *'random'\
+  \ + (IFF(EXTRACT(MONTH\n                                                       \
+  \                   from current_date) <='random', 'random', (IFF(EXTRACT(MONTH\n\
+  \                                                                              \
+  \                                    from current_date) <='random', 'random', (IFF(EXTRACT(MONTH\n\
+  \                                                                              \
+  \                                                                            from\
+  \ current_date) <='random', 'random', 'random')))))) as \"CURRENT_QUARTER\",\n \
+  \                           \"U_YEAR_NUM\"*'random' + \"U_QUARTER_NUM_OF_YEAR\"\
+  \ as \"Quarter_Number\",\n                            \"U_MONTH_NAME_ABBR\"|| 'random'||\
+  \ RIGHT((\"Year\") :: VARCHAR('random') , 'random') as \"Month\",\n            \
+  \                EXTRACT(YEAR\n                                    from \"U_DATE\"\
+  )*'random' + \"U_MONTH_NUM_OF_YEAR\" as \"Month_Number\",\n                    \
+  \        EXTRACT(YEAR\n                                    from current_date) *'random'\
+  \ + EXTRACT(MONTH\n                                                            \
+  \          from current_date) as \"CURRENT_MONTH\"\n                     FROM EDW_LS.\"\
+  LEGACY_SALES\".\"EM_DATE_DIMENSION\"\n                     WHERE (\"CURRENT_YEAR\"\
+  -\"Year\") <= 'random'\n                       AND (\"CURRENT_YEAR\"-\"Year\") >=\
+  \ 'random')\"Projection_4\"\n                  GROUP BY \"U_YEAR_NUM\",\n      \
+  \                     \"U_QUARTER_NUM_OF_YEAR\",\n                           \"\
+  U_MONTH_NAME_ABBR\",\n                           \"DUMMY\",\n                  \
+  \         \"Quarter\",\n                           \"Year\",\n                 \
+  \          \"CURRENT_YEAR\",\n                           \"CURRENT_QUARTER\",\n\
+  \                           \"Quarter_Number\",\n                           \"Month\"\
+  ,\n                           \"Month_Number\",\n                           \"CURRENT_MONTH\"\
+  )\"Aggregation_1\" ON \"Aggregation_3\".\"DUMMY\" = \"Aggregation_1\".\"DUMMY\"\
+  )\"Join_2\"\n            WHERE \"CURRENT_MONTH\" >= \"Month_Number\")\"Projection_3\"\
+  \ ON \"Join_3\".\"COMPANY\" = \"Projection_3\".\"CORE_COMPANY_SYS_ID\"\n       \
+  \  AND \"Join_3\".\"Quarter\" = \"Projection_3\".\"Quarter\"\n         AND \"Join_3\"\
+  .\"Month_Number\" = \"Projection_3\".\"Month_Number\"\n         AND \"Join_3\".\"\
+  YEAR\" = \"Projection_3\".\"Year\")\"Join_1\")Projection_5\n   GROUP BY \"AccountNumber\"\
+  ,\n            \"AccountName\",\n            \"SurveyTakenBy\",\n            \"\
+  IncidentNumber\",\n            \"CurrentMonth\",\n            \"MonthNumber\",\n\
+  \            \"QuarterNumber\",\n            \"SurveyQuarter\",\n            \"\
+  CurrentQuarter\",\n            \"OverallSupportExperienceForThisIncident\",\n  \
+  \          \"TimelinesOfIncidentResolution\",\n            \"KnowledgeTechnicalCompetenceOfEngineer\"\
+  ,\n            \"OverallSatisfactionServiceNowPlatform\",\n            \"CourtesyRespectfulnessOfEngineer\"\
+  ,\n            \"ResolutionToThisIncidentMetRequirements\",\n            \"Month\"\
+  ,\n            \"ACCOUNT_SYS_ID\",\n            \"CustomerSupportComments\",\n \
+  \           \"Quarter\",\n            \"INTSysID\");"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,132 @@
+name: table_1396
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1396
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1396.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_OPPORTUNITY_SA(\n\tQUARTER_DT,\n\
+  \tQUARTER_YYQQ,\n\tQUARTER_ID,\n\tOPTY_ID,\n\tOPTY_NUMBER,\n\tACCOUNT_ID,\n\tTERRITORY_ID,\n\
+  \tGEO_ID,\n\tPARENT_OPTY_ID,\n\tQUOTE_ID,\n\tRENEWAL_ENGAGEMENT,\n\tPARTNER_RENEWAL_ACV,\n\
+  \tIS_BU_MANAGEMENT_ENGAGED,\n\tNNACV_BAND,\n\tOPTY_SYSID,\n\tACCOUNT_SYSID,\n\t\
+  TERRITORY_SYSID,\n\tPARENT_OPTY_SYSID,\n\tQUOTE_SYSID,\n\tSTAGE_BUCKET,\n\tAGING_DAYS,\n\
+  \tOPTY_AGE_IN_DAYS,\n\tOPTY_AGE_BUCKET,\n\tOPTY_STAGNATION_BUCKET,\n\tNO_UPDATED_FLAG,\n\
+  \tCLOSEDATE_NO_UPDATED_FLAG,\n\tLASTSTAGE_NO_UPDATED_FLAG,\n\tLASTSTATUS_NO_UPDATED_FLAG,\n\
+  \tNEXTSTEPS_NO_UPDATED_FLAG,\n\tIS_ALL_NO_UPDATED_FLAG,\n\tSLIPPED_CNT,\n\tNNACV_STALLED_GT6M_USD_CY_FX,\n\
+  \tNNACV_NOUPDATE_GT60D_USD_CY_FX\n) as\n/*************************************************************************************************************\n\
+  CREATE/CHANGE LOG:\nDate        Modified By                             Description\n\
+  16/Apr/2024\tmanoha.rajaraouppara@servicenow.com\t\tQUOTE_ID, NNACV_BAND\n17/May/2024\
+  \ matthew.solone@servicenow.com           NNACV_STALLED_GT6M_USD_CY_FX,NNACV_NOUPDATE_GT60D_USD_CY_FX\n\
+  10/Jun/2024 jyoti.gandhi@servicenow.com \t\t\tLogic changed for NNACV_STALLED_GT6M_USD_CY_FX,NNACV_NOUPDATE_GT60D_USD_CY_FX\n\
+  12/Jun/2024 matthew.solone@servicenow.com           QUOTE_SYSID\n**************************************************************************************************************/\n\
+  \nWITH PIPELINE_DATA as\n(\nSELECT\nQUARTER_YYQQ,\nOPTY_SYSID,\nTERRITORY_SYSID,\n\
+  SUM(NNACV_STALLED_GT6M_USD_CY_FX) NNACV_STALLED_GT6M_USD_CY_FX,\nSUM(NNACV_NOUPDATE_GT60D_USD_CY_FX)\
+  \ NNACV_NOUPDATE_GT60D_USD_CY_FX,\nMAX(STAGE_BUCKET) STAGE_BUCKET,\nMAX(AGING_DAYS)\
+  \ AGING_DAYS,\nMAX(OPTY_AGE_IN_DAYS) OPTY_AGE_IN_DAYS,\nMAX(OPTY_AGE_BUCKET) OPTY_AGE_BUCKET,\n\
+  MAX(OPTY_STAGNATION_BUCKET) OPTY_STAGNATION_BUCKET,\nMAX(NO_UPDATED_FLAG) NO_UPDATED_FLAG,\n\
+  MAX(CLOSEDATE_NO_UPDATED_FLAG) CLOSEDATE_NO_UPDATED_FLAG,\nMAX(LASTSTAGE_NO_UPDATED_FLAG)\
+  \ LASTSTAGE_NO_UPDATED_FLAG,\nMAX(LASTSTATUS_NO_UPDATED_FLAG) LASTSTATUS_NO_UPDATED_FLAG,\n\
+  MAX(NEXTSTEPS_NO_UPDATED_FLAG) NEXTSTEPS_NO_UPDATED_FLAG,\nMAX(IS_ALL_NO_UPDATED_FLAG)\
+  \ IS_ALL_NO_UPDATED_FLAG,\nSUM(SLIPPED_CNT) SLIPPED_CNT\nFROM\n    (\n    \tSELECT\n\
+  \        \"SalesQuarter\" AS QUARTER_YYQQ,\n        \"OptySysID\" AS OPTY_SYSID,\n\
+  \        \"TerritorySysID\" AS TERRITORY_SYSID,\n\n        SUM(\n            case\n\
+  \                when \"RecordType\" = 'random'\n                and \"OptyStagnationBucket\"\
+  \ = 'random'\n                and \"OptyStage\" = 'random' then \"USDNetNewACV\"\
+  \n                else 'random'\n            end\n        ) AS NNACV_STALLED_GT6M_USD_CY_FX,\n\
+  \        SUM(\n            case\n                when \"RecordType\" = 'random'\
+  \ and \"IsAllNoUpdatedFlag\" in ('random')\n                and \"NoUpdated60DaysFlag\"\
+  \ = 'random' then \"USDNetNewACV\"\n                else 'random'\n            end\n\
+  \        ) AS NNACV_NOUPDATE_GT60D_USD_CY_FX,\n        \"StageBucket\" STAGE_BUCKET,\n\
+  \        \"AgingDays\" AGING_DAYS,\n        \"OptyAgeInDays\" OPTY_AGE_IN_DAYS,\n\
+  \        \"OptyAgeBucket\" OPTY_AGE_BUCKET,\n        \"OptyStagnationBucket\" OPTY_STAGNATION_BUCKET,\n\
+  \        case when \"NoUpdated60DaysFlag\"='random' then 'random'\n            \
+  \ when \"NoUpdated30DaysFlag\"='random' then 'random'\n        end NO_UPDATED_FLAG,\n\
+  \        \"NoUpdatedBucket\",\n        case when \"CloseDateNoUpdated60DaysFlag\"\
+  ='random' then 'random'\n             when \"CloseDateNoUpdated30DaysFlag\"='random'\
+  \ then 'random'\n         end CLOSEDATE_NO_UPDATED_FLAG,\n        case when \"LastStageNoUpdated60DaysFlag\"\
+  ='random' then 'random'\n             when \"LastStageNoUpdated30DaysFlag\"='random'\
+  \ then 'random'\n        end LASTSTAGE_NO_UPDATED_FLAG,\n        case when \"LastStatusNoUpdated60DaysFlag\"\
+  ='random' then 'random'\n             when \"LastStatusNoUpdated30DaysFlag\"='random'\
+  \ then 'random'\n        end LASTSTATUS_NO_UPDATED_FLAG,\n        case when \"NextStepsNoUpdated60DaysFlag\"\
+  ='random' then 'random'\n             when \"NextStepsNoUpdated30DaysFlag\"='random'\
+  \ then 'random'\n        end NEXTSTEPS_NO_UPDATED_FLAG,\n        \"IsAllNoUpdatedFlag\"\
+  \ IS_ALL_NO_UPDATED_FLAG,\n        max(\"SlippedCnt\") as SLIPPED_CNT,\n       \
+  \ \"LeadFromQuarter\" ,\n        \"LeadQuarter\",\n        \"LeadExtractDate\",\n\
+  \        \"LeadOptyStage\"\n    FROM\n        EDW_LS.SALES_EM.SALES_PIPELINE_INSIGHTS_QUALITY\
+  \ SPI\n    \tWHERE \"ReportingTerritoryGeo\" IS not NULL\n    \t--AND ((\"RecordType\"\
+  \ ='PipelineNoUpdated' and SPI.\"IsAllNoUpdatedFlag\" in ('AllNoUpdated60days'))\
+  \ or (\"RecordType\" ='PipelineStage'))\n        AND \"RecordType\" in ('random','random','random')\n\
+  \    GROUP BY\n        ALL\n)\nGROUP BY ALL\n)\nSELECT\n    DISTINCT QTR.QUARTER_DT\
+  \ AS QUARTER_DT,\n    FD.\"SalesQuarter\" AS QUARTER_YYQQ,\n    QTR.QUARTER_ID AS\
+  \ QUARTER_ID,\n    HASH(FD.\"OpportunitySysID\") AS OPTY_ID,\n    FD.\"OpportunityNumber\"\
+  \ AS OPTY_NUMBER,\n    HASH(FD.\"OpportunityAccountSysID\") AS ACCOUNT_ID,\n   \
+  \ HASH(FD.\"TerritorySysID\") AS TERRITORY_ID,\n    IFNULL(TERR.GEO_ID, HASH(TERR.GEO_ID))\
+  \ AS GEO_ID,\n    HASH(OPD.PARENT_OPTY_SYSID) as PARENT_OPTY_ID,\n    HASH(FD.\"\
+  OptyMasterQuoteSysID\") AS QUOTE_ID,\n    FD.\"OptyRenewalsEngagement\" AS RENEWAL_ENGAGEMENT,\n\
+  \    SUM(OPTY_PARTNER.\"PartnerAllocatedRenewalACV\") AS PARTNER_RENEWAL_ACV,\n\
+  \    MAX(FD.\"OptyHasBusinessCase\") AS IS_BU_MANAGEMENT_ENGAGED,\n    CASE\n  \
+  \      WHEN SUM(FD.\"USDNetNewACV\") < 'random' THEN 'random'\n        WHEN SUM(FD.\"\
+  USDNetNewACV\") < 'random' THEN 'random'\n        WHEN SUM(FD.\"USDNetNewACV\")\
+  \ < 'random' THEN 'random'\n        WHEN SUM(FD.\"USDNetNewACV\") < 'random' THEN\
+  \ 'random'\n        WHEN SUM(FD.\"USDNetNewACV\") >= 'random' THEN 'random'\n  \
+  \      ELSE 'random'\n    END AS NNACV_BAND,\n    FD.\"OpportunitySysID\" AS OPTY_SYSID,\n\
+  \    FD.\"OpportunityAccountSysID\" AS ACCOUNT_SYSID,\n    FD.\"TerritorySysID\"\
+  \ AS TERRITORY_SYSID,\n    OPD.PARENT_OPTY_SYSID AS PARENT_OPTY_SYSID,\n    FD.\"\
+  OptyMasterQuoteSysID\" AS QUOTE_SYSID,\n    STAGE_BUCKET,\n    AGING_DAYS,\n   \
+  \ OPTY_AGE_IN_DAYS,\n    OPTY_AGE_BUCKET,\n    OPTY_STAGNATION_BUCKET,\n    NO_UPDATED_FLAG,\n\
+  \    CLOSEDATE_NO_UPDATED_FLAG,\n    LASTSTAGE_NO_UPDATED_FLAG,\n    LASTSTATUS_NO_UPDATED_FLAG,\n\
+  \    NEXTSTEPS_NO_UPDATED_FLAG,\n    IS_ALL_NO_UPDATED_FLAG,\n    SLIPPED_CNT,\n\
+  \    NNACV_STALLED_GT6M_USD_CY_FX,\n    NNACV_NOUPDATE_GT60D_USD_CY_FX\nFROM\n \
+  \   CDL_LS.SALES_RPT.RPT_FIXEDDATAPLUSQUOTA_RT FD\n    LEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY\
+  \ TERR ON FD.\"TerritorySysID\" = TERR.TERRITORY_SYSID\n    LEFT OUTER JOIN EDW.ENTERPRISE.DIM_OPPORTUNITY\
+  \ OPD ON FD.\"OpportunityParentNumber\" = OPD.opty_number\n    LEFT OUTER JOIN EDW.ENTERPRISE.DIM_QUARTER\
+  \ QTR ON FD.\"SalesQuarter\" = QTR.QUARTER_YYQQ\n    LEFT OUTER JOIN ODS_LS.SURF.OPPORTUNITY_PARTNER\
+  \ OPTY_PARTNER ON FD.\"OpportunitySysID\" = OPTY_PARTNER.\"PartnerOpportunitySysID\"\
+  \n    LEFT OUTER JOIN EDW.ENTERPRISE.DIM_QUOTE QUOTE ON FD.\"OptyMasterQuoteSysID\"\
+  \ = QUOTE.QUOTE_SYSID\n\tLEFT OUTER JOIN PIPELINE_DATA PD\n\tON FD.\"OpportunitySysID\"\
+  = PD.OPTY_SYSID AND FD.\"TerritorySysID\"= PD.TERRITORY_SYSID  AND FD.\"SalesQuarter\"\
+  \ =PD.QUARTER_YYQQ\nWHERE\n    FD.\"RecordType\" = 'random'\n    AND HASH(\"OpportunitySysID\"\
+  ) NOT IN ( -- Excluding the below Opty's which are having duplicate sysid's and\
+  \ nulls. As per discussion with Aravind, this should be fixed at the FixedDataSource.\n\
+  \                                    'random',\n                               \
+  \     'random',\n                                    'random',\n               \
+  \                     'random',\n                                    'random',\n\
+  \                                    'random')\nGROUP BY\n    ALL ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

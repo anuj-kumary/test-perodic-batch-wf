@@ -1,0 +1,85 @@
+name: table_1451
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1451
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1451.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_CUSTOMERSERVICE_CASE_TASK(\n\t\"CaseTaskSysId\"\
+  ,\n\t\"CaseTaskState\",\n\t\"CaseTaskShortDescription\",\n\t\"CaseTaskPriorityId\"\
+  ,\n\t\"CaseTaskPriority\",\n\t\"CaseTaskSysCreatedOn\",\n\t\"CaseTaskAssignmentGroupSysID\"\
+  ,\n\t\"CaseTaskAssignmentGroup\",\n\t\"CaseTaskContactTypeSysId\",\n\t\"CaseTaskContactType\"\
+  ,\n\t\"CaseTaskLocation\",\n\t\"CaseTaskLocationId\",\n\t\"CaseTaskActive\",\n\t\
+  \"CaseTaskStateId\",\n\t\"CaseTaskAssignedToSysId\",\n\t\"CaseTaskAssignedTo\",\n\
+  \t\"CaseTaskNumber\",\n\t\"CaseTaskBusinessServiceSysId\",\n\t\"CaseTaskBusinessService\"\
+  ,\n\t\"CaseTaskActivityDue\",\n\t\"CaseTaskAdditionalAssigneeList\",\n\t\"CaseTaskAdditionalAssigneeListSysId\"\
+  ,\n\t\"CaseTaskApproval\",\n\t\"CaseTaskApprovalHistory\",\n\t\"CaseTaskApprovalId\"\
+  ,\n\t\"CaseTaskApprovalSet\",\n\t\"CaseTaskBusinessDuration\",\n\t\"CaseTaskBusinessDurationSysId\"\
+  ,\n\t\"CaseTaskUTaskFor\",\n\t\"CaseTaskUTaskForSysId\",\n\t\"CaseTaskParent\",\n\
+  \t\"CaseTaskParentSysId\",\n\t\"CaseTaskCategory\",\n\t\"CaseTaskSubCategory\",\n\
+  \t\"CaseTaskWorkNotes\",\n\t\"CaseTaskCreatedBy\",\n\t\"CaseTaskUpdatedOn\",\n\t\
+  \"CaseTaskUpdatedBy\",\n\t\"CaseTaskDescription\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"SYS_ID\" as \"CaseTaskSysId\",\n       \"DV_STATE\" as \"CaseTaskState\"\
+  ,\n       \"SHORT_DESCRIPTION\" as \"CaseTaskShortDescription\",\n       \"PRIORITY\"\
+  \ as \"CaseTaskPriorityId\",\n       \"DV_PRIORITY\" as \"CaseTaskPriority\",\n\
+  \       \"SYS_CREATED_ON\" as \"CaseTaskSysCreatedOn\",\n       \"ASSIGNMENT_GROUP\"\
+  \ as \"CaseTaskAssignmentGroupSysID\",\n       \"DV_ASSIGNMENT_GROUP\" as \"CaseTaskAssignmentGroup\"\
+  ,\n       \"CONTACT_TYPE\" as \"CaseTaskContactTypeSysId\",\n       \"DV_CONTACT_TYPE\"\
+  \ as \"CaseTaskContactType\",\n       \"DV_LOCATION\" as \"CaseTaskLocation\",\n\
+  \       \"LOCATION\" as \"CaseTaskLocationId\",\n       \"ACTIVE\" as \"CaseTaskActive\"\
+  ,\n       \"STATE\" as \"CaseTaskStateId\",\n       \"ASSIGNED_TO\" as \"CaseTaskAssignedToSysId\"\
+  ,\n       \"DV_ASSIGNED_TO\" as \"CaseTaskAssignedTo\",\n       \"NUMBER\" as \"\
+  CaseTaskNumber\",\n       \"BUSINESS_SERVICE\" as \"CaseTaskBusinessServiceSysId\"\
+  ,\n       \"DV_BUSINESS_SERVICE\" as \"CaseTaskBusinessService\",\n       \"ACTIVITY_DUE\"\
+  \ as \"CaseTaskActivityDue\",\n       \"DV_ADDITIONAL_ASSIGNEE_LIST\" as \"CaseTaskAdditionalAssigneeList\"\
+  ,\n       \"ADDITIONAL_ASSIGNEE_LIST\" as \"CaseTaskAdditionalAssigneeListSysId\"\
+  ,\n       \"DV_APPROVAL\" as \"CaseTaskApproval\",\n       \"APPROVAL_HISTORY\"\
+  \ as \"CaseTaskApprovalHistory\",\n       \"APPROVAL\" as \"CaseTaskApprovalId\"\
+  ,\n       \"APPROVAL_SET\" as \"CaseTaskApprovalSet\",\n       \"DV_BUSINESS_DURATION\"\
+  \ as \"CaseTaskBusinessDuration\",\n       \"BUSINESS_DURATION\" as \"CaseTaskBusinessDurationSysId\"\
+  ,\n       \"DV_U_TASK_FOR\" as \"CaseTaskUTaskFor\",\n       \"U_TASK_FOR\" as \"\
+  CaseTaskUTaskForSysId\",\n       \"DV_PARENT\" as \"CaseTaskParent\",\n       \"\
+  PARENT\" as \"CaseTaskParentSysId\",\n       \"DV_CATEGORY\" as \"CaseTaskCategory\"\
+  ,\n       \"DV_SUBCATEGORY\" as \"CaseTaskSubCategory\",\n       \"WORK_NOTES\"\
+  \ as \"CaseTaskWorkNotes\",\n       \"SYS_CREATED_BY\" as \"CaseTaskCreatedBy\"\
+  ,\n       \"SYS_UPDATED_ON\" as \"CaseTaskUpdatedOn\",\n       \"SYS_UPDATED_BY\"\
+  \ as \"CaseTaskUpdatedBy\",\n       \"DESCRIPTION\" as \"CaseTaskDescription\"\n\
+  FROM \"RDS\".\"SURF\".\"SN_CUSTOMERSERVICE_CASE_TASK\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

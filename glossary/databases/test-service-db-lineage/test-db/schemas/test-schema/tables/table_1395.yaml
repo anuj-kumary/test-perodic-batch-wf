@@ -1,0 +1,79 @@
+name: table_1395
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1395
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1395.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_PLUGINS(\n\t\"AccountNumber\",\n\t\"\
+  AccountName\",\n\t\"InstanceSysID\",\n\t\"InstanceSysName\",\n\t\"InstanceTypePurpose\"\
+  ,\n\t\"PluginName\",\n\t\"Plugin\",\n\t\"ActivatedDate\",\n\t\"ProcessedDate\",\n\
+  \t\"PluginDescription\",\n\t\"IncludeCustomer360\",\n\t\"PluginID\",\n\t\"Dummy\"\
+  ,\n\t\"AccountSysID\",\n\t\"AccountKey\",\n\t\"Category\",\n\t\"Application\"\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"U_NUMBER\" as \"AccountNumber\",\n   \
+  \    \"COMPANY_NAME\" as \"AccountName\",\n       \"SNC_INSTANCE_ID\" as \"InstanceSysID\"\
+  ,\n       \"SNC_INSTANCE_NAME\" as \"InstanceSysName\",\n       \"U_TYPE_PURPOSE\"\
+  \ as \"InstanceTypePurpose\",\n       \"NAME\" as \"PluginName\",\n       \"DV_U_PLUGIN\"\
+  \ as \"Plugin\",\n       \"U_ACTIVATED\" as \"ActivatedDate\",\n       \"U_PLUGINS_PROCESSED\"\
+  \ as \"ProcessedDate\",\n       \"DESCRIPTION\" as \"PluginDescription\",\n    \
+  \   \"INCLUDE_IN_CUSTOMER360\" as \"IncludeCustomer360\",\n       \"U_ID\" as \"\
+  PluginID\",\n       SUM(\"DUMMY\") as \"Dummy\",\n       \"AccountSysID\" as \"\
+  AccountSysID\",\n       coalesce(\"AccountSysID\", 'random')||coalesce(\"AccountNumber\"\
+  , 'random') as \"AccountKey\",\n       \"CC_CATEGORY\" as \"Category\",\n      \
+  \ \"CC_DV_APPLICATION\" as \"Application\"\nFROM\n  (SELECT \"U_NUMBER\" as \"U_NUMBER\"\
+  ,\n          \"COMPANY_NAME\" as \"COMPANY_NAME\",\n          \"SNC_INSTANCE_NAME\"\
+  \ as \"SNC_INSTANCE_NAME\",\n          \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\"\
+  ,\n          \"U_ACTIVATED\" as \"U_ACTIVATED\",\n          \"DV_U_PLUGIN\" as \"\
+  DV_U_PLUGIN\",\n          \"CATEGORY\" as \"CATEGORY\",\n          \"DESCRIPTION\"\
+  \ as \"DESCRIPTION\",\n          \"INCLUDE_IN_CUSTOMER360\" as \"INCLUDE_IN_CUSTOMER360\"\
+  ,\n          \"NAME\" as \"NAME\",\n          \"U_PLUGINS_PROCESSED\" as \"U_PLUGINS_PROCESSED\"\
+  ,\n          \"SNC_INSTANCE_ID\" as \"SNC_INSTANCE_ID\",\n          \"U_ID\" as\
+  \ \"U_ID\",\n          \"DV_APPLICATION\" as \"DV_APPLICATION\",\n          \"AccountSysID\"\
+  \ as \"AccountSysID\",\n          'random' as \"DUMMY\",\n          IFF((\"CATEGORY\"\
+  ) IS NULL , 'random', \"CATEGORY\") as \"CC_CATEGORY\",\n          IFF((\"DV_APPLICATION\"\
+  ) IS NULL , 'random', \"DV_APPLICATION\") as \"CC_DV_APPLICATION\"\n   FROM \"EDW_LS\"\
+  .\"CUSTOMER_EM\".\"EM_PLUGINS\"\n   WHERE \"U_ACTIVATED\"> DATEADD(MONTH, 'random',\
+  \ CURRENT_TIMESTAMP()) )Projection_1\nGROUP BY \"AccountNumber\",\n         \"AccountName\"\
+  ,\n         \"InstanceSysID\",\n         \"InstanceSysName\",\n         \"InstanceTypePurpose\"\
+  ,\n         \"PluginName\",\n         \"Plugin\",\n         \"ActivatedDate\",\n\
+  \         \"ProcessedDate\",\n         \"PluginDescription\",\n         \"IncludeCustomer360\"\
+  ,\n         \"PluginID\",\n         \"AccountSysID\",\n         \"Category\",\n\
+  \         \"Application\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,59 @@
+name: table_1425
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1425
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1425.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_NPS_COMMENTS_PIVOT(\n\tACCT_NAME,\n\t\
+  ACCT_NO,\n\tCOMMENTS_1,\n\tSURVEY,\n\tGEO,\n\tRESPONDENT_ID,\n\tLIKELY_TO_RECOMMEND,\n\
+  \tOSAT_RELATIONSHIP,\n\tDV_CD_ACCOUNT,\n\tAREA,\n\tLOYALTY,\n\t\"Comment_type\"\
+  ,\n\t\"Comment_Category\",\n\t\"Comment_Category_Desc\",\n\tDV_U_ACCOUNT_TERRITORY\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ACCT_NAME\" as \"ACCT_NAME\",\n      \
+  \ \"ACCT_NO\" as \"ACCT_NO\",\n       \"COMMENTS_1\" as \"COMMENTS_1\",\n      \
+  \ \"SURVEY\" as \"SURVEY\",\n       \"GEO\" as \"GEO\",\n       \"RESPONDENT_ID\"\
+  \ as \"RESPONDENT_ID\",\n       \"LIKELY_TO_RECOMMEND\" as \"LIKELY_TO_RECOMMEND\"\
+  ,\n       \"OSAT_RELATIONSHIP\" as \"OSAT_RELATIONSHIP\",\n       \"DV_CD_ACCOUNT\"\
+  \ as \"DV_CD_ACCOUNT\",\n       \"AREA\" as \"AREA\",\n       \"LOYALTY\" as \"\
+  LOYALTY\",\n       \"Comment_type\" as \"Comment_type\",\n       \"Comment_Category\"\
+  \ as \"Comment_Category\",\n       \"Comment_Category_Desc\" as \"Comment_Category_Desc\"\
+  ,\n       \"DV_U_ACCOUNT_TERRITORY\" as \"DV_U_ACCOUNT_TERRITORY\"\nFROM \"EDW_LS\"\
+  .\"CUSTOMER_EM\".\"TF_NPS_COMMENTS_PIVOT\" ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

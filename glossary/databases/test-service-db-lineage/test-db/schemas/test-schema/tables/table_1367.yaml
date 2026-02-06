@@ -1,0 +1,63 @@
+name: table_1367
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1367
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1367.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_PIPELINE_CONVERSION_RT_ST(\n\t\
+  BU_ID,\n\tQUARTER_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tQUARTER_YYQQ,\n\tFINAL_PREDICTED_NNACV,\n\
+  \tFINAL_PREDICTED_NNACV_LAST_WEEK,\n\tDAYS_7_ML_VALUE,\n\tDAYS_365_ML_VALUE,\n\t\
+  DAYS_372_ML_VALUE,\n\tHISTORICAL_AVG_CLOSED_TO_QUOTA,\n\tHISTORICAL_AVG_TOTAL_COVERAGE,\n\
+  \tHISTORICAL_OPEN_PIPELINE,\n\tHISTORICAL_ABILITY_AVG,\n\tQUOTA_PULL,\n\tSTD_DEV_OPEN_PIPELINE_WEIGHT,\n\
+  \tPREDICTED_CLOSED,\n\tAVG_OPEN_PIPELINE_WEIGHT,\n\tABILITY_TO_CLOSE\n) as\n(SELECT\n\
+  \      HASH(\"PLSBUGroup\") as BU_ID\n\t ,qtr.QUARTER_ID\n     ,TERR.TERRITORY_ID\n\
+  \     ,TERR.GEO_ID\n     ,QUARTER_YYQQ\n     ,R.\"FinalPredictedNNACV\" as FINAL_PREDICTED_NNACV\n\
+  \t ,R.\"FinalPredictedNNACV_Last_Week\" AS FINAL_PREDICTED_NNACV_LAST_WEEK\n\t ,'random'\
+  \ AS DAYS_7_ML_VALUE\n\t ,'random' AS DAYS_365_ML_VALUE\n\t ,'random' AS DAYS_372_ML_VALUE\n\
+  \t ,'random' AS HISTORICAL_AVG_CLOSED_TO_QUOTA\n\t ,'random' AS HISTORICAL_AVG_TOTAL_COVERAGE\n\
+  \t ,'random' AS HISTORICAL_OPEN_PIPELINE\n\t ,'random' AS HISTORICAL_ABILITY_AVG\n\
+  \t ,'random' AS QUOTA_PULL\n\t ,'random' AS STD_DEV_OPEN_PIPELINE_WEIGHT\n\t ,'random'\
+  \ AS PREDICTED_CLOSED\n\t ,'random' AS AVG_OPEN_PIPELINE_WEIGHT\n\t ,'random' AS\
+  \ ABILITY_TO_CLOSE\nFROM EDW_LS.SALES_EM.EM_SALES_PLS_PIPELINE_CONVERSION_RT R\n\
+  left outer join EDW.ENTERPRISE.DIM_QUARTER qtr on r.\"Quarter\" = qtr.QUARTER_YYQQ\n\
+  left outer join EDW.ENTERPRISE.DIM_TERRITORY TERR ON r.\"TerritorySysID\" = TERR.TERRITORY_SYSID\n\
+  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

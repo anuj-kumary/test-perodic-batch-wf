@@ -1,0 +1,892 @@
+name: table_1404
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1404
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1404.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_SALES_5_STAR_MISSION(\n\tGEO_ID,\n\tTERRITORY_ID,\n\
+  \t\"Quarter\",\n\t\"TerritorySysID_CC\",\n\t\"USDRenewalACV\",\n\t\"TotalClosedLost\"\
+  ,\n\t\"ClosedDownsell\",\n\t\"OpenDownsell\",\n\t\"SwappedBUAmount\",\n\t\"Total_USDRenewalACV\"\
+  ,\n\t\"Opty_Time_from_stg2_to_close_days\",\n\t\"AcctFSPParentAcct\",\n\t\"NLTargets\"\
+  ,\n\t\"RecordType\",\n\t\"deal_size_at_account_level\",\n\t\"Certifiedresources_cnt\"\
+  ,\n\t\"Numerator\",\n\t\"Denominator\",\n\t\"EmpSysID\",\n\t\"2QRepQuota\",\n\t\"\
+  2QWeightedPipeline\",\n\t\"AceClosed\",\n\t\"Closed\",\n\t\"HCActuals\",\n\t\"HCTarget\"\
+  ,\n\t\"InUseApps\",\n\t\"EntitledAppsNM\",\n\t\"USDNetNewACV_ST\",\n\t\"Stg2_stagnant_NNACV\"\
+  ,\n\t\"stage(2-5)days\",\n\t\"stage(5-8)days\",\n\t\"QuoteDuration\",\n\t\"OF_To_Approved_Days\"\
+  ,\n\t\"AcctFSPParentAcct_total\",\n\t\"PipeNoUpdates(>60 Days)\",\n\t\"PipeSlipped(>3\
+  \ Times)\",\n\t\"PoorPipe\",\n\t\"TotalPipe\",\n\t\"Techwin_Pipe\",\n\t\"Hightouch_Pipe\"\
+  ,\n\t\"TotalEmployeeCount\",\n\t\"RegrettableTermCount\",\n\t\"M1_attainment\",\n\
+  \t\"M2_attainment\",\n\t\"M3_attainment\"\n) as\n\n\n/*********************************************************************************\n\
+  * Story : SFSTRY0115574\n* Date Created  : 12 FEB 2024\n* Developed BY  : SARANYA\n\
+  * Brief Description : Five star mission metrics FY24\n**********************************************************************************************************************************/\n\
+  ---- 06 MAR 2024 ---to update pipeline quality metrics & ramped rep wt coverage\
+  \ from real time for CQ--- Saranya\n---- 01 APR 2024 ---dynamic qtr logic removed\
+  \ ---Saranya\n---- 02 APR 2024 ---addition of tier 2 metrics ---Saranya\n\n--------------start\
+  \ of cte----------------\n\n\nWITH CTE_DYNAMIC_QTR AS\n(\n\n    SELECT DISTINCT\
+  \ \"DateDimQuarterByYearSURF\" AS \"Quarter\"\n    FROM ODS_LS.\"SURF\".\"DATE_DIMENSION\"\
+  \n    WHERE ((left(\"DateDimQuarterByYearSURF\",'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random'))))\n\
+  \n),\n\nPAR_PARTNERS AS\n(\n    SELECT  DISTINCT \"ParentPartnerSysID\", \"ParentPartner\"\
+  , \"ParentPartnerNumber\",\"CIPP_Segment\"\n    FROM EDW_LS.\"PARTNER_EM\".\"PARENTPARTNERS\"\
+  \n    --WHERE \"ParentPartnerCategory\" != 'Global Elite' OR \"ParentPartnerCategory\"\
+  \ IS NULL\n),\n\nCTE_PARENT_ATTR AS\n(\n    SELECT DISTINCT \"ParentPartnerSysID\"\
+  , \"ParentPartnerNumber\", \"ParentPartner\",\"ParentPartnerType\", \"ParentPartnerSegment\"\
+  , \"ParentPartnerCategoryCode\",\n    \"GoToMarketSegmentVCU\", \"AcctPrimarySalesRep\"\
+  , \"AcctChannelManager\", \"AcctSolutionConsultant\"\n    FROM EDW_LS.\"PARTNER_EM\"\
+  .\"PARENTPARTNERSATTR\"\n),\n\nCTE_ACCOUNT_DIM AS\n(\n    SELECT DISTINCT\n    \"\
+  AcctNumber\",\n    \"AcctSysID\",\n    \"AcctName\",\n    \"AcctTerritory\",\n \
+  \   \"AcctTerritorySysID\",\n    \"TerrGeo\",\n    \"TerrMajorArea\",\n    \"TerrArea\"\
+  ,\n    \"TerrDistrict\",\n    \"TerrRegion\",\n    \"TerrName\"\n    FROM ODS_LS.SURF.SALES_ACCOUNT\
+  \ AS SA\n    LEFT JOIN ODS_LS.SURF.SALES_TERRITORY AS ST ON SA.\"AcctTerritorySysID\"\
+  \ = ST.\"TerrSysID\"\n    WHERE \"AcctTerritorySysID\" IS not NULL\n),\n\nCTE_PARTNER_TERR\
+  \ AS\n(\n    SELECT distinct \"Partner\",\n                \"PartnerNumber\",\n\
+  \    \"PartnerAccountSysID\",\n    \"ParentPartnerNumber\",\n    \"ParentPartner\"\
+  ,\n                \"PartnerManager\",\n    \"AccountTerritoryType\" AS \"TerritoryType\"\
+  ,\n                \"PartnerSalesTerritory\" AS \"PartnerTerritoryName\",\n    \
+  \            \"TerrArea\" AS \"PartnerTerritoryArea\",\n                \"TerrGeo\"\
+  \ AS \"PartnerTerritoryGeo\",\n                \"TerrMajorArea\" AS \"PartnerTerritoryMajorArea\"\
+  ,\n                \"TerrRegion\" AS \"PartnerTerritoryRegion\",\n             \
+  \   \"TerrDistrict\" AS \"PartnerTerritoryDistrict\"\n    FROM EDW_LS.PARTNER_EM.PARTNERS\
+  \ P\n    LEFT JOIN ODS_LS.SURF.V_PARTNER_TERRITORY PT ON P.\"PartnerSysID\" = PT.\"\
+  PartnerAccountSysID\"\n    LEFT JOIN ODS_LS.SURF.SALES_TERRITORY ST ON ST.\"TerrSysID\"\
+  \ = PT.\"PartnerSalesTerritoryID\"\n    WHERE \"IsActive\" = 'random'\n),\n\nCTE_LEAD_APPS\
+  \ AS\n(\nSELECT DISTINCT D.\"DplySurfNumber\", D.\"DplyEndDate\", D.\"DplyRegistrationNumber\"\
+  , P.\"SurfSysID\" AS \"ApplicationId\",\n        UPPER(TRIM(IFNULL(DP.\"LeadAppConsultantCertificationStatus\"\
+  , 'random'))) AS \"LeadAppConsultantCertificationStatus\",\n                   \
+  \             DP.\"LeadAppConsultant\",\n        DP.\"LeadAppConsultantSysID\",\n\
+  \                                APPS.\"CERTIFICATION\" AS \"Certification\",\n\
+  \                                RIGHT(YEAR(D.\"DplyEndDate\") ||'random'|| QUARTER(D.\"\
+  DplyEndDate\"),'random') AS \"Quarter\",\n        CASE WHEN UPPER(TRIM(IFNULL(DP.\"\
+  LeadAppConsultantCertificationStatus\", 'random'))) IN ('random') THEN D.\"DplySurfNumber\"\
+  \ END AS \"CertifiedDplySurfNumber\",\n        CASE WHEN UPPER(TRIM(IFNULL(DP.\"\
+  LeadAppConsultantCertificationStatus\", 'random'))) IN ('random') THEN D.\"DplySurfNumber\"\
+  \ END AS \"TotalDplySurfNumber_NotCertified\",\n        CASE WHEN UPPER(TRIM(IFNULL(DP.\"\
+  LeadAppConsultantCertificationStatus\", 'random'))) IN ('random') THEN D.\"DplySurfNumber\"\
+  \ END AS \"TotalDplySurfNumber_NoConsulant\"\n        FROM ODS_LS.PARTNER.U_DEPLOYMENT_REGISTRATION\
+  \ D\n        LEFT JOIN ODS_LS.PARTNER.U_DEPLOYMENT_REGISTRATION_PRODUCTS DP ON D.\"\
+  DplyRegistrationNumber\" = DP.\"DplyRegistrationNumber\"\n        LEFT JOIN ODS_LS.PARTNER.SYS_USER\
+  \ SY ON SY.\"SysID\" = DP.\"LeadAppConsultantSysID\"\n        LEFT JOIN ODS_LS.PARTNER.U_PRODUCT\
+  \ P ON P.\"SysID\" = DP.\"AppSysID\"\n                                LEFT JOIN\
+  \ EDW_LS.PARTNER_EM.DPLY_APPS_CERT APPS\n        ON APPS.\"ApplicationSysId\" =\
+  \ P.\"SurfSysID\"\n        WHERE D.\"DplySurfNumber\" IS not NULL\n),\n\nCTE_KEY_APPS\
+  \ AS\n(\n    SELECT DISTINCT \"APPLICATION\" AS \"ApplicationSysID\", 'random' \"\
+  KeyApplicationFlag\"\n    FROM ODS_LS.\"SURF\".\"X_SNC_CP_APPLICATION_OPTION\"\n\
+  \    WHERE \"KEY\" = 'random'\n),\n\nCTE_PARTNERS360DEPLOYMENT AS\n(\n    SELECT\
+  \ DISTINCT\n    F.\"ParentPartnerNumber\",\n    CASE WHEN LOWER(\"BUGroup\") = 'random'\
+  \ THEN 'random' ELSE \"BUGroup\" END AS \"BUGroup\",\n    F.\"BUWorkflow\",\n  \
+  \  F.\"DplyAccount\",\n    F.\"DplyAccountSysID\",\n    F.\"Quarter\",\n    F.\"\
+  DplyState\",\n    F.\"DplyType\",\n    F.\"DplyNumber\",\n    F.\"OverallSat\",\n\
+  \    F.\"DplySysCreatedOn\",\n    F.\"DplyEndDate\",\n    F.\"DplyCreatedQuarter\"\
+  ,\n    F.\"DplyCreatedCurrentYearCurrentQuarter\",\n    F.\"DplyCreatedCurrentYearPreviousQuarter\"\
+  ,\n    F.\"DplyOpenCurrentYearCurrentQuarterTD\" ,\n    F.\"DplyOpenCurrentYearPreviousQuarterTD\"\
+  ,\n    F.\"DplyCurrentYearCurrentQuarterTDAll\",\n    F.\"DplyCurrentYearPreviousQuarterFull\"\
+  \ ,\n    D.\"CertifiedDplySurfNumber\" ,\n    D.\"TotalDplySurfNumber_NoConsulant\"\
+  ,\n    D.\"TotalDplySurfNumber_NotCertified\",\n    D.\"LeadAppConsultant\",\n \
+  \   D.\"LeadAppConsultantSysID\",\n    D.\"Certification\",\n    D.\"LeadAppConsultantCertificationStatus\"\
+  ,\n    PT.\"PartnerTerritoryName\",\n    PT.\"PartnerTerritoryArea\",\n    PT.\"\
+  PartnerTerritoryGeo\",\n    PT.\"PartnerTerritoryMajorArea\",\n    PT.\"PartnerTerritoryRegion\"\
+  ,\n    PT.\"PartnerTerritoryDistrict\",\n    PT.\"PartnerManager\",\n    F.\"RecordType\"\
+  ,\n    F.\"Partner\",\n    F.\"PartnerNumber\" ,\n    F.\"DplyProjectName\",\n \
+  \   F.\"DeploymentApplication\",\n    F.\"DeploymentProductLine\",\n    F.\"SurveyNumber\"\
+  ,\n    F.\"DplyStartDate\",\n    F.\"CustomerProductSysID\",\n    F.\"CustomerGeo\"\
+  ,\n    F.\"CustomerCountry\",\n    IFNULL(F.\"DplyAccount\",'random') AS \"CustomerName\"\
+  ,\n    IFNULL(KA.\"KeyApplicationFlag\",'random') as \"KeyApplicationFlag\",\n \
+  \   \"DplyServiceCategory\"\n    FROM EDW_LS.PARTNER_EM.PARTNERS360DEPLOYMENT AS\
+  \ F\n                LEFT JOIN CTE_PARTNER_TERR PT ON F.\"PartnerNumber\" = PT.\"\
+  PartnerNumber\"\n                LEFT JOIN CTE_LEAD_APPS D ON F.\"DplyNumber\" =\
+  \ D.\"DplySurfNumber\" AND F.\"CustomerProductSysID\" = D.\"ApplicationId\"\n  \
+  \              LEFT JOIN CTE_KEY_APPS AS KA ON F.\"CustomerProductSysID\" = KA.\"\
+  ApplicationSysID\"\n    WHERE \"RecordType\" = 'random'\n    AND \"DplyType\" in\
+  \ ('random','random')\n\n),\n\n----for 5th date & month end date till last qtr\n\
+  date_dim as (  select distinct \"DateDimYearNumber\",\"DateDimQuarterByYearSURF\"\
+  ,dateadd(day,'random',\"DateDimQuarterBeginDate\") as \"5thday_Qtr\",\"DateDimMonthEndDate\"\
+  \n        from  ODS_LS.SURF.DATE_DIMENSION where \"DateDimYearNumber\" in (((YEAR(TO_DATE(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()))))-'random'),(YEAR(TO_DATE(convert_timezone( 'random',CURRENT_TIMESTAMP())))))\n\
+  \         and \"DateDimQuarterByYearSURF\" <  RIGHT(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))||'random'||QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)),'random')\n\
+  \            ),\n\n---for month end dt for current qtr\n current_qtr_dt as (  select\
+  \ distinct \"DateDimYearNumber\",\"DateDimQuarterByYearSURF\",dateadd(day,'random',\"\
+  DateDimQuarterBeginDate\") as \"5thday_Qtr\",\"DateDimMonthEndDate\"\n        from\
+  \  ODS_LS.SURF.DATE_DIMENSION\n        where \"DateDimQuarterByYearSURF\" = RIGHT(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))||'random'||QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)),'random')\n\
+  \         and \"DateDimMonthEndDate\" < to_date(convert_timezone('random',CURRENT_TIMESTAMP))\n\
+  \         order by \"DateDimMonthEndDate\"\n            ),\n\nmonth_end_date as\
+  \ (\nselect distinct \"DateDimYearNumber\",\n    \"DateDimQuarterByYearSURF\" as\
+  \ \"Quarter\"\n    ,max(\"DateDimMonthEndDate\") over (partition by \"DateDimQuarterByYearSURF\"\
+  ) as \"Enddate\"\n    ,add_months(max(\"DateDimMonthEndDate\") over (partition by\
+  \ \"DateDimQuarterByYearSURF\"),'random') as \"Startdate\"\n    from\n    (\n  \
+  \      select distinct \"DateDimYearNumber\",\"DateDimQuarterByYearSURF\",dateadd(day,'random',\"\
+  DateDimQuarterBeginDate\") as \"5thday_Qtr\",\"DateDimMonthEndDate\"\n        from\
+  \  ODS_LS.SURF.DATE_DIMENSION where \"DateDimYearNumber\" in (((YEAR(TO_DATE(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()))))-'random'),\n        ((YEAR(TO_DATE(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP()))))-'random'),\n        (YEAR(TO_DATE(convert_timezone(\
+  \ 'random',CURRENT_TIMESTAMP())))))\n\n     ) where \"DateDimYearNumber\" in (\n\
+  \        ((YEAR(TO_DATE(convert_timezone( 'random',CURRENT_TIMESTAMP()))))-'random'),\n\
+  \        (YEAR(TO_DATE(convert_timezone( 'random',CURRENT_TIMESTAMP())))))\n   \
+  \  order by \"Quarter\"),\n\n--month1 end dt\n date1 as\n(select \"DateDimMonthEndDate\"\
+  \ as Ip_date1 from current_qtr_dt limit 'random'),\n\n--month2 end dt\ndate2 as\n\
+  (select \"DateDimMonthEndDate\" as Ip_date2 from current_qtr_dt limit 'random' offset\
+  \ 'random'),\n\ndate_dim1 as\n(select distinct \"DateDimQuarterByYearSURF\",\"5thday_Qtr\"\
+  \ FROM date_dim),\n\nqtr_range as(\nselect\n    \"5thday_Qtr\"\n    ,right(Year(\"\
+  5thday_Qtr\")||'random'||Quarter(\"5thday_Qtr\"),'random') as \"StartQuarter\"\n\
+  \    ,right(Year(add_months(\"5thday_Qtr\",'random'))||'random'||Quarter(add_months(\"\
+  5thday_Qtr\",'random')),'random') as \"EndQuarter\"\n    from\n    (\n        select\
+  \ distinct \"DateDimQuarterByYearSURF\",\"5thday_Qtr\" FROM date_dim\n     )\n),\n\
+  \nrep_data as (\n-----for closed qtrs as of 5th date from snapshot cq+1 & cq+2\n\
+  select\n    \"IP_Quarter\" AS \"Quarter\",\n    \"IP_date\" as \"IP_date\",\n  \
+  \  \"Month_flg\",\n    \"TerritorySysID\" AS \"TerritorySysID\",\n    \"EmpSysID\"\
+  \n    ,sum(case when t.\"IP_date\"=dd.\"5thday_Qtr\" then \"F2QWeighted\" end) as\
+  \ \"2QWeightedPipeline\"\n    ,sum(case when t.\"IP_date\"=dd.\"5thday_Qtr\" then\
+  \ \"F2QRepQuota\" end) as \"2QRepQuota\"\n    ,sum(case when t.\"IP_date\"=de.\"\
+  DateDimMonthEndDate\" then \"CQClosed\" end) as \"CQClosed\"\n    ,sum(case when\
+  \ t.\"IP_date\"=de.\"DateDimMonthEndDate\" then \"CQRepQuota\" end) as \"CQRepQuota\"\
+  \nfrom\nEDW_LS.SALES_EM.TBL_ST_4RQ_REP_COVERAGE t\nleft join date_dim dd\non t.\"\
+  IP_date\"=dd.\"5thday_Qtr\"\nleft join date_dim de\non t.\"IP_date\"=de.\"DateDimMonthEndDate\"\
+  \ngroup by all\nunion all\n----to get attainment for each month\nselect\n    \"\
+  IP_Quarter\",\n    \"IP_date\",\n    'random' as \"Month_flg\",\n    \"TerritorySysID\"\
+  ,\n    \"EmpSysID\",\n    'random' as \"2QWeightedPipeline\",\n    'random' as \"\
+  2QRepQuota\",\n    sum(\"CQClosed\") as \"CQClosed\",\n    sum(\"CQRepQuota\") as\
+  \ \"CQRepQuota\"\nfrom table(EDW_LS.SALES_EM.TF_4RQ_COVERAGE_ASOFDATE(select Ip_date1\
+  \ from date1))\ngroup by all\nunion all\nselect\n    \"IP_Quarter\",\n    \"IP_date\"\
+  ,\n    'random' as \"Month_flg\",\n    \"TerritorySysID\",\n    \"EmpSysID\",\n\
+  \    'random' as \"2QWeightedPipeline\",\n    'random' as \"2QRepQuota\",\n    sum(\"\
+  CQClosed\") as \"CQClosed\",\n    sum(\"CQRepQuota\") as \"CQRepQuota\"\nfrom table(EDW_LS.SALES_EM.TF_4RQ_COVERAGE_ASOFDATE(select\
+  \ Ip_date2 from date2))\ngroup by all\nunion all\n-----for current month/current\
+  \ qtr from real time\nselect\n    right(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))\
+  \ || 'random' || QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)), 'random')\
+  \ as \"Quarter\",\n    to_date(convert_timezone('random',CURRENT_TIMESTAMP)) as\
+  \ \"IP_date\",\n    case when (select Ip_date1 from date1) IS NULL then 'random'\n\
+  \         when (select Ip_date2 from date2) IS NULL then 'random'\n         else\
+  \ 'random'\n    end as \"Month_flg\",\n    ---'M3' as \"Month_flg\",\n    \"TerritorySysID\"\
+  ,\n    \"EmpSysID\",\n    sum(\"F2QWeighted\") as \"2QWeightedPipeline\",\n    max(\"\
+  F2QRepQuota\") as \"2QRepQuota\",\n    sum(\"CQClosed\") as \"CQClosed\",\n    max(\"\
+  CQRepQuota\") as \"CQRepQuota\"\nfrom EDW_LS.SALES_EM.SALES_PIPELINE_INSIGHTS_SALES_TEAM\n\
+  group by all\n)\n\n--------------end of cte----------------\n\nSELECT\nd.GEO_ID\
+  \ as GEO_ID,\nd.TERRITORY_ID as TERRITORY_ID,\n\"Quarter\",\n\"TerritorySysID_CC\"\
+  ,\n\"USDRenewalACV\",\n\"TotalClosedLost\",\n\"ClosedDownsell\",\n\"OpenDownsell\"\
+  ,\n\"SwappedBUAmount\",\n\"Total_USDRenewalACV\",\n\"Opty_Time_from_stg2_to_close_days\"\
+  ,\n\"AcctFSPParentAcct\",\n\"NLTargets\",\n\"RecordType\",\n\"deal_size_at_account_level\"\
+  ,\n\"Certifiedresources_cnt\",\n\"Numerator\",\n\"Denominator\",\n\"EmpSysID\",\n\
+  \"2QRepQuota\",\n\"2QWeightedPipeline\",\n\"AceClosed\",\n\"Closed\",\n\"HCActuals\"\
+  ,\n\"HCTarget\",\n\"InUseApps\",\n\"EntitledAppsNM\",\n\"USDNetNewACV_ST\",\n\"\
+  Stg2_stagnant_NNACV\",\n\"stage(2-5)days\",\n\"stage(5-8)days\",\n\"QuoteDuration\"\
+  ,\n\"OF_To_Approved_Days\",\n\"AcctFSPParentAcct_total\",\n\"PipeNoUpdates(>60 Days)\"\
+  ,\n\"PipeSlipped(>3 Times)\",\n\"PoorPipe\",\n\"TotalPipe\",\n\"Techwin_Pipe\",\n\
+  \"Hightouch_Pipe\",\n\"TotalEmployeeCount\",\n\"RegrettableTermCount\",\n\"M1_attainment\"\
+  ,\n\"M2_attainment\",\n\"M3_attainment\"\nFROM\n(\n\n--% of Downsells\nSELECT\n\"\
+  Quarter\",\n\"TerritorySysID_CC\",\n\"USDRenewalACV\",\n\"TotalClosedLost\",\n\"\
+  ClosedDownsell\",\n\"OpenDownsell\",\n'random' AS \"SwappedBUAmount\",\n'random'\
+  \ AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' as \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random'\
+  \ AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n\
+  'random' AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n'random'\
+  \ AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\"\
+  ,\n'random' AS \"OF_To_Approved_Days\",\n'random' AS \"AcctFSPParentAcct_total\"\
+  ,\n'random' AS \"PipeNoUpdates(>60 Days)\",\n'random' AS \"PipeSlipped(>3 Times)\"\
+  ,\n'random' AS \"PoorPipe\",\n'random' AS \"TotalPipe\",\n'random' AS \"Techwin_Pipe\"\
+  ,\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"TotalEmployeeCount\",\n'random'\
+  \ AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\"\
+  ,\n'random' AS \"M3_attainment\"\nFROM\n(\n    SELECT\n    \"SalesQuarter\" as \"\
+  Quarter\",\n    \"TerritorySysID\" as \"TerritorySysID_CC\",\n    \"AcctWWNNACVBridgeFlag\"\
+  ,--dim bookings bridge flag dimension using bookings bridge flag id --ACCT_WW_NNACV_FLAG\n\
+  \    fd.\"BusinessUnit_CC\" as \"BusinessUnit_CC\",\n    fd.\"OpportunityNumber\"\
+  ,\n    fd.\"ProductCode\",\n    CASE WHEN \"PipelineStatus\" ='random' AND \"OpportunityStage\"\
+  \ ='random' THEN 'random'\n         WHEN \"PipelineStatus\" ='random' AND \"OpportunityStage\"\
+  \ ='random'THEN 'random'\n         ELSE 'random' END AS \"Closed/Open Status\",\n\
+  \    \"USDRenewalACV\",\n    \"FinNNACV_USD\",\n    CASE WHEN \"AcctWWNNACVBridgeFlag\"\
+  ='random' AND \"Closed/Open Status\" != 'random' THEN \"FinNNACV_USD\" END AS \"\
+  TotalClosedLost\",\n    CASE WHEN \"AcctWWNNACVBridgeFlag\"='random' AND \"Closed/Open\
+  \ Status\" != 'random' THEN \"FinNNACV_USD\" END AS \"ClosedDownsell\",\n    CASE\
+  \ WHEN \"AcctWWNNACVBridgeFlag\"='random' AND \"Closed/Open Status\" = 'random'\
+  \ THEN \"FinNNACV_USD\" END AS \"OpenDownsell\"\n    FROM\n    (select\n       \
+  \ \"SalesQuarter\",\n        \"TerritorySysID\",\n        \"OpportunityNumber\"\
+  ,\n        \"ProductCode\",\n        IFNULL(\"ProductBusinessUnit\",'random') as\
+  \ \"BusinessUnit_CC\",\n        SUM(case when \"SalesQuarter\" <= 'random' then\
+  \ \"USDNetNewACV\"+\"SFixedDataReferralFees\" else \"USDNetNewACV\" end) as  \"\
+  FinNNACV_USD\",\n        \"PipelineStatus\",\n        \"OpportunityStage\",\n  \
+  \      \"USDRenewalACV\",\n        \"USDNetNewACV\",\n        \"SFixedDataReferralFees\"\
+  \n    from\n       CDL_LS.\"SALES_RPT\".\"RPT_FIXEDDATAPLUSQUOTA_RT\" fd\n     \
+  \ WHERE (left(\"SalesQuarter\",'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random')))\n\
+  \    AND \"RecordType\" ='random' group by all\n    ) fd\n    left join (select\
+  \ \"OptyNumber\",\n                      \"AcctWWNNACVBridgeFlag\",\n          \
+  \            IFNULL(\"ProductBusinessUnitValue\",'random') as \"BusinessUnit_CC\"\
+  ,\n                      \"OptySalesQuarter\",\n                      \"ProductCode\"\
+  \n                  FROM CDL_LS.\"FINANCE_FPA_RPT\".\"BOOKINGS_ADHOC\"\n       \
+  \           where  ((left(\"OptySalesQuarter\",'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random'))))\n\
+  \               )ba\n    on ba.\"OptyNumber\"= fd.\"OpportunityNumber\"\n    and\
+  \ ba.\"BusinessUnit_CC\" = fd.\"BusinessUnit_CC\"\n    and ba.\"OptySalesQuarter\"\
+  \ = fd.\"SalesQuarter\"\n    and ba.\"ProductCode\" = fd.\"ProductCode\"\n    group\
+  \ by all\n)\n\n\nUNION ALL\n\n--%ProductSwaps\nSELECT\n\"OptySalesQuarter\" as \"\
+  Quarter\",\n\"SurvivorAcctTerrSysID\" as \"TerritorySysID_CC\",\n'random' AS \"\
+  USDRenewalACV\",\n'random' AS \"TotalClosedLost\",\n'random' AS \"ClosedDownsell\"\
+  ,\n'random' AS \"OpenDownsell\",\nSUM(\"SwappedBUAmount\") AS \"SwappedBUAmount\"\
+  ,\nSUM(\"Total_USDRenewalACV\") AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' as \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random'\
+  \ AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n\
+  'random' AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n'random'\
+  \ AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\"\
+  ,\n'random' AS \"OF_To_Approved_Days\",\n'random' AS \"AcctFSPParentAcct_total\"\
+  ,\n'random' AS \"PipeNoUpdates(>60 Days)\",\n'random' AS \"PipeSlipped(>3 Times)\"\
+  ,\n'random' AS \"PoorPipe\",\n'random' AS \"TotalPipe\",\n'random' AS \"Techwin_Pipe\"\
+  ,\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"TotalEmployeeCount\",\n'random'\
+  \ AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\"\
+  ,\n'random' AS \"M3_attainment\"\nFROM CDL_LS.SALES_PERS_RPT.RPT_SALES_RENEWAL_PRODUCT_SWAP\n\
+  WHERE (left(\"OptySalesQuarter\",'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random')))\n\
+  AND \"RecordType\"='random'\nGROUP BY ALL\n\nUNION ALL\n\n--Deal Velocity\nSELECT\n\
+  \"OptySalesQuarter\" as \"Quarter\",\n\"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\"\
+  ,\n'random' AS \"TotalClosedLost\",\n'random' AS \"ClosedDownsell\",\n'random' AS\
+  \ \"OpenDownsell\",\n'random' AS \"SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\"\
+  ,\n\"Opty_Time_from_stg2_to_close_days\" AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' as \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random'\
+  \ AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n\
+  'random' AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n\"stage(2-5)days\"\
+  \ as \"stage(2-5)days\",\n\"stage(5-8)days\" as \"stage(5-8)days\",\n\"QuoteDuration\"\
+  ,\n(\"OF_To_Approved_Days_Surf\"+\"OF_To_Approved_Days_Callidus\") as \"OF_To_Approved_Days\"\
+  ,\n'random' AS \"AcctFSPParentAcct_total\",\n'random' AS \"PipeNoUpdates(>60 Days)\"\
+  ,\n'random' AS \"PipeSlipped(>3 Times)\",\n'random' AS \"PoorPipe\",\n'random' AS\
+  \ \"TotalPipe\",\n'random' AS \"Techwin_Pipe\",\n'random' AS \"Hightouch_Pipe\"\
+  ,\n'random' AS \"TotalEmployeeCount\",\n'random' AS \"RegrettableTermCount\",\n\
+  'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\",\n'random' AS \"M3_attainment\"\
+  \nFROM\n(\n    SELECT\n    \"OptySalesQuarter\",\n    \"TerritorySysID\" AS \"TerritorySysID_CC\"\
+  ,\n    \"QuoteSource\",\n    \"OptyNumber\",\n    \"OptyStage\",\n    CASE WHEN\
+  \ \"OptyStage\"='random' THEN \"Opty_Time_from_stg2_to_close_days\" END AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n    (coalesce(\"Days_in_2 - Discovery (5%)\",'random')+coalesce(\"Days_in_3 -\
+  \ Objectives (10%)\",'random')+coalesce(\"Days_in_4 - Present Solution (20%)\",'random')+coalesce(\"\
+  Days_in_4 - Economic Buyer Identified (30%)\",'random')+coalesce(\"Days_in_5 - Economic\
+  \ Buyer Validation (40%)\",'random')) as \"stage(2-5)days\",\n    CASE WHEN \"OptyStage\"\
+  ='random' THEN\n    (coalesce(\"Days_in_5 - Economic Buyer Validation (40%)\",'random')+coalesce(\"\
+  Days_in_6 - Validation Completed (70%)\",'random')+coalesce(\"Days_in_7 - Deal Imminent\
+  \ (90%)\",'random')) END as \"stage(5-8)days\",\n    CASE WHEN \"QuoteStatus\" IN\
+  \ ('random','random','random') THEN \"QuoteDuration\" END AS \"QuoteDuration\",\n\
+  \    (coalesce(\"Days_in_OFDraft\",'random')+coalesce(\"Days_in_OFSubmitted\",'random')+coalesce(\"\
+  Days_in_OFApproved\",'random')) as \"OF_To_Approved_Days_Surf\",\n    (coalesce(\"\
+  Days_in_OFDraft_Callidus\",'random')+coalesce(\"Days_in_OFPriceApplied_Callidus\"\
+  ,'random')+coalesce(\"Days_in_OFPendingApproval_Callidus\",'random')+coalesce(\"\
+  Days_in_OFRejected_Callidus\",'random')+coalesce(\"Days_in_OFApproved_Callidus\"\
+  ,'random')) as \"OF_To_Approved_Days_Callidus\"\n    FROM EDW_LS.SALES_EM.TF_QUOTE_DEAL_VELOCITY\n\
+  \    WHERE (left(\"OptySalesQuarter\",'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random')))\n\
+  \    AND \"RecordType\"='random'\n    AND \"OptyReportingTerrGeo\" NOT IN ('random','random','random')\n\
+  \    AND IFNULL(\"OptyItemNetNewACV_USD\",'random') != 'random'\n    AND ((\"OptyOpportunityLinkReason\"\
+  \ IS NULL) OR (\"OptyOpportunityLinkReason\"='random'))\n    AND \"OptyCycleTime\"\
+  \ BETWEEN 'random' AND 'random'\n    AND \"Parent_Child_Flag\"='random'\n)\n\n\n\
+  UNION ALL\n\n--NewLogo\nSELECT\n\"SalesQuarter\" AS \"Quarter\",\n\"TerritorySysID\"\
+  \ AS \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\"\
+  ,\n'random' AS \"ClosedDownsell\",\n'random' AS \"OpenDownsell\",\n'random' AS \"\
+  SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n\"AcctFSPParentAcct\" AS \"AcctFSPParentAcct\",\n\"NLTargets\" AS \"NLTargets\"\
+  ,\n'random' AS \"RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random'\
+  \ AS \"Certifiedresources_cnt\",\n\"ClosedNLPipe\" AS \"Numerator\",\n\"Day5_NLPipe\"\
+  \ AS \"Denominator\",\n'random' AS \"EmpSysID\",\n'random' AS \"2QRepQuota\",\n\
+  'random' AS \"2QWeightedPipeline\",\n'random' AS \"AceClosed\",\n'random' AS \"\
+  Closed\",\n'random' AS \"HCActuals\",\n'random' AS \"HCTarget\",\n'random' AS \"\
+  InUseApps\",\n'random' AS \"EntitledAppsNM\",\n'random' AS \"USDNetNewACV_ST\",\n\
+  'random' AS \"Stg2_stagnant_NNACV\",\n'random' AS \"stage(2-5)days\",\n'random'\
+  \ AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\",\n'random' AS \"OF_To_Approved_Days\"\
+  ,\n\"AcctFSPParentAcct_total\" AS \"AcctFSPParentAcct_total\",\n'random' AS \"PipeNoUpdates(>60\
+  \ Days)\",\n'random' AS \"PipeSlipped(>3 Times)\",\n'random' AS \"PoorPipe\",\n\
+  'random' AS \"TotalPipe\",\n'random' AS \"Techwin_Pipe\",\n'random' AS \"Hightouch_Pipe\"\
+  ,\n'random' AS \"TotalEmployeeCount\",\n'random' AS \"RegrettableTermCount\",\n\
+  'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\",\n'random' AS \"M3_attainment\"\
+  \nFROM\n(\n    SELECT\n    \"SalesQuarter\",\n    \"TerritorySysID\",\n    \"AcctFieldSalesParentSegmentValue\"\
+  ,\n    \"AcctFieldSalesParentAccount\",\n    CASE WHEN \"RecordType\"='random' AND\
+  \ \"FSPNewLogoFlag\"='random' THEN \"AcctFieldSalesParentAccount\" ELSE 'random'\
+  \ END AS \"AcctFSPParentAcct\",\n    CASE WHEN \"RecordType\"='random' THEN \"NewLogoTargets\"\
+  \ ELSE 'random' END AS \"NLTargets\",\n    SUM(CASE WHEN \"RecordType\"='random'\
+  \ AND \"FSPNewLogoFlag\"='random' THEN \"USDNetNewACV\" END) as \"ClosedNLPipe\"\
+  ,\n    SUM(CASE WHEN \"RecordType\"='random' AND \"FSPNewLogoFlag\" in ('random','random')\
+  \ THEN \"USDNetNewACV\" END) as \"TotalNLPipe\",\n    CASE WHEN \"SalesQuarter\"\
+  =RIGHT(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))||'random'||QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)),'random')\
+  \ AND\n    \"RecordType\"='random' AND \"FSPNewLogoFlag\" in ('random','random')\
+  \ THEN \"AcctFieldSalesParentAccount\" ELSE 'random' END AS \"AcctFSPParentAcct_total\"\
+  ,\n    'random' \"Day5_NLPipe\"\n    FROM CDL_LS.MARKETING_RPT.RPT_MKT_FSPNEWLOGO\n\
+  \    WHERE ((left(\"SalesQuarter\",'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random'))))\n\
+  \    AND \"RecordType\" IN ('random','random')\n    GROUP BY ALL\n    UNION ALL\n\
+  \    ----from snapshot as of day5 for NL coverage & NL conversion\n    SELECT\n\
+  \    \"SalesQuarter\",\n    \"TerritorySysID\",\n    \"AcctFieldSalesParentSegmentValue\"\
+  ,\n    \"AcctFieldSalesParentAccount\",\n    'random' AS \"AcctFSPParentAcct\",\n\
+  \    'random' AS \"NLTargets\",\n    'random' AS \"ClosedNLPipe\",\n    'random'\
+  \ AS \"TotalNLPipe\",\n    CASE WHEN \"RecordType\"='random' AND \"FSPNewLogoFlag\"\
+  \ in ('random','random') THEN \"AcctFieldSalesParentAccount\" ELSE 'random' END\
+  \ AS \"AcctFSPParentAcct_total\",\n    SUM(CASE WHEN \"RecordType\"='random' AND\
+  \ \"FSPNewLogoFlag\" in ('random','random') THEN \"USDNetNewACV\" END) as \"Day5_NLPipe\"\
+  \n    FROM  EDW_LS.sales_em.st_rpt_mkt_fspnewlogo st\n    INNER JOIN date_dim1 dd\n\
+  \    ON st.snapshot_date=dd.\"5thday_Qtr\"  and st.\"SalesQuarter\"=\"DateDimQuarterByYearSURF\"\
+  \n    AND \"RecordType\" IN ('random','random')\n    GROUP BY ALL\n)\n\n\nUNION\
+  \ ALL\n\n---reps & weighted pipe coverage across CQ+1 and CQ+2\nSELECT\n\"Quarter\"\
+  ,\n\"TerritorySysID\" as \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n\
+  'random' AS \"TotalClosedLost\",\n'random' AS \"ClosedDownsell\",\n'random' AS \"\
+  OpenDownsell\",\n'random' AS \"SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\"\
+  ,\n'random' AS \"Opty_Time_from_stg2_to_close_days\",\n'random' AS \"AcctFSPParentAcct\"\
+  ,\n'random' AS \"NLTargets\",\n'random' as \"RecordType\",\n'random' AS \"deal_size_at_account_level\"\
+  ,\n'random' AS \"Certifiedresources_cnt\",\n'random' AS \"Numerator\",\n'random'\
+  \ AS \"Denominator\",\n\"EmpSysID\",\n\"2QRepQuota\" AS \"2QRepQuota\",\n\"2QWeightedPipeline\"\
+  \ AS \"2QWeightedPipeline\",\n'random' AS \"AceClosed\",\n'random' AS \"Closed\"\
+  ,\n'random' AS \"HCActuals\",\n'random' AS \"HCTarget\",\n'random' AS \"InUseApps\"\
+  ,\n'random' AS \"EntitledAppsNM\",\n'random' AS \"USDNetNewACV_ST\",\n'random' AS\
+  \ \"Stg2_stagnant_NNACV\",\n'random' AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\"\
+  ,\n'random' AS \"QuoteDuration\",\n'random' AS \"OF_To_Approved_Days\",\n'random'\
+  \ AS \"AcctFSPParentAcct_total\",\n'random' as \"PipeNoUpdates(>60 Days)\",\n'random'\
+  \ as \"PipeSlipped(>3 Times)\",\n'random' as \"PoorPipe\",\n'random' AS \"TotalPipe\"\
+  ,\n'random' AS \"Techwin_Pipe\",\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"\
+  TotalEmployeeCount\",\n'random' AS \"RegrettableTermCount\",\n\"M1_attainment\"\
+  ,\n\"M2_attainment\",\n\"M3_attainment\"\nfrom\n(\nselect\n\"Quarter\",\n\"TerritorySysID\"\
+  ,\n\"EmpSysID\",\n\"2QRepQuota\" AS \"2QRepQuota\",\n\"2QWeightedPipeline\" AS \"\
+  2QWeightedPipeline\",\n'random' as \"M1_attainment\",\n'random' as \"M2_attainment\"\
+  ,\n'random' as \"M3_attainment\"\nfrom rep_data\nunion all\nselect\n\"Quarter\"\
+  ,\n\"TerritorySysID\",\n\"EmpSysID\",\n'random' AS \"2QRepQuota\",\n'random' AS\
+  \ \"2QWeightedPipeline\",\nmax(case when \"Month_flg\"='random' then \"attainment\"\
+  \ end) \"M1_attainment\",\nmax(case when \"Month_flg\"='random' then \"attainment\"\
+  \ end) \"M2_attainment\",\nmax(case when \"Month_flg\"='random' then \"attainment\"\
+  \ end) \"M3_attainment\"\nfrom(\nselect \"Quarter\",\"Month_flg\",\"EmpSysID\",\"\
+  TerritorySysID\",\ncase when sum(\"CQRepQuota\") !='random' then round(sum(\"CQClosed\"\
+  ) / sum(\"CQRepQuota\"), 'random') *'random' end as \"attainment\"\nfrom\nrep_data\n\
+  group by all\n)\ngroup by all\n)\n\n\nUNION ALL\n\n---% of pipe stagnant in stage\
+  \ 2 (>6 months)\nSELECT\n\"SalesQuarter\" as \"Quarter\",\n\"TerritorySysID\" as\
+  \ \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\"\
+  ,\n'random' AS \"ClosedDownsell\",\n'random' AS \"OpenDownsell\",\n'random' AS \"\
+  SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' as \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random'\
+  \ AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n\
+  sum(\"USDNetNewACV_ST\") as \"USDNetNewACV_ST\",\nsum(\"Stg2_stagnant_NNACV\") as\
+  \ \"Stg2_stagnant_NNACV\",\n'random' AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\"\
+  ,\n'random' AS \"QuoteDuration\",\n'random' AS \"OF_To_Approved_Days\",\n'random'\
+  \ AS \"AcctFSPParentAcct_total\",\nsum(\"PipeNoUpdates(>60 Days)\") as \"PipeNoUpdates(>60\
+  \ Days)\",\nsum(\"PipeSlipped(>3 Times)\") as \"PipeSlipped(>3 Times)\",\nsum(\"\
+  PoorPipe\") as \"PoorPipe\",\n'random' AS \"TotalPipe\",\n'random' AS \"Techwin_Pipe\"\
+  ,\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"TotalEmployeeCount\",\n'random'\
+  \ AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\"\
+  ,\n'random' AS \"M3_attainment\"\nFROM\n(\n-----for closed qtrs as of 5th date from\
+  \ snapshot\nselect\n    \"TerritorySysID\",\n    \"SalesQuarter\",\n    SUM(\"USDNetNewACV_ST\"\
+  ) as \"USDNetNewACV_ST\" ,\n    sum(case when \"StageBucket\"='random' and \"OptyStagnationBucket\"\
+  ='random' then \"USDNetNewACV_ST\" end) AS \"Stg2_stagnant_NNACV\",\n    sum(case\
+  \ when \"NoUpdate\"= 'random'  then \"USDNetNewACV_ST\" end) as \"PipeNoUpdates(>60\
+  \ Days)\",\n    sum(case when \"SlippageCount\" > 'random' then \"USDNetNewACV_ST\"\
+  \ end) as \"PipeSlipped(>3 Times)\",\n    sum(case when \"StageBucket\"='random'\
+  \ and \"OptyStagnationBucket\"='random' and \"NoUpdate\"= 'random' and \"SlippageCount\"\
+  \ > 'random' then \"USDNetNewACV_ST\" end) as \"PoorPipe\"\nfrom EDW_LS.SALES_EM.TBL_ST_PIPELINE_QUALITY_METRICS\
+  \ pq\njoin date_dim1 dd\non pq.\"SalesQuarter\"=dd.\"DateDimQuarterByYearSURF\"\
+  \ and pq.\"ExtractDate\"=dd.\"5thday_Qtr\"\ngroup by all\nunion all\n-----for current\
+  \ qtr from real time\nselect\n    fd.\"TerritorySysID\",\n    fd.\"SalesQuarter\"\
+  ,\n    sum(\"USDNetNewACV\") as \"USDNetNewACV_ST\",\n    sum(case when pq.\"OptyStagnationBucket\"\
+  \ = 'random'  and \"OptyStage\" = 'random' then fd.\"USDNetNewACV\" end) as \"Stg2_stagnant_NNACV\"\
+  ,\n    sum(case when \"IsAllNoUpdatedFlag\" = 'random' then fd.\"USDNetNewACV\"\
+  \ end) as \"PipeNoUpdates(>60 Days)\",\n    sum(case when pq.\"SlippedCnt\" > 'random'\
+  \ then fd.\"USDNetNewACV\" end) as \"PipeSlipped(>3 Times)\",\n    sum(case when\
+  \ \"IsAllNoUpdatedFlag\" = 'random' and \"OptyStagnationBucket\" = 'random'  and\
+  \ \"OptyStage\" = 'random' and \"SlippedCnt\" > 'random' then fd.\"USDNetNewACV\"\
+  \ end) as \"PoorPipe\"\nfrom CDL_LS.\"SALES_RPT\".\"RPT_FIXEDDATAPLUSQUOTA_RT\"\
+  \ fd\ninner join\n(\n    select\n        \"OptyNumber\",\n         max(\"OptyStagnationBucket\"\
+  ) as \"OptyStagnationBucket\",\n         max(\"OptyStage\") as \"OptyStage\",\n\
+  \         max(\"IsAllNoUpdatedFlag\") as \"IsAllNoUpdatedFlag\",\n         sum(\"\
+  SlippedCnt\") as \"SlippedCnt\"\n     from\n        (\n        select\n        \
+  \    \"OptyNumber\",\n            \"SalesQuarter\",\n            \"OptyStagnationBucket\"\
+  ,\n            \"OptyStage\",\n            \"IsAllNoUpdatedFlag\",\n           \
+  \ \"RecordType\",\n            \"LeadFromQuarter\",\n            \"LeadQuarter\"\
+  ,\n            max(\"SlippedCnt\") as \"SlippedCnt\"\n        from EDW_LS.SALES_EM.SALES_PIPELINE_INSIGHTS_QUALITY\n\
+  \        where \"RecordType\" in ( 'random','random','random','random')\n      \
+  \  and \"SalesQuarter\"=RIGHT(YEAR(convert_timezone('random', CURRENT_TIMESTAMP))\
+  \ || 'random' || QUARTER(convert_timezone('random', CURRENT_TIMESTAMP)),'random')\n\
+  \        group by all\n        )\n    group by all\n)pq\non fd.\"OpportunityNumber\"\
+  \ = pq.\"OptyNumber\"\nwhere fd.\"RecordType\" in ('random')\nand  fd.\"SalesQuarter\"\
+  \ =RIGHT(YEAR(convert_timezone('random', CURRENT_TIMESTAMP)) || 'random' || QUARTER(convert_timezone('random',\
+  \ CURRENT_TIMESTAMP)),'random')\ngroup by all\n)\ngroup by all\n\n\nUNION ALL\n\n\
+  ----Certified resources (global only)\nSELECT\n\"Quarter\" as \"Quarter\",\n'random'\
+  \ as \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\"\
+  ,\n'random' AS \"ClosedDownsell\",\n'random' AS \"OpenDownsell\",\n'random' AS \"\
+  SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' as \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\ncnt AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random'\
+  \ AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n\
+  'random' AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n'random'\
+  \ AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\"\
+  ,\n'random' AS \"OF_To_Approved_Days\",\n'random' AS \"AcctFSPParentAcct_total\"\
+  ,\n'random' AS \"PipeNoUpdates(>60 Days)\",\n'random' AS \"PipeSlipped(>3 Times)\"\
+  ,\n'random' AS \"PoorPipe\",\n'random' AS \"TotalPipe\",\n'random' AS \"Techwin_Pipe\"\
+  ,\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"TotalEmployeeCount\",\n'random'\
+  \ AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\"\
+  ,\n'random' AS \"M3_attainment\"\nFROM\n(\n    SELECT GEO,COUNT(DISTINCT USER_SYS_ID)\
+  \ As cnt, \"Quarter\"\n    FROM(\n    SELECT DISTINCT GEO,USER_SYS_ID\n    , MIN(RIGHT(YEAR(cast(completed_dt\
+  \ as date)) ||'random'|| QUARTER((cast(completed_dt as date))),'random')) AS \"\
+  Quarter\"\n    FROM EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY\n\
+  \    where 'random'='random' AND (BU_name not in ('random') or BU_name IS NULL)\n\
+  \                          AND UPPER(ifnull(First_Name,'random')) != 'random'\n\
+  \                          AND IS_SERVICENOW_EMPLOYEE = 'random'\n             \
+  \             AND USER_TYPE = 'random'\n                          AND FUNNEL_STAGE\
+  \ = 'random'\n                          AND FUNNEL_SUB_STAGE_RANK='random' and FUNNEL_STAGE_RANK='random'\n\
+  \                          AND SNAPSHOT_DATE =\n    (\n    SELECT MAX(snapshot_date)\
+  \ FROM EDW_LS.GTM_RISEUP.ST_FUNNEL_WISE_ACTUAL_USERS_WITH_TARGET_AND_CAPACITY\n\
+  \    )\n    GROUP BY ALL\n    )\nGROUP BY ALL\n)\n\nUNION ALL\n\n-----% Partner\
+  \ Sourced NNACV\nSELECT\n\"Quarter\" AS \"Quarter\",\n\"TerritorySysID_CC\" AS \"\
+  TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\"\
+  ,\n'random' AS \"ClosedDownsell\",\n'random' AS \"OpenDownsell\",\n'random' AS \"\
+  SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' AS \"\
+  RecordType\",\n\"ACV\" AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random'\
+  \ AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n\
+  'random' AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n'random'\
+  \ AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\"\
+  ,\n'random' AS \"OF_To_Approved_Days\",\n'random' AS \"AcctFSPParentAcct_total\"\
+  ,\n'random' AS \"PipeNoUpdates(>60 Days)\",\n'random' AS \"PipeSlipped(>3 Times)\"\
+  ,\n'random' AS \"PoorPipe\",\n'random' AS \"TotalPipe\",\n'random' AS \"Techwin_Pipe\"\
+  ,\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"TotalEmployeeCount\",\n'random'\
+  \ AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\"\
+  ,\n'random' AS \"M3_attainment\"\nFROM\n(\n    select\n        \"AccountNumber\"\
+  ,\n        \"SalesQuarter\" as \"Quarter\",\n        sum(\"USDNetNewACV\") as \"\
+  ACV\",\n        \"ReportingTerritoryGeo\",\n        \"OpportunityMajorArea\",\n\
+  \        \"OpportunityArea\",\n        \"OpportunityRegion\",\n        \"OpportunityDistrict\"\
+  ,\n        \"OpportunityTerritory\",\n        \"TerritorySysID_CC\"\n    from CDL_LS.\"\
+  SALES_RPT\".\"RPT_FIXEDDATAPLUSQUOTA_RT\" fxd\n    where 'random'='random'\n   \
+  \ and \"RecordType\"='random'\n    and  left(\"SalesQuarter\",'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random'))\n\
+  \    and \"OpportunityType\" in ('random', 'random', 'random')\n    and left(fxd.\"\
+  OpportunityStage\", 'random') = 'random'\n    and \"AccountNumber\" IS not NULL\n\
+  \    and \"OpportunityNumber\" IS not NULL --and \"BUGroup\" is not null\n    and\
+  \ \"USDNetNewACV\" <> 'random'\n    group by all\n   -- having sum(\"USDNetNewACV\"\
+  ) <> 0\n)\n\nUNION ALL\n\n-----% Partner Sourced NNACV\nSELECT\n\"Quarter\" AS \"\
+  Quarter\",\n\"OptyTerritorySysID\" AS \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\"\
+  ,\n'random' AS \"TotalClosedLost\",\n'random' AS \"ClosedDownsell\",\n'random' AS\
+  \ \"OpenDownsell\",\n'random' AS \"SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\"\
+  ,\n'random' AS \"Opty_Time_from_stg2_to_close_days\",\n'random' AS \"AcctFSPParentAcct\"\
+  ,\n'random' AS \"NLTargets\",\n'random' AS \"RecordType\",\n'random' AS \"deal_size_at_account_level\"\
+  ,\n'random' AS \"Certifiedresources_cnt\",\n'random' AS \"Numerator\",\n'random'\
+  \ AS \"Denominator\",\n'random' AS \"EmpSysID\",\n'random' AS \"2QRepQuota\",\n\
+  'random' AS \"2QWeightedPipeline\",\n\"ACESourcedClosedACV_WithPartialCredit\" AS\
+  \ \"AceClosed\",\n\"TotalPipeline\" AS \"Closed\",\n'random' AS \"HCActuals\",\n\
+  'random' AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\"\
+  ,\n'random' AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n'random'\
+  \ AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\"\
+  ,\n'random' AS \"OF_To_Approved_Days\",\n'random' AS \"AcctFSPParentAcct_total\"\
+  ,\n'random' AS \"PipeNoUpdates(>60 Days)\",\n'random' AS \"PipeSlipped(>3 Times)\"\
+  ,\n'random' AS \"PoorPipe\",\n'random' AS \"TotalPipe\",\n'random' AS \"Techwin_Pipe\"\
+  ,\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"TotalEmployeeCount\",\n'random'\
+  \ AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\"\
+  ,\n'random' AS \"M3_attainment\"\nFROM\n(\n    SELECT \"Quarter\",\"OptyTerritorySysID\"\
+  ,\n    round(sum(\"SourcedClosedACV\")/'random','random') as \"ACESourcedClosedACV\"\
+  ,\n    round(sum(\"PartialSourcedCreditClosed_Max\")/'random','random') as \"PartialSourcedCreditClosed_1\"\
+  ,\n    \"ACESourcedClosedACV\" + ifnull(\"PartialSourcedCreditClosed_1\",'random')\
+  \ as \"ACESourcedClosedACV_WithPartialCredit\",\n     round(sum(\"ActiveACV_1\"\
+  )/'random','random') AS \"TotalPipeline\"\n     --((\"ACESourcedClosedACV_WithPartialCredit\"\
+  /\"TotalPipeline\")*100) AS \"PartnerSourced%\"\nFROM\n(\n    SELECT DISTINCT \"\
+  Quarter\",\"OptyTerritorySysID\",\"OptyNumber\",\n    Max(\"PartialSourcedCreditClosed\"\
+  ) AS \"PartialSourcedCreditClosed_Max\",\n    sum(\"OptySourcedACV\") as \"SourcedClosedACV\"\
+  \n    , SUM(\"ActiveACV\") AS \"ActiveACV_1\"\n    FROM EDW_LS.PARTNER_EM.MATACE360FINANCIALS\n\
+  \    WHERE --\"DynamicQuarter\" = 'Current Quarter'\n     ((left(\"Quarter\",'random')\
+  \ in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random'))))\n\
+  \    AND \"Source\" = 'random'\n    AND \"Type\" = 'random'\n    AND \"RecordType_CC\"\
+  \ = 'random'\n    group by all\n) group by all\n)\n\n\nUNION ALL\n\n-----% Certified\
+  \ Lead Application Consultants\nSELECT\n\"Quarter\" AS \"Quarter\",\n\"AcctTerritorySysID\"\
+  \ AS \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\"\
+  ,\n'random' AS \"ClosedDownsell\",\n'random' AS \"OpenDownsell\",\n'random' AS \"\
+  SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' AS \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n\"Numerator\",\n\"Denominator\",\n'random' AS \"EmpSysID\",\n'random' AS \"2QRepQuota\"\
+  ,\n'random' AS \"2QWeightedPipeline\",\n'random' AS \"AceClosed\",\n'random' AS\
+  \ \"Closed\",\n'random' AS \"HCActuals\",\n'random' AS \"HCTarget\",\n'random' AS\
+  \ \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n'random' AS \"USDNetNewACV_ST\"\
+  ,\n'random' AS \"Stg2_stagnant_NNACV\",\n'random' AS \"stage(2-5)days\",\n'random'\
+  \ AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\",\n'random' AS \"OF_To_Approved_Days\"\
+  ,\n'random' AS \"AcctFSPParentAcct_total\",\n'random' AS \"PipeNoUpdates(>60 Days)\"\
+  ,\n'random' AS \"PipeSlipped(>3 Times)\",\n'random' AS \"PoorPipe\",\n'random' AS\
+  \ \"TotalPipe\",\n'random' AS \"Techwin_Pipe\",\n'random' AS \"Hightouch_Pipe\"\
+  ,\n'random' AS \"TotalEmployeeCount\",\n'random' AS \"RegrettableTermCount\",\n\
+  'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\",\n'random' AS \"M3_attainment\"\
+  \nFROM\n(\n    SELECT\n        \"Quarter\",\n        \"AcctTerritorySysID\",\n \
+  \       -- Numerator\n        (COUNT(DISTINCT case when \"CertifiedDplySurfNumber\"\
+  \ IS not NULL then \"CertifiedDplySurfNumber\" || \"CustomerProductSysID\" end))\
+  \ as \"Numerator\",\n         -- Denominator\n        (COUNT(DISTINCT \"CertifiedDplySurfNumber\"\
+  \ || \"CustomerProductSysID\") +\n        COUNT(DISTINCT \"TotalDplySurfNumber_NoConsulant\"\
+  \ || \"CustomerProductSysID\") +\n        COUNT(DISTINCT \"TotalDplySurfNumber_NotCertified\"\
+  \ || \"CustomerProductSysID\")) as \"Denominator\"\n       -- (\"Numerator\"/\"\
+  Denominator\")*100 as \"CertifiedLeadAppConsultants_Percent\"\n    FROM (\n    \
+  \        SELECT\n                P.\"ParentPartnerNumber\",\n                P.\"\
+  ParentPartner\",\n                D2.\"ParentPartnerType\",\n                D1.\"\
+  AcctNumber\" AS \"AccountNumber\",\n               -- \"DynamicQuarter\",\n    \
+  \            \"BUGroup\",\n                \"BUWorkflow\",\n                \"DplyAccount\"\
+  \ AS \"AccountName\",\n                A.\"Quarter\",\n                D1.\"TerrGeo\"\
+  \ AS \"Geo\",\n                D1.\"TerrMajorArea\" AS \"MajorArea\",\n        \
+  \        D1.\"TerrArea\" AS \"Area\",\n                D1.\"TerrRegion\" AS \"Region\"\
+  ,\n                D1.\"TerrName\" AS \"Territory\" ,\n               -- '-99' AS\
+  \ \"OptyTerritorySysID\",\n                D1.\"AcctTerritorySysID\" AS \"AcctTerritorySysID\"\
+  ,\n                D1.\"TerrDistrict\" AS \"District\",\n                \"DplyState\"\
+  ,\n                \"DplyNumber\",\n                D2.\"ParentPartnerSegment\"\
+  ,\n                D2.\"GoToMarketSegmentVCU\",\n                /*\n          \
+  \          -- Numerator\n                    (COUNT(DISTINCT D.\"CertifiedDplySurfNumber\"\
+  \ || A.\"CustomerProductSysID\"))\n\n                    -- Denominator\n      \
+  \              (COUNT(DISTINCT D.\"CertifiedDplySurfNumber\" || A.\"CustomerProductSysID\"\
+  ) +\n                    COUNT(DISTINCT \"TotalDplySurfNumber_NoConsulant\" || A.\"\
+  CustomerProductSysID\") +\n                    COUNT(DISTINCT \"TotalDplySurfNumber_NotCertified\"\
+  \ || A.\"CustomerProductSysID\"))\n                */\n                A.\"CertifiedDplySurfNumber\"\
+  \ ,\n                A.\"TotalDplySurfNumber_NoConsulant\",\n                A.\"\
+  TotalDplySurfNumber_NotCertified\",\n                A.\"CustomerProductSysID\"\
+  ,\n                A.\"LeadAppConsultant\",\n                A.\"LeadAppConsultantSysID\"\
+  ,\n                A.\"Certification\",\n                A.\"PartnerTerritoryRegion\"\
+  ,\n                A.\"PartnerTerritoryGeo\",\n                A.\"PartnerTerritoryArea\"\
+  ,\n                A.\"PartnerTerritoryName\",\n                A.\"PartnerTerritoryDistrict\"\
+  ,\n                A.\"PartnerTerritoryMajorArea\",\n                A.\"LeadAppConsultantCertificationStatus\"\
+  ,\n                A.\"Partner\",\n                A.\"PartnerNumber\" ,\n     \
+  \           A.\"DplyProjectName\",\n                A.\"DeploymentApplication\"\
+  ,\n                A.\"DeploymentProductLine\",\n                A.\"SurveyNumber\"\
+  ,\n                A.\"DplyStartDate\",\n                A.\"CustomerGeo\",\n  \
+  \              A.\"CustomerCountry\",\n                A.\"CustomerName\",\n   \
+  \             A.\"KeyApplicationFlag\",\n                \"DplyType\",\n       \
+  \         A.\"DplyEndDate\",\n                \"DplyServiceCategory\",\n       \
+  \         A.\"PartnerManager\",\n                'random' AS \"RecordType\"\n  \
+  \              FROM PAR_PARTNERS P\n                INNER JOIN CTE_PARTNERS360DEPLOYMENT\
+  \ AS A ON A.\"ParentPartnerNumber\" = P.\"ParentPartnerNumber\"\n              \
+  \  LEFT JOIN CTE_ACCOUNT_DIM AS D1 ON A.\"DplyAccountSysID\" = D1.\"AcctSysID\"\n\
+  \                LEFT JOIN CTE_PARENT_ATTR AS D2 ON A.\"ParentPartnerNumber\" =\
+  \ D2.\"ParentPartnerNumber\"\n                LEFT JOIN CTE_DYNAMIC_QTR AS Q ON\
+  \ A.\"Quarter\" = Q.\"Quarter\"\n                WHERE ((left(A.\"Quarter\",'random')\
+  \ in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random'))))\n\
+  \                AND \"DplyState\" in('random','random')\n                --and\
+  \ \"Geo\" = 'AMS'\n\n    )GROUP BY ALL\n)\n\nUNION ALL\n\n-----% Certified Lead\
+  \ Application Consultants\nSELECT\n\"Quarter\" AS \"Quarter\",\n\"AcctTerritorySysID\"\
+  \ AS \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\"\
+  ,\n'random' AS \"ClosedDownsell\",\n'random' AS \"OpenDownsell\",\n'random' AS \"\
+  SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' AS \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n\"Numerator\",\n\"Denominator\",\n'random' AS \"EmpSysID\",\n'random' AS \"2QRepQuota\"\
+  ,\n'random' AS \"2QWeightedPipeline\",\n'random' AS \"AceClosed\",\n'random' AS\
+  \ \"Closed\",\n'random' AS \"HCActuals\",\n'random' AS \"HCTarget\",\n'random' AS\
+  \ \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n'random' AS \"USDNetNewACV_ST\"\
+  ,\n'random' AS \"Stg2_stagnant_NNACV\",\n'random' AS \"stage(2-5)days\",\n'random'\
+  \ AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\",\n'random' AS \"OF_To_Approved_Days\"\
+  ,\n'random' AS \"AcctFSPParentAcct_total\",\n'random' AS \"PipeNoUpdates(>60 Days)\"\
+  ,\n'random' AS \"PipeSlipped(>3 Times)\",\n'random' AS \"PoorPipe\",\n'random' AS\
+  \ \"TotalPipe\",\n'random' AS \"Techwin_Pipe\",\n'random' AS \"Hightouch_Pipe\"\
+  ,\n'random' AS \"TotalEmployeeCount\",\n'random' AS \"RegrettableTermCount\",\n\
+  'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\",\n'random' AS \"M3_attainment\"\
+  \nFROM\n(\n    SELECT \"AcctTerritorySysID\",\n    \"SurveyQuarter\" AS \"Quarter\"\
+  ,\n    (sum(\"SNPromoterFlag\")-sum(\"SNDetractorsFlag\")) AS \"Numerator\",\n \
+  \   sum(\"SNResponseFlag\") AS \"Denominator\"\n    --((sum(\"SNPromoterFlag\")-sum(\"\
+  SNDetractorsFlag\"))/sum(\"SNResponseFlag\"))*100 AS \"%NPSPercent\"\n    FROM\n\
+  \    (\n        SELECT\n         \"AcctTerritorySysID\"\n        ,\"SurveyName\"\
+  \n        , \"SurveyQuarter\"\n        ,\"SurveySentDate\"\n        ,\"SurveyResponseDate\"\
+  \n        ,A.\"AccountNumber\"\n        ,\"ContactEmail\"\n        ,\"ContactRole\"\
+  \n        ,\"MailingListContactExtref\"\n        ,\"ResponseStatus\"\n        --\
+  \ ServiceNow NPS\n        ,\"LikelyToRecommendSN\"\n        ,\"SNPromoterFlag\"\n\
+  \        ,\"SNPassivesFlag\"\n        ,\"SNDetractorsFlag\"\n        ,\"SNResponseFlag\"\
+  \n        ,\"ReasonForScore\"\n        FROM\n        (\n            SELECT\n   \
+  \         \"AcctTerritorySysID\"\n            ,'random' AS \"SurveyName\"\n    \
+  \        ,RIGHT(YEAR(CONVERT_TIMEZONE('random', \"NPS\".\"CompletedDate\")) ||'random'||\
+  \ QUARTER(CONVERT_TIMEZONE('random', \"NPS\".\"CompletedDate\")), 'random') as \"\
+  SurveyQuarter\"\n            ,\"NPS\".\"CompletedDate\" AS \"SurveySentDate\"\n\
+  \            ,\"NPS\".\"EgmtSurveySent\" As \"SurveyResponseDate\"\n           \
+  \ ,\"NPS\".\"AccountNumber\"\n            ,\"NPS\".\"ContactEmail\"\n          \
+  \  ,\"NPS\".\"ContactRole\"\n            ,\"NPS\".\"MailingListContactExtref\"\n\
+  \            ,\"NPS\".\"ResponseStatus\"\n            -- ServiceNow NPS\n      \
+  \      ,\"NPS\".\"LikelyToRecommend\" AS \"LikelyToRecommendSN\"\n            ,CASE\
+  \  WHEN \"LikelyToRecommend\" IN ( 'random','random') THEN 'random' ELSE 'random'\
+  \ END  AS \"SNPromoterFlag\"\n            ,CASE  WHEN \"LikelyToRecommend\" IN (\
+  \ 'random','random')  THEN 'random' ELSE 'random' END  AS \"SNPassivesFlag\"\n \
+  \           ,CASE  WHEN \"LikelyToRecommend\" IN ('random','random','random','random','random','random','random')\
+  \ THEN 'random' ELSE 'random' END  AS \"SNDetractorsFlag\"\n            ,CASE  WHEN\
+  \  \"ResponseStatus\"   IN ( 'random','random')  THEN 'random' ELSE 'random' END\
+  \  AS \"SNResponseFlag\"\n            ,\"NPS\".\"ReasonForScore\"\n            FROM\n\
+  \            (\n               SELECT\n               \"EgmtSurveySent\",\"CompletedDate\"\
+  \n               ,SA.\"AcctTerritorySysID\" AS \"AcctTerritorySysID\"\n        \
+  \       ,CASE\n                  WHEN \"SA\".\"AcctSysMerge\" IS NULL THEN \"AccountNumber\"\
+  \n                  ELSE \"SA\".\"AcctNumber_SA2\"\n                  END AS \"\
+  AccountNumber\"\n                 ,\"AccountName\",\"ContactEmail\",\"ContactRole\"\
+  ,\"ResponseStatus\"\n                 ,\"LikelyToRecommend\",\"ReasonForScore\"\
+  ,\"SurveyResponseBlk2Q7PartnerNPS\",\"AccountImplementationPartner1\",\"AccountImplementationPartner1Number\"\
+  \n                 ,\"AccountImplementationPartner2\",\"AccountImplementationPartner2Number\"\
+  ,\"AccountImplementationPartner3\",\"AccountImplementationPartner3Number\",\"CompanysPlans\"\
+  \n                 ,\"SI\".\"IndustryCategory\",\"Industry\", \"MailingListContactExtref\"\
+  ,\"SurveyResponseBlk1Q3AccountTeamPartnerWithMe\",\"ContactTime\",\"SA\".\"AcctVertical\"\
+  \n                  ,\"EoDB\",\"EoDBLbl\"\n               FROM EDW_LS.\"CUSTOMER_EM\"\
+  .\"EM_NPS_SURVEY\" \"NPS\"\n               LEFT  JOIN (select \"SA1\".*,\"SA2\"\
+  .\"AcctNumber\" as \"AcctNumber_SA2\"\n               from ODS_LS.\"SURF\".\"SALES_ACCOUNT\"\
+  \  \"SA1\" left join ODS_LS.\"SURF\".\"SALES_ACCOUNT\"  \"SA2\" on \"SA1\".\"AcctSysMerge\"\
+  \ = \"SA2\".\"AcctSysID\") \"SA\" ON \"AccountNumber\" =\"SA\".\"AcctNumber\"\n\
+  \               LEFT  JOIN  ODS_LS.\"SURF\".\"SALES_INDUSTRY\" \"SI\" ON \"SA\"\
+  .\"AcctIndustrySysID\"=\"SI\".\"IndustrySysID\"\n               WHERE 'random'='random'\n\
+  \            ) \"NPS\"\n            WHERE 'random'='random'\n            --AND \
+  \ year(\"CompletedDate\")>= year(CURRENT_DATE)-1\n            AND \"ResponseStatus\"\
+  \ IN ( 'random','random')\n         )A WHERE ((left(\"SurveyQuarter\",'random')\
+  \ in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random'))))\n\
+  \    )\nGROUP BY ALL\n)\n\nUNION ALL\n\n-----% of AE vs overall HC plan\nSELECT\n\
+  \"Quarter\" AS \"Quarter\",\n\"TerritorySysID\" AS \"TerritorySysID_CC\",\n'random'\
+  \ AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\",\n'random' AS \"ClosedDownsell\"\
+  ,\n'random' AS \"OpenDownsell\",\n'random' AS \"SwappedBUAmount\",\n'random' AS\
+  \ \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\",\n\
+  'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' AS \"RecordType\"\
+  ,\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n\"HCActuals\",\n\"HCTarget\",\n'random'\
+  \ AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n'random' AS \"USDNetNewACV_ST\"\
+  ,\n'random' AS \"Stg2_stagnant_NNACV\",\n'random' AS \"stage(2-5)days\",\n'random'\
+  \ AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\",\n'random' AS \"OF_To_Approved_Days\"\
+  ,\n'random' AS \"AcctFSPParentAcct_total\",\n'random' AS \"PipeNoUpdates(>60 Days)\"\
+  ,\n'random' AS \"PipeSlipped(>3 Times)\",\n'random' AS \"PoorPipe\",\n'random' AS\
+  \ \"TotalPipe\",\n'random' AS \"Techwin_Pipe\",\n'random' AS \"Hightouch_Pipe\"\
+  ,\n'random' AS \"TotalEmployeeCount\",\n'random' AS \"RegrettableTermCount\",\n\
+  'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\",\n'random' AS \"M3_attainment\"\
+  \nFROM\n(\nselect\n    \"TerritorySysID\",\n    \"Quarter\",\n    sum(\"StartingHC\"\
+  ) \"HCActuals\",\n    sum(\"LatestQuarterlyHCPlan\") \"HCTarget\"\nfrom\n    EDW_LS.SALES_EM.SALES_HEADCOUNT_SUMMARY\
+  \ \"hc\"\nleft outer join (\n        Select\n            distinct \"TerrSysID\"\
+  ,\n            \"TerrMarketSegmentaion\" as \"TerrMarketSegmentation\"\n       \
+  \ from\n            ODS_LS.\"SURF\".\"SALES_TERRITORY\"\n    ) st on st.\"TerrSysID\"\
+  \ = \"hc\".\"TerritorySysID\"\nwhere \"DeptCode\" = 'random'\ngroup by all\n)\n\n\
+  UNION ALL\n\n----Critical app adoption\nSELECT\n\"Quarter\",\n\"AcctTerritorySysID\"\
+  \ AS \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\"\
+  ,\n'random' AS \"ClosedDownsell\",\n'random' AS \"OpenDownsell\",\n'random' AS \"\
+  SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' AS \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random'\
+  \ AS \"HCTarget\",\n\"InUseApps\",\n\"EntitledAppsNM\",\n'random' AS \"USDNetNewACV_ST\"\
+  ,\n'random' AS \"Stg2_stagnant_NNACV\",\n'random' AS \"stage(2-5)days\",\n'random'\
+  \ AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\",\n'random' AS \"OF_To_Approved_Days\"\
+  ,\n'random' AS \"AcctFSPParentAcct_total\",\n'random' AS \"PipeNoUpdates(>60 Days)\"\
+  ,\n'random' AS \"PipeSlipped(>3 Times)\",\n'random' AS \"PoorPipe\",\n'random' AS\
+  \ \"TotalPipe\",\n'random' AS \"Techwin_Pipe\",\n'random' AS \"Hightouch_Pipe\"\
+  ,\n'random' AS \"TotalEmployeeCount\",\n'random' AS \"RegrettableTermCount\",\n\
+  'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\",\n'random' AS \"M3_attainment\"\
+  \nfrom\n(\n      Select QTR_SNAPSHOT_DATE \"Quarter\"\n         , sum(fixed_critical_app_numerator)\
+  \ \"InUseApps\"\n         , sum(fixed_critical_app_denominator) \"EntitledAppsNM\"\
+  \n         ,\"AcctTerritorySysID\"\n      from EDW_LS.PRODUCT_USAGE_EM.EM_CRITICAL_APP_ADOPTION_ACCOUNT\
+  \ P\n      left join ODS_LS.SURF.SALES_ACCOUNT A\n      on P.\"ACCOUNT_SYS_ID\"\
+  =A.\"AcctSysID\"\n      where\n        FIXED_CRITICAL_APP_FLAG = 'random'\n    \
+  \    and qtr_latest_mth_flag = 'random'\n       and  ((left(\"QTR_SNAPSHOT_DATE\"\
+  ,'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random')))\
+  \ )\n       group by all\n)\n\n\nUNION ALL\n----tech win & high touch engagement\
+  \ pipe\nSELECT\n\"Quarter\",\n\"TerritorySysID\" AS \"TerritorySysID_CC\",\n'random'\
+  \ AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\",\n'random' AS \"ClosedDownsell\"\
+  ,\n'random' AS \"OpenDownsell\",\n'random' AS \"SwappedBUAmount\",\n'random' AS\
+  \ \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\",\n\
+  'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' AS \"RecordType\"\
+  ,\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\n'random' AS \"Numerator\",\n'random' AS \"Denominator\",\n'random' AS \"EmpSysID\"\
+  ,\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS\
+  \ \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random'\
+  \ AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n\
+  'random' AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n'random'\
+  \ AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\"\
+  ,\n'random' AS \"OF_To_Approved_Days\",\n'random' AS \"AcctFSPParentAcct_total\"\
+  ,\n'random' AS \"PipeNoUpdates(>60 Days)\",\n'random' AS \"PipeSlipped(>3 Times)\"\
+  ,\n'random' AS \"PoorPipe\",\nsum(\"USDNetNewACV\") AS \"TotalPipe\",\nsum(case\
+  \ when \"OptyParentTechnicalWinName\"='random' then \"USDNetNewACV\" end) as \"\
+  Techwin_Pipe\",\nsum(\"Hightouch_Pipe\") AS \"Hightouch_Pipe\",\n'random' AS \"\
+  TotalEmployeeCount\",\n'random' AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\"\
+  ,\n'random' AS \"M2_attainment\",\n'random' AS \"M3_attainment\"\nfrom\n(\n    select\n\
+  \    \"Quarter\",\n    \"TerritorySysID\",\n    \"OpportunityParentNumber\",\n \
+  \   \"OpportunityNumber\",\n    \"AccountNumber\",\n    case when \"Quarter\" =\
+  \ \"ParentQuarter\" then \"OptyParentTechnicalWinName\" else \"OptyTechnicalWinName\"\
+  \ end as \"OptyParentTechnicalWinName\",\n    sum(\"USDNetNewACV\") as \"USDNetNewACV\"\
+  ,\n    sum(\"Hightouch_Pipe\") as \"Hightouch_Pipe\"\n    from\n    (\n        \
+  \ select\n           fd.\"SalesQuarter\" AS \"Quarter\",\n           \"TerritorySysID\"\
+  ,\n          case\n              when\"OpportunityParentStage\" in ('random',\n\
+  \               'random',\n               'random')\n           or (\"OpportunityParentStage\"\
+  \ = 'random'\n               and \"OpportunityParentType\" in ('random','random'))\n\
+  \               then'random'\n              else RIGHT(YEAR(\"OpportunityParentCloseDate\"\
+  ) ||'random'|| QUARTER(\"OpportunityParentCloseDate\"), 'random')\n          end\
+  \ AS \"ParentQuarter\" ,\n          fd.\"OpportunityParentNumber\",\n          fd.\"\
+  OpportunityNumber\",\n          fd.\"AccountNumber\",\n         case\n         \
+  \     when fd.\"OpportunityParentNumber\"=fd.\"OpportunityNumber\" then IFNULL(dynopt.\"\
+  OptyTechnicalWinName_CC\", 'random')\n              else IFNULL(dynopt.\"OptyParentTechnicalWinName_CC\"\
+  , IFNULL(dynopt_parent.\"OptyTechnicalWinName_CC\", 'random'))\n          end as\
+  \ \"OptyParentTechnicalWinName\",\n          IFNULL(dynopt.\"OptyTechnicalWinName_CC\"\
+  , 'random') as \"OptyTechnicalWinName\",\n          sum(\"USDNetNewACV\") as \"\
+  USDNetNewACV\",\n          sum(case when ACCOUNT_ENGAGEMENT_CATEGORY='random' then\
+  \ \"USDNetNewACV\" end) as \"Hightouch_Pipe\"\n        from  CDL_LS.\"SALES_RPT\"\
+  .\"RPT_FIXEDDATAPLUSQUOTA_RT\" fd\n         LEFT outer join ODS_LS.\"DYNAMICS365\"\
+  .\"OPPORTUNITIES\" dynopt\n           ON fd.\"OptyDynamicsGUID\" = dynopt.\"OpportunitySysID\"\
+  \n        LEFT outer join ODS_LS.\"DYNAMICS365\".\"OPPORTUNITIES\" dynopt_parent\n\
+  \           ON fd.\"OptyParentDynamicsGUID\" = dynopt_parent.\"OpportunitySysID\"\
+  \n        LEFT outer join \"ML_SENSITIVE\".\"MSEXCHANGE_SHARED\".\"TBL_ACCOUNT_SCORES_MODEL\"\
+  \ ta\n            ON fd.\"AccountNumber\"=ta.account_number\n        WHERE (left(\"\
+  SalesQuarter\",'random') in (right(year(convert_timezone('random',CURRENT_TIMESTAMP)),'random'),right((year(convert_timezone('random',CURRENT_TIMESTAMP))-'random'),'random')))\n\
+  \            AND \"RecordType\" ='random'\n        group by all\n    )\n    group\
+  \ by all\n)\ngroup by all\n\n\nUNION ALL\n----Day 5 conversion rate\nSELECT\n\"\
+  Quarter\",\n\"TerritorySysID\" AS \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\"\
+  ,\n'random' AS \"TotalClosedLost\",\n'random' AS \"ClosedDownsell\",\n'random' AS\
+  \ \"OpenDownsell\",\n'random' AS \"SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\"\
+  ,\n'random' AS \"Opty_Time_from_stg2_to_close_days\",\n'random' AS \"AcctFSPParentAcct\"\
+  ,\n'random' AS \"NLTargets\",\n'random' AS \"RecordType\",\n'random' AS \"deal_size_at_account_level\"\
+  ,\n'random' AS \"Certifiedresources_cnt\",\nsum(\"Closed\") AS \"Numerator\",\n\
+  sum(\"SOptyItemNetNewACVUSD\") AS \"Denominator\",\n'random' AS \"EmpSysID\",\n\
+  'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\",\n'random' AS \"\
+  AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\",\n'random' AS \"\
+  HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\",\n'random'\
+  \ AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n'random' AS \"\
+  stage(2-5)days\",\n'random' AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\"\
+  ,\n'random' AS \"OF_To_Approved_Days\",\n'random' AS \"AcctFSPParentAcct_total\"\
+  ,\n'random' AS \"PipeNoUpdates(>60 Days)\",\n'random' AS \"PipeSlipped(>3 Times)\"\
+  ,\n'random' AS \"PoorPipe\",\n'random' AS \"TotalPipe\",\n'random' \"Techwin_Pipe\"\
+  ,\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"TotalEmployeeCount\",\n'random'\
+  \ AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\"\
+  ,\n'random' AS \"M3_attainment\"\nfrom\n(\n    select \"STOptySalesQuarter\" as\
+  \ \"Quarter\",\n           \"STOptyTerritorySysID\" as \"TerritorySysID\",\n   \
+  \        sum(\"SOptyItemNetNewACVUSD\") as \"SOptyItemNetNewACVUSD\",\n        \
+  \   'random' as \"Closed\"\n    from date_dim1 dd\n    left join EDW_LS.\"SALES_EM\"\
+  .\"ST_OPTY_ITEM_COMBINED\" st\n    on st.\"STExtractDate\" = dd.\"5thday_Qtr\"\n\
+  \    and st.\"STOptySalesQuarter\" = dd.\"DateDimQuarterByYearSURF\"\n    left join\
+  \ ODS_LS.SURF.SALES_PRODUCT pd\n    on st.\"SOptyItemProductSysID\"=pd.\"ProductSysID\"\
+  \n    where pd.\"ProductFamily3Value\"<>'random'\n    and st.\"STOptyActivePipelineFlag\"\
+  ='random'\n    and st.\"SOptyPriceRestPrimaryLine\" ='random'\n    and st.\"SOptyItemBIFlags\"\
+  ='random'\n    group by all\n    union all\n    select \"SalesQuarter\" as \"Quarter\"\
+  ,\n           \"TerritorySysID_CC\" as \"TerritorySysID\",\n           'random'\
+  \ as \"SOptyItemNetNewACVUSD\",\n           sum(\"Closed\") as \"Closed\"\n    from\
+  \ date_dim1 dd\n    left join CDL_LS.\"SALES_RPT\".\"RPT_FIXEDDATAPLUSQUOTA_RT\"\
+  \ fd\n    on fd.\"SalesQuarter\" = dd.\"DateDimQuarterByYearSURF\"\n    group by\
+  \ all\n)\ngroup by all\n\n\nUNION ALL\n----Created and closed within 4Q conversion\n\
+  SELECT\n\"CreatedQuarter\" AS \"Quarter\",\n\"OpportunityTerritorySysID\" AS \"\
+  TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\",\n'random' AS \"TotalClosedLost\"\
+  ,\n'random' AS \"ClosedDownsell\",\n'random' AS \"OpenDownsell\",\n'random' AS \"\
+  SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\",\n'random' AS \"Opty_Time_from_stg2_to_close_days\"\
+  ,\n'random' AS \"AcctFSPParentAcct\",\n'random' AS \"NLTargets\",\n'random' AS \"\
+  RecordType\",\n'random' AS \"deal_size_at_account_level\",\n'random' AS \"Certifiedresources_cnt\"\
+  ,\nsum(\"R4QClosed\") AS \"Numerator\",\nsum(\"CreatedPipe\") AS \"Denominator\"\
+  ,\n'random' AS \"EmpSysID\",\n'random' AS \"2QRepQuota\",\n'random' AS \"2QWeightedPipeline\"\
+  ,\n'random' AS \"AceClosed\",\n'random' AS \"Closed\",\n'random' AS \"HCActuals\"\
+  ,\n'random' AS \"HCTarget\",\n'random' AS \"InUseApps\",\n'random' AS \"EntitledAppsNM\"\
+  ,\n'random' AS \"USDNetNewACV_ST\",\n'random' AS \"Stg2_stagnant_NNACV\",\n'random'\
+  \ AS \"stage(2-5)days\",\n'random' AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\"\
+  ,\n'random' AS \"OF_To_Approved_Days\",\n'random' AS \"AcctFSPParentAcct_total\"\
+  ,\n'random' AS \"PipeNoUpdates(>60 Days)\",\n'random' AS \"PipeSlipped(>3 Times)\"\
+  ,\n'random' AS \"PoorPipe\",\n'random' AS \"TotalPipe\",\n'random' \"Techwin_Pipe\"\
+  ,\n'random' AS \"Hightouch_Pipe\",\n'random' AS \"TotalEmployeeCount\",\n'random'\
+  \ AS \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random' AS \"M2_attainment\"\
+  ,\n'random' AS \"M3_attainment\"\nfrom\n(\n    select  \"OpportunityTerritorySysID\"\
+  ,\n            \"5thday_Qtr\",\n            ncp.\"ClosedQuarter\",\n           \
+  \ \"StartQuarter\",\n            \"EndQuarter\",\n            \"CreatedQuarter\"\
+  ,\n            sum(\"TotalPipeline\") \"CreatedPipe\",\n            sum(case when\
+  \ ncp.\"ClosedQuarter\" >= \"StartQuarter\" and ncp.\"ClosedQuarter\" <= \"EndQuarter\"\
+  \ then \"TotalPipeline\" end) as \"R4QClosed\"\n    from qtr_range qr\n    left\
+  \ join EDW_LS.sales_em.sales_new_created_pipe ncp\n    on \"CreatedQuarter\"=qr.\"\
+  StartQuarter\" and \"RecordType\"='random'\n    where \"EndQuarter\" < RIGHT(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))||'random'||QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)),'random')\n\
+  \    group by all\n)\ngroup by all\n\n\nUNION ALL\n\n----Regrettable attrition rate\n\
+  SELECT\n\"Quarter\",\n'random' AS \"TerritorySysID_CC\",\n'random' AS \"USDRenewalACV\"\
+  ,\n'random' AS \"TotalClosedLost\",\n'random' AS \"ClosedDownsell\",\n'random' AS\
+  \ \"OpenDownsell\",\n'random' AS \"SwappedBUAmount\",\n'random' AS \"Total_USDRenewalACV\"\
+  ,\n'random' AS \"Opty_Time_from_stg2_to_close_days\",\n'random' AS \"AcctFSPParentAcct\"\
+  ,\n'random' AS \"NLTargets\",\n'random' AS \"RecordType\",\n'random' AS \"deal_size_at_account_level\"\
+  ,\n'random' AS \"Certifiedresources_cnt\",\n'random' AS \"Numerator\",\n'random'\
+  \ AS \"Denominator\",\n'random' AS \"EmpSysID\",\n'random' AS \"2QRepQuota\",\n\
+  'random' AS \"2QWeightedPipeline\",\n'random' AS \"AceClosed\",\n'random' AS \"\
+  Closed\",\n'random' AS \"HCActuals\",\n'random' AS \"HCTarget\",\n'random' AS \"\
+  InUseApps\",\n'random' AS \"EntitledAppsNM\",\n'random' AS \"USDNetNewACV_ST\",\n\
+  'random' AS \"Stg2_stagnant_NNACV\",\n'random' AS \"stage(2-5)days\",\n'random'\
+  \ AS \"stage(5-8)days\",\n'random' AS \"QuoteDuration\",\n'random' AS \"OF_To_Approved_Days\"\
+  ,\n'random' AS \"AcctFSPParentAcct_total\",\n'random' AS \"PipeNoUpdates(>60 Days)\"\
+  ,\n'random' AS \"PipeSlipped(>3 Times)\",\n'random' AS \"PoorPipe\",\n'random' AS\
+  \ \"TotalPipe\",\n'random' \"Techwin_Pipe\",\n'random' AS \"Hightouch_Pipe\",\n\
+  sum(\"TotalEmployeeCount\") as \"TotalEmployeeCount\",\nsum(nvl(\"RegrettableTermCount\"\
+  ,'random')) as \"RegrettableTermCount\",\n'random' AS \"M1_attainment\",\n'random'\
+  \ AS \"M2_attainment\",\n'random' AS \"M3_attainment\"\nfrom\n(\n     -----previous\
+  \ qtrs\n    select \"Quarter\",\n    round(avg(\"EmployeeCount\"),'random') as \"\
+  TotalEmployeeCount\",\n    'random' as \"RegrettableTermCount\"\n    from\n    \
+  \    (\n         select\n         d.\"Quarter\",\n        \"ExtractDate\",\n   \
+  \     count(distinct \"EmployeeNumber\") \"EmployeeCount\"\n        from  PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_MONTH_ENDING\
+  \ a\n        inner join month_end_date d\n        on a.\"ExtractDate\" >= d.\"Startdate\"\
+  \n        and a.\"ExtractDate\" <= d.\"Enddate\"\n        left outer join ODS_LS.\"\
+  SURF\".\"EMPLOYEE\" as e\n         \t   \t   on e.\"EmpEmployeeNumber\" = a.\"EmployeeNumber\"\
+  \n         LEFT outer join  ODS_LS.\"SURF\".\"U_ST_TERRITORY\" as st\n         \
+  \       \t   on st.\"TerrUserSysID\"=e.\"EmpSysID\"\n        LEFT outer join  ODS_LS.\"\
+  SURF\".\"SALES_TERRITORY\" as stt\n                \t   on st.\"TerrUserRecSysID\"\
+  =stt.\"TerrSysID\"\n        where\n        d.\"Quarter\" < right(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))\
+  \ || 'random' || QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)), 'random')\n\
+  \        and \"DepartmentNumber\" = 'random'\n        and \"TerrGeo\" in ('random','random','random','random')\
+  \ ---ACE and Nulls are also coming; excluding them\n        group by all\n     \
+  \   )\n    group by all\n    union all\n        ----for current qtr\n        select\
+  \ \"Quarter\",\n        round(avg(\"EmployeeCount\"),'random') as \"TotalEmployeeCount\"\
+  ,\n        'random' as \"RegrettableTermCount\"\n        from\n            ( -----prev\
+  \ qtr last month for current qtr avg\n                select\n                 d.\"\
+  Quarter\",\n                \"ExtractDate\",\n                count(distinct \"\
+  EmployeeNumber\") \"EmployeeCount\"\n                from  PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_MONTH_ENDING\
+  \ a\n                inner join month_end_date d\n                on a.\"ExtractDate\"\
+  \ >= d.\"Startdate\"\n                and a.\"ExtractDate\" <= d.\"Enddate\"\n \
+  \               left outer join ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n            \
+  \     \t   \t   on e.\"EmpEmployeeNumber\" = a.\"EmployeeNumber\"\n            \
+  \     LEFT outer join  ODS_LS.\"SURF\".\"U_ST_TERRITORY\" as st\n              \
+  \          \t   on st.\"TerrUserSysID\"=e.\"EmpSysID\"\n                LEFT outer\
+  \ join  ODS_LS.\"SURF\".\"SALES_TERRITORY\" as stt\n                        \t \
+  \  on st.\"TerrUserRecSysID\"=stt.\"TerrSysID\"\n                where\n       \
+  \         d.\"Quarter\" = right(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))\
+  \ || 'random' || QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)), 'random')\n\
+  \                and \"DepartmentNumber\" = 'random'\n                and \"TerrGeo\"\
+  \ in ('random','random','random','random') ---ACE and Nulls are also coming; excluding\
+  \ them\n                group by all\n            union all\n            ------current\
+  \ month for current qtr avg\n                select right(YEAR(convert_timezone('random',CURRENT_TIMESTAMP))\
+  \ || 'random' || QUARTER(convert_timezone('random',CURRENT_TIMESTAMP)), 'random')\
+  \ as \"Quarter\",\n                CURRENT_DATE AS \"ExtractDate\",\n          \
+  \      count(distinct \"EmployeeNumber\") \"EmployeeCount\"\n                from\
+  \ PEOPLE_NSN_SHARE.NSN_WORKDAY.V_NSN_ACTIVE_EES_CWS a\n                left outer\
+  \ join ODS_LS.\"SURF\".\"EMPLOYEE\" as e\n                 \t   \t   on e.\"EmpEmployeeNumber\"\
+  \ = a.\"EmployeeNumber\"\n                 LEFT outer join  ODS_LS.\"SURF\".\"U_ST_TERRITORY\"\
+  \ as st\n                        \t   on st.\"TerrUserSysID\"=e.\"EmpSysID\"\n \
+  \               LEFT outer join  ODS_LS.\"SURF\".\"SALES_TERRITORY\" as stt\n  \
+  \                      \t   on st.\"TerrUserRecSysID\"=stt.\"TerrSysID\"\n     \
+  \           where \"DepartmentNumber\" = 'random'\n                and \"TerrGeo\"\
+  \ in ('random','random','random','random') ---ACE and Nulls are also coming; excluding\
+  \ them\n                group by all\n            )\n            group by all\n\
+  union all\nselect \"TermQuarter\" as \"Quarter\",\n'random' as \"TotalEmployeeCount\"\
+  ,\n(\"TermCountAllGeo\"-\"TermCount\") as \"RegrettableTermCount\"\nfrom\n(\n  \
+  \  select \"TermQuarter\",\n    sum(case when \"Geo\" <> 'random' Then \"RegrettableTermCount\"\
+  \ Else 'random' end) as \"TermCount\",\n    sum(case when \"Geo\" = 'random' Then\
+  \ \"RegrettableTermCount\" Else 'random' end) as \"TermCountAllGeo\"\n    from PEOPLE_NSN_SHARE.NSN_WORKDAY.V_SLS_REGRETTABLE_TERMS_BY_GEO\
+  \ \"emp\"\n    group by \"TermQuarter\"\n)\n)\ngroup by all\n\n)f\nleft join CDL.ENTERPRISE.V_DIM_TERRITORY\
+  \ d\non f.\"TerritorySysID_CC\"=d.\"TERRITORY_SYSID\"\n\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

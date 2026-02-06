@@ -1,0 +1,80 @@
+name: table_1384
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1384
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1384.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_MRKT_SALES_ACTIVITY_MONTHLY(\n\t\"ActivityDueDate\"\
+  ,\n\t\"ActivityCreatedOn\",\n\t\"ActivityNumber\",\n\t\"ActivityDVState\",\n\t\"\
+  ActivityMeetingStatus\",\n\t\"ActivitySysID\",\n\t\"ActivityMAnagerOverRide\",\n\
+  \t\"ActivityMeetingType\",\n\t\"ActivityLeadSysID\",\n\t\"ActivityCampaignSysID\"\
+  ,\n\t\"ActivityAccountSysID\",\n\t\"ActivityADRMeeting\",\n\t\"ActivityType\",\n\
+  \t\"ActivityExtractDate\",\n\t\"ActivityCampaignHistory\",\n\t\"ActivityOpenedBy\"\
+  ,\n\t\"ActivityOpportunitySysID\",\n\t\"ActivityGDCPlaySysID\",\n\t\"ActivityMeetingAcceptanceDate\"\
+  ,\n\t\"ActivityDVSubRegion\",\n\t\"ActivityDVOpenedBy\",\n\t\"ActivitySkills\"\n\
+  ) as\nSELECT \"U_ACTIVITY_DUE_DATE\" as \"ActivityDueDate\",\n       \"SYS_CREATED_ON\"\
+  \ as \"ActivityCreatedOn\",\n       \"NUMBER\" as \"ActivityNumber\",\n       \"\
+  DV_STATE\" as \"ActivityDVState\",\n       \"DV_U_MEETING_STATUS\" as \"ActivityMeetingStatus\"\
+  ,\n       \"SYS_ID\" as \"ActivitySysID\",\n       \"U_MANAGER_OVERRIDE\" as \"\
+  ActivityMAnagerOverRide\",\n       \"DV_U_MEETING_TYPE\" as \"ActivityMeetingType\"\
+  ,\n       \"LEAD\" as \"ActivityLeadSysID\",\n       \"U_CAMPAIGN\" as \"ActivityCampaignSysID\"\
+  ,\n       \"ACCOUNT\" as \"ActivityAccountSysID\",\n       \"U_ADR_MEETING\" as\
+  \ \"ActivityADRMeeting\",\n       \"DV_TYPE\" as \"ActivityType\",\n       \"EXTRACT_DATE\"\
+  \ as \"ActivityExtractDate\",\n       \"U_CAMPAIGN_HISTORY\" as \"ActivityCampaignHistory\"\
+  ,\n       \"OPENED_BY\" as \"ActivityOpenedBy\",\n       \"OPPORTUNITY\" as \"ActivityOpportunitySysID\"\
+  ,\n       \"U_GDC_PLAY\" as \"ActivityGDCPlaySysID\",\n       \"U_MEETING_ACCEPTANCE_DATE\"\
+  \ as \"ActivityMeetingAcceptanceDate\",\n       \"DV_U_SUB_REGION\" as \"ActivityDVSubRegion\"\
+  ,\n       \"DV_OPENED_BY\" as \"ActivityDVOpenedBy\",\n       \"SKILLS\" as \"ActivitySkills\"\
+  \nFROM\n  (SELECT \"U_ACTIVITY_DUE_DATE\" as \"U_ACTIVITY_DUE_DATE\",\n        \
+  \  \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n          \"NUMBER\" as \"NUMBER\"\
+  ,\n          \"DV_STATE\" as \"DV_STATE\",\n          \"DV_U_MEETING_STATUS\" as\
+  \ \"DV_U_MEETING_STATUS\",\n          \"SYS_ID\" as \"SYS_ID\",\n          \"U_MANAGER_OVERRIDE\"\
+  \ as \"U_MANAGER_OVERRIDE\",\n          \"DV_U_MEETING_TYPE\" as \"DV_U_MEETING_TYPE\"\
+  ,\n          \"LEAD\" as \"LEAD\",\n          \"U_CAMPAIGN\" as \"U_CAMPAIGN\",\n\
+  \          \"ACCOUNT\" as \"ACCOUNT\",\n          \"U_ADR_MEETING\" as \"U_ADR_MEETING\"\
+  ,\n          \"DV_TYPE\" as \"DV_TYPE\",\n          \"EXTRACT_DATE\" as \"EXTRACT_DATE\"\
+  ,\n          \"U_CAMPAIGN_HISTORY\" as \"U_CAMPAIGN_HISTORY\",\n          \"OPENED_BY\"\
+  \ as \"OPENED_BY\",\n          \"OPPORTUNITY\" as \"OPPORTUNITY\",\n          \"\
+  U_GDC_PLAY\" as \"U_GDC_PLAY\",\n          \"U_MEETING_ACCEPTANCE_DATE\" as \"U_MEETING_ACCEPTANCE_DATE\"\
+  ,\n          \"DV_U_SUB_REGION\" as \"DV_U_SUB_REGION\",\n          \"SKILLS\" as\
+  \ \"SKILLS\",\n          \"DV_OPENED_BY\" as \"DV_OPENED_BY\"\n   FROM \"RDS\".\"\
+  SURF\".\"ST_MRKT_SALES_ACTIVITY_MONTHLY\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

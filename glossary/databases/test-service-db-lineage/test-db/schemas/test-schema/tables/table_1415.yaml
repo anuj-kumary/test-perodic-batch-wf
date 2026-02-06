@@ -1,0 +1,248 @@
+name: table_1415
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1415
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1415.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPT_NPS_SURVEY(\n\t\"NumOfProducts\",\n\t\
+  \"ProductBusinessUnit\",\n\t\"AccountContractACV\",\n\t\"SalesQuarter\",\n\t\"ACVTier_CC\"\
+  ,\n\t\"IndustryCategoryValue\",\n\t\"NPSResponses\",\n\t\"NPSUniqueKey\",\n\t\"\
+  RespondentID\",\n\t\"CompletedDate\",\n\t\"Respondent\",\n\t\"AccountNumber\",\n\
+  \t\"ResponseStatus\",\n\t\"YearOfQuarter\",\n\t\"Area_old\",\n\t\"ContactEmail\"\
+  ,\n\t\"LikelyToRecommend\",\n\t\"CustomerSince\",\n\t\"LoadDate\",\n\t\"Survey\"\
+  ,\n\t\"Industry\",\n\t\"Geo_old\",\n\t\"ContactRole\",\n\t\"ContactName\",\n\t\"\
+  Qtr\",\n\t\"Loyalty\",\n\t\"IndustrySysID\",\n\t\"AccountVertical_CC\",\n\t\"IndustryName\"\
+  ,\n\t\"ContactTime\",\n\t\"AccountVertical\",\n\t\"ACV_Tier\",\n\t\"DesiredOutcome\"\
+  ,\n\t\"FutureSuccess\",\n\t\"CompanysPlans\",\n\t\"ReasonForAnswer\",\n\t\"ReasonForScore\"\
+  ,\n\t\"AccountName\",\n\t\"TerrGeo\",\n\t\"TerrArea\",\n\t\"Region\",\n\t\"Geo\"\
+  ,\n\t\"Territory\",\n\t\"Territory_old\",\n\t\"TerrName\",\n\t\"Area\"\n) as --\
+  \ SEMANTIC LAYER BEGINS\n\nSELECT COUNT(DISTINCT(\"ProductBusinessUnit\")) as \"\
+  NumOfProducts\",\n       \"ProductBusinessUnit\" as \"ProductBusinessUnit\",\n \
+  \      SUM(\"AccountContractACV\") as \"AccountContractACV\",\n       \"SalesQuarter\"\
+  \ as \"SalesQuarter\",\n       \"ACV_Tier\" as \"ACVTier_CC\",\n       \"IndustryCategoryValue\"\
+  \ as \"IndustryCategoryValue\",\n       SUM(\"NPSResponses\") as \"NPSResponses\"\
+  ,\n       \"NPSUniqueKey\" as \"NPSUniqueKey\",\n       \"RespondentID\" as \"RespondentID\"\
+  ,\n       \"CompletedDate\" as \"CompletedDate\",\n       \"Respondent\" as \"Respondent\"\
+  ,\n       \"AccountNumber\" as \"AccountNumber\",\n       \"ResponseStatus\" as\
+  \ \"ResponseStatus\",\n       \"YearOfQuarter\" as \"YearOfQuarter\",\n       \"\
+  Area\" as \"Area_old\",\n       \"ContactEmail\" as \"ContactEmail\",\n       \"\
+  LikelyToRecommend\" as \"LikelyToRecommend\",\n       \"CustomerSince\" as \"CustomerSince\"\
+  ,\n       \"LoadDate\" as \"LoadDate\",\n       \"Survey\" as \"Survey\",\n    \
+  \   \"Industry\" as \"Industry\",\n       \"Geo\" as \"Geo_old\",\n       \"ContactRole\"\
+  \ as \"ContactRole\",\n       \"ContactName\" as \"ContactName\",\n       \"Qtr\"\
+  \ as \"Qtr\",\n       \"Loyalty\" as \"Loyalty\",\n       \"IndustrySysID\" as \"\
+  IndustrySysID\",\n       \"AcctVertical\" as \"AccountVertical_CC\",\n       \"\
+  IndustryName\" as \"IndustryName\",\n       \"ContactTime\" as \"ContactTime\",\n\
+  \       \"AcctVertical_CC\" as \"AccountVertical\",\n       \"ACVTier\" as \"ACV_Tier\"\
+  ,\n       \"DesiredOutcome\" as \"DesiredOutcome\",\n       \"FutureSuccess\" as\
+  \ \"FutureSuccess\",\n       \"CompanysPlans\" as \"CompanysPlans\",\n       \"\
+  ReasonForAnswer\" as \"ReasonForAnswer\",\n       \"ReasonForScore_CC\" as \"ReasonForScore\"\
+  ,\n       \"AcctName\" as \"AccountName\",\n       \"TerrGeo\" as \"TerrGeo\",\n\
+  \       \"TerrArea\" as \"TerrArea\",\n       \"TerrRegion\" as \"Region\",\n  \
+  \     \"Geo_CC\" as \"Geo\",\n       \"Territory_CC\" as \"Territory\",\n      \
+  \ \"Territory\" as \"Territory_old\",\n       \"TerrName\" as \"TerrName\",\n  \
+  \     \"Area_CC\" as \"Area\"\nFROM\n  (SELECT \"Projection_3\".\"IndustryCategoryValue\"\
+  \ as \"IndustryCategoryValue\",\n          \"Join_1\".\"ProductBusinessUnit\" as\
+  \ \"ProductBusinessUnit\",\n          \"Join_1\".\"AccountContractACV\" as \"AccountContractACV\"\
+  ,\n          \"Join_1\".\"SalesQuarter\" as \"SalesQuarter\",\n          \"Join_1\"\
+  .\"ACV_Tier\" as \"ACV_Tier\",\n          \"Join_1\".\"NPSResponses\" as \"NPSResponses\"\
+  ,\n          \"Join_1\".\"NPSUniqueKey\" as \"NPSUniqueKey\",\n          \"Join_1\"\
+  .\"RespondentID\" as \"RespondentID\",\n          \"Join_1\".\"CompletedDate\" as\
+  \ \"CompletedDate\",\n          \"Join_1\".\"Respondent\" as \"Respondent\",\n \
+  \         \"Join_1\".\"AccountNumber\" as \"AccountNumber\",\n          \"Join_1\"\
+  .\"ResponseStatus\" as \"ResponseStatus\",\n          \"Join_1\".\"YearOfQuarter\"\
+  \ as \"YearOfQuarter\",\n          \"Join_1\".\"Territory\" as \"Territory\",\n\
+  \          \"Join_1\".\"Area\" as \"Area\",\n          \"Join_1\".\"ContactEmail\"\
+  \ as \"ContactEmail\",\n          \"Join_1\".\"LikelyToRecommend\" as \"LikelyToRecommend\"\
+  ,\n          \"Join_1\".\"CustomerSince\" as \"CustomerSince\",\n          \"Join_1\"\
+  .\"LoadDate\" as \"LoadDate\",\n          \"Join_1\".\"Survey\" as \"Survey\",\n\
+  \          \"Join_1\".\"Industry\" as \"Industry\",\n          \"Join_1\".\"Geo\"\
+  \ as \"Geo\",\n          \"Join_1\".\"ContactRole\" as \"ContactRole\",\n      \
+  \    \"Join_1\".\"ContactName\" as \"ContactName\",\n          \"Join_1\".\"Qtr\"\
+  \ as \"Qtr\",\n          \"Join_1\".\"Loyalty\" as \"Loyalty\",\n          \"Join_1\"\
+  .\"AcctIndustrySysID\" as \"IndustrySysID\",\n          \"Join_1\".\"AcctVertical\"\
+  \ as \"AcctVertical\",\n          \"Projection_3\".\"IndustryName\" as \"IndustryName\"\
+  ,\n          \"Join_1\".\"ContactTime\" as \"ContactTime\",\n          \"Join_1\"\
+  .\"DesiredOutcome\" as \"DesiredOutcome\",\n          \"Join_1\".\"FutureSuccess\"\
+  \ as \"FutureSuccess\",\n          \"Join_1\".\"CompanysPlans\" as \"CompanysPlans\"\
+  ,\n          \"Join_1\".\"ReasonForAnswer\" as \"ReasonForAnswer\",\n          \"\
+  Join_1\".\"ReasonForScore\" as \"ReasonForScore\",\n          \"Join_1\".\"AcctName\"\
+  \ as \"AcctName\",\n          \"Join_1\".\"TerrGeo\" as \"TerrGeo\",\n         \
+  \ \"Join_1\".\"TerrArea\" as \"TerrArea\",\n          \"Join_1\".\"TerrRegion\"\
+  \ as \"TerrRegion\",\n          \"Join_1\".\"TerrName\" as \"TerrName\",\n     \
+  \     IFF((\"TerrGeo\") IS NULL , \"Geo\", \"TerrGeo\") as \"TerrGeo_CC\",\n   \
+  \       IFF((\"AcctVertical\") IS NULL , 'random', \"AcctVertical\") as \"AcctVertical_CC\"\
+  ,\n          IFF((\"ACV_Tier\") IS NULL , 'random', \"ACV_Tier\") as \"ACVTier\"\
+  ,\n          IFF((\"ReasonForScore\") IS NULL , 'random', \"ReasonForScore\") as\
+  \ \"ReasonForScore_CC\",\n          IFF(\"TerrGeo_CC\"='random', 'random', \"TerrGeo_CC\"\
+  ) as \"Geo_CC\",\n          IFF((\"TerrName\") IS NULL , \"Territory\", \"TerrName\"\
+  ) as \"Territory_CC\",\n          IFF((\"TerrArea\") IS NULL , \"Area\", \"TerrArea\"\
+  ) as \"Area_CC\"\n   FROM\n     (SELECT \"Join_2\".\"BusinessUnit\" as \"ProductBusinessUnit\"\
+  ,\n             \"Join_2\".\"AccountContractACV\" as \"AccountContractACV\",\n \
+  \            \"Join_2\".\"SalesQuarter\" as \"SalesQuarter\",\n             \"Join_2\"\
+  .\"ACV_Tier\" as \"ACV_Tier\",\n             \"Join_2\".\"NPSResponses\" as \"NPSResponses\"\
+  ,\n             \"Join_2\".\"NPSUniqueKey\" as \"NPSUniqueKey\",\n             \"\
+  Join_2\".\"RespondentID\" as \"RespondentID\",\n             \"Join_2\".\"CompletedDate\"\
+  \ as \"CompletedDate\",\n             \"Join_2\".\"Respondent\" as \"Respondent\"\
+  ,\n             \"Join_2\".\"AccountNumber\" as \"AccountNumber\",\n           \
+  \  \"Join_2\".\"ResponseStatus\" as \"ResponseStatus\",\n             \"Join_2\"\
+  .\"YearOfQuarter\" as \"YearOfQuarter\",\n             \"Join_2\".\"Territory\"\
+  \ as \"Territory\",\n             \"Join_2\".\"Area\" as \"Area\",\n           \
+  \  \"Join_2\".\"ContactEmail\" as \"ContactEmail\",\n             \"Join_2\".\"\
+  LikelyToRecommend\" as \"LikelyToRecommend\",\n             \"Join_2\".\"CustomerSince\"\
+  \ as \"CustomerSince\",\n             \"Join_2\".\"LoadDate\" as \"LoadDate\",\n\
+  \             \"Join_2\".\"Survey\" as \"Survey\",\n             \"Join_2\".\"Industry\"\
+  \ as \"Industry\",\n             \"Join_2\".\"Geo\" as \"Geo\",\n             \"\
+  Join_2\".\"ContactRole\" as \"ContactRole\",\n             \"Join_2\".\"ContactName\"\
+  \ as \"ContactName\",\n             \"Join_2\".\"Qtr\" as \"Qtr\",\n           \
+  \  \"Join_2\".\"Loyalty\" as \"Loyalty\",\n             \"Projection_2\".\"AcctIndustrySysID\"\
+  \ as \"AcctIndustrySysID\",\n             \"Projection_2\".\"AcctVertical\" as \"\
+  AcctVertical\",\n             \"Projection_2\".\"AcctCustomerSince\" as \"AcctCustomerSince\"\
+  ,\n             \"Join_2\".\"DesiredOutcome\" as \"DesiredOutcome\",\n         \
+  \    \"Join_2\".\"FutureSuccess\" as \"FutureSuccess\",\n             \"Join_2\"\
+  .\"CompanysPlans\" as \"CompanysPlans\",\n             \"Join_2\".\"ReasonForAnswer\"\
+  \ as \"ReasonForAnswer\",\n             \"Join_2\".\"ReasonForScore\" as \"ReasonForScore\"\
+  ,\n             \"Projection_2\".\"AcctName\" as \"AcctName\",\n             \"\
+  Join_2\".\"TerrGeo\" as \"TerrGeo\",\n             \"Join_2\".\"TerrArea\" as \"\
+  TerrArea\",\n             \"Join_2\".\"TerrRegion\" as \"TerrRegion\",\n       \
+  \      \"Join_2\".\"TerrName\" as \"TerrName\",\n             DATEDIFF(day, date(\"\
+  AcctCustomerSince\"), date(\"CompletedDate\")) /'random' as \"Duration\",\n    \
+  \         CASE\n                 WHEN \"Duration\" IS NULL then 'random'\n     \
+  \            else IFF(\"Duration\"<'random', 'random', IFF(\"Duration\"<='random',\
+  \ 'random', IFF(\"Duration\">'random'\n                                        \
+  \                                               and \"Duration\"<='random', 'random',\
+  \ IFF(\"Duration\">'random'\n                                                  \
+  \                                                                         and \"\
+  Duration\"<='random', 'random', 'random'))))\n             END as \"ContactTime\"\
+  \n      FROM\n        (SELECT \"Aggregation_1\".\"BusinessUnit\" as \"BusinessUnit\"\
+  ,\n                \"Aggregation_1\".\"AccountContractACV\" as \"AccountContractACV\"\
+  ,\n                \"Aggregation_1\".\"SalesQuarter\" as \"SalesQuarter\",\n   \
+  \             \"Aggregation_1\".\"ACV_Tier\" as \"ACV_Tier\",\n                \"\
+  Projection_1\".\"NPSResponses\" as \"NPSResponses\",\n                \"Projection_1\"\
+  .\"NPSUniqueKey\" as \"NPSUniqueKey\",\n                \"Projection_1\".\"RespondentID\"\
+  \ as \"RespondentID\",\n                \"Projection_1\".\"CompletedDate\" as \"\
+  CompletedDate\",\n                \"Projection_1\".\"Respondent\" as \"Respondent\"\
+  ,\n                \"Projection_1\".\"AccountNumber\" as \"AccountNumber\",\n  \
+  \              \"Projection_1\".\"ResponseStatus\" as \"ResponseStatus\",\n    \
+  \            \"Projection_1\".\"YearOfQuarter\" as \"YearOfQuarter\",\n        \
+  \        \"Projection_1\".\"Territory\" as \"Territory\",\n                \"Projection_1\"\
+  .\"Area\" as \"Area\",\n                \"Projection_1\".\"ContactEmail\" as \"\
+  ContactEmail\",\n                \"Projection_1\".\"LikelyToRecommend\" as \"LikelyToRecommend\"\
+  ,\n                \"Projection_1\".\"CustomerSince\" as \"CustomerSince\",\n  \
+  \              \"Projection_1\".\"LoadDate\" as \"LoadDate\",\n                \"\
+  Projection_1\".\"Survey\" as \"Survey\",\n                \"Projection_1\".\"Industry\"\
+  \ as \"Industry\",\n                \"Projection_1\".\"Geo\" as \"Geo\",\n     \
+  \           \"Projection_1\".\"ContactRole\" as \"ContactRole\",\n             \
+  \   \"Projection_1\".\"ContactName\" as \"ContactName\",\n                \"Projection_1\"\
+  .\"Qtr\" as \"Qtr\",\n                \"Projection_1\".\"Loyalty\" as \"Loyalty\"\
+  ,\n                \"Projection_1\".\"DesiredOutcome\" as \"DesiredOutcome\",\n\
+  \                \"Projection_1\".\"FutureSuccess\" as \"FutureSuccess\",\n    \
+  \            \"Projection_1\".\"CompanysPlans\" as \"CompanysPlans\",\n        \
+  \        \"Projection_1\".\"ReasonForAnswer\" as \"ReasonForAnswer\",\n        \
+  \        \"Projection_1\".\"ReasonForScore\" as \"ReasonForScore\",\n          \
+  \      \"Aggregation_1\".\"TerrGeo\" as \"TerrGeo\",\n                \"Aggregation_1\"\
+  .\"TerrArea\" as \"TerrArea\",\n                \"Aggregation_1\".\"TerrRegion\"\
+  \ as \"TerrRegion\",\n                \"Aggregation_1\".\"TerrName\" as \"TerrName\"\
+  \n         FROM\n           (SELECT \"NPSResponses\" as \"NPSResponses\",\n    \
+  \               \"NPSUniqueKey\" as \"NPSUniqueKey\",\n                   \"RespondentID\"\
+  \ as \"RespondentID\",\n                   \"CompletedDate\" as \"CompletedDate\"\
+  ,\n                   \"Respondent\" as \"Respondent\",\n                   \"AccountNumber\"\
+  \ as \"AccountNumber\",\n                   \"ResponseStatus\" as \"ResponseStatus\"\
+  ,\n                   \"YearOfQuarter\" as \"YearOfQuarter\",\n                \
+  \   \"Territory\" as \"Territory\",\n                   \"Area\" as \"Area\",\n\
+  \                   \"ContactEmail\" as \"ContactEmail\",\n                   \"\
+  LikelyToRecommend\" as \"LikelyToRecommend\",\n                   \"CustomerSince\"\
+  \ as \"CustomerSince\",\n                   \"LoadDate\" as \"LoadDate\",\n    \
+  \               \"Survey\" as \"Survey\",\n                   \"Industry\" as \"\
+  Industry\",\n                   \"Geo\" as \"Geo\",\n                   \"ContactRole\"\
+  \ as \"ContactRole\",\n                   \"ContactName\" as \"ContactName\",\n\
+  \                   \"Qtr\" as \"Qtr\",\n                   \"Loyalty\" as \"Loyalty\"\
+  ,\n                   \"DesiredOutcome\" as \"DesiredOutcome\",\n              \
+  \     \"FutureSuccess\" as \"FutureSuccess\",\n                   \"CompanysPlans\"\
+  \ as \"CompanysPlans\",\n                   \"ReasonForAnswer\" as \"ReasonForAnswer\"\
+  ,\n                   \"ReasonForScore\" as \"ReasonForScore\"\n            FROM\
+  \ \"EDW_LS\".\"CUSTOMER_EM\".\"EM_NPS_SURVEY\"\n            WHERE \"YearOfQuarter\"\
+  >='random')\"Projection_1\"\n         LEFT JOIN\n           (SELECT \"BUCombined\"\
+  \ as \"BusinessUnit\",\n                   \"GrowthQuarter\" as \"SalesQuarter\"\
+  ,\n                   SUM(\"ConItemACV_USD\") as \"AccountContractACV\",\n     \
+  \              \"AcctNumber\" as \"AcctNumber\",\n                   \"TerrGeo\"\
+  \ as \"TerrGeo\",\n                   \"TerrArea\" as \"TerrArea\",\n          \
+  \         \"TerrRegion\" as \"TerrRegion\",\n                   \"TerrName\" as\
+  \ \"TerrName\",\n                   CASE\n                       WHEN \"AccountContractACV\"\
+  \ IS NULL then 'random'\n                       else IFF(\"AccountContractACV\"\
+  >='random', 'random', IFF(\"AccountContractACV\">='random'\n                   \
+  \                                                        and \"AccountContractACV\"\
+  <'random', 'random', IFF(\"AccountContractACV\">='random'\n                    \
+  \                                                                              \
+  \                      and \"AccountContractACV\"<'random', 'random', 'random')))\n\
+  \                   END as \"ACV_Tier\"\n            FROM \"EDW_LS\".\"CUSTOMER_EM\"\
+  .\"EM_ACCOUNT_QUARTERLY_GROWTH\"\n            GROUP BY \"BusinessUnit\",\n     \
+  \                \"SalesQuarter\",\n                     \"AcctNumber\",\n     \
+  \                \"TerrGeo\",\n                     \"TerrArea\",\n            \
+  \         \"TerrRegion\",\n                     \"TerrName\")\"Aggregation_1\" ON\
+  \ \"Projection_1\".\"Qtr\" = \"Aggregation_1\".\"SalesQuarter\"\n         AND \"\
+  Projection_1\".\"AccountNumber\" = \"Aggregation_1\".\"AcctNumber\")\"Join_2\"\n\
+  \      LEFT JOIN\n        (SELECT \"AcctNumber\" as \"AcctNumber\",\n          \
+  \      \"AcctIndustrySysID\" as \"AcctIndustrySysID\",\n                \"AcctVertical\"\
+  \ as \"AcctVertical\",\n                \"AcctCustomerSince\" as \"AcctCustomerSince\"\
+  ,\n                \"AcctName\" as \"AcctName\"\n         FROM \"ODS_LS\".\"SURF\"\
+  .\"SALES_ACCOUNT\")\"Projection_2\" ON \"Join_2\".\"AccountNumber\" = \"Projection_2\"\
+  .\"AcctNumber\")\"Join_1\"\n   LEFT JOIN\n     (SELECT \"IndustrySysID\" as \"IndustrySysID\"\
+  ,\n             \"IndustryCategoryValue\" as \"IndustryCategoryValue\",\n      \
+  \       \"IndustryName\" as \"IndustryName\"\n      FROM \"ODS_LS\".\"SURF\".\"\
+  SALES_INDUSTRY\")\"Projection_3\" ON \"Join_1\".\"AcctIndustrySysID\" = \"Projection_3\"\
+  .\"IndustrySysID\")Join_3\nGROUP BY \"ProductBusinessUnit\",\n         \"SalesQuarter\"\
+  ,\n         \"ACVTier_CC\",\n         \"ACVTier\",\n         \"ReasonForScore_CC\"\
+  ,\n         \"Geo_CC\",\n         \"Territory_CC\",\n         \"Area_CC\",\n   \
+  \      \"IndustryCategoryValue\",\n         \"NPSUniqueKey\",\n         \"RespondentID\"\
+  ,\n         \"CompletedDate\",\n         \"Respondent\",\n         \"AccountNumber\"\
+  ,\n         \"ResponseStatus\",\n         \"YearOfQuarter\",\n         \"Area_old\"\
+  ,\n         \"ContactEmail\",\n         \"LikelyToRecommend\",\n         \"CustomerSince\"\
+  ,\n         \"LoadDate\",\n         \"Survey\",\n         \"Industry\",\n      \
+  \   \"Geo_old\",\n         \"ContactRole\",\n         \"ContactName\",\n       \
+  \  \"Qtr\",\n         \"Loyalty\",\n         \"IndustrySysID\",\n         \"AccountVertical_CC\"\
+  ,\n         \"IndustryName\",\n         \"ContactTime\",\n         \"AccountVertical\"\
+  ,\n         \"ACV_Tier\",\n         \"DesiredOutcome\",\n         \"FutureSuccess\"\
+  ,\n         \"CompanysPlans\",\n         \"ReasonForAnswer\",\n         \"ReasonForScore\"\
+  ,\n         \"AccountName\",\n         \"TerrGeo\",\n         \"TerrArea\",\n  \
+  \       \"Region\",\n         \"Geo\",\n         \"Territory\",\n         \"Territory_old\"\
+  ,\n         \"TerrName\",\n         \"Area\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

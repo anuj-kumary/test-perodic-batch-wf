@@ -1,0 +1,119 @@
+name: table_1377
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1377
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1377.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_MRKT_SALES_OPPORTUNITY_ITEM_MONTHLY(\n\
+  \t\"OppItemExtractDate\",\n\t\"OppItemNumber\",\n\t\"OppItemOpportunitySysID\",\n\
+  \t\"OppItemProductSysID\",\n\t\"OppItemNetNewACVAmount\",\n\t\"OppDVLinePriceResetPrimaryLine\"\
+  ,\n\t\"OppItemSysCreatedOn\",\n\t\"OppMontlyItemFlags\",\n\t\"OppLinePriceResetPrimaryLine\"\
+  ,\n\t\"OppItemContractLineACVUSD\",\n\t\"OppItemEndDate\",\n\t\"OppItemTermStartDate\"\
+  ,\n\t\"OppItemDoNotCalNetNewAcv\",\n\t\"STOptyItemLineCreatedBy\",\n\t\"OppItemQuoteItemStepInFlag\"\
+  ,\n\t\"OptyItemNetNewACVLocalCurrency\",\n\t\"OptyItemFXRateDaily\",\n\t\"OptyItemFXRate\"\
+  ,\n\t\"OptyItemFXRate_USD\",\n\t\"OptyItemCurrencyCode\",\n\t\"OptyItemNetNewACV_DFx\"\
+  ,\n\t\"OptyItemCurrentFxRate\"\n) as\n\n/*********************************************************************************\n\
+  * Program Name  : ODS_LS.SURF.ST_MRKT_SALES_OPPORTUNITY_ITEM_MONTHLY\n* --------------------------------------------------------------------------------------------------------------------------\n\
+  * REVISION HISTORY:\n*---------------------------------------------------------------------------------------------------------------------------\n\
+  * CR#                 Date Modified           Modified By        Brief Description\
+  \ of Change\n* STRY2487299        2022-JULY-07             Ramana             Added\
+  \ New field  \"STOptyItemLineCreatedBy\"\n* STRY2525412        2023-MARCH-17   \
+  \         Ganesh/Sujata/Hamith            Added FX Rate Attributes\n******************************************************************************************************/\n\
+  SELECT \"OppItemExtractDate\" AS \"OppItemExtractDate\"\n\t,\"OppItemNumber\" AS\
+  \ \"OppItemNumber\"\n\t,\"OppItemOpportunitySysID\" AS \"OppItemOpportunitySysID\"\
+  \n\t,\"OppItemProductSysID\" AS \"OppItemProductSysID\"\n\t,\"OppItemNetNewACVAmount\"\
+  \ AS \"OppItemNetNewACVAmount\"\n\t,\"OppDVLinePriceResetPrimaryLine\" AS \"OppDVLinePriceResetPrimaryLine\"\
+  \n\t,\"OppItemSysCreatedOn\" AS \"OppItemSysCreatedOn\"\n\t,\"OppMontlyItemFlags\"\
+  \ AS \"OppMontlyItemFlags\"\n\t,\"OppLinePriceResetPrimaryLine\" AS \"OppLinePriceResetPrimaryLine\"\
+  \n\t,\"OppItemContractLineACVUSD\" AS \"OppItemContractLineACVUSD\"\n\t,\"OppItemEndDate\"\
+  \ AS \"OppItemEndDate\"\n\t,\"OppItemTermStartDate\" AS \"OppItemTermStartDate\"\
+  \n\t,\"OppItemDoNotCalNetNewAcv\" AS \"OppItemDoNotCalNetNewAcv\"\n\t,\"STOptyItemLineCreatedBy\"\
+  \ --STRY2487299\n    ,\"OppItemQuoteItemStepInFlag\"\n\t------****Below fields added\
+  \ as part of FX changes STRY2525412-----\n    ,\"OptyItemNetNewACVLocalCurrency\"\
+  \n    ,\"OptyItemFXRateDaily\"\n    ,\"OptyItemFXRate\"\n    ,\"OptyItemFXRate_USD\"\
+  \n    ,\"OptyItemCurrencyCode\"\n\t,\"OptyItemNetNewACV_DFx\"\n    ,\"OptyItemCurrentFxRate\"\
+  \n\t------FX changes STRY2525412------\nFROM (\n\tSELECT Projection_2.\"SOptyItemExtractDate_old\"\
+  \ AS \"DateAtSource\"\n\t\t,Projection_1.\"OppItemExtractDate\" AS \"OppItemExtractDate\"\
+  \n\t\t,Projection_2.\"OppItemNumber\" AS \"OppItemNumber\"\n\t\t,Projection_2.\"\
+  OppItemOpportunitySysID\" AS \"OppItemOpportunitySysID\"\n\t\t,Projection_2.\"OppItemProductSysID\"\
+  \ AS \"OppItemProductSysID\"\n\t\t,Projection_2.\"OppItemNetNewACVAmount\" AS \"\
+  OppItemNetNewACVAmount\"\n\t\t,Projection_2.\"OppDVLinePriceResetPrimaryLine\" AS\
+  \ \"OppDVLinePriceResetPrimaryLine\"\n\t\t,Projection_2.\"OppItemSysCreatedOn\"\
+  \ AS \"OppItemSysCreatedOn\"\n\t\t,Projection_2.\"OppMontlyItemFlags\" AS \"OppMontlyItemFlags\"\
+  \n\t\t,Projection_2.\"OppLinePriceResetPrimaryLine\" AS \"OppLinePriceResetPrimaryLine\"\
+  \n\t\t,Projection_2.\"OppItemContractLineACVUSD\" AS \"OppItemContractLineACVUSD\"\
+  \n\t\t,Projection_2.\"OppItemDoNotCalNetNewAcv\" AS \"OppItemDoNotCalNetNewAcv_old\"\
+  \n\t\t,Projection_2.\"OppItemEndDate\" AS \"OppItemEndDate\"\n\t\t,Projection_2.\"\
+  OppItemTermStartDate\" AS \"OppItemTermStartDate\"\n\t\t,Projection_2.\"STOptyItemSource\"\
+  \ AS \"STOptyItemSource\"\n\t\t,CASE\n\t\t\tWHEN \"STOptyItemSource\" = 'random'\n\
+  \t\t\t\tTHEN IFNULL(\"OppItemDoNotCalNetNewAcv_old\", 'random')\n\t\t\tELSE \"OppItemDoNotCalNetNewAcv_old\"\
+  \n\t\t\tEND AS \"OppItemDoNotCalNetNewAcv\"\n\t\t,\"STOptyItemLineCreatedBy\" --STRY2487299\n\
+  \        ,\"OppItemQuoteItemStepInFlag\"\n\t\t------****Below fields added as part\
+  \ of FX changes STRY2525412-----\n        ,Projection_2.\"OptyItemNetNewACVLocalCurrency\"\
+  \n        ,Projection_2.\"OptyItemFXRateDaily\"\n        ,Projection_2.\"OptyItemFXRate\"\
+  \n        ,Projection_2.\"OptyItemFXRate_USD\"\n        ,Projection_2.\"OptyItemCurrencyCode\"\
+  \n\t\t,Projection_2.\"OptyItemNetNewACV_DFx\"\n        ,Projection_2.\"OptyItemCurrentFxRate\"\
+  \n\t\t------FX changes STRY2525412------\n\tFROM (\n\t\tSELECT \"CategoryType\"\
+  \ AS \"CategoryType\"\n\t\t\t,\"DateAtSource\" AS \"DateAtSource\"\n\t\t\t,\"ReportingDates\"\
+  \ AS \"OppItemExtractDate\"\n\t\tFROM RDS.\"FLATFILESOURCE\".\"MKT_DIMENSION_MAPPING_TABLE\"\
+  \n\t\tWHERE \"CategoryType\" = 'random'\n\t\t) Projection_1\n\tINNER JOIN (\n\t\t\
+  SELECT \"SOptyItemNumber\" AS \"OppItemNumber\"\n\t\t\t,\"SOptyItemOptySysID\" AS\
+  \ \"OppItemOpportunitySysID\"\n\t\t\t,\"SOptyItemProductSysID\" AS \"OppItemProductSysID\"\
+  \n\t\t\t,\"SOptyItemExtractDate\" AS \"SOptyItemExtractDate_old\"\n\t\t\t,\"SOptyItemNetNewACVUSD\"\
+  \ AS \"OppItemNetNewACVAmount\"\n\t\t\t,\"SOptyPriceRestPrimaryLine\" AS \"OppDVLinePriceResetPrimaryLine\"\
+  \n\t\t\t,\"SOptyItemCreatedOn\" AS \"OppItemSysCreatedOn\"\n\t\t\t,\"SOptyItemFlags\"\
+  \ AS \"OppMontlyItemFlags\"\n\t\t\t,\"SOptyItemUPriceResetPrimaryLine\" AS \"OppLinePriceResetPrimaryLine\"\
+  \n\t\t\t,\"SOptyitemRenewalACVUSD\" AS \"OppItemContractLineACVUSD\"\n\t\t\t,\"\
+  STOptyItemDoNotCalNetNewAcv\" AS \"OppItemDoNotCalNetNewAcv\"\n\t\t\t,\"STOptyItemTermEndDate\"\
+  \ AS \"OppItemEndDate\"\n\t\t\t,\"STOptyItemTermStartDate\" AS \"OppItemTermStartDate\"\
+  \n\t\t\t,\"STOptyItemSource\" AS \"STOptyItemSource\"\n\t\t\t,\"STOptyItemLineCreatedBy\"\
+  \ --STRY2487299\n            ,\"STOptyItemQuoteItemStepInFlag\" \"OppItemQuoteItemStepInFlag\"\
+  \n\t\t\t------****Below fields added as part of FX changes STRY2525412-----\n  \
+  \          ,\"SOptyItemNetNewACV\" as \"OptyItemNetNewACVLocalCurrency\"\n     \
+  \       ,\"SOptyItemFXRateDaily\" as \"OptyItemFXRateDaily\"\n            ,\"SOptyItemFXRate\"\
+  \ as  \"OptyItemFXRate\"\n            ,\"STOptyItemFXRate_USD\" as  \"OptyItemFXRate_USD\"\
+  \n            ,\"STOptyItemCurrencyCode\" AS \"OptyItemCurrencyCode\"\n\t\t\t,\"\
+  SOptyItemNetNewACV_FX\" as \"OptyItemNetNewACV_DFx\"\n            ,\"CFXRate\" as\
+  \ \"OptyItemCurrentFxRate\"\n\t\t\t------FX changes STRY2525412------\n\t\tFROM\
+  \ ODS_LS.\"SURF\".\"ST_SALES_OPPORTUNITY_ITEM\"\n\t\t) Projection_2 ON Projection_1.\"\
+  DateAtSource\" = Projection_2.\"SOptyItemExtractDate_old\"\n\t) OppItemExtractDate\n\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
