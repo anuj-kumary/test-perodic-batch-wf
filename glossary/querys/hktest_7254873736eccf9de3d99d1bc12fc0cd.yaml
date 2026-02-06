@@ -1,0 +1,41 @@
+name: 7254873736eccf9de3d99d1bc12fc0cd
+fullyQualifiedName: hktest.7254873736eccf9de3d99d1bc12fc0cd
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"ba0b673e-2967-483d-bf95-f4f3b99305c6\",\"type\":\"table\"\
+        ,\"name\":\"PARTSUPP\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PARTSUPP\"\
+        ,\"description\":\"Partsupp data as defined by TPC-H\",\"displayName\":\"\
+        PARTSUPP\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 57.0
+users: []
+query: "SELECT avg(\"PS_SUPPLYCOST\") AS mean, count(\"PS_SUPPLYCOST\") AS \"valuesCount\"\
+  , count(DISTINCT \"PS_SUPPLYCOST\") AS \"distinctCount\", MIN(\"PS_SUPPLYCOST\"\
+  ) AS min, MAX(\"PS_SUPPLYCOST\") AS max, coalesce(SUM(CASE WHEN (\"PS_SUPPLYCOST\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"PS_SUPPLYCOST\") AS\
+  \ stddev, SUM(\"PS_SUPPLYCOST\") AS sum \nFROM \"TPCH_SF1\".\"PARTSUPP\"\n LIMIT\
+  \ ?"
+checksum: 7254873736eccf9de3d99d1bc12fc0cd
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ba0b673e-2967-483d-bf95-f4f3b99305c6
+    type: table
+    name: PARTSUPP
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PARTSUPP
+    description: Partsupp data as defined by TPC-H
+    displayName: PARTSUPP
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

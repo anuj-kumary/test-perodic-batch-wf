@@ -1,0 +1,32 @@
+name: 70547c82aa2a2f3a9c8561a9701f197d
+fullyQualifiedName: hktest.70547c82aa2a2f3a9c8561a9701f197d
+owners: []
+duration: 63.0
+users: []
+query: "WITH eb2c256f837ad2af0184587c6200ff3d_rnd AS \n(SELECT \"REF_GNRL_1\".\"REC_DEL_IND\"\
+  \ AS \"REC_DEL_IND\" \nFROM \"CURATED\".\"REF_GNRL\" AS \"REF_GNRL_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \neb2c256f837ad2af0184587c6200ff3d_sample AS \n(SELECT eb2c256f837ad2af0184587c6200ff3d_rnd.\"\
+  REC_DEL_IND\" AS \"REC_DEL_IND\" \nFROM eb2c256f837ad2af0184587c6200ff3d_rnd)\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"REC_DEL_IND\") ASC) AS\
+  \ median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"REC_DEL_IND\") ASC) AS\
+  \ \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"REC_DEL_IND\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM eb2c256f837ad2af0184587c6200ff3d_sample\n LIMIT\
+  \ ?"
+checksum: 70547c82aa2a2f3a9c8561a9701f197d
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3d7dbaac-e22b-470f-816d-8a10e1a4de8b
+    type: table
+    name: REF_GNRL
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.REF_GNRL
+    displayName: REF_GNRL
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

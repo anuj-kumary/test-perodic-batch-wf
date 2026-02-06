@@ -1,0 +1,34 @@
+name: 6df8e7525e105e69e492aadf2c3925e7
+fullyQualifiedName: hktest.6df8e7525e105e69e492aadf2c3925e7
+owners: []
+duration: 434.0
+users: []
+query: "WITH \"979ee13f032c02b4652a4e3c3928d90b_rnd\" AS \n(SELECT \"CUSTOMER_1\"\
+  .\"C_MKTSEGMENT\" AS \"C_MKTSEGMENT\" \nFROM \"TPCH_SF100\".\"CUSTOMER\" AS \"CUSTOMER_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"979ee13f032c02b4652a4e3c3928d90b_sample\" AS \n\
+  (SELECT \"979ee13f032c02b4652a4e3c3928d90b_rnd\".\"C_MKTSEGMENT\" AS \"C_MKTSEGMENT\"\
+  \ \nFROM \"979ee13f032c02b4652a4e3c3928d90b_rnd\")\n SELECT avg(LEN(\"C_MKTSEGMENT\"\
+  )) AS mean, count(\"C_MKTSEGMENT\") AS \"valuesCount\", count(DISTINCT \"C_MKTSEGMENT\"\
+  ) AS \"distinctCount\", MIN(LEN(\"C_MKTSEGMENT\")) AS min, MAX(LEN(\"C_MKTSEGMENT\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"C_MKTSEGMENT\" IS ?) THEN ? ELSE ? END), ?)\
+  \ AS \"nullCount\", STDDEV_POP(LEN(\"C_MKTSEGMENT\")) AS stddev, SUM(LEN(\"C_MKTSEGMENT\"\
+  )) AS sum \nFROM \"979ee13f032c02b4652a4e3c3928d90b_sample\"\n LIMIT ?"
+checksum: 6df8e7525e105e69e492aadf2c3925e7
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: dc092bc6-2f58-414c-a722-42aa3ec1674e
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

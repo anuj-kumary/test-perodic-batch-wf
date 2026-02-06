@@ -1,0 +1,56 @@
+name: 6c3b7ecdfe0340791045d72805b5ee08
+fullyQualifiedName: hktest.6c3b7ecdfe0340791045d72805b5ee08
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"a7e7d580-5b70-4785-9c4f-4537a02658c1\",\"type\":\"table\"\
+        ,\"name\":\"TRANS_WAREHOUSE_LIST\",\"fullyQualifiedName\":\"hktest.MT_DB.SERVICENOW_TEST.TRANS_WAREHOUSE_LIST\"\
+        ,\"displayName\":\"TRANS_WAREHOUSE_LIST\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 1123.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "create or replace view VW_SF_TRANS_WAREHOUSE_LIST(\n\tNAME,\n\tSTATE,\n\t\
+  TYPE,\n\tSIZE,\n\tMIN_CLUSTER_COUNT,\n\tMAX_CLUSTER_COUNT,\n\tSTARTED_CLUSTERS,\n\
+  \tRUNNING,\n\tQUEUED,\n\tIS_DEFAULT,\n\tIS_CURRENT,\n\tAUTO_SUSPEND,\n\tAUTO_RESUME,\n\
+  \tAVAILABLE,\n\tPROVISIONING,\n\tQUIESCING,\n\tOTHER,\n\tCREATED_ON,\n\tRESUMED_ON,\n\
+  \tUPDATED_ON,\n\tOWNER,\n\tCOMMENT,\n\tENABLE_QUERY_ACCELERATION,\n\tQUERY_ACCELERATION_MAX_SCALE_FACTOR,\n\
+  \tRESOURCE_MONITOR,\n\tACTIVES,\n\tPENDINGS,\n\tFAILED,\n\tSUSPENDED,\n\tUUID,\n\
+  \tSCALING_POLICY,\n\tBUDGET,\n\tOWNER_ROLE_TYPE,\n\tRESOURCE_CONSTRAINT,\n\tLAST_UPDT_DTTM\n\
+  ) COMMENT= ?\n as \n select \n \t\"name\",\n\t\"state\",\n\t\"type\",\n\t\"size\"\
+  ,\n\t\"min_cluster_count\",\n\t\"max_cluster_count\",\n\t\"started_clusters\",\n\
+  \t\"running\",\n\t\"queued\",\n\t\"is_default\",\n\t\"is_current\",\n\t\"auto_suspend\"\
+  ,\n\t\"auto_resume\",\n\t\"available\",\n\t\"provisioning\",\n\t\"quiescing\",\n\
+  \t\"other\",\n\t\"created_on\",\n\t\"resumed_on\",\n\t\"updated_on\",\n\t\"owner\"\
+  ,\n\t\"comment\",\n\t\"enable_query_acceleration\",\n\t\"query_acceleration_max_scale_factor\"\
+  ,\n\t\"resource_monitor\",\n\t\"actives\",\n\t\"pendings\",\n\t\"failed\",\n\t\"\
+  suspended\",\n\t\"uuid\",\n\t\"scaling_policy\",\n\t? as budget,\n\t\"owner_role_type\"\
+  ,\n    \"resource_constraint\",\n\tLAST_UPDT_DTTM\n from  MT_DB.SERVICENOW_TEST.TRANS_WAREHOUSE_LIST;"
+checksum: 6c3b7ecdfe0340791045d72805b5ee08
+queryDate: 1747267200000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 1d994447-b175-425c-99c9-dde119041f3d
+    type: table
+    name: VW_SF_TRANS_WAREHOUSE_LIST
+    fullyQualifiedName: hktest.MT_DB.SERVICENOW_TEST.VW_SF_TRANS_WAREHOUSE_LIST
+    description: this is view comment...
+    displayName: VW_SF_TRANS_WAREHOUSE_LIST
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

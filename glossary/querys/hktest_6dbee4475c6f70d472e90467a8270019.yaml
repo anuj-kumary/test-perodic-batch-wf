@@ -1,0 +1,36 @@
+name: 6dbee4475c6f70d472e90467a8270019
+fullyQualifiedName: hktest.6dbee4475c6f70d472e90467a8270019
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"9284f038-34bc-4130-b89d-85a6789181b7\",\"type\":\"table\"\
+        ,\"name\":\"TEST_EMPLOYEES\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.TEST_EMPLOYEES\"\
+        ,\"displayName\":\"TEST_EMPLOYEES\",\"deleted\":false}]"
+  previousVersion: 1.4
+  changeSummary: {}
+owners: []
+duration: 61.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"E2E_TESTEMPLOYEE_ID\"\
+  ) AS count_1 \nFROM \"E2E_TEST\".\"TEST_EMPLOYEES\" GROUP BY \"E2E_TESTEMPLOYEE_ID\"\
+  \ \nHAVING count(\"E2E_TESTEMPLOYEE_ID\") = ?) AS only_once\n LIMIT ?"
+checksum: 6dbee4475c6f70d472e90467a8270019
+queryDate: 1752192000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9284f038-34bc-4130-b89d-85a6789181b7
+    type: table
+    name: TEST_EMPLOYEES
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.TEST_EMPLOYEES
+    displayName: TEST_EMPLOYEES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

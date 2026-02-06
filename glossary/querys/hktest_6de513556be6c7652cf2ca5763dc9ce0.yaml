@@ -1,0 +1,36 @@
+name: 6de513556be6c7652cf2ca5763dc9ce0
+fullyQualifiedName: hktest.6de513556be6c7652cf2ca5763dc9ce0
+owners: []
+duration: 44.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"SOURCE_FRESHNESS_EXECUTION_ID\")) AS mean, count(\"SOURCE_FRESHNESS_EXECUTION_ID\"\
+  ) AS \"valuesCount\", count(DISTINCT \"SOURCE_FRESHNESS_EXECUTION_ID\") AS \"distinctCount\"\
+  , MIN(LEN(\"SOURCE_FRESHNESS_EXECUTION_ID\")) AS min, MAX(LEN(\"SOURCE_FRESHNESS_EXECUTION_ID\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"SOURCE_FRESHNESS_EXECUTION_ID\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"SOURCE_FRESHNESS_EXECUTION_ID\"\
+  )) AS stddev, SUM(LEN(\"SOURCE_FRESHNESS_EXECUTION_ID\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\"\
+  .\"DBT_SOURCE_FRESHNESS_RESULTS\"\n LIMIT ?"
+checksum: 6de513556be6c7652cf2ca5763dc9ce0
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 8ce40df4-adcb-4191-a383-87ff2c9aa5e8
+    type: table
+    name: DBT_SOURCE_FRESHNESS_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SOURCE_FRESHNESS_RESULTS
+    displayName: DBT_SOURCE_FRESHNESS_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

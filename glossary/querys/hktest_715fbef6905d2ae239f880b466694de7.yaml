@@ -1,0 +1,29 @@
+name: 715fbef6905d2ae239f880b466694de7
+fullyQualifiedName: hktest.715fbef6905d2ae239f880b466694de7
+owners: []
+duration: 108.0
+users: []
+query: "SELECT avg(LEN(\"MET_CVR_AMT\")) AS mean, count(\"MET_CVR_AMT\") AS \"valuesCount\"\
+  , count(DISTINCT \"MET_CVR_AMT\") AS \"distinctCount\", MIN(LEN(\"MET_CVR_AMT\"\
+  )) AS min, MAX(LEN(\"MET_CVR_AMT\")) AS max, coalesce(SUM(CASE WHEN (\"MET_CVR_AMT\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"MET_CVR_AMT\"\
+  )) AS stddev, SUM(LEN(\"MET_CVR_AMT\")) AS sum \nFROM \"LANDING\".\"COBE_ETI\"\n\
+  \ LIMIT ?"
+checksum: 715fbef6905d2ae239f880b466694de7
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7177a74e-7bdc-4ef4-86d3-f41e58404c78
+    type: table
+    name: COBE_ETI
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.COBE_ETI
+    displayName: COBE_ETI
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

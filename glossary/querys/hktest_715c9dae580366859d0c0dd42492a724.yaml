@@ -1,0 +1,33 @@
+name: 715c9dae580366859d0c0dd42492a724
+fullyQualifiedName: hktest.715c9dae580366859d0c0dd42492a724
+owners: []
+duration: 250.0
+users: []
+query: "WITH \"6b1ac862f924eabb8462c212fb142c42_rnd\" AS \n(SELECT \"SHIP_MODE_1\"\
+  .\"SM_TYPE\" AS \"SM_TYPE\" \nFROM \"TPCDS_SF100TCL\".\"SHIP_MODE\" AS \"SHIP_MODE_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"6b1ac862f924eabb8462c212fb142c42_sample\" AS \n\
+  (SELECT \"6b1ac862f924eabb8462c212fb142c42_rnd\".\"SM_TYPE\" AS \"SM_TYPE\" \nFROM\
+  \ \"6b1ac862f924eabb8462c212fb142c42_rnd\")\n SELECT avg(LEN(\"SM_TYPE\")) AS mean,\
+  \ count(\"SM_TYPE\") AS \"valuesCount\", count(DISTINCT \"SM_TYPE\") AS \"distinctCount\"\
+  , MIN(LEN(\"SM_TYPE\")) AS min, MAX(LEN(\"SM_TYPE\")) AS max, coalesce(SUM(CASE\
+  \ WHEN (\"SM_TYPE\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  SM_TYPE\")) AS stddev, SUM(LEN(\"SM_TYPE\")) AS sum \nFROM \"6b1ac862f924eabb8462c212fb142c42_sample\"\
+  \n LIMIT ?"
+checksum: 715c9dae580366859d0c0dd42492a724
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 4771b65c-a24b-4d41-802e-07656ecb012d
+    type: table
+    name: SHIP_MODE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.SHIP_MODE
+    displayName: SHIP_MODE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

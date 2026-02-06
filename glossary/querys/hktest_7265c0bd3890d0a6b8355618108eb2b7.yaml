@@ -1,0 +1,31 @@
+name: 7265c0bd3890d0a6b8355618108eb2b7
+fullyQualifiedName: hktest.7265c0bd3890d0a6b8355618108eb2b7
+owners: []
+duration: 269.0
+users: []
+query: "WITH adfef0ee9e70ee3dd0bfe4071ec08e08_rnd AS \n(SELECT \"CUSTOMER_ADDRESS_1\"\
+  .\"CA_STREET_NUMBER\" AS \"CA_STREET_NUMBER\" \nFROM \"TPCDS_SF10TCL\".\"CUSTOMER_ADDRESS\"\
+  \ AS \"CUSTOMER_ADDRESS_1\" TABLESAMPLE ROW(? ROWS)), \nadfef0ee9e70ee3dd0bfe4071ec08e08_sample\
+  \ AS \n(SELECT adfef0ee9e70ee3dd0bfe4071ec08e08_rnd.\"CA_STREET_NUMBER\" AS \"CA_STREET_NUMBER\"\
+  \ \nFROM adfef0ee9e70ee3dd0bfe4071ec08e08_rnd)\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"CA_STREET_NUMBER\") AS count_1 \nFROM adfef0ee9e70ee3dd0bfe4071ec08e08_sample\
+  \ GROUP BY \"CA_STREET_NUMBER\" \nHAVING count(\"CA_STREET_NUMBER\") = ?) AS only_once\n\
+  \ LIMIT ?"
+checksum: 7265c0bd3890d0a6b8355618108eb2b7
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d74af634-8230-43b9-938f-a6ec3f6f3df5
+    type: table
+    name: CUSTOMER_ADDRESS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CUSTOMER_ADDRESS
+    displayName: CUSTOMER_ADDRESS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
