@@ -1,0 +1,94 @@
+name: partitioned_table
+fullyQualifiedName: Test_BQ.modified-leaf-330420.imri_test.partitioned_table
+description: new description
+tableType: Partitioned
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.imri_test.partitioned_table.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.imri_test.partitioned_table.event_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+tablePartition:
+  columns:
+    - columnName: event_date
+      intervalType: TIME-UNIT
+      interval: DAY
+owners: []
+databaseSchema:
+  id: b90696b4-5855-45bd-9d8e-91720b6d0bed
+  type: databaseSchema
+  name: imri_test
+  fullyQualifiedName: Test_BQ.modified-leaf-330420.imri_test
+  description: <p>test description.</p>
+  displayName: imri_test
+  deleted: false
+database:
+  id: e9cc6bf9-f233-47ba-8ac6-f84af30ce935
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: Test_BQ.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: f38d98e9-f2f3-4900-b904-bbbb7e09ff47
+  type: databaseService
+  name: Test_BQ
+  fullyQualifiedName: Test_BQ
+  description: ""
+  displayName: Test_BQ
+  deleted: false
+serviceType: BigQuery
+tags:
+  - tagFQN: color.green
+    name: green
+    description: DATABRICKS TAG
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: test.reverse_metadata
+    name: reverse_metadata
+    description: Bigquery Table Label
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1749376695840}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2simri_test!3spartitioned_table
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1749376695840
+sourceHash: 17896bb635305557191589e7cd7c7a14
+processedLineage: false
+entityStatus: Unprocessed

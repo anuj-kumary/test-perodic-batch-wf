@@ -1,0 +1,76 @@
+name: repeated_record_simple_partitioned
+fullyQualifiedName: Test_BQ.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.repeated_record_simple_partitioned
+tableType: Partitioned
+columns:
+  - name: transaction_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.repeated_record_simple_partitioned.transaction_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: ARRAY
+    arrayDataType: INT
+    dataTypeDisplay: array<integer>
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment.repeated_record_simple_partitioned.order_id
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+tablePartition:
+  columns:
+    - columnName: transaction_date
+      intervalType: TIME-UNIT
+      interval: DAY
+owners: []
+databaseSchema:
+  id: f9466397-f6ce-449a-ab09-90216f557d13
+  type: databaseSchema
+  name: sdoh_cms_dual_eligible_enrollment
+  fullyQualifiedName: Test_BQ.modified-leaf-330420.sdoh_cms_dual_eligible_enrollment
+  description: ""
+  displayName: sdoh_cms_dual_eligible_enrollment
+  deleted: false
+database:
+  id: e9cc6bf9-f233-47ba-8ac6-f84af30ce935
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: Test_BQ.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: f38d98e9-f2f3-4900-b904-bbbb7e09ff47
+  type: databaseService
+  name: Test_BQ
+  fullyQualifiedName: Test_BQ
+  description: ""
+  displayName: Test_BQ
+  deleted: false
+serviceType: BigQuery
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1681369667471}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2ssdoh_cms_dual_eligible_enrollment!3srepeated_record_simple_partitioned
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1681369667471
+sourceHash: 03ecc445aa594d74742138bef3530d9e
+processedLineage: false
+entityStatus: Unprocessed
