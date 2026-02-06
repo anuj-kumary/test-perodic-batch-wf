@@ -1,0 +1,79 @@
+name: personal_info_view
+fullyQualifiedName: red-pere.dev.public.personal_info_view
+tableType: View
+columns:
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: red-pere.dev.public.personal_info_view.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: red-pere.dev.public.personal_info_view.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: phone_number
+    dataType: VARCHAR
+    dataLength: 15
+    dataTypeDisplay: character varying(15)
+    fullyQualifiedName: red-pere.dev.public.personal_info_view.phone_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    fullyQualifiedName: red-pere.dev.public.personal_info_view.email
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f3b1a11b-f1cf-46d9-aa13-1b7453a47efe
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: red-pere.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW public.personal_info_view AS  SELECT personal_info4.first_name, personal_info4.last_name, personal_info4.phone_number, personal_info4.email
+     FROM personal_info4;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 6b350acdd81c505a5be57dc02dbe373a
+processedLineage: false
+entityStatus: Unprocessed

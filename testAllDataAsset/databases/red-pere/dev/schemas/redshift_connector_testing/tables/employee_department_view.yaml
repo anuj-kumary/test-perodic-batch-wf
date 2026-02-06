@@ -1,0 +1,99 @@
+name: employee_department_view
+fullyQualifiedName: red-pere.dev.redshift_connector_testing.employee_department_view
+description: This is employee depart viewss
+tableType: View
+columns:
+  - name: employee_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.redshift_connector_testing.employee_department_view.employee_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: red-pere.dev.redshift_connector_testing.employee_department_view.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: red-pere.dev.redshift_connector_testing.employee_department_view.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    fullyQualifiedName: red-pere.dev.redshift_connector_testing.employee_department_view.email
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: phone_number
+    dataType: VARCHAR
+    dataLength: 20
+    dataTypeDisplay: character varying(20)
+    fullyQualifiedName: red-pere.dev.redshift_connector_testing.employee_department_view.phone_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: department_name
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    fullyQualifiedName: red-pere.dev.redshift_connector_testing.employee_department_view.department_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f01a95cf-7777-4ed1-8650-3ccb5e4a6c1d
+  type: databaseSchema
+  name: redshift_connector_testing
+  fullyQualifiedName: red-pere.dev.redshift_connector_testing
+  displayName: redshift_connector_testing
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW redshift_connector_testing.employee_department_view AS  SELECT e.employee_id, e.first_name, e.last_name, e.email, e.phone_number, d.department_name
+     FROM redshift_connector_testing.employees e
+     JOIN redshift_connector_testing.departments d ON e.department_id = d.department_id;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: e080be8976a7249f3d4a3f4ed09c7752
+processedLineage: false
+entityStatus: Unprocessed

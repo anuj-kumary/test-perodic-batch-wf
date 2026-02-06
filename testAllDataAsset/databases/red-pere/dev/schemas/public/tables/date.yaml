@@ -1,0 +1,133 @@
+name: date
+fullyQualifiedName: red-pere.dev.public.date
+tableType: Partitioned
+columns:
+  - name: dateid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: red-pere.dev.public.date.dateid
+    tags: []
+    constraint: UNIQUE
+    children: []
+    customMetrics: []
+  - name: caldate
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: red-pere.dev.public.date.caldate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: day
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: character(3)
+    fullyQualifiedName: red-pere.dev.public.date.day
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: week
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: red-pere.dev.public.date.week
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: month
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: character(5)
+    fullyQualifiedName: red-pere.dev.public.date.month
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: qtr
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: character(5)
+    fullyQualifiedName: red-pere.dev.public.date.qtr
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: year
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: red-pere.dev.public.date.year
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: holiday
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: red-pere.dev.public.date.holiday
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: SORT_KEY
+    columns:
+      - dateid
+  - constraintType: DIST_KEY
+    columns:
+      - dateid
+tablePartition:
+  columns:
+    - columnName: dateid
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: f3b1a11b-f1cf-46d9-aa13-1b7453a47efe
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: red-pere.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1667992140078}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667992140078
+sourceHash: 77c8f7e0ec06872b856eaed53abd897d
+processedLineage: false
+entityStatus: Unprocessed

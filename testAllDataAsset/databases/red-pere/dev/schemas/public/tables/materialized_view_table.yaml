@@ -1,0 +1,63 @@
+name: materialized_view_table
+fullyQualifiedName: red-pere.dev.public.materialized_view_table
+description: new description
+tableType: View
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: This is the catid column description - reverse metadata
+    fullyQualifiedName: red-pere.dev.public.materialized_view_table.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    fullyQualifiedName: red-pere.dev.public.materialized_view_table.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f3b1a11b-f1cf-46d9-aa13-1b7453a47efe
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: red-pere.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW public.materialized_view_table AS CREATE MATERIALIZED VIEW "dev"."public".materialized_view_table AS
+  SELECT id, name FROM regular_table;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 874f2fd3d0fc9a7226835e810348f1b6
+processedLineage: false
+entityStatus: Unprocessed

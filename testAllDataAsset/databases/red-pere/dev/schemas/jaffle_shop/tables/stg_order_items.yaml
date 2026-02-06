@@ -1,0 +1,72 @@
+name: stg_order_items
+fullyQualifiedName: red-pere.dev.jaffle_shop.stg_order_items
+tableType: View
+columns:
+  - name: order_item_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_order_items.order_item_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_order_items.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_id
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_order_items.product_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00db8b6c-9ad4-42f8-bc86-ba5afdf93edb
+  type: databaseSchema
+  name: jaffle_shop
+  fullyQualifiedName: red-pere.dev.jaffle_shop
+  displayName: jaffle_shop
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW jaffle_shop.stg_order_items AS  SELECT renamed.order_item_id, renamed.order_id, renamed.product_id
+     FROM ( SELECT source.id AS order_item_id, source.order_id, source.sku AS product_id
+             FROM ( SELECT raw_items.id, raw_items.order_id, raw_items.sku
+                     FROM "raw".raw_items) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b9616aa265cc8954b9ae99e07e34652b
+processedLineage: false
+entityStatus: Unprocessed

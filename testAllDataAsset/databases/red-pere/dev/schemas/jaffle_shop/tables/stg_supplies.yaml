@@ -1,0 +1,101 @@
+name: stg_supplies
+fullyQualifiedName: red-pere.dev.jaffle_shop.stg_supplies
+tableType: View
+columns:
+  - name: supply_uuid
+    dataType: TEXT
+    dataLength: 1
+    dataTypeDisplay: text
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_supplies.supply_uuid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: supply_id
+    dataType: VARCHAR
+    dataLength: 7
+    dataTypeDisplay: character varying(7)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_supplies.supply_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_id
+    dataType: VARCHAR
+    dataLength: 7
+    dataTypeDisplay: character varying(7)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_supplies.product_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: supply_name
+    dataType: VARCHAR
+    dataLength: 32
+    dataTypeDisplay: character varying(32)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_supplies.supply_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: supply_cost
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 20
+    scale: 6
+    dataTypeDisplay: "numeric(20,6)"
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_supplies.supply_cost
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_perishable_supply
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_supplies.is_perishable_supply
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00db8b6c-9ad4-42f8-bc86-ba5afdf93edb
+  type: databaseSchema
+  name: jaffle_shop
+  fullyQualifiedName: red-pere.dev.jaffle_shop
+  displayName: jaffle_shop
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW jaffle_shop.stg_supplies AS  SELECT renamed.supply_uuid, renamed.supply_id, renamed.product_id, renamed.supply_name, renamed.supply_cost, renamed.is_perishable_supply
+     FROM ( SELECT md5((((COALESCE(source.id, '_dbt_utils_surrogate_key_null_'::character varying)::text || '-'::text) || COALESCE(source.sku, '_dbt_utils_surrogate_key_null_'::character varying)::text)::character varying)::text) AS supply_uuid, source.id AS supply_id, source.sku AS product_id, source.name AS supply_name, source.cost::numeric::numeric(16,2) / 100::numeric AS supply_cost, source.perishable AS is_perishable_supply
+             FROM ( SELECT raw_supplies.id, raw_supplies.name, raw_supplies.cost, raw_supplies.perishable, raw_supplies.sku
+                     FROM "raw".raw_supplies) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 49f70e990f7ae330877f6dbc84ab914a
+processedLineage: false
+entityStatus: Unprocessed
