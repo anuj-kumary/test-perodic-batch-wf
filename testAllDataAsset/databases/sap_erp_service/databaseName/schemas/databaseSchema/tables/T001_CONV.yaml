@@ -1,0 +1,91 @@
+name: T001_CONV
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T001_CONV
+description: Company codes affected by currency conversions
+tableType: Regular
+columns:
+  - name: BUKRS
+    displayName: Company Code
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Company Code
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T001_CONV.BUKRS
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: CONV_DATE
+    displayName: Changed On
+    dataType: DATE
+    dataLength: 8
+    dataTypeDisplay: dats(8)
+    description: Last Changed On
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T001_CONV.CONV_DATE
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: GJAHR
+    displayName: Fiscal Year
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: numc(4)
+    description: Fiscal Year
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T001_CONV.GJAHR
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T001_CONV.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - BUKRS
+      - CONV_DATE
+      - MANDT
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d7c4e3d2c7407c2bd4545bc0edfab01a
+processedLineage: false
+entityStatus: Approved
