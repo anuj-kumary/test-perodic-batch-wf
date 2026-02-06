@@ -1,0 +1,53 @@
+name: table_531
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_531
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_531.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_LXP_USER_CERTIFICATION(\n\t\"DVUser\"\
+  ,\n\t\"User\",\n\t\"DVCertification\",\n\t\"DVStatus\",\n\t\"AcquiredOn\",\n\t\"\
+  Number\",\n\t\"Certification\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"DV_USER\"\
+  \ as \"DVUser\",\n       \"USER\" as \"User\",\n       \"DV_CERTIFICATION\" as \"\
+  DVCertification\",\n       \"DV_STATUS\" as \"DVStatus\",\n       \"ACQUIRED_ON\"\
+  \ as \"AcquiredOn\",\n       \"NUMBER\" as \"Number\",\n       \"CERTIFICATION\"\
+  \ as \"Certification\"\nFROM \"RDS\".\"NOWLEARNING\".\"X_SNC_LXP_USER_CERTIFICATION\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,51 @@
+name: table_520
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_520
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_520.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_SYS_SEARCH_AUTOCOMPLETE_QUERY_EVENT(\n\
+  \tSEARCH_QUERY,\n\tSYS_CREATED_ON,\n\tSYS_CREATED_BY,\n\tDV_SEARCH_PROFILE,\n\t\
+  SESSION,\n\tAPPLICATION_ID,\n\tAPPLICATION_TABLE,\n\tQUERY_TYPE,\n\tDV_USER,\n\t\
+  SELECTED_QUERY,\n\tCLICK_INDEX\n) as\n SELECT\nSEARCH_QUERY\n,SYS_CREATED_ON\n,SYS_CREATED_BY\n\
+  ,DV_SEARCH_PROFILE\n,SESSION\n,APPLICATION_ID\n,APPLICATION_TABLE\n,QUERY_TYPE\n\
+  ,DV_USER\n,SELECTED_QUERY\n,CLICK_INDEX FROM RDS.PARTNER_PORTAL.sys_search_autocomplete_query_event;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

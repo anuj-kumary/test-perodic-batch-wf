@@ -1,0 +1,188 @@
+name: table_494
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_494
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_494.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_CAMPAIGN_SHARE(\n\t\"CampaingBusinessUnit\"\
+  ,\n\t\"CampaignID\",\n\t\"CampaignType\",\n\t\"CampaignName\",\n\t\"CampaignSysID\"\
+  ,\n\t\"CampaignProspecting\",\n\t\"CampaignNumber\",\n\t\"CampaignIndustry\",\n\t\
+  \"CampaignProgram\",\n\t\"CampaignActualCostUSD\",\n\t\"CampaignOwner\",\n\t\"CampaignEventDate\"\
+  ,\n\t\"CampaignConversation2018\",\n\t\"CampaignDVProgramRef\",\n\t\"CampaignStrategicEvent\"\
+  ,\n\t\"CampaignPrimaryDriveTrain\",\n\t\"CampaignRef\",\n\t\"CampaignMapRecord\"\
+  ,\n\t\"CampaignDVMapRecord\",\n\t\"CampaignMarquee\",\n\t\"CampaignEventEndDate\"\
+  ,\n\t\"CampaignCity\",\n\t\"CampaignActive\",\n\t\"CampaignRegion\",\n\t\"CampaignArea\"\
+  ,\n\t\"CampaignSubRegion\",\n\t\"CampaignTotalCost\",\n\t\"CampaignPeopleCost\"\
+  ,\n\t\"CampaignInfraCost\",\n\t\"CampaignMiscCost\",\n\t\"CampaignComparable\",\n\
+  \t\"CampaignBudgetedCost\",\n\t\"CampaignActualCost\",\n\t\"CampaignActivitySubtype\"\
+  ,\n\t\"CampaignDVCampaignRef\",\n\t\"CampaignCategory\",\n\t\"CampaignStartDate\"\
+  ,\n\t\"CampaignTargetAudience\",\n\t\"CampaignPrimaryTargetSegment\",\n\t\"CampaignLatitude\"\
+  ,\n\t\"CampaignLongitude\",\n\t\"CampaignSubGroupId\",\n\t\"CampaignSubGroup\",\n\
+  \t\"CampaignGeo\",\n\t\"CampaignIndustryCategory\",\n\t\"CampaignUser\",\n\t\"CampaignEventID\"\
+  ,\n\t\"DynamicsCampaignSysID\",\n\t\"CampaignTypeOld\",\n\t\"HotLeadCampaignFlag\"\
+  ,\n\t\"CampaignEventType\",\n\t\"WebinarType\",\n\t\"GICCampaign\",\n\t\"PartnerInvolvementU\"\
+  ,\n\t\"PartnerInvolvement\",\n\t\"PartnerNames\",\n\t\"ContentType\",\n\t\"ParentCampaign\"\
+  ,\n\t\"ParentCampaignType\",\n\t\"CampaignMajorArea\",\n\t\"SysCreatedBy\",\n\t\"\
+  CurrentStatus\",\n\t\"BusinessUnitP2\",\n\t\"CampaignIndustrySegment\",\n\t\"CampaignServiceProvider\"\
+  ,\n\t\"CampaignSolutionOROffering\",\n\t\"CampaignSolutionOROfferingType\",\n\t\"\
+  CampaignSolutionOROfferingName\",\n\t\"CampaignMotion\",\n\t\"CampaignPersona\"\
+  ,\n\t\"ProgramType\"\n) as\n/*********************************************************************************\n\
+  \    * Program Name  : ODS_LS.SURF.U_CAMPAIGN\n    * Development Request # : NA\n\
+  \t* Author:\n    * Modified\n    * Date:\n    *------------------------------------------------------------------------------------------------------------------\n\
+  \    * REVISION HISTORY:\n    *--------------------------------------------------------------------------------------------------------------------\n\
+  \    * STORY                 Date Modified           Modified By        Brief Description\
+  \ of Change\n      STRYFVFVFV            2023-04-04              Ramana        \
+  \     Enabling 5 new columns\n                                                 \
+  \                       1.\"CampaignSolutionOROffering;\n                      \
+  \                                                  2.CampaignSolutionOROfferingType;\n\
+  \                                                                        3.CampaignSolutionOROfferingName;\"\
+  \n                                                                        4.CampaignMotion\n\
+  \                                                                        5.CampaignPersona\n\
+  \    * STRY2535038           11-May-2023            Ramana             1.Propagated\
+  \ new field \"ProgramType\".\n   **********************************************************************************/\n\
+  -- SEMANTIC LAYER BEGINS\nSELECT \"DV_U_BUSINESS_UNIT\" as \"CampaingBusinessUnit\"\
+  ,\n\"U_ID\" as \"CampaignID\",\n\"DV_U_CAMPAIGN_TYPE\" as \"CampaignType\",\n\"\
+  U_NAME\" as \"CampaignName\",\n\"SYS_ID\" as \"CampaignSysID\",\n\"U_PROSPECTING_CAMPAIGN\"\
+  \ as \"CampaignProspecting\",\n\"U_NUMBER\" as \"CampaignNumber\",\n\"DV_U_INDUSTRY\"\
+  \ as \"CampaignIndustry\",\n\"DV_U_PROGRAM\" as \"CampaignProgram\",\n\"U_ACTUAL_COST_USD\"\
+  \ as \"CampaignActualCostUSD\",\n\"DV_U_CAMPAIGN_OWNER\" as \"CampaignOwner\",\n\
+  \"U_EVENT_DATE\" as \"CampaignEventDate\",\n\"DV_U_CAMPAIGN_REF\" as \"CampaignConversation2018\"\
+  ,\n\"DV_U_PROGRAM_REF\" as \"CampaignDVProgramRef\",\n\"U_STRATEGIC_EVENT_CAMPAIGN\"\
+  \ as \"CampaignStrategicEvent\",\n\"DV_U_PRIMARY_DRIVE_TRAIN\" as \"CampaignPrimaryDriveTrain\"\
+  ,\n\"U_CAMPAIGN_REF\" as \"CampaignRef\",\n\"U_MAP_RECORD\" as \"CampaignMapRecord\"\
+  ,\n\"DV_U_MAP_RECORD\" as \"CampaignDVMapRecord\",\n\"U_MARQUEE\" as \"CampaignMarquee\"\
+  ,\n\"U_END_DATE\" as \"CampaignEventEndDate\",\n\"U_CITY\" as \"CampaignCity\",\n\
+  \"U_ACTIVE\" as \"CampaignActive\",\nCASE WHEN \"U_AREA\" IN ('random','random','random')\
+  \ and  \"U_REGION\" IN ('random','random') THEN 'random'\n     WHEN \"U_REGION\"\
+  \ IN ('random','random') THEN 'random' ELSE \"U_REGION\" END as \"CampaignRegion\"\
+  ,\n\"U_AREA\" as \"CampaignArea\",\n\"DV_U_SUBREGION\" as \"CampaignSubRegion\"\
+  ,\n\"U_TOTAL_COST\" as \"CampaignTotalCost\",\n\"U_PEOPLE_COST\" as \"CampaignPeopleCost\"\
+  ,\n\"U_INFRASTRUCTURE_COST\" as \"CampaignInfraCost\",\n\"U_MISCELLANEOUS_COST\"\
+  \ as \"CampaignMiscCost\",\n\"DV_U_COMPARABLE_CAMPAIGN\" as \"CampaignComparable\"\
+  ,\n\"U_BUDGETED_COST_DECIMAL\" as \"CampaignBudgetedCost\",\n\"U_ACTUAL_COST_DECIMAL\"\
+  \ as \"CampaignActualCost\",\n\"DV_U_ACTIVITY_SUBTYPE\" as \"CampaignActivitySubtype\"\
+  ,\nIFF((\"CampaignConversation2018\" ='random'or \"CampaignConversation2018\" ='random')\
+  \ , 'random', IFF((\"CampaignConversation2018\" ='random' or \"CampaignConversation2018\"\
+  \ ='random' or \"CampaignConversation2018\" ='random'), 'random', IFF(\"CampaignConversation2018\"\
+  \ ='random','random', IFF(\"CampaignConversation2018\" ='random', 'random', IFF(\"\
+  CampaignConversation2018\" ='random', 'random', IFF(\"CampaignConversation2018\"\
+  \ ='random' or \"CampaignConversation2018\" ='random','random', \"CampaignConversation2018\"\
+  )))))) as \"CampaignDVCampaignRef\",\n\"DV_U_CATEGORY\" as \"CampaignCategory\"\
+  ,\n\"U_CAMPAIGN_START_DATE\" as \"CampaignStartDate\",\n\"CampaignTargetAudience\"\
+  \ as \"CampaignTargetAudience\",\n\"DV_U_PRIMARY_TARGET_SEGMENT\" as \"CampaignPrimaryTargetSegment\"\
+  ,\n\"U_LATITUDE\" as \"CampaignLatitude\",\n\"U_LONGITUDE\" as \"CampaignLongitude\"\
+  ,\n\"U_CAMPAIGN_SUB_GROUP\" as \"CampaignSubGroupId\",\n\"DV_U_CAMPAIGN_SUB_GROUP\"\
+  \ as \"CampaignSubGroup\",\n\"U_GEO\" as \"CampaignGeo\",\nIFF((\"CampaignIndustry\"\
+  \ ='random' or \"CampaignIndustry\" ='random' or \"CampaignIndustry\" ='random'\
+  \ or \"CampaignIndustry\" ='random' or  \"CampaignIndustry\" ='random'),'random',\
+  \   IFF((\"CampaignIndustry\" ='random' or \"CampaignIndustry\" ='random' or \"\
+  CampaignIndustry\" ='random' or \"CampaignIndustry\" ='random' or \"CampaignIndustry\"\
+  \ ='random'),'random', IFF((\"CampaignIndustry\" ='random' or \"CampaignIndustry\"\
+  \ ='random'),'random', IFF((\"CampaignIndustry\" ='random' or \"CampaignIndustry\"\
+  \ ='random' OR \"CampaignIndustry\" ='random'),'random', IFF((\"CampaignIndustry\"\
+  \ ='random' or \"CampaignIndustry\" ='random'),'random', IFF((\"CampaignIndustry\"\
+  \ ='random' or \"CampaignIndustry\" ='random' or \"CampaignIndustry\" ='random'),'random',\
+  \ IFF((\"CampaignIndustry\" ='random' or \"CampaignIndustry\" ='random' or \"CampaignIndustry\"\
+  \ ='random' or \"CampaignIndustry\" ='random' ),'random', IFF((\"CampaignIndustry\"\
+  \ ='random' or \"CampaignIndustry\" ='random' or \"CampaignIndustry\" ='random'\
+  \ or \"CampaignIndustry\" ='random'),'random', IFF((\"CampaignIndustry\" ='random'\
+  \ or \"CampaignIndustry\" ='random' or \"CampaignIndustry\" ='random' or \"CampaignIndustry\"\
+  \ ='random'  or \"CampaignIndustry\"= 'random'), 'random', IFF((\"CampaignIndustry\"\
+  \ ='random' or \"CampaignIndustry\" ='random' or \"CampaignIndustry\" ='random'\
+  \ or  \"CampaignIndustry\" ='random'), 'random', IFF((\"CampaignIndustry\" ='random'\
+  \ or \"CampaignIndustry\" ='random' or \"CampaignIndustry\"='random'or \"CampaignIndustry\"\
+  ='random'),'random', \"CampaignIndustry\"))))))))))) as \"CampaignIndustryCategory\"\
+  ,\n\"DV_U_USER\" as \"CampaignUser\",\n\"U_EVENTID\" as \"CampaignEventID\",\n\"\
+  U_DYNAMICS_GUID\" as \"DynamicsCampaignSysID\",\n\"DV_U_CAMPAIGN_TYPE_OLD\" as \"\
+  CampaignTypeOld\",\n\"U_IS_HOT_LEAD_CAMPAIGN\" as \"HotLeadCampaignFlag\",\n\"DV_U_EVENT_TYPE\"\
+  \ as \"CampaignEventType\",\n\"U_WEBINAR_TYPE\" as \"WebinarType\",\n\"U_GIC_CAMPAIGN\"\
+  \ as \"GICCampaign\",\n\"U_PARTNER_INVOLVEMENT\" as \"PartnerInvolvementU\",\n\"\
+  DV_U_PARTNER_INVOLVEMENT\" as \"PartnerInvolvement\",\n\"U_PARTNER_NAMES\" as \"\
+  PartnerNames\",\n\"U_CONTENT_TYPE\" as  \"ContentType\",\n\"U_PARENT_CAMPAIGN\"\
+  \ as  \"ParentCampaign\",\n\"U_PARENT_CAMPAIGN_TYPE\" as \"ParentCampaignType\"\
+  ,\n\"U_MARKETING_MAJOR_AREA\" as \"CampaignMajorArea\",\n\"SYS_CREATED_BY\" as \"\
+  SysCreatedBy\",\n\"DV_U_CURRENT_STATUS\" as \"CurrentStatus\",\n\"DV_U_BUSINESS_UNIT_P2\"\
+  \ as \"BusinessUnitP2\",\n\"U_INDUSTRY_SEGMENT\" as \"CampaignIndustrySegment\"\
+  ,\n\"U_SERVICE_PROVIDER\" as \"CampaignServiceProvider\",\n\"U_SOLUTION_OR_OFFERING\"\
+  \ as \"CampaignSolutionOROffering\",\n\"U_SOLUTION_OR_OFFERING_TYPE\" as \"CampaignSolutionOROfferingType\"\
+  ,\n\"U_NAME_OF_SOLUTION_OR_OFFERING\" as \"CampaignSolutionOROfferingName\",\n\"\
+  U_PRIMARY_PLAY\" as \"CampaignMotion\",\n\"U_PERSONA\" as \"CampaignPersona\",\n\
+  \"U_PROGRAM_TYPE\" as \"ProgramType\"\nFROM (\nSELECT \"DV_U_BUSINESS_UNIT\" as\
+  \ \"DV_U_BUSINESS_UNIT\",\n\"U_ID\" as \"U_ID\",\n\"DV_U_CAMPAIGN_TYPE\" as \"DV_U_CAMPAIGN_TYPE\"\
+  ,\n\"U_NAME\" as \"U_NAME\",\n\"SYS_ID\" as \"SYS_ID\",\n\"U_PROSPECTING_CAMPAIGN\"\
+  \ as \"U_PROSPECTING_CAMPAIGN\",\n\"U_NUMBER\" as \"U_NUMBER\",\n\"DV_U_INDUSTRY\"\
+  \ as \"DV_U_INDUSTRY\",\n\"DV_U_PROGRAM\" as \"DV_U_PROGRAM\",\n\"DV_U_CAMPAIGN_OWNER\"\
+  \ as \"DV_U_CAMPAIGN_OWNER\",\n\"U_ACTUAL_COST_USD\" as \"U_ACTUAL_COST_USD\",\n\
+  \"U_EVENT_DATE\" as \"U_EVENT_DATE\",\n\"DV_U_CAMPAIGN_REF\" as \"DV_U_CAMPAIGN_REF\"\
+  ,\n\"DV_U_PROGRAM_REF\" as \"DV_U_PROGRAM_REF\",\n\"U_STRATEGIC_EVENT_CAMPAIGN\"\
+  \ as \"U_STRATEGIC_EVENT_CAMPAIGN\",\n\"DV_U_PRIMARY_DRIVE_TRAIN\" as \"DV_U_PRIMARY_DRIVE_TRAIN\"\
+  ,\n\"U_CAMPAIGN_REF\" as \"U_CAMPAIGN_REF\",\n\"U_MAP_RECORD\" as \"U_MAP_RECORD\"\
+  ,\n\"DV_U_MAP_RECORD\" as \"DV_U_MAP_RECORD\",\n\"U_MARQUEE\" as \"U_MARQUEE\",\n\
+  \"U_END_DATE\" as \"U_END_DATE\",\n\"U_CITY\" as \"U_CITY\",\n\"U_ACTIVE\" as \"\
+  U_ACTIVE\",\n\"U_REGION\" as \"U_REGION\",\n\"U_AREA\" as \"U_AREA\",\n\"U_SUBREGION\"\
+  \ as \"U_SUBREGION\",\n\"DV_U_SUBREGION\" as \"DV_U_SUBREGION\",\n\"U_TOTAL_COST\"\
+  \ as \"U_TOTAL_COST\",\n\"U_PEOPLE_COST\" as \"U_PEOPLE_COST\",\n\"U_INFRASTRUCTURE_COST\"\
+  \ as \"U_INFRASTRUCTURE_COST\",\n\"U_MISCELLANEOUS_COST\" as \"U_MISCELLANEOUS_COST\"\
+  ,\n\"DV_U_COMPARABLE_CAMPAIGN\" as \"DV_U_COMPARABLE_CAMPAIGN\",\n\"U_BUDGETED_COST_DECIMAL\"\
+  \ as \"U_BUDGETED_COST_DECIMAL\",\n\"U_ACTUAL_COST_DECIMAL\" as \"U_ACTUAL_COST_DECIMAL\"\
+  ,\n\"DV_U_ACTIVITY_SUBTYPE\" as \"DV_U_ACTIVITY_SUBTYPE\",\n\"DV_U_CATEGORY\" as\
+  \ \"DV_U_CATEGORY\",\n\"U_CAMPAIGN_START_DATE\" as \"U_CAMPAIGN_START_DATE\",\n\"\
+  CampaignTargetAudience\" as \"CampaignTargetAudience\",\n\"DV_U_PRIMARY_TARGET_SEGMENT\"\
+  \ as \"DV_U_PRIMARY_TARGET_SEGMENT\",\n\"U_LATITUDE\" as \"U_LATITUDE\",\n\"U_LONGITUDE\"\
+  \ as \"U_LONGITUDE\",\n\"U_CAMPAIGN_SUB_GROUP\" as \"U_CAMPAIGN_SUB_GROUP\",\n\"\
+  DV_U_CAMPAIGN_SUB_GROUP\" as \"DV_U_CAMPAIGN_SUB_GROUP\",\n\"U_GEO\" as \"U_GEO\"\
+  ,\n\"U_ASSOCIATED_MRT_RECORD\" as \"U_ASSOCIATED_MRT_RECORD\",\n\"DV_U_USER\" as\
+  \ \"DV_U_USER\",\n\"U_EVENTID\" as \"U_EVENTID\",\n\"U_DYNAMICS_GUID\" as \"U_DYNAMICS_GUID\"\
+  ,\n\"DV_U_CAMPAIGN_TYPE_OLD\" as \"DV_U_CAMPAIGN_TYPE_OLD\",\n\"U_IS_HOT_LEAD_CAMPAIGN\"\
+  \ as \"U_IS_HOT_LEAD_CAMPAIGN\",\n\"DV_U_EVENT_TYPE\" as \"DV_U_EVENT_TYPE\",\n\"\
+  U_WEBINAR_TYPE\" as \"U_WEBINAR_TYPE\",\n\"U_GIC_CAMPAIGN\" as \"U_GIC_CAMPAIGN\"\
+  ,\n\"U_PARTNER_INVOLVEMENT\" as \"U_PARTNER_INVOLVEMENT\",\n\"DV_U_PARTNER_INVOLVEMENT\"\
+  \ as \"DV_U_PARTNER_INVOLVEMENT\",\n\"U_PARTNER_NAMES\" as \"U_PARTNER_NAMES\" ,\n\
+  \"U_CONTENT_TYPE\" as  \"U_CONTENT_TYPE\",\n\"U_PARENT_CAMPAIGN\" as  \"U_PARENT_CAMPAIGN\"\
+  ,\n\"U_PARENT_CAMPAIGN_TYPE\" as \"U_PARENT_CAMPAIGN_TYPE\" ,\n\"U_MARKETING_MAJOR_AREA\"\
+  \ as \"U_MARKETING_MAJOR_AREA\",\n\"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n\"\
+  DV_U_CURRENT_STATUS\" as \"DV_U_CURRENT_STATUS\",\n\"DV_U_BUSINESS_UNIT_P2\" as\
+  \ \"DV_U_BUSINESS_UNIT_P2\",\n\"U_INDUSTRY_SEGMENT\" as \"U_INDUSTRY_SEGMENT\",\n\
+  \"U_SERVICE_PROVIDER\" as \"U_SERVICE_PROVIDER\",\n\"U_SOLUTION_OR_OFFERING\",\n\
+  \"U_SOLUTION_OR_OFFERING_TYPE\",\n\"U_NAME_OF_SOLUTION_OR_OFFERING\",\n\"U_PRIMARY_PLAY\"\
+  ,\n\"U_PERSONA\",\n\"U_PROGRAM_TYPE\"\nFROM \"EDW_LS\".\"MARKETING_EM\".\"TF_CAMPAIGN_TYPE_ALLOCADIA_SHARE\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

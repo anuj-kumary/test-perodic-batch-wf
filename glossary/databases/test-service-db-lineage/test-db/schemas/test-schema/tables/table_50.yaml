@@ -1,0 +1,72 @@
+name: table_50
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_50
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_50.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CRPO_TARGETS(\n\t\"Quarter\",\n\t\"NNACVSalesTarget\"\
+  ,\n\t\"RenewalsScheduledSalesTarget\",\n\t\"EarlyRenewalsSalesTarget\",\n\t\"LateRenewalsSalesTarget\"\
+  ,\n\t\"LostCustomersSalesTarget\",\n\t\"RACVSalesTarget\",\n\t\"NNACVCRPOTarget\"\
+  ,\n\t\"RenewalsScheduledCRPOTarget\",\n\t\"EarlyRenewalsCRPOTarget\",\n\t\"LateRenewalsCRPOTarget\"\
+  ,\n\t\"RACVCRPOTarget\",\n\t\"BacklogACVUSD\",\n\t\"BacklogACVDC\",\n\t\"BacklogACVCurrency\"\
+  ,\n\t\"ImpactTRNCarveTarget\",\n\t\"OnPremNNACVTarget\",\n\t\"BIUBookedTarget\"\
+  ,\n\t\"NNACVTermAdjTarget\",\n\t\"SubBookingsInPeriodTarget\",\n\t\"BIUInPeriodTarget\"\
+  ,\n\t\"OnTimeRenewalsTarget\",\n\t\"OnPremRACVAdjTarget\",\n\t\"RACVTermAdjTarget\"\
+  ,\n\t\"ServicesBacklogACVUSD\",\n\t\"ServicesBacklogACVDC\",\n\t\"CSNNACVTarget\"\
+  ,\n\t\"CSRACVTarget\",\n\t\"PSTarget\",\n\t\"TrainingTarget\",\n\t\"STLYCRPOSubsActuals\"\
+  ,\n\t\"STLYCRPOServicesActuals\",\n\t\"YoYGuidance\",\n\t\"ConstantCurrYoYGuidance\"\
+  ,\n\t\"YoYConsensus\",\n\t\"ConstantCurrYoYConsensus\",\n\t\"STLYCRPOActuals\"\n\
+  ) as\n(\nSELECT \"Quarter\",\n       \"NNACVSalesTarget\",\n       \"RenewalsScheduledSalesTarget\"\
+  ,\n       \"EarlyRenewalsSalesTarget\",\n       \"LateRenewalsSalesTarget\",\n \
+  \      \"LostCustomersSalesTarget\",\n       \"RACVSalesTarget\",\n       \"NNACVCRPOTarget\"\
+  ,\n       \"RenewalsScheduledCRPOTarget\",\n       \"EarlyRenewalsCRPOTarget\",\n\
+  \       \"LateRenewalsCRPOTarget\",\n       \"RACVCRPOTarget\",\n       \"BacklogACVUSD\"\
+  ,\n       \"BacklogACVDC\",\n       \"BacklogACVCurrency\",\n       \"ImpactTRNCarveTarget\"\
+  ,\n       \"OnPremNNACVTarget\",\n       \"BIUBookedTarget\",\n       \"NNACVTermAdjTarget\"\
+  ,\n       \"SubBookingsInPeriodTarget\",\n       \"BIUInPeriodTarget\",\n      \
+  \ \"OnTimeRenewalsTarget\",\n       \"OnPremRACVAdjTarget\",\n       \"RACVTermAdjTarget\"\
+  ,\n       \"ServicesBacklogACVUSD\",\n       \"ServicesBacklogACVDC\",\n       \"\
+  CSNNACVTarget\",\n       \"CSRACVTarget\",\n       \"PSTarget\",\n       \"TrainingTarget\"\
+  ,\n       \"STLYCRPOSubsActuals\",\n       \"STLYCRPOServicesActuals\",\n      \
+  \ \"YoYGuidance\" ,\n       \"ConstantCurrYoYGuidance\" ,\n       \"YoYConsensus\"\
+  ,\n       \"ConstantCurrYoYConsensus\",\n       \"STLYCRPOActuals\"\nFROM \"RDS\"\
+  .\"FLATFILESOURCE\".\"CRPO_TARGETS\"\n);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

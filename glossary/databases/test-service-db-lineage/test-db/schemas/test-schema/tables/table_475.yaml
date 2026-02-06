@@ -1,0 +1,55 @@
+name: table_475
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_475
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_475.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CONTRACT_RENEWAL_LIKELIHOOD(\n\tDV_U_CONTRACT_TYPE,\n\
+  \tCONTRACT_NUMBER,\n\tCONTRACT_NOTES,\n\tSENTIMENT_SCORE,\n\tSENTIMENT_CATEGORY,\n\
+  \tCOMPLETE_SENTIMENT,\n\tRENEWAL_LIKELIHOOD,\n\tOPPORTUNITY_NUMBER,\n\tDV_STAGE,\n\
+  \tLATEST_CLOSE_DATE,\n\tACTIVE\n) as\nSELECT\n    e.DV_U_CONTRACT_TYPE,\n    e.CONTRACT_NUMBER,\n\
+  \    e.CONTRACT_NOTES,\n    e.sentiment_score,\n    e.sentiment_category,\n    e.complete_sentiment,\n\
+  \    CASE\n        WHEN c.DV_STAGE IS not NULL THEN 'random'\n        WHEN e.sentiment_score\
+  \ > 'random' THEN 'random'\n        ELSE 'random'\n    END AS renewal_likelihood,\n\
+  \    c.opportunity_number,\n    c.DV_STAGE,\n    c.close_date AS latest_close_date,\n\
+  \    c.ACTIVE\nFROM\n    enhanced_contract_sentiment_analysis e\nLEFT JOIN\n   \
+  \ latest_closed_opportunity_per_contract c\nON\n    e.CONTRACT_NUMBER = c.DV_U_CONTRACT;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

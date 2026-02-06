@@ -1,0 +1,57 @@
+name: table_451
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_451
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_451.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view LATEST_CLOSED_OPPORTUNITY_PER_CONTRACT(\n\
+  \tDV_U_CONTRACT,\n\tOPPORTUNITY_NUMBER,\n\tDV_STAGE,\n\tCLOSE_DATE,\n\tACTIVE\n\
+  ) as\nWITH filtered_opportunities AS (\n    SELECT\n        opt.DV_U_CONTRACT,\n\
+  \        opt.number AS opportunity_number,\n        opt.DV_STAGE,\n        opt.close_date,\n\
+  \        opt.ACTIVE\n    FROM\n        rds.surf.sales_opportunity opt\n    WHERE\n\
+  \        opt.DV_STAGE IN ('random', 'random', 'random')\n),\nranked_opportunities\
+  \ AS (\n    SELECT\n        f.DV_U_CONTRACT,\n        f.opportunity_number,\n  \
+  \      f.DV_STAGE,\n        f.close_date,\n        f.ACTIVE,\n        ROW_NUMBER()\
+  \ OVER (PARTITION BY f.DV_U_CONTRACT ORDER BY f.close_date DESC) AS rn\n    FROM\n\
+  \        filtered_opportunities f\n)\nSELECT\n    DV_U_CONTRACT,\n    opportunity_number,\n\
+  \    DV_STAGE,\n    close_date,\n    ACTIVE\nFROM\n    ranked_opportunities\nWHERE\n\
+  \    rn = 'random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

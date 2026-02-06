@@ -1,0 +1,66 @@
+name: table_466
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_466
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_466.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PRODUCTS(\n\t\"ProductNumber\",\n\t\"ProductSysID\"\
+  ,\n\t\"ProductStatusCode\",\n\t\"ProductName\",\n\t\"ProductCategory\",\n\t\"ProductReportingBusinessUnit\"\
+  ,\n\t\"ProductDefaultMetricName\",\n\t\"ProductStatusCodeName\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"ProdNumber\" as \"ProductNumber\",\n       \"ProdSysID\"\
+  \ as \"ProductSysID\",\n       \"ProdStatusCode\" as \"ProductStatusCode\",\n  \
+  \     \"ProdName\" as \"ProductName\",\n       \"ProdCategory\" as \"ProductCategory\"\
+  ,\n       \"ProdReportingBusinessUnit\" as \"ProductReportingBusinessUnit\",\n \
+  \      \"ProdDefaultMetricName\" as \"ProductDefaultMetricName\",\n       \"ProdStatusCodeName\"\
+  \ as \"ProductStatusCodeName\"\nFROM\n  (SELECT \"ProdNumber\" as \"ProdNumber\"\
+  ,\n          \"ProdSysID\" as \"ProdSysID\",\n          \"ProdStatusCode\" as \"\
+  ProdStatusCode\",\n          \"ProdName\" as \"ProdName\",\n          \"SN_PRODUCTCATEGORYNAME\"\
+  \ as \"ProdCategory\",\n          \"SN_REPORTINGPRODUCTBUSINESSUNITNAME\" as \"\
+  ProdReportingBusinessUnit\",\n          \"SN_DEFAULTMETRICPRODUCTNAME\" as \"ProdDefaultMetricName\"\
+  ,\n          \"STATUSCODENAME\" as \"ProdStatusCodeName\"\n   FROM\n     (SELECT\
+  \ \"PRODUCTNUMBER\" as \"ProdNumber\",\n             \"PRODUCTID\" as \"ProdSysID\"\
+  ,\n             \"STATUSCODE\" as \"ProdStatusCode\",\n             \"NAME\" as\
+  \ \"ProdName\",\n             \"SN_PRODUCTCATEGORYNAME\" as \"SN_PRODUCTCATEGORYNAME\"\
+  ,\n             \"SN_REPORTINGPRODUCTBUSINESSUNITNAME\" as \"SN_REPORTINGPRODUCTBUSINESSUNITNAME\"\
+  ,\n             \"SN_DEFAULTMETRICPRODUCTNAME\" as \"SN_DEFAULTMETRICPRODUCTNAME\"\
+  ,\n             \"STATUSCODENAME\" as \"STATUSCODENAME\"\n      FROM \"RDS\".\"\
+  DYNAMICS365\".\"PRODUCTS\")\"Projection_1\")Projection_3;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

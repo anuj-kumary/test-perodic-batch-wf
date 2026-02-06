@@ -1,0 +1,104 @@
+name: table_502
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_502
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_502.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view OPPORTUNITYPRODUCTS(\n\t\"OpportunityLineItemNumber\"\
+  ,\n\t\"OpportunityLineItemStartDate\",\n\t\"OpportunityLineItemMetric\",\n\t\"OpportunityLineItemMetricName\"\
+  ,\n\t\"OpportunityLineItemProductSysID\",\n\t\"OpportunityLineItemBusinessUnit\"\
+  ,\n\t\"OpportunityLineItemProductName\",\n\t\"OpportunityLineItemOpportunitySysID\"\
+  ,\n\t\"OpportunityLineItemSurfSysID\",\n\t\"OpportunityLineItemModifiedon\",\n\t\
+  \"OpportunityLineItemOpportunityproductID\",\n\t\"OpportunityLineItemNetNewACV_USD\"\
+  ,\n\t\"OpportunityLineItemRenewalACV_USD\",\n\t\"OpportunityLineItemNetNewACV\"\
+  ,\n\t\"OpportunityLineItemRenewalACV\",\n\t\"OpportunityLineItemSalesQuarter\",\n\
+  \t\"OpportunityOptionPeriod\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"OpportunityLineItemNumber\"\
+  \ as \"OpportunityLineItemNumber\",\n       \"OpportunityLineItemStartDate\" as\
+  \ \"OpportunityLineItemStartDate\",\n       \"OpportunityLineItemMetric\" as \"\
+  OpportunityLineItemMetric\",\n       \"OpportunityLineItemMetricName\" as \"OpportunityLineItemMetricName\"\
+  ,\n       \"OpportunityLineItemProductSysID\" as \"OpportunityLineItemProductSysID\"\
+  ,\n       \"OpportunityLineItemBusinessUnit\" as \"OpportunityLineItemBusinessUnit\"\
+  ,\n       \"OpportunityLineItemProductName\" as \"OpportunityLineItemProductName\"\
+  ,\n       \"OpportunityLineItemOpportunitySysID\" as \"OpportunityLineItemOpportunitySysID\"\
+  ,\n       \"OpportunityLineItemSurfSysID\" as \"OpportunityLineItemSurfSysID\",\n\
+  \       \"OpportunityLineItemModifiedon\" as \"OpportunityLineItemModifiedon\",\n\
+  \       \"OpportunityLineItemOpportunityproductID\" as \"OpportunityLineItemOpportunityproductID\"\
+  ,\n       \"OpportunityLineItemNetNewACV_USD\" as \"OpportunityLineItemNetNewACV_USD\"\
+  ,\n       \"OpportunityLineItemRenewalACV_USD\" as \"OpportunityLineItemRenewalACV_USD\"\
+  ,\n       \"OpportunityLineItemNetNewACV\" as \"OpportunityLineItemNetNewACV\",\n\
+  \       \"OpportunityLineItemRenewalACV\" as \"OpportunityLineItemRenewalACV\",\n\
+  \       \"OpportunityLineItemSalesQuarter\" as \"OpportunityLineItemSalesQuarter\"\
+  ,\n\t   \"OpportunityOptionPeriod\"   as  \"OpportunityOptionPeriod\"\nFROM\n  (SELECT\
+  \ \"LINEITEMNUMBER\" as \"OpportunityLineItemNumber\",\n          \"SN_STARTDATEOPPORTUNITYPRODUCT\"\
+  \ as \"OpportunityLineItemStartDate\",\n          \"PRICEPERUNIT\" as \"OpportunityLineItemACV\"\
+  ,\n          \"PRICEPERUNIT_BASE\" as \"OpportunityLineItemACV_USD\",\n        \
+  \  \"SN_OPPORTUNITYLINEDEFAULTMETRIC\" as \"OpportunityLineItemMetric\",\n     \
+  \     \"SN_OPPORTUNITYLINEDEFAULTMETRICNAME\" as \"OpportunityLineItemMetricName\"\
+  ,\n          \"PRODUCTID\" as \"OpportunityLineItemProductSysID\",\n          \"\
+  OWNINGBUSINESSUNIT\" as \"OpportunityLineItemBusinessUnit\",\n          \"PRODUCTNAME\"\
+  \ as \"OpportunityLineItemProductName\",\n          \"OPPORTUNITYID\" as \"OpportunityLineItemOpportunitySysID\"\
+  ,\n          \"SN_SURF_SYSID\" as \"OpportunityLineItemSurfSysID\",\n          \"\
+  MODIFIEDON\" as \"OpportunityLineItemModifiedon\",\n          \"OPPORTUNITYPRODUCTID\"\
+  \ as \"OpportunityLineItemOpportunityproductID\",\n          IFF(\"OpportunityLineItemMetricName\"\
+  ='random', \"OpportunityLineItemACV_USD\", 'random') as \"OpportunityLineItemNetNewACV_USD\"\
+  ,\n          IFF(\"OpportunityLineItemMetricName\"='random', \"OpportunityLineItemACV_USD\"\
+  , 'random') as \"OpportunityLineItemRenewalACV_USD\",\n          IFF(\"OpportunityLineItemMetricName\"\
+  ='random', \"OpportunityLineItemACV\", 'random') as \"OpportunityLineItemNetNewACV\"\
+  ,\n          IFF(\"OpportunityLineItemMetricName\"='random', \"OpportunityLineItemACV\"\
+  , 'random') as \"OpportunityLineItemRenewalACV\",\n          RIGHT(YEAR(\"OpportunityLineItemStartDate\"\
+  ) ||'random'|| QUARTER(\"OpportunityLineItemStartDate\"), 'random') as \"OpportunityLineItemSalesQuarter\"\
+  ,\n          IFF(\"OpportunityLineItemMetricName\"='random', \"OpportunityLineItemACV_USD\"\
+  , 'random') as \"OpportunityLineItemOtherRevenue_USD\",\n          IFF(\"OpportunityLineItemMetricName\"\
+  ='random', \"OpportunityLineItemACV\", 'random') as \"OpportunityLineItemOtherRevenueACV\"\
+  ,\n\t\t  \"SN_OPTIONPERIOD\" as \"OpportunityOptionPeriod\"\n   FROM\n     (SELECT\
+  \ \"LINEITEMNUMBER\" as \"LINEITEMNUMBER\",\n             \"SN_STARTDATEOPPORTUNITYPRODUCT\"\
+  \ as \"SN_STARTDATEOPPORTUNITYPRODUCT\",\n             \"PRICEPERUNIT\" as \"PRICEPERUNIT\"\
+  ,\n             \"PRICEPERUNIT_BASE\" as \"PRICEPERUNIT_BASE\",\n             \"\
+  SN_OPPORTUNITYLINEDEFAULTMETRIC\" as \"SN_OPPORTUNITYLINEDEFAULTMETRIC\",\n    \
+  \         \"SN_OPPORTUNITYLINEDEFAULTMETRICNAME\" as \"SN_OPPORTUNITYLINEDEFAULTMETRICNAME\"\
+  ,\n             \"PRODUCTID\" as \"PRODUCTID\",\n             \"OWNINGBUSINESSUNIT\"\
+  \ as \"OWNINGBUSINESSUNIT\",\n             \"PRODUCTNAME\" as \"PRODUCTNAME\",\n\
+  \             \"OPPORTUNITYID\" as \"OPPORTUNITYID\",\n             \"SN_SURF_SYSID\"\
+  \ as \"SN_SURF_SYSID\",\n             \"MODIFIEDON\" as \"MODIFIEDON\",\n      \
+  \       \"OPPORTUNITYPRODUCTID\" as \"OPPORTUNITYPRODUCTID\",\n\t\t     \"SN_OPTIONPERIOD\"\
+  \ as \"SN_OPTIONPERIOD\"\n      FROM RDS.\"DYNAMICS365\".\"OPPORTUNITYPRODUCTS\"\
+  )\"Projection_1\")Projection_2;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

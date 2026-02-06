@@ -1,0 +1,61 @@
+name: table_534
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_534
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_534.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_LXP_TRANSCRIPT(\n\t\"StudentSysID\"\
+  ,\n\t\"StudentEmail\",\n\t\"CourseSysID\",\n\t\"CourseState\",\n\t\"CourseCompletionDate\"\
+  ,\n\t\"PathSysID\",\n\t\"Type\",\n\t\"PercentComplete\",\n\t\"Result\",\n\t\"Number\"\
+  ,\n\t\"ParentPath\",\n\t\"EnrolmentDate\",\n\t\"CourseName\",\n\t\"PathName\",\n\
+  \t\"Score\",\n\t\"DVParentPath\",\n\t\"CourseDeliveryType\",\n\t\"DVPath\"\n) as\
+  \ -- SEMANTIC LAYER BEGINS\n\nSELECT \"STUDENT\" as \"StudentSysID\",\n       \"\
+  DV_STUDENT\" as \"StudentEmail\",\n       \"COURSE\" as \"CourseSysID\",\n     \
+  \  \"DV_STATE\" as \"CourseState\",\n       \"COMPLETION_DATE\" as \"CourseCompletionDate\"\
+  ,\n       \"PATH\" as \"PathSysID\",\n       \"DV_TYPE\" as \"Type\",\n       \"\
+  PERCENT_COMPLETE\" as \"PercentComplete\",\n       \"RESULT\" as \"Result\",\n \
+  \      \"NUMBER\" as \"Number\",\n       \"PARENT_PATH\" as \"ParentPath\",\n  \
+  \     \"ENROLMENT_DATE\" as \"EnrolmentDate\",\n       \"DV_COURSE\" as \"CourseName\"\
+  ,\n       \"DV_PATH\" as \"PathName\",\n       \"SCORE\" as \"Score\",\n       \"\
+  DV_PARENT_PATH\" as \"DVParentPath\",\n       \"DELIVERY_TYPE\" as \"CourseDeliveryType\"\
+  ,\n       \"DV_PATH\" as \"DVPath\"\nFROM \"RDS\".\"NOWLEARNING\".\"X_SNC_LXP_TRANSCRIPT\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
