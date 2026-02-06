@@ -1,0 +1,90 @@
+name: sysutility_ucp_dac_cpu_utilizations
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_cpu_utilizations
+tableType: View
+columns:
+  - name: dac_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_cpu_utilizations.dac_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: server_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_cpu_utilizations.server_instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: under_utilization
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_cpu_utilizations.under_utilization
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: current_utilization
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_cpu_utilizations.current_utilization
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: over_utilization
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_cpu_utilizations.over_utilization
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[sysutility_ucp_dac_cpu_utilizations]\r\nAS\r\
+  \nSELECT\r\n   dac.dac_name AS dac_name, \r\n   dac.dac_server_instance_name AS\
+  \ server_instance_name, \r\n   10 AS under_utilization, \r\n   dac.dac_percent_total_cpu_utilization\
+  \ AS current_utilization, \r\n   70 AS over_utilization\r\n FROM\tmsdb.dbo.sysutility_ucp_deployed_dacs\
+  \ AS dac"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 9c734d80797f5aa7e71570a957985900
+processedLineage: false
+entityStatus: Approved

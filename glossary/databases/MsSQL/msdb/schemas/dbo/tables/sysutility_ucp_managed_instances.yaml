@@ -1,0 +1,116 @@
+name: sysutility_ucp_managed_instances
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances
+tableType: View
+columns:
+  - name: instance_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances.instance_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances.instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: virtual_server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances.virtual_server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: date_created
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetimeoffset
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances.date_created
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: created_by
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances.created_by
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: agent_proxy_account
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances.agent_proxy_account
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: cache_directory
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(520)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances.cache_directory
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: management_state
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_managed_instances.management_state
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[sysutility_ucp_managed_instances]\r\nAS\r\n\
+  \    SELECT     \r\n        instance_id,\r\n        instance_name,\r\n        virtual_server_name,\r\
+  \n        date_created,\r\n        created_by,\r\n        agent_proxy_account,\r\
+  \n        cache_directory,\r\n        management_state\r\n    FROM [dbo].[sysutility_ucp_managed_instances_internal]"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 65540e0364ea39fcebbbc91540ea652a
+processedLineage: false
+entityStatus: Approved

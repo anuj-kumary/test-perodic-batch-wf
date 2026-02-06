@@ -1,0 +1,71 @@
+name: sysutility_ucp_instance_policy_type
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_instance_policy_type
+tableType: View
+columns:
+  - name: server_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_instance_policy_type.server_instance_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_policy_overridden
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_instance_policy_type.is_policy_overridden
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW dbo.sysutility_ucp_instance_policy_type AS\r\n( \
+  \ \r\n    -- Target types\r\n    -- computer_type = 1\r\n    -- volume_type = 6\r\
+  \n\r\n    -- Resource types\r\n    -- processor_type = 3\r\n    -- space_type =\
+  \ 1\r\n\r\n    SELECT sv.Name AS server_instance_name\r\n        , CASE WHEN ((0\
+  \ < ip.is_policy_overridden) OR (0 < cp.is_policy_overridden)) THEN 1 ELSE 0 END\
+  \ AS is_policy_overridden\r\n    FROM msdb.dbo.sysutility_ucp_instances sv\r\n \
+  \       , (SELECT server_instance_name , SUM(CASE WHEN 0 < is_global_policy THEN\
+  \ 0 ELSE 1 END) AS is_policy_overridden\r\n           FROM msdb.dbo.sysutility_ucp_instance_policies\
+  \ \r\n           GROUP BY server_instance_name) ip \r\n        , (SELECT physical_server_name,\
+  \ SUM(CASE WHEN 0 < is_global_policy THEN 0 ELSE 1 END) AS is_policy_overridden\r\
+  \n           FROM msdb.dbo.sysutility_ucp_computer_policies  \r\n           GROUP\
+  \ BY physical_server_name) cp \r\n    WHERE ip.server_instance_name = sv.Name\r\n\
+  \        AND cp.physical_server_name = sv.ComputerNamePhysicalNetBIOS\r\n)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 27c0f1fa043ab00379115087661b1099
+processedLineage: false
+entityStatus: Approved

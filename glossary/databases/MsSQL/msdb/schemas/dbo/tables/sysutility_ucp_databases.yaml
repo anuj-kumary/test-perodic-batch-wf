@@ -1,0 +1,163 @@
+name: sysutility_ucp_databases
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases
+tableType: View
+columns:
+  - name: urn
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(512)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.urn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: parent_urn
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(320)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.parent_urn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Collation
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.Collation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CompatibilityLevel
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.CompatibilityLevel
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CreateDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.CreateDate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EncryptionEnabled
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.EncryptionEnabled
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.Name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: server_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.server_instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: powershell_path
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.powershell_path
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: RecoveryModel
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.RecoveryModel
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Trustworthy
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.Trustworthy
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: processing_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetimeoffset
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.processing_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: state
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_databases.state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW dbo.sysutility_ucp_databases\r\nAS\r\n   SELECT\t\
+  S.urn\r\n        , S.parent_urn\r\n        , S.Collation\r\n        , S.CompatibilityLevel\r\
+  \n        , S.CreateDate\r\n        , S.EncryptionEnabled\r\n        , S.Name\r\n\
+  \        , S.server_instance_name\r\n        , S.powershell_path\r\n        , S.RecoveryModel\r\
+  \n        , [S].[Trustworthy]\r\n        , [S].processing_time\r\n        , S.state\
+  \ \r\n      FROM [dbo].[syn_sysutility_ucp_databases] AS S"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5b8e99275f0c70efc15b15854d7475a7
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,102 @@
+name: sysutility_ucp_dac_database_file_space_health
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_health
+tableType: View
+columns:
+  - name: dac_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_health.dac_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dac_server_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_health.dac_server_instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: fg_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_health.fg_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_health.file_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: health_state
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_health.health_state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: processing_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetimeoffset
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_health.processing_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "/**********************************************************************/\r\
+  \n/* Create view sysutility_ucp_dac_database_file_space_health             */\r\n\
+  /* This view returns the latest filespace health states for DAC's     */\r\n/**********************************************************************/\r\
+  \n\r\n\tCREATE   VIEW dbo.sysutility_ucp_dac_database_file_space_health \r\n\tAS\r\
+  \n\tSELECT  t.dac_name\r\n\t\t\t, t.dac_server_instance_name\r\n\t\t\t, t.fg_name\r\
+  \n\t\t\t, t.file_type\r\n\t\t\t, (SELECT val FROM dbo.fn_sysutility_ucp_get_aggregated_health(t.over_utilized_count,\
+  \ t.under_utilized_count)) health_state\r\n\t\t\t, t.processing_time\r\n\tFROM msdb.dbo.sysutility_ucp_dac_file_space_health_internal\
+  \ AS t\r\n\tWHERE t.set_number = (SELECT latest_health_state_id FROM [msdb].[dbo].[sysutility_ucp_processing_state_internal])"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 97a190f5f905a998a19a54ddba27b378
+processedLineage: false
+entityStatus: Approved

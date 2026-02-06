@@ -1,0 +1,81 @@
+name: systargetservers_view
+fullyQualifiedName: MsSQL.msdb.dbo.systargetservers_view
+tableType: View
+columns:
+  - name: server_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.systargetservers_view.server_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.systargetservers_view.server_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: enlist_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.systargetservers_view.enlist_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_poll_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.systargetservers_view.last_poll_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW systargetservers_view\r\nAS\r\nSELECT server_id,\r\
+  \n       server_name,\r\n       enlist_date,\r\n       last_poll_date\r\nFROM msdb.dbo.systargetservers\r\
+  \nUNION\r\nSELECT 0,\r\n       CONVERT(sysname, SERVERPROPERTY('ServerName')),\r\
+  \n       CONVERT(DATETIME, N'19981113', 112),\r\n       CONVERT(DATETIME, N'19981113',\
+  \ 112)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 598d384cf50991d03f66281e25b91501
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,112 @@
+name: sysutility_ucp_policy_check_conditions
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_check_conditions
+tableType: View
+columns:
+  - name: target_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_check_conditions.target_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: resource_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_check_conditions.resource_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: utilization_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_check_conditions.utilization_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: facet_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_check_conditions.facet_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: attribute_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_check_conditions.attribute_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: operator_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_check_conditions.operator_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: property_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_check_conditions.property_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "/**********************************************************************/\r\
+  \n/* Create the sysutility_ucp_policy_check_conditions                   */\r\n\
+  /**********************************************************************/\r\nCREATE\
+  \   VIEW dbo.sysutility_ucp_policy_check_conditions \r\nAS\r\nSELECT\r\n    cc.target_type\
+  \ AS target_type,\r\n    cc.resource_type AS resource_type,\r\n    cc.utilization_type\
+  \ AS utilization_type,\r\n    cc.facet_name AS facet_name,\r\n    cc.attribute_name\
+  \ AS attribute_name,\r\n    cc.operator_type AS operator_type,\r\n    cc.property_name\
+  \ AS property_name\r\nFROM msdb.[dbo].[sysutility_ucp_policy_check_conditions_internal]\
+  \ cc"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 7e4490b937c73d4105435394e760f41d
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,128 @@
+name: syspolicy_policy_execution_history_details_internal
+fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal
+tableType: Regular
+columns:
+  - name: detail_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.detail_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: history_id
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.history_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: target_query_expression
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.target_query_expression
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: target_query_expression_with_id
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.target_query_expression_with_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: execution_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.execution_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: result
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.result
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: result_detail
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.result_detail
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: exception_message
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.exception_message
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: exception
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_policy_execution_history_details_internal.exception
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - detail_id
+      - history_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - history_id
+    referredColumns:
+      - MsSQL.msdb.dbo.syspolicy_policy_execution_history_internal.history_id
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 67c08b2e731e3733bdeaffac96d15176
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,78 @@
+name: sysutility_ucp_policy_configuration
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_configuration
+tableType: View
+columns:
+  - name: utilization_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_configuration.utilization_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: occurence_frequency
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_configuration.occurence_frequency
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: trailing_window
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policy_configuration.trailing_window
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW dbo.sysutility_ucp_policy_configuration AS\r\n( \
+  \   \r\n    SELECT 1 AS utilization_type\r\n        , CAST(UnderUtilizationOccurenceFrequency\
+  \ AS INT) AS occurence_frequency\r\n        , CAST(UnderUtilizationTrailingWindow\
+  \ AS INT) AS trailing_window\r\n    FROM (SELECT name, current_value FROM msdb.dbo.sysutility_ucp_configuration)\
+  \ config\r\n        PIVOT (MAX(current_value) FOR name IN (UnderUtilizationOccurenceFrequency,\
+  \ UnderUtilizationTrailingWindow)) pvt\r\n\r\n    UNION ALL\r\n\r\n    SELECT 2\
+  \ AS utilization_type\r\n        , CAST(OverUtilizationOccurenceFrequency AS INT)\
+  \ AS occurence_frequency\r\n        , CAST(OverUtilizationTrailingWindow AS INT)\
+  \ AS trailing_window\r\n    FROM (SELECT name, current_value FROM msdb.dbo.sysutility_ucp_configuration)\
+  \ config\r\n        PIVOT (MAX(current_value) FOR name IN (OverUtilizationOccurenceFrequency,\
+  \ OverUtilizationTrailingWindow)) pvt\r\n)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d69d429215dcf84195550227dd8a9e2f
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,177 @@
+name: sysutility_ucp_dac_database_file_space_utilizations
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations
+tableType: View
+columns:
+  - name: server_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.server_instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dac_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.dac_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: filegroup_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.filegroup_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.Name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: volume_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.volume_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: volume_device_id
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.volume_device_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: databasefile_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(260)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.databasefile_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: current_utilization
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.current_utilization
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: used_space
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.used_space
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: available_space
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.available_space
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: under_utilization
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.under_utilization
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: over_utilization
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.over_utilization
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: file_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.file_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: growth_type
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_database_file_space_utilizations.growth_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[sysutility_ucp_dac_database_file_space_utilizations]\
+  \ AS\r\n    SELECT\tdd.dac_server_instance_name AS server_instance_name, \r\n  \
+  \          dd.dac_name AS dac_name,\r\n            df.[filegroup_name],\r\n    \
+  \        df.[Name],\r\n            df.volume_name,\r\n            df.volume_device_id,\r\
+  \n            df.FileName AS databasefile_name, \r\n            df.percent_utilization\
+  \ AS current_utilization, \r\n            df.UsedSpace AS used_space, \r\n     \
+  \       df.available_space,\r\n            10 AS under_utilization, \r\n       \
+  \     70 AS over_utilization,\r\n            df.file_type,\r\n            df.GrowthType\
+  \ AS growth_type\r\n    FROM\tmsdb.dbo.sysutility_ucp_deployed_dacs AS dd,\r\n \
+  \           msdb.dbo.sysutility_ucp_database_files AS df\r\n    WHERE dd.dac_server_instance_name\
+  \ = df.server_instance_name\r\n      AND dd.dac_name = df.database_name"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: f3c0f802be0a41948548fc949ada3cb0
+processedLineage: false
+entityStatus: Approved

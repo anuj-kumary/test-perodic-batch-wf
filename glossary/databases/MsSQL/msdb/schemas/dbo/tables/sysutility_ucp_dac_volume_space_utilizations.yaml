@@ -1,0 +1,144 @@
+name: sysutility_ucp_dac_volume_space_utilizations
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations
+tableType: View
+columns:
+  - name: physical_server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.physical_server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dac_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.dac_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: server_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.server_instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: volume_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.volume_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: volume_device_id
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.volume_device_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: current_utilization
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.current_utilization
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: used_space
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.used_space
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: available_space
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.available_space
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: under_utilization
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.under_utilization
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: over_utilization
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_volume_space_utilizations.over_utilization
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[sysutility_ucp_dac_volume_space_utilizations]\
+  \ AS(\r\n-- TODO VSTS 280036(rnagpal) : Temporarily Keeping under_utilization to\
+  \ 10 and over_utilization to 70 for now\r\n-- since we might reintroduce them in\
+  \ near future which will not require any interface change for the \r\n-- Utility\
+  \ object model / UI. Presently, we are not exposing under and over utilization thresholds\
+  \ in UI\r\n-- so they are not exposed. If that remains the same till KJ CTP2, i'll\
+  \ remove them.\r\nSELECT\tvol.physical_server_name AS physical_server_name,\r\n\t\
+  \tdd.dac_name AS dac_name,\r\n\t\tdd.dac_server_instance_name AS server_instance_name,\
+  \ \r\n\t\tvol.volume_name AS volume_name, \r\n\t\tvol.volume_device_id AS volume_device_id,\
+  \ \r\n\t\tvol.total_space_utilization AS current_utilization, \r\n\t\tvol.total_space_used\
+  \ AS used_space,\r\n\t\tvol.total_space AS available_space,\r\n\t\t10 AS under_utilization,\
+  \ \r\n\t\t70 AS over_utilization\r\n\t\t\r\nFROM\tmsdb.dbo.sysutility_ucp_volumes\
+  \ AS vol,\r\n\t\tmsdb.dbo.sysutility_ucp_deployed_dacs AS dd\r\n\t\t\r\nWHERE\t\
+  vol.physical_server_name = dd.dac_physical_server_name)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 6cfd75a3cb8dccc226433443f0486180
+processedLineage: false
+entityStatus: Approved

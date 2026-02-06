@@ -1,0 +1,151 @@
+name: sysutility_ucp_deployed_dacs
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs
+tableType: View
+columns:
+  - name: dac_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dac_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dac_deployed_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_deployed_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dac_description
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dac_percent_total_cpu_utilization
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: real
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_percent_total_cpu_utilization
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dac_server_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_server_instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dac_physical_server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_physical_server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dac_collection_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetimeoffset
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_collection_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dac_processing_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetimeoffset
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.dac_processing_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: urn
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.urn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: powershell_path
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_deployed_dacs.powershell_path
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW dbo.sysutility_ucp_deployed_dacs\r\nAS\r\nSELECT\r\
+  \n   dacs.dac_id,    -- todo (VSTS #345036): This column will be removed\r\n   dacs.dac_name,\r\
+  \n   dacs.dac_deploy_date AS dac_deployed_date,\r\n   dacs.dac_description AS dac_description,\r\
+  \n   dacs.dac_percent_total_cpu_utilization AS dac_percent_total_cpu_utilization,\r\
+  \n   dacs.server_instance_name AS dac_server_instance_name,\r\n   dacs.physical_server_name\
+  \ AS dac_physical_server_name,\r\n   dacs.batch_time AS dac_collection_time,\r\n\
+  \   dacs.processing_time AS dac_processing_time,\r\n   dacs.urn,\r\n   dacs.powershell_path\r\
+  \nFROM dbo.syn_sysutility_ucp_dacs as dacs\r\n--- The join operator removes those\
+  \ DACs in the managed instances which are unenrolled during\r\n--- the time between\
+  \ two consecutive data collection. \r\n--- See VSTS #473462 for more information\
+  \ \r\nINNER JOIN dbo.sysutility_ucp_managed_instances as mis\r\nON dacs.server_instance_name\
+  \ = mis.instance_name;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 6df0665ebeb122f815efe42e09e2cae4
+processedLineage: false
+entityStatus: Approved

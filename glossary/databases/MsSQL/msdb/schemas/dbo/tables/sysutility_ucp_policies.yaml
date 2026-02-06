@@ -1,0 +1,140 @@
+name: sysutility_ucp_policies
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies
+tableType: View
+columns:
+  - name: health_policy_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.health_policy_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: policy_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.policy_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: policy_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.policy_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rollup_object_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.rollup_object_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rollup_object_urn
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.rollup_object_urn
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: target_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.target_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: resource_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.resource_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: utilization_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.utilization_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: utilization_threshold
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float(none)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.utilization_threshold
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_global_policy
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_policies.is_global_policy
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "/**********************************************************************/\r\
+  \n/* Create the resource health policies view                           */\r\n/**********************************************************************/\r\
+  \nCREATE   VIEW dbo.sysutility_ucp_policies \r\nAS\r\nSELECT\r\n    rhp.health_policy_id\
+  \ AS health_policy_id,\r\n    p.policy_id AS policy_id,\r\n    rhp.policy_name AS\
+  \ policy_name,\r\n    rhp.rollup_object_type AS rollup_object_type,\r\n    rhp.rollup_object_urn\
+  \ AS rollup_object_urn,\r\n    rhp.target_type AS target_type,\r\n    rhp.resource_type\
+  \ AS resource_type,\r\n    rhp.utilization_type AS utilization_type,\r\n    rhp.utilization_threshold\
+  \ AS utilization_threshold,\r\n    rhp.is_global_policy AS is_global_policy\r\n\
+  FROM [msdb].[dbo].[sysutility_ucp_health_policies_internal] rhp\r\nINNER JOIN msdb.dbo.syspolicy_policies\
+  \ p ON p.name = rhp.policy_name"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: ab03e518eb8c0e5708755e4c8d1188b0
+processedLineage: false
+entityStatus: Approved

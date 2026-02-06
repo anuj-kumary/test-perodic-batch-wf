@@ -1,0 +1,90 @@
+name: syspolicy_object_sets
+fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_object_sets
+tableType: View
+columns:
+  - name: object_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_object_sets.object_set_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: object_set_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_object_sets.object_set_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: facet_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_object_sets.facet_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: facet_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(-1)
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_object_sets.facet_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_system
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.syspolicy_object_sets.is_system
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[syspolicy_object_sets]\r\nAS\r\n    SELECT\
+  \     \r\n        os.object_set_id,\r\n        os.object_set_name,\r\n        os.facet_id,\r\
+  \n        facet.name as facet_name,\r\n        os.is_system\r\n    FROM [dbo].[syspolicy_object_sets_internal]\
+  \ AS os INNER JOIN [dbo].[syspolicy_management_facets] AS facet\r\n    ON os.facet_id\
+  \ = facet.management_facet_id"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b322917a8ef2655fa65cbe6c1a52272f
+processedLineage: false
+entityStatus: Approved

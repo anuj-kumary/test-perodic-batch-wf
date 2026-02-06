@@ -1,0 +1,132 @@
+name: sysutility_ucp_computer_policies
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies
+tableType: View
+columns:
+  - name: physical_server_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies.physical_server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: computer_urn
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies.computer_urn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: powershell_path
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(4000)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies.powershell_path
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: policy_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies.policy_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_global_policy
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies.is_global_policy
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: resource_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies.resource_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: target_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies.target_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: utilization_type
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_computer_policies.utilization_type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW dbo.sysutility_ucp_computer_policies AS\r\n(    \r\
+  \n    SELECT cp.physical_server_name\r\n        , cp.computer_urn\r\n        , cp.powershell_path\r\
+  \n        , ISNULL(lp.policy_id, cp.policy_id) AS policy_id -- if exists get local\
+  \ (overridden) policy, else return global policy \r\n        , ISNULL(lp.is_global_policy,\
+  \ 1) AS is_global_policy\r\n        , cp.resource_type\r\n        , cp.target_type\r\
+  \n        , cp.utilization_type\r\n    FROM \r\n        (\r\n            -- fetch\
+  \ the global policies \r\n            -- Should we be using \"virtual_server_name\"\
+  \ or \"physical_server_name\" here?\r\n            SELECT co.physical_server_name\
+  \ AS physical_server_name\r\n                , co.urn AS computer_urn\r\n      \
+  \          , co.powershell_path AS powershell_path\r\n                , gp.policy_id\r\
+  \n                , gp.resource_type\r\n                , gp.target_type\r\n   \
+  \             , gp.utilization_type     \r\n            FROM msdb.dbo.sysutility_ucp_computers\
+  \ co\r\n                , msdb.dbo.sysutility_ucp_policies gp\r\n            WHERE\
+  \ gp.rollup_object_type = 3  \r\n                AND gp.is_global_policy = 1   \
+  \ \r\n        ) cp\r\n        LEFT JOIN msdb.dbo.sysutility_ucp_policies lp -- fetch\
+  \ the local policies (if exists)\r\n        ON lp.rollup_object_urn = cp.computer_urn\r\
+  \n            AND lp.rollup_object_type = 3\r\n            AND lp.is_global_policy\
+  \ = 0\r\n            AND lp.resource_type = cp.resource_type\r\n            AND\
+  \ lp.target_type = cp.target_type\r\n            AND lp.utilization_type = cp.utilization_type\r\
+  \n)"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 16a3227934ae7d0ad140bf60e800acfa
+processedLineage: false
+entityStatus: Approved

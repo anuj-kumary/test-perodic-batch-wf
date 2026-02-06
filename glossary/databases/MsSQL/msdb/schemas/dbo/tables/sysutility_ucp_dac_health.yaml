@@ -1,0 +1,165 @@
+name: sysutility_ucp_dac_health
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health
+tableType: View
+columns:
+  - name: dac_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.dac_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dac_server_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.dac_server_instance_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: volume_space_health_state
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.volume_space_health_state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: computer_processor_health_state
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.computer_processor_health_state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: file_space_health_state
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.file_space_health_state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dac_processor_health_state
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.dac_processor_health_state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: contains_over_utilized_volumes
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.contains_over_utilized_volumes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: contains_under_utilized_volumes
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.contains_under_utilized_volumes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: contains_over_utilized_filegroups
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.contains_over_utilized_filegroups
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: contains_under_utilized_filegroups
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.contains_under_utilized_filegroups
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_policy_overridden
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.is_policy_overridden
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: processing_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetimeoffset
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_ucp_dac_health.processing_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW dbo.sysutility_ucp_dac_health \r\nAS\r\nSELECT t.dac_name\r\
+  \n\t   , t.dac_server_instance_name\r\n\t   , (SELECT val FROM dbo.fn_sysutility_ucp_get_aggregated_health(t.is_volume_space_over_utilized,\
+  \ t.is_volume_space_under_utilized)) volume_space_health_state  \r\n\t   , (SELECT\
+  \ val FROM dbo.fn_sysutility_ucp_get_aggregated_health(t.is_computer_processor_over_utilized,\
+  \ t.is_computer_processor_under_utilized)) computer_processor_health_state  \r\n\
+  \t   , (SELECT val FROM dbo.fn_sysutility_ucp_get_aggregated_health(t.is_file_space_over_utilized,\
+  \ t.is_file_space_under_utilized)) file_space_health_state  \r\n\t   , (SELECT val\
+  \ FROM dbo.fn_sysutility_ucp_get_aggregated_health(t.is_dac_processor_over_utilized,\
+  \ t.is_dac_processor_under_utilized)) dac_processor_health_state  \r\n\t   , CASE\
+  \ WHEN (is_volume_space_over_utilized > 0) THEN CONVERT(BIT, 1) ELSE CONVERT(BIT,\
+  \ 0) END AS contains_over_utilized_volumes\r\n\t   , CASE WHEN (is_volume_space_under_utilized\
+  \ > 0) THEN CONVERT(BIT, 1) ELSE CONVERT(BIT, 0) END AS contains_under_utilized_volumes\
+  \ \r\n\t   , CASE WHEN (is_file_space_over_utilized > 0) THEN CONVERT(BIT, 1) ELSE\
+  \ CONVERT(BIT, 0) END AS contains_over_utilized_filegroups\r\n\t   , CASE WHEN (is_file_space_under_utilized\
+  \ > 0) THEN CONVERT(BIT, 1) ELSE CONVERT(BIT, 0) END AS contains_under_utilized_filegroups\r\
+  \n\t   , t.is_policy_overridden\r\n\t   , t.processing_time\r\nFROM msdb.dbo.sysutility_ucp_dac_health_internal\
+  \ AS t\r\nWHERE t.set_number = (SELECT latest_health_state_id FROM [msdb].[dbo].[sysutility_ucp_processing_state_internal])"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d9c9c5a8cbbaaa39b1e1e4fd8c80985c
+processedLineage: false
+entityStatus: Approved

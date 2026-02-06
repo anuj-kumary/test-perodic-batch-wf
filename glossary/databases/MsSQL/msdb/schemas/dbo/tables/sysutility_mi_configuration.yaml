@@ -1,0 +1,74 @@
+name: sysutility_mi_configuration
+fullyQualifiedName: MsSQL.msdb.dbo.sysutility_mi_configuration
+tableType: View
+columns:
+  - name: ucp_instance_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_mi_configuration.ucp_instance_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mdw_database_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_mi_configuration.mdw_database_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: upload_schema_version
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysutility_mi_configuration.upload_schema_version
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW [dbo].[sysutility_mi_configuration]\r\nAS\r\n   \
+  \ SELECT config.ucp_instance_name, config.mdw_database_name, t.upload_schema_version\r\
+  \n    FROM \r\n    -- The upload_schema_version represents the contract between\
+  \ the UCP and MI for data upload\r\n    -- Change this value when a breaking change\
+  \ with a (downlevel) UCP may be introduced in the MI\r\n    -- upload code.\r\n\
+  \    (SELECT 100 AS upload_schema_version) t\r\n    LEFT OUTER JOIN\r\n    [dbo].[sysutility_mi_configuration_internal]\
+  \ config\r\n    ON 1=1"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 60d85efb86795713cdad694d81def48e
+processedLineage: false
+entityStatus: Approved

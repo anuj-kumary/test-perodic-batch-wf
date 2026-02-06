@@ -1,0 +1,79 @@
+name: sysproxyloginsubsystem_view
+fullyQualifiedName: MsSQL.msdb.dbo.sysproxyloginsubsystem_view
+tableType: View
+columns:
+  - name: subsystem_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysproxyloginsubsystem_view.subsystem_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: proxy_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysproxyloginsubsystem_view.proxy_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: sid
+    dataType: VARBINARY
+    dataLength: 85
+    dataTypeDisplay: varbinary(85)
+    fullyQualifiedName: MsSQL.msdb.dbo.sysproxyloginsubsystem_view.sid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: flags
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.sysproxyloginsubsystem_view.flags
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "CREATE   VIEW sysproxyloginsubsystem_view\r\nAS\r\nSELECT ps.subsystem_id\
+  \ AS subsystem_id, pl.proxy_id AS proxy_id, pl.sid AS sid, pl.flags AS flags\r\n\
+  FROM sysproxylogin pl JOIN sysproxysubsystem ps ON pl.proxy_id = ps.proxy_id"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 8da148d3fc2a941a715298a6bc07c1c7
+processedLineage: false
+entityStatus: Approved
