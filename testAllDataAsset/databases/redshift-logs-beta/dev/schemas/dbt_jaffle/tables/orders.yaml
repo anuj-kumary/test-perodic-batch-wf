@@ -1,0 +1,140 @@
+name: orders
+fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders
+description: testing comments here
+tableType: Partitioned
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: credit_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.credit_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: coupon_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.coupon_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: bank_transfer_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.bank_transfer_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: gift_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.gift_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.orders.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: DIST_KEY
+    columns:
+      - order_id
+tablePartition:
+  columns:
+    - columnName: order_id
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: 52e7a769-d242-4510-899b-028598309e2c
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: dcba0b52-2b3c-443b-9cd0-838475996faf
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-logs-beta.dev
+  displayName: dev
+  deleted: false
+service:
+  id: b4f7a751-f29e-4391-a76a-9e5b7024a0ec
+  type: databaseService
+  name: redshift-logs-beta
+  fullyQualifiedName: redshift-logs-beta
+  displayName: redshift-logs-beta
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1700477489334}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1700477489334
+sourceHash: de95813eef627a555a00609d944ed786
+processedLineage: false
+entityStatus: Unprocessed

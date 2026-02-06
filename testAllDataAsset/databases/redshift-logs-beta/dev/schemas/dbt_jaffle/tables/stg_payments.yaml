@@ -1,0 +1,81 @@
+name: stg_payments
+fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.stg_payments
+tableType: View
+columns:
+  - name: payment_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.stg_payments.payment_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.stg_payments.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_method
+    dataType: VARCHAR
+    dataLength: 13
+    dataTypeDisplay: character varying(13)
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.stg_payments.payment_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.stg_payments.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 52e7a769-d242-4510-899b-028598309e2c
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: dcba0b52-2b3c-443b-9cd0-838475996faf
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-logs-beta.dev
+  displayName: dev
+  deleted: false
+service:
+  id: b4f7a751-f29e-4391-a76a-9e5b7024a0ec
+  type: databaseService
+  name: redshift-logs-beta
+  fullyQualifiedName: redshift-logs-beta
+  displayName: redshift-logs-beta
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_jaffle.stg_payments AS  SELECT renamed.payment_id, renamed.order_id, renamed.payment_method, renamed.amount
+     FROM ( SELECT source.id AS payment_id, source.order_id, source.payment_method, source.amount / 100 AS amount
+             FROM ( SELECT raw_payments.id, raw_payments.order_id, raw_payments.payment_method, raw_payments.amount
+                     FROM dbt_jaffle.raw_payments) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: bf07ff172ec0f6fc3af6e2a8b4643d1d
+processedLineage: false
+entityStatus: Unprocessed

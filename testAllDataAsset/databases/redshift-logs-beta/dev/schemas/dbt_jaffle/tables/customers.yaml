@@ -1,0 +1,120 @@
+name: customers
+fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.customers
+description: "This table stores detailed information about customers, including their\
+  \ lifetime value, order history, and number of orders. It can be used to analyze\
+  \ customer behavior, track customer loyalty, and personalize marketing strategies.\
+  \ this is a better description"
+tableType: Regular
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: New ID from Collate UI
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 20
+    dataTypeDisplay: character varying(20)
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.customers.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    description: First letter of the Last name of the customer
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.customers.first_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: most_recent_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.customers.most_recent_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: number_of_orders
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.customers.number_of_orders
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_lifetime_value
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle.customers.customer_lifetime_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 52e7a769-d242-4510-899b-028598309e2c
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: redshift-logs-beta.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: dcba0b52-2b3c-443b-9cd0-838475996faf
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-logs-beta.dev
+  displayName: dev
+  deleted: false
+service:
+  id: b4f7a751-f29e-4391-a76a-9e5b7024a0ec
+  type: databaseService
+  name: redshift-logs-beta
+  fullyQualifiedName: redshift-logs-beta
+  displayName: redshift-logs-beta
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1700477489486}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1700477489486
+sourceHash: 7e9d3c3678dce5f4f7704b762f5b46c1
+processedLineage: false
+entityStatus: Unprocessed

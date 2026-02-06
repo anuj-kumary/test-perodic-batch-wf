@@ -1,0 +1,98 @@
+name: stg_customers
+fullyQualifiedName: Redshift Simple K8s K8s Secret.dev.dbt_jaffle.stg_customers
+tableType: View
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Redshift Simple K8s K8s Secret.dev.dbt_jaffle.stg_customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    fullyQualifiedName: Redshift Simple K8s K8s Secret.dev.dbt_jaffle.stg_customers.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    fullyQualifiedName: Redshift Simple K8s K8s Secret.dev.dbt_jaffle.stg_customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 5087da02-fa63-4d41-9f7d-23b7ba9b3f34
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift Simple K8s K8s Secret.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: 512cf596-9c86-4fa8-9610-8adbece7e611
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift Simple K8s K8s Secret.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 9e98204b-a6fd-4bf7-9fba-6a2867b7a664
+  type: databaseService
+  name: Redshift Simple K8s K8s Secret
+  fullyQualifiedName: Redshift Simple K8s K8s Secret
+  description: ""
+  displayName: Redshift Simple K8s K8s Secret
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_jaffle.stg_customers AS  SELECT renamed.customer_id, renamed.first_name, renamed.last_name
+     FROM ( SELECT source.id AS customer_id, source.first_name, source.last_name
+             FROM ( SELECT raw_customers.id, raw_customers.first_name, raw_customers.last_name
+                     FROM dbt_jaffle.raw_customers) source) renamed;
+tags:
+  - tagFQN: '`custom`.tag1'
+    name: tag1
+    displayName: tag1
+    description: <p>tag1</p>
+    style:
+      color: "#fd3f3f"
+      iconURL: https://cdn-icons-png.flaticon.com/512/9029/9029931.png
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1759708800000,\"accessedByAProcess\"\
+        :\"openmetadata\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1759708800000
+    accessedByAProcess: openmetadata
+sourceHash: 7558100f8f2a42d518719fcb92d22d8b
+processedLineage: true
+entityStatus: Unprocessed
