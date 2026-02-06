@@ -1,0 +1,161 @@
+name: dba_rgroup
+fullyQualifiedName: oracle_test.default.sys.dba_rgroup
+tableType: View
+columns:
+  - name: refgroup
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Internal identifier of refresh group
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.refgroup
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the refresh group
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the refresh group
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: implicit_destroy
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "Y or N, if Y then destroy the refresh group when its last item is\
+      \ subtracted"
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.implicit_destroy
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: push_deferred_rpc
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "Y or N, if Y then push changes from snapshot to master before refresh"
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.push_deferred_rpc
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_after_errors
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "If Y, proceed with refresh despite error when pushing deferred RPCs"
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.refresh_after_errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rollback_seg
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the rollback segment to use while refreshing
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.rollback_seg
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: job
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Identifier of job used to automatically refresh the group
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.job
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: purge_option
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The method for purging the transaction queue after each push
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.purge_option
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: parallelism
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The level of parallelism for transaction propagation
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.parallelism
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: heap_size
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The heap size used for transaction propagation
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.heap_size
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: job_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The name of Job used to automatically refresh the group
+    fullyQualifiedName: oracle_test.default.sys.dba_rgroup.job_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 424ebc382b61c1dde1970ac94d0003e1
+processedLineage: false
+entityStatus: Approved

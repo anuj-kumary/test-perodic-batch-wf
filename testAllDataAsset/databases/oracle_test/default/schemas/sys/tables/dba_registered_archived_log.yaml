@@ -1,0 +1,192 @@
+name: dba_registered_archived_log
+fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log
+tableType: View
+columns:
+  - name: consumer_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: consumer name of the archived logs
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.consumer_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: source_database
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: the name of the database which generated the redo logs
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.source_database
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: THREAD#
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Thread ID of the archived redo log
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.THREAD#
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SEQUENCE#
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Sequence number of the archived redo log file
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.SEQUENCE#
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: first_scn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: SCN of the current archived redo log
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.first_scn
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: next_scn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: SCN of the next archived redo log
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.next_scn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date of the current archived redo log
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.first_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: next_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date of the next archived redo log
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.next_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 513
+    dataTypeDisplay: varchar2(513)
+    description: Name of the archived redo log
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: modified_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Time when the archived redo log was registered
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.modified_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dictionary_begin
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: Indicates whether the beginning of the dictionary build is in this
+      redo log
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.dictionary_begin
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dictionary_end
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: Indicates whether the end of the dictionary build is in this redo
+      log
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.dictionary_end
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: purgeable
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: Indicates whether this redo log can be permanently removed
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.purgeable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: RESETLOGS_CHANGE#
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Resetlogs change# of the database when the log was written
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.RESETLOGS_CHANGE#
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: reset_timestamp
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Resetlogs time of the database when the log was written
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_archived_log.reset_timestamp
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 51ad9f7edb3fbcb723ab5ad6b1a1c245
+processedLineage: false
+entityStatus: Approved

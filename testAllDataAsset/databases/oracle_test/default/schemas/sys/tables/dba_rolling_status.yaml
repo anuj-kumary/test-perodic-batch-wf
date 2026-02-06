@@ -1,0 +1,201 @@
+name: dba_rolling_status
+fullyQualifiedName: oracle_test.default.sys.dba_rolling_status
+tableType: View
+columns:
+  - name: revision
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Revision number of the current upgrade plan
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.revision
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 12
+    dataTypeDisplay: varchar2(12)
+    description: Readiness of the facility to begin or resume a rolling upgrade
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: phase
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: varchar2(14)
+    description: Current phase of the rolling upgrade
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.phase
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: next_instruction
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Instruction ID of the next pending instruction
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.next_instruction
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: remaining_instructions
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Number of remaining instructions to execute in the upgrade plan
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.remaining_instructions
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: coordinator_instance
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Instance number from which the rolling upgrade is being coordinated
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.coordinator_instance
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: coordinator_pid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Process PID in which the rolling upgrade is being coordinated
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.coordinator_pid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: original_primary
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Database unique name of the original primary
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.original_primary
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: future_primary
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Database unique name of the future primary
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.future_primary
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_databases
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Number of total databases eligible to participate in the rolling
+      upgrade
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.total_databases
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: participating_databases
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Number of databases configured to participate in the rolling upgrade
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.participating_databases
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: init_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    description: Time of the last call to DBMS_ROLLING.INIT_PLAN
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.init_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: build_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    description: Time of the last call to DBMS_ROLLING.BUILD
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.build_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: start_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    description: Time of the last call to DBMS_ROLLING.START_UPGRADE
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.start_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: switch_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    description: Time of the last call to DBMS_ROLLING.SWITCHOVER
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.switch_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: finish_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    description: Time of the last call to DBMS_ROLLING.FINISH
+    fullyQualifiedName: oracle_test.default.sys.dba_rolling_status.finish_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5a5f40ddde3995cac83abbb9e736c61d
+processedLineage: false
+entityStatus: Approved

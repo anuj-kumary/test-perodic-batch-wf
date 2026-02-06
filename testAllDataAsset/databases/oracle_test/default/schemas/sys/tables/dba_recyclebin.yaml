@@ -1,0 +1,200 @@
+name: dba_recyclebin
+fullyQualifiedName: oracle_test.default.sys.dba_recyclebin
+tableType: View
+columns:
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the original owner of the object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: object_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: New name of the object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.object_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: original_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Original name of the object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.original_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: operation
+    dataType: VARCHAR
+    dataLength: 9
+    dataTypeDisplay: varchar2(9)
+    description: Operation carried out on the object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.operation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: VARCHAR
+    dataLength: 25
+    dataTypeDisplay: varchar2(25)
+    description: Type of the object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ts_name
+    dataType: VARCHAR
+    dataLength: 30
+    dataTypeDisplay: varchar2(30)
+    description: Tablespace Name to which object belongs
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.ts_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: createtime
+    dataType: VARCHAR
+    dataLength: 19
+    dataTypeDisplay: varchar2(19)
+    description: Timestamp for the creating of the object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.createtime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: droptime
+    dataType: VARCHAR
+    dataLength: 19
+    dataTypeDisplay: varchar2(19)
+    description: Timestamp for the dropping of the object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.droptime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dropscn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: SCN of the transaction which moved object to Recycle Bin
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.dropscn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: partition_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Partition Name which was dropped
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.partition_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: can_undrop
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: User can undrop this object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.can_undrop
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: can_purge
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: User can purge this object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.can_purge
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: related
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Parent objects Obj#
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.related
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: base_object
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Base objects Obj#
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.base_object
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: purge_object
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Obj# for object which gets purged
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.purge_object
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: space
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Number of blocks used by this object
+    fullyQualifiedName: oracle_test.default.sys.dba_recyclebin.space
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 1251e00350ea37e812edfc4352e960bb
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,131 @@
+name: dba_registered_snapshots
+fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots
+tableType: View
+columns:
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the snapshot
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The name of the snapshot
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: snapshot_site
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Global name of the snapshot site
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.snapshot_site
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: can_use_log
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If NO, this snapshot is complex and cannot fast refresh"
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.can_use_log
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: updatable
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If NO, the snapshot is read only"
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.updatable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_method
+    dataType: VARCHAR
+    dataLength: 11
+    dataTypeDisplay: varchar2(11)
+    description: "Whether the snapshot uses rowid, primary key or object id for fast\
+      \ refresh"
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.refresh_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: snapshot_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Identifier for the snapshot used by the master for fast refresh
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.snapshot_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: version
+    dataType: VARCHAR
+    dataLength: 17
+    dataTypeDisplay: varchar2(17)
+    description: Version of snapshot
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.version
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query_txt
+    dataType: LONG
+    dataLength: 1
+    dataTypeDisplay: long
+    description: Query defining the snapshot
+    fullyQualifiedName: oracle_test.default.sys.dba_registered_snapshots.query_txt
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: be3222c0304e4002ef1cfc72b0b210f6
+processedLineage: false
+entityStatus: Approved
