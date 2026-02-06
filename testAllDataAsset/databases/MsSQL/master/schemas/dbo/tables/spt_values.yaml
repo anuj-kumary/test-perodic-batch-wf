@@ -1,0 +1,97 @@
+name: spt_values
+fullyQualifiedName: MsSQL.master.dbo.spt_values
+tableType: View
+columns:
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(35)
+    fullyQualifiedName: MsSQL.master.dbo.spt_values.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: number
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.master.dbo.spt_values.number
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(3)
+    fullyQualifiedName: MsSQL.master.dbo.spt_values.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: low
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.master.dbo.spt_values.low
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: high
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.master.dbo.spt_values.high
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.master.dbo.spt_values.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 6322598a-6f79-41ae-ac0b-55df8b0a33fe
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.master.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: d91ea0dd-cc4b-4dd6-b148-bd43ccefb560
+  type: database
+  name: master
+  fullyQualifiedName: MsSQL.master
+  displayName: master
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "create view spt_values as\r\nselect name collate database_default\
+  \ as name,\r\n\tnumber,\r\n\ttype collate database_default as type,\r\n\tlow, high,\
+  \ status\r\nfrom sys.spt_values"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 7a313654f1d8500a7405f28b78b88acb
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,149 @@
+name: autoadmin_backup_configurations
+fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations
+tableType: View
+columns:
+  - name: db_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.db_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ManagedBackupVersion
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.ManagedBackupVersion
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: IsAlwaysOn
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.IsAlwaysOn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: IsDropped
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.IsDropped
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: IsEnabled
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.IsEnabled
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: RetentionPeriod
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.RetentionPeriod
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EncryptionAlgorithm
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.EncryptionAlgorithm
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SchedulingOption
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.SchedulingOption
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: DayOfWeek
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(256)
+    fullyQualifiedName: MsSQL.msdb.dbo.autoadmin_backup_configurations.DayOfWeek
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: e879efdb-c1f7-4a33-9ce6-fbea5d2fa4ba
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MsSQL.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: 571bcd56-0834-43dc-b560-f0fd9fce7229
+  type: database
+  name: msdb
+  fullyQualifiedName: MsSQL.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 37fe843d-b482-484c-b77f-fd13d7c2300e
+  type: databaseService
+  name: MsSQL
+  fullyQualifiedName: MsSQL
+  displayName: MsSQL
+  deleted: false
+serviceType: Mssql
+schemaDefinition: "----------------------------------------------------------------------------------------------------\r\
+  \n--                              autoadmin_backup_configurations\r\n--\r\n-- Contains\
+  \ the current configuration for all databases as well as the system configuration.\r\
+  \n-- This spans all managed backup versions to make telemetry collection simple\r\
+  \n--\r\nCREATE   VIEW autoadmin_backup_configurations\r\nAS\r\nWITH XMLNAMESPACES\
+  \ (N'http://schemas.datacontract.org/2004/07/Microsoft.SqlServer.SmartAdmin.SmartBackupAgent'\
+  \ AS sb)\r\nSELECT\r\naamd.db_id as db_id,\r\nschema_version as ManagedBackupVersion,\r\
+  \nCASE \r\n\tWHEN aamd.group_db_guid IS NULL\r\n\tTHEN CONVERT(BIT, 'false')\r\n\
+  \tELSE CONVERT(BIT, 'true')\r\nEND as IsAlwaysOn,\r\nCASE \r\n\tWHEN aamd.drop_date\
+  \ IS NULL \r\n\tTHEN CONVERT(BIT, 'false')\r\n\tELSE CONVERT(BIT, 'true')\r\nEND\
+  \ as IsDropped,\r\nCONVERT(BIT, aatm.task_agent_data.value('(/*/autoBackupSetting)[1]',\
+  \ 'nvarchar(32)')) AS IsEnabled,\r\nNULLIF(aatm.task_agent_data.value('(/*/retentionPeriod)[1]',\
+  \ 'int'), 0) AS RetentionPeriod,\r\nNULLIF(aatm.task_agent_data.value('(/*/encryptionAlgorithm)[1]',\
+  \ 'nvarchar(128)'), '') AS EncryptionAlgorithm,\r\nNULLIF(aatm.task_agent_data.value('(/*/schedulingOption)[1]',\
+  \ 'nvarchar(128)'), '') AS SchedulingOption,\r\nNULLIF(aatm.task_agent_data.value('(/*/daysOfWeek)[1]',\
+  \ 'nvarchar(256)'), '') AS DayOfWeek\r\nFROM\r\n\tautoadmin_managed_databases aamd\
+  \ \r\n\tJOIN autoadmin_task_agent_metadata aatm ON aamd.autoadmin_id = aatm.autoadmin_id\r\
+  \nWHERE\r\n\taatm.task_agent_guid = '6DF5825B-945C-4081-A4E3-292556E99B99'\r\n\t\
+  AND aamd.autoadmin_id <> 0\r\nUNION ALL\r\nSELECT\r\nNULL AS db_id,\r\nschema_version\
+  \ AS ManagedBackupVersion,\r\nNULL AS IsAlwaysOn,\r\nNULL AS IsDropped,\r\nCONVERT(BIT,\
+  \ aatm.task_agent_data.value('(/*/sb:defaultAutoBackupSetting)[1]', 'nvarchar(32)'))\
+  \ AS IsEnabled,\r\nNULLIF(aatm.task_agent_data.value('(/*/sb:defaultRetentionPeriod)[1]',\
+  \ 'int'), 0) AS RetentionPeriod,\r\nNULLIF(aatm.task_agent_data.value('(/*/sb:defaultEncryptionAlgorithm)[1]',\
+  \ 'nvarchar(128)'), '') AS EncryptionAlgorithm,\r\nNULLIF(aatm.task_agent_data.value('(/*/sb:defaultSchedulingOption)[1]',\
+  \ 'nvarchar(128)'), '') AS SchedulingOption,\r\nNULLIF(aatm.task_agent_data.value('(/*/sb:defaultDaysOfWeek)[1]',\
+  \ 'nvarchar(256)'), '') AS DayOfWeek\r\nFROM autoadmin_task_agent_metadata aatm\r\
+  \nWHERE\r\n\ttask_agent_guid = '6DF5825B-945C-4081-A4E3-292556E99B99'\r\n\tAND autoadmin_id\
+  \ = 0"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 9184ee7c1e4b5e1b0d54028b351befbd
+processedLineage: false
+entityStatus: Approved
