@@ -1,0 +1,187 @@
+name: NonSensitive
+fullyQualifiedName: PII.NonSensitive
+description: "PII which is easily accessible from public sources and can include zip\
+  \ code, race, gender, and date of birth."
+style: {}
+classification:
+  id: d4094882-d158-4e59-b9b9-02ef156a57e3
+  type: classification
+  name: PII
+  fullyQualifiedName: PII
+  description: "Personally Identifiable Information information that, when used alone\
+    \ or with other relevant data, can identify an individual.<br/><br/>_Note to Legal\
+    \ - This tag category is provided as a starting point. Please review and update\
+    \ the tags based on your company policy. Also, add a reference to your PII policy\
+    \ document in this description._"
+  displayName: PII
+  deleted: false
+children: []
+impersonatedBy: governance-bot
+usageCount: 1402
+deprecated: false
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: In Review
+  fieldsDeleted: []
+  previousVersion: 16.2
+  changeSummary: {}
+disabled: false
+mutuallyExclusive: false
+domains:
+  - id: 52fc9c67-78b7-42bf-8147-69278853c230
+    type: domain
+    name: Design
+    fullyQualifiedName: Design
+    description: <p>Here' the description for Product Design</p>
+    displayName: 'Product Design '
+    inherited: true
+dataProducts: []
+owners: []
+reviewers: []
+entityStatus: In Review
+recognizers:
+  - name: DateRecognizer
+    displayName: Date Recognizer
+    description: Recognize date using regex.
+    enabled: true
+    isSystemDefault: true
+    recognizerConfig:
+      name: DateRecognizer
+      type: predefined
+    confidenceThreshold: 0.6
+    exceptionList: []
+    version: 0.1
+    target: content
+  - name: PhoneRecognizer
+    displayName: Phone Recognizer
+    description: Recognize multi-regional phone numbers.
+    enabled: true
+    isSystemDefault: true
+    recognizerConfig:
+      name: PhoneRecognizer
+      type: predefined
+    confidenceThreshold: 0.6
+    exceptionList: []
+    version: 0.1
+    target: content
+  - name: UrlRecognizer
+    displayName: Url Recognizer
+    description: Recognize urls using regex.
+    enabled: true
+    isSystemDefault: true
+    recognizerConfig:
+      name: UrlRecognizer
+      type: predefined
+    confidenceThreshold: 0.6
+    exceptionList: []
+    version: 0.1
+    target: content
+  - name: SpacyRecognizer
+    displayName: Recognizer using spaCy NLP model
+    description: Recognize PII entities using a spaCy NLP model.
+    enabled: true
+    isSystemDefault: true
+    recognizerConfig:
+      name: SpacyRecognizer
+      type: predefined
+      supportedEntities:
+        - DATE_TIME
+        - NRP
+        - LOCATION
+    confidenceThreshold: 0.6
+    exceptionList: []
+    version: 0.1
+    target: content
+  - name: date_time
+    displayName: Date time column name
+    description: A regex recognizer for column names
+    enabled: true
+    isSystemDefault: true
+    recognizerConfig:
+      type: pattern
+      context: []
+      patterns:
+        - name: date_time_pattern_0
+          regex: ^.*(date|time|dob|birthday|dod).*$
+          score: 0.6
+      regexFlags:
+        dotAll: true
+        multiline: true
+        ignoreCase: true
+      supportedEntity: DATE_TIME
+      supportedLanguage: en
+    confidenceThreshold: 0.6
+    exceptionList: []
+    version: 0.1
+    target: column_name
+  - name: nrp
+    displayName: Nrp column name
+    description: A regex recognizer for column names
+    enabled: true
+    isSystemDefault: true
+    recognizerConfig:
+      type: pattern
+      context: []
+      patterns:
+        - name: nrp_pattern_0
+          regex: ^.*(gender|nationality).*$
+          score: 0.6
+      regexFlags:
+        dotAll: true
+        multiline: true
+        ignoreCase: true
+      supportedEntity: NRP
+      supportedLanguage: en
+    confidenceThreshold: 0.6
+    exceptionList: []
+    version: 0.1
+    target: column_name
+  - name: location
+    displayName: Location column name
+    description: A regex recognizer for column names
+    enabled: true
+    isSystemDefault: true
+    recognizerConfig:
+      type: pattern
+      context: []
+      patterns:
+        - name: location_pattern_0
+          regex: ^.*(address|city|state|county|country|zipcode|zip|postal|zone|borough).*$
+          score: 0.6
+      regexFlags:
+        dotAll: true
+        multiline: true
+        ignoreCase: true
+      supportedEntity: LOCATION
+      supportedLanguage: en
+    confidenceThreshold: 0.6
+    exceptionList: []
+    version: 0.1
+    target: column_name
+  - name: phone_number
+    displayName: Phone number column name
+    description: A regex recognizer for column names
+    enabled: true
+    isSystemDefault: true
+    recognizerConfig:
+      type: pattern
+      context: []
+      patterns:
+        - name: phone_number_pattern_0
+          regex: ^.*(phone).*$
+          score: 0.6
+      regexFlags:
+        dotAll: true
+        multiline: true
+        ignoreCase: true
+      supportedEntity: PHONE_NUMBER
+      supportedLanguage: en
+    confidenceThreshold: 0.6
+    exceptionList: []
+    version: 0.1
+    target: column_name
+autoClassificationEnabled: false
+autoClassificationPriority: 50
