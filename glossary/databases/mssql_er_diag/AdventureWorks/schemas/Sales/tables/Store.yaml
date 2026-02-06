@@ -1,0 +1,115 @@
+name: Store
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Store
+description: Customers (resellers) of Adventure Works products.
+tableType: Regular
+columns:
+  - name: BusinessEntityID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to Customer.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Store.BusinessEntityID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: Name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: Name of the store.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Store.Name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SalesPersonID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: ID of the sales person assigned to the customer. Foreign key to SalesPerson.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Store.SalesPersonID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Demographics
+    dataType: XML
+    dataLength: 1
+    dataTypeDisplay: xml(-1)
+    description: "Demographic informationg about the store such as the number of employees,\
+      \ annual sales and store type."
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Store.Demographics
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Store.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Store.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BusinessEntityID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.BusinessEntity.BusinessEntityID
+    relationshipType: ONE_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SalesPersonID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesPerson.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 91694de0601ff7db04f85d35d12e920b
+processedLineage: false
+entityStatus: Approved

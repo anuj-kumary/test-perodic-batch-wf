@@ -1,0 +1,87 @@
+name: SalesOrderHeaderSalesReason
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeaderSalesReason
+description: Cross-reference table mapping sales orders to sales reason codes.
+tableType: Regular
+columns:
+  - name: SalesOrderID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to SalesOrderHeader.SalesOrderID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeaderSalesReason.SalesOrderID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: SalesReasonID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to SalesReason.SalesReasonID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeaderSalesReason.SalesReasonID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeaderSalesReason.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SalesOrderID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.SalesOrderID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SalesReasonID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesReason.SalesReasonID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SalesOrderID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.HumanResources.Employee.BusinessEntityID
+    relationshipType: MANY_TO_MANY
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 0d9d22097a7f61f04f2a8edb9fad4e17
+processedLineage: false
+entityStatus: Approved

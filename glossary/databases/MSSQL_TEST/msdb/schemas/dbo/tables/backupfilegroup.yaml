@@ -1,0 +1,130 @@
+name: backupfilegroup
+fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup
+tableType: Regular
+columns:
+  - name: backup_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.backup_set_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: filegroup_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.filegroup_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: filegroup_guid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.filegroup_guid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: CHAR
+    dataLength: 2
+    dataTypeDisplay: char(2)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.type
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: type_desc
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(60)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.type_desc
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_default
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.is_default
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: is_readonly
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.is_readonly
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_filegroup_guid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupfilegroup.log_filegroup_guid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - backup_set_id
+      - filegroup_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - backup_set_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.backupset.backup_set_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 57c2f396-9b05-4e00-9903-62b0219fbc25
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MSSQL_TEST.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: af8db866-dbb4-4bd5-a2ea-22202fbc71ef
+  type: database
+  name: msdb
+  fullyQualifiedName: MSSQL_TEST.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 0b00ab5cf701ba506592621df47ed515
+processedLineage: false
+entityStatus: Approved

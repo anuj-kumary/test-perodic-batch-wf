@@ -1,0 +1,132 @@
+name: Customer
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Customer
+description: Current customer information. Also see the Person and Store tables.
+tableType: Regular
+columns:
+  - name: CustomerID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Customer.CustomerID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: PersonID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Foreign key to Person.BusinessEntityID
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Customer.PersonID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: StoreID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Foreign key to Store.BusinessEntityID
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Customer.StoreID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TerritoryID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: ID of the territory in which the customer is located. Foreign key
+      to SalesTerritory.SalesTerritoryID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Customer.TerritoryID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: AccountNumber
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: varchar(10)
+    description: Unique number identifying the customer assigned by the accounting
+      system.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Customer.AccountNumber
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Customer.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.Customer.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - PersonID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.Person.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - TerritoryID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesTerritory.TerritoryID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - StoreID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.Store.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: f50f8b8df52ce328506d1303d48d6781
+processedLineage: false
+entityStatus: Approved

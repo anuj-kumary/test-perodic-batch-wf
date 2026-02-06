@@ -1,0 +1,123 @@
+name: CurrencyRate
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CurrencyRate
+description: Currency exchange rates.
+tableType: Regular
+columns:
+  - name: CurrencyRateID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key for CurrencyRate records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CurrencyRate.CurrencyRateID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: CurrencyRateDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the exchange rate was obtained.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CurrencyRate.CurrencyRateDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: FromCurrencyCode
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(3)
+    description: Exchange rate was converted from this currency code.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CurrencyRate.FromCurrencyCode
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ToCurrencyCode
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: nchar(3)
+    description: Exchange rate was converted to this currency code.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CurrencyRate.ToCurrencyCode
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: AverageRate
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Average exchange rate for the day.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CurrencyRate.AverageRate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: EndOfDayRate
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Final exchange rate for the day.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CurrencyRate.EndOfDayRate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.CurrencyRate.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - FromCurrencyCode
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.Currency.CurrencyCode
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ToCurrencyCode
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.Currency.CurrencyCode
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 0073c7b2c9fb585739c904db88146f3b
+processedLineage: false
+entityStatus: Approved

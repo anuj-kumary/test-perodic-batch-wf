@@ -1,0 +1,92 @@
+name: CreditCard
+fullyQualifiedName: MSSQL_TEST.BankingDemo.Account.CreditCard
+tableType: Regular
+columns:
+  - name: CardID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Account.CreditCard.CardID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: CustomerID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Account.CreditCard.CustomerID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CardNumber
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(16)
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Account.CreditCard.CardNumber
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CardType
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Account.CreditCard.CardType
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ExpirationDate
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Account.CreditCard.ExpirationDate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CustomerID
+    referredColumns:
+      - MSSQL_TEST.BankingDemo.Customer.CustomerInfo.CustomerID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 5070bb66-d798-4703-8bf5-9ead900023ac
+  type: databaseSchema
+  name: Account
+  fullyQualifiedName: MSSQL_TEST.BankingDemo.Account
+  displayName: Account
+  deleted: false
+database:
+  id: 6da8eb53-7d1d-4e3c-b945-f45b48b63a8d
+  type: database
+  name: BankingDemo
+  fullyQualifiedName: MSSQL_TEST.BankingDemo
+  displayName: BankingDemo
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 4bdd23640697f4ae341c4a909a7ecc03
+processedLineage: false
+entityStatus: Approved

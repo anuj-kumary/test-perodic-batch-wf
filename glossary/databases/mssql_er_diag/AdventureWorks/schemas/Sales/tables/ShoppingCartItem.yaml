@@ -1,0 +1,107 @@
+name: ShoppingCartItem
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.ShoppingCartItem
+description: Contains online customer orders until the order is submitted or cancelled.
+tableType: Regular
+columns:
+  - name: ShoppingCartItemID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key for ShoppingCartItem records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.ShoppingCartItem.ShoppingCartItemID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: ShoppingCartID
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    description: Shopping cart identification number.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.ShoppingCartItem.ShoppingCartID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Quantity
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product quantity ordered.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.ShoppingCartItem.Quantity
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ProductID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product ordered. Foreign key to Product.ProductID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.ShoppingCartItem.ProductID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: DateCreated
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date the time the record was created.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.ShoppingCartItem.DateCreated
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.ShoppingCartItem.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Production.Product.ProductID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 3104b9db97de8cbebb844f4d04726e50
+processedLineage: false
+entityStatus: Approved

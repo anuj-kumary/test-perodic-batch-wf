@@ -1,0 +1,130 @@
+name: backupmediafamily
+fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily
+tableType: Regular
+columns:
+  - name: media_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.media_set_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: family_sequence_number
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.family_sequence_number
+    tags: []
+    children: []
+    customMetrics: []
+  - name: media_family_id
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.media_family_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: media_count
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.media_count
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: logical_device_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.logical_device_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: physical_device_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(260)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.physical_device_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: device_type
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.device_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: physical_block_size
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.physical_block_size
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: mirror
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.backupmediafamily.mirror
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - family_sequence_number
+      - media_set_id
+      - mirror
+  - constraintType: FOREIGN_KEY
+    columns:
+      - media_set_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.backupmediaset.media_set_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 57c2f396-9b05-4e00-9903-62b0219fbc25
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MSSQL_TEST.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: af8db866-dbb4-4bd5-a2ea-22202fbc71ef
+  type: database
+  name: msdb
+  fullyQualifiedName: MSSQL_TEST.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 89c451d2e809e37d5adf343e5649528c
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,83 @@
+name: CustomerLogin
+fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.CustomerLogin
+tableType: Regular
+columns:
+  - name: LoginID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.CustomerLogin.LoginID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: CustomerID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.CustomerLogin.CustomerID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Username
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.CustomerLogin.Username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: PasswordHash
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(64)
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.CustomerLogin.PasswordHash
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CustomerID
+    referredColumns:
+      - MSSQL_TEST.BankingDemo.Customer.CustomerInfo.CustomerID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: e73fed9f-3dd6-4fbe-83f6-aab6934e47d8
+  type: databaseSchema
+  name: Customer
+  fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer
+  displayName: Customer
+  deleted: false
+database:
+  id: 6da8eb53-7d1d-4e3c-b945-f45b48b63a8d
+  type: database
+  name: BankingDemo
+  fullyQualifiedName: MSSQL_TEST.BankingDemo
+  displayName: BankingDemo
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 6fb33cd09dc98abce6877e67c80bf1a4
+processedLineage: false
+entityStatus: Approved

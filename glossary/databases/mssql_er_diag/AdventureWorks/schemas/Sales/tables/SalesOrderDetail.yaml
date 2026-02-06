@@ -1,0 +1,171 @@
+name: SalesOrderDetail
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail
+description: Individual products associated with a specific sales order. See SalesOrderHeader.
+tableType: Regular
+columns:
+  - name: SalesOrderID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. Foreign key to SalesOrderHeader.SalesOrderID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.SalesOrderID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: SalesOrderDetailID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key. One incremental unique number per product sold.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.SalesOrderDetailID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: CarrierTrackingNumber
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(25)
+    description: Shipment tracking number supplied by the shipper.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.CarrierTrackingNumber
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: OrderQty
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    description: Quantity ordered per product.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.OrderQty
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ProductID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product sold to customer. Foreign key to Product.ProductID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.ProductID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SpecialOfferID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Promotional code. Foreign key to SpecialOffer.SpecialOfferID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.SpecialOfferID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: UnitPrice
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Selling price of a single product.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.UnitPrice
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: UnitPriceDiscount
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Discount amount.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.UnitPriceDiscount
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: LineTotal
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 38
+    scale: 6
+    dataTypeDisplay: "numeric(38,6)"
+    description: Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount)
+      * OrderQty.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.LineTotal
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderDetail.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - SalesOrderDetailID
+      - SalesOrderID
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SalesOrderID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.SalesOrderID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductID
+      - SpecialOfferID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SpecialOfferProduct.SpecialOfferID
+      - mssql_er_diag.AdventureWorks.Sales.SpecialOfferProduct.ProductID
+    relationshipType: MANY_TO_MANY
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 86dc587e02208ebf52af5f6712f2a68a
+processedLineage: false
+entityStatus: Approved

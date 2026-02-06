@@ -1,0 +1,101 @@
+name: Address
+fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.Address
+tableType: Regular
+columns:
+  - name: AddressID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.Address.AddressID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: CustomerID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.Address.CustomerID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Street
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(100)
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.Address.Street
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: City
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.Address.City
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: State
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(50)
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.Address.State
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ZipCode
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(10)
+    fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer.Address.ZipCode
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CustomerID
+    referredColumns:
+      - MSSQL_TEST.BankingDemo.Customer.CustomerInfo.CustomerID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: e73fed9f-3dd6-4fbe-83f6-aab6934e47d8
+  type: databaseSchema
+  name: Customer
+  fullyQualifiedName: MSSQL_TEST.BankingDemo.Customer
+  displayName: Customer
+  deleted: false
+database:
+  id: 6da8eb53-7d1d-4e3c-b945-f45b48b63a8d
+  type: database
+  name: BankingDemo
+  fullyQualifiedName: MSSQL_TEST.BankingDemo
+  displayName: BankingDemo
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: cb73e1b0230f2f263e4a98ec084d3590
+processedLineage: false
+entityStatus: Approved

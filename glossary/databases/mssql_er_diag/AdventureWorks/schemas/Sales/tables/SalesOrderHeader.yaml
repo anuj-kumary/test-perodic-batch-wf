@@ -1,0 +1,352 @@
+name: SalesOrderHeader
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader
+description: General sales order information.
+tableType: Regular
+columns:
+  - name: SalesOrderID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.SalesOrderID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: RevisionNumber
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    description: Incremental number to track changes to the sales order over time.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.RevisionNumber
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: OrderDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Dates the sales order was created.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.OrderDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: DueDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date the order is due to the customer.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.DueDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ShipDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date the order was shipped to the customer.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.ShipDate
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: Status
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    description: Order current status. 1 = In process; 2 = Approved; 3 = Backordered;
+      4 = Rejected; 5 = Shipped; 6 = Cancelled
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.Status
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: OnlineOrderFlag
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    description: 0 = Order placed by sales person. 1 = Order placed online by customer.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.OnlineOrderFlag
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SalesOrderNumber
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(25)
+    description: Unique sales order identification number.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.SalesOrderNumber
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: PurchaseOrderNumber
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(25)
+    description: 'Customer purchase order number reference. '
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.PurchaseOrderNumber
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: AccountNumber
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(15)
+    description: Financial accounting number reference.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.AccountNumber
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CustomerID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Customer identification number. Foreign key to Customer.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.CustomerID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SalesPersonID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Sales person who created the sales order. Foreign key to SalesPerson.BusinessEntityID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.SalesPersonID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TerritoryID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Territory in which the sale was made. Foreign key to SalesTerritory.SalesTerritoryID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.TerritoryID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: BillToAddressID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Customer billing address. Foreign key to Address.AddressID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.BillToAddressID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ShipToAddressID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Customer shipping address. Foreign key to Address.AddressID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.ShipToAddressID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ShipMethodID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Shipping method. Foreign key to ShipMethod.ShipMethodID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.ShipMethodID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: CreditCardID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Credit card identification number. Foreign key to CreditCard.CreditCardID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.CreditCardID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CreditCardApprovalCode
+    dataType: VARCHAR
+    dataLength: 15
+    dataTypeDisplay: varchar(15)
+    description: Approval code provided by the credit card company.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.CreditCardApprovalCode
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CurrencyRateID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Currency exchange rate used. Foreign key to CurrencyRate.CurrencyRateID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.CurrencyRateID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SubTotal
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Sales subtotal. Computed as SUM(SalesOrderDetail.LineTotal)for the
+      appropriate SalesOrderID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.SubTotal
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TaxAmt
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Tax amount.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.TaxAmt
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Freight
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Shipping cost.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.Freight
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: TotalDue
+    dataType: MONEY
+    dataLength: 1
+    dataTypeDisplay: money
+    description: Total due from customer. Computed as Subtotal + TaxAmt + Freight.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.TotalDue
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: Comment
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    description: Sales representative comments.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.Comment
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SalesOrderHeader.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - BillToAddressID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.Address.AddressID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ShipToAddressID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Person.Address.AddressID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CreditCardID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.CreditCard.CreditCardID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CurrencyRateID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.CurrencyRate.CurrencyRateID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CustomerID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.Customer.CustomerID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SalesPersonID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesPerson.BusinessEntityID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - TerritoryID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SalesTerritory.TerritoryID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ShipMethodID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Purchasing.ShipMethod.ShipMethodID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 82ec0759c742c4ecc689a0ab96107c5e
+processedLineage: false
+entityStatus: Approved

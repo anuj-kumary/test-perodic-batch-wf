@@ -1,0 +1,96 @@
+name: SpecialOfferProduct
+fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SpecialOfferProduct
+description: Cross-reference table mapping products to special offer discounts.
+tableType: Regular
+columns:
+  - name: SpecialOfferID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Primary key for SpecialOfferProduct records.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SpecialOfferProduct.SpecialOfferID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: ProductID
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Product identification number. Foreign key to Product.ProductID.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SpecialOfferProduct.ProductID
+    tags: []
+    children: []
+    customMetrics: []
+  - name: rowguid
+    dataType: UUID
+    dataLength: 1
+    dataTypeDisplay: uniqueidentifier
+    description: ROWGUIDCOL number uniquely identifying the record. Used to support
+      a merge replication sample.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SpecialOfferProduct.rowguid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: ModifiedDate
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Date and time the record was last updated.
+    fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales.SpecialOfferProduct.ModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - ProductID
+      - SpecialOfferID
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ProductID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Production.Product.ProductID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SpecialOfferID
+    referredColumns:
+      - mssql_er_diag.AdventureWorks.Sales.SpecialOffer.SpecialOfferID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: d6e014b4-935c-49bc-98dc-e64e5d3a9e57
+  type: databaseSchema
+  name: Sales
+  fullyQualifiedName: mssql_er_diag.AdventureWorks.Sales
+  displayName: Sales
+  deleted: false
+database:
+  id: 1e3c79a9-c852-4475-87ab-b32cd25abb0f
+  type: database
+  name: AdventureWorks
+  fullyQualifiedName: mssql_er_diag.AdventureWorks
+  displayName: AdventureWorks
+  deleted: false
+service:
+  id: 1fed7fdb-1405-4a27-b2e0-1f420f2be98b
+  type: databaseService
+  name: mssql_er_diag
+  fullyQualifiedName: mssql_er_diag
+  displayName: mssql_er_diag
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 337178da74e33c5ce445d8fbf6ebd1f2
+processedLineage: false
+entityStatus: Approved
