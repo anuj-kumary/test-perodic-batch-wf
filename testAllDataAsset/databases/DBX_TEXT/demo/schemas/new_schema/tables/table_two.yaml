@@ -1,0 +1,135 @@
+name: table_two
+fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two
+description: Table with complex datatypes
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Unique identifier
+    fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the person
+    fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: STRUCT
+    dataTypeDisplay: "struct<street:string,city:string,state:string,postal_code:string,country:string,coordinates:struct<latitude:double,longitude:double>>"
+    description: Address information
+    fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address
+    tags: []
+    children:
+      - name: street
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address.street
+        tags: []
+        children: []
+      - name: city
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address.city
+        tags: []
+        children: []
+      - name: state
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address.state
+        tags: []
+        children: []
+      - name: postal_code
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address.postal_code
+        tags: []
+        children: []
+      - name: country
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address.country
+        tags: []
+        children: []
+      - name: coordinates
+        dataType: STRUCT
+        dataTypeDisplay: "struct<latitude:double,longitude:double>"
+        fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address.coordinates
+        tags: []
+        children:
+          - name: latitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address.coordinates.latitude
+            tags: []
+            children: []
+          - name: longitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.address.coordinates.longitude
+            tags: []
+            children: []
+    customMetrics: []
+  - name: phone_numbers
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: List of phone numbers
+    fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.phone_numbers
+    tags: []
+    children: []
+    customMetrics: []
+  - name: preferences
+    dataType: MAP
+    dataTypeDisplay: "map<string,struct<key1:string,key2:int>>"
+    description: User preferences with nested struct
+    fullyQualifiedName: DBX_TEXT.demo.new_schema.table_two.preferences
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: de4cee1a-5f85-472d-aa5b-d9ffe1b75785
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: DBX_TEXT.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: 598fd8c8-f34d-4c3f-bf6a-4bdb03edc6f8
+  type: database
+  name: demo
+  fullyQualifiedName: DBX_TEXT.demo
+  displayName: demo
+  deleted: false
+service:
+  id: bd97b214-e735-4211-a08b-a0f384214564
+  type: databaseService
+  name: DBX_TEXT
+  fullyQualifiedName: DBX_TEXT
+  description: ""
+  displayName: DBX_TEXT
+  deleted: false
+serviceType: Databricks
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: e97be8350e8f449560cef933b47f44e1
+processedLineage: false
+entityStatus: Approved
