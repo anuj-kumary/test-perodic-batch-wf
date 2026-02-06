@@ -1,0 +1,149 @@
+name: dba_xt_hive_tables_validation
+fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation
+tableType: View
+columns:
+  - name: cluster_id
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Hadoop cluster name
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.cluster_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: database_name
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Database where hive table resides
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.database_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: hive_table_name
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.hive_table_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: External table name
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.table_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table_owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of external table
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.table_owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: metadata_compatible
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Is XT metadata compatible with Hive
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.metadata_compatible
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: hive_xt_incompatibility
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: "First error encountered, if any"
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.hive_xt_incompatibility
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: partition_compatible
+    dataType: VARCHAR
+    dataLength: 4000
+    dataTypeDisplay: varchar2(4000)
+    description: Need to sync XT partitions?
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.partition_compatible
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: partitions_added
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: New partitions on Hive table
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.partitions_added
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: partitions_dropped
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: XT partitions non in Hive
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.partitions_dropped
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_sync_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Timestamp of the last sync operation
+    fullyQualifiedName: oracle_test.default.sys.dba_xt_hive_tables_validation.last_sync_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 289b5d7b832023e2a9816e453be9fd69
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,120 @@
+name: dba_xstream_outbound_progress
+fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress
+tableType: View
+columns:
+  - name: server_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the outbound server
+    fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress.server_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: source_database
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Database where the transaction originated
+    fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress.source_database
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: processed_low_position
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: raw
+    description: Position of low watermark transaction processed by client
+    fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress.processed_low_position
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: processed_low_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Time which the processed low position was last updated
+    fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress.processed_low_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: oldest_position
+    dataType: BINARY
+    dataLength: 1
+    dataTypeDisplay: raw
+    description: Earliest position of the transactions currently being applied
+    fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress.oldest_position
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: source_root_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Root database where all transactions originated
+    fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress.source_root_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: processed_low_scn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: SCN of low watermark transaction processed
+    fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress.processed_low_scn
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: oldest_scn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Oldest SCN of the transactions currently being applied
+    fullyQualifiedName: oracle_test.default.sys.dba_xstream_outbound_progress.oldest_scn
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: da56a4ff3f1c7c6cc9e323e90298259b
+processedLineage: false
+entityStatus: Approved
