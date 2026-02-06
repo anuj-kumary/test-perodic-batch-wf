@@ -1,0 +1,97 @@
+name: schemata
+fullyQualifiedName: query_runner_trino.tpch.information_schema.schemata
+tableType: Regular
+columns:
+  - name: catalog_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.tpch.information_schema.schemata.catalog_name
+    tags:
+      - tagFQN: General.Location
+        name: Location
+        description: "Name of politically or geographically defined location (cities,\
+          \ provinces, countries, international regions, bodies of water, mountains."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 0.85
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: schema_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.tpch.information_schema.schemata.schema_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3e3302bf-b8ac-45fd-abff-c79d6ad8dfe9
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: query_runner_trino.tpch.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 694511a7-1eb6-4185-a135-8518cf42e4c4
+  type: database
+  name: tpch
+  fullyQualifiedName: query_runner_trino.tpch
+  displayName: tpch
+  deleted: false
+service:
+  id: f334ee58-aa52-47f1-8c6b-ea1b2237521e
+  type: databaseService
+  name: query_runner_trino
+  fullyQualifiedName: query_runner_trino
+  description: ""
+  displayName: query_runner_trino
+  deleted: false
+serviceType: Trino
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.catalog_name.tags
+      newValue: "[{\"tagFQN\":\"General.Location\",\"name\":\"Location\",\"description\"\
+        :\"Name of politically or geographically defined location (cities, provinces,\
+        \ countries, international regions, bodies of water, mountains.\",\"source\"\
+        :\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"\
+        tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\":\"\
+        PII which is easily accessible from public sources and can include zip code,\
+        \ race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 0.85\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: d5e739c333e413a6a38332c83bad4f6b
+processedLineage: false
+entityStatus: Unprocessed
