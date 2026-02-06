@@ -1,0 +1,86 @@
+name: VIEW_FROM_SOURCE_1
+fullyQualifiedName: hktest.MT_DB.LINEAGE_FILTER_SCHEMA.VIEW_FROM_SOURCE_1
+tableType: View
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.MT_DB.LINEAGE_FILTER_SCHEMA.VIEW_FROM_SOURCE_1.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest.MT_DB.LINEAGE_FILTER_SCHEMA.VIEW_FROM_SOURCE_1.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 34cc360e-3734-44de-9017-d61a8157cef4
+  type: databaseSchema
+  name: LINEAGE_FILTER_SCHEMA
+  fullyQualifiedName: hktest.MT_DB.LINEAGE_FILTER_SCHEMA
+  displayName: LINEAGE_FILTER_SCHEMA
+  deleted: false
+database:
+  id: ebf290f1-b4ab-4d1b-bf8c-41a0218b2663
+  type: database
+  name: MT_DB
+  fullyQualifiedName: hktest.MT_DB
+  description: This is a testing database
+  displayName: MT_DB
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: |-
+  CREATE OR REPLACE VIEW LINEAGE_FILTER_SCHEMA.view_from_source_1 AS
+  SELECT id, name
+  FROM LINEAGE_FILTER_SCHEMA.source_table_1;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1752192000000,\"accessedBy\":{\"id\"\
+        :\"ed8a779f-c6af-4e65-85ca-4e4e018c7027\",\"type\":\"user\",\"fullyQualifiedName\"\
+        :\"mohit\",\"href\":\"https://sandbox-beta.open-metadata.org/v1/users/ed8a779f-c6af-4e65-85ca-4e4e018c7027\"\
+        }}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/MT_DB/schemas/LINEAGE_FILTER_SCHEMA/view/VIEW_FROM_SOURCE_1
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1752192000000
+    accessedBy:
+      id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+      type: user
+      fullyQualifiedName: mohit
+      href: https://sandbox-beta.open-metadata.org/v1/users/ed8a779f-c6af-4e65-85ca-4e4e018c7027
+sourceHash: 53b5c119f77d4e1ef289bcbfd520c17c
+processedLineage: false
+entityStatus: Approved
