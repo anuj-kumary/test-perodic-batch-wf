@@ -1,0 +1,35 @@
+name: aef218de2731f181761a5fec5784f905
+fullyQualifiedName: hktest.aef218de2731f181761a5fec5784f905
+owners: []
+duration: 147.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"STATUS\")) AS mean, count(\"STATUS\") AS \"valuesCount\"\
+  , count(DISTINCT \"STATUS\") AS \"distinctCount\", MIN(LEN(\"STATUS\")) AS min,\
+  \ MAX(LEN(\"STATUS\")) AS max, coalesce(SUM(CASE WHEN (\"STATUS\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"STATUS\")) AS stddev, SUM(LEN(\"\
+  STATUS\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"SEED_RUN_RESULTS\"\n LIMIT\
+  \ ?"
+checksum: aef218de2731f181761a5fec5784f905
+queryDate: 1748563200000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 71f3b29a-0599-4623-b7e2-1e721ace56c4
+    type: table
+    name: SEED_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SEED_RUN_RESULTS
+    displayName: SEED_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

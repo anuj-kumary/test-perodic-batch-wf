@@ -1,0 +1,30 @@
+name: ab2b820f817c6ef7a805878ef77af913
+fullyQualifiedName: hktest.ab2b820f817c6ef7a805878ef77af913
+owners: []
+duration: 54.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_CASH_VAL_PU_ADD\"\
+  \ AS \"CONT_CASH_VAL_PU_ADD\" \nFROM \"LANDING\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_CASH_VAL_PU_ADD\" AS \"CONT_CASH_VAL_PU_ADD\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CONT_CASH_VAL_PU_ADD\"\
+  ) AS count_1 \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\" GROUP BY \"CONT_CASH_VAL_PU_ADD\"\
+  \ \nHAVING count(\"CONT_CASH_VAL_PU_ADD\") = ?) AS only_once\n LIMIT ?"
+checksum: ab2b820f817c6ef7a805878ef77af913
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

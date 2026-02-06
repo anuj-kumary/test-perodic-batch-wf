@@ -1,0 +1,31 @@
+name: abe08d4de0224cba5c30a59b4971e6ed
+fullyQualifiedName: hktest.abe08d4de0224cba5c30a59b4971e6ed
+owners: []
+duration: 475.0
+users: []
+query: "WITH \"979ee13f032c02b4652a4e3c3928d90b_rnd\" AS \n(SELECT \"CUSTOMER_1\"\
+  .\"C_FIRST_SALES_DATE_SK\" AS \"C_FIRST_SALES_DATE_SK\" \nFROM \"TPCDS_SF100TCL\"\
+  .\"CUSTOMER\" AS \"CUSTOMER_1\" TABLESAMPLE ROW(? ROWS)), \n\"979ee13f032c02b4652a4e3c3928d90b_sample\"\
+  \ AS \n(SELECT \"979ee13f032c02b4652a4e3c3928d90b_rnd\".\"C_FIRST_SALES_DATE_SK\"\
+  \ AS \"C_FIRST_SALES_DATE_SK\" \nFROM \"979ee13f032c02b4652a4e3c3928d90b_rnd\")\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"C_FIRST_SALES_DATE_SK\"\
+  ) AS count_1 \nFROM \"979ee13f032c02b4652a4e3c3928d90b_sample\" GROUP BY \"C_FIRST_SALES_DATE_SK\"\
+  \ \nHAVING count(\"C_FIRST_SALES_DATE_SK\") = ?) AS only_once\n LIMIT ?"
+checksum: abe08d4de0224cba5c30a59b4971e6ed
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 6a19048c-8745-4c8d-b962-ab75a7fb7f72
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CUSTOMER
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

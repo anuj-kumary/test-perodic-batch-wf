@@ -1,0 +1,39 @@
+name: acbdcf56914a20f0d3031d2ebe0cb9b9
+fullyQualifiedName: hktest.acbdcf56914a20f0d3031d2ebe0cb9b9
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0776506f-3c50-4714-bf68-fd02c42cf3f6\",\"type\":\"table\"\
+        ,\"name\":\"LOANACCOUNT\",\"fullyQualifiedName\":\"hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.LOANACCOUNT\"\
+        ,\"displayName\":\"LOANACCOUNT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 82.0
+users: []
+query: "SELECT count(CASE WHEN (\"LOANID\" >= ? AND \"LOANID\" < ?) THEN \"LOANID\"\
+  \ END) AS \"1.001K to 1.014K\", count(CASE WHEN (\"LOANID\" >= ? AND \"LOANID\"\
+  \ < ?) THEN \"LOANID\" END) AS \"1.014K to 1.028K\", count(CASE WHEN (\"LOANID\"\
+  \ >= ? AND \"LOANID\" < ?) THEN \"LOANID\" END) AS \"1.028K to 1.041K\", count(CASE\
+  \ WHEN (\"LOANID\" >= ?) THEN \"LOANID\" END) AS \"1.041K and up\" \nFROM \"MSSQLBANKING_ACCOUNT\"\
+  .\"LOANACCOUNT\"\n LIMIT ?"
+checksum: acbdcf56914a20f0d3031d2ebe0cb9b9
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0776506f-3c50-4714-bf68-fd02c42cf3f6
+    type: table
+    name: LOANACCOUNT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.LOANACCOUNT
+    displayName: LOANACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

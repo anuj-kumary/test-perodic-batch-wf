@@ -1,0 +1,31 @@
+name: ad2c69b02f5c55df42af26bfd084e9b2
+fullyQualifiedName: hktest.ad2c69b02f5c55df42af26bfd084e9b2
+owners: []
+duration: 513.0
+users: []
+query: "WITH \"5856cac33d051363dc9eeb2de9e675ce_rnd\" AS \n(SELECT \"WEB_RETURNS_1\"\
+  .\"WR_RETURNING_ADDR_SK\" AS \"WR_RETURNING_ADDR_SK\" \nFROM \"TPCDS_SF100TCL\"\
+  .\"WEB_RETURNS\" AS \"WEB_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"5856cac33d051363dc9eeb2de9e675ce_sample\"\
+  \ AS \n(SELECT \"5856cac33d051363dc9eeb2de9e675ce_rnd\".\"WR_RETURNING_ADDR_SK\"\
+  \ AS \"WR_RETURNING_ADDR_SK\" \nFROM \"5856cac33d051363dc9eeb2de9e675ce_rnd\")\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"WR_RETURNING_ADDR_SK\"\
+  ) AS count_1 \nFROM \"5856cac33d051363dc9eeb2de9e675ce_sample\" GROUP BY \"WR_RETURNING_ADDR_SK\"\
+  \ \nHAVING count(\"WR_RETURNING_ADDR_SK\") = ?) AS only_once\n LIMIT ?"
+checksum: ad2c69b02f5c55df42af26bfd084e9b2
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: c0d42425-f509-4e1e-a280-aa20852ebf64
+    type: table
+    name: WEB_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_RETURNS
+    displayName: WEB_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,29 @@
+name: abd4c240b1d5d73df1039ed86d543dee
+fullyQualifiedName: hktest.abd4c240b1d5d73df1039ed86d543dee
+owners: []
+duration: 51.0
+users: []
+query: "SELECT avg(LEN(\"NAME_UPPER\")) AS mean, count(\"NAME_UPPER\") AS \"valuesCount\"\
+  , count(DISTINCT \"NAME_UPPER\") AS \"distinctCount\", MIN(LEN(\"NAME_UPPER\"))\
+  \ AS min, MAX(LEN(\"NAME_UPPER\")) AS max, coalesce(SUM(CASE WHEN (\"NAME_UPPER\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"NAME_UPPER\"))\
+  \ AS stddev, SUM(LEN(\"NAME_UPPER\")) AS sum \nFROM \"HK_SCHEMA\".\"SAMPLE_CUSTOMERS_UPPER\"\
+  \n LIMIT ?"
+checksum: abd4c240b1d5d73df1039ed86d543dee
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8213dbf1-647b-4c39-8dac-cc9f4f0135e3
+    type: table
+    name: SAMPLE_CUSTOMERS_UPPER
+    fullyQualifiedName: hktest.HK_DB.HK_SCHEMA.SAMPLE_CUSTOMERS_UPPER
+    displayName: SAMPLE_CUSTOMERS_UPPER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

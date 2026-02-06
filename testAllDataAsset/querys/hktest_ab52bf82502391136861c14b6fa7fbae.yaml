@@ -1,0 +1,39 @@
+name: ab52bf82502391136861c14b6fa7fbae
+fullyQualifiedName: hktest.ab52bf82502391136861c14b6fa7fbae
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"9bc6307f-5d2d-4ecf-b1f5-f791a29d4443\",\"type\":\"table\"\
+        ,\"name\":\"PART\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART\"\
+        ,\"description\":\"Part data as defined by TPC-H\",\"displayName\":\"PART\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 43.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"P_SIZE\" ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"P_SIZE\" ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY \"P_SIZE\" ASC) AS \"thirdQuartile\"\
+  \ \nFROM \"TPCH_SF1\".\"PART\"\n LIMIT ?"
+checksum: ab52bf82502391136861c14b6fa7fbae
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9bc6307f-5d2d-4ecf-b1f5-f791a29d4443
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

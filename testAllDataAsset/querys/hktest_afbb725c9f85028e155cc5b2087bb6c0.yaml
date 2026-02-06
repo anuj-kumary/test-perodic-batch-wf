@@ -1,0 +1,27 @@
+name: afbb725c9f85028e155cc5b2087bb6c0
+fullyQualifiedName: hktest.afbb725c9f85028e155cc5b2087bb6c0
+owners: []
+duration: 76.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"NAME\") ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"NAME\") ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"NAME\") ASC) AS \"thirdQuartile\"\
+  \ \nFROM \"HK_SCHEMA\".\"SAMPLE_CUSTOMERS_UPPER\"\n LIMIT ?"
+checksum: afbb725c9f85028e155cc5b2087bb6c0
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8213dbf1-647b-4c39-8dac-cc9f4f0135e3
+    type: table
+    name: SAMPLE_CUSTOMERS_UPPER
+    fullyQualifiedName: hktest.HK_DB.HK_SCHEMA.SAMPLE_CUSTOMERS_UPPER
+    displayName: SAMPLE_CUSTOMERS_UPPER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

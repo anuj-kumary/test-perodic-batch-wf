@@ -1,0 +1,31 @@
+name: b01f3861e1968f85a7fde99eb9d4cfa8
+fullyQualifiedName: hktest.b01f3861e1968f85a7fde99eb9d4cfa8
+owners: []
+duration: 92.0
+users: []
+query: "WITH \"3cfba54f6873dfd55b0b09d32910b20e_rnd\" AS \n(SELECT \"STORE_1\".\"\
+  S_STATE\" AS \"S_STATE\" \nFROM \"TPCDS_SF100TCL\".\"STORE\" AS \"STORE_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"3cfba54f6873dfd55b0b09d32910b20e_sample\" AS \n(SELECT \"3cfba54f6873dfd55b0b09d32910b20e_rnd\"\
+  .\"S_STATE\" AS \"S_STATE\" \nFROM \"3cfba54f6873dfd55b0b09d32910b20e_rnd\")\n SELECT\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"S_STATE\") ASC) AS median, percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"S_STATE\") ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"S_STATE\") ASC) AS \"thirdQuartile\" \nFROM \"3cfba54f6873dfd55b0b09d32910b20e_sample\"\
+  \n LIMIT ?"
+checksum: b01f3861e1968f85a7fde99eb9d4cfa8
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 43356b28-b302-4890-b93c-3f7d6771f9e5
+    type: table
+    name: STORE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE
+    displayName: STORE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

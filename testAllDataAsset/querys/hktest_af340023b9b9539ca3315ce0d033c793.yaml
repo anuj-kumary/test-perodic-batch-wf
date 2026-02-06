@@ -1,0 +1,26 @@
+name: af340023b9b9539ca3315ce0d033c793
+fullyQualifiedName: hktest.af340023b9b9539ca3315ce0d033c793
+owners: []
+duration: 127.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CC_STREET_NUMBER\"\
+  ) AS count_1 \nFROM \"TPCDS_SF100TCL\".\"CALL_CENTER\" GROUP BY \"CC_STREET_NUMBER\"\
+  \ \nHAVING count(\"CC_STREET_NUMBER\") = ?) AS only_once\n LIMIT ?"
+checksum: af340023b9b9539ca3315ce0d033c793
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 531ee58b-4045-4f54-a1b5-eac7668fb709
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

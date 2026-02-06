@@ -1,0 +1,34 @@
+name: b00ed314625a901fd1abce1f4e5923bb
+fullyQualifiedName: hktest.b00ed314625a901fd1abce1f4e5923bb
+owners: []
+duration: 419.0
+users: []
+query: "WITH \"5856cac33d051363dc9eeb2de9e675ce_rnd\" AS \n(SELECT \"WEB_RETURNS_1\"\
+  .\"WR_RETURN_TAX\" AS \"WR_RETURN_TAX\" \nFROM \"TPCDS_SF100TCL\".\"WEB_RETURNS\"\
+  \ AS \"WEB_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"5856cac33d051363dc9eeb2de9e675ce_sample\"\
+  \ AS \n(SELECT \"5856cac33d051363dc9eeb2de9e675ce_rnd\".\"WR_RETURN_TAX\" AS \"\
+  WR_RETURN_TAX\" \nFROM \"5856cac33d051363dc9eeb2de9e675ce_rnd\")\n SELECT avg(\"\
+  WR_RETURN_TAX\") AS mean, count(\"WR_RETURN_TAX\") AS \"valuesCount\", count(DISTINCT\
+  \ \"WR_RETURN_TAX\") AS \"distinctCount\", MIN(\"WR_RETURN_TAX\") AS min, MAX(\"\
+  WR_RETURN_TAX\") AS max, coalesce(SUM(CASE WHEN (\"WR_RETURN_TAX\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"WR_RETURN_TAX\") AS stddev, SUM(\"\
+  WR_RETURN_TAX\") AS sum \nFROM \"5856cac33d051363dc9eeb2de9e675ce_sample\"\n LIMIT\
+  \ ?"
+checksum: b00ed314625a901fd1abce1f4e5923bb
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: c0d42425-f509-4e1e-a280-aa20852ebf64
+    type: table
+    name: WEB_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_RETURNS
+    displayName: WEB_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

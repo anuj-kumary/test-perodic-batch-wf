@@ -1,0 +1,34 @@
+name: acc053ef2fee5c61df2d74be14f3526c
+fullyQualifiedName: hktest.acc053ef2fee5c61df2d74be14f3526c
+owners: []
+duration: 82.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_GRNDFTHR_STAT_CD\"\
+  \ AS \"CONT_GRNDFTHR_STAT_CD\" \nFROM \"CURATED\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_GRNDFTHR_STAT_CD\" AS \"CONT_GRNDFTHR_STAT_CD\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT avg(LEN(\"CONT_GRNDFTHR_STAT_CD\")) AS mean, count(\"CONT_GRNDFTHR_STAT_CD\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CONT_GRNDFTHR_STAT_CD\") AS \"distinctCount\"\
+  , MIN(LEN(\"CONT_GRNDFTHR_STAT_CD\")) AS min, MAX(LEN(\"CONT_GRNDFTHR_STAT_CD\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"CONT_GRNDFTHR_STAT_CD\" IS ?) THEN ? ELSE ?\
+  \ END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"CONT_GRNDFTHR_STAT_CD\")) AS stddev,\
+  \ SUM(LEN(\"CONT_GRNDFTHR_STAT_CD\")) AS sum \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\
+  \n LIMIT ?"
+checksum: acc053ef2fee5c61df2d74be14f3526c
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

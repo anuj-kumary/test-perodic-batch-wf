@@ -1,0 +1,30 @@
+name: ae69bc546759a5dce5af6655ce7e413d
+fullyQualifiedName: hktest.ae69bc546759a5dce5af6655ce7e413d
+owners: []
+duration: 96.0
+users: []
+query: "WITH \"8511959cacf194b495273e731f3ed7de_rnd\" AS \n(SELECT \"WEB_PAGE_1\"\
+  .\"WP_TYPE\" AS \"WP_TYPE\" \nFROM \"TPCDS_SF100TCL\".\"WEB_PAGE\" AS \"WEB_PAGE_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"8511959cacf194b495273e731f3ed7de_sample\" AS \n\
+  (SELECT \"8511959cacf194b495273e731f3ed7de_rnd\".\"WP_TYPE\" AS \"WP_TYPE\" \nFROM\
+  \ \"8511959cacf194b495273e731f3ed7de_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"WP_TYPE\") AS count_1 \nFROM \"8511959cacf194b495273e731f3ed7de_sample\"\
+  \ GROUP BY \"WP_TYPE\" \nHAVING count(\"WP_TYPE\") = ?) AS only_once\n LIMIT ?"
+checksum: ae69bc546759a5dce5af6655ce7e413d
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 55292c30-d2e3-4067-b8e8-4a21aa644d73
+    type: table
+    name: WEB_PAGE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_PAGE
+    displayName: WEB_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

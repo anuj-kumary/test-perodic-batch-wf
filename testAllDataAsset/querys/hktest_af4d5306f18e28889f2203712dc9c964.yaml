@@ -1,0 +1,38 @@
+name: af4d5306f18e28889f2203712dc9c964
+fullyQualifiedName: hktest.af4d5306f18e28889f2203712dc9c964
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b61c5123-d022-4b6e-810b-f35b41e4ab82\",\"type\":\"table\"\
+        ,\"name\":\"CUSTOMER\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER\"\
+        ,\"description\":\"Customer data as defined by TPC-H\",\"displayName\":\"\
+        CUSTOMER\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 48.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"C_PHONE\") AS count_1\
+  \ \nFROM \"TPCH_SF1\".\"CUSTOMER\" GROUP BY \"C_PHONE\" \nHAVING count(\"C_PHONE\"\
+  ) = ?) AS only_once\n LIMIT ?"
+checksum: af4d5306f18e28889f2203712dc9c964
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b61c5123-d022-4b6e-810b-f35b41e4ab82
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,29 @@
+name: abcd169c5ba0f94036bbfb010e5b51a1
+fullyQualifiedName: hktest.abcd169c5ba0f94036bbfb010e5b51a1
+owners: []
+duration: 2620.0
+users: []
+query: "SELECT avg(\"P_PARTKEY\") AS mean, count(\"P_PARTKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"P_PARTKEY\") AS \"distinctCount\", MIN(\"P_PARTKEY\") AS min,\
+  \ MAX(\"P_PARTKEY\") AS max, coalesce(SUM(CASE WHEN (\"P_PARTKEY\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"P_PARTKEY\") AS stddev, SUM(\"\
+  P_PARTKEY\") AS sum \nFROM \"TPCH_SF100\".\"PART\"\n LIMIT ?"
+checksum: abcd169c5ba0f94036bbfb010e5b51a1
+queryDate: 1752364800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d8f39a9b-4f53-4c0d-acb2-d61f40c5b1ea
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

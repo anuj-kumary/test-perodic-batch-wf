@@ -1,0 +1,29 @@
+name: afe64582509a67fcd745c64ae5b2951e
+fullyQualifiedName: hktest.afe64582509a67fcd745c64ae5b2951e
+owners: []
+duration: 78.0
+users: []
+query: "SELECT avg(LEN(\"CONT_PIP_DIST_CODE\")) AS mean, count(\"CONT_PIP_DIST_CODE\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CONT_PIP_DIST_CODE\") AS \"distinctCount\"\
+  , MIN(LEN(\"CONT_PIP_DIST_CODE\")) AS min, MAX(LEN(\"CONT_PIP_DIST_CODE\")) AS max,\
+  \ coalesce(SUM(CASE WHEN (\"CONT_PIP_DIST_CODE\" IS ?) THEN ? ELSE ? END), ?) AS\
+  \ \"nullCount\", STDDEV_POP(LEN(\"CONT_PIP_DIST_CODE\")) AS stddev, SUM(LEN(\"CONT_PIP_DIST_CODE\"\
+  )) AS sum \nFROM \"CURATED\".\"CONT\"\n LIMIT ?"
+checksum: afe64582509a67fcd745c64ae5b2951e
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

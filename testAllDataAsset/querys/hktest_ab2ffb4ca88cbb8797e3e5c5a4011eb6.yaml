@@ -1,0 +1,30 @@
+name: ab2ffb4ca88cbb8797e3e5c5a4011eb6
+fullyQualifiedName: hktest.ab2ffb4ca88cbb8797e3e5c5a4011eb6
+owners: []
+duration: 64.0
+users: []
+query: "WITH c8780e22bf7576b99e4234f11ebc01de_rnd AS \n(SELECT \"CUSTOMERACCOUNTS_1\"\
+  .\"BALANCE\" AS \"BALANCE\" \nFROM \"MSSQLBANKING_STG\".\"CUSTOMERACCOUNTS\" AS\
+  \ \"CUSTOMERACCOUNTS_1\" TABLESAMPLE ROW(? ROWS)), \nc8780e22bf7576b99e4234f11ebc01de_sample\
+  \ AS \n(SELECT c8780e22bf7576b99e4234f11ebc01de_rnd.\"BALANCE\" AS \"BALANCE\" \n\
+  FROM c8780e22bf7576b99e4234f11ebc01de_rnd)\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"BALANCE\") AS count_1 \nFROM c8780e22bf7576b99e4234f11ebc01de_sample\
+  \ GROUP BY \"BALANCE\" \nHAVING count(\"BALANCE\") = ?) AS only_once\n LIMIT ?"
+checksum: ab2ffb4ca88cbb8797e3e5c5a4011eb6
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: d03f73b0-8a36-4cd5-a82f-a07db17fe588
+    type: table
+    name: CUSTOMERACCOUNTS
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS
+    displayName: CUSTOMERACCOUNTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

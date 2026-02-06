@@ -1,0 +1,31 @@
+name: af27beed9dfada460eba9a12d343bc50
+fullyQualifiedName: hktest.af27beed9dfada460eba9a12d343bc50
+owners: []
+duration: 104.0
+users: []
+query: "WITH e3c58aee13887c409aa5a310c57a9757_rnd AS \n(SELECT \"CNTRCT_1\".\"CONFORMED_LFSTYLE_OPT_NM\"\
+  \ AS \"CONFORMED_LFSTYLE_OPT_NM\" \nFROM \"CURATED\".\"CNTRCT\" AS \"CNTRCT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \ne3c58aee13887c409aa5a310c57a9757_sample AS \n(SELECT\
+  \ e3c58aee13887c409aa5a310c57a9757_rnd.\"CONFORMED_LFSTYLE_OPT_NM\" AS \"CONFORMED_LFSTYLE_OPT_NM\"\
+  \ \nFROM e3c58aee13887c409aa5a310c57a9757_rnd)\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"CONFORMED_LFSTYLE_OPT_NM\") AS count_1 \nFROM e3c58aee13887c409aa5a310c57a9757_sample\
+  \ GROUP BY \"CONFORMED_LFSTYLE_OPT_NM\" \nHAVING count(\"CONFORMED_LFSTYLE_OPT_NM\"\
+  ) = ?) AS only_once\n LIMIT ?"
+checksum: af27beed9dfada460eba9a12d343bc50
+queryDate: 1749254400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

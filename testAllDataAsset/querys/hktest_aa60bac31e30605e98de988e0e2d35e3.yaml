@@ -1,0 +1,37 @@
+name: aa60bac31e30605e98de988e0e2d35e3
+fullyQualifiedName: hktest.aa60bac31e30605e98de988e0e2d35e3
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"6813f4b1-14d0-4d7e-a166-02e3883a2231\",\"type\":\"table\"\
+        ,\"name\":\"COUNTRIES\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.COUNTRIES\"\
+        ,\"displayName\":\"COUNTRIES\",\"deleted\":false}]"
+  previousVersion: 1.0
+  changeSummary: {}
+owners: []
+duration: 112.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"COUNTRY_NAME\") ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"COUNTRY_NAME\") ASC)\
+  \ AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"COUNTRY_NAME\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"E2E_TEST\".\"COUNTRIES\"\n LIMIT ?"
+checksum: aa60bac31e30605e98de988e0e2d35e3
+queryDate: 1752537600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 6813f4b1-14d0-4d7e-a166-02e3883a2231
+    type: table
+    name: COUNTRIES
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.COUNTRIES
+    displayName: COUNTRIES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

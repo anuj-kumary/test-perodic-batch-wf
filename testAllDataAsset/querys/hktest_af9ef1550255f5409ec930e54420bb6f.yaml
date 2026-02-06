@@ -1,0 +1,36 @@
+name: af9ef1550255f5409ec930e54420bb6f
+fullyQualifiedName: hktest.af9ef1550255f5409ec930e54420bb6f
+owners: []
+duration: 77.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"LEVEL_2_ONLY_SUB_C\"\
+  \ AS \"LEVEL_2_ONLY_SUB_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  LEVEL_2_ONLY_SUB_C\" AS \"LEVEL_2_ONLY_SUB_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(\"LEVEL_2_ONLY_SUB_C\") AS mean, count(\"LEVEL_2_ONLY_SUB_C\") AS \"\
+  valuesCount\", count(DISTINCT \"LEVEL_2_ONLY_SUB_C\") AS \"distinctCount\", MIN(\"\
+  LEVEL_2_ONLY_SUB_C\") AS min, MAX(\"LEVEL_2_ONLY_SUB_C\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"LEVEL_2_ONLY_SUB_C\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"\
+  LEVEL_2_ONLY_SUB_C\") AS stddev, SUM(\"LEVEL_2_ONLY_SUB_C\") AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: af9ef1550255f5409ec930e54420bb6f
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

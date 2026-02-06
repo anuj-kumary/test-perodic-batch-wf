@@ -1,0 +1,38 @@
+name: ab1d340a69ca0d608e0d88537d8a74b2
+fullyQualifiedName: hktest.ab1d340a69ca0d608e0d88537d8a74b2
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f541ed9b-43c8-4fde-9898-ccab88cd5324\",\"type\":\"table\"\
+        ,\"name\":\"ORDERS\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS\"\
+        ,\"description\":\"Orders data as defined by TPC-H\",\"displayName\":\"ORDERS\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.4
+  changeSummary: {}
+owners: []
+duration: 66.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"O_CLERK\") AS count_1\
+  \ \nFROM \"TPCH_SF1\".\"ORDERS\" GROUP BY \"O_CLERK\" \nHAVING count(\"O_CLERK\"\
+  ) = ?) AS only_once\n LIMIT ?"
+checksum: ab1d340a69ca0d608e0d88537d8a74b2
+queryDate: 1752192000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f541ed9b-43c8-4fde-9898-ccab88cd5324
+    type: table
+    name: ORDERS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS
+    description: Orders data as defined by TPC-H
+    displayName: ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
