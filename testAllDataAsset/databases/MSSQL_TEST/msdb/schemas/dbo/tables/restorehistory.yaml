@@ -1,0 +1,164 @@
+name: restorehistory
+fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory
+tableType: Regular
+columns:
+  - name: restore_history_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.restore_history_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: restore_date
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.restore_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: destination_database_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.destination_database_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.user_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: backup_set_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.backup_set_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: restore_type
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.restore_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: replace
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.replace
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: recovery
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.recovery
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: restart
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.restart
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: stop_at
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.stop_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: device_count
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.device_count
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: stop_at_mark_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.stop_at_mark_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: stop_before
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.restorehistory.stop_before
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - backup_set_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.backupset.backup_set_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 57c2f396-9b05-4e00-9903-62b0219fbc25
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MSSQL_TEST.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: af8db866-dbb4-4bd5-a2ea-22202fbc71ef
+  type: database
+  name: msdb
+  fullyQualifiedName: MSSQL_TEST.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 406dc0dc4b654d7744ba8a16b4073de3
+processedLineage: false
+entityStatus: Approved

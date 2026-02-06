@@ -1,0 +1,163 @@
+name: sysmail_server
+fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server
+tableType: Regular
+columns:
+  - name: account_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.account_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: servertype
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.servertype
+    tags: []
+    children: []
+    customMetrics: []
+  - name: servername
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.servername
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: port
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.port
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: username
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.username
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: credential_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.credential_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: use_default_credentials
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.use_default_credentials
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: enable_ssl
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.enable_ssl
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: flags
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.flags
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: timeout
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.timeout
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_mod_datetime
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.last_mod_datetime
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_mod_user
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: nvarchar(128)
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.sysmail_server.last_mod_user
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - account_id
+      - servertype
+  - constraintType: FOREIGN_KEY
+    columns:
+      - account_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.sysmail_account.account_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - servertype
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.sysmail_servertype.servertype
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 57c2f396-9b05-4e00-9903-62b0219fbc25
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MSSQL_TEST.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: af8db866-dbb4-4bd5-a2ea-22202fbc71ef
+  type: database
+  name: msdb
+  fullyQualifiedName: MSSQL_TEST.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 450365aecde7ab835291fd0ab830f8e4
+processedLineage: false
+entityStatus: Approved

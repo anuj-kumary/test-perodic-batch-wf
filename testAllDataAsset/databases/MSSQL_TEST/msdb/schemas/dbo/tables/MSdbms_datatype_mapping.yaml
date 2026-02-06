@@ -1,0 +1,134 @@
+name: MSdbms_datatype_mapping
+fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping
+tableType: Regular
+columns:
+  - name: datatype_mapping_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.datatype_mapping_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: map_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.map_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dest_datatype_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.dest_datatype_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dest_precision
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.dest_precision
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dest_scale
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.dest_scale
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dest_length
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.dest_length
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dest_nullable
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.dest_nullable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dest_createparams
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.dest_createparams
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dataloss
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.dataloss
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - dest_datatype_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.MSdbms_datatype.datatype_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - map_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.MSdbms_map.map_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 57c2f396-9b05-4e00-9903-62b0219fbc25
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MSSQL_TEST.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: af8db866-dbb4-4bd5-a2ea-22202fbc71ef
+  type: database
+  name: msdb
+  fullyQualifiedName: MSSQL_TEST.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: cb20966de9e7ec3e8e85cbb91bc9e6fb
+processedLineage: false
+entityStatus: Approved

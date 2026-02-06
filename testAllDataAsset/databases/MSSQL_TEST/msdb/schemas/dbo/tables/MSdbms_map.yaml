@@ -1,0 +1,173 @@
+name: MSdbms_map
+fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map
+tableType: Regular
+columns:
+  - name: map_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.map_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: src_dbms_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_dbms_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dest_dbms_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.dest_dbms_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: src_datatype_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_datatype_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: src_len_min
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_len_min
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_len_max
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_len_max
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_prec_min
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_prec_min
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_prec_max
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_prec_max
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_scale_min
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_scale_min
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_scale_max
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_scale_max
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: src_nullable
+    dataType: BIT
+    dataLength: 1
+    dataTypeDisplay: bit
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.src_nullable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_datatype_mapping_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    fullyQualifiedName: MSSQL_TEST.msdb.dbo.MSdbms_map.default_datatype_mapping_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - default_datatype_mapping_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.MSdbms_datatype_mapping.datatype_mapping_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - dest_dbms_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.MSdbms.dbms_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - src_datatype_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.MSdbms_datatype.datatype_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - src_dbms_id
+    referredColumns:
+      - MSSQL_TEST.msdb.dbo.MSdbms.dbms_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 57c2f396-9b05-4e00-9903-62b0219fbc25
+  type: databaseSchema
+  name: dbo
+  fullyQualifiedName: MSSQL_TEST.msdb.dbo
+  displayName: dbo
+  deleted: false
+database:
+  id: af8db866-dbb4-4bd5-a2ea-22202fbc71ef
+  type: database
+  name: msdb
+  fullyQualifiedName: MSSQL_TEST.msdb
+  displayName: msdb
+  deleted: false
+service:
+  id: 1ef4c8da-1280-42c0-8b83-142c3a019de7
+  type: databaseService
+  name: MSSQL_TEST
+  fullyQualifiedName: MSSQL_TEST
+  description: ""
+  displayName: MSSQL_TEST
+  deleted: false
+serviceType: Mssql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b67f3211b7e3404f17af7c9c8ccd66df
+processedLineage: false
+entityStatus: Approved
