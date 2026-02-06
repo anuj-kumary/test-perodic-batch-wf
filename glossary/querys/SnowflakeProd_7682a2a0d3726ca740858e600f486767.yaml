@@ -1,0 +1,26 @@
+name: 7682a2a0d3726ca740858e600f486767
+fullyQualifiedName: SnowflakeProd.7682a2a0d3726ca740858e600f486767
+owners: []
+duration: 41.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"COUNTRY_ID\") AS\
+  \ count_1 \nFROM \"E2E_TEST\".\"COUNTRIES\" GROUP BY \"COUNTRY_ID\" \nHAVING count(\"\
+  COUNTRY_ID\") = 1) AS only_once\n LIMIT 1"
+checksum: 7682a2a0d3726ca740858e600f486767
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ecb620d8-c061-448a-a775-b725f52bc088
+    type: table
+    name: COUNTRIES
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.COUNTRIES
+    displayName: COUNTRIES
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

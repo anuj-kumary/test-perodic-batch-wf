@@ -1,0 +1,29 @@
+name: 22d711a1699dcbd6bc51bcc17ec6ad05
+fullyQualifiedName: SnowflakeProd.22d711a1699dcbd6bc51bcc17ec6ad05
+owners: []
+duration: 78.0
+users: []
+query: "SELECT avg(LEN(\"COUNTRY_NAME\")) AS mean, count(\"COUNTRY_NAME\") AS \"valuesCount\"\
+  , count(DISTINCT \"COUNTRY_NAME\") AS \"distinctCount\", MIN(LEN(\"COUNTRY_NAME\"\
+  )) AS min, MAX(LEN(\"COUNTRY_NAME\")) AS max, SUM(CASE WHEN (\"COUNTRY_NAME\" IS\
+  \ NULL) THEN 1 ELSE 0 END) AS \"nullCount\", STDDEV_POP(LEN(\"COUNTRY_NAME\")) AS\
+  \ stddev, SUM(LEN(\"COUNTRY_NAME\")) AS sum \nFROM \"E2E_TEST\".\"COUNTRIES\"\n\
+  \ LIMIT 1"
+checksum: 22d711a1699dcbd6bc51bcc17ec6ad05
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ecb620d8-c061-448a-a775-b725f52bc088
+    type: table
+    name: COUNTRIES
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.COUNTRIES
+    displayName: COUNTRIES
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

@@ -1,0 +1,27 @@
+name: 272c6b6d2d960026cba8f9f7c4cc7cfc
+fullyQualifiedName: SnowflakeProd.272c6b6d2d960026cba8f9f7c4cc7cfc
+owners: []
+duration: 45.0
+users: []
+query: "SELECT percentile_cont(0.50) WITHIN GROUP (ORDER BY \"E2E_TESTLOCATION_ID\"\
+  \ ASC) AS median, percentile_cont(0.25) WITHIN GROUP (ORDER BY \"E2E_TESTLOCATION_ID\"\
+  \ ASC) AS \"firstQuartile\", percentile_cont(0.75) WITHIN GROUP (ORDER BY \"E2E_TESTLOCATION_ID\"\
+  \ ASC) AS \"thirdQuartile\" \nFROM \"E2E_TEST\".\"LOCATIONS\"\n LIMIT 1"
+checksum: 272c6b6d2d960026cba8f9f7c4cc7cfc
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 6d5d4286-e273-4bad-9939-3e260d8d0906
+    type: table
+    name: LOCATIONS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.LOCATIONS
+    displayName: LOCATIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

@@ -1,0 +1,30 @@
+name: 5ddc64b7efb85172377d6e994e9ba54f
+fullyQualifiedName: SnowflakeProd.5ddc64b7efb85172377d6e994e9ba54f
+owners: []
+duration: 84.0
+users: []
+query: "SELECT avg(LEN(\"E2E_TESTDEPARTMENT_NAME\")) AS mean, count(\"E2E_TESTDEPARTMENT_NAME\"\
+  ) AS \"valuesCount\", count(DISTINCT \"E2E_TESTDEPARTMENT_NAME\") AS \"distinctCount\"\
+  , MIN(LEN(\"E2E_TESTDEPARTMENT_NAME\")) AS min, MAX(LEN(\"E2E_TESTDEPARTMENT_NAME\"\
+  )) AS max, SUM(CASE WHEN (\"E2E_TESTDEPARTMENT_NAME\" IS NULL) THEN 1 ELSE 0 END)\
+  \ AS \"nullCount\", STDDEV_POP(LEN(\"E2E_TESTDEPARTMENT_NAME\")) AS stddev, SUM(LEN(\"\
+  E2E_TESTDEPARTMENT_NAME\")) AS sum \nFROM \"E2E_TEST\".\"TEST_DEPARTMENTS\"\n LIMIT\
+  \ 1"
+checksum: 5ddc64b7efb85172377d6e994e9ba54f
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 86b90bf8-71af-4aad-b813-1bf5fa19bdfa
+    type: table
+    name: TEST_DEPARTMENTS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.TEST_DEPARTMENTS
+    displayName: TEST_DEPARTMENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

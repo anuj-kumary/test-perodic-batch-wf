@@ -1,0 +1,27 @@
+name: 5cd096533f142a24312ab6484cca9709
+fullyQualifiedName: SnowflakeProd.5cd096533f142a24312ab6484cca9709
+owners: []
+duration: 42.0
+users: []
+query: "SELECT percentile_cont(0.50) WITHIN GROUP (ORDER BY \"E2E_TESTJOB_ID\" ASC)\
+  \ AS median, percentile_cont(0.25) WITHIN GROUP (ORDER BY \"E2E_TESTJOB_ID\" ASC)\
+  \ AS \"firstQuartile\", percentile_cont(0.75) WITHIN GROUP (ORDER BY \"E2E_TESTJOB_ID\"\
+  \ ASC) AS \"thirdQuartile\" \nFROM \"E2E_TEST\".\"JOBS\"\n LIMIT 1"
+checksum: 5cd096533f142a24312ab6484cca9709
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e8f2b355-62a6-46de-97aa-96738f20bf8e
+    type: table
+    name: JOBS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.JOBS
+    displayName: JOBS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

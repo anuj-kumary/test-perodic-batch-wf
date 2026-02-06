@@ -1,0 +1,26 @@
+name: 7811e9a2156ea0927180051fb3663a3a
+fullyQualifiedName: SnowflakeProd.7811e9a2156ea0927180051fb3663a3a
+owners: []
+duration: 52.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"E2E_TESTEMPLOYEE_ID\"\
+  ) AS count_1 \nFROM \"E2E_TEST\".\"TEST_EMPLOYEES\" GROUP BY \"E2E_TESTEMPLOYEE_ID\"\
+  \ \nHAVING count(\"E2E_TESTEMPLOYEE_ID\") = 1) AS only_once\n LIMIT 1"
+checksum: 7811e9a2156ea0927180051fb3663a3a
+queryDate: 1723248000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8b64b31a-69b5-4ec1-b01f-a53b165f6e34
+    type: table
+    name: TEST_EMPLOYEES
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.TEST_EMPLOYEES
+    displayName: TEST_EMPLOYEES
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

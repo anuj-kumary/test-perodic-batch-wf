@@ -1,0 +1,29 @@
+name: 6e0faa83014ca26f1bb6a1af755caf0c
+fullyQualifiedName: SnowflakeProd.6e0faa83014ca26f1bb6a1af755caf0c
+owners: []
+duration: 69.0
+users: []
+query: "SELECT avg(LEN(\"E2E_TESTLAST_NAME\")) AS mean, count(\"E2E_TESTLAST_NAME\"\
+  ) AS \"valuesCount\", count(DISTINCT \"E2E_TESTLAST_NAME\") AS \"distinctCount\"\
+  , MIN(LEN(\"E2E_TESTLAST_NAME\")) AS min, MAX(LEN(\"E2E_TESTLAST_NAME\")) AS max,\
+  \ SUM(CASE WHEN (\"E2E_TESTLAST_NAME\" IS NULL) THEN 1 ELSE 0 END) AS \"nullCount\"\
+  , STDDEV_POP(LEN(\"E2E_TESTLAST_NAME\")) AS stddev, SUM(LEN(\"E2E_TESTLAST_NAME\"\
+  )) AS sum \nFROM \"E2E_TEST\".\"TEST_DEPENDENTS\"\n LIMIT 1"
+checksum: 6e0faa83014ca26f1bb6a1af755caf0c
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: db16770b-3e30-470f-86fc-a17ec78a73fd
+    type: table
+    name: TEST_DEPENDENTS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.TEST_DEPENDENTS
+    displayName: TEST_DEPENDENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

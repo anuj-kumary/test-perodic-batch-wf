@@ -1,0 +1,40 @@
+name: 7654a7b18054a2569b64485b93df1054
+fullyQualifiedName: SnowflakeProd.7654a7b18054a2569b64485b93df1054
+owners: []
+duration: 787.0
+users: []
+query: |-
+  SELECT /* sqlalchemy:_get_schema_columns */
+          ic.table_name,
+          ic.column_name,
+          ic.data_type,
+          ic.character_maximum_length,
+          ic.numeric_precision,
+          ic.numeric_scale,
+          ic.is_nullable,
+          ic.column_default,
+          ic.is_identity,
+          ic.comment,
+          ic.identity_start,
+          ic.identity_increment
+      FROM information_schema.columns ic
+      WHERE ic.table_schema='E2E_TEST'
+      ORDER BY ic.ordinal_position
+checksum: 7654a7b18054a2569b64485b93df1054
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 2346f460-cff6-4846-8777-1277340daa2e
+    type: table
+    name: COLUMNS
+    fullyQualifiedName: SnowflakeProd.SNOWFLAKE_SAMPLE_DATA.INFORMATION_SCHEMA.COLUMNS
+    displayName: COLUMNS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

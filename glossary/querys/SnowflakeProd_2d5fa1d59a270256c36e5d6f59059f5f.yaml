@@ -1,0 +1,29 @@
+name: 2d5fa1d59a270256c36e5d6f59059f5f
+fullyQualifiedName: SnowflakeProd.2d5fa1d59a270256c36e5d6f59059f5f
+owners: []
+duration: 52.0
+users: []
+query: "SELECT avg(\"E2E_TESTDEPARTMENT_ID\") AS mean, count(\"E2E_TESTDEPARTMENT_ID\"\
+  ) AS \"valuesCount\", count(DISTINCT \"E2E_TESTDEPARTMENT_ID\") AS \"distinctCount\"\
+  , MIN(\"E2E_TESTDEPARTMENT_ID\") AS min, MAX(\"E2E_TESTDEPARTMENT_ID\") AS max,\
+  \ SUM(CASE WHEN (\"E2E_TESTDEPARTMENT_ID\" IS NULL) THEN 1 ELSE 0 END) AS \"nullCount\"\
+  , STDDEV_POP(\"E2E_TESTDEPARTMENT_ID\") AS stddev, SUM(\"E2E_TESTDEPARTMENT_ID\"\
+  ) AS sum \nFROM \"E2E_TEST\".\"TEST_EMPLOYEES\"\n LIMIT 1"
+checksum: 2d5fa1d59a270256c36e5d6f59059f5f
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8b64b31a-69b5-4ec1-b01f-a53b165f6e34
+    type: table
+    name: TEST_EMPLOYEES
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.TEST_EMPLOYEES
+    displayName: TEST_EMPLOYEES
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

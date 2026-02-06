@@ -1,0 +1,33 @@
+name: 6c641ba66001454f9ac43918de6207ad
+fullyQualifiedName: SnowflakeProd.6c641ba66001454f9ac43918de6207ad
+owners: []
+duration: 352.0
+users: []
+query: "SELECT\n  query_type,\n  query_text,\n  user_name,\n  database_name,\n  schema_name,\n\
+  \  start_time,\n  end_time,\n  total_elapsed_time duration\nfrom snowflake.account_usage.query_history\n\
+  WHERE query_text NOT LIKE '/* {\"app\": \"OpenMetadata\", %%} */%%'\nAND query_text\
+  \ NOT LIKE '/* {\"app\": \"dbt\", %%} */%%'\nAND start_time between to_timestamp_ltz('2024-08-04\
+  \ 00:00:00+00:00') and to_timestamp_ltz('2024-08-05 00:00:00+00:00')\n\n       \
+  \ AND QUERY_TYPE NOT IN ('ROLLBACK','CREATE_USER','CREATE_ROLE','CREATE_NETWORK_POLICY',\n\
+  \        'ALTER_ROLE','ALTER_NETWORK_POLICY','ALTER_ACCOUNT','DROP_SEQUENCE','DROP_USER',\n\
+  \        'DROP_ROLE','DROP_NETWORK_POLICY','REVOKE','UNLOAD','USE','ALTER_SESSION',\n\
+  \        'COPY','COMMIT','CREATE_TABLE','PUT_FILES','GET_FILES', 'CREATE_TABLE_AS_SELECT','SHOW',\
+  \ 'DESCRIBE')\n    \nLIMIT 1000"
+checksum: 6c641ba66001454f9ac43918de6207ad
+queryDate: 1723248000000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 6671cdaf-361a-4457-bd71-5458944584a3
+    type: table
+    name: QUERY_HISTORY
+    fullyQualifiedName: SnowflakeProd.SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+    displayName: QUERY_HISTORY
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

@@ -1,0 +1,33 @@
+name: 3454688ae838d69202d53a92e43c638c
+fullyQualifiedName: SnowflakeProd.3454688ae838d69202d53a92e43c638c
+owners: []
+duration: 40.0
+users: []
+query: "WITH \"COUNTRIES_rnd\" AS \n(SELECT \"E2E_TEST\".\"COUNTRIES\".\"COUNTRY_ID\"\
+  \ AS \"COUNTRY_ID\", \"E2E_TEST\".\"COUNTRIES\".\"COUNTRY_NAME\" AS \"COUNTRY_NAME\"\
+  , \"E2E_TEST\".\"COUNTRIES\".\"REGION_ID\" AS \"REGION_ID\" \nFROM \"E2E_TEST\"\
+  .\"COUNTRIES\" SAMPLE BERNOULLI (100.0) ), \n\"COUNTRIES_sample\" AS \n(SELECT \"\
+  COUNTRIES_rnd\".\"COUNTRY_ID\" AS \"COUNTRY_ID\", \"COUNTRIES_rnd\".\"COUNTRY_NAME\"\
+  \ AS \"COUNTRY_NAME\", \"COUNTRIES_rnd\".\"REGION_ID\" AS \"REGION_ID\" \nFROM \"\
+  COUNTRIES_rnd\")\n SELECT \"COUNTRIES_sample\".\"COUNTRY_ID\" AS \"COUNTRIES_sample_COUNTRY_ID\"\
+  , \"COUNTRIES_sample\".\"COUNTRY_NAME\" AS \"COUNTRIES_sample_COUNTRY_NAME\", \"\
+  COUNTRIES_sample\".\"REGION_ID\" AS \"COUNTRIES_sample_REGION_ID\" \nFROM \"COUNTRIES_sample\"\
+  \n LIMIT 50"
+checksum: 3454688ae838d69202d53a92e43c638c
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ecb620d8-c061-448a-a775-b725f52bc088
+    type: table
+    name: COUNTRIES
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.COUNTRIES
+    displayName: COUNTRIES
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

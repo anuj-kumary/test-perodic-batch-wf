@@ -1,0 +1,29 @@
+name: 8093a4b7ea221096200003d79779daba
+fullyQualifiedName: SnowflakeProd.8093a4b7ea221096200003d79779daba
+owners: []
+duration: 82.0
+users: []
+query: "SELECT avg(\"E2E_TESTLOCATION_ID\") AS mean, count(\"E2E_TESTLOCATION_ID\"\
+  ) AS \"valuesCount\", count(DISTINCT \"E2E_TESTLOCATION_ID\") AS \"distinctCount\"\
+  , MIN(\"E2E_TESTLOCATION_ID\") AS min, MAX(\"E2E_TESTLOCATION_ID\") AS max, SUM(CASE\
+  \ WHEN (\"E2E_TESTLOCATION_ID\" IS NULL) THEN 1 ELSE 0 END) AS \"nullCount\", STDDEV_POP(\"\
+  E2E_TESTLOCATION_ID\") AS stddev, SUM(\"E2E_TESTLOCATION_ID\") AS sum \nFROM \"\
+  E2E_TEST\".\"TEST_DEPARTMENTS\"\n LIMIT 1"
+checksum: 8093a4b7ea221096200003d79779daba
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 86b90bf8-71af-4aad-b813-1bf5fa19bdfa
+    type: table
+    name: TEST_DEPARTMENTS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.TEST_DEPARTMENTS
+    displayName: TEST_DEPARTMENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

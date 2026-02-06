@@ -1,0 +1,26 @@
+name: 1bee4f30d116f5b1e18bb2181925e833
+fullyQualifiedName: SnowflakeProd.1bee4f30d116f5b1e18bb2181925e833
+owners: []
+duration: 44.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"E2E_TESTDEPENDENT_ID\"\
+  ) AS count_1 \nFROM \"E2E_TEST\".\"TEST_DEPENDENTS\" GROUP BY \"E2E_TESTDEPENDENT_ID\"\
+  \ \nHAVING count(\"E2E_TESTDEPENDENT_ID\") = 1) AS only_once\n LIMIT 1"
+checksum: 1bee4f30d116f5b1e18bb2181925e833
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: db16770b-3e30-470f-86fc-a17ec78a73fd
+    type: table
+    name: TEST_DEPENDENTS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.TEST_DEPENDENTS
+    displayName: TEST_DEPENDENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

@@ -1,0 +1,26 @@
+name: 45355fa84f3002378ef50d2ca86526ad
+fullyQualifiedName: SnowflakeProd.45355fa84f3002378ef50d2ca86526ad
+owners: []
+duration: 53.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"REGION_ID\") AS\
+  \ count_1 \nFROM \"E2E_TEST\".\"REGIONS\" GROUP BY \"REGION_ID\" \nHAVING count(\"\
+  REGION_ID\") = 1) AS only_once\n LIMIT 1"
+checksum: 45355fa84f3002378ef50d2ca86526ad
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 25f68e6f-812c-4dd8-9143-cfbd6c865532
+    type: table
+    name: REGIONS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.REGIONS
+    displayName: REGIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

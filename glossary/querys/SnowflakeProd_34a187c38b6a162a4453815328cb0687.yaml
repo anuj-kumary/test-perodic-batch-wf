@@ -1,0 +1,30 @@
+name: 34a187c38b6a162a4453815328cb0687
+fullyQualifiedName: SnowflakeProd.34a187c38b6a162a4453815328cb0687
+owners: []
+duration: 38.0
+users: []
+query: "WITH \"REGIONS_rnd\" AS \n(SELECT \"E2E_TEST\".\"REGIONS\".\"REGION_ID\" AS\
+  \ \"REGION_ID\", \"E2E_TEST\".\"REGIONS\".\"REGION_NAME\" AS \"REGION_NAME\" \n\
+  FROM \"E2E_TEST\".\"REGIONS\" SAMPLE BERNOULLI (100.0) ), \n\"REGIONS_sample\" AS\
+  \ \n(SELECT \"REGIONS_rnd\".\"REGION_ID\" AS \"REGION_ID\", \"REGIONS_rnd\".\"REGION_NAME\"\
+  \ AS \"REGION_NAME\" \nFROM \"REGIONS_rnd\")\n SELECT \"REGIONS_sample\".\"REGION_ID\"\
+  \ AS \"REGIONS_sample_REGION_ID\", \"REGIONS_sample\".\"REGION_NAME\" AS \"REGIONS_sample_REGION_NAME\"\
+  \ \nFROM \"REGIONS_sample\"\n LIMIT 50"
+checksum: 34a187c38b6a162a4453815328cb0687
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 25f68e6f-812c-4dd8-9143-cfbd6c865532
+    type: table
+    name: REGIONS
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.REGIONS
+    displayName: REGIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd

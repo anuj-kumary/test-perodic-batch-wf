@@ -1,0 +1,27 @@
+name: 1d6c941ffa803a4d5af01005f90d2414
+fullyQualifiedName: SnowflakeProd.1d6c941ffa803a4d5af01005f90d2414
+owners: []
+duration: 51.0
+users: []
+query: "SELECT percentile_cont(0.50) WITHIN GROUP (ORDER BY \"REGION_ID\" ASC) AS\
+  \ median, percentile_cont(0.25) WITHIN GROUP (ORDER BY \"REGION_ID\" ASC) AS \"\
+  firstQuartile\", percentile_cont(0.75) WITHIN GROUP (ORDER BY \"REGION_ID\" ASC)\
+  \ AS \"thirdQuartile\" \nFROM \"E2E_TEST\".\"COUNTRIES\"\n LIMIT 1"
+checksum: 1d6c941ffa803a4d5af01005f90d2414
+queryDate: 1723334400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ecb620d8-c061-448a-a775-b725f52bc088
+    type: table
+    name: COUNTRIES
+    fullyQualifiedName: SnowflakeProd.E2E_DB.E2E_TEST.COUNTRIES
+    displayName: COUNTRIES
+    deleted: false
+processedLineage: false
+service:
+  id: 486b5c07-139b-4e9b-b384-0cb7327fb7b9
+  type: databaseService
+  name: SnowflakeProd
+  fullyQualifiedName: SnowflakeProd
