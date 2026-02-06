@@ -1,0 +1,51 @@
+name: table_886
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_886
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_886.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_DCJ_JOURNEY_HIERARCHY(\n\tACCOUNT_TYPE,\n\
+  \tBUSINESS_UNIT,\n\tKEY_APP,\n\tCURRENT_APP_USAGE_LEVEL,\n\tDESIRED_APP_USAGE_LEVEL,\n\
+  \tCAMPAIGN_STREAM,\n\tMARKETO_PROGRAM_NAME,\n\tSEQUENCE,\n\tACTIVE\n) as\n select\n\
+  ACCOUNT_TYPE\n,BUSINESS_UNIT\n,KEY_APP\n,CURRENT_APP_USAGE_LEVEL\n,DESIRED_APP_USAGE_LEVEL\n\
+  ,CAMPAIGN_STREAM\n,MARKETO_PROGRAM_NAME\n,SEQUENCE\n,ACTIVE\n\nFROM\n\"RDS\".\"\
+  SURF\".\"X_SNC_DIGITAL_CU_0_DCJ_JOURNEY_HIERARCHY\" where ACTIVE ='random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

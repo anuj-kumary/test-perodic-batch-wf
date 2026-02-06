@@ -1,0 +1,2042 @@
+name: table_837
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_837
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_837.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RPO_PS_BACKLOG(\n\t\"ReportingMonthSurfFormat\"\
+  ,\n\t\"AccountPrinciple\",\n\t\"SalesDocument\",\n\t\"SalesDocumentItem\",\n\t\"\
+  RevPriceDC\",\n\t\"RevPriceLC\",\n\t\"T4CFlag\",\n\t\"T4CSignificantPenalty\",\n\
+  \t\"LocalCurrency\",\n\t\"ContractSignedDate\",\n\t\"SalesOrg\",\n\t\"ReasonforRejection\"\
+  ,\n\t\"POBId\",\n\t\"POBName\",\n\t\"RejectionReasonDesc\",\n\t\"ContractStartDate\"\
+  ,\n\t\"ContractEndDate\",\n\t\"SettlementFrom\",\n\t\"SettlementTo\",\n\t\"SnapshotMonth\"\
+  ,\n\t\"SnapshotDate\",\n\t\"SnapshotQuarter\",\n\t\"MaterialNo\",\n\t\"T4CValidityFrom\"\
+  ,\n\t\"T4CValidityTo\",\n\t\"ItemCategory\",\n\t\"OpportunityID\",\n\t\"RAContract\"\
+  ,\n\t\"SourceFlag\",\n\t\"RecordKey\",\n\t\"ReportingQuarter\",\n\t\"EndDate\",\n\
+  \t\"StartDate\",\n\t\"LastInvDate\",\n\t\"NextInvoiceDate\",\n\t\"MultiYearFed\"\
+  ,\n\t\"T4COptionToDownsell\",\n\t\"T4CDownsellStartDate\",\n\t\"T4CDownsellEndDate\"\
+  ,\n\t\"AmountAfterAdjuments\",\n\t\"Adjversion\"\n) as ---**Fetch Source RPO backlog***************************\n\
+  With MAIN_RPO_BACKLOG as (\n    select\n        \"Join_1\".\"AccountPrinciple\"\
+  \ as \"AccountPrinciple\",\n        \"Join_1\".\"SalesDocument\" as \"SalesDocument\"\
+  ,\n        \"Join_1\".\"SalesDocumentItem\" as \"SalesDocumentItem\",\n        \"\
+  Join_1\".\"POBId\" as \"POBId\",\n        \"Join_1\".\"AccountingPeriod\" as \"\
+  AccountingPeriod\",\n        \"Join_1\".\"ReportingMonthNumeric\" as \"ReportingMonthNumeric\"\
+  ,\n        \"Join_1\".\"RevPriceDC\" as \"RevPriceDC\",\n        \"Join_1\".\"RevPriceLC\"\
+  \ as \"RevPriceLC\",\n        \"Join_1\".\"DocumentCurrency\" as \"DocumentCurrency\"\
+  ,\n        \"Join_1\".\"Quantity\" as \"Quantity\",\n        \"Join_1\".\"FullfilledQty\"\
+  \ as \"FullfilledQty\",\n        \"Join_1\".\"CompanyCode\" as \"CompanyCode\",\n\
+  \        \"Join_1\".\"RAContract\" as \"RAContract\",\n        \"Join_1\".\"POBName\"\
+  \ as \"POBName\",\n        \"Join_1\".\"POBType\" as \"POBType\",\n        \"Join_1\"\
+  .\"AllocationAmount\" as \"AllocationAmount\",\n        \"Join_1\".\"RemainQuantity\"\
+  \ as \"RemainQuantity\",\n        \"Join_1\".\"RevPriceNoPending\" as \"RevPriceNoPending\"\
+  ,\n        \"Join_1\".\"InvoiceAmount\" as \"InvoiceAmount\",\n        \"Join_1\"\
+  .\"RevCatchup\" as \"RevCatchup\",\n        \"Join_1\".\"FulfillPOC\" as \"FulfillPOC\"\
+  ,\n        \"Join_1\".\"CumulatePOC\" as \"CumulatePOC\",\n        \"Join_1\".\"\
+  FulFillPOCbyAmt\" as \"FulFillPOCbyAmt\",\n        \"Join_1\".\"CumulatePOCbyAmt\"\
+  \ as \"CumulatePOCbyAmt\",\n        \"Join_1\".\"InvoicedQty\" as \"InvoicedQty\"\
+  ,\n        \"Join_1\".\"UnitPrice\" as \"UnitPrice\",\n        \"Join_1\".\"PostPrice\"\
+  \ as \"PostPrice\",\n        \"Join_1\".\"PostPrice_LC\" as \"PostPrice_LC\",\n\
+  \        \"Join_1\".\"PostPrice_GC\" as \"PostPrice_GC\",\n        \"Join_1\".\"\
+  PostPrice_HC\" as \"PostPrice_HC\",\n        \"Join_1\".\"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n        \"Join_1\".\"BLENDED_GC\" as \"BLENDED_GC\",\n        \"Join_1\".\"BLENDED_HC\"\
+  \ as \"BLENDED_HC\",\n        \"Join_1\".\"T4C_REV_DC\" as \"T4C_REV_DC\",\n   \
+  \     \"Join_1\".\"T4C_REV_LC\" as \"T4C_REV_LC\",\n        \"Join_1\".\"T4C_REV_GC\"\
+  \ as \"T4C_REV_GC\",\n        \"Join_1\".\"T4C_REV_HC\" as \"T4C_REV_HC\",\n   \
+  \     \"Join_1\".\"Revenue_Status\" as \"Revenue_Status\",\n        \"Join_1\".\"\
+  LocalCurrency\" as \"LocalCurrency\",\n        \"Join_1\".\"LocalCurrency2\" as\
+  \ \"LocalCurrency2\",\n        \"Join_1\".\"LocalCurrency2\" as \"LocalCurrency3\"\
+  ,\n        \"Join_1\".\"Createdon\" as \"Createdon\",\n        \"Join_1\".\"CreatedTime\"\
+  \ as \"CreatedTime\",\n        \"Join_1\".\"CreatedBy\" as \"CreatedBy\",\n    \
+  \    \"Join_1\".\"SnapshotMonth\" as \"SnapshotMonth\",\n        \"Join_1\".\"SnapshotDate\"\
+  \ as \"SnapshotDate\",\n        \"Join_1\".\"COLCBlockDocItem\" as \"COLCBlockDocItem\"\
+  ,\n        \"Join_1\".\"MultiYearFed\" as \"MultiYearFed\",\n        \"Join_1\"\
+  .\"T4COptionToDownsell\" as \"T4COptionToDownsell\",\n        \"Join_1\".\"T4CDownsellStartDate\"\
+  \ as \"T4CDownsellStartDate\",\n        \"Join_1\".\"T4CDownsellEndDate\" as \"\
+  T4CDownsellEndDate\",\n        \"Join_1\".\"BillingDateVBKD\" as \"BillingDateVBKD\"\
+  ,\n        \"Join_1\".\"T4CRefundPercentage\" as \"T4CRefundPercentage\",\n    \
+  \    \"Join_1\".\"BillingPlanNumber\" as \"BillingPlanNumber\",\n        \"Join_1\"\
+  .\"T4C_Flag\" as \"T4C_Flag\",\n        \"Join_1\".\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n        \"Join_1\".\"ContractEndDate\" as \"ContractEndDate\",\n        \"Join_1\"\
+  .\"ContractSignedDate\" as \"ContractSignedDate\",\n        \"Join_1\".\"SalesOrganization\"\
+  \ as \"SalesOrganization\",\n        \"Join_1\".\"RejectionReason\" as \"RejectionReason\"\
+  ,\n        \"Join_1\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n    \
+  \    \"Join_1\".\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\",\n      \
+  \  \"Join_1\".\"Material\" as \"Material\",\n        \"Join_1\".\"T4CValidityFrom\"\
+  \ as \"T4CValidityFrom\",\n        \"Join_1\".\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n        \"Join_1\".\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n        \"Join_1\"\
+  .\"T4CRightToRefund\" as \"T4CRightToRefund\",\n        \"Join_1\".\"T4CRefundValidityFrom\"\
+  \ as \"T4CRefundValidityFrom\",\n        \"Join_1\".\"T4CRefundValidityTo\" as \"\
+  T4CRefundValidityTo\",\n        \"Join_1\".\"ItemCategory\" as \"ItemCategory\"\
+  ,\n        \"Join_1\".\"OpportunityID\" as \"OpportunityID\",\n        \"Join_1\"\
+  .\"FPLT_BillingDateforBillingIndexandPrintout\" as \"FPLT_BillingDateforBillingIndexandPrintout\"\
+  ,\n        \"Join_1\".\"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n        \"Join_1\".\"FPLT_SettlementDateforDeadlineNFDAT\" as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n        \"Join_1\".\"FPLT_BillBlkDesc\" as \"FPLT_BillBlkDesc\",\n        \"\
+  Join_1\".\"FPLT_BillingStatusfortheBillingPlanDate\" as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n        \"Join_1\".\"EndDate\" as \"EndDate\",\n        \"Join_1\".\"StartDate\"\
+  \ as \"StartDate\",\n        \"Join_1\".\"LastInvTodate\" as \"LastInvTodate\",\n\
+  \        \"Join_1\".\"LastInvDate\" as \"LastInvDate\",\n        \"Join_1\".\"NextInvoiceDate\"\
+  \ as \"NextInvoiceDate\",\n        \"Join_1\".\"SettlementFrom\" as \"SettlementFrom\"\
+  ,\n        \"Join_1\".\"SettlementTo\" as \"SettlementTo\",\n        \"Join_1\"\
+  .\"HDRContractStartDate\" as \"HDRContractStartDate\",\n        \"Join_1\".\"HDRContractEndDate\"\
+  \ as \"HDRContractEndDate\",\n        \"Join_1\".\"RecordKey\" as \"RecordKey\"\
+  ,\n        \"Join_1\".\"ReportingQuarter\" as \"ReportingQuarter\",\n        \"\
+  Join_1\".\"SnapshotQuarterEndDate\" as \"SnapshotQuarterEndDate\",\n        \"Join_1\"\
+  .\"SnapshotQuarter\" as \"SnapshotQuarter\",\n        \"Join_1\".\"BillingPlanDesc\"\
+  \ as \"BillingPlanDesc\",\n        \"Join_1\".\"T4C_REV_LC_UPDATED\" as \"T4C_REV_LC_UPDATED\"\
+  ,\n        \"Join_1\".\"BLENDED_LC_UPDATED\" as \"BLENDED_LC_UPDATED\",\n      \
+  \  \"Join_1\".\"RPOBacklogAmount\" as \"RPOBacklogAmount\",\n        \"Join_1\"\
+  .\"ReportingMonthSurfFormat\" as \"ReportingMonthSurfFormat\",\n        \"Join_1\"\
+  .\"AdjRPOAmountFinal\" as \"AdjRPOAmountFinal\",\n        \"FullRPOAdjustments\"\
+  .\"FullRPOAdjAmount\" as \"FullRPOAdjAmount\",\n        \"FullRPOAdjustments\".\"\
+  FullRPOAdjPOBId\" as \"FullRPOAdjPOBId\",\n        IFF(\n            \"POBId\" =\
+  \ \"FullRPOAdjPOBId\",\n            \"FullRPOAdjAmount\",\n            \"BLENDED_LC_UPDATED\"\
+  \n        ) as \"FullAdjRPOAmountFinal\"\n    from(\n            SELECT\n      \
+  \          \"RPOBacklog\".\"AccountPrinciple\" as \"AccountPrinciple\",\n      \
+  \          \"RPOBacklog\".\"SalesDocument\" as \"SalesDocument\",\n            \
+  \    \"RPOBacklog\".\"SalesDocumentItem\" as \"SalesDocumentItem\",\n          \
+  \      \"RPOBacklog\".\"POBId\" as \"POBId\",\n                \"RPOBacklog\".\"\
+  AccountingPeriod\" as \"AccountingPeriod\",\n                \"RPOBacklog\".\"ReportingMonthNumeric\"\
+  \ as \"ReportingMonthNumeric\",\n                \"RPOBacklog\".\"RevPriceDC\" as\
+  \ \"RevPriceDC\",\n                \"RPOBacklog\".\"RevPriceLC\" as \"RevPriceLC\"\
+  ,\n                \"RPOBacklog\".\"DocumentCurrency\" as \"DocumentCurrency\",\n\
+  \                \"RPOBacklog\".\"Quantity\" as \"Quantity\",\n                \"\
+  RPOBacklog\".\"FullfilledQty\" as \"FullfilledQty\",\n                \"RPOBacklog\"\
+  .\"CompanyCode\" as \"CompanyCode\",\n                \"RPOBacklog\".\"RAContract\"\
+  \ as \"RAContract\",\n                \"RPOBacklog\".\"POBName\" as \"POBName\"\
+  ,\n                \"RPOBacklog\".\"POBType\" as \"POBType\",\n                \"\
+  RPOBacklog\".\"AllocationAmount\" as \"AllocationAmount\",\n                \"RPOBacklog\"\
+  .\"RemainQuantity\" as \"RemainQuantity\",\n                \"RPOBacklog\".\"RevPriceNoPending\"\
+  \ as \"RevPriceNoPending\",\n                \"RPOBacklog\".\"InvoiceAmount\" as\
+  \ \"InvoiceAmount\",\n                \"RPOBacklog\".\"RevCatchup\" as \"RevCatchup\"\
+  ,\n                \"RPOBacklog\".\"FulfillPOC\" as \"FulfillPOC\",\n          \
+  \      \"RPOBacklog\".\"CumulatePOC\" as \"CumulatePOC\",\n                \"RPOBacklog\"\
+  .\"FulFillPOCbyAmt\" as \"FulFillPOCbyAmt\",\n                \"RPOBacklog\".\"\
+  CumulatePOCbyAmt\" as \"CumulatePOCbyAmt\",\n                \"RPOBacklog\".\"InvoicedQty\"\
+  \ as \"InvoicedQty\",\n                \"RPOBacklog\".\"UnitPrice\" as \"UnitPrice\"\
+  ,\n                \"RPOBacklog\".\"PostPrice\" as \"PostPrice\",\n            \
+  \    \"RPOBacklog\".\"PostPrice_LC\" as \"PostPrice_LC\",\n                \"RPOBacklog\"\
+  .\"PostPrice_GC\" as \"PostPrice_GC\",\n                \"RPOBacklog\".\"PostPrice_HC\"\
+  \ as \"PostPrice_HC\",\n                \"RPOBacklog\".\"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n                \"RPOBacklog\".\"BLENDED_GC\" as \"BLENDED_GC\",\n          \
+  \      \"RPOBacklog\".\"BLENDED_HC\" as \"BLENDED_HC\",\n                \"RPOBacklog\"\
+  .\"T4C_REV_DC\" as \"T4C_REV_DC\",\n                \"RPOBacklog\".\"T4C_REV_LC\"\
+  \ as \"T4C_REV_LC\",\n                \"RPOBacklog\".\"T4C_REV_GC\" as \"T4C_REV_GC\"\
+  ,\n                \"RPOBacklog\".\"T4C_REV_HC\" as \"T4C_REV_HC\",\n          \
+  \      \"RPOBacklog\".\"Revenue_Status\" as \"Revenue_Status\",\n              \
+  \  \"RPOBacklog\".\"LocalCurrency\" as \"LocalCurrency\",\n                \"RPOBacklog\"\
+  .\"LocalCurrency2\" as \"LocalCurrency2\",\n                \"RPOBacklog\".\"LocalCurrency2\"\
+  \ as \"LocalCurrency3\",\n                \"RPOBacklog\".\"Createdon\" as \"Createdon\"\
+  ,\n                \"RPOBacklog\".\"CreatedTime\" as \"CreatedTime\",\n        \
+  \        \"RPOBacklog\".\"CreatedBy\" as \"CreatedBy\",\n                \"RPOBacklog\"\
+  .\"SnapshotMonth\" as \"SnapshotMonth\",\n                \"RPOBacklog\".\"SnapshotDate\"\
+  \ as \"SnapshotDate\",\n                \"RPOBacklog\".\"COLCBlockDocItem\" as \"\
+  COLCBlockDocItem\",\n                \"RPOBacklog\".\"MultiYearFed\" as \"MultiYearFed\"\
+  ,\n                \"RPOBacklog\".\"T4COptionToDownsell\" as \"T4COptionToDownsell\"\
+  ,\n                \"RPOBacklog\".\"T4CDownsellStartDate\" as \"T4CDownsellStartDate\"\
+  ,\n                \"RPOBacklog\".\"T4CDownsellEndDate\" as \"T4CDownsellEndDate\"\
+  ,\n                \"RPOBacklog\".\"BillingDateVBKD\" as \"BillingDateVBKD\",\n\
+  \                \"RPOBacklog\".\"T4CRefundPercentage\" as \"T4CRefundPercentage\"\
+  ,\n                \"RPOBacklog\".\"BillingPlanNumber\" as \"BillingPlanNumber\"\
+  ,\n                \"RPOBacklog\".\"T4C_Flag\" as \"T4C_Flag\",\n              \
+  \  \"RPOBacklog\".\"ContractStartDate\" as \"ContractStartDate\",\n            \
+  \    \"RPOBacklog\".\"ContractEndDate\" as \"ContractEndDate\",\n              \
+  \  \"RPOBacklog\".\"ContractSignedDate\" as \"ContractSignedDate\",\n          \
+  \      \"RPOBacklog\".\"SalesOrganization\" as \"SalesOrganization\",\n        \
+  \        \"RPOBacklog\".\"RejectionReason\" as \"RejectionReason\",\n          \
+  \      \"RPOBacklog\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n    \
+  \            \"RPOBacklog\".\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n                \"RPOBacklog\".\"Material\" as \"Material\",\n              \
+  \  \"RPOBacklog\".\"T4CValidityFrom\" as \"T4CValidityFrom\",\n                \"\
+  RPOBacklog\".\"T4CValidityTo\" as \"T4CValidityTo\",\n                \"RPOBacklog\"\
+  .\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n                \"RPOBacklog\".\"\
+  T4CRightToRefund\" as \"T4CRightToRefund\",\n                \"RPOBacklog\".\"T4CRefundValidityFrom\"\
+  \ as \"T4CRefundValidityFrom\",\n                \"RPOBacklog\".\"T4CRefundValidityTo\"\
+  \ as \"T4CRefundValidityTo\",\n                \"RPOBacklog\".\"ItemCategory\" as\
+  \ \"ItemCategory\",\n                \"RPOBacklog\".\"OpportunityID\" as \"OpportunityID\"\
+  ,\n                REPLACE(\"RPOBacklog\".\"T4CPercentOrAmount\", 'random', 'random')\
+  \ as \"T4CPercentOrAmountFormatted\",\n                IFF(\n                  \
+  \  \"T4CPercentOrAmountFormatted\" = 'random',\n                    'random',\n\
+  \                    \"T4CPercentOrAmountFormatted\"\n                ) as \"T4CPercentOrAmountCalc\"\
+  ,\n                \"RPOBacklog\".\"FPLT_BillingDateforBillingIndexandPrintout\"\
+  \ as \"FPLT_BillingDateforBillingIndexandPrintout\",\n                \"RPOBacklog\"\
+  .\"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n                \"RPOBacklog\".\"FPLT_SettlementDateforDeadlineNFDAT\" as \"\
+  FPLT_SettlementDateforDeadlineNFDAT\",\n                \"RPOBacklog\".\"FPLT_BillBlkDesc\"\
+  \ as \"FPLT_BillBlkDesc\",\n                \"RPOBacklog\".\"FPLT_BillingStatusfortheBillingPlanDate\"\
+  \ as \"FPLT_BillingStatusfortheBillingPlanDate\",\n                \"RPOBacklog\"\
+  .\"EndDate\" as \"EndDate\",\n                \"RPOBacklog\".\"StartDate\" as \"\
+  StartDate\",\n                \"RPOBacklog\".\"LastInvTodate\" as \"LastInvTodate\"\
+  ,\n                \"RPOBacklog\".\"LastInvDate\" as \"LastInvDate\",\n        \
+  \        \"RPOBacklog\".\"NextInvoiceDate\" as \"NextInvoiceDate\",\n          \
+  \      \"RPOBacklog\".\"SettlementFrom\" as \"SettlementFrom\",\n              \
+  \  \"RPOBacklog\".\"SettlementTo\" as \"SettlementTo\",\n                \"RPOBacklog\"\
+  .\"HDRContractStartDate\" as \"HDRContractStartDate\",\n                \"RPOBacklog\"\
+  .\"HDRContractEndDate\" as \"HDRContractEndDate\",\n                \"RPOBacklog\"\
+  .\"RecordKey\" as \"RecordKey\",\n                \"RPOBacklog\".\"ReportingQuarter\"\
+  \ as \"ReportingQuarter\",\n                \"RPOBacklog\".\"SnapshotQuarterEndDate\"\
+  \ as \"SnapshotQuarterEndDate\",\n                \"RPOBacklog\".\"SnapshotQuarter\"\
+  \ as \"SnapshotQuarter\",\n                \"RPOBacklog\".\"BillingPlanDesc\" as\
+  \ \"BillingPlanDesc\",\n                \"RPOBacklog\".\"BillingStatus\" as \"BillingStatus\"\
+  ,\n                \"RPOBacklog\".\"ProductLine\" as \"ProductLine\",\n        \
+  \        IFF(\n                    \"LocalCurrency\" = 'random',\n             \
+  \       \"T4C_REV_LC\" * 'random',\n                    \"T4C_REV_LC\"\n       \
+  \         ) as \"T4C_REV_LC_UPDATED\",\n                IFF(\n                 \
+  \   \"LocalCurrency\" = 'random',\n                    \"BLENDED_LC\" * 'random',\n\
+  \                    \"BLENDED_LC\"\n                ) as \"BLENDED_LC_UPDATED\"\
+  ,\n                (\n                    left(\"ReportingMonthNumeric\", 'random')\
+  \ || 'random' || right(\"ReportingMonthNumeric\", 'random') || 'random'\n      \
+  \          ) as \"FirstdayoftheMonth\",\n                last_day(try_to_date(\"\
+  FirstdayoftheMonth\")) as \"LastdayoftheMonth\",\n                datediff(day,\
+  \ \"FirstdayoftheMonth\", \"LastdayoftheMonth\") + 'random' as \"NoofDays\",\n \
+  \               left(\"SnapshotQuarterEndDate\", 'random') || substr(\"SnapshotQuarterEndDate\"\
+  , 'random', 'random') || right(\"SnapshotQuarterEndDate\", 'random')::VARCHAR as\
+  \ \"SnapshotDateFormat\",\n                --*********************************T4C\
+  \ fields Derivation*************************************\n                case\n\
+  \                    when \"NextInvoiceDate\" <> 'random' then \"NextInvoiceDate\"\
+  \n                    else \"LastInvDate\"\n                end as \"BillingDate\"\
+  ,\n                IFF (\n                    \"T4CRefundPercentage\" = 'random'\n\
+  \                    or \"T4CRefundPercentage\" IS NULL,\n                    'random',\n\
+  \                    \"T4CRefundPercentage\"\n                ) as \"T4CRefundPercentageUpdated\"\
+  ,\n                IFF (\n                    \"T4CRightToRefund\" = 'random',\n\
+  \                    \"T4CRefundPercentageUpdated\",\n                    'random'\n\
+  \                )::INTEGER as \"T4CRefundPercentageFinal\",\n                'random'\
+  \ - \"T4CRefundPercentageFinal\" as \"T4CRemainingpercentage\",\n              \
+  \  case\n                    when \"T4CValidityFrom\" < \"SnapshotDateFormat\" then\
+  \ \"SnapshotDateFormat\"\n                    else \"T4CValidityFrom\"\n       \
+  \         end as \"T4CValidityFromLatest\",\n                try_to_date(\n    \
+  \                left(\n                        \"T4CValidityFromLatest\",\n   \
+  \                     'random'\n                    ) || 'random' || substr(\n \
+  \                       \"T4CValidityFromLatest\",\n                        'random',\n\
+  \                        'random'\n                    ) || 'random' || right(\n\
+  \                        \"T4CValidityFromLatest\",\n                        'random'\n\
+  \                    )\n                ) as \"T4CValidityFromFormatted\",\n   \
+  \             case\n                    when \"T4CRightToRefund\" = 'random' then\
+  \ DATEADD(\n                        day,\n                        \"T4CNoticePeriod\"\
+  ,\n                        \"T4CValidityFromFormatted\"\n                    )\n\
+  \                    else \"T4CValidityFromFormatted\"\n                end::VARCHAR\
+  \ as \"T4CValidityFromFinal\",\n                left (\"T4CValidityFromFinal\",\
+  \ 'random') || substr(\"T4CValidityFromFinal\", 'random', 'random') || right(\"\
+  T4CValidityFromFinal\", 'random') as \"T4CValidityFromUpdated\",\n             \
+  \   case\n                    when \"LastInvTodate\" <> 'random'\n             \
+  \       or \"LastInvTodate\" IS not NULL\n                    and \"LastInvTodate\"\
+  \ > \"T4CValidityFromUpdated\" then \"LastInvTodate\"\n                    else\
+  \ \"T4CValidityFromUpdated\"\n                end::VARCHAR as \"T4CValidityToUpdated\"\
+  ,\n                right(\"T4CValidityFromUpdated\", 'random') as \"T4CValidityFromDay\"\
+  ,\n                case\n                    when left (\"T4CValidityToUpdated\"\
+  , 'random') = \"ReportingMonthNumeric\"\n                    and \"T4CValidityToUpdated\"\
+  \ >= \"EndDate\"\n                    and \"NoofDays\" > right(\"EndDate\", 'random')\
+  \ then right(\"EndDate\", 'random')\n                    else right(\"T4CValidityToUpdated\"\
+  , 'random')\n                end as \"T4CValidityEndDay\",\n                case\n\
+  \                    when left (\"T4CValidityToUpdated\", 'random') = \"ReportingMonthNumeric\"\
+  \n                    and \"T4CValidityToUpdated\" >= \"EndDate\"\n            \
+  \        and \"NoofDays\" > right(\"EndDate\", 'random') then right(\"EndDate\"\
+  , 'random')\n                    else \"NoofDays\"\n                end as \"NoofDaysUpdated\"\
+  ,\n                case\n                    when left (\"T4CValidityFromUpdated\"\
+  , 'random') = \"ReportingMonthNumeric\" then \"NoofDaysUpdated\" - \"T4CValidityFromDay\"\
+  \n                end as \"T4CRemainingDays\",\n                (\n            \
+  \        \"BLENDED_LC_UPDATED\" * (\"T4CValidityFromDay\" / \"NoofDaysUpdated\"\
+  )\n                ) as \"T4CFromDateFullAmount\",\n                (\n        \
+  \            \"BLENDED_LC_UPDATED\" * (\"T4CRemainingDays\" / \"NoofDaysUpdated\"\
+  ) * (\"T4CRemainingpercentage\" / 'random')\n                ) as \"T4CRemaingDaysAmount\"\
+  ,\n                (\n                    \"BLENDED_LC_UPDATED\" * (\"T4CValidityEndDay\"\
+  \ / \"NoofDaysUpdated\") * (\"T4CRemainingpercentage\" / 'random')\n           \
+  \     ) as \"T4CEndDateFullAmount\",\n                --****************************************************\n\
+  \                --*********************************MYFED Logic*********************\n\
+  \                case\n                    when \"StartDate\" < \"SnapshotDateFormat\"\
+  \ then \"SnapshotDateFormat\"\n                    else \"StartDate\"\n        \
+  \        end as \"MyFEDFromUpdated\",\n                right(\"MyFEDFromUpdated\"\
+  , 'random') as \"MYFEDFromDay\",\n                case\n                    when\
+  \ \"LastInvTodate\" <> 'random'\n                    and \"LastInvTodate\" > \"\
+  MyFEDFromUpdated\" then \"LastInvTodate\"\n                    else \"MyFEDFromUpdated\"\
+  \n                end::VARCHAR as \"MyFEDToUpdated\",\n                case\n  \
+  \                  when left (\"MyFEDToUpdated\", 'random') = \"ReportingMonthNumeric\"\
+  \n                    and \"MyFEDToUpdated\" >= \"EndDate\"\n                  \
+  \  and \"NoofDays\" > right(\"EndDate\", 'random') then right(\"EndDate\", 'random')\n\
+  \                    else right(\"MyFEDToUpdated\", 'random')\n                end\
+  \ as \"MYFEDEndDay\",\n                case\n                    when left (\"MyFEDToUpdated\"\
+  , 'random') = \"ReportingMonthNumeric\"\n                    and \"MyFEDToUpdated\"\
+  \ >= \"EndDate\"\n                    and \"NoofDays\" > right(\"EndDate\", 'random')\
+  \ then right(\"EndDate\", 'random')\n                    else \"NoofDays\"\n   \
+  \             end as \"MYFEDNoofDaysUpdated\",\n                case\n         \
+  \           when left (\"MyFEDFromUpdated\", 'random') = \"ReportingMonthNumeric\"\
+  \ then \"MYFEDNoofDaysUpdated\" - \"MYFEDFromDay\"\n                end as \"MYFEDRemainingDays\"\
+  ,\n                --******************Downsell Logic**********************************************\n\
+  \                case\n                    when \"SnapshotDateFormat\" between \"\
+  T4CDownsellStartDate\"\n                    and \"T4CDownsellEndDate\" then left(\"\
+  ContractEndDate\", 'random') || substr(\"ContractEndDate\", 'random', 'random')\
+  \ || right(\"ContractEndDate\", 'random')\n                    else \"T4CDownsellEndDate\"\
+  \n                end as \"DownsellEndDateUpdated\",\n                case\n   \
+  \                 when right(\"SettlementTo\", 'random') <> \"NoofDays\" then \"\
+  BLENDED_LC_UPDATED\" / \"NoofDays\"\n                end as \"DownsellPerDayAmt\"\
+  ,\n                case\n                    when right(\"SettlementTo\", 'random')\
+  \ <> \"NoofDays\" then \"DownsellPerDayAmt\" * right(\"SettlementTo\", 'random')\n\
+  \                end as \"DownsellBilledAmt\",\n                case\n         \
+  \           when right(\"SettlementTo\", 'random') <> \"NoofDays\" then \"BLENDED_LC_UPDATED\"\
+  \ - \"DownsellBilledAmt\"\n                end as \"DownsellUnBilledAmt\",\n   \
+  \             case\n                    when right(\"SettlementFrom\", 'random')\
+  \ <> 'random' then \"BLENDED_LC_UPDATED\" / \"NoofDays\"\n                end as\
+  \ \"SettlmntFromDateDownsellPerDayAmt\",\n                case\n               \
+  \     when right(\"SettlementFrom\", 'random') <> 'random' then \"SettlmntFromDateDownsellPerDayAmt\"\
+  \ * (right(\"SettlementFrom\", 'random') -'random')\n                end as \"SettlmntFromDateDownsellBilledAmt\"\
+  ,\n                case\n                    when right(\"SettlementFrom\", 'random')\
+  \ <> 'random' then \"BLENDED_LC_UPDATED\" - \"SettlmntFromDateDownsellBilledAmt\"\
+  \n                end as \"SettlmntFromDateDownsellUnBilledAmt\",\n            \
+  \    case\n                    when \"SettlementFrom\" <> 'random' then left(\"\
+  SettlementFrom\", 'random')\n                end as \"SettlementFromPeriod\",\n\
+  \                case\n                    when \"SettlementTo\" <> 'random' then\
+  \ left(\"SettlementTo\", 'random')\n                end as \"SettlementToPeriod\"\
+  ,\n                case\n                    when \"T4C_Flag\" = 'random'\n    \
+  \                and \"T4CSignificantPenalty\" = 'random' then 'random'\n      \
+  \              else 'random'\n                end as \"T4CCheck\",\n           \
+  \     case\n                    when \"T4COptionToDownsell\" in ('random', 'random')\n\
+  \                    and \"T4CCheck\" = 'random'\n                    and \"NextInvoiceDate\"\
+  \ = 'random'\n                    and left(\"SettlementTo\", 'random') = \"ReportingMonthNumeric\"\
+  \n                    and \"BillingStatus\" = 'random'\n                    and\
+  \ \"T4CRightToRefund\" <> 'random' then 'random'\n                    else 'random'\n\
+  \                end as \"Downsell_Check\",\n                --*******************************************************\n\
+  \                -- \"DownsellUnBilledAmt\" * (\"T4CPercentOrAmountCalc\" / 100)\
+  \ as \"DownsellDiscountedRevenue\",\n                -- \"DownsellUnBilledAmt\"\
+  \ - \"DownsellDiscountedRevenue\" as \"DownsellRevenue\",\n                -- \"\
+  DownsellRevenue\" + \"DownsellBilledAmt\" as \"DownsellTotalRevenue\",\n       \
+  \         -- right(\"EndDate\", 2) as \"DownsellRemainingDays\",\n             \
+  \   -- \"DownsellRemainingDays\" as \"DownsellNoOfDays\",\n                -- \"\
+  BLENDED_LC_UPDATED\" * (\"T4CPercentOrAmountCalc\" / 100) as \"DownsellDiscountedRevenue_03\"\
+  ,\n                -- \"BLENDED_LC_UPDATED\" - \"DownsellDiscountedRevenue_03\"\
+  \ as \"DownsellTotalRevenue_03\",\n                --***********************Downsell\
+  \ Amount Logic*******************************\n                case\n          \
+  \          when \"T4COptionToDownsell\" in ('random', 'random')\n              \
+  \      and \"Downsell_Check\" = 'random'\n                    and \"ReportingMonthNumeric\"\
+  \ >= left(\"T4CDownsellStartDate\", 'random')\n                    and \"ReportingMonthNumeric\"\
+  \ <= left(\"DownsellEndDateUpdated\", 'random') then case\n                    \
+  \    when \"ReportingMonthNumeric\" >= \"SettlementFromPeriod\"\n              \
+  \          and \"ReportingMonthNumeric\" <= \"SettlementToPeriod\" then case\n \
+  \                           when \"ReportingMonthNumeric\" = left(\"SettlementTo\"\
+  , 'random') then \"T4C_REV_LC_UPDATED\"\n                            when \"ReportingMonthNumeric\"\
+  \ = left(\"SettlementFrom\", 'random') then \"SettlmntFromDateDownsellUnBilledAmt\"\
+  \n                            else \"BLENDED_LC_UPDATED\"\n                    \
+  \    end\n                        when \"SettlementFromPeriod\" IS NULL\n      \
+  \                  and \"SettlementToPeriod\" IS NULL then \"T4C_REV_LC_UPDATED\"\
+  \n                        else \"T4C_REV_LC_UPDATED\"\n                    end --***********************T4C\
+  \ Amount Logic*******************************\n                    when \"T4C_Flag\"\
+  \ = 'random'\n                    and \"T4CSignificantPenalty\" in ('random', 'random')\n\
+  \                    and \"T4CValidityTo\" > \"SnapshotDateFormat\"\n          \
+  \          and \"Revenue_Status\" <> 'random' then case\n                      \
+  \  when \"T4CValidityFromUpdated\" = 'random'\n                        or left(\"\
+  T4CValidityToUpdated\", 'random') < \"ReportingMonthNumeric\" then case\n      \
+  \                      when \"BillingPlanDesc\" = 'random'\n                   \
+  \         and \"BillingStatus\" = 'random' then \"BLENDED_LC_UPDATED\"\n       \
+  \                     when \"BillingDate\" <> 'random'\n                       \
+  \     and \"ProductLine\" <> 'random'\n                            and \"BillingDate\"\
+  \ < \"SnapshotDateFormat\" then \"BLENDED_LC_UPDATED\"\n                       \
+  \     else 'random'\n                        end\n                        when \"\
+  LastInvDate\" = 'random' then 'random'\n                        when \"ReportingMonthNumeric\"\
+  \ between left(\"T4CValidityFromUpdated\", 'random')\n                        and\
+  \ left(\"T4CValidityToUpdated\", 'random') then case\n                         \
+  \   when \"LastInvTodate\" = 'random' then 'random'\n                          \
+  \  when \"ReportingMonthNumeric\" = left(\"T4CValidityFromUpdated\", 'random') then\
+  \ \"T4CFromDateFullAmount\" + \"T4CRemaingDaysAmount\"\n                       \
+  \     when \"ReportingMonthNumeric\" = left(\"T4CValidityToUpdated\", 'random')\
+  \ then \"T4CEndDateFullAmount\"\n                            else \"BLENDED_LC_UPDATED\"\
+  \ * (\"T4CRemainingpercentage\" / 'random')\n                        end\n     \
+  \                   else \"BLENDED_LC_UPDATED\"\n                    end --***********************MultiYearFed\
+  \  Amount Logic*******************************\n                    when \"MultiYearFed\"\
+  \ = 'random'\n                    and \"EndDate\" > \"SnapshotDateFormat\"\n   \
+  \                 and \"Revenue_Status\" <> 'random' then case\n               \
+  \         when \"MyFEDFromUpdated\" = 'random'\n                        or left(\"\
+  MyFEDToUpdated\", 'random') < \"ReportingMonthNumeric\" then 'random'\n        \
+  \                when \"ReportingMonthNumeric\" between left(\"MyFEDFromUpdated\"\
+  , 'random')\n                        and left(\"MyFEDToUpdated\", 'random') then\
+  \ case\n                            when \"LastInvTodate\" = 'random' then 'random'\n\
+  \                            when \"ReportingMonthNumeric\" = left(\"MyFEDFromUpdated\"\
+  , 'random') then \"BLENDED_LC_UPDATED\"\n                            when \"ReportingMonthNumeric\"\
+  \ = left(\"MyFEDToUpdated\", 'random') then \"BLENDED_LC_UPDATED\" * (\"MYFEDEndDay\"\
+  \ / \"MYFEDNoofDaysUpdated\")\n                            else \"BLENDED_LC_UPDATED\"\
+  \n                        end\n                    end --*****************************\n\
+  \                    else \"BLENDED_LC_UPDATED\"\n                end as \"RPOBacklogAmount\"\
+  ,\n                \"RPOBacklog\".\"ReportingMonthSurfFormat\" as \"ReportingMonthSurfFormat\"\
+  ,\n                \"RPOAdjustments\".\"RPOAdjAmount\" as \"RPOAdjAmount\",\n  \
+  \              \"RPOAdjustments\".\"RPOAdjPOBId\" as \"RPOAdjPOBId\",\n        \
+  \        IFF(\n                    \"POBId\" = \"RPOAdjPOBId\",\n              \
+  \      \"RPOAdjAmount\",\n                    \"RPOBacklogAmount\"\n           \
+  \     ) as \"AdjRPOAmountFinal\"\n            from\n                (\n        \
+  \            SELECT\n                        \"Join_3\".\"AccountPrinciple\" as\
+  \ \"AccountPrinciple\",\n                        \"Join_3\".\"SalesDocument\" as\
+  \ \"SalesDocument\",\n                        \"Join_3\".\"SalesDocumentItem\" as\
+  \ \"SalesDocumentItem\",\n                        \"Join_3\".\"POBId\" as \"POBId\"\
+  ,\n                        \"Join_3\".\"AccountingPeriod\" as \"AccountingPeriod\"\
+  ,\n                        \"Join_3\".\"ReportingMonthNumeric\" as \"ReportingMonthNumeric\"\
+  ,\n                        \"Join_3\".\"RevPriceDC\" as \"RevPriceDC\",\n      \
+  \                  \"Join_3\".\"RevPriceLC\" as \"RevPriceLC\",\n              \
+  \          \"Join_3\".\"DocumentCurrency\" as \"DocumentCurrency\",\n          \
+  \              \"Join_3\".\"Quantity\" as \"Quantity\",\n                      \
+  \  \"Join_3\".\"FullfilledQty\" as \"FullfilledQty\",\n                        \"\
+  Join_3\".\"CompanyCode\" as \"CompanyCode\",\n                        \"Join_3\"\
+  .\"RAContract\" as \"RAContract\",\n                        \"Join_3\".\"POBName\"\
+  \ as \"POBName\",\n                        \"Join_3\".\"POBType\" as \"POBType\"\
+  ,\n                        \"Join_3\".\"AllocationAmount\" as \"AllocationAmount\"\
+  ,\n                        \"Join_3\".\"RemainQuantity\" as \"RemainQuantity\",\n\
+  \                        \"Join_3\".\"RevPriceNoPending\" as \"RevPriceNoPending\"\
+  ,\n                        \"Join_3\".\"InvoiceAmount\" as \"InvoiceAmount\",\n\
+  \                        \"Join_3\".\"RevCatchup\" as \"RevCatchup\",\n        \
+  \                \"Join_3\".\"FulfillPOC\" as \"FulfillPOC\",\n                \
+  \        \"Join_3\".\"CumulatePOC\" as \"CumulatePOC\",\n                      \
+  \  \"Join_3\".\"FulFillPOCbyAmt\" as \"FulFillPOCbyAmt\",\n                    \
+  \    \"Join_3\".\"CumulatePOCbyAmt\" as \"CumulatePOCbyAmt\",\n                \
+  \        \"Join_3\".\"InvoicedQty\" as \"InvoicedQty\",\n                      \
+  \  \"Join_3\".\"UnitPrice\" as \"UnitPrice\",\n                        \"Join_3\"\
+  .\"PostPrice\" as \"PostPrice\",\n                        \"Join_3\".\"PostPrice_LC\"\
+  \ as \"PostPrice_LC\",\n                        \"Join_3\".\"PostPrice_GC\" as \"\
+  PostPrice_GC\",\n                        \"Join_3\".\"PostPrice_HC\" as \"PostPrice_HC\"\
+  ,\n                        \"Join_3\".\"BLENDED_LC\" as \"BLENDED_LC\",\n      \
+  \                  \"Join_3\".\"BLENDED_GC\" as \"BLENDED_GC\",\n              \
+  \          \"Join_3\".\"BLENDED_HC\" as \"BLENDED_HC\",\n                      \
+  \  \"Join_3\".\"T4C_REV_DC\" as \"T4C_REV_DC\",\n                        \"Join_3\"\
+  .\"T4C_REV_LC\" as \"T4C_REV_LC\",\n                        \"Join_3\".\"T4C_REV_GC\"\
+  \ as \"T4C_REV_GC\",\n                        \"Join_3\".\"T4C_REV_HC\" as \"T4C_REV_HC\"\
+  ,\n                        \"Join_3\".\"Revenue_Status\" as \"Revenue_Status\",\n\
+  \                        \"Join_3\".\"LocalCurrency\" as \"LocalCurrency\",\n  \
+  \                      \"Join_3\".\"LocalCurrency2\" as \"LocalCurrency2\",\n  \
+  \                      \"Join_3\".\"LocalCurrency2\" as \"LocalCurrency3\",\n  \
+  \                      \"Join_3\".\"Createdon\" as \"Createdon\",\n            \
+  \            \"Join_3\".\"CreatedTime\" as \"CreatedTime\",\n                  \
+  \      \"Join_3\".\"CreatedBy\" as \"CreatedBy\",\n                        \"Join_3\"\
+  .\"SnapshotMonth\" as \"SnapshotMonth\",\n                        \"Join_3\".\"\
+  SnapshotDate\" as \"SnapshotDate\",\n                        \"Join_3\".\"COLCBlockDocItem\"\
+  \ as \"COLCBlockDocItem\",\n                        \"Join_3\".\"MultiYearFed\"\
+  \ as \"MultiYearFed\",\n                        \"Join_3\".\"T4COptionToDownsell\"\
+  \ as \"T4COptionToDownsell\",\n                        \"Join_3\".\"T4CDownsellStartDate\"\
+  \ as \"T4CDownsellStartDate\",\n                        \"Join_3\".\"T4CDownsellEndDate\"\
+  \ as \"T4CDownsellEndDate\",\n                        \"Join_3\".\"BillingDateVBKD\"\
+  \ as \"BillingDateVBKD\",\n                        \"Join_3\".\"T4CRefundPercentage\"\
+  \ as \"T4CRefundPercentage\",\n                        \"Join_3\".\"BillingPlanNumber\"\
+  \ as \"BillingPlanNumber\",\n                        \"Join_3\".\"T4C_Flag\" as\
+  \ \"T4C_Flag\",\n                        \"Join_3\".\"ContractStartDate\" as \"\
+  ContractStartDate\",\n                        \"Join_3\".\"ContractEndDate\" as\
+  \ \"ContractEndDate\",\n                        \"Join_3\".\"ContractSignedDate\"\
+  \ as \"ContractSignedDate\",\n                        \"Join_3\".\"SalesOrganization\"\
+  \ as \"SalesOrganization\",\n                        \"Join_3\".\"RejectionReason\"\
+  \ as \"RejectionReason\",\n                        \"Join_3\".\"RejectionReasonDesc\"\
+  \ as \"RejectionReasonDesc\",\n                        \"Join_3\".\"T4CSignificantPenalty\"\
+  \ as \"T4CSignificantPenalty\",\n                        \"Join_3\".\"Material\"\
+  \ as \"Material\",\n                        \"Join_3\".\"T4CValidityFrom\" as \"\
+  T4CValidityFrom\",\n                        \"Join_3\".\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n                        \"Join_3\".\"T4CNoticePeriod\" as \"T4CNoticePeriod\"\
+  ,\n                        \"Join_3\".\"T4CRightToRefund\" as \"T4CRightToRefund\"\
+  ,\n                        \"Join_3\".\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\"\
+  ,\n                        \"Join_3\".\"T4CRefundValidityTo\" as \"T4CRefundValidityTo\"\
+  ,\n                        \"Join_3\".\"ItemCategory\" as \"ItemCategory\",\n  \
+  \                      \"Join_3\".\"OpportunityID\" as \"OpportunityID\",\n    \
+  \                    \"Join_3\".\"T4CPercentOrAmount\" as \"T4CPercentOrAmount\"\
+  ,\n                        \"Join_3\".\"FPLT_BillingDateforBillingIndexandPrintout\"\
+  \ as \"FPLT_BillingDateforBillingIndexandPrintout\",\n                        \"\
+  Join_3\".\"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n                        \"Join_3\".\"FPLT_SettlementDateforDeadlineNFDAT\" as\
+  \ \"FPLT_SettlementDateforDeadlineNFDAT\",\n                        \"Join_3\".\"\
+  FPLT_BillBlkDesc\" as \"FPLT_BillBlkDesc\",\n                        \"Join_3\"\
+  .\"FPLT_BillingStatusfortheBillingPlanDate\" as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n                        \"Join_3\".\"EndDate\" as \"EndDate\",\n            \
+  \            \"Join_3\".\"StartDate\" as \"StartDate\",\n                      \
+  \  \"Join_3\".\"LastInvTodate\" as \"LastInvTodate\",\n                        \"\
+  Join_3\".\"LastInvDate\" as \"LastInvDate\",\n                        \"Join_3\"\
+  .\"NextInvoiceDate\" as \"NextInvoiceDate\",\n                        \"Join_3\"\
+  .\"SettlementFrom\" as \"SettlementFrom\",\n                        \"Join_3\".\"\
+  SettlementTo\" as \"SettlementTo\",\n                        \"Join_3\".\"HDRContractStartDate\"\
+  \ as \"HDRContractStartDate\",\n                        \"Join_3\".\"HDRContractEndDate\"\
+  \ as \"HDRContractEndDate\",\n                        \"Join_3\".\"RecordKey\" as\
+  \ \"RecordKey\",\n                        \"Join_3\".\"ReportingQuarter\" as \"\
+  ReportingQuarter\",\n                        \"Join_3\".\"SnapshotQuarterEndDate\"\
+  \ as \"SnapshotQuarterEndDate\",\n                        \"Join_3\".\"SnapshotQuarter\"\
+  \ as \"SnapshotQuarter\",\n                        \"Join_3\".\"ReportingMonthSurfFormat\"\
+  \ as \"ReportingMonthSurfFormat\",\n                        \"Join_3\".\"BillingPlanDesc\"\
+  \ as \"BillingPlanDesc\",\n                        \"Join_3\".\"BillingStatus\"\
+  \ as \"BillingStatus\",\n                        \"Projection_12\".ZZINTERNAL_PRODUCT_LINE\
+  \ as \"ProductLine\"\n                    from\n                        (\n    \
+  \                        SELECT\n                                \"Join_2\".\"AccountPrinciple\"\
+  \ as \"AccountPrinciple\",\n                                \"Join_2\".\"SalesDocument\"\
+  \ as \"SalesDocument\",\n                                \"Join_2\".\"SalesDocumentItem\"\
+  \ as \"SalesDocumentItem\",\n                                \"Join_2\".\"POBId\"\
+  \ as \"POBId\",\n                                \"Join_2\".\"AccountingPeriod\"\
+  \ as \"AccountingPeriod\",\n                                \"Join_2\".\"ReportingMonthNumeric\"\
+  \ as \"ReportingMonthNumeric\",\n                                \"Join_2\".\"RevPriceDC\"\
+  \ as \"RevPriceDC\",\n                                \"Join_2\".\"RevPriceLC\"\
+  \ as \"RevPriceLC\",\n                                \"Join_2\".\"DocumentCurrency\"\
+  \ as \"DocumentCurrency\",\n                                \"Join_2\".\"Quantity\"\
+  \ as \"Quantity\",\n                                \"Join_2\".\"FullfilledQty\"\
+  \ as \"FullfilledQty\",\n                                \"Join_2\".\"CompanyCode\"\
+  \ as \"CompanyCode\",\n                                \"Join_2\".\"RAContract\"\
+  \ as \"RAContract\",\n                                \"Join_2\".\"POBName\" as\
+  \ \"POBName\",\n                                \"Join_2\".\"POBType\" as \"POBType\"\
+  ,\n                                \"Join_2\".\"AllocationAmount\" as \"AllocationAmount\"\
+  ,\n                                \"Join_2\".\"RemainQuantity\" as \"RemainQuantity\"\
+  ,\n                                \"Join_2\".\"RevPriceNoPending\" as \"RevPriceNoPending\"\
+  ,\n                                \"Join_2\".\"InvoiceAmount\" as \"InvoiceAmount\"\
+  ,\n                                \"Join_2\".\"RevCatchup\" as \"RevCatchup\",\n\
+  \                                \"Join_2\".\"FulfillPOC\" as \"FulfillPOC\",\n\
+  \                                \"Join_2\".\"CumulatePOC\" as \"CumulatePOC\",\n\
+  \                                \"Join_2\".\"FulFillPOCbyAmt\" as \"FulFillPOCbyAmt\"\
+  ,\n                                \"Join_2\".\"CumulatePOCbyAmt\" as \"CumulatePOCbyAmt\"\
+  ,\n                                \"Join_2\".\"InvoicedQty\" as \"InvoicedQty\"\
+  ,\n                                \"Join_2\".\"UnitPrice\" as \"UnitPrice\",\n\
+  \                                \"Join_2\".\"PostPrice\" as \"PostPrice\",\n  \
+  \                              \"Join_2\".\"PostPrice_LC\" as \"PostPrice_LC\",\n\
+  \                                \"Join_2\".\"PostPrice_GC\" as \"PostPrice_GC\"\
+  ,\n                                \"Join_2\".\"PostPrice_HC\" as \"PostPrice_HC\"\
+  ,\n                                \"Join_2\".\"BLENDED_LC\" as \"BLENDED_LC\",\n\
+  \                                \"Join_2\".\"BLENDED_GC\" as \"BLENDED_GC\",\n\
+  \                                \"Join_2\".\"BLENDED_HC\" as \"BLENDED_HC\",\n\
+  \                                \"Join_2\".\"T4C_REV_DC\" as \"T4C_REV_DC\",\n\
+  \                                \"Join_2\".\"T4C_REV_LC\" as \"T4C_REV_LC\",\n\
+  \                                \"Join_2\".\"T4C_REV_GC\" as \"T4C_REV_GC\",\n\
+  \                                \"Join_2\".\"T4C_REV_HC\" as \"T4C_REV_HC\",\n\
+  \                                \"Join_2\".\"Revenue_Status\" as \"Revenue_Status\"\
+  ,\n                                \"Join_2\".\"LocalCurrency\" as \"LocalCurrency\"\
+  ,\n                                \"Join_2\".\"LocalCurrency2\" as \"LocalCurrency2\"\
+  ,\n                                \"Join_2\".\"LocalCurrency2\" as \"LocalCurrency3\"\
+  ,\n                                \"Join_2\".\"Createdon\" as \"Createdon\",\n\
+  \                                \"Join_2\".\"CreatedTime\" as \"CreatedTime\",\n\
+  \                                \"Join_2\".\"CreatedBy\" as \"CreatedBy\",\n  \
+  \                              \"Join_2\".\"SnapshotMonth\" as \"SnapshotMonth\"\
+  ,\n                                \"Join_2\".\"SnapshotDate\" as \"SnapshotDate\"\
+  ,\n                                \"Join_2\".\"COLCBlockDocItem\" as \"COLCBlockDocItem\"\
+  ,\n                                \"Join_2\".\"MultiYearFed\" as \"MultiYearFed\"\
+  ,\n                                \"Join_2\".\"T4COptionToDownsell\" as \"T4COptionToDownsell\"\
+  ,\n                                \"Join_2\".\"T4CDownsellStartDate\" as \"T4CDownsellStartDate\"\
+  ,\n                                \"Join_2\".\"T4CDownsellEndDate\" as \"T4CDownsellEndDate\"\
+  ,\n                                \"Join_2\".\"BillingDateVBKD\" as \"BillingDateVBKD\"\
+  ,\n                                \"Join_2\".\"T4CRefundPercentage\" as \"T4CRefundPercentage\"\
+  ,\n                                \"Join_2\".\"BillingPlanNumber\" as \"BillingPlanNumber\"\
+  ,\n                                \"Join_2\".\"T4C_Flag\" as \"T4C_Flag\",\n  \
+  \                              \"Join_2\".\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n                                \"Join_2\".\"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n                                \"Join_2\".\"ContractSignedDate\" as \"ContractSignedDate\"\
+  ,\n                                \"Join_2\".\"SalesOrganization\" as \"SalesOrganization\"\
+  ,\n                                \"Join_2\".\"RejectionReason\" as \"RejectionReason\"\
+  ,\n                                \"Join_2\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n                                \"Join_2\".\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n                                \"Join_2\".\"Material\" as \"Material\",\n  \
+  \                              \"Join_2\".\"T4CValidityFrom\" as \"T4CValidityFrom\"\
+  ,\n                                \"Join_2\".\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n                                \"Join_2\".\"T4CNoticePeriod\" as \"T4CNoticePeriod\"\
+  ,\n                                \"Join_2\".\"T4CRightToRefund\" as \"T4CRightToRefund\"\
+  ,\n                                \"Join_2\".\"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\"\
+  ,\n                                \"Join_2\".\"T4CRefundValidityTo\" as \"T4CRefundValidityTo\"\
+  ,\n                                \"Join_2\".\"ItemCategory\" as \"ItemCategory\"\
+  ,\n                                \"Join_2\".\"OpportunityID\" as \"OpportunityID\"\
+  ,\n                                \"Join_2\".\"T4CPercentOrAmount\" as \"T4CPercentOrAmount\"\
+  ,\n                                \"Join_2\".\"FPLT_BillingDateforBillingIndexandPrintout\"\
+  \ as \"FPLT_BillingDateforBillingIndexandPrintout\",\n                         \
+  \       \"Join_2\".\"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n                                \"Join_2\".\"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n                                \"\
+  Join_2\".\"FPLT_BillBlkDesc\" as \"FPLT_BillBlkDesc\",\n                       \
+  \         \"Join_2\".\"FPLT_BillingStatusfortheBillingPlanDate\" as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n                                \"Join_2\".\"EndDate\" as \"EndDate\",\n    \
+  \                            \"Join_2\".\"StartDate\" as \"StartDate\",\n      \
+  \                          \"Join_2\".\"LastInvTodate\" as \"LastInvTodate\",\n\
+  \                                \"Join_2\".\"LastInvDate\" as \"LastInvDate\",\n\
+  \                                \"Join_2\".\"NextInvoiceDate\" as \"NextInvoiceDate\"\
+  ,\n                                \"Join_2\".\"SettlementFrom\" as \"SettlementFrom\"\
+  ,\n                                \"Join_2\".\"SettlementTo\" as \"SettlementTo\"\
+  ,\n                                \"Join_2\".\"HDRContractStartDate\" as \"HDRContractStartDate\"\
+  ,\n                                \"Join_2\".\"HDRContractEndDate\" as \"HDRContractEndDate\"\
+  ,\n                                \"Join_2\".\"RecordKey\" as \"RecordKey\",\n\
+  \                                \"Join_2\".\"ReportingQuarter\" as \"ReportingQuarter\"\
+  ,\n                                \"Join_2\".\"SnapshotQuarterEndDate\" as \"SnapshotQuarterEndDate\"\
+  ,\n                                \"Join_2\".\"SnapshotQuarter\" as \"SnapshotQuarter\"\
+  ,\n                                \"Join_2\".\"ReportingMonthSurfFormat\" as \"\
+  ReportingMonthSurfFormat\",\n                                \"Projection_10\".TETXT\
+  \ as \"BillingPlanDesc\",\n                                \"Projection_10\".FKSAF\
+  \ as \"BillingStatus\"\n                            from\n                     \
+  \           (\n                                    SELECT\n                    \
+  \                    \"Projection_9\".\"AccountPrinciple\" as \"AccountPrinciple\"\
+  ,\n                                        \"Projection_9\".\"SalesDocument\" as\
+  \ \"SalesDocument\",\n                                        \"Projection_9\".\"\
+  SalesDocumentItem\" as \"SalesDocumentItem\",\n                                \
+  \        \"Projection_9\".\"POBId\" as \"POBId\",\n                            \
+  \            \"Projection_9\".\"AccountingPeriod\" as \"AccountingPeriod\",\n  \
+  \                                      \"Projection_9\".\"ReportingMonthNumeric\"\
+  \ as \"ReportingMonthNumeric\",\n                                        \"Projection_9\"\
+  .\"RevPriceDC\" as \"RevPriceDC\",\n                                        \"Projection_9\"\
+  .\"RevPriceLC\" as \"RevPriceLC\",\n                                        \"Projection_9\"\
+  .\"DocumentCurrency\" as \"DocumentCurrency\",\n                               \
+  \         \"Projection_9\".\"Quantity\" as \"Quantity\",\n                     \
+  \                   \"Projection_9\".\"FullfilledQty\" as \"FullfilledQty\",\n \
+  \                                       \"Projection_9\".\"CompanyCode\" as \"CompanyCode\"\
+  ,\n                                        \"Projection_9\".\"RAContract\" as \"\
+  RAContract\",\n                                        \"Projection_9\".\"POBName\"\
+  \ as \"POBName\",\n                                        \"Projection_9\".\"POBType\"\
+  \ as \"POBType\",\n                                        \"Projection_9\".\"AllocationAmount\"\
+  \ as \"AllocationAmount\",\n                                        \"Projection_9\"\
+  .\"RemainQuantity\" as \"RemainQuantity\",\n                                   \
+  \     \"Projection_9\".\"RevPriceNoPending\" as \"RevPriceNoPending\",\n       \
+  \                                 \"Projection_9\".\"InvoiceAmount\" as \"InvoiceAmount\"\
+  ,\n                                        \"Projection_9\".\"RevCatchup\" as \"\
+  RevCatchup\",\n                                        \"Projection_9\".\"FulfillPOC\"\
+  \ as \"FulfillPOC\",\n                                        \"Projection_9\".\"\
+  CumulatePOC\" as \"CumulatePOC\",\n                                        \"Projection_9\"\
+  .\"FulFillPOCbyAmt\" as \"FulFillPOCbyAmt\",\n                                 \
+  \       \"Projection_9\".\"CumulatePOCbyAmt\" as \"CumulatePOCbyAmt\",\n       \
+  \                                 \"Projection_9\".\"InvoicedQty\" as \"InvoicedQty\"\
+  ,\n                                        \"Projection_9\".\"UnitPrice\" as \"\
+  UnitPrice\",\n                                        \"Projection_9\".\"PostPrice\"\
+  \ as \"PostPrice\",\n                                        \"Projection_9\".\"\
+  PostPrice_LC\" as \"PostPrice_LC\",\n                                        \"\
+  Projection_9\".\"PostPrice_GC\" as \"PostPrice_GC\",\n                         \
+  \               \"Projection_9\".\"PostPrice_HC\" as \"PostPrice_HC\",\n       \
+  \                                 \"Projection_9\".\"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n                                        \"Projection_9\".\"BLENDED_GC\" as \"\
+  BLENDED_GC\",\n                                        \"Projection_9\".\"BLENDED_HC\"\
+  \ as \"BLENDED_HC\",\n                                        \"Projection_9\".\"\
+  T4C_REV_DC\" as \"T4C_REV_DC\",\n                                        \"Projection_9\"\
+  .\"T4C_REV_LC\" as \"T4C_REV_LC\",\n                                        \"Projection_9\"\
+  .\"T4C_REV_GC\" as \"T4C_REV_GC\",\n                                        \"Projection_9\"\
+  .\"T4C_REV_HC\" as \"T4C_REV_HC\",\n                                        \"Projection_9\"\
+  .\"Revenue_Status\" as \"Revenue_Status\",\n                                   \
+  \     \"Projection_9\".\"LocalCurrency\" as \"LocalCurrency\",\n               \
+  \                         \"Projection_9\".\"LocalCurrency2\" as \"LocalCurrency2\"\
+  ,\n                                        \"Projection_9\".\"LocalCurrency2\" as\
+  \ \"LocalCurrency3\",\n                                        \"Projection_9\"\
+  .\"Createdon\" as \"Createdon\",\n                                        \"Projection_9\"\
+  .\"CreatedTime\" as \"CreatedTime\",\n                                        \"\
+  Projection_9\".\"CreatedBy\" as \"CreatedBy\",\n                               \
+  \         \"Projection_9\".\"SnapshotMonth\" as \"SnapshotMonth\",\n           \
+  \                             \"Projection_9\".\"SnapshotDate\" as \"SnapshotDate\"\
+  ,\n                                        \"Projection_9\".\"COLCBlockDocItem\"\
+  \ as \"COLCBlockDocItem\",\n                                        \"Projection_9\"\
+  .\"MultiYearFed\" as \"MultiYearFed\",\n                                       \
+  \ \"Projection_9\".\"T4COptionToDownsell\" as \"T4COptionToDownsell\",\n       \
+  \                                 \"Projection_9\".\"T4CDownsellStartDate\" as \"\
+  T4CDownsellStartDate\",\n                                        \"Projection_9\"\
+  .\"T4CDownsellEndDate\" as \"T4CDownsellEndDate\",\n                           \
+  \             \"Projection_9\".\"BillingDateVBKD\" as \"BillingDateVBKD\",\n   \
+  \                                     \"Projection_9\".\"T4CRefundPercentage\" as\
+  \ \"T4CRefundPercentage\",\n                                        \"Projection_9\"\
+  .\"BillingPlanNumber\" as \"BillingPlanNumber\",\n                             \
+  \           \"Projection_9\".\"T4C_Flag\" as \"T4C_Flag\",\n                   \
+  \                     \"Projection_9\".\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n                                        \"Projection_9\".\"ContractEndDate\"\
+  \ as \"ContractEndDate\",\n                                        \"Projection_9\"\
+  .\"ContractSignedDate\" as \"ContractSignedDate\",\n                           \
+  \             \"Projection_9\".\"SalesOrganization\" as \"SalesOrganization\",\n\
+  \                                        \"Projection_9\".\"RejectionReason\" as\
+  \ \"RejectionReason\",\n                                        \"Projection_9\"\
+  .\"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n                         \
+  \               \"Projection_9\".\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n                                        \"Projection_9\".\"Material\" as \"Material\"\
+  ,\n                                        \"Projection_9\".\"T4CValidityFrom\"\
+  \ as \"T4CValidityFrom\",\n                                        \"Projection_9\"\
+  .\"T4CValidityTo\" as \"T4CValidityTo\",\n                                     \
+  \   \"Projection_9\".\"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n             \
+  \                           \"Projection_9\".\"T4CRightToRefund\" as \"T4CRightToRefund\"\
+  ,\n                                        \"Projection_9\".\"T4CRefundValidityFrom\"\
+  \ as \"T4CRefundValidityFrom\",\n                                        \"Projection_9\"\
+  .\"T4CRefundValidityTo\" as \"T4CRefundValidityTo\",\n                         \
+  \               \"Projection_9\".\"ItemCategory\" as \"ItemCategory\",\n       \
+  \                                 \"Projection_9\".\"OpportunityID\" as \"OpportunityID\"\
+  ,\n                                        \"Projection_9\".\"T4CPercentOrAmount\"\
+  \ as \"T4CPercentOrAmount\",\n                                        \"Projection_9\"\
+  .\"FPLT_BillingDateforBillingIndexandPrintout\" as \"FPLT_BillingDateforBillingIndexandPrintout\"\
+  ,\n                                        \"Projection_9\".\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n                                \
+  \        \"Projection_9\".\"FPLT_SettlementDateforDeadlineNFDAT\" as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n                                        \"Projection_9\".\"FPLT_BillBlkDesc\"\
+  \ as \"FPLT_BillBlkDesc\",\n                                        \"Projection_9\"\
+  .\"FPLT_BillingStatusfortheBillingPlanDate\" as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n                                        \"Projection_9\".\"EndDate\" as \"EndDate\"\
+  ,\n                                        \"Projection_9\".\"StartDate\" as \"\
+  StartDate\",\n                                        \"Projection_9\".\"LastInvTodate\"\
+  \ as \"LastInvTodate\",\n                                        \"Projection_9\"\
+  .\"LastInvDate\" as \"LastInvDate\",\n                                        \"\
+  Projection_9\".\"NextInvoiceDate\" as \"NextInvoiceDate\",\n                   \
+  \                     \"Projection_9\".\"SettlementFrom\" as \"SettlementFrom\"\
+  ,\n                                        \"Projection_9\".\"SettlementTo\" as\
+  \ \"SettlementTo\",\n                                        \"Projection_9\".\"\
+  HDRContractStartDate\" as \"HDRContractStartDate\",\n                          \
+  \              \"Projection_9\".\"HDRContractEndDate\" as \"HDRContractEndDate\"\
+  ,\n                                        \"Projection_9\".\"RecordKey\" as \"\
+  RecordKey\",\n                                        \"Projection_9\".\"ReportingQuarter\"\
+  \ as \"ReportingQuarter\",\n                                        \"Projection_9\"\
+  .\"SnapshotQuarterEndDate\" as \"SnapshotQuarterEndDate\",\n                   \
+  \                     \"Projection_9\".\"SnapshotQuarter\" as \"SnapshotQuarter\"\
+  ,\n                                        \"Projection_9\".\"ReportingMonthSurfFormat\"\
+  \ as \"ReportingMonthSurfFormat\",\n                                        \"Projection_8\"\
+  .FULFILL_TYPE as FULFILL_TYPE\n                                    from\n      \
+  \                                  (\n                                         \
+  \   SELECT\n                                                ACCT_PRINCIPLE as \"\
+  AccountPrinciple\",\n                                                LTRIM(VBELN,\
+  \ 'random') as \"SalesDocument\",\n                                            \
+  \    LTRIm(POSNR, 'random') as \"SalesDocumentItem\",\n                        \
+  \                        LTRIm(POB_ID, 'random') as \"POBId\",\n               \
+  \                                 ACCT_PERIOD as \"AccountingPeriod\",\n       \
+  \                                         LEFT(\"AccountingPeriod\", 'random') ||\
+  \ RIGHT(\"AccountingPeriod\", 'random') as \"ReportingMonthNumeric\",\n        \
+  \                                        REV_PRICE as \"RevPriceDC\",\n        \
+  \                                        REV_PRICE_LC as \"RevPriceLC\",\n     \
+  \                                           CURRENCY_KEY as \"DocumentCurrency\"\
+  ,\n                                                QUANTITY as \"Quantity\",\n \
+  \                                               FULFILLED_QTY as \"FullfilledQty\"\
+  ,\n                                                COMPANY_CODE as \"CompanyCode\"\
+  ,\n                                                CONTRACT_ID as \"RAContract\"\
+  ,\n                                                POB_NAME as \"POBName\",\n  \
+  \                                              UPPER(\"POBName\") as \"POBNameUpper\"\
+  ,\n                                                POB_TYPE as \"POBType\",\n  \
+  \                                              ALLOC_AMOUNT as \"AllocationAmount\"\
+  ,\n                                                REMAIN_QUANTITY as \"RemainQuantity\"\
+  ,\n                                                REV_PRICE_NOPENDING as \"RevPriceNoPending\"\
+  ,\n                                                INV_AMOUNT as \"InvoiceAmount\"\
+  ,\n                                                REV_CATCHUP as \"RevCatchup\"\
+  ,\n                                                FULFILL_POC as \"FulfillPOC\"\
+  ,\n                                                CUMULATE_POC as \"CumulatePOC\"\
+  ,\n                                                FULFILL_POC_BY_AMT as \"FulFillPOCbyAmt\"\
+  ,\n                                                CUMULATE_POC_BY_AMT as \"CumulatePOCbyAmt\"\
+  ,\n                                                INVOICED_QUANTITY as \"InvoicedQty\"\
+  ,\n                                                UNIT_PRICE as \"UnitPrice\",\n\
+  \                                                POST_PRICE as \"PostPrice\",\n\
+  \                                                POST_PRICE_LC as \"PostPrice_LC\"\
+  ,\n                                                POST_PRICE_GC as \"PostPrice_GC\"\
+  ,\n                                                POST_PRICE_HC as \"PostPrice_HC\"\
+  ,\n                                                BLENDED_LC as \"BLENDED_LC\"\
+  ,\n                                                BLENDED_GC as \"BLENDED_GC\"\
+  ,\n                                                BLENDED_HC as \"BLENDED_HC\"\
+  ,\n                                                T4C_REV_DC as \"T4C_REV_DC\"\
+  ,\n                                                T4C_REV_LC as \"T4C_REV_LC\"\
+  ,\n                                                T4C_REV_GC as \"T4C_REV_GC\"\
+  ,\n                                                T4C_REV_HC as \"T4C_REV_HC\"\
+  ,\n                                                REV_STATUS as \"Revenue_Status\"\
+  ,\n                                                HWAER as \"LocalCurrency\",\n\
+  \                                                HWAE2 as \"LocalCurrency2\",\n\
+  \                                                HWAE3 as \"LocalCurrency3\",\n\
+  \                                                ERDAT as \"Createdon\",\n     \
+  \                                           ERZET as \"CreatedTime\",\n        \
+  \                                        ERNAM as \"CreatedBy\",\n             \
+  \                                   SNAPSHOTMONTH as \"SnapshotMonth\",\n      \
+  \                                          ETL_EXTRACT_DATE as \"SnapshotDate\"\
+  ,\n                                                COLC_BLOCK_DOC_ITEM as \"COLCBlockDocItem\"\
+  ,\n                                                MULTI_YEAR_FED as \"MultiYearFed\"\
+  ,\n                                                T4C_OPTION_TO_DOWNSELL as \"\
+  T4COptionToDownsell\",\n                                                T4C_DOWNSELL_START_DATE\
+  \ as \"T4CDownsellStartDate\",\n                                               \
+  \ T4C_DOWNSELL_END_DATE as \"T4CDownsellEndDate\",\n                           \
+  \                     BILLING_DATE_VBKD as \"BillingDateVBKD\",\n              \
+  \                                  T4C_REFUND_PERCENTAGE as \"T4CRefundPercentage\"\
+  ,\n                                                BILLING_PLAN_NUMBER as \"BillingPlanNumber\"\
+  ,\n                                                T4C_FLAG as \"T4C_Flag\",\n \
+  \                                               CONTRACT_START_DATE as \"ContractStartDate\"\
+  ,\n                                                CONTRACT_END_DATE as \"ContractEndDate\"\
+  ,\n                                                try_to_date(CONTRACT_SIGNED_DATE)\
+  \ as \"ContractSignedDate\",\n                                                SALES_ORGANIZATION\
+  \ as \"SalesOrganization\",\n                                                REJECTION_REASON\
+  \ as \"RejectionReason\",\n                                                REJECTION_REASON_DESC\
+  \ as \"RejectionReasonDesc\",\n                                                T4C_SIGNIFICANT_PENALTY\
+  \ as \"T4CSignificantPenalty\",\n                                              \
+  \  MATERIAL as \"Material\",\n                                                T4C_VALIDITY_FROM\
+  \ as \"T4CValidityFrom\",\n                                                T4C_VALIDITY_TO\
+  \ as \"T4CValidityTo\",\n                                                T4C_NOTICE_PERIOD\
+  \ as \"T4CNoticePeriod\",\n                                                T4C_RIGHT_TO_REFUND\
+  \ as \"T4CRightToRefund\",\n                                                T4C_REFUND_VALIDITY_FROM\
+  \ as \"T4CRefundValidityFrom\",\n                                              \
+  \  T4C_REFUND_VALIDITY_TO as \"T4CRefundValidityTo\",\n                        \
+  \                        SD_ITEM_CATEGORY as \"ItemCategory\",\n               \
+  \                                 OPPORTUNITY_ID as \"OpportunityID\",\n       \
+  \                                         T4C_PERCENT_OR_AMOUNT as \"T4CPercentOrAmount\"\
+  ,\n                                                FPLT_BILLING_DATE_FOR_BILLING_INDEX_AND_PRINTOUT\
+  \ as \"FPLT_BillingDateforBillingIndexandPrintout\",\n                         \
+  \                       FPLT_SETTLEMENT_DATE_FOR_DEAD_LINE_FKDAT as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n                                                FPLT_SETTLEMENT_DATE_FOR_DEAD_LINE_NFDAT\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n                                \
+  \                FPLT_BILL_BLKDESC as \"FPLT_BillBlkDesc\",\n                  \
+  \                              FPLT_BILLING_STATUS_FOR_THE_BILLING_PLAN_DATE as\
+  \ \"FPLT_BillingStatusfortheBillingPlanDate\",\n                               \
+  \                 END_DATE as \"EndDate\",\n                                   \
+  \             START_DATE as \"StartDate\",\n                                   \
+  \             LAST_INV_TO_DATE as \"LastInvTodate\",\n                         \
+  \                       LAST_INV_DATE as \"LastInvDate\",\n                    \
+  \                            NEXT_INVOICE_DATE as \"NextInvoiceDate\",\n       \
+  \                                         SETTLEMENT_FROM as \"SettlementFrom\"\
+  ,\n                                                SETTLEMENT_TO as \"SettlementTo\"\
+  ,\n                                                HDR_CONTRACT_START_DATE as \"\
+  HDRContractStartDate\",\n                                                HDR_CONTRACT_END_DATE\
+  \ as \"HDRContractEndDate\",\n                                                CASE\n\
+  \                                                    WHEN \"POBNameUpper\" in (\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random'\n\
+  \                                                    ) then 'random'\n         \
+  \                                           WHEN \"POBNameUpper\" in(\n        \
+  \                                                'random',\n                   \
+  \                                     'random',\n                              \
+  \                          'random',\n                                         \
+  \               'random',\n                                                    \
+  \    'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random'\n                                  \
+  \                  ) then 'random'\n                                           \
+  \         WHEN \"POBNameUpper\" in (\n                                         \
+  \               'random',\n                                                    \
+  \    'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random',\n                                                        'random',\n\
+  \                                                        'random',\n           \
+  \                                             'random',\n                      \
+  \                                  'random',\n                                 \
+  \                       'random',\n                                            \
+  \            'random',\n                                                       \
+  \ 'random'\n                                                    ) then 'random'\n\
+  \                                                end as \"RecordKey\",\n       \
+  \                                         case\n                               \
+  \                     WHEN right(\"ReportingMonthNumeric\", 'random') = 'random'\
+  \ then 'random'\n                                                    WHEN right(\"\
+  ReportingMonthNumeric\", 'random') = 'random' then 'random'\n                  \
+  \                                  WHEN right(\"ReportingMonthNumeric\", 'random')\
+  \ = 'random' then 'random'\n                                                   \
+  \ WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n   \
+  \                                                 WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                end::CHAR('random') as \"QuarterNum\"\
+  ,\n                                                substr(\"ReportingMonthNumeric\"\
+  , 'random', 'random') || 'random' || \"QuarterNum\" as \"ReportingQuarter\",\n \
+  \                                               case\n                         \
+  \                           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random'\
+  \ then 'random'\n                                                    WHEN right(\"\
+  ReportingMonthNumeric\", 'random') = 'random' then 'random'\n                  \
+  \                                  WHEN right(\"ReportingMonthNumeric\", 'random')\
+  \ = 'random' then 'random'\n                                                   \
+  \ WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n   \
+  \                                                 WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                end::CHAR('random') as \"MonthName\"\
+  ,\n                                                left(\"ReportingMonthNumeric\"\
+  , 'random') || 'random' || right(\"ReportingMonthNumeric\", 'random') || 'random'\
+  \ || \"MonthName\" || 'random' as \"ReportingMonthSurfFormat\",\n              \
+  \                                  try_to_date(\"SnapshotMonth\" || 'random') as\
+  \ \"SnapshotQuarterBeginDate\",\n                                              \
+  \  last_day(\"SnapshotQuarterBeginDate\") as \"SnapshotQuarterEndDate\",\n     \
+  \                                           (\n                                \
+  \                    left(\"SnapshotMonth\", 'random') || substr(\"SnapshotMonth\"\
+  , 'random', 'random')\n                                                ) as \"SnapshotMonthNumeric\"\
+  ,\n                                                case\n                      \
+  \                              when right(\"SnapshotMonth\", 'random') = 'random'\
+  \ then left(\"SnapshotMonth\", 'random') || 'random'\n                         \
+  \                           when right(\"SnapshotMonth\", 'random') = 'random' then\
+  \ left(\"SnapshotMonth\", 'random') || 'random'\n                              \
+  \                      when right(\"SnapshotMonth\", 'random') = 'random' then left(\"\
+  SnapshotMonth\", 'random') || 'random'\n                                       \
+  \             when right(\"SnapshotMonth\", 'random') = 'random' then left(\"SnapshotMonth\"\
+  , 'random') || 'random'\n                                                end as\
+  \ \"SnapshotQuarter\",\n                                                \"BLENDED_LC\"\
+  \ + \"BLENDED_GC\" + \"T4C_REV_DC\" + \"T4C_REV_LC\" + \"T4C_REV_GC\" as \"TotalAmount\"\
+  \n                                            from\n                           \
+  \                     RDS_SHARE.BIECC.ST_ZDEF_REV_SCH\n                        \
+  \                    WHERE\n                                                left(\"\
+  SnapshotMonth\", 'random') >= 'random'\n                                       \
+  \         and \"ReportingMonthNumeric\" > \"SnapshotMonthNumeric\"\n           \
+  \                                     and \"ContractSignedDate\" IS not NULL\n \
+  \                                               and \"ContractSignedDate\" <= \"\
+  SnapshotQuarterEndDate\"\n                                                and \"\
+  RejectionReason\" not in ('random')\n                                          \
+  \      and \"COLCBlockDocItem\" IS NULL\n                                      \
+  \      having\n                                                round(\"TotalAmount\"\
+  , 'random') <> 'random'\n                                        ) \"Projection_9\"\
+  \n                                        left join (\n                        \
+  \                    select\n                                                distinct\
+  \ ltrim(VBELN, 'random') as VBELN_HDR,\n                                       \
+  \         LTRIm(POSNR, 'random') as POSNR_HDR,\n                               \
+  \                 FULFILL_TYPE\n                                            from\n\
+  \                                                RDS_SHARE.BIECC.ZFARR_WFR_HDR\n\
+  \                                        ) \"Projection_8\" On \"Projection_9\"\
+  .\"SalesDocument\" = \"Projection_8\".VBELN_HDR\n                              \
+  \          and \"Projection_9\".\"SalesDocumentItem\" = \"Projection_8\".POSNR_HDR\n\
+  \                                    where\n                                   \
+  \     FULFILL_TYPE = 'random'\n                                ) \"Join_2\"\n  \
+  \                              left join (\n                                   \
+  \ select\n                                        distinct FPLNR,\n            \
+  \                            TETXT,\n                                        FKSAF,\n\
+  \                                        ROW_NUMBER() OVER(\n                  \
+  \                          PARTITION BY FPLNR\n                                \
+  \            ORDER BY\n                                                NFDAT desc\n\
+  \                                        ) \"LatestBillingDoc\"\n              \
+  \                      from\n                                        (\n       \
+  \                                     select\n                                 \
+  \               distinct FPLNR,\n                                              \
+  \  TETXT,\n                                                FKSAF,\n            \
+  \                                    NFDAT\n                                   \
+  \         from\n                                                \"RDS_SHARE\".\"\
+  BIECC\".\"FPLT\"\n                                        ) \"Projection_11\" QUALIFY\
+  \ \"LatestBillingDoc\" = 'random'\n                                ) \"Projection_10\"\
+  \ on \"Join_2\".\"BillingPlanNumber\" = \"Projection_10\".FPLNR\n              \
+  \          ) \"Join_3\"\n                        left join (\n                 \
+  \           select\n                                distinct LTRIm(VBELN, 'random')\
+  \ as \"Salesdoc\",\n                                ltrim(POSNR, 'random') as \"\
+  Item\",\n                                ZZINTERNAL_PRODUCT_LINE\n             \
+  \               from\n                                RDS_SHARE.BIECC.VBAP\n   \
+  \                     ) \"Projection_12\" on \"Join_3\".\"SalesDocument\" = \"Projection_12\"\
+  .\"Salesdoc\"\n                        and \"Join_3\".\"SalesDocumentItem\" = \"\
+  Projection_12\".\"Item\"\n                ) \"RPOBacklog\" --**********************RPO\
+  \ Backlog Adjustments ************************************\n                left\
+  \ join (\n                    select\n                        \"ITEM\" as \"RPOItem\"\
+  ,\n                        ltrim(\"SALES_DOCUMENT\", 'random') as \"RPOSales Document\"\
+  ,\n                        ltrim(\"POB_ID\", 'random') as \"RPOAdjPOBId\",\n   \
+  \                     \"REPORTING_MONTH\" as \"RPOReporting Month\",\n         \
+  \               left(try_to_date(\"RPOReporting Month\", 'random'), 'random') as\
+  \ \"RPOReportingMonthFormat\",\n                        LEFT(\"RPOReportingMonthFormat\"\
+  , 'random') || RIGHT(\"RPOReportingMonthFormat\", 'random') as \"RPOAdjReportingMonthNumeric\"\
+  ,\n                        \"AMOUNT_USD\" as \"RPOAdjAmount\",\n               \
+  \         ETL_INSERT_DATE as \"RPOAdjSnapshotDate\"\n                    from\n\
+  \                        RDS_SHARE.FLATFILESOURCE.ANAPLAN_REVENUE_BACKLOG\n    \
+  \                where\n                        \"DATA\" = 'random'\n          \
+  \              and FILE_VERSION = 'random'\n                        and SOURCE_NAME\
+  \ = 'random'\n                ) \"RPOAdjustments\" on \"RPOBacklog\".\"POBId\" =\
+  \ \"RPOAdjustments\".\"RPOAdjPOBId\"\n                and left(\"RPOBacklog\".\"\
+  SnapshotDate\", 'random') = left(\"RPOAdjustments\".\"RPOAdjSnapshotDate\", 'random')\n\
+  \                and \"RPOBacklog\".\"ReportingMonthNumeric\" = \"RPOAdjustments\"\
+  .\"RPOAdjReportingMonthNumeric\"\n        ) \"Join_1\"\n        left join(\n   \
+  \         select\n                \"ITEM\" as \"FullRPOItem\",\n               \
+  \ ltrim(\"SALES_DOCUMENT\", 'random') as \"FullRPOSales Document\",\n          \
+  \      ltrim(\"POB_ID\", 'random') as \"FullRPOAdjPOBId\",\n                \"REPORTING_MONTH\"\
+  \ as \"FullReporting Month\",\n                left(\n                    try_to_date(\"\
+  FullReporting Month\", 'random'),\n                    'random'\n              \
+  \  ) as \"FullReportingMonthFormat\",\n                LEFT(\"FullReportingMonthFormat\"\
+  , 'random') || RIGHT(\"FullReportingMonthFormat\", 'random') as \"FullRPOAdjReportingMonthNumeric\"\
+  ,\n                \"AMOUNT_USD\" as \"FullRPOAdjAmount\",\n                ETL_INSERT_DATE\
+  \ as \"FullRPOAdjSnapshotDate\"\n            from\n                RDS_SHARE.FLATFILESOURCE.ANAPLAN_REVENUE_BACKLOG\n\
+  \            where\n                \"DATA\" = 'random'\n                and FILE_VERSION\
+  \ = 'random'\n                and SOURCE_NAME = 'random'\n        ) \"FullRPOAdjustments\"\
+  \ on \"Join_1\".\"POBId\" = \"FullRPOAdjustments\".\"FullRPOAdjPOBId\"\n       \
+  \ and left(\"Join_1\".\"SnapshotDate\", 'random') = left(\"FullRPOAdjustments\"\
+  .\"FullRPOAdjSnapshotDate\", 'random')\n        and \"Join_1\".\"ReportingMonthNumeric\"\
+  \ = \"FullRPOAdjustments\".\"FullRPOAdjReportingMonthNumeric\"\n),\nREVENUE_SCHEDULE\
+  \ as (\n    select\n        \"AccountPrinciple\" as \"AccountPrinciple\",\n    \
+  \    \"SalesDocument\" as \"SalesDocument\",\n        \"SalesDocumentItem\" as \"\
+  SalesDocumentItem\",\n        \"POBId\" as \"POBId\",\n        \"AccountingPeriod\"\
+  \ as \"AccountingPeriod\",\n        \"ReportingMonthNumeric\" as \"ReportingMonthNumeric\"\
+  ,\n        \"RevPriceDC\" as \"RevPriceDC\",\n        \"RevPriceLC\" as \"RevPriceLC\"\
+  ,\n        \"DocumentCurrency\" as \"DocumentCurrency\",\n        \"Quantity\" as\
+  \ \"Quantity\",\n        \"FullfilledQty\" as \"FullfilledQty\",\n        \"CompanyCode\"\
+  \ as \"CompanyCode\",\n        \"RAContract\" as \"RAContract\",\n        \"POBName\"\
+  \ as \"POBName\",\n        \"POBType\" as \"POBType\",\n        \"AllocationAmount\"\
+  \ as \"AllocationAmount\",\n        \"RemainQuantity\" as \"RemainQuantity\",\n\
+  \        \"RevPriceNoPending\" as \"RevPriceNoPending\",\n        \"InvoiceAmount\"\
+  \ as \"InvoiceAmount\",\n        \"RevCatchup\" as \"RevCatchup\",\n        \"FulfillPOC\"\
+  \ as \"FulfillPOC\",\n        \"CumulatePOC\" as \"CumulatePOC\",\n        \"FulFillPOCbyAmt\"\
+  \ as \"FulFillPOCbyAmt\",\n        \"CumulatePOCbyAmt\" as \"CumulatePOCbyAmt\"\
+  ,\n        \"InvoicedQty\" as \"InvoicedQty\",\n        \"UnitPrice\" as \"UnitPrice\"\
+  ,\n        \"PostPrice\" as \"PostPrice\",\n        \"PostPrice_LC\" as \"PostPrice_LC\"\
+  ,\n        \"PostPrice_GC\" as \"PostPrice_GC\",\n        \"PostPrice_HC\" as \"\
+  PostPrice_HC\",\n        \"BLENDED_LC\" as \"BLENDED_LC\",\n        \"BLENDED_GC\"\
+  \ as \"BLENDED_GC\",\n        \"BLENDED_HC\" as \"BLENDED_HC\",\n        \"T4C_REV_DC\"\
+  \ as \"T4C_REV_DC\",\n        \"T4C_REV_LC\" as \"T4C_REV_LC\",\n        \"T4C_REV_GC\"\
+  \ as \"T4C_REV_GC\",\n        \"T4C_REV_HC\" as \"T4C_REV_HC\",\n        \"Revenue_Status\"\
+  \ as \"Revenue_Status\",\n        \"LocalCurrency\" as \"LocalCurrency\",\n    \
+  \    \"LocalCurrency2\" as \"LocalCurrency2\",\n        \"LocalCurrency2\" as \"\
+  LocalCurrency3\",\n        \"Createdon\" as \"Createdon\",\n        \"CreatedTime\"\
+  \ as \"CreatedTime\",\n        \"CreatedBy\" as \"CreatedBy\",\n        \"SnapshotMonth\"\
+  \ as \"SnapshotMonth\",\n        \"SnapshotDate\" as \"SnapshotDate\",\n       \
+  \ \"COLCBlockDocItem\" as \"COLCBlockDocItem\",\n        \"MultiYearFed\" as \"\
+  MultiYearFed\",\n        \"T4COptionToDownsell\" as \"T4COptionToDownsell\",\n \
+  \       \"T4CDownsellStartDate\" as \"T4CDownsellStartDate\",\n        \"T4CDownsellEndDate\"\
+  \ as \"T4CDownsellEndDate\",\n        \"BillingDateVBKD\" as \"BillingDateVBKD\"\
+  ,\n        \"T4CRefundPercentage\" as \"T4CRefundPercentage\",\n        \"BillingPlanNumber\"\
+  \ as \"BillingPlanNumber\",\n        \"T4C_Flag\" as \"T4C_Flag\",\n        \"ContractStartDate\"\
+  \ as \"ContractStartDate\",\n        \"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n        \"ContractSignedDate\" as \"ContractSignedDate\",\n        \"SalesOrganization\"\
+  \ as \"SalesOrganization\",\n        \"RejectionReason\" as \"RejectionReason\"\
+  ,\n        \"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n        \"T4CSignificantPenalty\"\
+  \ as \"T4CSignificantPenalty\",\n        \"Material\" as \"Material\",\n       \
+  \ \"T4CValidityFrom\" as \"T4CValidityFrom\",\n        \"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n        \"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n        \"T4CRightToRefund\"\
+  \ as \"T4CRightToRefund\",\n        \"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\"\
+  ,\n        \"T4CRefundValidityTo\" as \"T4CRefundValidityTo\",\n        \"ItemCategory\"\
+  \ as \"ItemCategory\",\n        \"OpportunityID\" as \"OpportunityID\",\n      \
+  \  \"FPLT_BillingDateforBillingIndexandPrintout\" as \"FPLT_BillingDateforBillingIndexandPrintout\"\
+  ,\n        \"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n        \"FPLT_SettlementDateforDeadlineNFDAT\" as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n        \"FPLT_BillBlkDesc\" as \"FPLT_BillBlkDesc\",\n        \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  \ as \"FPLT_BillingStatusfortheBillingPlanDate\",\n        \"EndDate\" as \"EndDate\"\
+  ,\n        \"StartDate\" as \"StartDate\",\n        \"LastInvTodate\" as \"LastInvTodate\"\
+  ,\n        \"LastInvDate\" as \"LastInvDate\",\n        \"NextInvoiceDate\" as \"\
+  NextInvoiceDate\",\n        \"SettlementFrom\" as \"SettlementFrom\",\n        \"\
+  SettlementTo\" as \"SettlementTo\",\n        \"HDRContractStartDate\" as \"HDRContractStartDate\"\
+  ,\n        \"HDRContractEndDate\" as \"HDRContractEndDate\",\n        \"RecordKey\"\
+  \ as \"RecordKey\",\n        \"ReportingQuarter\" as \"ReportingQuarter\",\n   \
+  \     \"SnapshotQuarter\" as \"SnapshotQuarter\",\n        \"BillingPlanDesc\" as\
+  \ \"BillingPlanDesc\",\n        \"T4C_REV_LC_UPDATED\" as \"T4C_REV_LC_UPDATED\"\
+  ,\n        \"BLENDED_LC_UPDATED\" as \"BLENDED_LC_UPDATED\",\n        \"RPOBacklogAmount\"\
+  \ as \"RPOBacklogAmount\",\n        \"ReportingMonthSurfFormat\" as \"ReportingMonthSurfFormat\"\
+  ,\n        \"AdjRPOAmountFinal\" as \"AdjRPOAmountFinal\",\n        \"FullAdjRPOAmountFinal\"\
+  \ as \"FullAdjRPOAmountFinal\",\n        \"Adjversion\" as \"Adjversion\"\n    from\n\
+  \        (\n            select\n                \"AccountPrinciple\" as \"AccountPrinciple\"\
+  ,\n                \"SalesDocument\" as \"SalesDocument\",\n                \"SalesDocumentItem\"\
+  \ as \"SalesDocumentItem\",\n                \"POBId\" as \"POBId\",\n         \
+  \       \"AccountingPeriod\" as \"AccountingPeriod\",\n                \"ReportingMonthNumeric\"\
+  \ as \"ReportingMonthNumeric\",\n                \"RevPriceDC\" as \"RevPriceDC\"\
+  ,\n                \"RevPriceLC\" as \"RevPriceLC\",\n                \"DocumentCurrency\"\
+  \ as \"DocumentCurrency\",\n                \"Quantity\" as \"Quantity\",\n    \
+  \            \"FullfilledQty\" as \"FullfilledQty\",\n                \"CompanyCode\"\
+  \ as \"CompanyCode\",\n                \"RAContract\" as \"RAContract\",\n     \
+  \           \"POBName\" as \"POBName\",\n                \"POBType\" as \"POBType\"\
+  ,\n                \"AllocationAmount\" as \"AllocationAmount\",\n             \
+  \   \"RemainQuantity\" as \"RemainQuantity\",\n                \"RevPriceNoPending\"\
+  \ as \"RevPriceNoPending\",\n                \"InvoiceAmount\" as \"InvoiceAmount\"\
+  ,\n                \"RevCatchup\" as \"RevCatchup\",\n                \"FulfillPOC\"\
+  \ as \"FulfillPOC\",\n                \"CumulatePOC\" as \"CumulatePOC\",\n    \
+  \            \"FulFillPOCbyAmt\" as \"FulFillPOCbyAmt\",\n                \"CumulatePOCbyAmt\"\
+  \ as \"CumulatePOCbyAmt\",\n                \"InvoicedQty\" as \"InvoicedQty\",\n\
+  \                \"UnitPrice\" as \"UnitPrice\",\n                \"PostPrice\"\
+  \ as \"PostPrice\",\n                \"PostPrice_LC\" as \"PostPrice_LC\",\n   \
+  \             \"PostPrice_GC\" as \"PostPrice_GC\",\n                \"PostPrice_HC\"\
+  \ as \"PostPrice_HC\",\n                \"BLENDED_LC\" as \"BLENDED_LC\",\n    \
+  \            \"BLENDED_GC\" as \"BLENDED_GC\",\n                \"BLENDED_HC\" as\
+  \ \"BLENDED_HC\",\n                \"T4C_REV_DC\" as \"T4C_REV_DC\",\n         \
+  \       \"T4C_REV_LC\" as \"T4C_REV_LC\",\n                \"T4C_REV_GC\" as \"\
+  T4C_REV_GC\",\n                \"T4C_REV_HC\" as \"T4C_REV_HC\",\n             \
+  \   \"Revenue_Status\" as \"Revenue_Status\",\n                \"LocalCurrency\"\
+  \ as \"LocalCurrency\",\n                \"LocalCurrency2\" as \"LocalCurrency2\"\
+  ,\n                \"LocalCurrency2\" as \"LocalCurrency3\",\n                \"\
+  Createdon\" as \"Createdon\",\n                \"CreatedTime\" as \"CreatedTime\"\
+  ,\n                \"CreatedBy\" as \"CreatedBy\",\n                \"SnapshotMonth\"\
+  \ as \"SnapshotMonth\",\n                \"SnapshotDate\" as \"SnapshotDate\",\n\
+  \                \"COLCBlockDocItem\" as \"COLCBlockDocItem\",\n               \
+  \ \"MultiYearFed\" as \"MultiYearFed\",\n                \"T4COptionToDownsell\"\
+  \ as \"T4COptionToDownsell\",\n                \"T4CDownsellStartDate\" as \"T4CDownsellStartDate\"\
+  ,\n                \"T4CDownsellEndDate\" as \"T4CDownsellEndDate\",\n         \
+  \       \"BillingDateVBKD\" as \"BillingDateVBKD\",\n                \"T4CRefundPercentage\"\
+  \ as \"T4CRefundPercentage\",\n                \"BillingPlanNumber\" as \"BillingPlanNumber\"\
+  ,\n                \"T4C_Flag\" as \"T4C_Flag\",\n                \"ContractStartDate\"\
+  \ as \"ContractStartDate\",\n                \"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n                \"ContractSignedDate\" as \"ContractSignedDate\",\n         \
+  \       \"SalesOrganization\" as \"SalesOrganization\",\n                \"RejectionReason\"\
+  \ as \"RejectionReason\",\n                \"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n                \"T4CSignificantPenalty\" as \"T4CSignificantPenalty\",\n   \
+  \             \"Material\" as \"Material\",\n                \"T4CValidityFrom\"\
+  \ as \"T4CValidityFrom\",\n                \"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n                \"T4CNoticePeriod\" as \"T4CNoticePeriod\",\n               \
+  \ \"T4CRightToRefund\" as \"T4CRightToRefund\",\n                \"T4CRefundValidityFrom\"\
+  \ as \"T4CRefundValidityFrom\",\n                \"T4CRefundValidityTo\" as \"T4CRefundValidityTo\"\
+  ,\n                \"ItemCategory\" as \"ItemCategory\",\n                \"OpportunityID\"\
+  \ as \"OpportunityID\",\n                \"FPLT_BillingDateforBillingIndexandPrintout\"\
+  \ as \"FPLT_BillingDateforBillingIndexandPrintout\",\n                \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n                \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n                \"FPLT_BillBlkDesc\"\
+  \ as \"FPLT_BillBlkDesc\",\n                \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  \ as \"FPLT_BillingStatusfortheBillingPlanDate\",\n                \"EndDate\" as\
+  \ \"EndDate\",\n                \"StartDate\" as \"StartDate\",\n              \
+  \  \"LastInvTodate\" as \"LastInvTodate\",\n                \"LastInvDate\" as \"\
+  LastInvDate\",\n                \"NextInvoiceDate\" as \"NextInvoiceDate\",\n  \
+  \              \"SettlementFrom\" as \"SettlementFrom\",\n                \"SettlementTo\"\
+  \ as \"SettlementTo\",\n                \"HDRContractStartDate\" as \"HDRContractStartDate\"\
+  ,\n                \"HDRContractEndDate\" as \"HDRContractEndDate\",\n         \
+  \       \"RecordKey\" as \"RecordKey\",\n                \"ReportingQuarter\" as\
+  \ \"ReportingQuarter\",\n                \"SnapshotQuarter\" as \"SnapshotQuarter\"\
+  ,\n                \"BillingPlanDesc\" as \"BillingPlanDesc\",\n               \
+  \ \"T4C_REV_LC_UPDATED\" as \"T4C_REV_LC_UPDATED\",\n                \"BLENDED_LC_UPDATED\"\
+  \ as \"BLENDED_LC_UPDATED\",\n                \"RPOBacklogAmount\" as \"RPOBacklogAmount\"\
+  ,\n                \"ReportingMonthSurfFormat\" as \"ReportingMonthSurfFormat\"\
+  ,\n                \"AdjRPOAmountFinal\" as \"AdjRPOAmountFinal\",\n           \
+  \     \"FullAdjRPOAmountFinal\" as \"FullAdjRPOAmountFinal\",\n                'random'\
+  \ as \"Adjversion\"\n            from\n                MAIN_RPO_BACKLOG\n      \
+  \  ) ----Additional RPO backlog adjutsments .These entries do NOT have an entry\
+  \ in RPO backlog.\n    union all\n    select\n        \"AccountPrinciple\" as \"\
+  AccountPrinciple\",\n        \"SalesDocument\" as \"SalesDocument\",\n        \"\
+  SalesDocumentItem\" as \"SalesDocumentItem\",\n        \"POBId\" as \"POBId\",\n\
+  \        \"ReportingMonth\" as \"AccountingPeriod\",\n        \"ReportingMonthNumeric\"\
+  \ as \"ReportingMonthNumeric\",\n        'random' as \"RevPriceDC\",\n        'random'\
+  \ as \"RevPriceLC\",\n        'random' as \"DocumentCurrency\",\n        'random'\
+  \ as \"Quantity\",\n        'random' as \"FullfilledQty\",\n        'random' as\
+  \ \"CompanyCode\",\n        \"RAContract\" as \"RAContract\",\n        \"POBName\"\
+  \ as \"POBName\",\n        'random' as \"POBType\",\n        'random' as \"AllocationAmount\"\
+  ,\n        'random' as \"RemainQuantity\",\n        'random' as \"RevPriceNoPending\"\
+  ,\n        'random' as \"InvoiceAmount\",\n        'random' as \"RevCatchup\",\n\
+  \        'random' as \"FulfillPOC\",\n        'random' as \"CumulatePOC\",\n   \
+  \     'random' as \"FulFillPOCbyAmt\",\n        'random' as \"CumulatePOCbyAmt\"\
+  ,\n        'random' as \"InvoicedQty\",\n        'random' as \"UnitPrice\",\n  \
+  \      'random' as \"PostPrice\",\n        'random' as \"PostPrice_LC\",\n     \
+  \   'random' as \"PostPrice_GC\",\n        'random' as \"PostPrice_HC\",\n     \
+  \   'random' as \"BLENDED_LC\",\n        'random' as \"BLENDED_GC\",\n        'random'\
+  \ as \"BLENDED_HC\",\n        'random' as \"T4C_REV_DC\",\n        'random' as \"\
+  T4C_REV_LC\",\n        'random' as \"T4C_REV_GC\",\n        'random' as \"T4C_REV_HC\"\
+  ,\n        'random' as \"Revenue_Status\",\n        'random' as \"LocalCurrency\"\
+  ,\n        'random' as \"LocalCurrency2\",\n        'random' as \"LocalCurrency3\"\
+  ,\n        'random' as \"Createdon\",\n        'random' as \"CreatedTime\",\n  \
+  \      'random' as \"CreatedBy\",\n        \"SnapshotMonth\" as \"SnapshotMonth\"\
+  ,\n        \"SnapshotDate\" as \"SnapshotDate\",\n        'random' as \"COLCBlockDocItem\"\
+  ,\n        'random' as \"MultiYearFed\",\n        'random' as \"T4COptionToDownsell\"\
+  ,\n        'random' as \"T4CDownsellStartDate\",\n        'random' as \"T4CDownsellEndDate\"\
+  ,\n        'random' as \"BillingDateVBKD\",\n        'random' as \"T4CRefundPercentage\"\
+  ,\n        'random' as \"BillingPlanNumber\",\n        'random' as \"T4C_Flag\"\
+  ,\n        \"ContractStartDate\" as \"ContractStartDate\",\n        \"ContractEndDate\"\
+  \ as \"ContractEndDate\",\n        \"ContractSignedDate\" as \"ContractSignedDate\"\
+  ,\n        \"SalesOrganization\" as \"SalesOrganization\",\n        \"RejectionReason\"\
+  \ as \"RejectionReason\",\n        'random' as \"RejectionReasonDesc\",\n      \
+  \  'random' as \"T4CSignificantPenalty\",\n        \"Material\" as \"Material\"\
+  ,\n        'random' as \"T4CValidityFrom\",\n        'random' as \"T4CValidityTo\"\
+  ,\n        'random' as \"T4CNoticePeriod\",\n        'random' as \"T4CRightToRefund\"\
+  ,\n        'random' as \"T4CRefundValidityFrom\",\n        'random' as \"T4CRefundValidityTo\"\
+  ,\n        \"ItemCategory\" as \"ItemCategory\",\n        \"OpportunityID\" as \"\
+  OpportunityID\",\n        'random' as \"FPLT_BillingDateforBillingIndexandPrintout\"\
+  ,\n        'random' as \"FPLT_SettlementDateforDeadlineFKDAT\",\n        'random'\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n        'random' as \"FPLT_BillBlkDesc\"\
+  ,\n        'random' as \"FPLT_BillingStatusfortheBillingPlanDate\",\n        \"\
+  ItemEndDate\" as \"EndDate\",\n        \"ItemStartDate\" as \"StartDate\",\n   \
+  \     'random' as \"LastInvTodate\",\n        \"LastInvDate\" as \"LastInvDate\"\
+  ,\n        \"NextInvoiceDate\" as \"NextInvoiceDate\",\n        \"SettlementFrom\"\
+  \ as \"SettlementFrom\",\n        \"SettlementTo\" as \"SettlementTo\",\n      \
+  \  \"HDRContractStartDate\" as \"HDRContractStartDate\",\n        \"HDRContractEndDate\"\
+  \ as \"HDRContractEndDate\",\n        \"RecordKey\" as \"RecordKey\",\n        \"\
+  ReportingQuarter\" as \"ReportingQuarter\",\n        \"SnapshotQuarter\" as \"SnapshotQuarter\"\
+  ,\n        'random' as \"BillingPlanDesc\",\n        'random' as \"T4C_REV_LC_UPDATED\"\
+  ,\n        'random' as \"BLENDED_LC_UPDATED\",\n        'random' as \"RPOBacklogAmount\"\
+  ,\n        \"ReportingMonthSurfFormat\" as \"ReportingMonthSurfFormat\",\n     \
+  \   case\n            when \"SourceName\" = 'random' then \"AdjRPOAmount\"\n   \
+  \     end as \"AdjRPOAmountFinal\",\n        case\n            when \"SourceName\"\
+  \ = 'random' then \"AdjRPOAmount\"\n        end as \"FullAdjRPOAmountFinal\",\n\
+  \        'random' as \"Adjversion\"\n    from\n        (\n            select\n \
+  \               FISCAL_QUARTER as \"SourceSnapshotQuarter\",\n                FILE_VERSION\
+  \ as \"FileVersion\",\n                DATA as \"Data\",\n                ltrim(ITEM,\
+  \ 'random') as \"SalesDocumentItem\",\n                NOTES as \"Notes\",\n   \
+  \             ltrim(SALES_DOCUMENT, 'random') as \"SalesDocument\",\n          \
+  \      MASTER_SALES_DOCUMENT as \"MasterSalesDocument\",\n                ACCOUNT_PRINCIPLE\
+  \ as \"AccountPrinciple\",\n                RA_CONTRACT as \"RAContract\",\n   \
+  \             ltrim(POB_ID, 'random') as \"POBId\",\n                POB_NAME as\
+  \ \"POBName\",\n                case\n                    when SUBS_PS_TRAINING\
+  \ = 'random' then 'random'\n                    when SUBS_PS_TRAINING = 'random'\
+  \ then 'random'\n                end as \"RecordKey\",\n                left(MASTER_CONTRACT_HDR_START_DATE,\
+  \ 'random')::VARCHAR as \"HDRContractStartDate\",\n                left(MASTER_CONTRACT_HDR_END_DATE,\
+  \ 'random')::VARCHAR as \"HDRContractEndDate\",\n                CUSTOMER_NO as\
+  \ \"CustomerNo\",\n                CUSTOMER_NAME \"CustomerName\",\n           \
+  \     CUSTOMER_COUNTRY \"CustomerCountry\",\n                ENDUSER as \"EndUser\"\
+  ,\n                ENDUSER_NAME as \"EndUserName\",\n                ENDUSER_COUNTRY\
+  \ as \"EndUserCountry\",\n                left(CONTRACT_START_DATE, 'random')::VARCHAR\
+  \ as \"ContractStartDate\",\n                left(CONTRACT_END_DATE, 'random')::VARCHAR\
+  \ as \"ContractEndDate\",\n                MATERIAL_NO as \"Material\",\n      \
+  \          MATERIAL_DESC as \"MaterialDesc\",\n                MATERIAL_GROUP as\
+  \ \"MaterialGroup\",\n                MATERIAL_GRP_DESC as \"MaterialGroupDesc\"\
+  ,\n                ITEM_CATEGORY as \"ItemCategory\",\n                left(CONTRACT_SIGNED_DATE,\
+  \ 'random')::VARCHAR as \"ContractSignedDate\",\n                SALES_ORG as \"\
+  SalesOrganization\",\n                left(ITEM_START_DATE, 'random')::VARCHAR as\
+  \ \"ItemStartDate\",\n                left(ITEM_END_DATE, 'random')::VARCHAR as\
+  \ \"ItemEndDate\",\n                left(LAST_INVOICE_DATE, 'random')::VARCHAR as\
+  \ \"LastInvDate\",\n                left(NEXT_BILL_DATE, 'random')::VARCHAR as \"\
+  NextInvoiceDate\",\n                SETTLEMENT_FROM as \"SettlementFrom\",\n   \
+  \             SETTLEMENT_TO as \"SettlementTo\",\n                PURCHASE_ORDER_TYPE\
+  \ as \"PurchaseOrderType\",\n                REASON_FOR_REJECTION as \"RejectionReason\"\
+  ,\n                INSTALLATION_DATE::VARCHAR as \"InstallationDate\",\n       \
+  \         DISMANTLING_DATE::VARCHAR as \"DismantlingDate\",\n                OPPORTUNITY_ID\
+  \ as \"OpportunityID\",\n                ON_PREMISE as \"Onpremise\",\n        \
+  \        REPORTING_MONTH as \"ReportingMonth\",\n                AMOUNT_USD \"AdjRPOAmount\"\
+  ,\n                ETL_INSERT_DATE as \"SnapshotDate\",\n                SOURCE_NAME\
+  \ as \"SourceName\",\n                left(ETL_INSERT_DATE, 'random') || 'random'\
+  \ ||(substr(ETL_INSERT_DATE, 'random', 'random')::INTEGER -'random') as \"SnapshotMonth\"\
+  ,\n                case\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                    WHEN left(\"ReportingMonth\", 'random')\
+  \ = 'random' then 'random'\n                end::CHAR('random') as \"CustomMonth\"\
+  ,\n                LPAD(\"CustomMonth\", 'random', 'random') as \"MonthNum\",\n\
+  \                RIGHT(\"ReportingMonth\", 'random') || 'random' || \"MonthNum\"\
+  \ || 'random' || substr(\"ReportingMonth\", 'random', 'random') || LOWER(substr(\"\
+  ReportingMonth\", 'random', 'random')) || 'random'::CHAR as \"ReportingMonthSurfFormat\"\
+  ,\n                RIGHT(\"ReportingMonth\", 'random') || \"MonthNum\" as \"ReportingMonthNumeric\"\
+  ,\n                case\n                    when right(\"SnapshotMonth\", 'random')\
+  \ = 'random' then left(\"SnapshotMonth\", 'random') || 'random'\n              \
+  \      when right(\"SnapshotMonth\", 'random') = 'random' then left(\"SnapshotMonth\"\
+  , 'random') || 'random'\n                    when right(\"SnapshotMonth\", 'random')\
+  \ = 'random' then left(\"SnapshotMonth\", 'random') || 'random'\n              \
+  \      when right(\"SnapshotMonth\", 'random') = 'random' then left(\"SnapshotMonth\"\
+  , 'random') || 'random'\n                end as \"SnapshotQuarter\",\n\t\t\t\t case\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                    WHEN right(\"ReportingMonthNumeric\"\
+  , 'random') = 'random' then 'random'\n                                         \
+  \           WHEN right(\"ReportingMonthNumeric\", 'random') = 'random' then 'random'\n\
+  \                                                end::CHAR('random') as \"QuarterNum\"\
+  ,\n                                                substr(\"ReportingMonthNumeric\"\
+  , 'random', 'random') || 'random' || \"QuarterNum\" as \"ReportingQuarter\"\n  \
+  \          from\n                RDS_SHARE.FLATFILESOURCE.ANAPLAN_REVENUE_BACKLOG\n\
+  \            where\n                \"DATA\" = 'random'\n                and FILE_VERSION\
+  \ = 'random'\n                and SOURCE_NAME in ('random', 'random')\n        \
+  \        and \"SnapshotMonth\" >= 'random'\n                and \"SalesDocument\"\
+  \ || \"SalesDocumentItem\" not in (\n                    select\n              \
+  \          distinct \"SalesDocument\" || \"SalesDocumentItem\"\n               \
+  \     from\n                        MAIN_RPO_BACKLOG\n                )\n      \
+  \  )\n) -- SEMANTIC LAYER BEGINS\n---******************Combine all the Datasets\
+  \ (RPO Backlog+PS Backlog+T4C Addback) ********************************\nselect\n\
+  \    \"ReportingMonthSurfFormat\" as \"ReportingMonthSurfFormat\",\n    \"AccountPrinciple\"\
+  \ as \"AccountPrinciple\",\n    \"SalesDocument\" as \"SalesDocument\",\n    \"\
+  SalesDocumentItem\" as \"SalesDocumentItem\",\n    \"RevPriceDC\" as \"RevPriceDC\"\
+  ,\n    \"RevPriceLC\" as \"RevPriceLC\",\n    \"T4C_Flag\" as \"T4CFlag\",\n   \
+  \ \"T4CSignificantPenalty\" as \"T4CSignificantPenalty\",\n    \"LocalCurrency\"\
+  \ as \"LocalCurrency\",\n    \"ContractSignedDate\" as \"ContractSignedDate\",\n\
+  \    \"SalesOrganization\" as \"SalesOrg\",\n    \"RejectionReason\" as \"ReasonforRejection\"\
+  ,\n    \"POBId\" as \"POBId\",\n    \"POBName\" as \"POBName\",\n    \"RejectionReasonDesc\"\
+  \ as \"RejectionReasonDesc\",\n    \"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n    \"ContractEndDate\" as \"ContractEndDate\",\n    \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"SettlementFrom\",\n    \"FPLT_SettlementDateforDeadlineNFDAT\" as \"SettlementTo\"\
+  ,\n    \"SnapshotMonth\" as \"SnapshotMonth\",\n    \"SnapshotDate\" as \"SnapshotDate\"\
+  ,\n    \"SnapshotQuarter\" as \"SnapshotQuarter\",\n    \"Material\" as \"MaterialNo\"\
+  ,\n    \"T4CValidityFrom\" as \"T4CValidityFrom\",\n    \"T4CValidityTo\" as \"\
+  T4CValidityTo\",\n    \"ItemCategory\" as \"ItemCategory\",\n    \"OpportunityID\"\
+  \ as \"OpportunityID\",\n    \"RAContract\" as \"RAContract\",\n    \"SourceFlag\"\
+  \ as \"SourceFlag\",\n    \"RecordKey\" as \"RecordKey\",\n    \"ReportingQuarter\"\
+  \ as \"ReportingQuarter\",\n    \"EndDate\" as \"EndDate\",\n    \"StartDate\" as\
+  \ \"StartDate\",\n    \"LastInvDate\" as \"LastInvDate\",\n    \"NextInvoiceDate\"\
+  \ as \"NextInvoiceDate\",\n    \"MultiYearFed\" as \"MultiYearFed\",\n    \"T4COptionToDownsell\"\
+  \ as \"T4COptionToDownsell\",\n    \"T4CDownsellStartDate\" as \"T4CDownsellStartDate\"\
+  ,\n    \"T4CDownsellEndDate\" as \"T4CDownsellEndDate\",\n    \"AmountAfterAdjuments\"\
+  \ as \"AmountAfterAdjuments\",\n    \"Adjversion\" as \"Adjversion\"\nfrom\n   \
+  \ (\n        select\n            \"ReportingMonthSurfFormat\" as \"ReportingMonthSurfFormat\"\
+  ,\n            \"AccountPrinciple\" as \"AccountPrinciple\",\n            \"SalesDocument\"\
+  \ as \"SalesDocument\",\n            \"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n            \"RevPriceDC\" as \"RevPriceDC\",\n            \"RevPriceLC\" as\
+  \ \"RevPriceLC\",\n            \"T4C_Flag\" as \"T4C_Flag\",\n            \"T4CSignificantPenalty\"\
+  \ as \"T4CSignificantPenalty\",\n            \"LocalCurrency\" as \"LocalCurrency\"\
+  ,\n            \"ContractSignedDate\" as \"ContractSignedDate\",\n            \"\
+  SalesOrganization\" as \"SalesOrganization\",\n            \"RejectionReason\" as\
+  \ \"RejectionReason\",\n            \"POBId\" as \"POBId\",\n            \"POBName\"\
+  \ as \"POBName\",\n            \"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n            \"ContractStartDate\" as \"ContractStartDate\",\n            \"ContractEndDate\"\
+  \ as \"ContractEndDate\",\n            \"FPLT_SettlementDateforDeadlineFKDAT\" as\
+  \ \"FPLT_SettlementDateforDeadlineFKDAT\",\n            \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n            \"SnapshotMonth\" as\
+  \ \"SnapshotMonth\",\n            \"SnapshotDate\" as \"SnapshotDate\",\n      \
+  \      \"SnapshotQuarter\" as \"SnapshotQuarter\",\n            \"Material\" as\
+  \ \"Material\",\n            \"T4CValidityFrom\" as \"T4CValidityFrom\",\n     \
+  \       \"T4CValidityTo\" as \"T4CValidityTo\",\n            \"ItemCategory\" as\
+  \ \"ItemCategory\",\n            \"OpportunityID\" as \"OpportunityID\",\n     \
+  \       \"RAContract\" as \"RAContract\",\n            \"SourceFlag\" as \"SourceFlag\"\
+  ,\n            \"RecordKey\" as \"RecordKey\",\n            \"ReportingQuarter\"\
+  \ as \"ReportingQuarter\",\n            \"EndDate\" as \"EndDate\",\n          \
+  \  \"StartDate\" as \"StartDate\",\n            \"LastInvDate\" as \"LastInvDate\"\
+  ,\n            \"NextInvoiceDate\" as \"NextInvoiceDate\",\n            \"MultiYearFed\"\
+  \ as \"MultiYearFed\",\n            \"T4COptionToDownsell\" as \"T4COptionToDownsell\"\
+  ,\n            \"T4CDownsellStartDate\" as \"T4CDownsellStartDate\",\n         \
+  \   \"T4CDownsellEndDate\" as \"T4CDownsellEndDate\",\n            \"AdjRPOAmountFinal\"\
+  \ as \"AmountAfterAdjuments\",\n            \"Adjversion\" as \"Adjversion\"\n \
+  \       from\n            (\n                SELECT\n                    \"ReportingMonthSurfFormat\"\
+  \ as \"ReportingMonthSurfFormat\",\n                    \"AccountPrinciple\" as\
+  \ \"AccountPrinciple\",\n                    \"SalesDocument\" as \"SalesDocument\"\
+  ,\n                    \"SalesDocumentItem\" as \"SalesDocumentItem\",\n       \
+  \             \"RevPriceDC\" as \"RevPriceDC\",\n                    \"RevPriceLC\"\
+  \ as \"RevPriceLC\",\n                    \"T4C_Flag\" as \"T4C_Flag\",\n      \
+  \              \"DocumentCurrency\" as \"DocumentCurrency\",\n                 \
+  \   \"LocalCurrency\" as \"LocalCurrency\",\n                    \"ContractSignedDate\"\
+  \ as \"ContractSignedDate\",\n                    \"SalesOrganization\" as \"SalesOrganization\"\
+  ,\n                    \"RejectionReason\" as \"RejectionReason\",\n           \
+  \         \"POBId\" as \"POBId\",\n                    \"POBName\" as \"POBName\"\
+  ,\n                    \"POBType\" as \"POBType\",\n                    \"Revenue_Status\"\
+  \ as \"Revenue_Status\",\n                    \"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n                    \"ContractStartDate\" as \"ContractStartDate\",\n       \
+  \             \"ContractEndDate\" as \"ContractEndDate\",\n                    \"\
+  T4C_REV_DC\" as \"T4C_REV_DC\",\n                    \"T4C_REV_LC\" as \"T4C_REV_LC\"\
+  ,\n                    \"T4C_REV_GC\" as \"T4C_REV_GC\",\n                    \"\
+  T4C_REV_HC\" as \"T4C_REV_HC\",\n                    \"BLENDED_LC\" as \"BLENDED_LC\"\
+  ,\n                    \"BLENDED_GC\" as \"BLENDED_GC\",\n                    \"\
+  BLENDED_HC\" as \"BLENDED_HC\",\n                    \"T4CSignificantPenalty\" as\
+  \ \"T4CSignificantPenalty\",\n                    \"BillingPlanNumber\" as \"BillingPlanNumber\"\
+  ,\n                    \"FPLT_BillingStatusfortheBillingPlanDate\" as \"FPLT_BillingStatusfortheBillingPlanDate\"\
+  ,\n                    \"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n                    \"FPLT_SettlementDateforDeadlineNFDAT\" as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n                    \"SnapshotMonth\" as \"SnapshotMonth\",\n               \
+  \     \"SnapshotDate\" as \"SnapshotDate\",\n                    left(\"SnapshotDate\"\
+  , 'random') as \"SnapshotDateUpdated\",\n                    \"SnapshotQuarter\"\
+  \ as \"SnapshotQuarter\",\n                    \"Material\" as \"Material\",\n \
+  \                   \"T4CValidityFrom\" as \"T4CValidityFrom\",\n              \
+  \      \"T4CValidityTo\" as \"T4CValidityTo\",\n                    \"T4CNoticePeriod\"\
+  \ as \"T4CNoticePeriod\",\n                    \"T4CRightToRefund\" as \"T4CRightToRefund\"\
+  ,\n                    \"T4CRefundValidityFrom\" as \"T4CRefundValidityFrom\",\n\
+  \                    \"T4CRefundValidityTo\" as \"T4CRefundValidityTo\",\n     \
+  \               \"ItemCategory\" as \"ItemCategory\",\n                    \"OpportunityID\"\
+  \ as \"OpportunityID\",\n                    \"RAContract\" as \"RAContract\",\n\
+  \                    'random' as \"SourceFlag\",\n                    \"RecordKey\"\
+  \ as \"RecordKey\",\n                    \"ReportingQuarter\" as \"ReportingQuarter\"\
+  ,\n                    \"EndDate\" as \"EndDate\",\n                    \"StartDate\"\
+  \ as \"StartDate\",\n                    \"LastInvDate\" as \"LastInvDate\",\n \
+  \                   try_to_date(\"LastInvDate\", 'random') as \"LastInvDateUpdated\"\
+  ,\n                    \"NextInvoiceDate\" as \"NextInvoiceDate\",\n           \
+  \         \"MultiYearFed\" as \"MultiYearFed\",\n                    \"T4COptionToDownsell\"\
+  \ as \"T4COptionToDownsell\",\n                    \"T4CDownsellStartDate\" as \"\
+  T4CDownsellStartDate\",\n                    \"T4CDownsellEndDate\" as \"T4CDownsellEndDate\"\
+  ,\n                    \"RPOBacklogAmount\" as \"RPOBacklogAmount\",\n         \
+  \           \"AdjRPOAmountFinal\" as \"AdjRPOAmountFinal\",\n                  \
+  \  \"Adjversion\" as \"Adjversion\"\n                from\n                    REVENUE_SCHEDULE\n\
+  \            ) \"Projection_1\" -----******************PS Backlog********************************\n\
+  \        union all\n        select\n            'random' as \"ReportingMonthSurfFormat\"\
+  ,\n            'random' as \"AccountPrinciple\",\n            \"SalesDocument\"\
+  \ as \"SalesDocument\",\n            \"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n            'random' as \"RevPriceDC\",\n            'random' as \"RevPriceLC\"\
+  ,\n            'random' as \"T4C_Flag\",\n            'random' as \"T4CSignificantPenalty\"\
+  ,\n            \"LocalCurrency\" as \"LocalCurrency\",\n            \"ContractSignedDate\"\
+  \ as \"ContractSignedDate\",\n            \"SalesOrganizationContract\" as \"SalesOrganization\"\
+  ,\n            \"RejectionReason\" as \"RejectionReason\",\n            LTRIM(\"\
+  POBLine\", 'random') as \"POBId\",\n            'random' as \"POBName\",\n     \
+  \       \"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n            \"ContractStartDate\"\
+  \ as \"ContractStartDate\",\n            \"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n            'random' as \"FPLT_SettlementDateforDeadlineFKDAT\",\n          \
+  \  'random' as \"FPLT_SettlementDateforDeadlineNFDAT\",\n            left(\"PSSnapshotDate\"\
+  , 'random') as \"SnapshotMonth\",\n            \"PSSnapshotDate\" as \"SnapshotDate\"\
+  ,\n            \"SnapshotQuarter\" as \"SnapshotQuarter\",\n            \"Material\"\
+  \ as \"Material\",\n            'random' as \"T4CValidityFrom\",\n            'random'\
+  \ as \"T4CValidityTo\",\n            \"ItemCategory\" as \"ItemCategory\",\n   \
+  \         'random' as \"OpportunityID\",\n            \"RARContractNumber\" as \"\
+  RAContract\",\n            \"SourceFlag\" as \"SourceFlag\",\n            \"RecordKey\"\
+  \ as \"RecordKey\",\n            'random' as \"ReportingQuarter\",\n           \
+  \ 'random' as \"EndDate\",\n            'random' as \"StartDate\",\n           \
+  \ 'random' as \"LastInvDate\",\n            'random' as \"NextInvoiceDate\",\n \
+  \           'random' as \"MultiYearFed\",\n            'random' as \"T4COptionToDownsell\"\
+  ,\n            'random' as \"T4CDownsellStartDate\",\n            'random' as \"\
+  T4CDownsellEndDate\",\n            \"RPOCQUSDCalc\" as \"AmountAfterAdjuments\"\
+  ,\n            'random' as \"Adjversion\"\n        from\n            (\n       \
+  \         select\n                    \"Projection_7\".\"SalesDocument\" as \"SalesDocument\"\
+  ,\n                    \"Projection_7\".\"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n                    \"Projection_7\".\"POBLine\" as \"POBLine\",\n          \
+  \          \"Projection_7\".\"SalesOrganizationContract\" as \"SalesOrganizationContract\"\
+  ,\n                    \"Projection_7\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n                    \"Projection_7\".\"RejectionReason\" as \"RejectionReason\"\
+  ,\n                    \"Projection_7\".\"SupersededOrNot\" as \"SupersededOrNot\"\
+  ,\n                    \"Projection_7\".\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n                    \"Projection_7\".\"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n                    try_to_date(\"Projection_7\".\"ContractSignedDate\") as \"\
+  ContractSignedDate\",\n                    \"Projection_7\".\"EndUserName\" as \"\
+  EndUserName\",\n                    \"Projection_7\".\"ProductBusinessUnit\" as\
+  \ \"ProductBusinessUnit\",\n                    \"Projection_7\".\"RARContractNumber\"\
+  \ as \"RARContractNumber\",\n                    \"Projection_7\".\"RevenueType\"\
+  \ as \"RevenueType\",\n                    \"Projection_7\".\"ProfitCenter\" as\
+  \ \"ProfitCenter\",\n                    \"Projection_7\".\"Material\" as \"Material\"\
+  ,\n                    \"Projection_7\".\"MaterialDescription\" as \"MaterialDescription\"\
+  ,\n                    \"Projection_7\".\"MaterialGroup\" as \"MaterialGroup\",\n\
+  \                    \"Projection_7\".\"ItemCategory\" as \"ItemCategory\",\n  \
+  \                  \"Projection_7\".\"BESPCurrency\" as \"BESPCurrency\",\n    \
+  \                \"Projection_7\".\"Currency\" as \"Currency\",\n              \
+  \      \"Projection_7\".\"ZTExchangeRate\" as \"ZTExchangeRate\",\n            \
+  \        \"Projection_7\".\"BESP\" as \"BESP\",\n                    \"Projection_7\"\
+  .\"TotalDeferredRevenueDC\" as \"TotalDeferredRevenueDC\",\n                   \
+  \ \"Projection_7\".\"ManualBESPValue\" as \"ManualBESPValue\",\n               \
+  \     \"Projection_7\".\"RevenueAmountDC\" as \"RevenueAmountDC\",\n           \
+  \         \"Projection_7\".\"RoundRevenueAmt\" as \"RoundRevenueAmt\",\n       \
+  \             \"Projection_7\".\"ManualExternalRevenue\" as \"ManualExternalRevenue\"\
+  ,\n                    \"Projection_7\".\"ExternalSwap\" as \"ExternalSwap\",\n\
+  \                    \"Projection_7\".\"ExternalManualDebook\" as \"ExternalManualDebook\"\
+  ,\n                    \"Projection_7\".\"ExternalSumifWBSDC\" as \"ExternalSumifWBSDC\"\
+  ,\n                    \"Projection_7\".\"ExternalOtherDC\" as \"ExternalOtherDC\"\
+  ,\n                    \"Projection_7\".\"PSSnapshotDate\" as \"PSSnapshotDate\"\
+  ,\n                    \"Projection_7\".\"SnapshotQuarter\" as \"SnapshotQuarter\"\
+  ,\n                    \"Projection_7\".\"LocalCurrency\" as \"LocalCurrency\",\n\
+  \                    'random' as \"SourceFlag\",\n                    CASE\n   \
+  \                     when \"IncludeFlag\" = 'random' then case\n              \
+  \              WHEN \"ItemCategory\" in(\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random'\n                            ) then 'random'\n\
+  \                            WHEN \"ItemCategory\" in (\n                      \
+  \          'random',\n                                'random',\n              \
+  \                  'random',\n                                'random',\n      \
+  \                          'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random',\n                                'random'\n\
+  \                            ) then 'random'\n                        end\n    \
+  \                end as \"RecordKey\",\n                    IFF (\n            \
+  \            \"SourceFlag\" = 'random',\n                        IFF(\n        \
+  \                    (\n                                \"ManualBESPValue\" IS NULL\n\
+  \                                Or \"ManualBESPValue\" = 'random'\n           \
+  \                 ),\n                            \"BESP\",\n                  \
+  \          \"ManualBESPValue\"\n                        ),\n                   \
+  \     'random'\n                    ) as \"BESPCalculated\",\n                 \
+  \   \"RevenueAmountDC\" + \"ManualExternalRevenue\" + \"ExternalSwap\" + \"ExternalManualDebook\"\
+  \ + \"ExternalSumifWBSDC\" + \"ExternalOtherDC\" as \"MiscTotal\",\n           \
+  \         \"BESPCalculated\" - \"MiscTotal\" as \"BacklogDC_GAAPDerivationUpdated\"\
+  ,\n                    --*************Backlog DC - GAAP Derivation************\n\
+  \                    IFF (\n                        \"SourceFlag\" = 'random',\n\
+  \                        IFF (\n                            (\"ProductBusinessUnit\"\
+  \ = 'random'),\n                            'random',\n                        \
+  \    IFF(\n                                (\n                                 \
+  \   \"ContractSignedDate\" > add_months(last_day(CURRENT_DATE), 'random')\n    \
+  \                                and \"ContractSignedDate\" <> try_to_date('random')\n\
+  \                                ),\n                                'random',\n\
+  \                                IFF (\n                                    (\n\
+  \                                        \"SupersededOrNot\" = 'random'\n      \
+  \                                  And \"ItemCategory\" Not In ('random', 'random')\n\
+  \                                    ),\n                                    \"\
+  BacklogDC_GAAPDerivationUpdated\",\n                                    IFF (\n\
+  \                                        (\n                                   \
+  \         \"RejectionReason\" = 'random'\n                                     \
+  \       And \"ItemCategory\" Not In ('random', 'random')\n                     \
+  \                       And \"ProfitCenter\" = 'random'\n                      \
+  \                      And \"ItemCategory\" = 'random'\n                       \
+  \                 ),\n                                        'random',\n      \
+  \                                  IFF (\n                                     \
+  \       (\n                                                \"RejectionReason\" =\
+  \ 'random'\n                                                And \"ItemCategory\"\
+  \ Not In ('random', 'random')\n                                                And\
+  \ \"ProfitCenter\" = 'random'\n                                            ),\n\
+  \                                            \"BacklogDC_GAAPDerivationUpdated\"\
+  ,\n                                            'random'\n                      \
+  \                  )\n                                    )\n                  \
+  \              )\n                            )\n                        ),\n  \
+  \                      'random'\n                    ) as \"BacklogDC-GAAP\",\n\
+  \                    \"BacklogDC-GAAP\" / \"ZTExchangeRate\" as \"Backlog–GAAP_USD\"\
+  ,\n                    ---******************RPOCQUSD derivation*****************\n\
+  \                    IFF (\n                        \"SourceFlag\" = 'random',\n\
+  \                        IFF (\n                            \"IncludeFlag\" = 'random',\n\
+  \                            'random',\n                            IFF(\n     \
+  \                           \"RevenueType\" not in ('random', 'random'),\n     \
+  \                           \"Backlog–GAAP_USD\",\n                            \
+  \    IFF(\n                                    ABS(\"Backlog–GAAP_USD\") < 'random',\n\
+  \                                    'random',\n                               \
+  \     LEAST(\n                                        ABS(\"Backlog–GAAP_USD\"),\n\
+  \                                        ABS(\"TotalDeferredRevenueDC\" / \"ZTExchangeRate\"\
+  )\n                                    ) * ABS(\"Backlog–GAAP_USD\") / \"Backlog–\
+  GAAP_USD\"\n                                )\n                            )\n \
+  \                       ),\n                        'random'\n                 \
+  \   ) as \"RPOCQUSD\",\n                    \"Projection_3\".\"CollectionBlockSalesDoc\"\
+  \ as \"CollectionBlockSalesDoc\",\n                    \"Projection_3\".\"CollectionBlockSalesDocItem\"\
+  \ as \"CollectionBlockSalesDocItem\",\n                    ---*******************The\
+  \ amount related to \"Collection block docs\" should NOT be considered *********************************\n\
+  \                    IFF(\n                        \"CollectionBlockSalesDoc\" ||\
+  \ \"CollectionBlockSalesDocItem\" = \"SalesDocument\" || \"SalesDocumentItem\",\n\
+  \                        'random',\n                        \"RPOCQUSD\"\n     \
+  \               ) as \"RPOCQUSDCalc\"\n                from\n                  \
+  \  (\n                        select\n                            \"Projection_2\"\
+  .\"SalesDocument\" as \"SalesDocument\",\n                            \"Projection_2\"\
+  .\"SalesDocumentItem\" as \"SalesDocumentItem\",\n                            \"\
+  Projection_2\".\"POBLine\" as \"POBLine\",\n                            \"Projection_2\"\
+  .\"SalesOrganizationContract\" as \"SalesOrganizationContract\",\n             \
+  \               \"Projection_2\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n                            \"Projection_2\".\"RejectionReason\" as \"RejectionReason\"\
+  ,\n                            \"Projection_2\".\"SupersededOrNot\" as \"SupersededOrNot\"\
+  ,\n                            \"Projection_2\".\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n                            \"Projection_2\".\"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n                            \"Projection_2\".\"ContractSignedDate\" as \"ContractSignedDate\"\
+  ,\n                            \"Projection_2\".\"EndUserName\" as \"EndUserName\"\
+  ,\n                            \"Projection_2\".\"ProductBusinessUnit\" as \"ProductBusinessUnit\"\
+  ,\n                            \"Projection_2\".\"RARContractNumber\" as \"RARContractNumber\"\
+  ,\n                            \"Projection_2\".\"RevenueType\" as \"RevenueType\"\
+  ,\n                            \"Projection_2\".\"ProfitCenter\" as \"ProfitCenter\"\
+  ,\n                            \"Projection_2\".\"Material\" as \"Material\",\n\
+  \                            \"Projection_2\".\"MaterialDescription\" as \"MaterialDescription\"\
+  ,\n                            \"Projection_2\".\"MaterialGroup\" as \"MaterialGroup\"\
+  ,\n                            \"Projection_2\".\"ItemCategory\" as \"ItemCategory\"\
+  ,\n                            \"Projection_2\".\"BESPCurrency\" as \"BESPCurrency\"\
+  ,\n                            \"Projection_2\".\"Currency\" as \"Currency\",\n\
+  \                            \"Projection_2\".\"ZTExchangeRate\" as \"ZTExchangeRate\"\
+  ,\n                            \"Projection_2\".\"BESP\" as \"BESP\",\n        \
+  \                    \"Projection_2\".\"TotalDeferredRevenueDC\" as \"TotalDeferredRevenueDC\"\
+  ,\n                            \"Projection_2\".\"ManualBESPValue\" as \"ManualBESPValue\"\
+  ,\n                            \"Projection_2\".\"RevenueAmountDC\" as \"RevenueAmountDC\"\
+  ,\n                            \"Projection_2\".\"RoundRevenueAmt\" as \"RoundRevenueAmt\"\
+  ,\n                            \"Projection_2\".\"ManualExternalRevenue\" as \"\
+  ManualExternalRevenue\",\n                            \"Projection_2\".\"ExternalSwap\"\
+  \ as \"ExternalSwap\",\n                            \"Projection_2\".\"ExternalManualDebook\"\
+  \ as \"ExternalManualDebook\",\n                            \"Projection_2\".\"\
+  ExternalSumifWBSDC\" as \"ExternalSumifWBSDC\",\n                            \"\
+  Projection_2\".\"ExternalOtherDC\" as \"ExternalOtherDC\",\n                   \
+  \         \"Projection_2\".\"PSSnapshotDate\" as \"PSSnapshotDate\",\n         \
+  \                   \"Projection_2\".\"SnapshotQuarter\" as \"SnapshotQuarter\"\
+  ,\n                            \"Projection_2\".\"LocalCurrency\" as \"LocalCurrency\"\
+  ,\n                            \"Projection_2\".\"DebookComments\" as \"DebookComments\"\
+  ,\n                            \"Projection_2\".\"IncludeFlag\" as \"IncludeFlag\"\
+  \n                        from\n                            (\n                \
+  \                SELECT\n                                    ltrim(\"SalesDocument\"\
+  , 'random') as \"SalesDocument\",\n                                    ltrim(\"\
+  SalesDocumentItem\", 'random') as \"SalesDocumentItem\",\n                     \
+  \               ltrim(\"POBLine\", 'random') as \"POBLine\",\n                 \
+  \                   \"SalesOrganizationContract\" as \"SalesOrganizationContract\"\
+  ,\n                                    \"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n                                    \"RejectionReason\" as \"RejectionReason\"\
+  ,\n                                    \"SupersededOrNot\" as \"SupersededOrNot\"\
+  ,\n                                    \"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n                                    \"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n                                    \"ContractSignedDate\" as \"ContractSignedDate\"\
+  ,\n                                    \"EndUserName\" as \"EndUserName\",\n   \
+  \                                 \"ProductBusinessUnit\" as \"ProductBusinessUnit\"\
+  ,\n                                    \"RARContractNumber\" as \"RARContractNumber\"\
+  ,\n                                    \"RevenueType\" as \"RevenueType\",\n   \
+  \                                 \"ProfitCenter\" as \"ProfitCenter\",\n      \
+  \                              \"Material\" as \"Material\",\n                 \
+  \                   \"MaterialDescription\" as \"MaterialDescription\",\n      \
+  \                              \"MaterialGroup\" as \"MaterialGroup\",\n       \
+  \                             \"SDItemCategory\" as \"ItemCategory\",\n        \
+  \                            \"CurrencyBESP\" as \"BESPCurrency\",\n           \
+  \                         \"Currency\" as \"Currency\",\n                      \
+  \              \"ZTExchangeRate\" as \"ZTExchangeRate\",\n                     \
+  \               \"BESP\" as \"BESP\",\n                                    \"DebookComments\"\
+  \ as \"DebookComments\",\n                                    left(\"BookingDate\"\
+  , 'random') || 'random' || substr(\"BookingDate\", 'random', 'random') || 'random'\
+  \ || substr(\"BookingDate\", 'random', 'random') as \"BookingDateFormatted\",\n\
+  \                                    left(ETL_INSERT_DATE, 'random') as \"PSSnapshotDate\"\
+  ,\n                                    IFF(\n                                  \
+  \      \"BookingDateFormatted\" IS NULL\n                                      \
+  \  or \"BookingDate\" = 'random',\n                                        add_months(last_day(try_to_date(\"\
+  PSSnapshotDate\")), 'random'),\n                                        \"BookingDateFormatted\"\
+  \n                                    ) as \"BookingDateUpdated\",\n           \
+  \                         sum(ZEROIFNULL(\"TotalDeferredRevenueDC\")) as \"TotalDeferredRevenueDC\"\
+  ,\n                                    sum(ZEROIFNULL(\"ManualBESPValue\")) as \"\
+  ManualBESPValue\",\n                                    sum(ZEROIFNULL(\"RevenueAmountDC\"\
+  )) as \"RevenueAmountDC\",\n                                    round(sum(ZEROIFNULL(\"\
+  RevenueAmountDC\")), 'random') as \"RoundRevenueAmt\",\n                       \
+  \             sum(ZEROIFNULL(\"ManualExternalRevenue\")) as \"ManualExternalRevenue\"\
+  ,\n                                    sum(ZEROIFNULL(\"ExternalSwap\")) as \"ExternalSwap\"\
+  ,\n                                    sum(ZEROIFNULL(\"ExternalManualDebook\"))\
+  \ as \"ExternalManualDebook\",\n                                    sum(ZEROIFNULL(\"\
+  ExternalSumifWBSDC\")) as \"ExternalSumifWBSDC\",\n                            \
+  \        sum(ZEROIFNULL(\"ExternalOtherDC\")) as \"ExternalOtherDC\",\n        \
+  \                            case\n                                        when\
+  \ substr(\"PSSnapshotDate\", 'random', 'random') = 'random' then left(\"PSSnapshotDate\"\
+  , 'random') || 'random'\n                                        when substr(\"\
+  PSSnapshotDate\", 'random', 'random') = 'random' then left(\"PSSnapshotDate\", 'random')\
+  \ || 'random'\n                                        when substr(\"PSSnapshotDate\"\
+  , 'random', 'random') = 'random' then left(\"PSSnapshotDate\", 'random') || 'random'\n\
+  \                                        when substr(\"PSSnapshotDate\", 'random',\
+  \ 'random') = 'random' then (left(\"PSSnapshotDate\", 'random')::INT - 'random')\
+  \ || 'random'\n                                    end as \"SnapshotQuarter\",\n\
+  \                                    CASE\n                                    \
+  \    WHEN \"ItemCategory\" in (\n                                            'random',\n\
+  \                                            'random',\n                       \
+  \                     'random',\n                                            'random',\n\
+  \                                            'random',\n                       \
+  \                     'random',\n                                            'random',\n\
+  \                                            'random',\n                       \
+  \                     'random',\n                                            'random',\n\
+  \                                            'random' ---'YHKN',\n             \
+  \                               --'ZPCS'\n                                     \
+  \   ) then 'random'\n                                        else 'random'\n   \
+  \                                 end as \"IncludeFlag\",\n                    \
+  \                case\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        when \"SalesOrganizationContract\"\
+  \ = 'random' then 'random'\n                                        else \"BESPCurrency\"\
+  \n                                    end as \"LocalCurrency\",\n              \
+  \                      try_to_date(left(\"PSSnapshotDate\", 'random') || 'random')\
+  \ as \"SnapshotQuarterBeginDate\",\n                                    last_day(\"\
+  SnapshotQuarterBeginDate\") as \"SnapshotQuarterEndDate\"\n                    \
+  \            FROM\n                                    EDW_LS_SHARE.FINANCE_PS_EM.ST_PS_BACKLOG_SNAPSHOT_QUARTERLY\n\
+  \                                where\n                                    (\n\
+  \                                        (\n                                   \
+  \         (\n                                                \"RecordKey\" IN ('random',\
+  \ 'random')\n                                                AND \"BookingYear\"\
+  \ <= YEAR(\"SnapshotQuarterEndDate\")\n                                        \
+  \        AND \"NonBundleItems\" <> 'random'\n                                  \
+  \          )\n                                            OR (\n               \
+  \                                 \"RecordKey\" IN ('random', 'random')\n      \
+  \                                          AND \"BookingYear\" = 'random'\n    \
+  \                                            AND \"NonBundleItems\" <> 'random'\n\
+  \                                            )\n                               \
+  \             OR (\n                                                \"RecordKey\"\
+  \ IN (\n                                                    'random',\n        \
+  \                                            'random',\n                       \
+  \                             'random',\n                                      \
+  \              'random',\n                                                    'random'\n\
+  \                                                )\n                           \
+  \                     AND \"PostingDate\" <= \"SnapshotQuarterEndDate\"\n      \
+  \                                          AND \"BookingYear\" <= YEAR(\"SnapshotQuarterEndDate\"\
+  )\n                                                AND \"NonBundleItems\" <> 'random'\n\
+  \                                            )\n                               \
+  \             or (\n                                                \"RecordKey\"\
+  \ IN (\n                                                    'random',\n        \
+  \                                            'random',\n                       \
+  \                             'random',\n                                      \
+  \              'random',\n                                                    'random'\n\
+  \                                                )\n                           \
+  \                     AND \"PostingDate\" <= \"SnapshotQuarterEndDate\"\n      \
+  \                                          and \"BookingYear\" = 'random'\n    \
+  \                                            AND \"NonBundleItems\" <> 'random'\n\
+  \                                            )\n                               \
+  \         )\n                                        AND \"AccountingPrinciple\"\
+  \ = 'random'\n                                    )\n                          \
+  \      group by\n                                    \"SalesDocument\",\n      \
+  \                              \"SalesDocumentItem\",\n                        \
+  \            \"POBLine\",\n                                    \"SalesOrganizationContract\"\
+  ,\n                                    \"RejectionReasonDesc\",\n              \
+  \                      \"RejectionReason\",\n                                  \
+  \  \"SupersededOrNot\",\n                                    \"ContractStartDate\"\
+  ,\n                                    \"ContractEndDate\",\n                  \
+  \                  \"ContractSignedDate\",\n                                   \
+  \ \"EndUserName\",\n                                    \"ProductBusinessUnit\"\
+  ,\n                                    \"RARContractNumber\",\n                \
+  \                    \"RevenueType\",\n                                    \"ProfitCenter\"\
+  ,\n                                    \"Material\",\n                         \
+  \           \"MaterialDescription\",\n                                    \"MaterialGroup\"\
+  ,\n                                    \"ItemCategory\",\n                     \
+  \               \"BESPCurrency\",\n                                    \"Currency\"\
+  ,\n                                    \"ZTExchangeRate\",\n                   \
+  \                 \"BESP\",\n                                    \"DebookComments\"\
+  ,\n                                    \"BookingDateFormatted\",\n             \
+  \                       \"PSSnapshotDate\",\n                                  \
+  \  \"BookingDateUpdated\",\n                                    \"SnapshotQuarter\"\
+  ,\n                                    \"IncludeFlag\",\n                      \
+  \              \"LocalCurrency\" -- having  \"RoundRevenueAmt\" <> 0\n         \
+  \                   ) \"Projection_2\"\n                        where\n        \
+  \                    \"SalesDocument\" || \"SalesDocumentItem\" not in (\n     \
+  \                           Select\n                                    \"SalesDocument\"\
+  \ || \"SalesDocumentItem\"\n                                from\n             \
+  \                       REVENUE_SCHEDULE\n                            )\n      \
+  \                      and \"DebookComments\" IS NULL\n                        \
+  \    and \"RejectionReason\" = 'random'\n                            and \"RejectionReasonDesc\"\
+  \ IS NULL\n                            and \"BookingDateUpdated\" <= add_months(\n\
+  \                                last_day(try_to_date(left(\"PSSnapshotDate\", 'random'))),\n\
+  \                                'random'\n                            ) ---and\
+  \ \"ContractSignedDate\" <=  ---add_months(last_day(try_to_date(left(\"PSSnapshotDate\"\
+  ,10))),-1)\n                            and \"IncludeFlag\" = 'random'\n       \
+  \             ) \"Projection_7\" ---***************************Collections Blocks\
+  \ **************************************\n                    left join (\n    \
+  \                    select\n                            distinct \"SalesDocument\"\
+  \ as \"CollectionBlockSalesDoc\",\n                            \"SalesDocumentItem\"\
+  \ as \"CollectionBlockSalesDocItem\",\n                        from\n          \
+  \                  (\n                                Select\n                 \
+  \                   \"SalesOrganization\",\n                                   \
+  \ LTRIm(\"SalesDocument\", 'random') as \"SalesDocument\",\n                   \
+  \                 LTRIm(\"SalesDocumentItem\", 'random') as \"SalesDocumentItem\"\
+  ,\n                                    \"CollectionBlock\",\n                  \
+  \                  \"DeferralReason\",\n                                    \"ReviewReason\"\
+  \n                                from\n                                    EDW_LS_SHARE.FINANCE_PS_EM.ST_PS_BACKLOG_SNAPSHOT_QUARTERLY\n\
+  \                                where\n                                    \"AccountingPrinciple\"\
+  \ = 'random'\n                                    and \"SalesDocument\" in (\n \
+  \                                       select\n                               \
+  \             VBELN\n                                        from\n            \
+  \                                RDS_SHARE.BIECC.VBAK\n                        \
+  \                where\n                                            VBTYP = 'random'\n\
+  \                                    )\n                                    and\
+  \ \"DeferralReason\" in ('random', 'random')\n                                union\
+  \ all\n                                select\n                                \
+  \    \"SalesOrganization\",\n                                    LTRIm(\"SalesDocument\"\
+  , 'random') as \"SalesDocument\",\n                                    LTRIm(\"\
+  SalesDocumentItem\", 'random') as \"SalesDocumentItem\",\n                     \
+  \               \"CollectionBlock\",\n                                    \"DeferralReason\"\
+  ,\n                                    \"ReviewReason\"\n                      \
+  \          from\n                                    EDW_LS_SHARE.FINANCE_PS_EM.ST_PS_BACKLOG_SNAPSHOT_QUARTERLY\n\
+  \                                where\n                                    \"AccountingPrinciple\"\
+  \ = 'random'\n                                    and \"SalesDocument\" in (\n \
+  \                                       select\n                               \
+  \             VBELN\n                                        from\n            \
+  \                                RDS_SHARE.BIECC.VBAK\n                        \
+  \                where\n                                            VBTYP = 'random'\n\
+  \                                    )\n                                    and\
+  \ \"DeferralReason\" = 'random'\n                                    and \"CollectionBlock\"\
+  \ in ('random', 'random')\n                                    and \"ReviewReason\"\
+  \ = 'random'\n                            )\n                    ) \"Projection_3\"\
+  \ on \"Projection_7\".\"SalesDocument\" = \"Projection_3\".\"CollectionBlockSalesDoc\"\
+  \n                    and \"Projection_7\".\"SalesDocumentItem\" = \"Projection_3\"\
+  .\"CollectionBlockSalesDocItem\"\n            ) \"Join_1\" --**************************T4C\
+  \ Addback sourced from RPO Backlog with T4C checked********************************\n\
+  \        union all\n        select\n            'random' as \"ReportingMonthSurfFormat\"\
+  ,\n            \"AccountPrinciple\" as \"AccountPrinciple\",\n            \"SalesDocument\"\
+  \ as \"SalesDocument\",\n            \"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n\n            \"TotalRevPriceDC\" as \"RevPriceDC\",\n            \"TotalRevPriceLC\"\
+  \ as \"RevPriceLC\",\n            \"T4C_Flag\" as \"T4C_Flag\",\n            \"\
+  T4CSignificantPenalty\" as \"T4CSignificantPenalty\",\n            \"LocalCurrency\"\
+  \ as \"LocalCurrency\",\n            \"ContractSignedDate\" as \"ContractSignedDate\"\
+  ,\n            \"SalesOrganization\" as \"SalesOrganization\",\n            \"RejectionReason\"\
+  \ as \"RejectionReason\",\n            \"POBId\" as \"POBId\",\n            \"POBName\"\
+  \ as \"POBName\",\n            \"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n            \"ContractStartDateUpdated\" as \"ContractStartDate\",\n        \
+  \    \"ContractEndDateUpdated\" as \"ContractEndDate\",\n            \"FPLT_SettlementDateforDeadlineFKDATUpdated\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n            \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n            \"SnapshotMonth\" as\
+  \ \"SnapshotMonth\",\n            \"SnapshotDate\" as \"SnapshotDate\",\n      \
+  \      \"SnapshotQuarter\" as \"SnapshotQuarter\",\n            \"Material\" as\
+  \ \"Material\",\n            \"T4CValidityFrom\" as \"T4CValidityFrom\",\n     \
+  \       \"T4CValidityTo\" as \"T4CValidityTo\",\n            \"ItemCategory\" as\
+  \ \"ItemCategory\",\n            \"OpportunityID\" as \"OpportunityID\",\n     \
+  \       \"RAContract\" as \"RAContract\",\n            \"SourceFlag\" as \"SourceFlag\"\
+  ,\n            \"RecordKey\" as \"RecordKey\",\n            \"ReportingQuarter\"\
+  \ as \"ReportingQuarter\",\n            \"EndDate\" as \"EndDate\",\n          \
+  \  \"StartDate\" as \"StartDate\",\n            \"LastInvDate\" as \"LastInvDate\"\
+  ,\n            \"NextInvoiceDateUpdated\" as \"NextInvoiceDate\",\n            \"\
+  MultiYearFed\" as \"MultiYearFed\",\n            \"T4COptionToDownsell\" as \"T4COptionToDownsell\"\
+  ,\n            \"T4CDownsellStartDate\" as \"T4CDownsellStartDate\",\n         \
+  \   \"T4CDownsellEndDate\" as \"T4CDownsellEndDate\",\n            \"T4CAmountCalc\"\
+  \ as \"AmountAfterAdjuments\",\n            \"Adjversion\" as \"Adjversion\"\n \
+  \       from\n            (\n                SELECT\n                    \"Projection_6\"\
+  .\"AccountPrinciple\" as \"AccountPrinciple\",\n                    \"Projection_6\"\
+  .\"SalesDocument\" as \"SalesDocument\",\n                    \"Projection_6\".\"\
+  SalesDocumentItem\" as \"SalesDocumentItem\",\n\n                    \"Projection_6\"\
+  .\"SalesDocument\" || \"SalesDocumentItem\" as \"DocumentItem\",\n             \
+  \       \"Projection_6\".\"T4C_Flag\" as \"T4C_Flag\",\n                    \"Projection_6\"\
+  .\"T4CSignificantPenalty\" as \"T4CSignificantPenalty\",\n                    \"\
+  Projection_6\".\"LocalCurrency\" as \"LocalCurrency\",\n                    \"Projection_6\"\
+  .\"ContractSignedDate\" as \"ContractSignedDate\",\n                    \"Projection_6\"\
+  .\"SalesOrganization\" as \"SalesOrganization\",\n                    \"Projection_6\"\
+  .\"RejectionReason\" as \"RejectionReason\",\n                    \"Projection_6\"\
+  .\"POBId\" as \"POBId\",\n                    \"Projection_6\".\"POBName\" as \"\
+  POBName\",\n                    \"Projection_6\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n                    try_to_date(\n                        \"Projection_6\".\"\
+  HDRContractStartDate\",\n                        'random'\n                    )\
+  \ as \"HDRContractStartDateUpdated\",\n                    try_to_date(\"Projection_6\"\
+  .\"HDRContractEndDate\", 'random') as \"HDRContractEndDateUpdated\",\n         \
+  \           try_to_date(\"Projection_6\".\"ContractStartDate\") as \"ContractStartDateUpdated\"\
+  ,\n                    try_to_date(\"Projection_6\".\"ContractEndDate\") as \"ContractEndDateFormatted\"\
+  ,\n                    case\n                        when \"NextInvoiceDateUpdated\"\
+  \ IS NULL then \"HDRContractEndDateUpdated\"\n                        else \"ContractEndDateFormatted\"\
+  \n                    end as \"ContractEndDateUpdated\",\n                    try_to_date(\n\
+  \                        \"Projection_6\".\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n                        'random'\n                    ) as \"FPLT_SettlementDateforDeadlineFKDATUpdated\"\
+  ,\n                    \"Projection_6\".\"FPLT_SettlementDateforDeadlineNFDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineNFDAT\",\n                    \"Projection_6\"\
+  .\"SnapshotMonth\" as \"SnapshotMonth\",\n                    \"Projection_6\".\"\
+  SnapshotDate\" as \"SnapshotDate\",\n                    \"Projection_6\".\"SnapshotQuarter\"\
+  \ as \"SnapshotQuarter\",\n                    \"Projection_6\".\"Material\" as\
+  \ \"Material\",\n                    \"Projection_6\".\"T4CValidityFrom\" as \"\
+  T4CValidityFrom\",\n                    \"Projection_6\".\"T4CValidityTo\" as \"\
+  T4CValidityTo\",\n                    \"Projection_6\".\"ItemCategory\" as \"ItemCategory\"\
+  ,\n                    \"Projection_6\".\"OpportunityID\" as \"OpportunityID\",\n\
+  \                    \"Projection_6\".\"RAContract\" as \"RAContract\",\n      \
+  \              \"Projection_6\".\"SourceFlag\" as \"SourceFlag\",\n            \
+  \        \"Projection_6\".\"RecordKey\" as \"RecordKey\",\n                    \"\
+  Projection_7\".\"UnbilledReportingQuarter\" as \"ReportingQuarter\",\n\n       \
+  \             \"Projection_6\".\"EndDate\" as \"EndDate\",\n                   \
+  \ \"Projection_6\".\"StartDate\" as \"StartDate\",\n                    \"Projection_6\"\
+  .\"LastInvDate\" as \"LastInvDate\",\n                    \"Projection_6\".\"NextInvoiceDateUpdated\"\
+  \ as \"NextInvoiceDateUpdated\",\n                    try_to_date(\"Projection_6\"\
+  .\"SettlementFrom\", 'random') as \"SettlementFromUpdated\",\n                 \
+  \   try_to_date(\"Projection_6\".\"SettlementTo\", 'random') as \"SettlementToUpdated\"\
+  ,\n                    \"Projection_6\".\"MultiYearFed\" as \"MultiYearFed\",\n\
+  \                    \"Projection_6\".\"T4COptionToDownsell\" as \"T4COptionToDownsell\"\
+  ,\n                    \"Projection_6\".\"T4CDownsellStartDate\" as \"T4CDownsellStartDate\"\
+  ,\n                    \"Projection_6\".\"T4CDownsellEndDate\" as \"T4CDownsellEndDate\"\
+  ,\n                    \"Projection_6\".\"TotalAdjRPOAmount\" as \"TotalAdjRPOAmount\"\
+  ,\n                    \"Projection_6\".\"TotalFullAdjRPOAmount\" as \"TotalFullAdjRPOAmount\"\
+  ,\n\t\t\t\t\t\t     \"Projection_6\".\"TotalRevPriceDC\" as \"TotalRevPriceDC\"\
+  ,\n                            \"Projection_6\".\"TotalRevPriceLC\" as \"TotalRevPriceLC\"\
+  ,\n                    \"TotalAdjRPOAmount\" - \"TotalFullAdjRPOAmount\" as \"T4CImpactLC\"\
+  ,\n                    Case\n                        when \"POBName\" like 'random'\n\
+  \                        or round(\"T4CImpactLC\", 'random') = 'random' then 'random'\n\
+  \                        else 'random'\n                    end as \"DerivedT4CFlag\"\
+  ,\n                    last_day(try_to_date(\"SnapshotMonth\" || 'random')) as \"\
+  LastdayoftheQuarter\",\n                    abs(\n                        datediff(\n\
+  \                            day,\n                            \"ContractEndDateUpdated\"\
+  ,\n                            IFF(\n                                (\"SettlementToUpdated\"\
+  \ IS NULL),\n                                \"ContractStartDateUpdated\",\n   \
+  \                             greatest(\n                                    \"\
+  LastdayoftheQuarter\",\n                                    \"SettlementToUpdated\"\
+  \n                                ) + 'random'\n                            )\n\
+  \                        )\n                    ) as \"RemainingDays\",\n      \
+  \              (div0null(\"T4CImpactLC\", (\"RemainingDays\" + 'random'))) as \"\
+  DailyRateLC\",\n                    \"Projection_7\".\"NoOfDays\" as \"NoOfDays\"\
+  ,\n                    \"DailyRateLC\" * \"NoOfDays\" * 'random' as \"T4CTotal\"\
+  ,\n                    IfF(\n                        \"T4CImpactLC\" <= 'random',\n\
+  \                        \"T4CImpactLC\" * 'random',\n                        \"\
+  T4CImpactLC\"\n                    ) as \"T4CImpactLCUpdated\",\n              \
+  \      least (\n                        \"T4CTotal\",\n                        \"\
+  T4CImpactLCUpdated\"\n                    ) as \"T4CAmountCalc\",\n            \
+  \        \"Projection_6\".\"Adjversion\" as \"Adjversion\"\n                from\n\
+  \                    (\n                        SELECT\n                       \
+  \     \"Projection_4\".\"AccountPrinciple\" as \"AccountPrinciple\",\n         \
+  \                   \"Projection_4\".\"SalesDocument\" as \"SalesDocument\",\n \
+  \                           \"Projection_4\".\"SalesDocumentItem\" as \"SalesDocumentItem\"\
+  ,\n\n                            \"Projection_4\".\"SalesDocument\" || \"SalesDocumentItem\"\
+  \ as \"DocumentItem\",\n                            \"Projection_4\".\"T4C_Flag\"\
+  \ as \"T4C_Flag\",\n                            \"Projection_4\".\"T4CSignificantPenalty\"\
+  \ as \"T4CSignificantPenalty\",\n                            \"Projection_4\".\"\
+  LocalCurrency\" as \"LocalCurrency\",\n                            \"Projection_4\"\
+  .\"ContractSignedDate\" as \"ContractSignedDate\",\n                           \
+  \ \"Projection_4\".\"SalesOrganization\" as \"SalesOrganization\",\n           \
+  \                 \"Projection_4\".\"RejectionReason\" as \"RejectionReason\",\n\
+  \                            \"Projection_4\".\"POBId\" as \"POBId\",\n        \
+  \                    \"Projection_4\".\"POBName\" as \"POBName\",\n            \
+  \                \"Projection_4\".\"RejectionReasonDesc\" as \"RejectionReasonDesc\"\
+  ,\n                            \"Projection_4\".\"ContractStartDate\" as \"ContractStartDate\"\
+  ,\n                            \"Projection_4\".\"ContractEndDate\" as \"ContractEndDate\"\
+  ,\n                            \"Projection_4\".\"FPLT_SettlementDateforDeadlineFKDAT\"\
+  \ as \"FPLT_SettlementDateforDeadlineFKDAT\",\n                            \"Projection_4\"\
+  .\"FPLT_SettlementDateforDeadlineNFDAT\" as \"FPLT_SettlementDateforDeadlineNFDAT\"\
+  ,\n                            \"Projection_4\".\"SnapshotMonth\" as \"SnapshotMonth\"\
+  ,\n                            \"Projection_4\".\"SnapshotDate\" as \"SnapshotDate\"\
+  ,\n                            \"Projection_4\".\"SnapshotQuarter\" as \"SnapshotQuarter\"\
+  ,\n                            \"Projection_4\".\"Material\" as \"Material\",\n\
+  \                            \"Projection_4\".\"T4CValidityFrom\" as \"T4CValidityFrom\"\
+  ,\n                            \"Projection_4\".\"T4CValidityTo\" as \"T4CValidityTo\"\
+  ,\n                            \"Projection_4\".\"ItemCategory\" as \"ItemCategory\"\
+  ,\n                            \"Projection_4\".\"OpportunityID\" as \"OpportunityID\"\
+  ,\n                            \"Projection_4\".\"RAContract\" as \"RAContract\"\
+  ,\n                            \"Projection_4\".\"SourceFlag\" as \"SourceFlag\"\
+  ,\n                            \"Projection_4\".\"RecordKey\" as \"RecordKey\",\n\
+  \                            ---\"Projection_4\".\"ReportingQuarter\" ::VARCHAR\
+  \ as \"ReportingQuarter\",\n                            \"Projection_4\".\"EndDate\"\
+  \ as \"EndDate\",\n                            \"Projection_4\".\"StartDate\" as\
+  \ \"StartDate\",\n                            \"Projection_4\".\"LastInvDate\" as\
+  \ \"LastInvDate\",\n                            try_to_date(\"Projection_4\".\"\
+  NextInvoiceDate\", 'random') as \"NextInvoiceDateUpdated\",\n                  \
+  \          \"Projection_4\".\"SettlementFrom\" as \"SettlementFrom\",\n        \
+  \                    \"Projection_4\".\"SettlementTo\" as \"SettlementTo\",\n  \
+  \                          \"Projection_4\".\"MultiYearFed\" as \"MultiYearFed\"\
+  ,\n                            \"Projection_4\".\"T4COptionToDownsell\" as \"T4COptionToDownsell\"\
+  ,\n                            \"Projection_4\".\"T4CDownsellStartDate\" as \"T4CDownsellStartDate\"\
+  ,\n                            \"Projection_4\".\"T4CDownsellEndDate\" as \"T4CDownsellEndDate\"\
+  ,\n                            \"Projection_4\".\"HDRContractStartDate\" as \"HDRContractStartDate\"\
+  ,\n                            \"Projection_4\".\"HDRContractEndDate\" as \"HDRContractEndDate\"\
+  ,\n                            \"Projection_5\".\"TotalAdjRPOAmount\" as \"TotalAdjRPOAmount\"\
+  ,\n                            \"Projection_5\".\"TotalFullAdjRPOAmount\" as \"\
+  TotalFullAdjRPOAmount\",\n\t\t\t\t\t\t\t     \"Projection_5\".\"TotalRevPriceDC\"\
+  \ as \"TotalRevPriceDC\",\n                            \"Projection_5\".\"TotalRevPriceLC\"\
+  \ as \"TotalRevPriceLC\",\n                            \"Projection_4\".\"Adjversion\"\
+  \ as \"Adjversion\"\n                        from\n                            (\n\
+  \                                SELECT\n                                    distinct\
+  \ \"AccountPrinciple\" as \"AccountPrinciple\",\n                              \
+  \      \"SalesDocument\" as \"SalesDocument\",\n                               \
+  \     \"SalesDocumentItem\" as \"SalesDocumentItem\",\n                        \
+  \            \"SalesDocument\" || \"SalesDocumentItem\" as \"DocumentItem\",\n \
+  \                                   \"T4C_Flag\" as \"T4C_Flag\",\n            \
+  \                        \"T4CSignificantPenalty\" as \"T4CSignificantPenalty\"\
+  ,\n                                    \"LocalCurrency\" as \"LocalCurrency\",\n\
+  \                                    \"ContractSignedDate\" as \"ContractSignedDate\"\
+  ,\n                                    \"SalesOrganization\" as \"SalesOrganization\"\
+  ,\n                                    \"RejectionReason\" as \"RejectionReason\"\
+  ,\n                                    \"POBId\" as \"POBId\",\n               \
+  \                     \"POBName\" as \"POBName\",\n                            \
+  \        \"RejectionReasonDesc\" as \"RejectionReasonDesc\",\n                 \
+  \                   \"ContractStartDate\" as \"ContractStartDate\",\n          \
+  \                          \"ContractEndDate\" as \"ContractEndDate\",\n       \
+  \                             \"FPLT_SettlementDateforDeadlineFKDAT\" as \"FPLT_SettlementDateforDeadlineFKDAT\"\
+  ,\n                                    \"FPLT_SettlementDateforDeadlineNFDAT\" as\
+  \ \"FPLT_SettlementDateforDeadlineNFDAT\",\n                                   \
+  \ \"SnapshotMonth\" as \"SnapshotMonth\",\n                                    \"\
+  SnapshotDate\" as \"SnapshotDate\",\n                                    \"SnapshotQuarter\"\
+  \ as \"SnapshotQuarter\",\n                                    \"Material\" as \"\
+  Material\",\n                                    \"T4CValidityFrom\" as \"T4CValidityFrom\"\
+  ,\n                                    \"T4CValidityTo\" as \"T4CValidityTo\",\n\
+  \                                    \"ItemCategory\" as \"ItemCategory\",\n   \
+  \                                 \"OpportunityID\" as \"OpportunityID\",\n    \
+  \                                \"RAContract\" as \"RAContract\",\n           \
+  \                         'random' as \"SourceFlag\",\n                        \
+  \            \"RecordKey\" as \"RecordKey\",\n                                 \
+  \  --\"ReportingQuarter\" as \"ReportingQuarter\",\n                           \
+  \         \"EndDate\" as \"EndDate\",\n                                    \"StartDate\"\
+  \ as \"StartDate\",\n                                    \"LastInvDate\" as \"LastInvDate\"\
+  ,\n                                    \"NextInvoiceDate\" as \"NextInvoiceDate\"\
+  ,\n                                    \"SettlementFrom\" as \"SettlementFrom\"\
+  ,\n                                    \"SettlementTo\" as \"SettlementTo\",\n \
+  \                                   \"MultiYearFed\" as \"MultiYearFed\",\n    \
+  \                                \"T4COptionToDownsell\" as \"T4COptionToDownsell\"\
+  ,\n                                    \"T4CDownsellStartDate\" as \"T4CDownsellStartDate\"\
+  ,\n                                    \"T4CDownsellEndDate\" as \"T4CDownsellEndDate\"\
+  ,\n                                    \"HDRContractStartDate\" as \"HDRContractStartDate\"\
+  ,\n                                    \"HDRContractEndDate\" as \"HDRContractEndDate\"\
+  ,\n                                    \"Adjversion\" as \"Adjversion\"\n      \
+  \                          from\n                                    REVENUE_SCHEDULE\n\
+  \                            ) \"Projection_4\"\n                            left\
+  \ join (\n                                SELECT\n                             \
+  \       \"SalesDocument\" as \"AggSalesDocument\",\n                           \
+  \         \"SalesDocumentItem\" as \"AggSalesDocumentItem\",\n                 \
+  \                   \"POBId\" as \"AggPOBId\",\n\t\t\t\t\t\t\t\t\tsum(\"RevPriceDC\"\
+  ) as \"TotalRevPriceDC\",\n                                    sum(\"RevPriceLC\"\
+  \ )as \"TotalRevPriceLC\",\n                                    sum(\"AdjRPOAmountFinal\"\
+  ) as \"TotalAdjRPOAmount\",\n                                    sum(\"FullAdjRPOAmountFinal\"\
+  ) as \"TotalFullAdjRPOAmount\"\n                                from\n         \
+  \                           REVENUE_SCHEDULE\n                                group\
+  \ by\n                                    \"SalesDocument\",\n                 \
+  \                   \"SalesDocumentItem\",\n                                   \
+  \ \"POBId\"\n                            ) \"Projection_5\" on \"Projection_4\"\
+  .\"POBId\" = \"Projection_5\".\"AggPOBId\"\n                            and \"Projection_4\"\
+  .\"SalesDocument\" = \"Projection_5\".\"AggSalesDocument\"\n                   \
+  \         and \"Projection_4\".\"SalesDocumentItem\" = \"Projection_5\".\"AggSalesDocumentItem\"\
+  \n                    ) \"Projection_6\" -----*****************Unbilled Docs*******************************\n\
+  \                    left join (\n                        select\n             \
+  \               \"ContractNumberNoLeadingZeroes\" as \"ContractNumberNoLeadingZeroes\"\
+  ,\n                            \"ContractLineNoLeadingZeroes\" as \"ContractLineNoLeadingZeroes\"\
+  ,\n                            \"UnbilledReportingQuarter\" as \"UnbilledReportingQuarter\"\
+  ,\n                            \"SettlementFromUnbilled\" as \"SettlementFromUnbilled\"\
+  ,\n                            \"SettlementToUnbilled\" as \"SettlementToUnbilled\"\
+  ,\n                            \"UnbilledSnapshotDate\" as \"UnbilledSnapshotDate\"\
+  ,\n                            case\n                                when right(\"\
+  UnbilledReportingQuarter\", 'random') = 'random' then 'random'\n               \
+  \                 when right(\"UnbilledReportingQuarter\", 'random') = 'random'\
+  \ then 'random'\n                                when right(\"UnbilledReportingQuarter\"\
+  , 'random') = 'random' then 'random'\n                                when right(\"\
+  UnbilledReportingQuarter\", 'random') = 'random' then 'random'\n               \
+  \             end as \"QuarterMonth\",\n                            (\n        \
+  \                        'random' || left(\"UnbilledReportingQuarter\", 'random')\
+  \ || 'random' || \"QuarterMonth\" || 'random' || 'random'\n                    \
+  \        )::DATE as \"FirstDayoftheMonth\",\n                            Last_DAY(\"\
+  FirstDayoftheMonth\", 'random') as \"LastDayoftheQuarter\",\n                  \
+  \          DATEDIFF(\n                                day,\n                   \
+  \             Greatest (\"SettlementFromUnbilled\", \"LastDayoftheQuarter\"),\n\
+  \                                \"SettlementToUnbilled\"\n                    \
+  \        ) + 'random' as \"NoOfDays\"\n                        from\n          \
+  \                  (\n                                SELECT\n                 \
+  \                   \"ContractNumberNoLeadingZeroes\" as \"ContractNumberNoLeadingZeroes\"\
+  ,\n                                    \"ContractLineNoLeadingZeroes\" as \"ContractLineNoLeadingZeroes\"\
+  ,\n                                    \"ReportingQuarter\" as \"UnbilledReportingQuarter\"\
+  ,\n                                    try_to_date(\"SettlementFrom\") as \"SettlementFromUnbilled\"\
+  ,\n                                    try_to_date(\"SettlementTo\") as \"SettlementToUnbilled\"\
+  ,\n                                    ETL_INSERT_DATE as \"UnbilledSnapshotDate\"\
+  ,\n                                    -- try_to_date(min (\"SettlementFrom\"))\
+  \ as \"SettlementFromUnbilled\",\n                                    -- try_to_date(max(\"\
+  SettlementTo\")) as \"SettlementToUnbilled\"\n                                FROM\n\
+  \                                    EDW_LS_SHARE.FINANCE_REVENUE_EM.ST_UNBILLED_DOCS_SNAPSHOT_QUARTERLY\n\
+  \                            )\n                    ) \"Projection_7\" ON \"Projection_6\"\
+  .\"SalesDocument\" = \"Projection_7\".\"ContractNumberNoLeadingZeroes\"\n      \
+  \              and \"Projection_6\".\"SalesDocumentItem\" = \"Projection_7\".\"\
+  ContractLineNoLeadingZeroes\"\n                    and left (\"Projection_6\".\"\
+  SnapshotDate\", 'random') = left (\"Projection_7\".\"UnbilledSnapshotDate\", 'random')\n\
+  \            )\n        Where\n            \"DerivedT4CFlag\" = 'random'\n    )\
+  \ \"Union_1\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

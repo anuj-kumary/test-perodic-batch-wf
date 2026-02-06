@@ -1,0 +1,60 @@
+name: table_829
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_829
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_829.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DOCSITE_HI_DOCUMENTATION(\n\t\"DocsiteHiRmStoryDvEpic\"\
+  ,\n\t\"DocsiteHiRmStoryOpenedAt\",\n\t\"DocsiteHiRmStoryDvProduct\",\n\t\"DocsiteHiRmStoryDescription\"\
+  ,\n\t\"DocsiteHiRmStoryShortDescription\",\n\t\"DocsiteHiRmStoryRating\",\n\t\"\
+  DocsiteHiRmSource\",\n\t\"DocsiteHiRmStoryType\",\n\t\"DocsiteHiRmStoryDvType\"\
+  ,\n\t\"DocsiteHiRmStoryClosedAt\",\n\t\"DocsiteHiRmStoryDvWorkArea\",\n\t\"DocsiteHiRmStoryActive\"\
+  ,\n\t\"DocsiteHiURL\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"DV_U_EPIC\" as\
+  \ \"DocsiteHiRmStoryDvEpic\",\n       \"OPENED_AT\" as \"DocsiteHiRmStoryOpenedAt\"\
+  ,\n       \"U_PRODUCT\" as \"DocsiteHiRmStoryDvProduct\",\n       \"U_DESCRIPTION\"\
+  \ as \"DocsiteHiRmStoryDescription\",\n       \"SHORT_DESCRIPTION\" as \"DocsiteHiRmStoryShortDescription\"\
+  ,\n       \"U_RATING\" as \"DocsiteHiRmStoryRating\",\n       \"DV_U_SOURCE\" as\
+  \ \"DocsiteHiRmSource\",\n       \"U_TYPE\" as \"DocsiteHiRmStoryType\",\n     \
+  \  \"DV_U_TYPE\" as \"DocsiteHiRmStoryDvType\",\n       \"CLOSED_AT\" as \"DocsiteHiRmStoryClosedAt\"\
+  ,\n       \"DV_U_WORKAREA\" as \"DocsiteHiRmStoryDvWorkArea\",\n       \"ACTIVE\"\
+  \ as \"DocsiteHiRmStoryActive\",\n       \"U_URL\" as \"DocsiteHiURL\"\nFROM \"\
+  RDS\".\"HI\".\"U_DOCUMENTATION\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

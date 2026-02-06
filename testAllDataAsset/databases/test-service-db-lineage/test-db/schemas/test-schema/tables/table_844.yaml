@@ -1,0 +1,134 @@
+name: table_844
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_844
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_844.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_CUSTOMERSERVICE_ESCALATION(\n\t\"SysID\"\
+  ,\n\t\"Number\",\n\t\"Parent\",\n\t\"DvState\",\n\t\"DvReason\",\n\t\"DvUrgency\"\
+  ,\n\t\"ActionStatus\",\n\t\"Active\",\n\t\"OpenedAt\",\n\t\"ClosedAt\",\n\t\"Company\"\
+  ,\n\t\"SourceRecord\",\n\t\"SysCreatedOn\",\n\t\"DvRequestedBy\",\n\t\"DvEscalationManager\"\
+  ,\n\t\"DeEscalatedBy\",\n\tDE_ESCALATION_JUSTIFICATION,\n\t\"CalendarDuration\"\
+  ,\n\t\"PlannedEndDate\",\n\t\"PlannedStartDate\",\n\t\"DvRequestSource\",\n\t\"\
+  PspPerinsertDt\",\n\t\"PspPerDeleteDt\",\n\t\"PspPerUpdateDt\",\n\t\"DeEscalationJustification\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SysID\" as \"SysID\",\n       \"Number\"\
+  \ as \"Number\",\n       \"Parent\" as \"Parent\",\n       \"DvState\" as \"DvState\"\
+  ,\n       \"DvReason\" as \"DvReason\",\n       \"DvUrgency\" as \"DvUrgency\",\n\
+  \       \"ActionStatus\" as \"ActionStatus\",\n       \"Active\" as \"Active\",\n\
+  \       \"OpenedAt\" as \"OpenedAt\",\n       \"ClosedAt\" as \"ClosedAt\",\n  \
+  \     \"Company\" as \"Company\",\n       \"SourceRecord\" as \"SourceRecord\",\n\
+  \       \"SysCreatedOn\" as \"SysCreatedOn\",\n       \"DvRequestedBy\" as \"DvRequestedBy\"\
+  ,\n       \"DvEscalationManager\" as \"DvEscalationManager\",\n       \"DeEscalatedBy\"\
+  \ as \"DeEscalatedBy\",\n       \"DE_ESCALATION_JUSTIFICATION\" as \"DE_ESCALATION_JUSTIFICATION\"\
+  ,\n       \"CalendarDuration\" as \"CalendarDuration\",\n       \"PlannedEndDate\"\
+  \ as \"PlannedEndDate\",\n       \"PlannedStartDate\" as \"PlannedStartDate\",\n\
+  \       \"DvRequestSource\" as \"DvRequestSource\",\n       \"PspPerinsertDt\" as\
+  \ \"PspPerinsertDt\",\n       \"PspPerDeleteDt\" as \"PspPerDeleteDt\",\n      \
+  \ \"PspPerUpdateDt\" as \"PspPerUpdateDt\",\n       \"DeEscalationJustification\"\
+  \ as \"DeEscalationJustification\"\nFROM\n  (SELECT *\n   FROM\n     (SELECT \"\
+  SysId\" as \"SysID\",\n             \"Number\" as \"Number\",\n             \"Parent\"\
+  \ as \"Parent\",\n             \"DvState\" as \"DvState\",\n             \"DvUReason\"\
+  \ as \"DvReason\",\n             \"DvUrgency\" as \"DvUrgency\",\n             'random'\
+  \ as \"ActionStatus\",\n             \"Active\" as \"Active\",\n             \"\
+  OpenedAt\" as \"OpenedAt\",\n             \"ClosedAt\" as \"ClosedAt\",\n      \
+  \       \"Company\" as \"Company\",\n             'random' as \"SourceRecord\",\n\
+  \             \"SysCreatedOn\" as \"SysCreatedOn\",\n             \"DvURequestedBY\"\
+  \ as \"DvRequestedBy\",\n             \"DvUEscalationManager\" as \"DvEscalationManager\"\
+  ,\n             \"DvUDeescalatedBy\" as \"DeEscalatedBy\",\n             'random'\
+  \ as \"DE_ESCALATION_JUSTIFICATION\",\n             \"UDuration\" as \"CalendarDuration\"\
+  ,\n             \"EndDate\" as \"PlannedEndDate\",\n             \"StartDate\" as\
+  \ \"PlannedStartDate\",\n             \"DvURequestedByCompany\" as \"DvRequestSource\"\
+  ,\n             'random' as \"PspPerinsertDt\",\n             'random' as \"PspPerDeleteDt\"\
+  ,\n             'random' as \"PspPerUpdateDt\",\n             \"UEscalationBusinessCase\"\
+  \ as \"DeEscalationJustification\"\n      FROM\n        (SELECT \"NUMBER\" as \"\
+  Number\",\n                \"COMPANY\" as \"Company\",\n                \"SYS_ID\"\
+  \ as \"SysId\",\n                \"PARENT\" as \"Parent\",\n                \"DV_STATE\"\
+  \ as \"DvState\",\n                \"DV_U_REASON\" as \"DvUReason\",\n         \
+  \       \"DV_URGENCY\" as \"DvUrgency\",\n                \"ACTIVE\" as \"Active\"\
+  ,\n                \"OPENED_AT\" as \"OpenedAt\",\n                \"CLOSED_AT\"\
+  \ as \"ClosedAt\",\n                \"START_DATE\" as \"StartDate\",\n         \
+  \       \"END_DATE\" as \"EndDate\",\n                \"DV_U_TASK\" as \"DvUTask\"\
+  ,\n                \"U_DURATION\" as \"UDuration\",\n                \"U_ESCALATION_BUSINESS_CASE\"\
+  \ as \"UEscalationBusinessCase\",\n                \"DV_U_REQUESTED_BY_COMPANY\"\
+  \ as \"DvURequestedByCompany\",\n                \"DV_U_REQUESTED_BY\" as \"DvURequestedBY\"\
+  ,\n                \"DV_U_ESCALATED_BY\" as \"DvUEscalatedBy\",\n              \
+  \  \"DV_U_ESCALATION_MANAGER\" as \"DvUEscalationManager\",\n                \"\
+  SYS_CREATED_ON\" as \"SysCreatedOn\",\n                \"DV_U_DE_ESCALATED_BY\"\
+  \ as \"DvUDeescalatedBy\"\n         FROM \"ODS_LS\".\"HI\".\"U_ESCALATION_PERIOD\"\
+  )\"Projection_2\"\n      UNION ALL SELECT \"SysID\" as \"SysID\",\n            \
+  \           \"Number\" as \"Number\",\n                       \"Parent\" as \"Parent\"\
+  ,\n                       \"DvState\" as \"DvState\",\n                       \"\
+  DvReason\" as \"DvReason\",\n                       \"DvUrgency\" as \"DvUrgency\"\
+  ,\n                       \"ActionStatus\" as \"ActionStatus\",\n              \
+  \         \"Active\" as \"Active\",\n                       \"OpenedAt\" as \"OpenedAt\"\
+  ,\n                       \"ClosedAt\" as \"ClosedAt\",\n                      \
+  \ \"Company\" as \"Company\",\n                       \"SourceRecord\" as \"SourceRecord\"\
+  ,\n                       \"SysCreatedOn\" as \"SysCreatedOn\",\n              \
+  \         \"DvRequestedBy\" as \"DvRequestedBy\",\n                       \"DvEscalationManager\"\
+  \ as \"DvEscalationManager\",\n                       \"DeEscalatedBy\" as \"DeEscalatedBy\"\
+  ,\n                       \"DE_ESCALATION_JUSTIFICATION\" as \"DE_ESCALATION_JUSTIFICATION\"\
+  ,\n                       \"CalendarDuration\" as \"CalendarDuration\",\n      \
+  \                 \"PlannedEndDate\" as \"PlannedEndDate\",\n                  \
+  \     \"PlannedStartDate\" as \"PlannedStartDate\",\n                       \"DvRequestSource\"\
+  \ as \"DvRequestSource\",\n                       \"PspPerinsertDt\" as \"PspPerinsertDt\"\
+  ,\n                       \"PspPerDeleteDt\" as \"PspPerDeleteDt\",\n          \
+  \             \"PspPerUpdateDt\" as \"PspPerUpdateDt\",\n                      \
+  \ \"DeEscalationJustification\" as \"DeEscalationJustification\"\n      FROM\n \
+  \       (SELECT \"SYS_ID\" as \"SysID\",\n                \"NUMBER\" as \"Number\"\
+  ,\n                \"PARENT\" as \"Parent\",\n                \"DV_STATE\" as \"\
+  DvState\",\n                \"DV_REASON\" as \"DvReason\",\n                \"DV_URGENCY\"\
+  \ as \"DvUrgency\",\n                \"ACTION_STATUS\" as \"ActionStatus\",\n  \
+  \              \"ACTIVE\" as \"Active\",\n                \"OPENED_AT\" as \"OpenedAt\"\
+  ,\n                \"CLOSED_AT\" as \"ClosedAt\",\n                \"COMPANY\" as\
+  \ \"Company\",\n                \"SOURCE_RECORD\" as \"SourceRecord\",\n       \
+  \         \"SYS_CREATED_ON\" as \"SysCreatedOn\",\n                \"DV_REQUESTED_BY\"\
+  \ as \"DvRequestedBy\",\n                \"DV_ESCALATION_MANAGER\" as \"DvEscalationManager\"\
+  ,\n                \"DE_ESCALATED_BY\" as \"DeEscalatedBy\",\n                \"\
+  DE_ESCALATION_JUSTIFICATION\" as \"DE_ESCALATION_JUSTIFICATION\",\n            \
+  \    \"CALENDAR_DURATION\" as \"CalendarDuration\",\n                \"PLANNED_END_DATE\"\
+  \ as \"PlannedEndDate\",\n                \"PLANNED_START_DATE\" as \"PlannedStartDate\"\
+  ,\n                \"DV_REQUEST_SOURCE\" as \"DvRequestSource\",\n             \
+  \   \"PSP_PER_INSERT_DT\" as \"PspPerinsertDt\",\n                \"PSP_PER_DELETE_DT\"\
+  \ as \"PspPerDeleteDt\",\n                \"PSP_PER_UPDATE_DT\" as \"PspPerUpdateDt\"\
+  ,\n                \"DE_ESCALATION_JUSTIFICATION\" as \"DeEscalationJustification\"\
+  \n         FROM \"RDS\".\"HI\".\"SN_CUSTOMERSERVICE_ESCALATION\")\"Projection_1\"\
+  ))Union_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

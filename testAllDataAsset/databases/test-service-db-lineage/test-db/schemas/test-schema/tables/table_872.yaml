@@ -1,0 +1,64 @@
+name: table_872
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_872
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_872.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view AT_LEAD(\n\t\"LeadID\",\n\t\"LeadNumber\"\
+  ,\n\t\"LeadScore\",\n\tSDR,\n\tSTATUSCODE,\n\t\"LeadSourceMostRecentDate\",\n\t\"\
+  AuditDate\",\n\tMODIFIEDON,\n\tMODIFIEDTIMEINMIN,\n\tMODIFIEDDATE,\n\t\"ReasonCode\"\
+  ,\n\tOWNERID,\n\tOWNINGUSER,\n\tOWNERIDNAME,\n\tLEADRATING\n) as\n-- SEMANTIC LAYER\
+  \ BEGINS\n/*----------------------------------------------------------------------------------------------------------------------------------\n\
+  # STRY2561946         15/10/2023             Naveen Motamarri   Addition of MODIFIED\
+  \ ON\n----------------------------------------------------------------------------------------------------------------------------------*/\n\
+  \n\nSELECT\nLEADID as \"LeadID\",\nSN_LEADNUMBER as \"LeadNumber\",\nMSDYN_LEADSCORE\
+  \ as \"LeadScore\",\nOWNERIDNAME as \"SDR\",\nSTATUSCODE as \"STATUSCODE\",\nSN_LEADSOURCEMOSTRECENTDATE\
+  \ as \"LeadSourceMostRecentDate\",\n--TO_DATE(split_part(SINKCREATEDON,' ',1)) \
+  \ as \"LinkCreationDate\",\nTO_TIMESTAMP(SINKCREATEDON, 'random') \"AuditDate\"\
+  ,\n--TO_TIMESTAMP(SINKMODIFIEDON, 'mm/dd/yyyy hh12:mi:ss am') \"SINKMODIFIEDON\"\
+  ,\n--TO_DATE(split_part(SINKMODIFIEDON,' ',1)) \"SINKMODIFIEDDATE\",\nMODIFIEDON,\
+  \            --STRY2561946\ndate_trunc('random',MODIFIEDON) as \"MODIFIEDTIMEINMIN\"\
+  ,\nDATE(MODIFIEDON)  as \"MODIFIEDDATE\",\nSN_REASONCODE as \"ReasonCode\",\n\"\
+  OWNERID\" as \"OWNERID\",\nOWNINGUSER,\nOWNERIDNAME,\ncase when SN_LEADRATING= 'random'\
+  \ then 'random'\n     when SN_LEADRATING= 'random' then 'random'\n     when SN_LEADRATING=\
+  \ 'random' then 'random'\n     else 'random'\nEND LEADRATING\nfrom RDS_SHARE.\"\
+  DYNAMICS365\".\"AT_LEAD\" ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

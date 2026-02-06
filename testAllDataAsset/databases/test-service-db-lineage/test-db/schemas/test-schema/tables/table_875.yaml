@@ -1,0 +1,74 @@
+name: table_875
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_875
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_875.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_RESOURCES(\n\t\"ResRole\",\n\t\"ResRoleSysID\"\
+  ,\n\t\"ResServicesApprovalSysID\",\n\t\"ResServicesApproval\",\n\t\"ResTotalPriceUSD\"\
+  ,\n\t\"ResTotalHours\",\n\t\"ResDescription\",\n\t\"ResNumber\",\n\t\"ResTaskID\"\
+  ,\n\t\"ResLocalProjectRate\",\n\t\"ResLocalTotalPrice\",\n\t\"ResDiscount\",\n\t\
+  \"ResLocalProjectRateUSD\",\n\t\"ResCustomerSatResource\",\n\t\"ResLocalBaseRateUSD\"\
+  ,\n\t\"ResBaseRateTotalPrice\",\n\t\"ResLocalBaseRate\",\n\t\"ResPSRoleRate\",\n\
+  \t\"ResPSRoleRateSYSID\",\n\t\"ResResourceType\",\n\t\"ResTotalListPriceUSD\",\n\
+  \t\"ResPractice\",\n\t\"ResBurdenPrice\",\n\t\"ResLocal_PartnerRate\",\n\t\"ResResourceCost\"\
+  ,\n\t\"ResClearanceLevel\",\n\t\"ResDVResourceType\",\n\t\"ResPracticeSysID\"\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"DV_U_ROLE\" as \"ResRole\",\n       \"\
+  U_ROLE\" as \"ResRoleSysID\",\n       \"U_SERVICES_APPROVAL\" as \"ResServicesApprovalSysID\"\
+  ,\n       \"DV_U_SERVICES_APPROVAL\" as \"ResServicesApproval\",\n       \"U_TOTAL_PRICE_USD\"\
+  \ as \"ResTotalPriceUSD\",\n       \"U_TOTAL_HOURS\" as \"ResTotalHours\",\n   \
+  \    \"U_DESCRIPTION\" as \"ResDescription\",\n       \"U_NUMBER\" as \"ResNumber\"\
+  ,\n       \"U_TASK_ID\" as \"ResTaskID\",\n       \"U_LOCAL_PROJECT_RATE\" as \"\
+  ResLocalProjectRate\",\n    \t\"U_LOCAL_TOTAL_PRICE\"  as    \"ResLocalTotalPrice\"\
+  ,\n\t\t\"U_DISCOUNT\"  as    \"ResDiscount\",\n\t\t\"U_LOCAL_PROJECT_RATE_USD\"\
+  \  as    \"ResLocalProjectRateUSD\",\n\t\t\"U_CUSTOMER_SAT_RESOURCE\"  as    \"\
+  ResCustomerSatResource\",\n\t\t\"U_LOCAL_BASE_RATE_USD\"  as    \"ResLocalBaseRateUSD\"\
+  ,\n\t\t\"U_BASE_RATE_TOTAL_PRICE\"  as    \"ResBaseRateTotalPrice\",\n\t\t\"U_LOCAL_BASE_RATE\"\
+  \  as    \"ResLocalBaseRate\",\n\t\t\"DV_U_PS_ROLE_RATE\"  as    \"ResPSRoleRate\"\
+  ,\n\t\t\"U_PS_ROLE_RATE\"  as    \"ResPSRoleRateSYSID\",\n\t\t\"U_RESOURCE_TYPE\"\
+  \  as    \"ResResourceType\",\n\t\t\"U_TOTAL_LIST_PRICE_USD\"  as    \"ResTotalListPriceUSD\"\
+  ,\n\t\t\"DV_U_PRACTICE\"  as    \"ResPractice\",\n\t\t\"U_BURDEN_PRICE\"  as   \
+  \ \"ResBurdenPrice\",\n\t\t\"U_LOCAL_PARTNER_RATE\"  as    \"ResLocal_PartnerRate\"\
+  ,\n\t\t\"U_RESOURCE_COST\"  as    \"ResResourceCost\",\n\t\t\"DV_U_CLEARANCE_LEVEL\"\
+  \  as    \"ResClearanceLevel\",\n        \"DV_U_RESOURCE_TYPE\" as \"ResDVResourceType\"\
+  ,\n\t\t\"U_PRACTICE\" as \"ResPracticeSysID\"\nFROM \"RDS\".\"SURF\".\"U_RESOURCES\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

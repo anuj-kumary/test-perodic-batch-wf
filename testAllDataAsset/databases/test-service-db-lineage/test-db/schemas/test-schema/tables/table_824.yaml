@@ -1,0 +1,118 @@
+name: table_824
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_824
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_824.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_CUSTOMERSERVICE_TASK(\n\t\"Number\",\n\
+  \t\"AssignedTo\",\n\t\"Parent\",\n\t\"DvAssignmentGroup\",\n\t\"DvPriority\",\n\t\
+  \"DvImpact\",\n\t\"AssignmentGroup\",\n\t\"ShortDescription\",\n\t\"DvAssignedTo\"\
+  ,\n\t\"DvOpenedBy\",\n\t\"OpenedBy\",\n\t\"DvParent\",\n\t\"SysCreatedOn\",\n\t\"\
+  ClosedAt\",\n\t\"DvState\",\n\t\"PspPerInsertDt\",\n\t\"PspPerDeleteDt\",\n\t\"\
+  PspPerUpdateDt\",\n\t\"DvCompany\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"NUMBER\"\
+  \ as \"Number\",\n       \"ASSIGNED_TO\" as \"AssignedTo\",\n       \"PARENT\" as\
+  \ \"Parent\",\n       \"DV_ASSIGNMENT_GROUP\" as \"DvAssignmentGroup\",\n      \
+  \ \"DV_PRIORITY\" as \"DvPriority\",\n       \"DV_IMPACT\" as \"DvImpact\",\n  \
+  \     \"ASSIGNMENT_GROUP\" as \"AssignmentGroup\",\n       \"SHORT_DESCRIPTION\"\
+  \ as \"ShortDescription\",\n       \"DV_ASSIGNED_TO\" as \"DvAssignedTo\",\n   \
+  \    \"DV_OPENED_BY\" as \"DvOpenedBy\",\n       \"OPENED_BY\" as \"OpenedBy\",\n\
+  \       \"DV_PARENT\" as \"DvParent\",\n       \"SYS_CREATED_ON\" as \"SysCreatedOn\"\
+  ,\n       \"CLOSED_AT\" as \"ClosedAt\",\n       \"DV_STATE\" as \"DvState\",\n\
+  \       \"PSP_PER_INSERT_DT\" as \"PspPerInsertDt\",\n       \"PSP_PER_DELETE_DT\"\
+  \ as \"PspPerDeleteDt\",\n       \"PSP_PER_UPDATE_DT\" as \"PspPerUpdateDt\",\n\
+  \       \"DV_COMPANY\" as \"DvCompany\"\nFROM\n  (SELECT *\n   FROM\n     (SELECT\
+  \ \"NUMBER\" as \"NUMBER\",\n             \"ASSIGNED_TO\" as \"ASSIGNED_TO\",\n\
+  \             \"PARENT\" as \"PARENT\",\n             \"DV_ASSIGNMENT_GROUP\" as\
+  \ \"DV_ASSIGNMENT_GROUP\",\n             \"DV_PRIORITY\" as \"DV_PRIORITY\",\n \
+  \            \"DV_IMPACT\" as \"DV_IMPACT\",\n             \"ASSIGNMENT_GROUP\"\
+  \ as \"ASSIGNMENT_GROUP\",\n             \"SHORT_DESCRIPTION\" as \"SHORT_DESCRIPTION\"\
+  ,\n             \"DV_ASSIGNED_TO\" as \"DV_ASSIGNED_TO\",\n             \"DV_OPENED_BY\"\
+  \ as \"DV_OPENED_BY\",\n             \"OPENED_BY\" as \"OPENED_BY\",\n         \
+  \    \"DV_PARENT\" as \"DV_PARENT\",\n             \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n             \"CLOSED_AT\" as \"CLOSED_AT\",\n             \"DV_STATE\" as \"\
+  DV_STATE\",\n             \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n    \
+  \         \"PSP_PER_DELETE_DT\" as \"PSP_PER_DELETE_DT\",\n             \"PSP_PER_UPDATE_DT\"\
+  \ as \"PSP_PER_UPDATE_DT\",\n             \"DV_COMPANY\" as \"DV_COMPANY\"\n   \
+  \   FROM\n        (SELECT \"NUMBER\" as \"NUMBER\",\n                \"ASSIGNED_TO\"\
+  \ as \"ASSIGNED_TO\",\n                \"PARENT\" as \"PARENT\",\n             \
+  \   \"DV_ASSIGNMENT_GROUP\" as \"DV_ASSIGNMENT_GROUP\",\n                \"DV_PRIORITY\"\
+  \ as \"DV_PRIORITY\",\n                \"DV_IMPACT\" as \"DV_IMPACT\",\n       \
+  \         \"ASSIGNMENT_GROUP\" as \"ASSIGNMENT_GROUP\",\n                \"SHORT_DESCRIPTION\"\
+  \ as \"SHORT_DESCRIPTION\",\n                \"DV_ASSIGNED_TO\" as \"DV_ASSIGNED_TO\"\
+  ,\n                \"DV_OPENED_BY\" as \"DV_OPENED_BY\",\n                \"OPENED_BY\"\
+  \ as \"OPENED_BY\",\n                \"DV_PARENT\" as \"DV_PARENT\",\n         \
+  \       \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n                \"CLOSED_AT\"\
+  \ as \"CLOSED_AT\",\n                \"DV_STATE\" as \"DV_STATE\",\n           \
+  \     \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n                \"PSP_PER_DELETE_DT\"\
+  \ as \"PSP_PER_DELETE_DT\",\n                \"PSP_PER_UPDATE_DT\" as \"PSP_PER_UPDATE_DT\"\
+  ,\n                \"DV_COMPANY\" as \"DV_COMPANY\"\n         FROM \"RDS\".\"HI\"\
+  .\"SN_CUSTOMERSERVICE_TASK\"\n         WHERE \"SYS_CREATED_ON\" > 'random' )\"CaseTask\"\
+  \n      UNION ALL SELECT \"NUMBER\" as \"NUMBER\",\n                       \"ASSIGNED_TO\"\
+  \ as \"ASSIGNED_TO\",\n                       \"PARENT\" as \"PARENT\",\n      \
+  \                 \"DV_ASSIGNMENT_GROUP\" as \"DV_ASSIGNMENT_GROUP\",\n        \
+  \               \"DV_U_USER_PRIORITY\" as \"DV_PRIORITY\",\n                   \
+  \    \"DV_IMPACT\" as \"DV_IMPACT\",\n                       \"ASSIGNMENT_GROUP\"\
+  \ as \"ASSIGNMENT_GROUP\",\n                       \"SHORT_DESCRIPTION\" as \"SHORT_DESCRIPTION\"\
+  ,\n                       \"DV_ASSIGNED_TO\" as \"DV_ASSIGNED_TO\",\n          \
+  \             \"DV_OPENED_BY\" as \"DV_OPENED_BY\",\n                       \"OPENED_BY\"\
+  \ as \"OPENED_BY\",\n                       \"DV_PARENT_C\" as \"DV_PARENT\",\n\
+  \                       \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n            \
+  \           \"CLOSED_AT\" as \"CLOSED_AT\",\n                       \"DV_STATE\"\
+  \ as \"DV_STATE\",\n                       \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\"\
+  ,\n                       \"PSP_PER_DELETE_DT\" as \"PSP_PER_DELETE_DT\",\n    \
+  \                   \"PSP_PER_UPDATE_DT\" as \"PSP_PER_UPDATE_DT\",\n          \
+  \             \"DV_COMPANY\" as \"DV_COMPANY\"\n      FROM\n        (SELECT \"PSP_PER_INSERT_DT\"\
+  \ as \"PSP_PER_INSERT_DT\",\n                \"PSP_PER_UPDATE_DT\" as \"PSP_PER_UPDATE_DT\"\
+  ,\n                \"PSP_PER_DELETE_DT\" as \"PSP_PER_DELETE_DT\",\n           \
+  \     \"DV_STATE\" as \"DV_STATE\",\n                \"DV_COMPANY\" as \"DV_COMPANY\"\
+  ,\n                \"CLOSED_AT\" as \"CLOSED_AT\",\n                \"DV_PARENT\"\
+  \ as \"DV_PARENT\",\n                \"NUMBER\" as \"NUMBER\",\n               \
+  \ \"PARENT\" as \"PARENT\",\n                \"DV_ASSIGNED_TO\" as \"DV_ASSIGNED_TO\"\
+  ,\n                \"ASSIGNMENT_GROUP\" as \"ASSIGNMENT_GROUP\",\n             \
+  \   \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n                \"SHORT_DESCRIPTION\"\
+  \ as \"SHORT_DESCRIPTION\",\n                \"DV_U_USER_PRIORITY\" as \"DV_U_USER_PRIORITY\"\
+  ,\n                \"DV_IMPACT\" as \"DV_IMPACT\",\n                \"ASSIGNED_TO\"\
+  \ as \"ASSIGNED_TO\",\n                \"OPENED_BY\" as \"OPENED_BY\",\n       \
+  \         \"DV_OPENED_BY\" as \"DV_OPENED_BY\",\n                \"DV_ASSIGNMENT_GROUP\"\
+  \ as \"DV_ASSIGNMENT_GROUP\",\n                REPLACE(\"DV_PARENT\", 'random',\
+  \ 'random') as \"DV_PARENT_C\"\n         FROM \"ODS_LS\".\"HI\".\"U_INCIDENT_TASK\"\
+  \n         WHERE \"SYS_CREATED_ON\" <= 'random' )\"IntTask\"))Union_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

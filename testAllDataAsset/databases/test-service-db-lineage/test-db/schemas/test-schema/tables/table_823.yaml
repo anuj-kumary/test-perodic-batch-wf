@@ -1,0 +1,207 @@
+name: table_823
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_823
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_823.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_SERVICES_APPROVALS(\n\t\"SerApprSysID\"\
+  ,\n\t\"SerApprOpportunity\",\n\t\"SerApprOpportunitySysID\",\n\t\"SerApprLineItem\"\
+  ,\n\t\"SerApprLineItemSysID\",\n\t\"SerApprDeploymentSysID\",\n\t\"SerApprDeploymentID\"\
+  ,\n\t\"SerApprTravelandExpenses\",\n\t\"SerApprTotalFixedListPriceUSD\",\n\t\"SerApprPSRateBook\"\
+  ,\n\t\"SerApprListPrice\",\n\t\"SerApprRequestor\",\n\t\"SerApprNonLegalTerms\"\
+  ,\n\t\"SerApprState\",\n\t\"SerApprSOWFormat\",\n\t\"SerApprNonStandardTerms\",\n\
+  \t\"SerApprInvoicingMilestones\",\n\t\"SerApprTotalTMListPriceUSD\",\n\t\"SerApprTotalTMPriceUSD\"\
+  ,\n\t\"SerApprUpdated\",\n\t\"SerApprNumber\",\n\t\"SerApprRequestDate\",\n\t\"\
+  SerApprProductType\",\n\t\"SerApprTotalFixedPriceUSD\",\n\t\"SerApprSalesPrice\"\
+  ,\n\t\"SerApprProductHours\",\n\t\"SerApprCreated\",\n\t\"SerApprPartnerMargin\"\
+  ,\n\t\"SerApprMargin\",\n\t\"SerApprDiscountFromBaseRate\",\n\t\"SerApprProjectDuration\"\
+  ,\n\t\"SerApprCSATRequest\",\n\t\"SerApprRequestorSysID\",\n\t\"SerApprFixedPricePremium\"\
+  ,\n\t\"SerApprSource\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SerApprSysID\"\
+  \ as \"SerApprSysID\",\n       \"SerApprOpportunity\" as \"SerApprOpportunity\"\
+  ,\n       \"SerApprOpportunitySysID\" as \"SerApprOpportunitySysID\",\n       \"\
+  SerApprLineItem\" as \"SerApprLineItem\",\n       \"SerApprLineItemSysID\" as \"\
+  SerApprLineItemSysID\",\n       \"SerApprDeploymentSysID\" as \"SerApprDeploymentSysID\"\
+  ,\n       \"SerApprDeploymentID\" as \"SerApprDeploymentID\",\n       \"SerApprTravelandExpenses\"\
+  \ as \"SerApprTravelandExpenses\",\n       \"SerApprTotalFixedListPriceUSD\" as\
+  \ \"SerApprTotalFixedListPriceUSD\",\n       \"SerApprPSRateBook\" as \"SerApprPSRateBook\"\
+  ,\n       \"SerApprListPrice\" as \"SerApprListPrice\",\n       \"SerApprRequestor\"\
+  \ as \"SerApprRequestor\",\n       \"SerApprNonLegalTerms\" as \"SerApprNonLegalTerms\"\
+  ,\n       \"SerApprState\" as \"SerApprState\",\n       \"SerApprSOWFormat\" as\
+  \ \"SerApprSOWFormat\",\n       \"SerApprNonStandardTerms\" as \"SerApprNonStandardTerms\"\
+  ,\n       \"SerApprInvoicingMilestones\" as \"SerApprInvoicingMilestones\",\n  \
+  \     \"SerApprTotalTMListPriceUSD\" as \"SerApprTotalTMListPriceUSD\",\n      \
+  \ \"SerApprTotalTMPriceUSD\" as \"SerApprTotalTMPriceUSD\",\n       \"SerApprUpdated\"\
+  \ as \"SerApprUpdated\",\n       \"SerApprNumber\" as \"SerApprNumber\",\n     \
+  \  \"SerApprRequestDate\" as \"SerApprRequestDate\",\n       \"SerApprProductType\"\
+  \ as \"SerApprProductType\",\n       \"SerApprTotalFixedPriceUSD\" as \"SerApprTotalFixedPriceUSD\"\
+  ,\n       \"SerApprSalesPrice\" as \"SerApprSalesPrice\",\n       \"SerApprProductHours\"\
+  \ as \"SerApprProductHours\",\n       \"SerApprCreated\" as \"SerApprCreated\",\n\
+  \       \"SerApprPartnerMargin\" as \"SerApprPartnerMargin\",\n       \"SerApprMargin\"\
+  \ as \"SerApprMargin\",\n       \"SerApprDiscountFromBaseRate\" as \"SerApprDiscountFromBaseRate\"\
+  ,\n       \"SerApprProjectDuration\" as \"SerApprProjectDuration\",\n       \"SerApprCSATRequest\"\
+  \ as \"SerApprCSATRequest\",\n       \"SerApprRequestorSysID\" as \"SerApprRequestorSysID\"\
+  ,\n       \"U_FIXED_PRICE_PREMIUM\" as \"SerApprFixedPricePremium\",\n       \"\
+  Source_CC\" as \"SerApprSource\"\nFROM\n  (SELECT *\n   FROM\n     (SELECT \"SYS_ID\"\
+  \ as \"SerApprSysID\",\n             \"DV_U_OPPORTUNITY\" as \"SerApprOpportunity\"\
+  ,\n             \"U_OPPORTUNITY\" as \"SerApprOpportunitySysID\",\n            \
+  \ \"DV_U_LINE_ITEM\" as \"SerApprLineItem\",\n             \"U_LINE_ITEM\" as \"\
+  SerApprLineItemSysID\",\n             \"U_DEPLOYMENT\" as \"SerApprDeploymentSysID\"\
+  ,\n             \"DV_U_DEPLOYMENT\" as \"SerApprDeploymentID\",\n             \"\
+  DV_U_TRAVEL_AND_EXPENSES\" as \"SerApprTravelandExpenses\",\n             \"U_TOTAL_FIXED_LIST_PRICE_USD\"\
+  \ as \"SerApprTotalFixedListPriceUSD\",\n             \"U_PS_RATE_BOOK\" as \"SerApprPSRateBook\"\
+  ,\n             \"U_LIST_PRICE\" as \"SerApprListPrice\",\n             \"DV_U_REQUESTOR\"\
+  \ as \"SerApprRequestor\",\n             \"DV_U_NON_LEGAL_TERMS\" as \"SerApprNonLegalTerms\"\
+  ,\n             \"DV_U_STATE\" as \"SerApprState\",\n             \"DV_U_SOW_FORMAT\"\
+  \ as \"SerApprSOWFormat\",\n             \"DV_U_NON_STANDARD_TERMS\" as \"SerApprNonStandardTerms\"\
+  ,\n             \"DV_U_INVOICING_MILESTONES\" as \"SerApprInvoicingMilestones\"\
+  ,\n             \"U_TOTAL_TM_LIST_PRICE_USD\" as \"SerApprTotalTMListPriceUSD\"\
+  ,\n             \"U_TOTAL_TM_PRICE_USD\" as \"SerApprTotalTMPriceUSD\",\n      \
+  \       \"SYS_UPDATED_ON\" as \"SerApprUpdated\",\n             \"U_NUMBER\" as\
+  \ \"SerApprNumber\",\n             \"U_REQUEST_DATE\" as \"SerApprRequestDate\"\
+  ,\n             \"DV_U_PRODUCT_TYPE\" as \"SerApprProductType\",\n             \"\
+  U_TOTAL_FIXED_PRICE_USD\" as \"SerApprTotalFixedPriceUSD\",\n             \"U_SALES_PRICE\"\
+  \ as \"SerApprSalesPrice\",\n             \"U_PRODUCT_HOURS\" as \"SerApprProductHours\"\
+  ,\n             \"SYS_CREATED_ON\" as \"SerApprCreated\",\n             \"U_PARTNER_MARGIN\"\
+  \ as \"SerApprPartnerMargin\",\n             \"U_MARGIN\" as \"SerApprMargin\",\n\
+  \             \"U_DISCOUNT_FROM_BASE_RATE\" as \"SerApprDiscountFromBaseRate\",\n\
+  \             \"U_PROJECT_DURATION\" as \"SerApprProjectDuration\",\n          \
+  \   \"DV_U_CSAT_REQUEST\" as \"SerApprCSATRequest\",\n             \"U_REQUESTOR\"\
+  \ as \"SerApprRequestorSysID\",\n             \"U_FIXED_PRICE_PREMIUM\" as \"U_FIXED_PRICE_PREMIUM\"\
+  ,\n             \"Source_CC\" as \"Source_CC\"\n      FROM\n        (SELECT \"SYS_ID\"\
+  \ as \"SYS_ID\",\n                \"DV_U_OPPORTUNITY\" as \"DV_U_OPPORTUNITY\",\n\
+  \                \"U_OPPORTUNITY\" as \"U_OPPORTUNITY\",\n                \"DV_U_LINE_ITEM\"\
+  \ as \"DV_U_LINE_ITEM\",\n                \"U_LINE_ITEM\" as \"U_LINE_ITEM\",\n\
+  \                \"U_DEPLOYMENT\" as \"U_DEPLOYMENT\",\n                \"DV_U_DEPLOYMENT\"\
+  \ as \"DV_U_DEPLOYMENT\",\n                \"DV_U_TRAVEL_AND_EXPENSES\" as \"DV_U_TRAVEL_AND_EXPENSES\"\
+  ,\n                \"U_TOTAL_FIXED_LIST_PRICE_USD\" as \"U_TOTAL_FIXED_LIST_PRICE_USD\"\
+  ,\n                \"U_PS_RATE_BOOK\" as \"U_PS_RATE_BOOK\",\n                \"\
+  U_LIST_PRICE\" as \"U_LIST_PRICE\",\n                \"DV_U_REQUESTOR\" as \"DV_U_REQUESTOR\"\
+  ,\n                \"DV_U_NON_LEGAL_TERMS\" as \"DV_U_NON_LEGAL_TERMS\",\n     \
+  \           \"DV_U_STATE\" as \"DV_U_STATE\",\n                \"DV_U_SOW_FORMAT\"\
+  \ as \"DV_U_SOW_FORMAT\",\n                \"DV_U_NON_STANDARD_TERMS\" as \"DV_U_NON_STANDARD_TERMS\"\
+  ,\n                \"DV_U_INVOICING_MILESTONES\" as \"DV_U_INVOICING_MILESTONES\"\
+  ,\n                \"U_TOTAL_TM_LIST_PRICE_USD\" as \"U_TOTAL_TM_LIST_PRICE_USD\"\
+  ,\n                \"U_TOTAL_TM_PRICE_USD\" as \"U_TOTAL_TM_PRICE_USD\",\n     \
+  \           \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n                \"U_NUMBER\"\
+  \ as \"U_NUMBER\",\n                \"U_REQUEST_DATE\" as \"U_REQUEST_DATE\",\n\
+  \                \"DV_U_PRODUCT_TYPE\" as \"DV_U_PRODUCT_TYPE\",\n             \
+  \   \"U_TOTAL_FIXED_PRICE_USD\" as \"U_TOTAL_FIXED_PRICE_USD\",\n              \
+  \  \"U_SALES_PRICE\" as \"U_SALES_PRICE\",\n                \"U_PRODUCT_HOURS\"\
+  \ as \"U_PRODUCT_HOURS\",\n                \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n                \"U_PARTNER_MARGIN\" as \"U_PARTNER_MARGIN\",\n             \
+  \   \"U_MARGIN\" as \"U_MARGIN\",\n                \"U_DISCOUNT_FROM_BASE_RATE\"\
+  \ as \"U_DISCOUNT_FROM_BASE_RATE\",\n                \"U_PROJECT_DURATION\" as \"\
+  U_PROJECT_DURATION\",\n                \"DV_U_CSAT_REQUEST\" as \"DV_U_CSAT_REQUEST\"\
+  ,\n                \"U_REQUESTOR\" as \"U_REQUESTOR\",\n                \"U_FIXED_PRICE_PREMIUM\"\
+  \ as \"U_FIXED_PRICE_PREMIUM\",\n                'random' as \"Source_CC\"\n   \
+  \      FROM \"RDS\".\"SURF\".\"U_SERVICES_APPROVALS\")\"Projection_1\"\n      UNION\
+  \ ALL SELECT 'random' as \"SerApprSysID\",\n                       'random' as \"\
+  SerApprOpportunity\",\n                       \"SYS_ID\" as \"SerApprOpportunitySysID\"\
+  ,\n                       \"LINEITEMNUMBER_CC\" as \"SerApprLineItem\",\n      \
+  \                 'random' as \"SerApprLineItemSysID\",\n                      \
+  \ 'random' as \"SerApprDeploymentSysID\",\n                       'random' as \"\
+  SerApprDeploymentID\",\n                       'random' as \"SerApprTravelandExpenses\"\
+  ,\n                       'random' as \"SerApprTotalFixedListPriceUSD\",\n     \
+  \                  'random' as \"SerApprPSRateBook\",\n                       'random'\
+  \ as \"SerApprListPrice\",\n                       'random' as \"SerApprRequestor\"\
+  ,\n                       'random' as \"SerApprNonLegalTerms\",\n              \
+  \         'random' as \"SerApprState\",\n                       'random' as \"SerApprSOWFormat\"\
+  ,\n                       'random' as \"SerApprNonStandardTerms\",\n           \
+  \            \"SN_LITM_PS_INVOICE_BEHAVIOUR\" as \"SerApprInvoicingMilestones\"\
+  ,\n                       'random' as \"SerApprTotalTMListPriceUSD\",\n        \
+  \               'random' as \"SerApprTotalTMPriceUSD\",\n                      \
+  \ 'random' as \"SerApprUpdated\",\n                       'random' as \"SerApprNumber\"\
+  ,\n                       'random' as \"SerApprRequestDate\",\n                \
+  \       'random' as \"SerApprProductType\",\n                       'random' as\
+  \ \"SerApprTotalFixedPriceUSD\",\n                       'random' as \"SerApprSalesPrice\"\
+  ,\n                       'random' as \"SerApprProductHours\",\n               \
+  \        'random' as \"SerApprCreated\",\n                       \"SN_PARTNER_MARGIN_PERCENT\"\
+  \ as \"SerApprPartnerMargin\",\n                       \"SN_INTERNAL_MARGIN_PERCENT\"\
+  \ as \"SerApprMargin\",\n                       'random' as \"SerApprDiscountFromBaseRate\"\
+  ,\n                       'random' as \"SerApprProjectDuration\",\n            \
+  \           'random' as \"SerApprCSATRequest\",\n                       'random'\
+  \ as \"SerApprRequestorSysID\",\n                       \"SN_RISK_PREMIUM_UPLIFT_PERCENT\"\
+  \ as \"U_FIXED_PRICE_PREMIUM\",\n                       \"Source_CC\" as \"Source_CC\"\
+  \n      FROM\n        (SELECT \"Join_1\".\"QUOTENUMBER\" as \"QUOTENUMBER\",\n \
+  \               \"Join_1\".\"Source_CC\" as \"Source_CC\",\n                \"Join_1\"\
+  .\"SN_RISK_PREMIUM_UPLIFT_PERCENT\" as \"SN_RISK_PREMIUM_UPLIFT_PERCENT\",\n   \
+  \             \"Join_1\".\"SN_INTERNAL_MARGIN_PERCENT\" as \"SN_INTERNAL_MARGIN_PERCENT\"\
+  ,\n                \"Join_1\".\"SN_PARTNER_MARGIN_PERCENT\" as \"SN_PARTNER_MARGIN_PERCENT\"\
+  ,\n                \"Join_1\".\"SN_LITM_PS_INVOICE_BEHAVIOUR\" as \"SN_LITM_PS_INVOICE_BEHAVIOUR\"\
+  ,\n                \"Join_1\".\"LINEITEMNUMBER_CC\" as \"LINEITEMNUMBER_CC\",\n\
+  \                \"Join_1\".\"SN_OPPORTUNITY_NUMBER\" as \"SN_OPPORTUNITY_NUMBER\"\
+  ,\n                \"Projection_4\".\"SYS_ID\" as \"SYS_ID\"\n         FROM\n  \
+  \         (SELECT \"Projection_3\".\"QUOTENUMBER\" as \"QUOTENUMBER\",\n       \
+  \            \"Projection_2\".\"SN_OPPORTUNITY_NUMBER\" as \"SN_OPPORTUNITY_NUMBER\"\
+  ,\n                   \"Projection_2\".\"Source_CC\" as \"Source_CC\",\n       \
+  \            \"Projection_3\".\"SN_PRODUCT_FAMILY\" as \"SN_PRODUCT_FAMILY\",\n\
+  \                   \"Projection_3\".\"SN_RISK_PREMIUM_UPLIFT_PERCENT\" as \"SN_RISK_PREMIUM_UPLIFT_PERCENT\"\
+  ,\n                   \"Projection_3\".\"SN_INTERNAL_MARGIN_PERCENT\" as \"SN_INTERNAL_MARGIN_PERCENT\"\
+  ,\n                   \"Projection_3\".\"SN_PARTNER_MARGIN_PERCENT\" as \"SN_PARTNER_MARGIN_PERCENT\"\
+  ,\n                   \"Projection_3\".\"SN_LITM_PS_INVOICE_BEHAVIOUR\" as \"SN_LITM_PS_INVOICE_BEHAVIOUR\"\
+  ,\n                   \"Projection_3\".\"ROLLEDUPITEMNUMBER\" as \"ROLLEDUPITEMNUMBER\"\
+  ,\n                   \"Projection_3\".\"QUOTENUMBER\"||'random'||\"Projection_3\"\
+  .\"ROLLEDUPITEMNUMBER\" as \"LINEITEMNUMBER_CC\"\n            FROM\n           \
+  \   (SELECT \"QUOTENUMBER\" as \"QUOTENUMBER\",\n                      \"ORDERSTATUS_NAME\"\
+  \ as \"ORDERSTATUS_NAME\",\n                      \"SN_MASTER_QUOTE\" as \"SN_MASTER_QUOTE\"\
+  ,\n                      \"SN_OPPORTUNITY_NUMBER\" as \"SN_OPPORTUNITY_NUMBER\"\
+  ,\n                      'random' as \"Source_CC\"\n               FROM \"RDS\"\
+  .\"CALLIDUS\".\"QUOTES\"\n               WHERE (\"SN_MASTER_QUOTE\" ='random')\n\
+  \                 AND (\"ORDERSTATUS_NAME\" !='random')\n                 AND ((\"\
+  SN_OPPORTUNITY_NUMBER\") IS NULL ='random'\n                      OR TRIM(\"SN_OPPORTUNITY_NUMBER\"\
+  ) !='random') )\"Projection_2\"\n            INNER JOIN\n              (SELECT \"\
+  ITEMSTATE\" as \"ITEMSTATE\",\n                      \"ISMAINITEM\" as \"ISMAINITEM\"\
+  ,\n                      \"QUOTENUMBER\" as \"QUOTENUMBER\",\n                 \
+  \     \"SN_PRODUCT_FAMILY\" as \"SN_PRODUCT_FAMILY\",\n                      \"\
+  SN_RISK_PREMIUM_UPLIFT_PERCENT\" as \"SN_RISK_PREMIUM_UPLIFT_PERCENT\",\n      \
+  \                \"SN_INTERNAL_MARGIN_PERCENT\" as \"SN_INTERNAL_MARGIN_PERCENT\"\
+  ,\n                      \"SN_PARTNER_MARGIN_PERCENT\" as \"SN_PARTNER_MARGIN_PERCENT\"\
+  ,\n                      \"SN_LITM_PS_INVOICE_BEHAVIOUR\" as \"SN_LITM_PS_INVOICE_BEHAVIOUR\"\
+  ,\n                      \"ROLLEDUPITEMNUMBER\" as \"ROLLEDUPITEMNUMBER\"\n    \
+  \           FROM \"RDS\".\"CALLIDUS\".\"QUOTE_LINE_ITEMS\"\n               WHERE\
+  \ (\"ITEMSTATE\" ='random'\n                      OR (\"ITEMSTATE\") IS NULL)\n\
+  \                 and \"ISMAINITEM\" = 'random'\n                 and \"SN_PRODUCT_FAMILY\"\
+  ='random')\"Projection_3\" ON \"Projection_2\".\"QUOTENUMBER\" = \"Projection_3\"\
+  .\"QUOTENUMBER\")\"Join_1\"\n         LEFT JOIN\n           (SELECT \"NUMBER\" as\
+  \ \"NUMBER\",\n                   \"SYS_ID\" as \"SYS_ID\"\n            FROM \"\
+  RDS\".\"SURF\".\"SALES_OPPORTUNITY\")\"Projection_4\" ON \"Join_1\".\"SN_OPPORTUNITY_NUMBER\"\
+  \ = \"Projection_4\".\"NUMBER\")\"Join_2\"))Union_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

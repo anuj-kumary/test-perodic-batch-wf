@@ -1,0 +1,65 @@
+name: table_845
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_845
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_845.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view KC_ADR_SECURITY_ADGRP(\n\tUSERID,\n\tACTIVE,\n\
+  \tU_GSD_LEVEL,\n\tSOURCE\n) as\n/* Comments retained from HANA input file */\n/*****************************\n\
+  \ * Program  Name              :  KC_ADR_SECURITY_ADGRP\n * Development Request\
+  \ # \t :\n * Date Created               : \t2020-12-28\n * Developed By        \
+  \       :  Sridhar Bankuru\n * Brief Description          : \tKnowledge Cards -\
+  \ KC ADR SECURITY FOR AD GROUP\n * ---------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n * Updated On                 :\n *----------------------------------------------------------------------------------------------------------------\n\
+  \ * CR#\n * 1\n * 2\n*****************************************************************************************************************/\n\
+  SELECT DISTINCT UE.\"USER_NAME\" AS \"USERID\", USR.ACTIVE,USR.U_GSD_LEVEL,\nUE.SOURCE\n\
+  \ \t \t\tFROM \"RDS\".\"SURF\".\"U_EMPLOYEE\" UE\n \t \t\tINNER JOIN (\n \t\t\t\t\
+  SELECT DISTINCT USER_NAME AS \"USERID\", ACTIVE, U_GSD_LEVEL\n--, U_DEPARTMENT_NAME\n\
+  \n \t\t\t\t\tFROM \"RDS\".\"SURF\".\"U_EMPLOYEE\"\n \t\t\t\tWHERE (U_GSD_LEVEL in\
+  \ ('random', 'random', 'random', 'random') OR U_DEPARTMENT_NAME = 'random') AND\
+  \ ACTIVE = 'random'\n \t\t\tUNION\n \t\t\t\tSELECT DISTINCT \"USERID\",\"ACTIVE\"\
+  , 'random' AS U_GSD_LEVEL\n \t\t\t\t\tFROM \"EDW_LS\".\"SCORE_CARDS_EM\".\"EM_KC_ACTIVE_EE_HIERARCHY\"\
+  \n \t\t\t\tWHERE \"Level2\" = 'random' and \"ACTIVE\" = 'random'\n \t\t\tUNION\n\
+  \ \t\t\t\tSELECT DISTINCT \"USERID\",\"ACTIVE\", 'random' AS U_GSD_LEVEL\n \t\t\t\
+  \t\tFROM \"EDW_LS\".\"SCORE_CARDS_EM\".\"EM_KC_ACTIVE_EE_HIERARCHY\"\n \t\t\t\t\
+  WHERE \"USERID\" IN ('random', 'random') and \"ACTIVE\" = 'random'\n \t\t\t\t) USR\n\
+  \ \t\tON LOWER(UE.\"USER_NAME\") = LOWER(USR.\"USERID\")\n \t\t\t\t;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

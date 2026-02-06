@@ -1,0 +1,50 @@
+name: table_82
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_82
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_82.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view C_B_REL_PTY_HG_ACCOUNT(\n\t\"HGCompanyID\"\
+  ,\n\t\"HGPartyID\",\n\t\"HGMatchType\",\n\t\"HubStateInd\"\n) as -- SEMANTIC LAYER\
+  \ BEGINS\n\nSELECT \"HG_COMPANY_ID\" as \"HGCompanyID\",\n       \"PARTY_ID\" as\
+  \ \"HGPartyID\",\n       \"MATCH_TYPE\" as \"HGMatchType\",\n       HUB_STATE_IND\
+  \ as \"HubStateInd\"\nFROM \"RDS\".\"MDM\".\"C_B_REL_PTY_HG_ACCOUNT\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
