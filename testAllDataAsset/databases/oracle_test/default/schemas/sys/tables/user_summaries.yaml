@@ -1,0 +1,208 @@
+name: user_summaries
+fullyQualifiedName: oracle_test.default.sys.user_summaries
+tableType: View
+columns:
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the summary
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: summary_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the summary
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.summary_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: container_owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the container table
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.container_owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: container_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the container table for this summary
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.container_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_refresh_scn
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The SCN of the last transaction to refresh the summary
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.last_refresh_scn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_refresh_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The date of the last refresh of the summary
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.last_refresh_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_method
+    dataType: VARCHAR
+    dataLength: 11
+    dataTypeDisplay: varchar2(11)
+    description: User declared method of refresh for the summary
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.refresh_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: summary
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates the presence of either aggregation or a GROUP BY
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.summary
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: fullrefreshtim
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The time that it took to fully refresh the summary
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.fullrefreshtim
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: increfreshtim
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The time that it took to incrementally refresh the summary
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.increfreshtim
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: contains_views
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: This summary contains views in the FROM clause
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.contains_views
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unusable
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "This summary is unusable, the build was deferred"
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.unusable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: restricted_syntax
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: This summary contains restrictive syntax
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.restricted_syntax
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: inc_refreshable
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: This summary is not restricted from being incrementally refreshed
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.inc_refreshable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: known_stale
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: This summary is directly stale
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.known_stale
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query_len
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.query_len
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query
+    dataType: LONG
+    dataLength: 1
+    dataTypeDisplay: long
+    fullyQualifiedName: oracle_test.default.sys.user_summaries.query
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: eec11de1aba13f25b253cd38db5b4c48
+processedLineage: false
+entityStatus: Approved

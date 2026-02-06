@@ -1,0 +1,300 @@
+name: user_snapshots
+fullyQualifiedName: oracle_test.default.sys.user_snapshots
+tableType: View
+columns:
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the snapshot
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The view used by users and applications for viewing the snapshot
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Table the snapshot is stored in -- has an extra column for the master
+      rowid
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.table_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: master_view
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: "View of the master table, owned by the snapshot owner, used for\
+      \ refreshes"
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.master_view
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: master_owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the master table
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.master_owner
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: master
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the master table that this snapshot is a copy of
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.master
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: master_link
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Database link name to the master site
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.master_link
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: can_use_log
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If NO, this snapshot is complex and will never use a log"
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.can_use_log
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: updatable
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If NO, the snapshot is read only.  Look up REPLICATION"
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.updatable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_method
+    dataType: VARCHAR
+    dataLength: 11
+    dataTypeDisplay: varchar2(11)
+    description: The values used to drive a fast refresh of the snapshot
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.refresh_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_refresh
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: SYSDATE from the master site at the time of the last refresh
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.last_refresh
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The error returned last time an automatic refresh was attempted
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.error
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: fr_operations
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: varchar2(10)
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.fr_operations
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: cr_operations
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: varchar2(10)
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.cr_operations
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: varchar2(8)
+    description: "The type of refresh (complete,fast,force) for all automatic refreshes"
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: next
+    dataType: VARCHAR
+    dataLength: 200
+    dataTypeDisplay: varchar2(200)
+    description: The date function used to compute next refresh dates
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.next
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: start_with
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The date function used to compute next refresh dates
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.start_with
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_group
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: All snapshots in a given refresh group get refreshed in the same
+      transaction
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.refresh_group
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: update_trig
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The name of the trigger which fills the UPDATE_LOG
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.update_trig
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: update_log
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: The table which logs changes made to an updatable snapshots
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.update_log
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query
+    dataType: LONG
+    dataLength: 1
+    dataTypeDisplay: long
+    description: The original query that this snapshot is an instantiation of
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.query
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: master_rollback_seg
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Rollback segment to use at the master site
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.master_rollback_seg
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 7
+    dataTypeDisplay: varchar2(7)
+    description: The status of the contents of the snapshot
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_mode
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: varchar2(8)
+    description: This indicates how and when the snapshot will be refreshed
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.refresh_mode
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: prebuilt
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If YES, this snapshot uses a prebuilt table as the base table"
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.prebuilt
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: snapid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    fullyQualifiedName: oracle_test.default.sys.user_snapshots.snapid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: bd20dad6cf607e36e7bda6b2342abd8f
+processedLineage: false
+entityStatus: Approved
