@@ -1,0 +1,235 @@
+name: DuplicateRule
+displayName: ""
+fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule
+description: ""
+tableType: Regular
+columns:
+  - name: Id
+    dataType: VARCHAR
+    dataLength: 18
+    dataTypeDisplay: id
+    description: Duplicate Rule ID
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.Id
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: IsDeleted
+    dataType: UNKNOWN
+    dataLength: 0
+    dataTypeDisplay: boolean
+    description: Deleted
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.IsDeleted
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: SobjectType
+    dataType: UNKNOWN
+    dataLength: 40
+    dataTypeDisplay: picklist
+    description: Custom Object Definition ID
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.SobjectType
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: DeveloperName
+    dataType: UNKNOWN
+    dataLength: 80
+    dataTypeDisplay: string
+    description: Object Name
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.DeveloperName
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: Language
+    dataType: UNKNOWN
+    dataLength: 40
+    dataTypeDisplay: picklist
+    description: Master Language
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.Language
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: MasterLabel
+    dataType: UNKNOWN
+    dataLength: 80
+    dataTypeDisplay: string
+    description: Rule Name
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.MasterLabel
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: NamespacePrefix
+    dataType: UNKNOWN
+    dataLength: 15
+    dataTypeDisplay: string
+    description: Namespace Prefix
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.NamespacePrefix
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: CreatedDate
+    dataType: UNKNOWN
+    dataLength: 0
+    dataTypeDisplay: datetime
+    description: Created Date
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.CreatedDate
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: CreatedById
+    dataType: VARCHAR
+    dataLength: 18
+    dataTypeDisplay: reference
+    description: Created By ID
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.CreatedById
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: LastModifiedDate
+    dataType: UNKNOWN
+    dataLength: 0
+    dataTypeDisplay: datetime
+    description: Last Modified Date
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.LastModifiedDate
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 10
+    children: []
+    customMetrics: []
+  - name: LastModifiedById
+    dataType: VARCHAR
+    dataLength: 18
+    dataTypeDisplay: reference
+    description: Last Modified By ID
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.LastModifiedById
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 11
+    children: []
+    customMetrics: []
+  - name: SystemModstamp
+    dataType: UNKNOWN
+    dataLength: 0
+    dataTypeDisplay: datetime
+    description: System Modstamp
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.SystemModstamp
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 12
+    children: []
+    customMetrics: []
+  - name: IsActive
+    dataType: UNKNOWN
+    dataLength: 0
+    dataTypeDisplay: boolean
+    description: Active
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.IsActive
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 13
+    children: []
+    customMetrics: []
+  - name: SobjectSubtype
+    dataType: UNKNOWN
+    dataLength: 255
+    dataTypeDisplay: picklist
+    description: Object Subtype
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.SobjectSubtype
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 14
+    children: []
+    customMetrics: []
+  - name: LastViewedDate
+    dataType: UNKNOWN
+    dataLength: 0
+    dataTypeDisplay: datetime
+    description: Last Viewed Date
+    fullyQualifiedName: demo_salesforce.default.salesforce.DuplicateRule.LastViewedDate
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 15
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - IsDeleted
+    referredColumns:
+      - demo_salesforce.default.salesforce.EmailStatus.Id
+    relationshipType: ONE_TO_MANY
+  - constraintType: FOREIGN_KEY
+    columns:
+      - LastViewedDate
+    referredColumns:
+      - demo_salesforce.default.salesforce.DataKitDeploymentLogShare.Id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 577faa78-100e-43dc-87e4-cf005ab3440b
+  type: databaseSchema
+  name: salesforce
+  fullyQualifiedName: demo_salesforce.default.salesforce
+  displayName: salesforce
+  deleted: false
+database:
+  id: a01977c7-839c-43d2-833e-0c7d06be0cdc
+  type: database
+  name: default
+  fullyQualifiedName: demo_salesforce.default
+  displayName: default
+  deleted: false
+service:
+  id: 57f210f2-9ada-4497-92d4-1ed4316d9dc4
+  type: databaseService
+  name: demo_salesforce
+  fullyQualifiedName: demo_salesforce
+  description: ""
+  displayName: demo_salesforce
+  deleted: false
+serviceType: Salesforce
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"LastViewedDate\"\
+        ],\"referredColumns\":[\"demo_salesforce.default.salesforce.DataKitDeploymentLogShare.Id\"\
+        ],\"relationshipType\":\"MANY_TO_ONE\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ashish
+      changedAt: 1741620836790
+retentionPeriod: ""
+sourceUrl: https://innovation-force-7398.my.salesforce.com/lightning/o/DuplicateRule/list
+domains: []
+dataProducts: []
+sourceHash: b99be599fcdbd61f0d338f311a080dcb
+processedLineage: false
+entityStatus: Approved
