@@ -1,0 +1,31 @@
+name: be77887d30e8fc60d7a090a0ee4cbfa2
+fullyQualifiedName: hktest.be77887d30e8fc60d7a090a0ee4cbfa2
+owners: []
+duration: 120.0
+users: []
+query: "WITH \"8511959cacf194b495273e731f3ed7de_rnd\" AS \n(SELECT \"WEB_PAGE_1\"\
+  .\"WP_CREATION_DATE_SK\" AS \"WP_CREATION_DATE_SK\" \nFROM \"TPCDS_SF100TCL\".\"\
+  WEB_PAGE\" AS \"WEB_PAGE_1\" TABLESAMPLE ROW(? ROWS)), \n\"8511959cacf194b495273e731f3ed7de_sample\"\
+  \ AS \n(SELECT \"8511959cacf194b495273e731f3ed7de_rnd\".\"WP_CREATION_DATE_SK\"\
+  \ AS \"WP_CREATION_DATE_SK\" \nFROM \"8511959cacf194b495273e731f3ed7de_rnd\")\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"WP_CREATION_DATE_SK\"\
+  ) AS count_1 \nFROM \"8511959cacf194b495273e731f3ed7de_sample\" GROUP BY \"WP_CREATION_DATE_SK\"\
+  \ \nHAVING count(\"WP_CREATION_DATE_SK\") = ?) AS only_once\n LIMIT ?"
+checksum: be77887d30e8fc60d7a090a0ee4cbfa2
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 55292c30-d2e3-4067-b8e8-4a21aa644d73
+    type: table
+    name: WEB_PAGE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_PAGE
+    displayName: WEB_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

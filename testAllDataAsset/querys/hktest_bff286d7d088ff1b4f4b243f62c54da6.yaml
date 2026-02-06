@@ -1,0 +1,33 @@
+name: bff286d7d088ff1b4f4b243f62c54da6
+fullyQualifiedName: hktest.bff286d7d088ff1b4f4b243f62c54da6
+owners: []
+duration: 121.0
+users: []
+query: "WITH c9a70e63510b664d91c87d56c823d0ce_rnd AS \n(SELECT \"WEB_SITE_1\".\"WEB_COUNTRY\"\
+  \ AS \"WEB_COUNTRY\" \nFROM \"TPCDS_SF10TCL\".\"WEB_SITE\" AS \"WEB_SITE_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc9a70e63510b664d91c87d56c823d0ce_sample AS \n(SELECT c9a70e63510b664d91c87d56c823d0ce_rnd.\"\
+  WEB_COUNTRY\" AS \"WEB_COUNTRY\" \nFROM c9a70e63510b664d91c87d56c823d0ce_rnd)\n\
+  \ SELECT avg(LEN(\"WEB_COUNTRY\")) AS mean, count(\"WEB_COUNTRY\") AS \"valuesCount\"\
+  , count(DISTINCT \"WEB_COUNTRY\") AS \"distinctCount\", MIN(LEN(\"WEB_COUNTRY\"\
+  )) AS min, MAX(LEN(\"WEB_COUNTRY\")) AS max, coalesce(SUM(CASE WHEN (\"WEB_COUNTRY\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"WEB_COUNTRY\"\
+  )) AS stddev, SUM(LEN(\"WEB_COUNTRY\")) AS sum \nFROM c9a70e63510b664d91c87d56c823d0ce_sample\n\
+  \ LIMIT ?"
+checksum: bff286d7d088ff1b4f4b243f62c54da6
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e4199ccc-b84a-40a4-a4e3-6b5c5adae08a
+    type: table
+    name: WEB_SITE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_SITE
+    displayName: WEB_SITE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,32 @@
+name: ba351c0d29b618793b5e64119e563595
+fullyQualifiedName: hktest.ba351c0d29b618793b5e64119e563595
+owners: []
+duration: 769.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_BILL_HDEMO_SK\" AS \"WS_BILL_HDEMO_SK\" \nFROM \"TPCDS_SF100TCL\".\"WEB_SALES\"\
+  \ AS \"WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_BILL_HDEMO_SK\" AS\
+  \ \"WS_BILL_HDEMO_SK\" \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n SELECT\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"WS_BILL_HDEMO_SK\" ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"WS_BILL_HDEMO_SK\" ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY \"WS_BILL_HDEMO_SK\" ASC) AS \"thirdQuartile\"\
+  \ \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\"\n LIMIT ?"
+checksum: ba351c0d29b618793b5e64119e563595
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7f12a8b5-822b-4eb5-97e2-6d3a4cb1ca7e
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

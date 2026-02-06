@@ -1,0 +1,36 @@
+name: be98adb2b7b711e0988d54ba935a6440
+fullyQualifiedName: hktest.be98adb2b7b711e0988d54ba935a6440
+owners: []
+duration: 78.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"SHIPPING_CITY\"\
+  \ AS \"SHIPPING_CITY\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  SHIPPING_CITY\" AS \"SHIPPING_CITY\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(LEN(\"SHIPPING_CITY\")) AS mean, count(\"SHIPPING_CITY\") AS \"valuesCount\"\
+  , count(DISTINCT \"SHIPPING_CITY\") AS \"distinctCount\", MIN(LEN(\"SHIPPING_CITY\"\
+  )) AS min, MAX(LEN(\"SHIPPING_CITY\")) AS max, coalesce(SUM(CASE WHEN (\"SHIPPING_CITY\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"SHIPPING_CITY\"\
+  )) AS stddev, SUM(LEN(\"SHIPPING_CITY\")) AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: be98adb2b7b711e0988d54ba935a6440
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

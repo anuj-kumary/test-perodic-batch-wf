@@ -1,0 +1,34 @@
+name: b94d0fb448709851d4d5eb7aebe4455a
+fullyQualifiedName: hktest.b94d0fb448709851d4d5eb7aebe4455a
+owners: []
+duration: 261.0
+users: []
+query: "WITH b79372ff806424782126e6a22af7ce61_rnd AS \n(SELECT \"TRANSACT_1\".\"TRANSACTIONTYPE\"\
+  \ AS \"TRANSACTIONTYPE\" \nFROM \"MSSQLBANKING_ACCOUNT\".\"TRANSACT\" AS \"TRANSACT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nb79372ff806424782126e6a22af7ce61_sample AS \n(SELECT\
+  \ b79372ff806424782126e6a22af7ce61_rnd.\"TRANSACTIONTYPE\" AS \"TRANSACTIONTYPE\"\
+  \ \nFROM b79372ff806424782126e6a22af7ce61_rnd)\n SELECT avg(LEN(\"TRANSACTIONTYPE\"\
+  )) AS mean, count(\"TRANSACTIONTYPE\") AS \"valuesCount\", count(DISTINCT \"TRANSACTIONTYPE\"\
+  ) AS \"distinctCount\", MIN(LEN(\"TRANSACTIONTYPE\")) AS min, MAX(LEN(\"TRANSACTIONTYPE\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"TRANSACTIONTYPE\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(LEN(\"TRANSACTIONTYPE\")) AS stddev, SUM(LEN(\"\
+  TRANSACTIONTYPE\")) AS sum \nFROM b79372ff806424782126e6a22af7ce61_sample\n LIMIT\
+  \ ?"
+checksum: b94d0fb448709851d4d5eb7aebe4455a
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b53a9c36-844d-4499-979b-6f0b6cd2b454
+    type: table
+    name: TRANSACT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.TRANSACT
+    displayName: TRANSACT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

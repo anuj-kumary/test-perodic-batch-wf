@@ -1,0 +1,26 @@
+name: bd7f721ca9c6632ad9985026da61e2d6
+fullyQualifiedName: hktest.bd7f721ca9c6632ad9985026da61e2d6
+owners: []
+duration: 65.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CONT_SURRENDER_AMT\"\
+  ) AS count_1 \nFROM \"CURATED\".\"CONT\" GROUP BY \"CONT_SURRENDER_AMT\" \nHAVING\
+  \ count(\"CONT_SURRENDER_AMT\") = ?) AS only_once\n LIMIT ?"
+checksum: bd7f721ca9c6632ad9985026da61e2d6
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

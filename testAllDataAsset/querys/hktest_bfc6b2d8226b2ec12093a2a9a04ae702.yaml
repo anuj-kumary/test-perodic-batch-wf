@@ -1,0 +1,33 @@
+name: bfc6b2d8226b2ec12093a2a9a04ae702
+fullyQualifiedName: hktest.bfc6b2d8226b2ec12093a2a9a04ae702
+owners: []
+duration: 114.0
+users: []
+query: "WITH \"4b01351da2eb8bbeff411b56da59d101_rnd\" AS \n(SELECT \"WAREHOUSE_1\"\
+  .\"W_WAREHOUSE_NAME\" AS \"W_WAREHOUSE_NAME\" \nFROM \"TPCDS_SF100TCL\".\"WAREHOUSE\"\
+  \ AS \"WAREHOUSE_1\" TABLESAMPLE ROW(? ROWS)), \n\"4b01351da2eb8bbeff411b56da59d101_sample\"\
+  \ AS \n(SELECT \"4b01351da2eb8bbeff411b56da59d101_rnd\".\"W_WAREHOUSE_NAME\" AS\
+  \ \"W_WAREHOUSE_NAME\" \nFROM \"4b01351da2eb8bbeff411b56da59d101_rnd\")\n SELECT\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"W_WAREHOUSE_NAME\") ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"W_WAREHOUSE_NAME\") ASC) AS \"\
+  firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"W_WAREHOUSE_NAME\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"4b01351da2eb8bbeff411b56da59d101_sample\"\n\
+  \ LIMIT ?"
+checksum: bfc6b2d8226b2ec12093a2a9a04ae702
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7def560e-0a01-4df5-8dde-e8aae6feebb0
+    type: table
+    name: WAREHOUSE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WAREHOUSE
+    displayName: WAREHOUSE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,39 @@
+name: b89468d3c54359cd021dc772c5ef0358
+fullyQualifiedName: hktest.b89468d3c54359cd021dc772c5ef0358
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f3f7adf0-5934-40b1-9c34-71aa27a03cd6\",\"type\":\"table\"\
+        ,\"name\":\"CNTRCT\",\"fullyQualifiedName\":\"hktest.INDIVIDUAL.CURATED.CNTRCT\"\
+        ,\"displayName\":\"CNTRCT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 69.0
+users: []
+query: "SELECT avg(\"SUL_JNT_ISSUE_AGE_NO\") AS mean, count(\"SUL_JNT_ISSUE_AGE_NO\"\
+  ) AS \"valuesCount\", count(DISTINCT \"SUL_JNT_ISSUE_AGE_NO\") AS \"distinctCount\"\
+  , MIN(\"SUL_JNT_ISSUE_AGE_NO\") AS min, MAX(\"SUL_JNT_ISSUE_AGE_NO\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"SUL_JNT_ISSUE_AGE_NO\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\",\
+  \ STDDEV_POP(\"SUL_JNT_ISSUE_AGE_NO\") AS stddev, SUM(\"SUL_JNT_ISSUE_AGE_NO\")\
+  \ AS sum \nFROM \"CURATED\".\"CNTRCT\"\n LIMIT ?"
+checksum: b89468d3c54359cd021dc772c5ef0358
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

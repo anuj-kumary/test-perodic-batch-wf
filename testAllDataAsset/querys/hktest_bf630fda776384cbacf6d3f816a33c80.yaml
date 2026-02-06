@@ -1,0 +1,31 @@
+name: bf630fda776384cbacf6d3f816a33c80
+fullyQualifiedName: hktest.bf630fda776384cbacf6d3f816a33c80
+owners: []
+duration: 216.0
+users: []
+query: "WITH \"4b01351da2eb8bbeff411b56da59d101_rnd\" AS \n(SELECT \"WAREHOUSE_1\"\
+  .\"W_WAREHOUSE_SQ_FT\" AS \"W_WAREHOUSE_SQ_FT\" \nFROM \"TPCDS_SF10TCL\".\"WAREHOUSE\"\
+  \ AS \"WAREHOUSE_1\" TABLESAMPLE ROW(? ROWS)), \n\"4b01351da2eb8bbeff411b56da59d101_sample\"\
+  \ AS \n(SELECT \"4b01351da2eb8bbeff411b56da59d101_rnd\".\"W_WAREHOUSE_SQ_FT\" AS\
+  \ \"W_WAREHOUSE_SQ_FT\" \nFROM \"4b01351da2eb8bbeff411b56da59d101_rnd\")\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"W_WAREHOUSE_SQ_FT\") AS count_1\
+  \ \nFROM \"4b01351da2eb8bbeff411b56da59d101_sample\" GROUP BY \"W_WAREHOUSE_SQ_FT\"\
+  \ \nHAVING count(\"W_WAREHOUSE_SQ_FT\") = ?) AS only_once\n LIMIT ?"
+checksum: bf630fda776384cbacf6d3f816a33c80
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 5521668f-8fd0-4dbf-960e-32ac18b7affa
+    type: table
+    name: WAREHOUSE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WAREHOUSE
+    displayName: WAREHOUSE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

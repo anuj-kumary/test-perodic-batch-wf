@@ -1,0 +1,34 @@
+name: bdb3872f9cd4a44cf5d82aeb5c52dd76
+fullyQualifiedName: hktest.bdb3872f9cd4a44cf5d82aeb5c52dd76
+owners: []
+duration: 70.0
+users: []
+query: "WITH e3c58aee13887c409aa5a310c57a9757_rnd AS \n(SELECT \"CNTRCT_1\".\"DSTRBTN_FCTR_SCH_CD\"\
+  \ AS \"DSTRBTN_FCTR_SCH_CD\" \nFROM \"CURATED\".\"CNTRCT\" AS \"CNTRCT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \ne3c58aee13887c409aa5a310c57a9757_sample AS \n(SELECT e3c58aee13887c409aa5a310c57a9757_rnd.\"\
+  DSTRBTN_FCTR_SCH_CD\" AS \"DSTRBTN_FCTR_SCH_CD\" \nFROM e3c58aee13887c409aa5a310c57a9757_rnd)\n\
+  \ SELECT avg(LEN(\"DSTRBTN_FCTR_SCH_CD\")) AS mean, count(\"DSTRBTN_FCTR_SCH_CD\"\
+  ) AS \"valuesCount\", count(DISTINCT \"DSTRBTN_FCTR_SCH_CD\") AS \"distinctCount\"\
+  , MIN(LEN(\"DSTRBTN_FCTR_SCH_CD\")) AS min, MAX(LEN(\"DSTRBTN_FCTR_SCH_CD\")) AS\
+  \ max, coalesce(SUM(CASE WHEN (\"DSTRBTN_FCTR_SCH_CD\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(LEN(\"DSTRBTN_FCTR_SCH_CD\")) AS stddev, SUM(LEN(\"\
+  DSTRBTN_FCTR_SCH_CD\")) AS sum \nFROM e3c58aee13887c409aa5a310c57a9757_sample\n\
+  \ LIMIT ?"
+checksum: bdb3872f9cd4a44cf5d82aeb5c52dd76
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

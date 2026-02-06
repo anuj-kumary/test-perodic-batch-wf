@@ -1,0 +1,40 @@
+name: b8b76153c85b965a055a606b021dff4b
+fullyQualifiedName: hktest.b8b76153c85b965a055a606b021dff4b
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f3f7adf0-5934-40b1-9c34-71aa27a03cd6\",\"type\":\"table\"\
+        ,\"name\":\"CNTRCT\",\"fullyQualifiedName\":\"hktest.INDIVIDUAL.CURATED.CNTRCT\"\
+        ,\"displayName\":\"CNTRCT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 55.0
+users: []
+query: "SELECT avg(LEN(\"CONFORMED_RPLCMNT_TYP_NM\")) AS mean, count(\"CONFORMED_RPLCMNT_TYP_NM\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CONFORMED_RPLCMNT_TYP_NM\") AS \"distinctCount\"\
+  , MIN(LEN(\"CONFORMED_RPLCMNT_TYP_NM\")) AS min, MAX(LEN(\"CONFORMED_RPLCMNT_TYP_NM\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"CONFORMED_RPLCMNT_TYP_NM\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"CONFORMED_RPLCMNT_TYP_NM\")) AS\
+  \ stddev, SUM(LEN(\"CONFORMED_RPLCMNT_TYP_NM\")) AS sum \nFROM \"CURATED\".\"CNTRCT\"\
+  \n LIMIT ?"
+checksum: b8b76153c85b965a055a606b021dff4b
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

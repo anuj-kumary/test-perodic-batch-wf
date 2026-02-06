@@ -1,0 +1,39 @@
+name: be45d9072ea007389d88210cef6bc682
+fullyQualifiedName: hktest.be45d9072ea007389d88210cef6bc682
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f3f7adf0-5934-40b1-9c34-71aa27a03cd6\",\"type\":\"table\"\
+        ,\"name\":\"CNTRCT\",\"fullyQualifiedName\":\"hktest.INDIVIDUAL.CURATED.CNTRCT\"\
+        ,\"displayName\":\"CNTRCT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 79.0
+users: []
+query: "SELECT avg(LEN(\"TABLE_RUN_ID\")) AS mean, count(\"TABLE_RUN_ID\") AS \"valuesCount\"\
+  , count(DISTINCT \"TABLE_RUN_ID\") AS \"distinctCount\", MIN(LEN(\"TABLE_RUN_ID\"\
+  )) AS min, MAX(LEN(\"TABLE_RUN_ID\")) AS max, coalesce(SUM(CASE WHEN (\"TABLE_RUN_ID\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"TABLE_RUN_ID\"\
+  )) AS stddev, SUM(LEN(\"TABLE_RUN_ID\")) AS sum \nFROM \"CURATED\".\"CNTRCT\"\n\
+  \ LIMIT ?"
+checksum: be45d9072ea007389d88210cef6bc682
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

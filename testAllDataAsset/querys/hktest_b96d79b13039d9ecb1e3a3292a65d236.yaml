@@ -1,0 +1,40 @@
+name: b96d79b13039d9ecb1e3a3292a65d236
+fullyQualifiedName: hktest.b96d79b13039d9ecb1e3a3292a65d236
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7c11b729-7c3e-4051-af26-dcc453c5b05d\",\"type\":\"table\"\
+        ,\"name\":\"LOCATIONS\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.LOCATIONS\"\
+        ,\"displayName\":\"LOCATIONS\",\"deleted\":false}]"
+  previousVersion: 0.9
+  changeSummary: {}
+owners: []
+duration: 120.0
+users: []
+query: "SELECT avg(LEN(\"E2E_TESTSTATE_PROVINCE\")) AS mean, count(\"E2E_TESTSTATE_PROVINCE\"\
+  ) AS \"valuesCount\", count(DISTINCT \"E2E_TESTSTATE_PROVINCE\") AS \"distinctCount\"\
+  , MIN(LEN(\"E2E_TESTSTATE_PROVINCE\")) AS min, MAX(LEN(\"E2E_TESTSTATE_PROVINCE\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"E2E_TESTSTATE_PROVINCE\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"E2E_TESTSTATE_PROVINCE\")) AS stddev,\
+  \ SUM(LEN(\"E2E_TESTSTATE_PROVINCE\")) AS sum \nFROM \"E2E_TEST\".\"LOCATIONS\"\n\
+  \ LIMIT ?"
+checksum: b96d79b13039d9ecb1e3a3292a65d236
+queryDate: 1752537600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7c11b729-7c3e-4051-af26-dcc453c5b05d
+    type: table
+    name: LOCATIONS
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.LOCATIONS
+    displayName: LOCATIONS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

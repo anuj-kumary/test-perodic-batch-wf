@@ -1,0 +1,39 @@
+name: bcdf2e7eb7ad0abee90f79f3eb4dd066
+fullyQualifiedName: hktest.bcdf2e7eb7ad0abee90f79f3eb4dd066
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"9284f038-34bc-4130-b89d-85a6789181b7\",\"type\":\"table\"\
+        ,\"name\":\"TEST_EMPLOYEES\",\"fullyQualifiedName\":\"hktest.E2E_DB.E2E_TEST.TEST_EMPLOYEES\"\
+        ,\"displayName\":\"TEST_EMPLOYEES\",\"deleted\":false}]"
+  previousVersion: 1.1
+  changeSummary: {}
+owners: []
+duration: 149.0
+users: []
+query: "SELECT avg(\"E2E_TESTMANAGER_ID\") AS mean, count(\"E2E_TESTMANAGER_ID\")\
+  \ AS \"valuesCount\", count(DISTINCT \"E2E_TESTMANAGER_ID\") AS \"distinctCount\"\
+  , MIN(\"E2E_TESTMANAGER_ID\") AS min, MAX(\"E2E_TESTMANAGER_ID\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"E2E_TESTMANAGER_ID\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"\
+  E2E_TESTMANAGER_ID\") AS stddev, SUM(\"E2E_TESTMANAGER_ID\") AS sum \nFROM \"E2E_TEST\"\
+  .\"TEST_EMPLOYEES\"\n LIMIT ?"
+checksum: bcdf2e7eb7ad0abee90f79f3eb4dd066
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9284f038-34bc-4130-b89d-85a6789181b7
+    type: table
+    name: TEST_EMPLOYEES
+    fullyQualifiedName: hktest.E2E_DB.E2E_TEST.TEST_EMPLOYEES
+    displayName: TEST_EMPLOYEES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

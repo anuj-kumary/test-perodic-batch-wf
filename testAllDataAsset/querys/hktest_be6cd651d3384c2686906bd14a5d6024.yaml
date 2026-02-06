@@ -1,0 +1,32 @@
+name: be6cd651d3384c2686906bd14a5d6024
+fullyQualifiedName: hktest.be6cd651d3384c2686906bd14a5d6024
+owners: []
+duration: 650.0
+users: []
+query: "WITH \"251d5be6c2243ba771425aa88477c04d_rnd\" AS \n(SELECT \"PARTSUPP_1\"\
+  .\"PS_PARTKEY\" AS \"PS_PARTKEY\" \nFROM \"TPCH_SF1000\".\"PARTSUPP\" AS \"PARTSUPP_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"251d5be6c2243ba771425aa88477c04d_sample\" AS \n\
+  (SELECT \"251d5be6c2243ba771425aa88477c04d_rnd\".\"PS_PARTKEY\" AS \"PS_PARTKEY\"\
+  \ \nFROM \"251d5be6c2243ba771425aa88477c04d_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"PS_PARTKEY\") AS count_1 \nFROM \"251d5be6c2243ba771425aa88477c04d_sample\"\
+  \ GROUP BY \"PS_PARTKEY\" \nHAVING count(\"PS_PARTKEY\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: be6cd651d3384c2686906bd14a5d6024
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 91be5eb1-5461-49c7-a1d2-4f8477868386
+    type: table
+    name: PARTSUPP
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP
+    description: Partsupp data as defined by TPC-H
+    displayName: PARTSUPP
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,35 @@
+name: b9daf282d82ee09be07b4547d3a61fdf
+fullyQualifiedName: hktest.b9daf282d82ee09be07b4547d3a61fdf
+owners: []
+duration: 116.0
+users: []
+query: "WITH \"979ee13f032c02b4652a4e3c3928d90b_rnd\" AS \n(SELECT \"CUSTOMER_1\"\
+  .\"C_ACCTBAL\" AS \"C_ACCTBAL\" \nFROM \"TPCH_SF10\".\"CUSTOMER\" AS \"CUSTOMER_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"979ee13f032c02b4652a4e3c3928d90b_sample\" AS \n\
+  (SELECT \"979ee13f032c02b4652a4e3c3928d90b_rnd\".\"C_ACCTBAL\" AS \"C_ACCTBAL\"\
+  \ \nFROM \"979ee13f032c02b4652a4e3c3928d90b_rnd\")\n SELECT count(CASE WHEN (\"\
+  C_ACCTBAL\" >= ? AND \"C_ACCTBAL\" < ?) THEN \"C_ACCTBAL\" END) AS \"-26.010 to\
+  \ 2.627K\", count(CASE WHEN (\"C_ACCTBAL\" >= ? AND \"C_ACCTBAL\" < ?) THEN \"C_ACCTBAL\"\
+  \ END) AS \"2.627K to 5.281K\", count(CASE WHEN (\"C_ACCTBAL\" >= ? AND \"C_ACCTBAL\"\
+  \ < ?) THEN \"C_ACCTBAL\" END) AS \"5.281K to 7.934K\", count(CASE WHEN (\"C_ACCTBAL\"\
+  \ >= ?) THEN \"C_ACCTBAL\" END) AS \"7.934K and up\" \nFROM \"979ee13f032c02b4652a4e3c3928d90b_sample\"\
+  \n LIMIT ?"
+checksum: b9daf282d82ee09be07b4547d3a61fdf
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0e6b7a8f-b8e3-4ee8-91ea-5edf1eb0ced8
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

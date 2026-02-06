@@ -1,0 +1,30 @@
+name: be8a68a5bd01d0a4e8a002a1132674f7
+fullyQualifiedName: hktest.be8a68a5bd01d0a4e8a002a1132674f7
+owners: []
+duration: 54.0
+users: []
+query: "WITH e3c58aee13887c409aa5a310c57a9757_rnd AS \n(SELECT \"CNTRCT_1\".\"ENT_PYMNT_TYP_NM\"\
+  \ AS \"ENT_PYMNT_TYP_NM\" \nFROM \"CURATED\".\"CNTRCT\" AS \"CNTRCT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \ne3c58aee13887c409aa5a310c57a9757_sample AS \n(SELECT e3c58aee13887c409aa5a310c57a9757_rnd.\"\
+  ENT_PYMNT_TYP_NM\" AS \"ENT_PYMNT_TYP_NM\" \nFROM e3c58aee13887c409aa5a310c57a9757_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"ENT_PYMNT_TYP_NM\")\
+  \ AS count_1 \nFROM e3c58aee13887c409aa5a310c57a9757_sample GROUP BY \"ENT_PYMNT_TYP_NM\"\
+  \ \nHAVING count(\"ENT_PYMNT_TYP_NM\") = ?) AS only_once\n LIMIT ?"
+checksum: be8a68a5bd01d0a4e8a002a1132674f7
+queryDate: 1749254400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

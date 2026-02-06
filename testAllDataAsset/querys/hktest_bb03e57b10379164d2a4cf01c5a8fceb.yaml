@@ -1,0 +1,34 @@
+name: bb03e57b10379164d2a4cf01c5a8fceb
+fullyQualifiedName: hktest.bb03e57b10379164d2a4cf01c5a8fceb
+owners: []
+duration: 102.0
+users: []
+query: "WITH \"15e219364c9158944561b60284e81c87_rnd\" AS \n(SELECT \"DATE_DIM_1\"\
+  .\"D_DATE_SK\" AS \"D_DATE_SK\" \nFROM \"TPCDS_SF10TCL\".\"DATE_DIM\" AS \"DATE_DIM_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"15e219364c9158944561b60284e81c87_sample\" AS \n\
+  (SELECT \"15e219364c9158944561b60284e81c87_rnd\".\"D_DATE_SK\" AS \"D_DATE_SK\"\
+  \ \nFROM \"15e219364c9158944561b60284e81c87_rnd\")\n SELECT count(CASE WHEN (\"\
+  D_DATE_SK\" >= ? AND \"D_DATE_SK\" < ?) THEN \"D_DATE_SK\" END) AS \"2.415M to 2.437M\"\
+  , count(CASE WHEN (\"D_DATE_SK\" >= ? AND \"D_DATE_SK\" < ?) THEN \"D_DATE_SK\"\
+  \ END) AS \"2.437M to 2.458M\", count(CASE WHEN (\"D_DATE_SK\" >= ? AND \"D_DATE_SK\"\
+  \ < ?) THEN \"D_DATE_SK\" END) AS \"2.458M to 2.480M\", count(CASE WHEN (\"D_DATE_SK\"\
+  \ >= ?) THEN \"D_DATE_SK\" END) AS \"2.480M and up\" \nFROM \"15e219364c9158944561b60284e81c87_sample\"\
+  \n LIMIT ?"
+checksum: bb03e57b10379164d2a4cf01c5a8fceb
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0521e7ab-e00a-4d08-89fe-da2a09bf0978
+    type: table
+    name: DATE_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.DATE_DIM
+    displayName: DATE_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

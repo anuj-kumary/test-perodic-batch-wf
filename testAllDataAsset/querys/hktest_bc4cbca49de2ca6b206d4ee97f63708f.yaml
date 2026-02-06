@@ -1,0 +1,33 @@
+name: bc4cbca49de2ca6b206d4ee97f63708f
+fullyQualifiedName: hktest.bc4cbca49de2ca6b206d4ee97f63708f
+owners: []
+duration: 83.0
+users: []
+query: "WITH \"3cfba54f6873dfd55b0b09d32910b20e_rnd\" AS \n(SELECT \"STORE_1\".\"\
+  S_MARKET_MANAGER\" AS \"S_MARKET_MANAGER\" \nFROM \"TPCDS_SF100TCL\".\"STORE\" AS\
+  \ \"STORE_1\" TABLESAMPLE ROW(? ROWS)), \n\"3cfba54f6873dfd55b0b09d32910b20e_sample\"\
+  \ AS \n(SELECT \"3cfba54f6873dfd55b0b09d32910b20e_rnd\".\"S_MARKET_MANAGER\" AS\
+  \ \"S_MARKET_MANAGER\" \nFROM \"3cfba54f6873dfd55b0b09d32910b20e_rnd\")\n SELECT\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"S_MARKET_MANAGER\") ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"S_MARKET_MANAGER\") ASC) AS \"\
+  firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"S_MARKET_MANAGER\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"3cfba54f6873dfd55b0b09d32910b20e_sample\"\n\
+  \ LIMIT ?"
+checksum: bc4cbca49de2ca6b206d4ee97f63708f
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 43356b28-b302-4890-b93c-3f7d6771f9e5
+    type: table
+    name: STORE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE
+    displayName: STORE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

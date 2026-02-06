@@ -1,0 +1,45 @@
+name: b8fef24874f780c1dd6b82e03726f931
+fullyQualifiedName: hktest.b8fef24874f780c1dd6b82e03726f931
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"71f3b29a-0599-4623-b7e2-1e721ace56c4\",\"type\":\"table\"\
+        ,\"name\":\"SEED_RUN_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SEED_RUN_RESULTS\"\
+        ,\"displayName\":\"SEED_RUN_RESULTS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 253.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(\"EXECUTION_TIME\") AS mean, count(\"EXECUTION_TIME\") AS \"valuesCount\"\
+  , count(DISTINCT \"EXECUTION_TIME\") AS \"distinctCount\", MIN(\"EXECUTION_TIME\"\
+  ) AS min, MAX(\"EXECUTION_TIME\") AS max, coalesce(SUM(CASE WHEN (\"EXECUTION_TIME\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"EXECUTION_TIME\")\
+  \ AS stddev, SUM(\"EXECUTION_TIME\") AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"\
+  SEED_RUN_RESULTS\"\n LIMIT ?"
+checksum: b8fef24874f780c1dd6b82e03726f931
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 71f3b29a-0599-4623-b7e2-1e721ace56c4
+    type: table
+    name: SEED_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SEED_RUN_RESULTS
+    displayName: SEED_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

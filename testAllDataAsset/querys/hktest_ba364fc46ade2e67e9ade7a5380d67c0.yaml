@@ -1,0 +1,40 @@
+name: ba364fc46ade2e67e9ade7a5380d67c0
+fullyQualifiedName: hktest.ba364fc46ade2e67e9ade7a5380d67c0
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"9bc6307f-5d2d-4ecf-b1f5-f791a29d4443\",\"type\":\"table\"\
+        ,\"name\":\"PART\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART\"\
+        ,\"description\":\"Part data as defined by TPC-H\",\"displayName\":\"PART\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 121.0
+users: []
+query: "SELECT avg(\"P_RETAILPRICE\") AS mean, count(\"P_RETAILPRICE\") AS \"valuesCount\"\
+  , count(DISTINCT \"P_RETAILPRICE\") AS \"distinctCount\", MIN(\"P_RETAILPRICE\"\
+  ) AS min, MAX(\"P_RETAILPRICE\") AS max, coalesce(SUM(CASE WHEN (\"P_RETAILPRICE\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"P_RETAILPRICE\") AS\
+  \ stddev, SUM(\"P_RETAILPRICE\") AS sum \nFROM \"TPCH_SF1\".\"PART\"\n LIMIT ?"
+checksum: ba364fc46ade2e67e9ade7a5380d67c0
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9bc6307f-5d2d-4ecf-b1f5-f791a29d4443
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

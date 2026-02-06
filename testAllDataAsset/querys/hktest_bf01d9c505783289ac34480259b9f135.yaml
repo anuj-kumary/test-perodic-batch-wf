@@ -1,0 +1,35 @@
+name: bf01d9c505783289ac34480259b9f135
+fullyQualifiedName: hktest.bf01d9c505783289ac34480259b9f135
+owners: []
+duration: 184.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT avg(LEN(\"NAME\")) AS mean, count(\"NAME\") AS \"valuesCount\", count(DISTINCT\
+  \ \"NAME\") AS \"distinctCount\", MIN(LEN(\"NAME\")) AS min, MAX(LEN(\"NAME\"))\
+  \ AS max, coalesce(SUM(CASE WHEN (\"NAME\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(LEN(\"NAME\")) AS stddev, SUM(LEN(\"NAME\")) AS sum \nFROM \"OWNERS_TEST\"\
+  .\"VW_SF_TRANS_WAREHOUSE_LIST\"\n LIMIT ?"
+checksum: bf01d9c505783289ac34480259b9f135
+queryDate: 1748908800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: a220c8c2-646c-4b7e-a89c-4dbba90d0d40
+    type: table
+    name: VW_SF_TRANS_WAREHOUSE_LIST
+    fullyQualifiedName: hktest.MT_DB.OWNERS_TEST.VW_SF_TRANS_WAREHOUSE_LIST
+    description: this is view comment...
+    displayName: VW_SF_TRANS_WAREHOUSE_LIST
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

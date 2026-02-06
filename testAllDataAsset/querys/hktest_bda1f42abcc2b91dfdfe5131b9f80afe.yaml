@@ -1,0 +1,40 @@
+name: bda1f42abcc2b91dfdfe5131b9f80afe
+fullyQualifiedName: hktest.bda1f42abcc2b91dfdfe5131b9f80afe
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b61c5123-d022-4b6e-810b-f35b41e4ab82\",\"type\":\"table\"\
+        ,\"name\":\"CUSTOMER\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER\"\
+        ,\"description\":\"Customer data as defined by TPC-H\",\"displayName\":\"\
+        CUSTOMER\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 75.0
+users: []
+query: "SELECT avg(\"C_CUSTKEY\") AS mean, count(\"C_CUSTKEY\") AS \"valuesCount\"\
+  , count(DISTINCT \"C_CUSTKEY\") AS \"distinctCount\", MIN(\"C_CUSTKEY\") AS min,\
+  \ MAX(\"C_CUSTKEY\") AS max, coalesce(SUM(CASE WHEN (\"C_CUSTKEY\" IS ?) THEN ?\
+  \ ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"C_CUSTKEY\") AS stddev, SUM(\"\
+  C_CUSTKEY\") AS sum \nFROM \"TPCH_SF1\".\"CUSTOMER\"\n LIMIT ?"
+checksum: bda1f42abcc2b91dfdfe5131b9f80afe
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b61c5123-d022-4b6e-810b-f35b41e4ab82
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER
+    description: Customer data as defined by TPC-H
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

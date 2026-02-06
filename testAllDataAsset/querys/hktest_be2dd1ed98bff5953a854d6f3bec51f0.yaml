@@ -1,0 +1,32 @@
+name: be2dd1ed98bff5953a854d6f3bec51f0
+fullyQualifiedName: hktest.be2dd1ed98bff5953a854d6f3bec51f0
+owners: []
+duration: 105.0
+users: []
+query: "WITH \"1301ccfe5993f8410d241f4d575945c8_rnd\" AS \n(SELECT \"TIME_DIM_1\"\
+  .\"T_SHIFT\" AS \"T_SHIFT\" \nFROM \"TPCDS_SF10TCL\".\"TIME_DIM\" AS \"TIME_DIM_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"1301ccfe5993f8410d241f4d575945c8_sample\" AS \n\
+  (SELECT \"1301ccfe5993f8410d241f4d575945c8_rnd\".\"T_SHIFT\" AS \"T_SHIFT\" \nFROM\
+  \ \"1301ccfe5993f8410d241f4d575945c8_rnd\")\n SELECT percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"T_SHIFT\") ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER\
+  \ BY LEN(\"T_SHIFT\") ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP\
+  \ (ORDER BY LEN(\"T_SHIFT\") ASC) AS \"thirdQuartile\" \nFROM \"1301ccfe5993f8410d241f4d575945c8_sample\"\
+  \n LIMIT ?"
+checksum: be2dd1ed98bff5953a854d6f3bec51f0
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 1b1e42e5-1548-4606-a964-064e7e20378d
+    type: table
+    name: TIME_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.TIME_DIM
+    displayName: TIME_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
