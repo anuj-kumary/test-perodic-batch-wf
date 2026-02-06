@@ -1,0 +1,33 @@
+name: b76fae9ba4d135838f29d8d4a6588500
+fullyQualifiedName: hktest.b76fae9ba4d135838f29d8d4a6588500
+owners: []
+duration: 207.0
+users: []
+query: "WITH \"29671ad4b8368e8fdff13a70eede5de7_rnd\" AS \n(SELECT \"ALL_DATA_TYPES_DEMO_1\"\
+  .\"COL_BIGINT\" AS \"COL_BIGINT\" \nFROM \"PUBLIC\".\"ALL_DATA_TYPES_DEMO\" AS \"\
+  ALL_DATA_TYPES_DEMO_1\" TABLESAMPLE ROW(? ROWS)), \n\"29671ad4b8368e8fdff13a70eede5de7_sample\"\
+  \ AS \n(SELECT \"29671ad4b8368e8fdff13a70eede5de7_rnd\".\"COL_BIGINT\" AS \"COL_BIGINT\"\
+  \ \nFROM \"29671ad4b8368e8fdff13a70eede5de7_rnd\")\n SELECT avg(\"COL_BIGINT\")\
+  \ AS mean, count(\"COL_BIGINT\") AS \"valuesCount\", count(DISTINCT \"COL_BIGINT\"\
+  ) AS \"distinctCount\", MIN(\"COL_BIGINT\") AS min, MAX(\"COL_BIGINT\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"COL_BIGINT\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(\"COL_BIGINT\") AS stddev, SUM(\"COL_BIGINT\") AS sum \nFROM \"29671ad4b8368e8fdff13a70eede5de7_sample\"\
+  \n LIMIT ?"
+checksum: b76fae9ba4d135838f29d8d4a6588500
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: dbe33118-3dab-4f53-b321-3f1a45970e5b
+    type: table
+    name: ALL_DATA_TYPES_DEMO
+    fullyQualifiedName: hktest.NEW_E2E.PUBLIC.ALL_DATA_TYPES_DEMO
+    displayName: ALL_DATA_TYPES_DEMO
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,33 @@
+name: b73b7becdd1eff977c0e139a8b99234d
+fullyQualifiedName: hktest.b73b7becdd1eff977c0e139a8b99234d
+owners: []
+duration: 145.0
+users: []
+query: "WITH \"2b911c015ed17a423c74ab9987330e60_rnd\" AS \n(SELECT \"ITEM_1\".\"I_CATEGORY_ID\"\
+  \ AS \"I_CATEGORY_ID\" \nFROM \"TPCDS_SF10TCL\".\"ITEM\" AS \"ITEM_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"2b911c015ed17a423c74ab9987330e60_sample\" AS \n(SELECT \"2b911c015ed17a423c74ab9987330e60_rnd\"\
+  .\"I_CATEGORY_ID\" AS \"I_CATEGORY_ID\" \nFROM \"2b911c015ed17a423c74ab9987330e60_rnd\"\
+  )\n SELECT avg(\"I_CATEGORY_ID\") AS mean, count(\"I_CATEGORY_ID\") AS \"valuesCount\"\
+  , count(DISTINCT \"I_CATEGORY_ID\") AS \"distinctCount\", MIN(\"I_CATEGORY_ID\"\
+  ) AS min, MAX(\"I_CATEGORY_ID\") AS max, coalesce(SUM(CASE WHEN (\"I_CATEGORY_ID\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"I_CATEGORY_ID\") AS\
+  \ stddev, SUM(\"I_CATEGORY_ID\") AS sum \nFROM \"2b911c015ed17a423c74ab9987330e60_sample\"\
+  \n LIMIT ?"
+checksum: b73b7becdd1eff977c0e139a8b99234d
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7fa3f404-d523-4604-a631-15abcfd7ae31
+    type: table
+    name: ITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.ITEM
+    displayName: ITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

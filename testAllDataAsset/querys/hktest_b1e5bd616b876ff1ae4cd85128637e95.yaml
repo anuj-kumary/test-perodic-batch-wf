@@ -1,0 +1,30 @@
+name: b1e5bd616b876ff1ae4cd85128637e95
+fullyQualifiedName: hktest.b1e5bd616b876ff1ae4cd85128637e95
+owners: []
+duration: 72.0
+users: []
+query: "SELECT avg(LEN(\"CNTRCT_PLAN_CNCTNTN_CD\")) AS mean, count(\"CNTRCT_PLAN_CNCTNTN_CD\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CNTRCT_PLAN_CNCTNTN_CD\") AS \"distinctCount\"\
+  , MIN(LEN(\"CNTRCT_PLAN_CNCTNTN_CD\")) AS min, MAX(LEN(\"CNTRCT_PLAN_CNCTNTN_CD\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"CNTRCT_PLAN_CNCTNTN_CD\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"CNTRCT_PLAN_CNCTNTN_CD\")) AS stddev,\
+  \ SUM(LEN(\"CNTRCT_PLAN_CNCTNTN_CD\")) AS sum \nFROM \"CURATED\".\"CNTRCT\"\n LIMIT\
+  \ ?"
+checksum: b1e5bd616b876ff1ae4cd85128637e95
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

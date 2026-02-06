@@ -1,0 +1,45 @@
+name: b20ba3cfe56e79d61574d99838057fac
+fullyQualifiedName: hktest.b20ba3cfe56e79d61574d99838057fac
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"28e6c1cb-6d2e-4eb1-a903-1d1e7c5b6a21\",\"type\":\"table\"\
+        ,\"name\":\"TRANS_WAREHOUSE_LIST\",\"fullyQualifiedName\":\"hktest.MT_DB.OWNERS_TEST.TRANS_WAREHOUSE_LIST\"\
+        ,\"displayName\":\"TRANS_WAREHOUSE_LIST\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 71.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: |-
+  SELECT count(*) AS "uniqueCount"
+  FROM (SELECT count("NAME") AS count_1
+  FROM "OWNERS_TEST"."TRANS_WAREHOUSE_LIST" GROUP BY "NAME"
+  HAVING count("NAME") = ?) AS only_once
+   LIMIT ?
+checksum: b20ba3cfe56e79d61574d99838057fac
+queryDate: 1748908800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 9923bd33-66e3-4a4b-8a79-596d4f5880e8
+    type: table
+    name: Trans_warehouse_list
+    fullyQualifiedName: hktest.MT_DB.OWNERS_TEST.Trans_warehouse_list
+    displayName: Trans_warehouse_list
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

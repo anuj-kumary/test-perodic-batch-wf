@@ -1,0 +1,33 @@
+name: b2b0eaab3be379232fd89ecede44d3fd
+fullyQualifiedName: hktest.b2b0eaab3be379232fd89ecede44d3fd
+owners: []
+duration: 231.0
+users: []
+query: "WITH e1e55cb3593a67b4598950cbcd482369_rnd AS \n(SELECT \"CUSTOMER_DEMOGRAPHICS_1\"\
+  .\"CD_DEP_COUNT\" AS \"CD_DEP_COUNT\" \nFROM \"TPCDS_SF100TCL\".\"CUSTOMER_DEMOGRAPHICS\"\
+  \ AS \"CUSTOMER_DEMOGRAPHICS_1\" TABLESAMPLE ROW(? ROWS)), \ne1e55cb3593a67b4598950cbcd482369_sample\
+  \ AS \n(SELECT e1e55cb3593a67b4598950cbcd482369_rnd.\"CD_DEP_COUNT\" AS \"CD_DEP_COUNT\"\
+  \ \nFROM e1e55cb3593a67b4598950cbcd482369_rnd)\n SELECT avg(\"CD_DEP_COUNT\") AS\
+  \ mean, count(\"CD_DEP_COUNT\") AS \"valuesCount\", count(DISTINCT \"CD_DEP_COUNT\"\
+  ) AS \"distinctCount\", MIN(\"CD_DEP_COUNT\") AS min, MAX(\"CD_DEP_COUNT\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"CD_DEP_COUNT\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(\"CD_DEP_COUNT\") AS stddev, SUM(\"CD_DEP_COUNT\") AS sum \nFROM e1e55cb3593a67b4598950cbcd482369_sample\n\
+  \ LIMIT ?"
+checksum: b2b0eaab3be379232fd89ecede44d3fd
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 57c2153e-5713-4330-9246-b4563c64f8b5
+    type: table
+    name: CUSTOMER_DEMOGRAPHICS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CUSTOMER_DEMOGRAPHICS
+    displayName: CUSTOMER_DEMOGRAPHICS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

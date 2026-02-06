@@ -1,0 +1,32 @@
+name: b6c08b8c6fedd1df0e135ae32f8424c7
+fullyQualifiedName: hktest.b6c08b8c6fedd1df0e135ae32f8424c7
+owners: []
+duration: 139.0
+users: []
+query: "WITH \"69aede266809f89b89fe70681f6a129f_rnd\" AS \n(SELECT \"REGION_1\".\"\
+  R_REGIONKEY\" AS \"R_REGIONKEY\" \nFROM \"TPCH_SF1000\".\"REGION\" AS \"REGION_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"69aede266809f89b89fe70681f6a129f_sample\" AS \n\
+  (SELECT \"69aede266809f89b89fe70681f6a129f_rnd\".\"R_REGIONKEY\" AS \"R_REGIONKEY\"\
+  \ \nFROM \"69aede266809f89b89fe70681f6a129f_rnd\")\n SELECT count(CASE WHEN (\"\
+  R_REGIONKEY\" >= ? AND \"R_REGIONKEY\" < ?) THEN \"R_REGIONKEY\" END) AS \"0 to\
+  \ 2.339\", count(CASE WHEN (\"R_REGIONKEY\" >= ?) THEN \"R_REGIONKEY\" END) AS \"\
+  2.339 and up\" \nFROM \"69aede266809f89b89fe70681f6a129f_sample\"\n LIMIT ?"
+checksum: b6c08b8c6fedd1df0e135ae32f8424c7
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: de446023-1a59-4baf-9379-3417b4683055
+    type: table
+    name: REGION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.REGION
+    description: Region data as defined by TPC-H
+    displayName: REGION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

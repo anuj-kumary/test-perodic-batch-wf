@@ -1,0 +1,32 @@
+name: b4bad92170e37f96f239f64b1bb4ab15
+fullyQualifiedName: hktest.b4bad92170e37f96f239f64b1bb4ab15
+owners: []
+duration: 68.0
+users: []
+query: "WITH e3c58aee13887c409aa5a310c57a9757_rnd AS \n(SELECT \"CNTRCT_1\".\"CNTRCT_TERM_EFF_DT\"\
+  \ AS \"CNTRCT_TERM_EFF_DT\" \nFROM \"CURATED\".\"CNTRCT\" AS \"CNTRCT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \ne3c58aee13887c409aa5a310c57a9757_sample AS \n(SELECT e3c58aee13887c409aa5a310c57a9757_rnd.\"\
+  CNTRCT_TERM_EFF_DT\" AS \"CNTRCT_TERM_EFF_DT\" \nFROM e3c58aee13887c409aa5a310c57a9757_rnd)\n\
+  \ SELECT ? AS anon_1, count(\"CNTRCT_TERM_EFF_DT\") AS \"valuesCount\", count(DISTINCT\
+  \ \"CNTRCT_TERM_EFF_DT\") AS \"distinctCount\", MIN(\"CNTRCT_TERM_EFF_DT\") AS min,\
+  \ MAX(\"CNTRCT_TERM_EFF_DT\") AS max, coalesce(SUM(CASE WHEN (\"CNTRCT_TERM_EFF_DT\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", ? AS anon__1, ? AS anon__2 \nFROM\
+  \ e3c58aee13887c409aa5a310c57a9757_sample\n LIMIT ?"
+checksum: b4bad92170e37f96f239f64b1bb4ab15
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

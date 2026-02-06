@@ -1,0 +1,105 @@
+name: b1423641c5534c26a5a33d9cb7f5abe4
+fullyQualifiedName: hktest.b1423641c5534c26a5a33d9cb7f5abe4
+owners: []
+duration: 1609.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: |-
+  CREATE OR REPLACE VIEW vw_sf_trans_warehouse_list_1 (
+      name,
+      state,
+      type,
+      size,
+      min_cluster_count,
+      max_cluster_count,
+      started_clusters,
+      running,
+      queued,
+      is_default,
+      is_current,
+      auto_suspend,
+      auto_resume,
+      available,
+      provisioning,
+      quiescing,
+      other,
+      created_on,
+      resumed_on,
+      updated_on,
+      owner,
+      comment,
+      enable_query_acceleration,
+      query_acceleration_max_scale_factor,
+      resource_monitor,
+      actives,
+      pendings,
+      failed,
+      suspended,
+      uuid,
+      scaling_policy,
+      budget,
+      owner_role_type,
+      resource_constraint,
+      last_updt_dttm
+  ) COMMENT = ?
+  AS
+  SELECT
+      "name",
+      "state",
+      "type",
+      "size",
+      "min_cluster_count",
+      "max_cluster_count",
+      "started_clusters",
+      "running",
+      "queued",
+      "is_default",
+      "is_current",
+      "auto_suspend",
+      "auto_resume",
+      "available",
+      "provisioning",
+      "quiescing",
+      "other",
+      "created_on",
+      "resumed_on",
+      "updated_on",
+      "owner",
+      "comment",
+      "enable_query_acceleration",
+      "query_acceleration_max_scale_factor",
+      "resource_monitor",
+      "actives",
+      "pendings",
+      "failed",
+      "suspended",
+      "uuid",
+      "scaling_policy",
+      ? AS budget,
+      "owner_role_type",
+      "resource_constraint",
+      last_updt_dttm
+  FROM mt_db.servicenow_test.trans_warehouse_list;
+checksum: b1423641c5534c26a5a33d9cb7f5abe4
+queryDate: 1747699200000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: a7e7d580-5b70-4785-9c4f-4537a02658c1
+    type: table
+    name: TRANS_WAREHOUSE_LIST
+    fullyQualifiedName: hktest.MT_DB.SERVICENOW_TEST.TRANS_WAREHOUSE_LIST
+    displayName: TRANS_WAREHOUSE_LIST
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

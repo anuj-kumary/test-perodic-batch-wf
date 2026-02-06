@@ -1,0 +1,43 @@
+name: b32dbb785c7b56ddbd5debadfa7a3295
+fullyQualifiedName: hktest.b32dbb785c7b56ddbd5debadfa7a3295
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"60ba79e9-bb65-47da-aa7a-54d4da6a2c02\",\"type\":\"table\"\
+        ,\"name\":\"SOURCE_TABLE\",\"fullyQualifiedName\":\"hktest.MT_DB.OWNERS_TEST.SOURCE_TABLE\"\
+        ,\"displayName\":\"SOURCE_TABLE\",\"deleted\":false}]"
+  previousVersion: 0.3
+  changeSummary: {}
+owners: []
+duration: 282.0
+users:
+  - id: ed8a779f-c6af-4e65-85ca-4e4e018c7027
+    type: user
+    name: mohit
+    fullyQualifiedName: mohit
+    displayName: Mohit Yadav
+    deleted: false
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"NAME\") ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"NAME\") ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"NAME\") ASC) AS \"thirdQuartile\"\
+  \ \nFROM \"OWNERS_TEST\".\"SOURCE_TABLE\"\n LIMIT ?"
+checksum: b32dbb785c7b56ddbd5debadfa7a3295
+queryDate: 1748908800000
+usedBy:
+  - MOHIT
+tags: []
+queryUsedIn:
+  - id: 60ba79e9-bb65-47da-aa7a-54d4da6a2c02
+    type: table
+    name: SOURCE_TABLE
+    fullyQualifiedName: hktest.MT_DB.OWNERS_TEST.SOURCE_TABLE
+    displayName: SOURCE_TABLE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

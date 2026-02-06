@@ -1,0 +1,36 @@
+name: b1637a6a7d8b26bd84f3a011dacab141
+fullyQualifiedName: hktest.b1637a6a7d8b26bd84f3a011dacab141
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"f3f7adf0-5934-40b1-9c34-71aa27a03cd6\",\"type\":\"table\"\
+        ,\"name\":\"CNTRCT\",\"fullyQualifiedName\":\"hktest.INDIVIDUAL.CURATED.CNTRCT\"\
+        ,\"displayName\":\"CNTRCT\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 69.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"INIT_PREM_EFF_DT\"\
+  ) AS count_1 \nFROM \"CURATED\".\"CNTRCT\" GROUP BY \"INIT_PREM_EFF_DT\" \nHAVING\
+  \ count(\"INIT_PREM_EFF_DT\") = ?) AS only_once\n LIMIT ?"
+checksum: b1637a6a7d8b26bd84f3a011dacab141
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,31 @@
+name: b788997585f3e69e1a55e0016692007b
+fullyQualifiedName: hktest.b788997585f3e69e1a55e0016692007b
+owners: []
+duration: 599.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_NET_PAID\" AS \"CS_NET_PAID\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_SALES\"\
+  \ AS \"CATALOG_SALES_1\" TABLESAMPLE ROW(? ROWS)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_NET_PAID\" AS \"CS_NET_PAID\"\
+  \ \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"CS_NET_PAID\") AS count_1 \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\
+  \ GROUP BY \"CS_NET_PAID\" \nHAVING count(\"CS_NET_PAID\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: b788997585f3e69e1a55e0016692007b
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 2c3b67ba-852a-449e-b9b1-18d6862e9d96
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

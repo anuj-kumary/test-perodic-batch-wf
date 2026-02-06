@@ -1,0 +1,30 @@
+name: b7c3ebbdb9399d626876930f082c33d6
+fullyQualifiedName: hktest.b7c3ebbdb9399d626876930f082c33d6
+owners: []
+duration: 53.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_PREM_REFUND\"\
+  \ AS \"CONT_PREM_REFUND\" \nFROM \"LANDING\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_PREM_REFUND\" AS \"CONT_PREM_REFUND\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CONT_PREM_REFUND\"\
+  ) AS count_1 \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\" GROUP BY \"CONT_PREM_REFUND\"\
+  \ \nHAVING count(\"CONT_PREM_REFUND\") = ?) AS only_once\n LIMIT ?"
+checksum: b7c3ebbdb9399d626876930f082c33d6
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

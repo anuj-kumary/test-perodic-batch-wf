@@ -1,0 +1,31 @@
+name: b5b86730468e48cc9ef5787b7d1aabda
+fullyQualifiedName: hktest.b5b86730468e48cc9ef5787b7d1aabda
+owners: []
+duration: 84.0
+users: []
+query: "WITH \"8924b4b411990bf5c24320a9ab1eba23_rnd\" AS \n(SELECT \"CATALOG_PAGE_1\"\
+  .\"CP_TYPE\" AS \"CP_TYPE\" \nFROM \"TPCDS_SF10TCL\".\"CATALOG_PAGE\" AS \"CATALOG_PAGE_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"8924b4b411990bf5c24320a9ab1eba23_sample\" AS \n\
+  (SELECT \"8924b4b411990bf5c24320a9ab1eba23_rnd\".\"CP_TYPE\" AS \"CP_TYPE\" \nFROM\
+  \ \"8924b4b411990bf5c24320a9ab1eba23_rnd\")\n SELECT count(CASE WHEN (LEN(\"CP_TYPE\"\
+  ) >= ? AND LEN(\"CP_TYPE\") < ?) THEN LEN(\"CP_TYPE\") END) AS \"7.000 to 8.086\"\
+  , count(CASE WHEN (LEN(\"CP_TYPE\") >= ?) THEN LEN(\"CP_TYPE\") END) AS \"8.086\
+  \ and up\" \nFROM \"8924b4b411990bf5c24320a9ab1eba23_sample\"\n LIMIT ?"
+checksum: b5b86730468e48cc9ef5787b7d1aabda
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ce44236d-bb62-407f-9bd8-88e8e9b29ca1
+    type: table
+    name: CATALOG_PAGE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_PAGE
+    displayName: CATALOG_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

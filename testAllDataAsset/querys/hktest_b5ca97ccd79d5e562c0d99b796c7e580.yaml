@@ -1,0 +1,37 @@
+name: b5ca97ccd79d5e562c0d99b796c7e580
+fullyQualifiedName: hktest.b5ca97ccd79d5e562c0d99b796c7e580
+owners: []
+duration: 83.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"BILLING_POSTAL_CODE\"\
+  \ AS \"BILLING_POSTAL_CODE\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  BILLING_POSTAL_CODE\" AS \"BILLING_POSTAL_CODE\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(LEN(\"BILLING_POSTAL_CODE\")) AS mean, count(\"BILLING_POSTAL_CODE\"\
+  ) AS \"valuesCount\", count(DISTINCT \"BILLING_POSTAL_CODE\") AS \"distinctCount\"\
+  , MIN(LEN(\"BILLING_POSTAL_CODE\")) AS min, MAX(LEN(\"BILLING_POSTAL_CODE\")) AS\
+  \ max, coalesce(SUM(CASE WHEN (\"BILLING_POSTAL_CODE\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(LEN(\"BILLING_POSTAL_CODE\")) AS stddev, SUM(LEN(\"\
+  BILLING_POSTAL_CODE\")) AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: b5ca97ccd79d5e562c0d99b796c7e580
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

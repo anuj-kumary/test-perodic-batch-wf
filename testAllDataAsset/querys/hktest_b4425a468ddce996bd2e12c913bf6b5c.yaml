@@ -1,0 +1,29 @@
+name: b4425a468ddce996bd2e12c913bf6b5c
+fullyQualifiedName: hktest.b4425a468ddce996bd2e12c913bf6b5c
+owners: []
+duration: 73.0
+users: []
+query: "SELECT avg(LEN(\"CONT_PRM_BNS_INT_AMT\")) AS mean, count(\"CONT_PRM_BNS_INT_AMT\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CONT_PRM_BNS_INT_AMT\") AS \"distinctCount\"\
+  , MIN(LEN(\"CONT_PRM_BNS_INT_AMT\")) AS min, MAX(LEN(\"CONT_PRM_BNS_INT_AMT\"))\
+  \ AS max, coalesce(SUM(CASE WHEN (\"CONT_PRM_BNS_INT_AMT\" IS ?) THEN ? ELSE ? END),\
+  \ ?) AS \"nullCount\", STDDEV_POP(LEN(\"CONT_PRM_BNS_INT_AMT\")) AS stddev, SUM(LEN(\"\
+  CONT_PRM_BNS_INT_AMT\")) AS sum \nFROM \"LANDING\".\"CONT\"\n LIMIT ?"
+checksum: b4425a468ddce996bd2e12c913bf6b5c
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

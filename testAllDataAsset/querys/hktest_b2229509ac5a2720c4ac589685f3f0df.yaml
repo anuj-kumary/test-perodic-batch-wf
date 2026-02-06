@@ -1,0 +1,30 @@
+name: b2229509ac5a2720c4ac589685f3f0df
+fullyQualifiedName: hktest.b2229509ac5a2720c4ac589685f3f0df
+owners: []
+duration: 305283.0
+users: []
+query: "SELECT avg(LEN(\"L_SHIPINSTRUCT\")) AS mean, count(\"L_SHIPINSTRUCT\") AS\
+  \ \"valuesCount\", count(DISTINCT \"L_SHIPINSTRUCT\") AS \"distinctCount\", MIN(LEN(\"\
+  L_SHIPINSTRUCT\")) AS min, MAX(LEN(\"L_SHIPINSTRUCT\")) AS max, coalesce(SUM(CASE\
+  \ WHEN (\"L_SHIPINSTRUCT\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  L_SHIPINSTRUCT\")) AS stddev, SUM(LEN(\"L_SHIPINSTRUCT\")) AS sum \nFROM \"TPCH_SF1000\"\
+  .\"LINEITEM\"\n LIMIT ?"
+checksum: b2229509ac5a2720c4ac589685f3f0df
+queryDate: 1752451200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9df2a6b2-7501-4f06-a629-34d4d1c748ab
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
