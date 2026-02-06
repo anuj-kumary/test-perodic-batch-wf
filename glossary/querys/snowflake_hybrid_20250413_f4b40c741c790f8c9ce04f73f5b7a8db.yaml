@@ -1,0 +1,38 @@
+name: f4b40c741c790f8c9ce04f73f5b7a8db
+fullyQualifiedName: snowflake hybrid 20250413.f4b40c741c790f8c9ce04f73f5b7a8db
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b7d252f0-412d-4c84-b553-d82ff2fedfdb\",\"type\":\"table\"\
+        ,\"name\":\"RAW_ORDERS\",\"fullyQualifiedName\":\"snowflake hybrid 20250413.CUSTOMERS.JAFFLE_SHOP.RAW_ORDERS\"\
+        ,\"displayName\":\"RAW_ORDERS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 314.0
+users: []
+query: "create or replace   view CUSTOMERS.jaffle_shop.stg_orders\n  \n   as (\n \
+  \   with source as (\n    select * from CUSTOMERS.jaffle_shop.raw_orders\n\n),\n\
+  \nrenamed as (\n\n    select\n        id as order_id,\n        user_id as customer_id,\n\
+  \        order_date,\n        status\n\n    from source\n\n)\n\nselect * from renamed\n\
+  \  );"
+checksum: f4b40c741c790f8c9ce04f73f5b7a8db
+queryDate: 1744502400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 1e6f2d14-a631-4884-bbbf-ebcfa6f57816
+    type: table
+    name: STG_ORDERS
+    fullyQualifiedName: snowflake hybrid 20250413.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS
+    displayName: STG_ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 562edf42-13bc-4b51-8d46-e4b4f3263cc2
+  type: databaseService
+  name: snowflake hybrid 20250413
+  fullyQualifiedName: snowflake hybrid 20250413

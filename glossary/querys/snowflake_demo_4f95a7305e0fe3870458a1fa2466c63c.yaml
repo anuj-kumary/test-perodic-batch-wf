@@ -1,0 +1,39 @@
+name: 4f95a7305e0fe3870458a1fa2466c63c
+fullyQualifiedName: snowflake_demo.4f95a7305e0fe3870458a1fa2466c63c
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0717d126-662e-480a-92e0-76a7cbcbbac5\",\"type\":\"table\"\
+        ,\"name\":\"RAW_PAYMENTS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS\"\
+        ,\"displayName\":\"RAW_PAYMENTS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 28.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"ORDER_ID\") AS count_1\
+  \ \nFROM \"JAFFLE_SHOP\".\"RAW_PAYMENTS\" GROUP BY \"ORDER_ID\" \nHAVING count(\"\
+  ORDER_ID\") = ?) AS only_once\n LIMIT ?"
+checksum: 4f95a7305e0fe3870458a1fa2466c63c
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0717d126-662e-480a-92e0-76a7cbcbbac5
+    type: table
+    name: RAW_PAYMENTS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS
+    description: "This table stores payment transaction details, including amounts,\
+      \ unique identifiers, and payment methods, enabling businesses to analyze payment\
+      \ patterns and manage financial records effectively."
+    displayName: RAW_PAYMENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo

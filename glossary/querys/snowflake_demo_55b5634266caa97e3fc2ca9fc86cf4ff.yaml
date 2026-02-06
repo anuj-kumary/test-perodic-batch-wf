@@ -1,0 +1,43 @@
+name: 55b5634266caa97e3fc2ca9fc86cf4ff
+fullyQualifiedName: snowflake_demo.55b5634266caa97e3fc2ca9fc86cf4ff
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"af9fe6e6-2a83-4f86-9336-20e1f840104a\",\"type\":\"table\"\
+        ,\"name\":\"RAW_CUSTOMERS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_CUSTOMERS\"\
+        ,\"displayName\":\"RAW_CUSTOMERS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 41.0
+users: []
+query: "SELECT avg(LEN(\"FIRST_NAME\")) AS mean, count(\"FIRST_NAME\") AS \"valuesCount\"\
+  , count(DISTINCT \"FIRST_NAME\") AS \"distinctCount\", MIN(LEN(\"FIRST_NAME\"))\
+  \ AS min, MAX(LEN(\"FIRST_NAME\")) AS max, coalesce(SUM(CASE WHEN (\"FIRST_NAME\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"FIRST_NAME\"))\
+  \ AS stddev, SUM(LEN(\"FIRST_NAME\")) AS sum \nFROM \"JAFFLE_SHOP\".\"RAW_CUSTOMERS\"\
+  \n LIMIT ?"
+checksum: 55b5634266caa97e3fc2ca9fc86cf4ff
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: af9fe6e6-2a83-4f86-9336-20e1f840104a
+    type: table
+    name: RAW_CUSTOMERS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_CUSTOMERS
+    description: "This table stores customer information, including their first and\
+      \ last names, along with a unique identifier. It can be used to manage customer\
+      \ relationships, track purchases, and analyze customer demographics for targeted\
+      \ marketing strategies."
+    displayName: RAW_CUSTOMERS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo

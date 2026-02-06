@@ -1,0 +1,40 @@
+name: d419f8841a5823a0922a65a73583c789
+fullyQualifiedName: snowflake_demo.d419f8841a5823a0922a65a73583c789
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"af9fe6e6-2a83-4f86-9336-20e1f840104a\",\"type\":\"table\"\
+        ,\"name\":\"RAW_CUSTOMERS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_CUSTOMERS\"\
+        ,\"displayName\":\"RAW_CUSTOMERS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 52.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"LAST_NAME\") AS\
+  \ count_1 \nFROM \"JAFFLE_SHOP\".\"RAW_CUSTOMERS\" GROUP BY \"LAST_NAME\" \nHAVING\
+  \ count(\"LAST_NAME\") = ?) AS only_once\n LIMIT ?"
+checksum: d419f8841a5823a0922a65a73583c789
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: af9fe6e6-2a83-4f86-9336-20e1f840104a
+    type: table
+    name: RAW_CUSTOMERS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_CUSTOMERS
+    description: "This table stores customer information, including their first and\
+      \ last names, along with a unique identifier. It can be used to manage customer\
+      \ relationships, track purchases, and analyze customer demographics for targeted\
+      \ marketing strategies."
+    displayName: RAW_CUSTOMERS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo

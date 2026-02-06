@@ -1,0 +1,43 @@
+name: a4cea4b51e899cd8d3636d04e902a3f1
+fullyQualifiedName: snowflake_demo.a4cea4b51e899cd8d3636d04e902a3f1
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0717d126-662e-480a-92e0-76a7cbcbbac5\",\"type\":\"table\"\
+        ,\"name\":\"RAW_PAYMENTS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS\"\
+        ,\"displayName\":\"RAW_PAYMENTS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 31.0
+users: []
+query: "SELECT count(CASE WHEN (\"ORDER_ID\" >= ? AND \"ORDER_ID\" < ?) THEN \"ORDER_ID\"\
+  \ END) AS \"1.000 to 21.684\", count(CASE WHEN (\"ORDER_ID\" >= ? AND \"ORDER_ID\"\
+  \ < ?) THEN \"ORDER_ID\" END) AS \"21.684 to 42.369\", count(CASE WHEN (\"ORDER_ID\"\
+  \ >= ? AND \"ORDER_ID\" < ?) THEN \"ORDER_ID\" END) AS \"42.369 to 63.053\", count(CASE\
+  \ WHEN (\"ORDER_ID\" >= ? AND \"ORDER_ID\" < ?) THEN \"ORDER_ID\" END) AS \"63.053\
+  \ to 83.737\", count(CASE WHEN (\"ORDER_ID\" >= ?) THEN \"ORDER_ID\" END) AS \"\
+  83.737 and up\" \nFROM \"JAFFLE_SHOP\".\"RAW_PAYMENTS\"\n LIMIT ?"
+checksum: a4cea4b51e899cd8d3636d04e902a3f1
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0717d126-662e-480a-92e0-76a7cbcbbac5
+    type: table
+    name: RAW_PAYMENTS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS
+    description: "This table stores payment transaction details, including amounts,\
+      \ unique identifiers, and payment methods, enabling businesses to analyze payment\
+      \ patterns and manage financial records effectively."
+    displayName: RAW_PAYMENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo

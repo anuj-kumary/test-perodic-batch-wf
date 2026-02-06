@@ -1,0 +1,44 @@
+name: 2e70a3b8611e450cddd05ca8d9e2b072
+fullyQualifiedName: snowflake_demo.2e70a3b8611e450cddd05ca8d9e2b072
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"513faa55-626b-4490-a138-956e08e5625e\",\"type\":\"table\"\
+        ,\"name\":\"RAW_ORDERS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_ORDERS\"\
+        ,\"displayName\":\"RAW_ORDERS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 29.0
+users: []
+query: "SELECT count(CASE WHEN (\"USER_ID\" >= ? AND \"USER_ID\" < ?) THEN \"USER_ID\"\
+  \ END) AS \"1.000 to 19.806\", count(CASE WHEN (\"USER_ID\" >= ? AND \"USER_ID\"\
+  \ < ?) THEN \"USER_ID\" END) AS \"19.806 to 38.613\", count(CASE WHEN (\"USER_ID\"\
+  \ >= ? AND \"USER_ID\" < ?) THEN \"USER_ID\" END) AS \"38.613 to 57.419\", count(CASE\
+  \ WHEN (\"USER_ID\" >= ? AND \"USER_ID\" < ?) THEN \"USER_ID\" END) AS \"57.419\
+  \ to 76.226\", count(CASE WHEN (\"USER_ID\" >= ? AND \"USER_ID\" < ?) THEN \"USER_ID\"\
+  \ END) AS \"76.226 to 95.032\", count(CASE WHEN (\"USER_ID\" >= ?) THEN \"USER_ID\"\
+  \ END) AS \"95.032 and up\" \nFROM \"JAFFLE_SHOP\".\"RAW_ORDERS\"\n LIMIT ?"
+checksum: 2e70a3b8611e450cddd05ca8d9e2b072
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 513faa55-626b-4490-a138-956e08e5625e
+    type: table
+    name: RAW_ORDERS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_ORDERS
+    description: "This table stores order details from customers, including unique\
+      \ identifiers, order dates, statuses, and user IDs, enabling businesses to track\
+      \ and analyze customer purchasing behavior and order fulfillment processes."
+    displayName: RAW_ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo

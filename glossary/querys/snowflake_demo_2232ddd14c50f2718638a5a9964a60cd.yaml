@@ -1,0 +1,41 @@
+name: 2232ddd14c50f2718638a5a9964a60cd
+fullyQualifiedName: snowflake_demo.2232ddd14c50f2718638a5a9964a60cd
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0717d126-662e-480a-92e0-76a7cbcbbac5\",\"type\":\"table\"\
+        ,\"name\":\"RAW_PAYMENTS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS\"\
+        ,\"displayName\":\"RAW_PAYMENTS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 35.0
+users: []
+query: "SELECT avg(\"ID\") AS mean, count(\"ID\") AS \"valuesCount\", count(DISTINCT\
+  \ \"ID\") AS \"distinctCount\", MIN(\"ID\") AS min, MAX(\"ID\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"ID\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"ID\"\
+  ) AS stddev, SUM(\"ID\") AS sum \nFROM \"JAFFLE_SHOP\".\"RAW_PAYMENTS\"\n LIMIT\
+  \ ?"
+checksum: 2232ddd14c50f2718638a5a9964a60cd
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0717d126-662e-480a-92e0-76a7cbcbbac5
+    type: table
+    name: RAW_PAYMENTS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS
+    description: "This table stores payment transaction details, including amounts,\
+      \ unique identifiers, and payment methods, enabling businesses to analyze payment\
+      \ patterns and manage financial records effectively."
+    displayName: RAW_PAYMENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo

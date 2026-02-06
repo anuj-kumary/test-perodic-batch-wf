@@ -1,0 +1,37 @@
+name: fe017f2712af6200bbb9d3993d3174d4
+fullyQualifiedName: snowflake hybrid 20250413.fe017f2712af6200bbb9d3993d3174d4
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"d39e913f-8c6d-4376-8dc3-73638f007beb\",\"type\":\"table\"\
+        ,\"name\":\"RAW_CUSTOMERS\",\"fullyQualifiedName\":\"snowflake hybrid 20250413.CUSTOMERS.JAFFLE_SHOP.RAW_CUSTOMERS\"\
+        ,\"displayName\":\"RAW_CUSTOMERS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 324.0
+users: []
+query: "create or replace   view CUSTOMERS.jaffle_shop.stg_customers\n  \n   as (\n\
+  \    with source as (\n    select * from CUSTOMERS.jaffle_shop.raw_customers\n\n\
+  ),\n\nrenamed as (\n\n    select\n        id as customer_id,\n        first_name,\n\
+  \        last_name\n\n    from source\n\n)\n\nselect * from renamed\n  );"
+checksum: fe017f2712af6200bbb9d3993d3174d4
+queryDate: 1744502400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e5912f19-8601-4bc4-b56d-cd5f417d2f34
+    type: table
+    name: STG_CUSTOMERS
+    fullyQualifiedName: snowflake hybrid 20250413.CUSTOMERS.JAFFLE_SHOP.STG_CUSTOMERS
+    displayName: STG_CUSTOMERS
+    deleted: false
+processedLineage: false
+service:
+  id: 562edf42-13bc-4b51-8d46-e4b4f3263cc2
+  type: databaseService
+  name: snowflake hybrid 20250413
+  fullyQualifiedName: snowflake hybrid 20250413

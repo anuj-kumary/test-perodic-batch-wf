@@ -1,0 +1,52 @@
+name: a4bcd0cdca919348623adca32aff905d
+fullyQualifiedName: snowflake_demo.a4bcd0cdca919348623adca32aff905d
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0717d126-662e-480a-92e0-76a7cbcbbac5\",\"type\":\"table\"\
+        ,\"name\":\"RAW_PAYMENTS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS\"\
+        ,\"displayName\":\"RAW_PAYMENTS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 43.0
+users: []
+query: "SELECT count(CASE WHEN (LEN(\"PAYMENT_METHOD\") >= ? AND LEN(\"PAYMENT_METHOD\"\
+  ) < ?) THEN LEN(\"PAYMENT_METHOD\") END) AS \"6.000 to 6.827\", count(CASE WHEN\
+  \ (LEN(\"PAYMENT_METHOD\") >= ? AND LEN(\"PAYMENT_METHOD\") < ?) THEN LEN(\"PAYMENT_METHOD\"\
+  ) END) AS \"6.827 to 7.655\", count(CASE WHEN (LEN(\"PAYMENT_METHOD\") >= ? AND\
+  \ LEN(\"PAYMENT_METHOD\") < ?) THEN LEN(\"PAYMENT_METHOD\") END) AS \"7.655 to 8.482\"\
+  , count(CASE WHEN (LEN(\"PAYMENT_METHOD\") >= ? AND LEN(\"PAYMENT_METHOD\") < ?)\
+  \ THEN LEN(\"PAYMENT_METHOD\") END) AS \"8.482 to 9.309\", count(CASE WHEN (LEN(\"\
+  PAYMENT_METHOD\") >= ? AND LEN(\"PAYMENT_METHOD\") < ?) THEN LEN(\"PAYMENT_METHOD\"\
+  ) END) AS \"9.309 to 10.137\", count(CASE WHEN (LEN(\"PAYMENT_METHOD\") >= ? AND\
+  \ LEN(\"PAYMENT_METHOD\") < ?) THEN LEN(\"PAYMENT_METHOD\") END) AS \"10.137 to\
+  \ 10.964\", count(CASE WHEN (LEN(\"PAYMENT_METHOD\") >= ? AND LEN(\"PAYMENT_METHOD\"\
+  ) < ?) THEN LEN(\"PAYMENT_METHOD\") END) AS \"10.964 to 11.792\", count(CASE WHEN\
+  \ (LEN(\"PAYMENT_METHOD\") >= ? AND LEN(\"PAYMENT_METHOD\") < ?) THEN LEN(\"PAYMENT_METHOD\"\
+  ) END) AS \"11.792 to 12.619\", count(CASE WHEN (LEN(\"PAYMENT_METHOD\") >= ?) THEN\
+  \ LEN(\"PAYMENT_METHOD\") END) AS \"12.619 and up\" \nFROM \"JAFFLE_SHOP\".\"RAW_PAYMENTS\"\
+  \n LIMIT ?"
+checksum: a4bcd0cdca919348623adca32aff905d
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0717d126-662e-480a-92e0-76a7cbcbbac5
+    type: table
+    name: RAW_PAYMENTS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS
+    description: "This table stores payment transaction details, including amounts,\
+      \ unique identifiers, and payment methods, enabling businesses to analyze payment\
+      \ patterns and manage financial records effectively."
+    displayName: RAW_PAYMENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo
