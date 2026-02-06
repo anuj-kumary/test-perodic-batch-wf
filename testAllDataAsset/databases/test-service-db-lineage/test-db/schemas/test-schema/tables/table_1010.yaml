@@ -1,0 +1,56 @@
+name: table_1010
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1010
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1010.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view STG_ANAPLAN_PFZ_PLACCOUNT_CORP_HIERARCHY(\n\
+  \t\"PFZAccount\",\n\t\"PFZAccountName\",\n\t\"PFZPLAccountL9Code\",\n\t\"PFZPLAccountL9Name\"\
+  ,\n\t\"PFZPLAccountL8Code\",\n\t\"PFZPLAccountL8Name\",\n\t\"PFZPLAccountL7Code\"\
+  ,\n\t\"PFZPLAccountL7Name\",\n\t\"PFZPLAccountL6Code\",\n\t\"PFZPLAccountL6Name\"\
+  ,\n\t\"PFZPLAccountL5Code\",\n\t\"PFZPLAccountL5Name\",\n\t\"PFZPLAccountL4Code\"\
+  ,\n\t\"PFZPLAccountL4Name\",\n\t\"PFZPLAccountL3Code\",\n\t\"PFZPLAccountL3Name\"\
+  ,\n\t\"PFZPLAccountL2Code\",\n\t\"PFZPLAccountL2Name\",\n\t\"PFZPLAccountL1Code\"\
+  ,\n\t\"PFZPLAccountL1Name\",\n\t\"PFZPLAccountTopLevel\",\n\t\"PLCorpFlag\"\n) as\
+  \ (\n    with stg_anaplan_pfz_placcount_corp_hierarchy as\n(\n    select * from\
+  \ CDL_LS.FINANCE_ANAPLAN_IN_RPT.EM_ANAPLAN_HIERARCHY_PFZ_PLACCOUNT_CORP)\n\nselect\
+  \ * from stg_anaplan_pfz_placcount_corp_hierarchy\n  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

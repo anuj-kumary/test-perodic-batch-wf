@@ -1,0 +1,468 @@
+name: table_1064
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1064
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1064.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_KC_CUSTOMER(\n\t\"AcctNumber\",\n\t\"\
+  AcctSysID\",\n\t\"AcctName\",\n\t\"AlternateName\",\n\t\"Acct_ticker\",\n\t\"PrimaryLogoURL\"\
+  ,\n\t\"NextRenewalDate\",\n\t\"AcctPrimarySalesRep\",\n\t\"AcctSolutionConsultant\"\
+  ,\n\t\"AcctKey\",\n\t\"NPSRating\",\n\t\"Severity\",\n\t\"OldestInstanceVersion1\"\
+  ,\n\t\"AccountRiskReason\",\n\tUSERID,\n\t\"ProductUnDeployedPerc\",\n\t\"ValuePrompters\"\
+  ,\n\t\"UpgradesDetails\",\n\t\"CriticalAppsApopted\",\n\t\"Zero_Acct\",\n\tACCOUNTID,\n\
+  \t\"CustSuccExec\",\n\t\"ReasonCode1\",\n\t\"ReasonCode2\",\n\t\"ReasonCode3\",\n\
+  \t\"ReasonCode4\",\n\t\"OldestInstanceVersion\",\n\t\"PerProductDeployed\",\n\t\"\
+  AccountFieldSalesParentNumber\",\n\t\"AccountFieldSalesParentFlag\",\n\t\"AccountFieldSalesParentName\"\
+  ,\n\t\"ImpactCSM\",\n\t\"P1P2Count\",\n\t\"CriticalAppsAdoptedRevised\",\n\t\"DownSellRisk\"\
+  ,\n\t\"ImpactAcctSysId\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"AcctNumber\"\
+  \ as \"AcctNumber\",\n       \"AcctSysID\" as \"AcctSysID\",\n       \"AcctName\"\
+  \ as \"AcctName\",\n       \"AlternateName\" as \"AlternateName\",\n       \"Acct_ticker\"\
+  \ as \"Acct_ticker\",\n       \"PrimaryLogoURL\" as \"PrimaryLogoURL\",\n      \
+  \ \"NextRenewalDate\" as \"NextRenewalDate\",\n       \"AcctPrimarySalesRep\" as\
+  \ \"AcctPrimarySalesRep\",\n       \"AcctSolutionConsultant\" as \"AcctSolutionConsultant\"\
+  ,\n       \"AcctKey\" as \"AcctKey\",\n       \"NPSRating\" as \"NPSRating\",\n\
+  \       \"Severity\" as \"Severity\",\n       \"OldestInstanceVersion\" as \"OldestInstanceVersion1\"\
+  ,\n       \"AccountRiskReason\" as \"AccountRiskReason\",\n       \"USERID\" as\
+  \ \"USERID\",\n       \"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\",\n\
+  \       \"ValuePrompters\" as \"ValuePrompters\",\n       \"UpgradesDetails\" as\
+  \ \"UpgradesDetails\",\n       \"CriticalAppsApopted\" as \"CriticalAppsApopted\"\
+  ,\n       \"Zero_Acct\" as \"Zero_Acct\",\n       \"ACCOUNTID\" as \"ACCOUNTID\"\
+  ,\n       \"CustSuccExec\" as \"CustSuccExec\",\n       \"ReasonCode1\" as \"ReasonCode1\"\
+  ,\n       \"ReasonCode2\" as \"ReasonCode2\",\n       \"ReasonCode3\" as \"ReasonCode3\"\
+  ,\n       \"ReasonCode4\" as \"ReasonCode4\",\n       IFF(\"OldestInstanceVersion1\"\
+  ='random', 'random', \"OldestInstanceVersion1\") as \"OldestInstanceVersion\",\n\
+  \       REPLACE(\"ProductUnDeployedPerc\", 'random', 'random') as \"PerProductDeployed\"\
+  ,\n       \"AccountFieldSalesParentNumber\" as \"AccountFieldSalesParentNumber\"\
+  ,\n       \"AccountFieldSalesParentFlag\" as \"AccountFieldSalesParentFlag\",\n\
+  \       \"AccountFieldSalesParentName\" as \"AccountFieldSalesParentName\",\n  \
+  \     \"ImpactCSM\" as \"ImpactCSM\",\n       \"P1P2Count\" as \"P1P2Count\",\n\
+  \       \"CriticalAppsAdoptedRevised\" as \"CriticalAppsAdoptedRevised\",\n    \
+  \   \"DownSellRisk\" as \"DownSellRisk\",\n       \"CompanySysId\" as \"ImpactAcctSysId\"\
+  \nFROM\n  (SELECT \"Aggregation_2\".\"ReasonCode1\" as \"ReasonCode1\",\n      \
+  \    \"Aggregation_2\".\"ReasonCode2\" as \"ReasonCode2\",\n          \"Aggregation_2\"\
+  .\"ReasonCode3\" as \"ReasonCode3\",\n          \"Aggregation_2\".\"ReasonCode4\"\
+  \ as \"ReasonCode4\",\n          \"Join_10\".\"AccountFieldSalesParentName\" as\
+  \ \"AccountFieldSalesParentName\",\n          \"Join_10\".\"AccountFieldSalesParentFlag\"\
+  \ as \"AccountFieldSalesParentFlag\",\n          \"Join_10\".\"AccountFieldSalesParentNumber\"\
+  \ as \"AccountFieldSalesParentNumber\",\n          \"Join_10\".\"CustSuccExec\"\
+  \ as \"CustSuccExec\",\n          \"Join_10\".\"ACCOUNTID\" as \"ACCOUNTID\",\n\
+  \          \"Join_10\".\"Zero_Acct\" as \"Zero_Acct\",\n          \"Join_10\".\"\
+  CriticalAppsApopted\" as \"CriticalAppsApopted\",\n          \"Join_10\".\"UpgradesDetails\"\
+  \ as \"UpgradesDetails\",\n          \"Join_10\".\"ValuePrompters\" as \"ValuePrompters\"\
+  ,\n          \"Join_10\".\"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\"\
+  ,\n          \"Join_10\".\"USERID\" as \"USERID\",\n          \"Join_10\".\"AccountRiskReason\"\
+  \ as \"AccountRiskReason\",\n          \"Join_10\".\"OldestInstanceVersion\" as\
+  \ \"OldestInstanceVersion\",\n          \"Join_10\".\"Severity\" as \"Severity\"\
+  ,\n          \"Join_10\".\"NPSRating\" as \"NPSRating\",\n          \"Join_10\"\
+  .\"AcctKey\" as \"AcctKey\",\n          \"Join_10\".\"AcctSolutionConsultant\" as\
+  \ \"AcctSolutionConsultant\",\n          \"Join_10\".\"AcctPrimarySalesRep\" as\
+  \ \"AcctPrimarySalesRep\",\n          \"Join_10\".\"NextRenewalDate\" as \"NextRenewalDate\"\
+  ,\n          \"Join_10\".\"PrimaryLogoURL\" as \"PrimaryLogoURL\",\n          \"\
+  Join_10\".\"Acct_ticker\" as \"Acct_ticker\",\n          \"Join_10\".\"AlternateName\"\
+  \ as \"AlternateName\",\n          \"Join_10\".\"AcctName\" as \"AcctName\",\n \
+  \         \"Join_10\".\"AcctSysID\" as \"AcctSysID\",\n          \"Join_10\".\"\
+  AcctNumber\" as \"AcctNumber\",\n          \"Join_10\".\"P1P2Count\" as \"P1P2Count\"\
+  ,\n          \"Join_10\".\"ImpactCSM\" as \"ImpactCSM\",\n          \"Join_10\"\
+  .\"CriticalAppsAdoptedRevised\" as \"CriticalAppsAdoptedRevised\",\n          \"\
+  Join_10\".\"DownSellRisk\" as \"DownSellRisk\",\n          \"Join_10\".\"CompanySysId\"\
+  \ as \"CompanySysId\"\n   FROM\n     (SELECT \"Join_9\".\"AccountFieldSalesParentName\"\
+  \ as \"AccountFieldSalesParentName\",\n             \"Join_9\".\"AccountFieldSalesParentFlag\"\
+  \ as \"AccountFieldSalesParentFlag\",\n             \"Join_9\".\"AccountFieldSalesParentNumber\"\
+  \ as \"AccountFieldSalesParentNumber\",\n             \"Join_9\".\"CustSuccExec\"\
+  \ as \"CustSuccExec\",\n             \"Join_9\".\"ACCOUNTID\" as \"ACCOUNTID\",\n\
+  \             \"Join_9\".\"Zero_Acct\" as \"Zero_Acct\",\n             \"Join_9\"\
+  .\"CriticalAppsApopted\" as \"CriticalAppsApopted\",\n             \"Join_9\".\"\
+  UpgradesDetails\" as \"UpgradesDetails\",\n             \"Join_9\".\"ValuePrompters\"\
+  \ as \"ValuePrompters\",\n             \"Join_9\".\"ProductUnDeployedPerc\" as \"\
+  ProductUnDeployedPerc\",\n             \"Join_9\".\"USERID\" as \"USERID\",\n  \
+  \           \"Join_9\".\"AccountRiskReason\" as \"AccountRiskReason\",\n       \
+  \      \"Join_9\".\"OldestInstanceVersion\" as \"OldestInstanceVersion\",\n    \
+  \         \"Join_9\".\"Severity\" as \"Severity\",\n             \"Join_9\".\"NPSRating\"\
+  \ as \"NPSRating\",\n             \"Join_9\".\"AcctKey\" as \"AcctKey\",\n     \
+  \        \"Join_9\".\"AcctSolutionConsultant\" as \"AcctSolutionConsultant\",\n\
+  \             \"Join_9\".\"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\",\n \
+  \            \"Join_9\".\"NextRenewalDate\" as \"NextRenewalDate\",\n          \
+  \   \"Join_9\".\"PrimaryLogoURL\" as \"PrimaryLogoURL\",\n             \"Join_9\"\
+  .\"Acct_ticker\" as \"Acct_ticker\",\n             \"Join_9\".\"AlternateName\"\
+  \ as \"AlternateName\",\n             \"Join_9\".\"AcctName\" as \"AcctName\",\n\
+  \             \"Join_9\".\"AcctSysID\" as \"AcctSysID\",\n             \"Join_9\"\
+  .\"AcctNumber\" as \"AcctNumber\",\n             \"Join_9\".\"P1P2Count\" as \"\
+  P1P2Count\",\n             \"Projection_10\".\"CriticalAppsAdoptedRevised\" as \"\
+  CriticalAppsAdoptedRevised\",\n             \"Join_9\".\"DownSellRisk\" as \"DownSellRisk\"\
+  ,\n             \"Join_9\".\"ImpactCSM\" as \"ImpactCSM\",\n             \"Join_9\"\
+  .\"CompanySysId\" as \"CompanySysId\"\n      FROM\n        (SELECT \"Join_8\".\"\
+  AcctNumber\" as \"AcctNumber\",\n                \"Join_8\".\"AcctSysID\" as \"\
+  AcctSysID\",\n                \"Join_8\".\"AcctName\" as \"AcctName\",\n       \
+  \         \"Join_8\".\"AlternateName\" as \"AlternateName\",\n                \"\
+  Join_8\".\"Acct_ticker\" as \"Acct_ticker\",\n                \"Join_8\".\"PrimaryLogoURL\"\
+  \ as \"PrimaryLogoURL\",\n                \"Join_8\".\"NextRenewalDate\" as \"NextRenewalDate\"\
+  ,\n                \"Join_8\".\"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\"\
+  ,\n                \"Join_8\".\"AcctSolutionConsultant\" as \"AcctSolutionConsultant\"\
+  ,\n                \"Join_8\".\"AcctKey\" as \"AcctKey\",\n                \"Join_8\"\
+  .\"NPSRating\" as \"NPSRating\",\n                \"Join_8\".\"Severity\" as \"\
+  Severity\",\n                \"Join_8\".\"OldestInstanceVersion\" as \"OldestInstanceVersion\"\
+  ,\n                \"Join_8\".\"AccountRiskReason\" as \"AccountRiskReason\",\n\
+  \                \"Join_8\".\"USERID\" as \"USERID\",\n                \"Join_8\"\
+  .\"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\",\n                \"Join_8\"\
+  .\"ValuePrompters\" as \"ValuePrompters\",\n                \"Join_8\".\"UpgradesDetails\"\
+  \ as \"UpgradesDetails\",\n                \"Join_8\".\"CriticalAppsApopted\" as\
+  \ \"CriticalAppsApopted\",\n                \"Join_8\".\"Zero_Acct\" as \"Zero_Acct\"\
+  ,\n                \"Join_8\".\"ACCOUNTID\" as \"ACCOUNTID\",\n                \"\
+  Join_8\".\"CustSuccExec\" as \"CustSuccExec\",\n                \"Join_8\".\"AccountFieldSalesParentNumber\"\
+  \ as \"AccountFieldSalesParentNumber\",\n                \"Join_8\".\"AccountFieldSalesParentFlag\"\
+  \ as \"AccountFieldSalesParentFlag\",\n                \"Join_8\".\"AccountFieldSalesParentName\"\
+  \ as \"AccountFieldSalesParentName\",\n                \"Join_8\".\"ImpactCSM\"\
+  \ as \"ImpactCSM\",\n                \"Join_8\".\"P1P2Count\" as \"P1P2Count\",\n\
+  \                \"Projection_9\".\"DownSellRisk\" as \"DownSellRisk\",\n      \
+  \          \"Join_8\".\"CompanySysId\" as \"CompanySysId\"\n         FROM\n    \
+  \       (SELECT \"Join_7\".\"AcctNumber\" as \"AcctNumber\",\n                 \
+  \  \"Join_7\".\"AcctSysID\" as \"AcctSysID\",\n                   \"Join_7\".\"\
+  AcctName\" as \"AcctName\",\n                   \"Join_7\".\"AlternateName\" as\
+  \ \"AlternateName\",\n                   \"Join_7\".\"Acct_ticker\" as \"Acct_ticker\"\
+  ,\n                   \"Join_7\".\"PrimaryLogoURL\" as \"PrimaryLogoURL\",\n   \
+  \                \"Join_7\".\"NextRenewalDate\" as \"NextRenewalDate\",\n      \
+  \             \"Join_7\".\"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\",\n \
+  \                  \"Join_7\".\"AcctSolutionConsultant\" as \"AcctSolutionConsultant\"\
+  ,\n                   \"Join_7\".\"AcctKey\" as \"AcctKey\",\n                 \
+  \  \"Join_7\".\"NPSRating\" as \"NPSRating\",\n                   \"Join_7\".\"\
+  Severity\" as \"Severity\",\n                   \"Join_7\".\"OldestInstanceVersion\"\
+  \ as \"OldestInstanceVersion\",\n                   \"Join_7\".\"AccountRiskReason\"\
+  \ as \"AccountRiskReason\",\n                   \"Join_7\".\"USERID\" as \"USERID\"\
+  ,\n                   \"Join_7\".\"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\"\
+  ,\n                   \"Join_7\".\"ValuePrompters\" as \"ValuePrompters\",\n   \
+  \                \"Join_7\".\"UpgradesDetails\" as \"UpgradesDetails\",\n      \
+  \             \"Join_7\".\"CriticalAppsApopted\" as \"CriticalAppsApopted\",\n \
+  \                  \"Join_7\".\"Zero_Acct\" as \"Zero_Acct\",\n                \
+  \   \"Join_7\".\"ACCOUNTID\" as \"ACCOUNTID\",\n                   \"Join_7\".\"\
+  CustSuccExec\" as \"CustSuccExec\",\n                   \"Join_7\".\"AccountFieldSalesParentNumber\"\
+  \ as \"AccountFieldSalesParentNumber\",\n                   \"Join_7\".\"AccountFieldSalesParentFlag\"\
+  \ as \"AccountFieldSalesParentFlag\",\n                   \"Join_7\".\"AccountFieldSalesParentName\"\
+  \ as \"AccountFieldSalesParentName\",\n                   \"Join_7\".\"ImpactCSM\"\
+  \ as \"ImpactCSM\",\n                   \"Projection_8\".\"P1P2Count\" as \"P1P2Count\"\
+  ,\n                   \"Join_7\".\"CompanySysId\" as \"CompanySysId\"\n        \
+  \    FROM\n              (SELECT \"Join_6\".\"AccountFieldSalesParentName\" as \"\
+  AccountFieldSalesParentName\",\n                      \"Join_6\".\"AccountFieldSalesParentFlag\"\
+  \ as \"AccountFieldSalesParentFlag\",\n                      \"Join_6\".\"AccountFieldSalesParentNumber\"\
+  \ as \"AccountFieldSalesParentNumber\",\n                      \"Join_6\".\"CustSuccExec\"\
+  \ as \"CustSuccExec\",\n                      \"Join_6\".\"ACCOUNTID\" as \"ACCOUNTID\"\
+  ,\n                      \"Join_6\".\"Zero_Acct\" as \"Zero_Acct\",\n          \
+  \            \"Join_6\".\"CriticalAppsApopted\" as \"CriticalAppsApopted\",\n  \
+  \                    \"Join_6\".\"UpgradesDetails\" as \"UpgradesDetails\",\n  \
+  \                    \"Join_6\".\"ValuePrompters\" as \"ValuePrompters\",\n    \
+  \                  \"Join_6\".\"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\"\
+  ,\n                      \"Join_6\".\"USERID\" as \"USERID\",\n                \
+  \      \"Join_6\".\"AccountRiskReason\" as \"AccountRiskReason\",\n            \
+  \          \"Join_6\".\"OldestInstanceVersion\" as \"OldestInstanceVersion\",\n\
+  \                      \"Join_6\".\"Severity\" as \"Severity\",\n              \
+  \        \"Join_6\".\"NPSRating\" as \"NPSRating\",\n                      \"Join_6\"\
+  .\"AcctKey\" as \"AcctKey\",\n                      \"Join_6\".\"AcctSolutionConsultant\"\
+  \ as \"AcctSolutionConsultant\",\n                      \"Join_6\".\"AcctPrimarySalesRep\"\
+  \ as \"AcctPrimarySalesRep\",\n                      \"Join_6\".\"NextRenewalDate\"\
+  \ as \"NextRenewalDate\",\n                      \"Join_6\".\"PrimaryLogoURL\" as\
+  \ \"PrimaryLogoURL\",\n                      \"Join_6\".\"Acct_ticker\" as \"Acct_ticker\"\
+  ,\n                      \"Join_6\".\"AlternateName\" as \"AlternateName\",\n  \
+  \                    \"Join_6\".\"AcctName\" as \"AcctName\",\n                \
+  \      \"Join_6\".\"AcctSysID\" as \"AcctSysID\",\n                      \"Join_6\"\
+  .\"AcctNumber\" as \"AcctNumber\",\n                      \"Aggregation_3\".\"ImpactCSM\"\
+  \ as \"ImpactCSM\",\n                      \"Join_6\".\"CompanySysId\" as \"CompanySysId\"\
+  \n               FROM\n                 (SELECT \"Join_4\".\"AcctNumber\" as \"\
+  AcctNumber\",\n                         \"Join_4\".\"AcctSysID\" as \"AcctSysID\"\
+  ,\n                         \"Join_4\".\"AcctName\" as \"AcctName\",\n         \
+  \                \"Join_4\".\"AlternateName\" as \"AlternateName\",\n          \
+  \               \"Join_4\".\"Acct_ticker\" as \"Acct_ticker\",\n               \
+  \          \"Join_4\".\"PrimaryLogoURL\" as \"PrimaryLogoURL\",\n              \
+  \           \"Join_4\".\"NextRenewalDate\" as \"NextRenewalDate\",\n           \
+  \              \"Join_4\".\"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\",\n\
+  \                         \"Join_4\".\"AcctSolutionConsultant\" as \"AcctSolutionConsultant\"\
+  ,\n                         \"Join_4\".\"AcctKey\" as \"AcctKey\",\n           \
+  \              \"Join_4\".\"NPSRating\" as \"NPSRating\",\n                    \
+  \     \"Join_4\".\"Severity\" as \"Severity\",\n                         \"Join_4\"\
+  .\"OldestInstanceVersion\" as \"OldestInstanceVersion\",\n                     \
+  \    \"Join_4\".\"AccountRiskReason\" as \"AccountRiskReason\",\n              \
+  \           \"Join_4\".\"USERID\" as \"USERID\",\n                         \"Join_4\"\
+  .\"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\",\n                     \
+  \    \"Join_4\".\"ValuePrompters\" as \"ValuePrompters\",\n                    \
+  \     \"Join_4\".\"UpgradesDetails\" as \"UpgradesDetails\",\n                 \
+  \        \"Join_4\".\"CriticalAppsApopted\" as \"CriticalAppsApopted\",\n      \
+  \                   \"Join_4\".\"Zero_Acct\" as \"Zero_Acct\",\n               \
+  \          \"Join_4\".\"ACCOUNTID\" as \"ACCOUNTID\",\n                        \
+  \ \"Join_4\".\"CustSuccExec\" as \"CustSuccExec\",\n                         \"\
+  Join_4\".\"AccountFieldSalesParentNumber\" as \"AccountFieldSalesParentNumber\"\
+  ,\n                         \"Join_4\".\"AccountFieldSalesParentFlag\" as \"AccountFieldSalesParentFlag\"\
+  ,\n                         \"Join_4\".\"AccountFieldSalesParentName\" as \"AccountFieldSalesParentName\"\
+  ,\n                         \"Projection_6\".\"CompanySysId\" as \"CompanySysId\"\
+  \n                  FROM\n                    (SELECT \"Join_1\".\"AcctNumber\"\
+  \ as \"AcctNumber\",\n                            \"Join_1\".\"AcctSysID\" as \"\
+  AcctSysID\",\n                            \"Join_1\".\"AcctName\" as \"AcctName\"\
+  ,\n                            \"Join_1\".\"AlternateName\" as \"AlternateName\"\
+  ,\n                            \"Join_1\".\"Acct_ticker\" as \"Acct_ticker\",\n\
+  \                            \"Join_1\".\"PrimaryLogoURL\" as \"PrimaryLogoURL\"\
+  ,\n                            \"Join_1\".\"NextRenewalDate\" as \"NextRenewalDate\"\
+  ,\n                            \"Join_1\".\"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\"\
+  ,\n                            \"Join_1\".\"AcctSolutionConsultant\" as \"AcctSolutionConsultant\"\
+  ,\n                            \"Join_1\".\"AcctKey\" as \"AcctKey\",\n        \
+  \                    \"Join_1\".\"NPSRating\" as \"NPSRating\",\n              \
+  \              \"Join_1\".\"Severity\" as \"Severity\",\n                      \
+  \      \"Join_1\".\"OldestInstanceVersion\" as \"OldestInstanceVersion\",\n    \
+  \                        \"Join_1\".\"AccountRiskReason\" as \"AccountRiskReason\"\
+  ,\n                            \"Join_1\".\"USERID\" as \"USERID\",\n          \
+  \                  \"Join_1\".\"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\"\
+  ,\n                            \"Join_1\".\"ValuePrompters\" as \"ValuePrompters\"\
+  ,\n                            \"Join_1\".\"UpgradesDetails\" as \"UpgradesDetails\"\
+  ,\n                            \"Join_1\".\"CriticalAppsApopted\" as \"CriticalAppsApopted\"\
+  ,\n                            \"Join_1\".\"Zero_Acct\" as \"Zero_Acct\",\n    \
+  \                        \"Projection_5\".\"ACCOUNTID\" as \"ACCOUNTID\",\n    \
+  \                        \"Join_1\".\"CustSuccExec\" as \"CustSuccExec\",\n    \
+  \                        \"Join_1\".\"AccountFieldSalesParentNumber\" as \"AccountFieldSalesParentNumber\"\
+  ,\n                            \"Join_1\".\"AccountFieldSalesParentFlag\" as \"\
+  AccountFieldSalesParentFlag\",\n                            \"Join_1\".\"AccountFieldSalesParentName\"\
+  \ as \"AccountFieldSalesParentName\"\n                     FROM\n              \
+  \         (SELECT \"Join_3\".\"AcctNumber\" as \"AcctNumber\",\n               \
+  \                \"Join_3\".\"AcctName\" as \"AcctName\",\n                    \
+  \           \"Join_3\".\"AlternateName\" as \"AlternateName\",\n               \
+  \                \"Join_3\".\"Acct_ticker\" as \"Acct_ticker\",\n              \
+  \                 \"Join_3\".\"PrimaryLogoURL\" as \"PrimaryLogoURL\",\n       \
+  \                        \"Join_3\".\"NextRenewalDate\" as \"NextRenewalDate\",\n\
+  \                               \"Join_3\".\"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\"\
+  ,\n                               \"Join_3\".\"AcctSolutionConsultant\" as \"AcctSolutionConsultant\"\
+  ,\n                               \"Join_3\".\"AcctKey\" as \"AcctKey\",\n     \
+  \                          \"Join_3\".\"NPSRating\" as \"NPSRating\",\n        \
+  \                       \"Join_3\".\"Severity\" as \"Severity\",\n             \
+  \                  \"Join_3\".\"OldestInstanceVersion\" as \"OldestInstanceVersion\"\
+  ,\n                               \"Join_3\".\"AccountRiskReason\" as \"AccountRiskReason\"\
+  ,\n                               \"Join_3\".\"USERID\" as \"USERID\",\n       \
+  \                        \"Join_3\".\"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\"\
+  ,\n                               \"Join_3\".\"ValuePrompters\" as \"ValuePrompters\"\
+  ,\n                               \"Join_3\".\"UpgradesDetails\" as \"UpgradesDetails\"\
+  ,\n                               \"Projection_1\".\"CriticalAppsApopted\" as \"\
+  CriticalAppsApopted\",\n                               \"Join_3\".\"AcctSysID\"\
+  \ as \"AcctSysID\",\n                               \"Join_3\".\"Zero_Acct\" as\
+  \ \"Zero_Acct\",\n                               \"Join_3\".\"CustSuccExec\" as\
+  \ \"CustSuccExec\",\n                               \"Join_3\".\"AccountFieldSalesParentNumber\"\
+  \ as \"AccountFieldSalesParentNumber\",\n                               \"Join_3\"\
+  .\"AccountFieldSalesParentFlag\" as \"AccountFieldSalesParentFlag\",\n         \
+  \                      \"Join_3\".\"AccountFieldSalesParentName\" as \"AccountFieldSalesParentName\"\
+  \n                        FROM\n                          (SELECT \"Projection_4\"\
+  .\"AcctNumber\" as \"AcctNumber\",\n                                  \"Projection_3\"\
+  .\"AlternateName\" as \"AlternateName\",\n                                  \"Projection_3\"\
+  .\"Acct_ticker\" as \"Acct_ticker\",\n                                  \"Projection_3\"\
+  .\"PrimaryLogoURL\" as \"PrimaryLogoURL\",\n                                  \"\
+  Projection_4\".\"UpgradesDetails\" as \"UpgradesDetails\",\n                   \
+  \               \"Projection_4\".\"ValuePrompters\" as \"ValuePrompters\",\n   \
+  \                               \"Projection_4\".\"ProductUnDeployedPerc\" as \"\
+  ProductUnDeployedPerc\",\n                                  \"Projection_4\".\"\
+  USERID\" as \"USERID\",\n                                  \"Projection_4\".\"AccountRiskReason\"\
+  \ as \"AccountRiskReason\",\n                                  \"Projection_4\"\
+  .\"OldestInstanceVersion\" as \"OldestInstanceVersion\",\n                     \
+  \             \"Projection_4\".\"Severity\" as \"Severity\",\n                 \
+  \                 \"Projection_4\".\"NPSRating\" as \"NPSRating\",\n           \
+  \                       \"Projection_4\".\"AcctKey\" as \"AcctKey\",\n         \
+  \                         \"Projection_4\".\"AcctSolutionConsultant\" as \"AcctSolutionConsultant\"\
+  ,\n                                  \"Projection_4\".\"AcctPrimarySalesRep\" as\
+  \ \"AcctPrimarySalesRep\",\n                                  \"Projection_4\".\"\
+  NextRenewalDate\" as \"NextRenewalDate\",\n                                  \"\
+  Projection_4\".\"AcctName\" as \"AcctName\",\n                                 \
+  \ \"Projection_4\".\"AcctSysID\" as \"AcctSysID\",\n                           \
+  \       \"Projection_4\".\"Zero_Acct\" as \"Zero_Acct\",\n                     \
+  \             \"Projection_4\".\"CustSuccExec\" as \"CustSuccExec\",\n         \
+  \                         \"Projection_4\".\"AccountFieldSalesParentNumber\" as\
+  \ \"AccountFieldSalesParentNumber\",\n                                  \"Projection_4\"\
+  .\"AccountFieldSalesParentFlag\" as \"AccountFieldSalesParentFlag\",\n         \
+  \                         \"Projection_4\".\"AccountFieldSalesParentName\" as \"\
+  AccountFieldSalesParentName\"\n                           FROM\n               \
+  \              (SELECT \"UpgradesDetails\" as \"UpgradesDetails\",\n           \
+  \                          \"ValuePrompters\" as \"ValuePrompters\",\n         \
+  \                            \"ProductUnDeployedPerc\" as \"ProductUnDeployedPerc\"\
+  ,\n                                     \"USERID\" as \"USERID\",\n            \
+  \                         \"AccountRiskReason\" as \"AccountRiskReason\",\n    \
+  \                                 \"OldestInstanceVersion\" as \"OldestInstanceVersion\"\
+  ,\n                                     \"Severity\" as \"Severity\",\n        \
+  \                             \"NPSRating\" as \"NPSRating\",\n                \
+  \                     \"AcctKey\" as \"AcctKey\",\n                            \
+  \         \"AcctSolutionConsultant\" as \"AcctSolutionConsultant\",\n          \
+  \                           \"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\",\n\
+  \                                     \"NextRenewalDate\" as \"NextRenewalDate\"\
+  ,\n                                     \"AcctName\" as \"AcctName\",\n        \
+  \                             \"AcctSysID\" as \"AcctSysID\",\n                \
+  \                     \"AcctNumber\" as \"AcctNumber\",\n                      \
+  \               \"AcctNumber_0_CACV\" as \"AcctNumber_0_CACV\",\n              \
+  \                       \"CustSuccExec\" as \"CustSuccExec\",\n                \
+  \                     \"AccountFieldSalesParentNumber\" as \"AccountFieldSalesParentNumber\"\
+  ,\n                                     \"AccountFieldSalesParentFlag\" as \"AccountFieldSalesParentFlag\"\
+  ,\n                                     \"AccountFieldSalesParentName\" as \"AccountFieldSalesParentName\"\
+  ,\n                                    IFF ((\"AcctNumber_0_CACV\") IS NULL, 'random',\
+  \ 'random') :: Varchar as \"Zero_Acct\"\n\n                              FROM\n\
+  \                                (SELECT \"Aggregation_1\".\"AcctNumber\" as \"\
+  AcctNumber\",\n                                        \"Aggregation_1\".\"AcctSysID\"\
+  \ as \"AcctSysID\",\n                                        \"Aggregation_1\".\"\
+  AcctName\" as \"AcctName\",\n                                        \"Aggregation_1\"\
+  .\"NextRenewalDate\" as \"NextRenewalDate\",\n                                 \
+  \       \"Aggregation_1\".\"AcctPrimarySalesRep\" as \"AcctPrimarySalesRep\",\n\
+  \                                        \"Aggregation_1\".\"AcctSolutionConsultant\"\
+  \ as \"AcctSolutionConsultant\",\n                                        \"Aggregation_1\"\
+  .\"AcctKey\" as \"AcctKey\",\n                                        \"Aggregation_1\"\
+  .\"NPSRating\" as \"NPSRating\",\n                                        \"Aggregation_1\"\
+  .\"Severity\" as \"Severity\",\n                                        \"Aggregation_1\"\
+  .\"OldestInstanceVersion\" as \"OldestInstanceVersion\",\n                     \
+  \                   \"Aggregation_1\".\"AccountRiskReason\" as \"AccountRiskReason\"\
+  ,\n                                        \"Aggregation_1\".\"USERID\" as \"USERID\"\
+  ,\n                                        \"Aggregation_1\".\"ProductUnDeployedPerc\"\
+  \ as \"ProductUnDeployedPerc\",\n                                        \"Aggregation_1\"\
+  .\"ValuePrompters\" as \"ValuePrompters\",\n                                   \
+  \     \"Aggregation_1\".\"UpgradesDetails\" as \"UpgradesDetails\",\n          \
+  \                              \"Projection_2\".\"AcctNumber\" as \"AcctNumber_0_CACV\"\
+  ,\n                                        \"Aggregation_1\".\"CustSuccExec\" as\
+  \ \"CustSuccExec\",\n                                        \"Aggregation_1\".\"\
+  AccountFieldSalesParentNumber\" as \"AccountFieldSalesParentNumber\",\n        \
+  \                                \"Aggregation_1\".\"AccountFieldSalesParentFlag\"\
+  \ as \"AccountFieldSalesParentFlag\",\n                                        \"\
+  Aggregation_1\".\"AccountFieldSalesParentName\" as \"AccountFieldSalesParentName\"\
+  \n                                 FROM\n                                   (SELECT\
+  \ \"AcctNumber\" as \"AcctNumber\",\n                                          \
+  \ \"AcctName\" as \"AcctName\",\n                                           \"NextRenewalDate\"\
+  \ as \"NextRenewalDate\",\n                                           \"AcctPrimarySalesRep\"\
+  \ as \"AcctPrimarySalesRep\",\n                                           \"AcctSolutionConsultant\"\
+  \ as \"AcctSolutionConsultant\",\n                                           \"\
+  AcctKey\" as \"AcctKey\",\n                                           \"NPSRating\"\
+  \ as \"NPSRating\",\n                                           \"Severity\" as\
+  \ \"Severity\",\n                                           \"OldestInstanceVersion\"\
+  \ as \"OldestInstanceVersion\",\n                                           \"AccountRiskReason\"\
+  \ as \"AccountRiskReason\",\n                                           \"USERID\"\
+  \ as \"USERID\",\n                                           \"ProductUnDeployedPerc\"\
+  \ as \"ProductUnDeployedPerc\",\n                                           \"ValuePrompters\"\
+  \ as \"ValuePrompters\",\n                                           \"OldestInstanceVersion\"\
+  \ as \"UpgradesDetails\",\n                                           \"AcctSysID\"\
+  \ as \"AcctSysID\",\n                                           \"CustSuccExec\"\
+  \ as \"CustSuccExec\",\n                                           \"AccountFieldSalesParentNumber\"\
+  \ as \"AccountFieldSalesParentNumber\",\n                                      \
+  \     \"AccountFieldSalesParentFlag\" as \"AccountFieldSalesParentFlag\",\n    \
+  \                                       \"AccountFieldSalesParentName\" as \"AccountFieldSalesParentName\"\
+  \n                                    FROM CDL_LS.\"CUSTOMER_CD_RPT\".\"EM_CUSTOMER_INDEX_PORTFOLIO_FLIP_FLOP\"\
+  \n                                    GROUP BY \"AcctNumber\",\n               \
+  \                              \"AcctName\",\n                                 \
+  \            \"NextRenewalDate\",\n                                            \
+  \ \"AcctPrimarySalesRep\",\n                                             \"AcctSolutionConsultant\"\
+  ,\n                                             \"AcctKey\",\n                 \
+  \                            \"NPSRating\",\n                                  \
+  \           \"Severity\",\n                                             \"OldestInstanceVersion\"\
+  ,\n                                             \"AccountRiskReason\",\n       \
+  \                                      \"USERID\",\n                           \
+  \                  \"ProductUnDeployedPerc\",\n                                \
+  \             \"ValuePrompters\",\n                                            \
+  \ \"UpgradesDetails\",\n                                             \"AcctSysID\"\
+  ,\n                                             \"CustSuccExec\",\n            \
+  \                                 \"AccountFieldSalesParentNumber\",\n         \
+  \                                    \"AccountFieldSalesParentFlag\",\n        \
+  \                                     \"AccountFieldSalesParentName\")\"Aggregation_1\"\
+  \n                                 LEFT JOIN\n                                 \
+  \  (SELECT \"AcctNumber\" as \"AcctNumber\"\n                                  \
+  \  FROM EDW_LS.\"SCORE_CARDS_EM\".\"CUSTOMER_CACV_ZERO_VALUE\")\"Projection_2\"\
+  \ ON \"Aggregation_1\".\"AcctNumber\" = \"Projection_2\".\"AcctNumber\")\"Join_2\"\
+  )\"Projection_4\"\n                           LEFT JOIN\n                      \
+  \       (SELECT \"AcctNumber\" as \"AcctNumber\",\n                            \
+  \         \"AlternateName\" as \"AlternateName\",\n                            \
+  \         \"AlternateName1\" as \"AlternateName1\",\n                          \
+  \           \"Acct_ticker\" as \"Acct_ticker\",\n                              \
+  \       \"AlternateName2\" as \"AlternateName2\",\n                            \
+  \         \"ImageName\" as \"ImageName\",\n                                    \
+  \ 'random'||\"ImageName\"||'random' as \"PrimaryLogoURL\"\n                    \
+  \          FROM EDW_LS.\"SCORE_CARDS_EM\".\"EM_KC_CUSTOMER_ALTERNATE_NAMES\")\"\
+  Projection_3\" ON \"Projection_4\".\"AcctNumber\" = \"Projection_3\".\"AcctNumber\"\
+  )\"Join_3\"\n                        LEFT JOIN\n                          (SELECT\
+  \ \"AcctNumber\" as \"AcctNumber\",\n                                  \"CriticalAppsApopted\"\
+  \ as \"CriticalAppsApopted\"\n                           FROM EDW_LS.\"SCORE_CARDS_EM\"\
+  .\"EM_KC_ACCOUNT_JOURNEY\")\"Projection_1\" ON \"Join_3\".\"AcctNumber\" = \"Projection_1\"\
+  .\"AcctNumber\")\"Join_1\"\n                     LEFT JOIN\n                   \
+  \    (SELECT \"ACCOUNTNUMBER\" as \"ACCOUNTNUMBER\",\n                         \
+  \      \"ACCOUNTID\" as \"ACCOUNTID\",\n                               \"NAME\"\
+  \ as \"NAME\"\n                        FROM RDS.\"DYNAMICS365\".\"ACCOUNTS\")\"\
+  Projection_5\" ON \"Join_1\".\"AcctNumber\" = \"Projection_5\".\"ACCOUNTNUMBER\"\
+  )\"Join_4\"\n                  LEFT JOIN\n                    (SELECT \"Number\"\
+  \ as \"Number\",\n                            \"CompanySysId\" as \"CompanySysId\"\
+  \n                     FROM ODS_LS.\"IMPACT\".\"CORE_COMPANY\")\"Projection_6\"\
+  \ ON \"Join_4\".\"AcctNumber\" = \"Projection_6\".\"Number\")\"Join_6\"\n      \
+  \         LEFT JOIN\n                 (SELECT \"COMPANY\" as \"COMPANY\",\n    \
+  \                     max(\"ImpactCSM\") as \"ImpactCSM\"\n                  FROM\n\
+  \                    (SELECT \"DV_USER\" as \"ImpactCSM\",\n                   \
+  \         \"DV_CONTACT_ROLE\" as \"DV_CONTACT_ROLE\",\n                        \
+  \    \"COMPANY\" as \"COMPANY\"\n                     FROM RDS.\"IMPACT\".\"X_SNC_CUST_CONTACT_CUSTOMER_CONTACTS\"\
+  \n                     WHERE \"DV_CONTACT_ROLE\" = 'random' )\"Projection_7\"\n\
+  \                  GROUP BY \"COMPANY\")\"Aggregation_3\" ON \"Join_6\".\"CompanySysId\"\
+  \ = \"Aggregation_3\".\"COMPANY\")\"Join_7\"\n            LEFT JOIN\n          \
+  \    (SELECT B.\"AcctNumber\" AS \"ACCOUNT_NUMBER\",\nCOUNT(DISTINCT CASE WHEN A.\"\
+  Priority\" = 'random' THEN A.\"CaseNumber\" ELSE 'random' END) AS \"P1_SEVERE_COUNT\"\
+  ,\nCOUNT(DISTINCT CASE WHEN A.\"Priority\" = 'random' THEN A.\"CaseNumber\" ELSE\
+  \ 'random' END) AS \"P2_HIGH_COUNT\",\n(\"P1_SEVERE_COUNT\") :: VARCHAR('random')\
+  \ || 'random' || 'random' || (\"P2_HIGH_COUNT\") :: VARCHAR('random') || 'random'\
+  \ AS \"P1P2Count\"\nFROM ODS_LS.\"HI\".\"SN_CUSTOMERSERVICE_CASE\" A LEFT OUTER\
+  \ JOIN ODS_LS.SURF.SALES_ACCOUNT B\nON A.\"Account\" = B.\"CoreCompanyHISysID\"\
+  \ WHERE A.\"Priority\" IN ('random','random') AND UPPER(A.\"DvState\") NOT LIKE\
+  \ 'random'\nGROUP BY B.\"AcctNumber\")\"Projection_8\" ON \"Join_7\".\"AcctNumber\"\
+  \ = \"Projection_8\".\"ACCOUNT_NUMBER\")\"Join_8\"\n         LEFT JOIN\n       \
+  \    (\n\n\t\t   select distinct \"AcctNumber\" \"AccountNumber\" ,\"OverallAccountHealthScore\"\
+  \ \"DownSellRisk\" ,\"AccountHealthScoreReasonCodes\"\nfrom  EDW_LS.CUSTOMER_CD_EM.ACCOUNTFINAL\n\
+  \n\n\t\t   /*Commented by Suresh babu on Aprill 15 2024*\n\t\t   SELECT \"AccountNumber\"\
+  \ as \"AccountNumber\",\n                   \"BUCombined\" as \"BUCombined\",\n\
+  \                   \"Score_Severity_CC\" as \"DownSellRisk\"\n            FROM\
+  \ CDL_LS.\"CUSTOMER_CD_RPT\".\"RPT_CUSTOMER_INCOME_STATEMENT\"\n            WHERE\
+  \ \"BUCombined\" = 'Total'\n\t\t\tCommented by Suresh babu on Aprill 15 2024*/\n\
+  \n\t\t\t)\"Projection_9\" ON \"Join_8\".\"AcctNumber\" = \"Projection_9\".\"AccountNumber\"\
+  )\"Join_9\"\n      LEFT JOIN\n        (SELECT \"Metric\" as \"Metric\",\n      \
+  \          \"AcctNumber\" as \"AcctNumber\",\n                \"Value\" as \"CriticalAppsAdoptedRevised\"\
+  \n         FROM EDW_LS.\"CUSTOMER_CD_EM\".\"CUSTOMER_DASHBOARD_USAGE_SUMMARY_TAB\"\
+  \n         WHERE \"Metric\" = 'random' )\"Projection_10\" ON \"Join_9\".\"AcctNumber\"\
+  \ = \"Projection_10\".\"AcctNumber\")\"Join_10\"\n   LEFT JOIN\n     (\n\n\t select\
+  \ distinct \"AcctNumber\",\"OverallAccountHealthScore\",\n\t \"AccountHealthScoreReasonCodes\"\
+  \  \"ReasonCode1\",\n\t 'random' \"ReasonCode2\",\n\t 'random' \"ReasonCode3\",\n\
+  \t 'random' \"ReasonCode4\",\nfrom  EDW_LS.CUSTOMER_CD_EM.ACCOUNTFINAL\n\n\t /*Commented\
+  \ by Suresh babu on Aprill 15 2024*\n\t SELECT \"AcctNumber\" as \"AcctNumber\"\
+  ,\n             \"ReasonCode1\" as \"ReasonCode1\",\n             \"ReasonCode2\"\
+  \ as \"ReasonCode2\",\n             \"ReasonCode3\" as \"ReasonCode3\",\n      \
+  \       \"ReasonCode4\" as \"ReasonCode4\",\n             \"RecordType\" as \"RecordType\"\
+  ,\n             \"MetricName\" as \"MetricName\"\n      FROM CDL_LS.\"SALES_RPT\"\
+  .\"RPT_ACCOUNTS_ATRISK_BUDOWNSELL_NE\"\n      WHERE \"RecordType\" = 'Risk'\n  \
+  \      AND \"MetricName\" = 'Probability Account Is At Risk'\n      GROUP BY \"\
+  AcctNumber\",\n               \"ReasonCode1\",\n               \"ReasonCode2\",\n\
+  \               \"ReasonCode3\",\n               \"ReasonCode4\",\n            \
+  \   \"RecordType\",\n               \"MetricName\"\n\t\t\t   \tCommented by Suresh\
+  \ babu on Aprill 15 2024*/\n\n\n\n\t\t\t   )\"Aggregation_2\" ON \"Join_10\".\"\
+  AcctNumber\" = \"Aggregation_2\".\"AcctNumber\")Join_5;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,59 @@
+name: table_1083
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1083
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1083.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_INSTANCE(\n\tSYS_ID,\n\tU_COMPANY,\n\t\
+  DV_U_COMPANY,\n\tU_INSTANCE_ID,\n\tU_INSTANCE_NAME,\n\tDV_U_INSTANCE_SKU,\n\tU_SM_REPORTED_WAR,\n\
+  \tU_TYPE_PURPOSE,\n\tDV_SNC_WAR_VERSION,\n\tSYS_CREATED_ON,\n\tCONTRACT_NUMBER,\n\
+  \tU_RETIRE_DATE,\n\tSNC_INSTANCE_REGISTRATION_TIME,\n\tDV_OPERATIONAL_STATUS\n)\
+  \ as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SYS_ID\" as \"SYS_ID\",\n       \"U_COMPANY\"\
+  \ as \"U_COMPANY\",\n       \"DV_U_COMPANY\" as \"DV_U_COMPANY\",\n       \"U_INSTANCE_ID\"\
+  \ as \"U_INSTANCE_ID\",\n       \"U_INSTANCE_NAME\" as \"U_INSTANCE_NAME\",\n  \
+  \     \"DV_U_INSTANCE_SKU\" as \"DV_U_INSTANCE_SKU\",\n       \"U_SM_REPORTED_WAR\"\
+  \ as \"U_SM_REPORTED_WAR\",\n       \"U_TYPE_PURPOSE\" as \"U_TYPE_PURPOSE\",\n\
+  \       \"DV_SNC_WAR_VERSION\" as \"DV_SNC_WAR_VERSION\",\n       \"SYS_CREATED_ON\"\
+  \ as \"SYS_CREATED_ON\",\n       \"CONTRACT_NUMBER\" as \"CONTRACT_NUMBER\",\n \
+  \      \"U_RETIRE_DATE\" as \"U_RETIRE_DATE\",\n       \"SNC_INSTANCE_REGISTRATION_TIME\"\
+  \ as \"SNC_INSTANCE_REGISTRATION_TIME\",\n       \"DV_OPERATIONAL_STATUS\" as \"\
+  DV_OPERATIONAL_STATUS\"\nFROM \"EDW_LS\".\"CUSTOMER_EM\".\"TF_VW_INSTANCE\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

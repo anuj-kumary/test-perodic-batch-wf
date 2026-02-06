@@ -1,0 +1,58 @@
+name: table_1027
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1027
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1027.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view MKT_G2K_ACCOUNTS(\n\t\"G2kAccountNumber\"\
+  ,\n\t\"G2kHqRanking\",\n\t\"G2kAccountName\",\n\t\"G2kTarget\",\n\t\"G2kCountry\"\
+  ,\n\t\"G2kGeo\",\n\t\"G2kCatID\",\n\t\"G2kYear\"\n) as\nSELECT \"G2kAccountNumber\"\
+  \ as \"G2kAccountNumber\",\n       \"G2kHqRanking\" as \"G2kHqRanking\",\n     \
+  \  \"G2kAccountName\" as \"G2kAccountName\",\n       \"G2kTarget\" as \"G2kTarget\"\
+  ,\n       \"G2kCountry\" as \"G2kCountry\",\n       \"G2kGeo\" as \"G2kGeo\",\n\
+  \       \"G2kCatID\" as \"G2kCatID\",\n       \"G2kYear\" as \"G2kYear\"\nFROM\n\
+  \  (SELECT \"ACCOUNT_NUMBER\" as \"G2kAccountNumber\",\n          \"G2k HQ Ranking\"\
+  ::NUMBER('random', 'random') as \"G2kHqRanking\",\n          \"ACCOUNT_NAME\" as\
+  \ \"G2kAccountName\",\n          \"TARGET\" as \"G2kTarget\",\n          \"COUNTRY\"\
+  \ as \"G2kCountry\",\n          \"GEO\" as \"G2kGeo\",\n          \"CATID\" as \"\
+  G2kCatID\",\n          \"YEAR\"::NUMBER('random', 'random') as \"G2kYear\"\n   FROM\
+  \ \"RDS\".\"FLATFILESOURCE\".\"MKT_G2K_ACCOUNTS\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

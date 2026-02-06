@@ -1,0 +1,368 @@
+name: table_1011
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1011
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1011.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TF_SALES_QTREND_METRICS(\n\t\"Geo\",\n\t\
+  \"WeekOfQuarter\",\n\t\"Commit\",\n\t\"Upside\",\n\t\"Expect\",\n\t\"NetNewACV_USD\"\
+  ,\n\t\"WeightedACV_USD\",\n\t\"DateTimeGenerated\"\n) as\n\n\n/* Comments retained\
+  \ from HANA input file */\n\n /****************************************************************************************************************************************************\n\
+  \ * Program  Name              :     TF_SALES_QTREND_METRICS\n * Development Request\
+  \ # \t :\n * Date Created               : \t   2020-11-17\n * Developed By     \
+  \          :     William Brown\n * Brief Description          : \t   Copied from\
+  \ \"SURF_ST\".\"REAL-TIME-SALES.TABLEFUNCTIONS::SALES_QTREND_METRICS\" formatted\
+  \ and redundant code removed.\n * ---------------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n *----------------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \ * CR#                 Date Modified           Modified By        Brief Description\
+  \ of Change\n *\n *****************************************************************************************************************************************************/\n\
+  \n\n\n\n\n\n\n\nSELECT \"Geo\",\n       \"WeekOfQuarter\",\n       \"Commit\",\n\
+  \       \"Upside\",\n       \"Expect\",\n       \"NetNewACV_USD\",\n       case\n\
+  \           when MAX(\"WeekOfQuarter\") over() = \"WeekOfQuarter\" then ROUND(\"\
+  NetNewACV_USD\", 'random')\n           else ROUND(\"WeightedACV_USD\", 'random')\n\
+  \       end \"WeightedACV_USD\",\n       CURRENT_TIMESTAMP as \"DateTimeGenerated\"\
+  \nFROM\n  (SELECT \"Geo\" AS \"Geo\",\n          \"WeekOfQuarter\" AS \"WeekOfQuarter\"\
+  ,\n          SUM(\"Commit\") AS \"Commit\",\n          SUM(\"Upside\") AS \"Upside\"\
+  ,\n          SUM(\"Expect\") AS \"Expect\",\n          ROUND(SUM(\"NetNewACV_USD\"\
+  ), 'random') AS \"NetNewACV_USD\",\n          ROUND(SUM(\"WeightedACV_USD\"), 'random')\
+  \ AS \"WeightedACV_USD\"\n   FROM\n     (SELECT CASE\n                 WHEN \"SOptyWklyArea\"\
+  \ like 'random' THEN 'random'\n                 WHEN \"SOptyWklyArea\" like 'random'\
+  \ THEN 'random'\n                 WHEN \"SOptyWklyArea\" like 'random' THEN 'random'\n\
+  \                 WHEN \"SOptyWklyArea\" like 'random' THEN 'random'\n         \
+  \        WHEN \"SOptyWklyGeo\" like 'random' THEN 'random'\n                 WHEN\
+  \ \"SOptyWklyGeo\" like 'random' THEN 'random'\n                 WHEN \"SOptyWklyGeo\"\
+  \ like 'random' THEN 'random'\n                 WHEN \"SOptyWklyGeo\" like 'random'\
+  \ THEN 'random'\n                 WHEN ct.\"TerrArea\" like 'random' THEN 'random'\n\
+  \                 WHEN ct.\"TerrArea\" like 'random' THEN 'random'\n           \
+  \      WHEN ct.\"TerrArea\" like 'random' THEN 'random'\n                 WHEN ct.\"\
+  TerrArea\" like 'random' THEN 'random'\n                 WHEN ct.\"TerrGeo\" like\
+  \ 'random' THEN 'random'\n                 WHEN ct.\"TerrGeo\" like 'random' THEN\
+  \ 'random'\n                 WHEN ct.\"TerrGeo\" like 'random' THEN 'random'\n \
+  \                WHEN ct.\"TerrGeo\" like 'random' THEN 'random'\n             \
+  \    WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN\
+  \ sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n        \
+  \         WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                 WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                 ELSE 'random'\n             END as \"Geo\",\n             \"SOptyWklyWeekOfQuarter\"\
+  \ AS \"WeekOfQuarter\",\n             'random' \"Commit\",\n                  'random'\
+  \ \"Upside\",\n                       'random' \"Expect\",\n                   \
+  \         'random' \"NetNewACV_USD\",\n                                 SUM(\"SOptyWklyWeightedACV_USD\"\
+  ) as \"WeightedACV_USD\"\n      FROM \"EDW_LS\".\"SALES_EM\".\"EM_ST_OPPTYWEEKLYSNAPSHOT\"\
+  \ a\n      LEFT OUTER JOIN \"ODS_LS\".\"SURF\".\"SALES_ACCOUNT\" sa on a.\"AccountSysID\"\
+  =sa.\"AcctSysID\"\n      LEFT OUTER JOIN \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\"\
+  \ ct on ct.\"TerrSysID\"=sa.\"AcctTerritorySysID\"\n      WHERE \"SOptyWklyQuarter\"\
+  \ = SUBSTR(YEAR(ADD_MONTHS(CURRENT_TIMESTAMP(), 'random')) ||'random'|| QUARTER(ADD_MONTHS(CURRENT_TIMESTAMP(),\
+  \ 'random')), 'random', 'random')\n        AND YEAR(\"SOptyWklyExtractDateComp\"\
+  ) = YEAR(ADD_MONTHS(CURRENT_TIMESTAMP(), 'random'))\n        AND YEAR(\"SOptyWklyExtractDateComp\"\
+  ) ||'random'|| QUARTER(\"SOptyWklyExtractDateComp\") =YEAR(add_months(convert_timezone('random',current_timestamp),'random'))\
+  \ ||'random'||QUARTER(add_months(convert_timezone('random',current_timestamp),'random'))\n\
+  \      GROUP BY CASE\n                   WHEN \"SOptyWklyArea\" like 'random' THEN\
+  \ 'random'\n                   WHEN \"SOptyWklyArea\" like 'random' THEN 'random'\n\
+  \                   WHEN \"SOptyWklyArea\" like 'random' THEN 'random'\n       \
+  \            WHEN \"SOptyWklyArea\" like 'random' THEN 'random'\n              \
+  \     WHEN \"SOptyWklyGeo\" like 'random' THEN 'random'\n                   WHEN\
+  \ \"SOptyWklyGeo\" like 'random' THEN 'random'\n                   WHEN \"SOptyWklyGeo\"\
+  \ like 'random' THEN 'random'\n                   WHEN \"SOptyWklyGeo\" like 'random'\
+  \ THEN 'random'\n                   WHEN ct.\"TerrArea\" like 'random' THEN 'random'\n\
+  \                   WHEN ct.\"TerrArea\" like 'random' THEN 'random'\n         \
+  \          WHEN ct.\"TerrArea\" like 'random' THEN 'random'\n                  \
+  \ WHEN ct.\"TerrArea\" like 'random' THEN 'random'\n                   WHEN ct.\"\
+  TerrGeo\" like 'random' THEN 'random'\n                   WHEN ct.\"TerrGeo\" like\
+  \ 'random' THEN 'random'\n                   WHEN ct.\"TerrGeo\" like 'random' THEN\
+  \ 'random'\n                   WHEN ct.\"TerrGeo\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"\
+  AcctCountry\" like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\"\
+  \ like 'random' THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random'\
+  \ THEN 'random'\n                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n\
+  \                   WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n      \
+  \             WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n            \
+  \       WHEN sa.\"AcctCountry\" like 'random' THEN 'random'\n                  \
+  \ ELSE 'random'\n               END,\n               \"SOptyWklyWeekOfQuarter\"\
+  ,\n               \"SOptyWklyQuarter\"\n      UNION ALL SELECT \"TerrReportingTerritoryGeo\"\
+  ,\n                       \"CommitWeekOfQuarter\" as \"WeekNum\",\n            \
+  \           SUM(\"CommitValue\") \"CommitValue_MAX\",\n                       SUM(\"\
+  CommitUpsideValue\") \"Upside_MAX\",\n                       SUM(\"CommitExpectValue\"\
+  ) \"Expect_MAX\",\n                       'random' \"NetNewACV_USD\",\n        \
+  \                    'random' \"WeightedACV_USD\"\n      FROM \"EDW_LS\".\"SALES_EM\"\
+  .\"EM_SALES_TERRITORY_COMMIT_RT_ALL\"\n      WHERE \"CommitQuarter\"=SUBSTR(YEAR(ADD_MONTHS(CURRENT_TIMESTAMP(),\
+  \ 'random')) ||'random'|| QUARTER(ADD_MONTHS(CURRENT_TIMESTAMP(), 'random')), 'random',\
+  \ 'random')\n      GROUP BY \"TerrReportingTerritoryGeo\",\n               \"CommitQuarter\"\
+  ,\n               \"CommitWeekOfQuarter\"\n      UNION ALL SELECT \"REPORTINGTERRITORYGEO\"\
+  ,\n                       \"SOptyWklyWeekOfQuarter\",\n                       'random'\"\
+  Commit\",\n                           'random' \"Upside\",\n                   \
+  \             'random' \"Expect\",\n                                     SUM(\"\
+  USDNETNEWACV_SUM\") over (partition by \"REPORTINGTERRITORYGEO\"\n             \
+  \                                                      order by \"SOptyWklyWeekOfQuarter\"\
+  ) AS \"USDNETNEWACV_SUM\",\n                                                   \
+  \               'random' \"WeightedACV_USD\"\n      FROM\n        (SELECT case\n\
+  \                    when \"SFixedDataReportingTerritoryGeo\"='random' then 'random'\n\
+  \                    else \"SFixedDataReportingTerritoryGeo\"\n                end\
+  \ as \"REPORTINGTERRITORYGEO\",\n                \"DateDimQuarterByYearSURF\" as\
+  \ \"OPPORTUNITYCLOSEQUARTER\",\n                dd.\"DateDimWeekOfQuarter\" as \"\
+  SOptyWklyWeekOfQuarter\",\n                SUM(\"SFixedDataNetNewACV_USD\") AS \"\
+  USDNETNEWACV_SUM\"\n         FROM \"ODS_LS\".\"FILES\".\"SALES_OPPTY_FIXEDDATA\"\
+  \ fd\n         LEFT OUTER JOIN \"ODS_LS\".\"SURF\".\"DATE_DIMENSION\" dd on fd.\"\
+  SFixedDataOptyCloseDate\"=dd.\"DateDimDate\"\n         WHERE (\"DateDimQuarterByYearSURF\"\
+  \ = SUBSTR(YEAR(ADD_MONTHS(CURRENT_TIMESTAMP(), 'random')) ||'random'|| QUARTER(ADD_MONTHS(CURRENT_TIMESTAMP(),\
+  \ 'random')), 'random', 'random'))\n         GROUP BY case\n                   \
+  \   when \"SFixedDataReportingTerritoryGeo\"='random' then 'random'\n          \
+  \            else \"SFixedDataReportingTerritoryGeo\"\n                  end,\n\
+  \                  \"DateDimQuarterByYearSURF\",\n                  dd.\"DateDimWeekOfQuarter\"\
+  ))\n   WHERE \"Geo\" in ('random',\n                   'random',\n             \
+  \      'random')\n   GROUP BY \"Geo\",\n            \"WeekOfQuarter\")\nORDER BY\
+  \ 'random','random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,115 @@
+name: table_1019
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1019
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1019.id
+    tags:
+      - tagFQN: hk class 2.hk tag 2
+        name: hk tag 2
+        displayName: ""
+        description: <p>hk tag 2</p>
+        style: {}
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    children: []
+    customMetrics: []
+owners:
+  - id: 84c3b0ae-c426-4d03-b3dd-2a56c5d49b38
+    type: user
+    name: dhruv.p
+    fullyQualifiedName: '"dhruv.p"'
+    displayName: Dhruv
+    deleted: false
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_MDM_PRODUCT_METADATA(\n\tPRODUCT_METADATA_ID,\n\
+  \tCREATE_DATE,\n\tLAST_UPDATE_DATE,\n\tPRODUCT_ID,\n\tMDM_ID,\n\tPRODUCT_NUM,\n\t\
+  SUBCLASS_CODE,\n\tPRODUCT_NAME,\n\tHUB_STATE_IND,\n\tACTIVE_FLAG,\n\tMETADATA_TYPE,\n\
+  \tMETADATA_TYPE_DESC,\n\tETL_EXTRACT_DATE,\n\tETL_INSERT_DATE,\n\tETL_UPDATE_DATE,\n\
+  \tETL_DELETE_DATE,\n\tMETADATA_NAME,\n\tMETADATA_VALUE,\n\tSTART_DATE,\n\tEND_DATE\n\
+  ) as\nSELECT * FROM RDS_SHARE.MDM.V_MDM_PRODUCT_METADATA;"
+tags:
+  - tagFQN: Tier.Tier5
+    name: Tier5
+    description: |+
+      **Private/Unused data assets - No impact beyond individual users**
+
+      - Data assets without any ownership with no usage in the last 60 days
+
+      - Data assets owned by individuals without team ownership
+
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: certification
+      newValue: "{\"tagLabel\":{\"tagFQN\":\"Certification.Silver\",\"name\":\"Silver\"\
+        ,\"description\":\"Silver certified Data Asset.\",\"style\":{\"color\":\"\
+        #ADADAD\",\"iconURL\":\"SilverCertification.svg\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Manual\",\"state\":\"Confirmed\"},\"appliedDate\":1758275149451,\"\
+        expiryDate\":1760867149451}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    owners:
+      changedBy: dhruv.p
+      changedAt: 1756718839365
+domains:
+  - id: 8f2a86e6-7d4e-4134-abe2-f6814935d660
+    type: domain
+    name: TestingDomain
+    fullyQualifiedName: TestingDomain
+    description: <p>test</p>
+    displayName: TestingDomain
+dataProducts: []
+certification:
+  tagLabel:
+    tagFQN: Certification.Silver
+    name: Silver
+    description: Silver certified Data Asset.
+    style:
+      color: "#ADADAD"
+      iconURL: SilverCertification.svg
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+  appliedDate: 1758275149519
+  expiryDate: 1760867149519
+processedLineage: false
+entityStatus: Approved

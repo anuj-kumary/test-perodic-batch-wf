@@ -1,0 +1,57 @@
+name: table_1041
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1041
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1041.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view STG_ANAPLAN_CAPEX_ASSET_ACTUALS_FORECAST(\n\
+  \t\"Version\",\n\t\"Time\",\n\t\"ReportingYear\",\n\t\"ReportingQuarter\",\n\t\"\
+  ReportingMonth\",\n\t\"ReportingYearFlag\",\n\t\"ReportingQuarterFlag\",\n\t\"ReportingMonthFlag\"\
+  ,\n\t\"CompanyCode\",\n\t\"Department_Code\",\n\t\"EntityDeptCode\",\n\t\"Location_Code\"\
+  ,\n\t\"Asset_Class_Code\",\n\t\"A2_Asset_Class_Code\",\n\t\"A2_Asset_Class_Name\"\
+  ,\n\t\"A1_Asset_Class_Group_Name\",\n\t\"In_Service_Amount_Lc\",\n\t\"New_Project_Depreciation_Lc\"\
+  ,\n\t\"Existing_Depreciation_Lc\",\n\t\"Total_Depreciation_Lc\",\n\t\"Acquisition_Amount_Usd\"\
+  ,\n\t\"In_Service_Amount_Usd\",\n\t\"New_Project_Depreciation_Usd\",\n\t\"Existing_Depreciation_Usd\"\
+  ,\n\t\"Total_Depreciation_Usd\",\n\t\"Department_Location_Code\",\n\t\"Acquistion_Amount_LC\"\
+  \n) as (\n    with stg_ANAPLAN_CAPEX__ASSET_ACTUALS_FORECAST as\n(\n    select *\
+  \ from CDL_LS.FINANCE_ANAPLAN_IN_RPT.RPT_ANAPLAN_CAPEX_ASSET_ACTUALS_FORECAST\n\
+  )\n\nselect * from stg_ANAPLAN_CAPEX__ASSET_ACTUALS_FORECAST\n  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

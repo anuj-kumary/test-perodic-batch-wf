@@ -1,0 +1,347 @@
+name: table_1012
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1012
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1012.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_FIXEDDATA_PIPELINE_TEST3(\n\t\
+  QUARTER_DT,\n\tQUARTER_YYQQ,\n\tQUARTER_ID,\n\tOPTY_ID,\n\tOPTY_NUMBER,\n\tOPTY_LINE_ITEM_ID,\n\
+  \tOPTY_ITEM_NUMBER,\n\tOPTY_ITEM_NUMBER_CRM,\n\tACCOUNT_ID,\n\tPRODUCT_ID,\n\tTERRITORY_ID,\n\
+  \tGEO_ID,\n\tBOOKING_BRIDGE_FLAGS_ID,\n\tREPORTING_PARENT_QUARTER_YYQQ,\n\tREPORTING_OPTY_ID,\n\
+  \tREPORTING_OPTY_ACCOUNT_ID,\n\tPARENT_OPTY_ACCOUNT_ID,\n\tPIPELINE_ID,\n\tIS_FIXED,\n\
+  \tIS_SALES_ACTIVE_PIPELINE,\n\tRENEWAL_STATUS,\n\tNNACV_LC,\n\tNNACV_USD,\n\tNNACV_USD_CFX,\n\
+  \tNNACV_CLOSED_USD,\n\tNNACV_CLOSED_USD_CFX,\n\tNNACV_OPEN_USD,\n\tNNACV_OPEN_USD_CFX,\n\
+  \tNNACV_SUBMITTED_USD,\n\tNNACV_SUBMITTED_USD_CFX,\n\tNNACV_UPSIDE_USD,\n\tNNACV_UPSIDE_USD_CFX,\n\
+  \tNNACV_WEIGHTED_USD,\n\tNNACV_WEIGHTED_USD_CFX,\n\tNNACV_MATURE_USD,\n\tNNACV_MATURE_USD_CFX,\n\
+  \tNNACV_ACE_SOURCE_USD_CFX,\n\tNNACV_ACQUIRED_USD,\n\tNNACV_ACQUIRED_USD_CFX,\n\t\
+  NNACV_COMMIT_USD_CFX,\n\tNNACV_COMMIT_USD,\n\tNNACV_CS_CLOSED_USD_CFX,\n\tNNACV_EXPECT_USD_CFX,\n\
+  \tNNACV_EXPECT_USD,\n\tNNACV_MKT_SOURCE_USD_CFX,\n\tPS_REVENUE_LC,\n\tPS_REVENUE_USD,\n\
+  \tPS_REVENUE_USD_CFX,\n\tRENEWAL_ACV_LC,\n\tRENEWAL_ACV_USD,\n\tRENEWAL_ACV_USD_CFX,\n\
+  \tRENEWAL_ACV_CLOSED_USD,\n\tRENEWAL_ACV_CLOSED_USD_CFX,\n\tRENEWAL_ACV_CLOSED_LOST_USD,\n\
+  \tRENEWAL_ACV_CLOSED_LOST_USD_CFX,\n\tRENEWAL_ACV_CLOSED_WON_USD,\n\tRENEWAL_ACV_CLOSED_WON_USD_CFX,\n\
+  \tRENEWAL_ACV_OPEN_USD,\n\tRENEWAL_ACV_OPEN_USD_CFX,\n\tRENEWAL_ACV_TOTAL_OPEN_USD_CFX,\n\
+  \tRENEWAL_RATE,\n\tRENEWAL_NNACV_USD,\n\tRENEWAL_NNACV_USD_CFX,\n\tRENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_LC,\n\
+  \tRENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_USD,\n\tRENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_USD_CFX,\n\
+  \tRENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_LC,\n\tRENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_USD,\n\
+  \tRENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_USD_CFX,\n\tRENEWAL_ACV_OPEN_RISK_REP_LC,\n\t\
+  RENEWAL_ACV_OPEN_RISK_REP_USD,\n\tRENEWAL_ACV_OPEN_RISK_REP_USD_CFX,\n\tRENEWAL_ACV_OPEN_RISK_ML_LC,\n\
+  \tRENEWAL_ACV_OPEN_RISK_ML_USD,\n\tRENEWAL_ACV_OPEN_RISK_ML_USD_CFX,\n\tDEAL_BAND,\n\
+  \tSUB_DEAL_BAND,\n\tPARENT_DEAL_BAND,\n\tPARENT_SUB_DEAL_BAND,\n\tPARENT_DEAL_BAND_APJ,\n\
+  \tDEAL_BAND_APJ,\n\tSERVICES_REVENUE_LC,\n\tSERVICES_REVENUE_USD,\n\tSERVICES_USD_CFX,\n\
+  \tTOTAL_ACV_USD_CFX,\n\tTOTAL_SERVICES_CLOSED_ACV_USD_CFX,\n\tTOTAL_VALUE_AMOUNT_LC,\n\
+  \tTOTAL_VALUE_AMOUNT_USD,\n\tTOTAL_VALUE_AMOUNT_USD_CALLIDUS,\n\tTOTAL_VALUE_LC,\n\
+  \tTRAINING_REVENUE_CLOSED_USD,\n\tTRAINING_REVENUE_TOTAL_LC,\n\tTRAINING_REVENUE_USD,\n\
+  \tTRAINING_REVENUE_USD_CFX,\n\tLOST_ACV_FX,\n\tLOST_ACV_USD,\n\tEXPERT_SERVICES_CLOSED_ACV_USD_CFX,\n\
+  \tACV_LC,\n\tACV_USD,\n\tADJUSTMENT_USD,\n\tANNUAL_LIST_PRICE_USD,\n\tLIST_PRICE_USD_CFX,\n\
+  \tESTIMATED_TAX_USD,\n\tBASE_PRICE,\n\tSALE_PRICE,\n\tLIST_PRICE_WITH_ADJUSTMENTS,\n\
+  \tCUSTOM_TRAINING_AMOUNT_USD,\n\tDEAL_REG_DISCOUNT,\n\tDISCOUNT_GUIDELINE_PERCENT,\n\
+  \tDISCOUNT_PERCENT,\n\tDISCRETION_PERCENT,\n\tTOTAL_DISCOUNT_PERCENT,\n\tPARTNER_DISCOUNT_PERCENT,\n\
+  \tNET_NEW_QUANTITY,\n\tOPTY_ITEM_QUANTITY,\n\tCONTRACT_LINE_QUANTITY,\n\tOPTY_ITEM_TERM,\n\
+  \tIS_FLAGS_FILTER,\n\tOPTY_ITEM_CREATED_BY,\n\tOPTY_ITEM_CREATED_BY_ROLE,\n\tOPTY_ITEM_FLAGGED_AS,\n\
+  \tOPTY_ITEM_ORIGIN,\n\tOPTY_ITEM_REPLACES_LINE,\n\tOPTY_ITEM_REV_REC_TYPE,\n\tOPTY_ITEM_SOURCE_SYSTEM,\n\
+  \tOPTY_ITEM_TERM_MONTHS_AND_DAYS,\n\tOPTY_ITEM_USD_CONSTANT_FX_NET_NEW_ACV,\n\t\
+  OPTY_ITEM_USD_CONSTANT_FX_RENEWAL_ACV,\n\tOPTY_CONTRACT_LINE_REFERENCE,\n\tPRICE_RESET_PRIMARY_LINE,\n\
+  \tREASON_FOR_100_PERCENT_DISCOUNT,\n\tTE_EXCEPTION_REASON,\n\tALLOCATION_TYPE,\n\
+  \tOPTY_SYSID,\n\tOPTY_ITEM_SYSID,\n\tACCOUNT_SYSID,\n\tPRODUCT_SYSID,\n\tTERRITORY_SYSID,\n\
+  \tOPTY_ITEM_START_TS,\n\tOPTY_ITEM_END_TS,\n\tOPTY_ITEM_CREATED_TS,\n\tOPTY_ITEM_UPDATED_TS\n\
+  ) as --SEMANTIC LAYER BEGINS\nselect\n    distinct QTR.QUARTER_DT as QUARTER_DT,\n\
+  \    FD.\"SalesQuarter\" as QUARTER_YYQQ,\n    QTR.QUARTER_ID as QUARTER_ID,\n \
+  \   HASH(FD.\"OpportunitySysID\") as OPTY_ID,\n    FD.\"OpportunityNumber\" as OPTY_NUMBER,\n\
+  \    HASH(FD.\"LineItemNumber\") as OPTY_LINE_ITEM_ID, --SS 1.5/Avantika/Updated\
+  \ on: 04-01-2024/Release on: 02-02-2024/ Release Type: Regular\n    FD.\"LineItemNumber\"\
+  \ as OPTY_ITEM_NUMBER,\n\tFD.\"LineItemNumber_CRM\" as OPTY_ITEM_NUMBER_CRM,\n \
+  \   ACC.ACCOUNT_ID as ACCOUNT_ID,\n    HASH(FD.\"ProductSysID\") as PRODUCT_ID,\n\
+  \    --Updated by Kranthi to fix the Null issue in TERRITORY_ID\n    HASH(FD.\"\
+  TerritorySysID\") as TERRITORY_ID,\n    --Updated by Kranthi to fix the Null issue\
+  \ in TERRITORY_ID\n    ifnull(TERR.GEO_ID, HASH(TERR.GEO_ID)) as GEO_ID,\n    OPTY_ITEM.BOOKING_BRIDGE_FLAGS_ID,--SS\
+  \ 1.5 Changes /Avantika Keshav/Updated on: 12-01-2024/Release on: 02-02-2024/ Release\
+  \ Type: Regular\n    -- Start of Marquee Columns related changes by Avantika/Updated\
+  \ on: 08-02-2024/Release on: 14-02-2024/ Release Type: Regular\n    OPD.REPORTING_PARENT_QUARTER_YYQQ\
+  \ as REPORTING_PARENT_QUARTER_YYQQ,\n    OPD.REPORTING_OPTY_ID as REPORTING_OPTY_ID,\n\
+  \    OPD.REPORTING_OPTY_ACCOUNT_ID as REPORTING_OPTY_ACCOUNT_ID,\n    OPD.PARENT_OPTY_ACCOUNT_ID\
+  \ as PARENT_OPTY_ACCOUNT_ID,\n    -- End of Marquee Columns related changes by Avantika/Updated\
+  \ on: 08-02-2024/Release on: 14-02-2024/ Release Type: Regular\n    HASH(\n    \
+  \    ifnull(FD.\"OpportunitySysID\", 'random') || ifnull(OLI.\"OptyItemLineItemSysID\"\
+  , 'random') || ifnull(FD.\"LineItemNumber\", 'random')\n    ) as PIPELINE_ID,\n\
+  \    case\n        when FD.\"IsFixed\" = 'random' then 'random'\n        else 'random'\n\
+  \    end as IS_FIXED,\n    FD.\"SalesActivePipeline\" AS IS_SALES_ACTIVE_PIPELINE,\n\
+  \    FD.\"RenewalStatusSubCategoryFlagMode\" AS RENEWAL_STATUS,\n    FD.\"NetNewACV\"\
+  \ as NNACV_LC,\n    FD.\"NetNewACV_FX\" as NNACV_USD,\n    FD.\"USDNetNewACV\" as\
+  \ NNACV_USD_CFX,\n    FD.\"Closed_FX\" as NNACV_CLOSED_USD,\n    FD.\"Closed\" as\
+  \ NNACV_CLOSED_USD_CFX,\n    FD.\"OpenPipeline_FX\" as NNACV_OPEN_USD,\n    FD.\"\
+  OpenPipeline\" as NNACV_OPEN_USD_CFX,\n    FD.\"Submitted_FX\" as NNACV_SUBMITTED_USD,\n\
+  \    FD.\"Submitted\" as NNACV_SUBMITTED_USD_CFX,\n    FD.\"Upside_FX\" as NNACV_UPSIDE_USD,\n\
+  \    FD.\"Upside\" as NNACV_UPSIDE_USD_CFX,\n    FD.\"WeightedNetNewACV_FX\" as\
+  \ NNACV_WEIGHTED_USD,\n    FD.\"USDWeightedACV\" as NNACV_WEIGHTED_USD_CFX,\n  \
+  \  FD.\"MaturedPipeline_FX\" as NNACV_MATURE_USD,\n    FD.\"MaturedPipeline\" as\
+  \ NNACV_MATURE_USD_CFX,\n    FD.\"ACESourcedUSDNetNewACV\" as NNACV_ACE_SOURCE_USD_CFX,\n\
+  \    OFD.\"SFixedDataAcquiredNewNewACVDC\" as NNACV_ACQUIRED_USD,\n    OFD.\"SFixedDataAcquiredNewNewACVDC\"\
+  \ / FX.\"CFXRate\" as NNACV_ACQUIRED_USD_CFX,\n    FD.\"Commit\" as NNACV_COMMIT_USD_CFX,\n\
+  \    FD.\"Commit_FX\" as NNACV_COMMIT_USD,\n    case\n        when FD.\"BUGroup\"\
+  \ = 'random' then (FD.\"Closed\") --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release\
+  \ on: 01-03-2024/ Release Type: RTB\n        else 'random'\n    end as NNACV_CS_CLOSED_USD_CFX,\n\
+  \    FD.\"Expect\" as NNACV_EXPECT_USD_CFX,\n    FD.\"Expect_FX\" as NNACV_EXPECT_USD,\n\
+  \    FD.\"MKTSourcedUSDNetNewACV\" as NNACV_MKT_SOURCE_USD_CFX,\n    FD.\"PSRevenue_FX\"\
+  \ as PS_REVENUE_LC,\n    FD.\"PSRevenue\" as PS_REVENUE_USD,\n    FD.\"USDPSRevenue\"\
+  \ as PS_REVENUE_USD_CFX,\n    FD.\"RenewalACV\" as RENEWAL_ACV_LC,\n    FD.\"RenewalACV_FX\"\
+  \ as RENEWAL_ACV_USD,\n    FD.\"USDRenewalACV\" as RENEWAL_ACV_USD_CFX,\n    FD.\"\
+  ClosedRenewals_FX\" as RENEWAL_ACV_CLOSED_USD,\n    FD.\"ClosedRenewals\" as RENEWAL_ACV_CLOSED_USD_CFX,\n\
+  \    FD.\"ClosedLostRenewal_FX\" as RENEWAL_ACV_CLOSED_LOST_USD,\n    FD.\"ClosedLostRenewal\"\
+  \ as RENEWAL_ACV_CLOSED_LOST_USD_CFX,\n    FD.\"ClosedWonRenewal_FX\" as RENEWAL_ACV_CLOSED_WON_USD,\n\
+  \    FD.\"ClosedWonRenewal\" as RENEWAL_ACV_CLOSED_WON_USD_CFX,\n    FD.\"OpenRenewals_FX\"\
+  \ as RENEWAL_ACV_OPEN_USD,\n    FD.\"OpenRenewals\" as RENEWAL_ACV_OPEN_USD_CFX,\n\
+  \    case\n        when not(FD.\"OpportunityStage\" like 'random') then FD.\"USDNetNewACV\"\
+  \  --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/ Release\
+  \ Type: RTB\n        else 'random'\n    END as RENEWAL_ACV_TOTAL_OPEN_USD_CFX,\n\
+  \    case\n        when FD.\"Closed\" = 'random' then 'random'\n        else (\n\
+  \            FD.\"Closed\" - case\n                when (FD.\"ClosedLostRenewal\"\
+  ) IS NULL then 'random'\n                else FD.\"ClosedLostRenewal\"\n       \
+  \     end\n        ) / FD.\"Closed\"\n    end as RENEWAL_RATE, --SS 1.5 Changes\
+  \ /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/ Release Type: RTB\n \
+  \   FD.\"RenewalNNACV_FX\" as RENEWAL_NNACV_USD,\n    FD.\"USDRenewalNNACV\" as\
+  \ RENEWAL_NNACV_USD_CFX,\n    --Start of SS 1.5 Changes /Jaya Prakash/Updated on:\
+  \ 04-01-2024/Release on: 02-02-2024/ Release Type: Regular\n\tcase\n        when\
+  \ BKGS.ACCT_BU_NNACV_FLAG <> 'random'\n        then case\n             when FD.\"\
+  RenewalStatusOld\" = 'random' then FD.\"RenewalACV\"\n             else 'random'\n\
+  \             end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_LC,\n\
+  \    case\n        when BKGS.ACCT_BU_NNACV_FLAG <> 'random'\n        then case\n\
+  \             when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV_FX\"\n\
+  \             else 'random'\n             end\n        else 'random'\n    end as\
+  \ RENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_USD,\n    case\n        when BKGS.ACCT_BU_NNACV_FLAG\
+  \ <> 'random'\n        then case\n             when FD.\"RenewalStatusOld\" = 'random'\
+  \ then FD.\"USDRenewalACV\"\n             else 'random'\n             end\n    \
+  \    else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_BU_RISK_REP_USD_CFX,\n \
+  \   case\n        when BKGS.ACCT_WW_NNACV_FLAG <> 'random'\n        then case\n\
+  \             when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV\"\n \
+  \            else 'random'\n             end\n        else 'random'\n    end as\
+  \ RENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_LC,\n    case\n        when BKGS.ACCT_WW_NNACV_FLAG\
+  \ <> 'random'\n        then case\n             when FD.\"RenewalStatusOld\" = 'random'\
+  \ then FD.\"RenewalACV_FX\"\n             else 'random'\n             end\n    \
+  \    else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_USD,\n    case\n\
+  \        when BKGS.ACCT_WW_NNACV_FLAG <> 'random'\n        then case\n         \
+  \    when FD.\"RenewalStatusOld\" = 'random' then FD.\"USDRenewalACV\"\n       \
+  \      else 'random'\n             end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_ACCOUNT_RISK_REP_USD_CFX,\n\
+  \tcase\n        when BKGS.OPTY_SURVIVOR_BRIDGE_FLAG <> 'random'\n        then case\n\
+  \             when FD.\"RenewalStatusOld\" = 'random' then FD.\"RenewalACV\"\n \
+  \            else 'random'\n             end\n        else 'random'\n    end as\
+  \ RENEWAL_ACV_OPEN_RISK_REP_LC,\n    case\n        when BKGS.OPTY_SURVIVOR_BRIDGE_FLAG\
+  \ <> 'random'\n        then case\n             when FD.\"RenewalStatusOld\" = 'random'\
+  \ then FD.\"RenewalACV_FX\"\n             else 'random'\n             end\n    \
+  \    else 'random'\n    end as RENEWAL_ACV_OPEN_RISK_REP_USD,\n    case\n      \
+  \  when BKGS.OPTY_SURVIVOR_BRIDGE_FLAG <> 'random'\n        then case\n        \
+  \     when FD.\"RenewalStatusOld\" = 'random' then FD.\"USDRenewalACV\"\n      \
+  \       else 'random'\n             end\n        else 'random'\n    end as RENEWAL_ACV_OPEN_RISK_REP_USD_CFX,\n\
+  \tcase\n        when rbu1.\"RiskScoreSeverity\" in ('random', 'random')\n      \
+  \  and fd.\"PipelineStatus\" != 'random' then fd.\"RenewalACV\"\n        else 'random'\n\
+  \    end as RENEWAL_ACV_OPEN_RISK_ML_LC,\n    case\n        when rbu1.\"RiskScoreSeverity\"\
+  \ in ('random', 'random')\n        and fd.\"PipelineStatus\" != 'random' then fd.\"\
+  RenewalACV_FX\"\n        else 'random'\n    end as RENEWAL_ACV_OPEN_RISK_ML_USD,\n\
+  \    case\n        when rbu1.\"RiskScoreSeverity\" in ('random', 'random')\n   \
+  \     and fd.\"PipelineStatus\" != 'random' then fd.\"USDRenewalACV\"\n        else\
+  \ 'random'\n    end as RENEWAL_ACV_OPEN_RISK_ML_USD_CFX,\n    --End of SS 1.5 Changes\
+  \ /Jaya Prakash/Updated on: 04-01-2024/Release on: 02-02-2024/ Release Type: Regular\n\
+  \    --Start of SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release on: 15-03-2024/\
+  \ Release Type: RTB\n        case\n        when sum(NNACV_USD_CFX) over (partition\
+  \ by OPTY_NUMBER,FD.\"SalesQuarter\")<= 'random'\n        or coalesce(sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\"), 'random') = 'random' then\
+  \ 'random'\n        when sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"\
+  SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over\
+  \ (partition by OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then 'random'\n\
+  \        when sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"SalesQuarter\"\
+  ) > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over\
+  \ (partition by OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then 'random'\n\
+  \        else 'random'\n    end as DEAL_BAND,\n    case\n        when sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\")<= 'random'\n        or coalesce(sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\"), 'random') = 'random' then\
+  \ 'random'\n        when sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"\
+  SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over\
+  \ (partition by OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then 'random'\n\
+  \        when sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"SalesQuarter\"\
+  ) > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over\
+  \ (partition by OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then 'random'\n\
+  \        else 'random'\n    end as SUB_DEAL_BAND,\n    case\n        when sum(NNACV_USD_CFX)\
+  \ over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\")<= 'random'\n  \
+  \      or coalesce(sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\"), 'random') = 'random' then 'random'\n        when sum(NNACV_USD_CFX)\
+  \ over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n  \
+  \      and sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"\
+  ) <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over (partition by\
+  \ OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then\
+  \ 'random'\n        when sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over\
+  \ (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n       \
+  \ and sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"\
+  ) <= 'random' then 'random'\n        else 'random'\n    end as PARENT_DEAL_BAND,\n\
+  \    case\n        when sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\")<= 'random'\n        or coalesce(sum(NNACV_USD_CFX) over (partition\
+  \ by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"), 'random') = 'random' then 'random'\n\
+  \        when sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over\
+  \ (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n       \
+  \ and sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"\
+  ) <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over (partition by\
+  \ OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then\
+  \ 'random'\n        when sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        else 'random'\n    end as PARENT_SUB_DEAL_BAND,\n\
+  \    case\n        when sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\")<= 'random'\n        or coalesce(sum(NNACV_USD_CFX) over (partition\
+  \ by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"), 'random') = 'random' then 'random'\n\
+  \        when sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over\
+  \ (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n       \
+  \ and sum(NNACV_USD_CFX) over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\"\
+  ) <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over (partition by\
+  \ OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPD.PARENT_OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then\
+  \ 'random'\n        else 'random'\n    end as PARENT_DEAL_BAND_APJ,\n    case\n\
+  \        when sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"SalesQuarter\"\
+  )<= 'random'\n        or coalesce(sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"\
+  SalesQuarter\"), 'random') = 'random' then 'random'\n        when sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then 'random'\n\
+  \        when sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"SalesQuarter\"\
+  ) > 'random'\n        and sum(NNACV_USD_CFX) over (partition by OPTY_NUMBER,FD.\"\
+  SalesQuarter\") <= 'random' then 'random'\n        when sum(NNACV_USD_CFX) over\
+  \ (partition by OPTY_NUMBER,FD.\"SalesQuarter\") > 'random'\n        and sum(NNACV_USD_CFX)\
+  \ over (partition by OPTY_NUMBER,FD.\"SalesQuarter\") <= 'random' then 'random'\n\
+  \        else 'random'\n    end as DEAL_BAND_APJ,\n    --End of SS 1.5 Changes /Jay\
+  \ Modi/Updated on: 21-02-2024/Release on: 15-03-2024/ Release Type: RTB\n    FD.\"\
+  Services\" as SERVICES_REVENUE_LC,\n    FD.\"Services_FX\" as SERVICES_REVENUE_USD,\n\
+  \    FD.\"USDServices\" as SERVICES_USD_CFX,\n    FD.\"USDTotalACV\" as TOTAL_ACV_USD_CFX,\n\
+  \    case\n        when FD.\"PipelineStatus\" = 'random' then (FD.\"USDTotalTrainingRevenue\"\
+  )  --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release on: 01-03-2024/ Release\
+  \ Type: RTB\n        else 'random'\n    end as TOTAL_SERVICES_CLOSED_ACV_USD_CFX,\n\
+  \    FD.\"TotalValueAmount_FX\" as TOTAL_VALUE_AMOUNT_LC,\n    FD.\"TotalValueAmount\"\
+  \ as TOTAL_VALUE_AMOUNT_USD,\n    OLI.\"OptyItemTotalValueAmount_USD_FromCallidus\"\
+  \ as TOTAL_VALUE_AMOUNT_USD_CALLIDUS,\n    OLI.\"OptyItemTotalValueAmount\"  as\
+  \  TOTAL_VALUE_LC,\n    FD.\"TotalTrainingRevenue\" as TRAINING_REVENUE_CLOSED_USD,\n\
+  \    FD.\"TotalTrainingRevenue_FX\" as TRAINING_REVENUE_TOTAL_LC,\n    FD.\"TotalTrainingRevenue\"\
+  \ as TRAINING_REVENUE_USD,\n     SUM(\n        \"TOTAL_SERVICES_CLOSED_ACV_USD_CFX\"\
+  \ + (\n            case\n                when FD.\"PipelineStatus\" = 'random' then\
+  \ (FD.\"USDPSRevenue\")  --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release\
+  \ on: 01-03-2024/ Release Type: RTB\n                else 'random'\n           \
+  \ end\n        ) + \"NNACV_CS_CLOSED_USD_CFX\"\n    ) over(partition by OLI.\"OptyItemLineItemSysID\"\
+  ) as TRAINING_REVENUE_USD_CFX,\n    FD.\"LostACV_FX\" as LOST_ACV_FX,\n    FD.\"\
+  LostACV\" as LOST_ACV_USD,\n    case\n        when FD.\"PipelineStatus\" = 'random'\
+  \ then (FD.\"USDPSRevenue\")  --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release\
+  \ on: 01-03-2024/ Release Type: RTB\n        else 'random'\n    end as EXPERT_SERVICES_CLOSED_ACV_USD_CFX,\n\
+  \    OLI.\"OptyItemAnnualContractValueAmount\" as  ACV_LC,\n    OLI.\"OptyItemAnnualContractAmount_USD\"\
+  \ as ACV_USD,\n    OLI.\"OptyItemAdjustment\" as ADJUSTMENT_USD,\n    OLI.\"OptyItemAnnualListAmount_USD\"\
+  \ as ANNUAL_LIST_PRICE_USD,\n    FD.\"USDListPrice\" as LIST_PRICE_USD_CFX,\n  \
+  \  OLI.\"OptyItemEstimatedTax\" as ESTIMATED_TAX_USD,\n    OLI.\"OptyItemUnadjustedAmount\"\
+  \  as  BASE_PRICE,\n    OLI.\"OptyItemSalesAmount\"   as  SALE_PRICE,\n    OLI.\"\
+  OptyItemBaseAmount\"    as  LIST_PRICE_WITH_ADJUSTMENTS,\n    OLI.\"OptyItemCustomTrainingAmount\"\
+  \ as CUSTOM_TRAINING_AMOUNT_USD,\n    OLI.\"OptyItemDealRegDiscount\" as DEAL_REG_DISCOUNT,\n\
+  \    OLI.\"OptyItemDiscountGuideline\" as DISCOUNT_GUIDELINE_PERCENT,\n    OLI.\"\
+  OptyItemDiscountPercent\" as DISCOUNT_PERCENT,\n    OLI.\"OptyItemDiscretion\" as\
+  \ DISCRETION_PERCENT,\n    OLI.\"OptyItemTotalDiscountPercent\" as TOTAL_DISCOUNT_PERCENT,\n\
+  \    OLI.\"OptyItemPartnerDiscount\" as PARTNER_DISCOUNT_PERCENT,\n    FD.\"LineItemNetNewQuantity\"\
+  \ as NET_NEW_QUANTITY,\n    FD.\"LineItemQuantity\" as OPTY_ITEM_QUANTITY,\n   \
+  \ OLI.\"OptyItemContractLineQuantity\" as CONTRACT_LINE_QUANTITY,\n    FD.\"LineItemTerm\"\
+  \ as OPTY_ITEM_TERM,\n    FD.\"FlagsFilter\" as IS_FLAGS_FILTER,\n    FD.\"OptyItemLineCreatedBy\"\
+  \ as OPTY_ITEM_CREATED_BY,\n    FD.\"OptyItemLineCreatedBy\" as OPTY_ITEM_CREATED_BY_ROLE,\n\
+  \    OPTY_ITEM.OPTY_ITEM_FLAGGED_AS as OPTY_ITEM_FLAGGED_AS,\n    OPTY_ITEM.OPTY_ITEM_ORIGIN\
+  \ as OPTY_ITEM_ORIGIN,\n    OPTY_ITEM.OPTY_ITEM_REPLACES_LINE as OPTY_ITEM_REPLACES_LINE,\n\
+  \    OPTY_ITEM.OPTY_ITEM_REV_REC_TYPE as OPTY_ITEM_REV_REC_TYPE,\n    OPTY_ITEM.OPTY_ITEM_SOURCE_SYSTEM\
+  \ as OPTY_ITEM_SOURCE_SYSTEM,\n    OPTY_ITEM.OPTY_ITEM_TERM_MONTHS_AND_DAYS as OPTY_ITEM_TERM_MONTHS_AND_DAYS,\n\
+  \    OLI.\"OptyItemConstNetNewAcvAmount_USD\" as OPTY_ITEM_USD_CONSTANT_FX_NET_NEW_ACV,\n\
+  \    OLI.\"OptyItemConstContractLineACV\" as OPTY_ITEM_USD_CONSTANT_FX_RENEWAL_ACV,\n\
+  \    OPTY_ITEM.OPTY_CONTRACT_LINE_REFERENCE as OPTY_CONTRACT_LINE_REFERENCE,\n \
+  \   OPTY_ITEM.PRICE_RESET_PRIMARY_LINE as PRICE_RESET_PRIMARY_LINE,\n    OLI.\"\
+  OptyItemReasonFor100PercentDiscountValue\" as REASON_FOR_100_PERCENT_DISCOUNT,\n\
+  \    OPTY_ITEM.TE_EXCEPTION_REASON as TE_EXCEPTION_REASON,\n    FD.\"AllocationType\"\
+  \ as ALLOCATION_TYPE,\n    FD.\"OpportunitySysID\" as OPTY_SYSID,\n    OPTY_ITEM.OPTY_ITEM_SYSID\
+  \ as OPTY_ITEM_SYSID,\n    FD.\"OpportunityAccountSysID\" as ACCOUNT_SYSID,\n  \
+  \  FD.\"ProductSysID\" as PRODUCT_SYSID,\n    FD.\"TerritorySysID\" as TERRITORY_SYSID,\n\
+  \    OPTY_ITEM.OPTY_ITEM_START_TS as OPTY_ITEM_START_TS,\n    OPTY_ITEM.OPTY_ITEM_END_TS\
+  \ as OPTY_ITEM_END_TS,\n    OPTY_ITEM.OPTY_ITEM_CREATED_TS as OPTY_ITEM_CREATED_TS,\n\
+  \    OPTY_ITEM.OPTY_ITEM_UPDATED_TS as OPTY_ITEM_UPDATED_TS\nfrom CDL_LS.SALES_RPT.RPT_FIXEDDATAPLUSQUOTA_RT\
+  \ FD\nleft outer join ODS_LS.SURF.SALES_OPPORTUNITY_ITEM OLI on FD.\"LineItemNumber_CRM\"\
+  \ = OLI.\"OptyItemLineItemNumber\"\nleft outer join EDW.ENTERPRISE.DIM_PRODUCT PRD\
+  \ ON FD.\"ProductSysID\" = PRD.PRODUCT_SYSID\nleft outer join EDW.ENTERPRISE.DIM_TERRITORY\
+  \ TERR ON FD.\"TerritorySysID\" = TERR.TERRITORY_SYSID\nleft outer join (select\
+  \ * from EDW.ENTERPRISE.DIM_OPPORTUNITY\n                 where  OPTY_ID NOT IN\
+  \ ( -- Excluding the below Opty's which are having duplicate sysid's and nulls.\
+  \ As per discussion with Aravind, this should be fixed at the FixedDataSource.\n\
+  \                                        'random',\n                           \
+  \             'random',\n                                        'random',\n   \
+  \                                     'random',\n                              \
+  \          'random',\n                                        'random')\n      \
+  \          )OPD ON FD.\"OpportunitySysID\" = OPD.OPTY_SYSID\n--SS 1.5/Avantika/Updated\
+  \ on: 12-02-2024/Release on: 14-02-2024/ Release Type: Regular/Added CDL view instead\
+  \ of EDW table to avoid the duplicates in the EDW table of DIM_OPTY\nleft outer\
+  \ join EDW.ENTERPRISE.DIM_ACCOUNT ACC ON FD.\"OpportunityAccountSysID\" = ACC.ACCOUNT_SYSID\n\
+  left outer join EDW.ENTERPRISE.DIM_ACCOUNT PARENT_ACC ON OPD.PARENT_OPTY_ACCOUNT_ID\
+  \ = PARENT_ACC.ACCOUNT_ID\nleft outer join EDW.ENTERPRISE.DIM_QUARTER QTR on FD.\"\
+  SalesQuarter\" = QTR.QUARTER_YYQQ\nleft outer join EDW.ENTERPRISE.DIM_OPPORTUNITY_ITEM\
+  \ OPTY_ITEM ON HASH(FD.\"LineItemNumber\") = OPTY_ITEM.OPTY_ITEM_ID --SS 1.5/Avantika/Updated\
+  \ on: 04-01-2024/Release on: 02-02-2024/ Release Type: Regular\nleft outer join\
+  \ EDW.ENTERPRISE.DIM_BOOKING_BRIDGE_FLAGS BKGS ON OPTY_ITEM.BOOKING_BRIDGE_FLAGS_ID\
+  \ = BKGS.BOOKING_BRIDGE_FLAGS_ID --SS 1.5/Avantika/Updated on: 04-01-2024/Release\
+  \ on: 02-02-2024/ Release Type: Regular\nleft outer join ODS_LS.\"FILES\".\"SALES_OPPTY_FIXEDDATA\"\
+  \ OFD on FD.\"LineItemNumber\" = OFD.\"SFixedDataLineItemNumber\"\nleft outer join\
+  \ (\n    SELECT\n        \"CFXRate\" as \"CFXRate\",\n        \"CFXCurrency\" as\
+  \ \"CFXCurrency\",\n        \"U_FX_RATE_START\" as \"U_FX_RATE_START\",\n      \
+  \  YEAR(\"U_FX_RATE_START\") as \"FXRateStartYear\"\n    FROM\n        EDW_LS.\"\
+  SALES_EM\".\"EM_CONSTANT_FX_RATE_RT\"\n    where\n        YEAR(\"U_FX_RATE_START\"\
+  ) = YEAR(\n            convert_timezone('random', CURRENT_TIMESTAMP())\n       \
+  \ )\n) FX ON OFD.\"SFixedDataDocumentCurrency\" = FX.\"CFXCurrency\"\nleft outer\
+  \ join (\n    SELECT\n        DISTINCT \"AccountNumber\",\n        \"Quarter\",\n\
+  \        \"OverallRisk\" as \"RiskScoreSeverity\"\n    FROM\n        EDW_LS.CUSTOMER_CD_EM.ML_RISK_REASONS_BY_QUARTER\n\
+  \    WHERE\n        \"RiskLevel\" = 'random'\n) rbu1 on rbu1.\"AccountNumber\" =\
+  \ fd.\"AccountNumber\"\nand rbu1.\"Quarter\" = fd.\"SalesQuarter\"\nwhere FD.\"\
+  RecordType\" = 'random' --SS 1.5 Changes /Jay Modi/Updated on: 21-02-2024/Release\
+  \ on: 01-03-2024/ Release Type: RTB\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

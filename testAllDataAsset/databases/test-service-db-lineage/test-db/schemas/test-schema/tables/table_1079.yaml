@@ -1,0 +1,90 @@
+name: table_1079
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1079
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1079.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view WW_ACCT_ROLLING_CACV_DC_PQ(\n\t\"OptyAccountSysID\"\
+  ,\n\t\"OptySalesQuarter\",\n\t\"AcctBURollingCACVDCPQ\",\n\t\"AcctBURollingCACVDC\"\
+  ,\n\t\"AcctBURollingCACV\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"OptyAccountSysID\"\
+  \ as \"OptyAccountSysID\",\n       \"OptySalesQuarter\" as \"OptySalesQuarter\"\
+  ,\n       \"AcctBURollingCACVDCPQ\" as \"AcctBURollingCACVDCPQ\",\n       \"AcctBURollingCACVDC\"\
+  \ as \"AcctBURollingCACVDC\",\n       \"AcctBURollingCACV\" as \"AcctBURollingCACV\"\
+  \nFROM\n  (SELECT MAX(\"FinNNACVDC_CC\") as \"FinNNACVDC_CC1\",\n          \"OptyAccountSysID\"\
+  \ as \"OptyAccountSysID\",\n          \"OptySalesQuarter\" as \"OptySalesQuarter\"\
+  ,\n          SUM(\"FinNNACVDC_CC_1\") as \"AcctBURollingCACVDC\",\n          SUM(\"\
+  FinNNACV_CC\") as \"FinNNACV_CC\",\n          SUM(\"FinNNACV_CC_1\") as \"AcctBURollingCACV\"\
+  ,\n          (\"AcctBURollingCACVDC\" - \"FinNNACVDC_CC1\") as \"AcctBURollingCACVDCPQ\"\
+  \n   FROM\n     (SELECT \"OptySalesQuarter\" as \"OptySalesQuarter\",\n        \
+  \     \"FinNNACVDC_CC\" as \"FinNNACVDC_CC\",\n             \"OptySalesQuarter_1\"\
+  \ as \"OptySalesQuarter_1\",\n             \"OptyAccountSysID\" as \"OptyAccountSysID\"\
+  ,\n             \"FinNNACVDC_CC_1\" as \"FinNNACVDC_CC_1\",\n             \"FinNNACV_CC\"\
+  \ as \"FinNNACV_CC\",\n             \"FinNNACV_CC_1\" as \"FinNNACV_CC_1\"\n   \
+  \   FROM\n        (SELECT \"Aggregation_1\".\"FinNNACVDC_CC\" as \"FinNNACVDC_CC\"\
+  ,\n                \"Aggregation_1\".\"OptySalesQuarter\" as \"OptySalesQuarter\"\
+  ,\n                \"MaxQuarter\".\"OptySalesQuarter\" as \"OptySalesQuarter_1\"\
+  ,\n                \"MaxQuarter\".\"OptyAccountSysID\" as \"OptyAccountSysID\",\n\
+  \                \"MaxQuarter\".\"FinNNACVDC_CC\" as \"FinNNACVDC_CC_1\",\n    \
+  \            \"Aggregation_1\".\"FinNNACV_CC\" as \"FinNNACV_CC\",\n           \
+  \     \"MaxQuarter\".\"FinNNACV_CC\" as \"FinNNACV_CC_1\"\n         FROM\n     \
+  \      (SELECT SUM(\"FinNNACVDC_CC\") as \"FinNNACVDC_CC\",\n                  \
+  \ \"OptySalesQuarter\" as \"OptySalesQuarter\",\n                   \"OptyAccountSysID\"\
+  \ as \"OptyAccountSysID\",\n                   SUM(\"FinNNACV_CC\") as \"FinNNACV_CC\"\
+  \n            FROM\n              (SELECT \"FinNNACVDC_CC\" as \"FinNNACVDC_CC\"\
+  ,\n                      \"OptySalesQuarter\" as \"OptySalesQuarter\",\n       \
+  \               \"OptyAccountSysID\" as \"OptyAccountSysID\",\n                \
+  \      \"FinNNACV_CC\" as \"FinNNACV_CC\"\n               FROM \"CDL_LS\".\"PRODUCT_RPT\"\
+  .\"SURVIVOR_OPP_ACCOUNT\")\"Projection_9\"\n            GROUP BY \"OptySalesQuarter\"\
+  ,\n                     \"OptyAccountSysID\")\"Aggregation_1\"\n         INNER JOIN\n\
+  \           (SELECT \"OptySalesQuarter\" as \"OptySalesQuarter\",\n            \
+  \       \"OptyAccountSysID\" as \"OptyAccountSysID\",\n                   SUM(\"\
+  FinNNACVDC_CC\") as \"FinNNACVDC_CC\",\n                   SUM(\"FinNNACV_CC\")\
+  \ as \"FinNNACV_CC\"\n            FROM\n              (SELECT \"OptySalesQuarter\"\
+  \ as \"OptySalesQuarter\",\n                      \"OptyAccountSysID\" as \"OptyAccountSysID\"\
+  ,\n                      \"FinNNACVDC_CC\" as \"FinNNACVDC_CC\",\n             \
+  \         \"FinNNACV_CC\" as \"FinNNACV_CC\"\n               FROM \"CDL_LS\".\"\
+  PRODUCT_RPT\".\"SURVIVOR_OPP_ACCOUNT\")\"Projection_2\"\n            GROUP BY \"\
+  OptySalesQuarter\",\n                     \"OptyAccountSysID\")\"MaxQuarter\" ON\
+  \ \"Aggregation_1\".\"OptyAccountSysID\" = \"MaxQuarter\".\"OptyAccountSysID\")\"\
+  Join_1\"\n      WHERE \"OptySalesQuarter_1\" <= \"OptySalesQuarter\")\"Projection_1\"\
+  \n   GROUP BY \"OptyAccountSysID\",\n            \"OptySalesQuarter\")Aggregation_2\
+  \ ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

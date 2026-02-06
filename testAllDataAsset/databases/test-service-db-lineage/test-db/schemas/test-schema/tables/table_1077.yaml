@@ -1,0 +1,111 @@
+name: table_1077
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1077
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1077.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_AFFECTED_INSTANCES_ON_CASE(\n\t\"CsNumber\"\
+  ,\n\t\"CsClosedAt\",\n\t\"DvCsPriority\",\n\t\"DvCsUCaseCategory\",\n\t\"DvCsCompany\"\
+  ,\n\t\"DvCsAssignmentGroup\",\n\t\"DvCsParent\",\n\t\"DvCsResolutionCode\",\n\t\"\
+  CsUTags\",\n\t\"UCase\",\n\t\"CsSysCreatedOn\",\n\t\"DvInstUInstance\"\n) as --\
+  \ SEMANTIC LAYER BEGINS\n\nSELECT \"CaseNumber\" as \"CsNumber\",\n       \"ClosedAt\"\
+  \ as \"CsClosedAt\",\n       \"DvPriority\" as \"DvCsPriority\",\n       \"DvUCaseCategory\"\
+  \ as \"DvCsUCaseCategory\",\n       \"DvCompany\" as \"DvCsCompany\",\n       \"\
+  DvAssignmentGroup\" as \"DvCsAssignmentGroup\",\n       \"DvParent\" as \"DvCsParent\"\
+  ,\n       \"DvResolutionCode\" as \"DvCsResolutionCode\",\n       \"UTags\" as \"\
+  CsUTags\",\n       \"SysId\" as \"UCase\",\n       \"SysCreatedOn\" as \"CsSysCreatedOn\"\
+  ,\n       \"DvUInstance\" as \"DvInstUInstance\"\nFROM\n  (SELECT DISTINCT \"Projection_1\"\
+  .\"CaseNumber\" as \"CaseNumber\",\n                   \"Projection_1\".\"ClosedAt\"\
+  \ as \"ClosedAt\",\n                   \"Projection_1\".\"DvPriority\" as \"DvPriority\"\
+  ,\n                   \"Projection_1\".\"DvUCaseCategory\" as \"DvUCaseCategory\"\
+  ,\n                   \"Projection_1\".\"DvCompany\" as \"DvCompany\",\n       \
+  \            \"Projection_1\".\"DvAssignmentGroup\" as \"DvAssignmentGroup\",\n\
+  \                   \"Projection_1\".\"DvParent\" as \"DvParent\",\n           \
+  \        \"Projection_1\".\"DvResolutionCode\" as \"DvResolutionCode\",\n      \
+  \             \"Projection_1\".\"UTags\" as \"UTags\",\n                   \"Join_1\"\
+  .\"SysId\" as \"SysId\",\n                   \"Projection_1\".\"SysCreatedOn\" as\
+  \ \"SysCreatedOn\",\n                   \"Join_1\".\"DvUInstance\" as \"DvUInstance\"\
+  \n   FROM\n     (SELECT \"CaseNumber\" as \"CaseNumber\",\n             \"ClosedAt\"\
+  \ as \"ClosedAt\",\n             \"DvPriority\" as \"DvPriority\",\n           \
+  \  \"DvUCaseCategory\" as \"DvUCaseCategory\",\n             \"DvCompany\" as \"\
+  DvCompany\",\n             \"DvAssignmentGroup\" as \"DvAssignmentGroup\",\n   \
+  \          \"DvParent\" as \"DvParent\",\n             \"DvResolutionCode\" as \"\
+  DvResolutionCode\",\n             \"UTags\" as \"UTags\",\n             \"SysId\"\
+  \ as \"SysId\",\n             \"SysCreatedOn\" as \"SysCreatedOn\"\n      FROM \"\
+  ODS_LS\".\"HI\".\"SN_CUSTOMERSERVICE_CASE\"\n      GROUP BY \"CaseNumber\",\n  \
+  \             \"DvPriority\",\n               \"ClosedAt\",\n               \"DvCompany\"\
+  ,\n               \"DvUCaseCategory\",\n               \"DvAssignmentGroup\",\n\
+  \               \"DvResolutionCode\",\n               \"DvParent\",\n          \
+  \     \"UTags\",\n               \"SysId\",\n               \"SysCreatedOn\") \"\
+  Projection_1\"\n   INNER JOIN\n     (SELECT \"DvUInstance\",\n             \"SysId\"\
+  ,\n             \"CaseNumber\",\n             \"SysCreatedOn\"\n      FROM\n   \
+  \     (SELECT \"Projection_2\".\"DvUInstance\" as \"DvUInstance\",\n           \
+  \     \"Projection_3\".\"SysId\" as \"SysId\",\n                \"Projection_3\"\
+  .\"CaseNumber\" as \"CaseNumber\",\n                \"Projection_3\".\"SysCreatedOn\"\
+  \ as \"SysCreatedOn\"\n         FROM\n           (SELECT \"CaseNumber\" as \"CaseNumber\"\
+  ,\n                   \"DvPriority\" as \"DvPriority\",\n                   \"ClosedAt\"\
+  \ as \"ClosedAt\",\n                   \"DvCompany\" as \"DvCompany\",\n       \
+  \            \"DvUCaseCategory\" as \"DvUCaseCategory\",\n                   \"\
+  DvAssignmentGroup\" as \"DvAssignmentGroup\",\n                   \"DvResolutionCode\"\
+  \ as \"DvResolutionCode\",\n                   \"DvParent\" as \"DvParent\",\n \
+  \                  \"UTags\" as \"UTags\",\n                   \"SysId\" as \"SysId\"\
+  ,\n                   \"SysCreatedOn\" as \"SysCreatedOn\"\n            FROM \"\
+  ODS_LS\".\"HI\".\"SN_CUSTOMERSERVICE_CASE\"\n            GROUP BY \"CaseNumber\"\
+  ,\n                     \"DvPriority\",\n                     \"ClosedAt\",\n  \
+  \                   \"DvCompany\",\n                     \"DvUCaseCategory\",\n\
+  \                     \"DvAssignmentGroup\",\n                     \"DvResolutionCode\"\
+  ,\n                     \"DvParent\",\n                     \"UTags\",\n       \
+  \              \"SysId\",\n                     \"SysCreatedOn\") \"Projection_3\"\
+  \n         LEFT JOIN\n           (SELECT DISTINCT \"DV_U_INSTANCE\" as \"DV_U_INSTANCE\"\
+  ,\n                            \"U_CASE\" as \"U_CASE\",\n                     \
+  \       \"DV_U_CASE\" as \"DV_U_CASE\",\n                            \"U_INCIDENT\"\
+  \ as \"U_INCIDENT\",\n                            \"DV_U_INCIDENT\" as \"DV_U_INCIDENT\"\
+  ,\n                            \"DV_U_INSTANCE\" as \"DvUInstance\",\n         \
+  \                   \"U_CASE\" as \"UCase\",\n                            \"DV_U_CASE\"\
+  \ as \"DvUCase\",\n                            \"DV_U_INCIDENT\" as \"DvUIncident\"\
+  ,\n                            \"U_INCIDENT\" as \"UIncident\",\n              \
+  \              IFF((\"DvUCase\") IS NULL, REPLACE(\"DvUIncident\", 'random', 'random'),\
+  \ \"DvUCase\") as \"CaseNumber\"\n            FROM \"RDS\".\"HI\".\"U_M2M_INCIDENT_INSTANCES\"\
+  ) \"Projection_2\" ON \"Projection_3\".\"CaseNumber\" = \"Projection_2\".\"CaseNumber\"\
+  )\n      GROUP BY \"DvUInstance\",\n               \"SysId\",\n               \"\
+  CaseNumber\",\n               \"SysCreatedOn\") \"Join_1\" ON \"Projection_1\".\"\
+  SysId\" = \"Join_1\".\"SysId\") Join_2;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

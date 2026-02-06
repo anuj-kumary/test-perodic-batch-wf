@@ -1,0 +1,54 @@
+name: table_1091
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1091
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1091.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view UNIFIEDSS_USER_TERRITORY_SECURITY(\n\t\"\
+  TerritorySysID\",\n\t\"UserID\",\n\t\"Department\",\n\t\"DepartSecurityFlag\"\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"TERRITORYSYSID\" as \"TerritorySysID\"\
+  ,\n       CAST(\"USERID\" AS VARCHAR('random')) as \"UserID\",\n       \"Department\"\
+  \ as \"Department\",\n       \"DepartSecurityFlag\" as \"DepartSecurityFlag\"\n\
+  FROM\n  (SELECT \"TERRITORYSYSID\" as \"TERRITORYSYSID\",\n          \"ORIG_USERID\"\
+  \  as \"USERID\",\n          \"Department\" as \"Department\",\n          \"BIN\"\
+  \ as \"BIN\",\n          \"DepartSecurityFlag\" as \"DepartSecurityFlag\"\n   FROM\
+  \ EDW_LS.SALES_SS_EM.TF_UNIFIEDSS_USER_TERRITORY_SECURITY)Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

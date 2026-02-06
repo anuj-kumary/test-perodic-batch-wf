@@ -1,0 +1,72 @@
+name: table_1078
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1078
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1078.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_KC_ACCOUNT_JOURNEY(\n\t\"AcctNumber\"\
+  ,\n\t\"AdoptedApps\",\n\t\"NotAdoptedApps\",\n\t\"EntitledApps\",\n\t\"NoDataApp\"\
+  ,\n\t\"CriticalAppsApopted\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"AcctNumber\"\
+  \ as \"AcctNumber\",\n       \"AdoptedApps\" as \"AdoptedApps\",\n       \"NotAdoptedApps\"\
+  \ as \"NotAdoptedApps\",\n       \"EntitledApps\" as \"EntitledApps\",\n       \"\
+  NoDataApp\" as \"NoDataApp\",\n       \"CriticalAppsApopted\" as \"CriticalAppsApopted\"\
+  \nFROM\n  (select \"AcctNumber\",\n          \"Timeline\",\n          \"AdoptedApps\"\
+  ,\n          \"NotAdoptedApps\",\n          \"EntitledApps\",\n          \"NoDataApp\"\
+  ,\n          ROUND(((\"AdoptedApps\"/\"EntitledApps\") * 'random') ,'random') as\
+  \ \"PercCriticalAppsApopted\",\n          CONCAT(\"PercCriticalAppsApopted\", 'random')\
+  \ as \"CriticalAppsApopted\"\n   from\n     (SELECT \"AcctNumber\" as \"AcctNumber\"\
+  ,\n             \"Timeline\" as \"Timeline\",\n             SUM(\"AdoptedApps\"\
+  ) as \"AdoptedApps\",\n             SUM(\"NotAdoptedApps\") as \"NotAdoptedApps\"\
+  ,\n             SUM(\"EntitledApps\") as \"EntitledApps\",\n             SUM(\"\
+  NoDataApp\") as \"NoDataApp\",\n             \"Flag\" as \"Flag\" --ROUND(((\"AdoptedApps\"\
+  /\"EntitledApps\")  * 100) ,0)  as \"PercCriticalAppsApopted\",\n---CONCAT(\"PercCriticalAppsApopted\"\
+  , '%')  as \"CriticalAppsApopted\"\nFROM\n        (SELECT \"AcctNumber\" as \"AcctNumber\"\
+  ,\n                \"Timeline\" as \"Timeline\",\n                \"AdoptedApps\"\
+  \ as \"AdoptedApps\",\n                \"NotAdoptedApps\" as \"NotAdoptedApps\"\
+  ,\n                \"EntitledApps\" as \"EntitledApps\",\n                \"NoDataApp\"\
+  \ as \"NoDataApp\",\n                \"Flag\" as \"Flag\"\n         FROM \"CDL_LS\"\
+  .\"CUSTOMER_CD_RPT\".\"RPT_ACCOUNT_JOURNEY\"\n         WHERE \"Timeline\" >=\n \
+  \            (SELECT \"DateDimQuarterBeginDate\"\n              FROM \"ODS_LS\"\
+  .\"SURF\".\"DATE_DIMENSION\"\n              WHERE \"DateDimDate\" = CURRENT_DATE)\n\
+  \           AND \"EntitledApps\" > 'random'\n           AND \"Flag\" = 'random')\"\
+  Projection_1\"\n      GROUP BY \"AcctNumber\",\n               \"Timeline\",\n \
+  \              \"Flag\"))Aggregation_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

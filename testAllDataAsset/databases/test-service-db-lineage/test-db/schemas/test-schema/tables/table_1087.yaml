@@ -1,0 +1,73 @@
+name: table_1087
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1087
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1087.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view DATACARD_DEAL_SECURITY(\n\tTERRITORYSYSID,\n\
+  \t\"Sale_Lead_Rep\",\n\tORIG_USERID,\n\tBIN\n) as\n\n/* Comments retained from HANA\
+  \ input file */\n\n /*****************************\n * Program  Name           \
+  \   :  DATACARD_DEAL_SECURITY\n * Development Request # \t :\n * Date Created  \
+  \             : \t2021-3-19\n * Developed By               :  Sridhar Bankuru\n\
+  \ * Brief Description          : \tData Cards - SCORECARD DEAL SECURITY\n * ---------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n * Updated On                 :\n *----------------------------------------------------------------------------------------------------------------\n\
+  \ * CR#\n * 1\n * 2\n  *****************************************************************************************************************/\n\
+  \n\n--- 'Global' or 'Org' level will have LVL 0\n\n\n-- 'Geo' will have LVL 1\n\n\
+  \n-- 'Major Area' will have LVL 2\n\n\n-- 'Area' will have LVL 3\n\n\n-- 'Region'\
+  \ will have LVL 4\n\n\n-- 'District' will have LVL 5\n\n\n-- All other will have\
+  \ LVL 6\n\n\n\n\n\nSELECT\tTERRITORYSYSID, \"Sale_Lead_Rep\", LISTAGG(\"USERID\"\
+  ,'random') AS ORIG_USERID , \"BIN\"\n \tFROM ( SELECT\tTERRITORYSYSID, \"Sale_Lead_Rep\"\
+  , \"USERID\", \"LEN\", CONCAT('random',CEIL((\"LEN\")/'random')) \"BIN\"\n \t\t\t\
+  \   FROM (\n \t\t\t\tSELECT DISTINCT TERRITORYSYSID, \"Sale_Lead_Rep\", \"USERID\"\
+  \n \t\t\t\t\t\t,SUM (LENGTH(\"USERID\")+'random') over(partition by TERRITORYSYSID,\
+  \ \"Sale_Lead_Rep\" ORDER BY TERRITORYSYSID, LVL ROWS BETWEEN UNBOUNDED PRECEDING\
+  \ AND CURRENT ROW ) \"LEN\"\n \t\t\t\tFROM (\n \t\t\t\t\t SELECT DISTINCT UE.\"\
+  USER_NAME\" AS \"USERID\", TERRITORYSYSID,LVL\n \t\t\t\t\t \t,CASE WHEN LVL = 'random'\
+  \ THEN 'random' ELSE 'random' END AS \"Sale_Lead_Rep\"\n  \t\t\t\t\t\tFROM \"RDS\"\
+  .\"SURF\".\"U_EMPLOYEE\" UE\n  \t\tINNER JOIN (\n \t\t\t\t\t SELECT TERRITORYSYSID,USERID,LVL\n\
+  \ \t\t\t\t\t  FROM \"EDW_LS\".\"SALES_SEC_EM\".\"TF_ALL_USER_TERRITORY_SECURITY_WITH_LVL\"\
+  \n \t\t\t\t\tUNION\n\n-- This code is to address Blank territory for all Global\
+  \ users\n\n \t\t\t\t\t SELECT 'random' AS TERRITORYSYSID,USERID,LVL\n \t\t\t\t\t\
+  \  FROM \"EDW_LS\".\"SALES_SEC_EM\".\"TF_ALL_USER_TERRITORY_SECURITY_WITH_LVL\"\n\
+  \ \t\t\t\t\t  WHERE LVL = 'random'\n \t\t\t\t\t\t) A\n \t\t\t\t\t\tON LOWER(UE.\"\
+  USER_NAME\") = LOWER(USERID))\n \t\t\t\t \t)\n \t\t\t\t) GROUP BY \"BIN\", TERRITORYSYSID,\
+  \ \"Sale_Lead_Rep\" ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

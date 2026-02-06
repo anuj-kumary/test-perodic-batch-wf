@@ -1,0 +1,146 @@
+name: table_1070
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1070
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1070.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_FACT_BOOKINGS(\n\tQUARTER_DT,\n\t\
+  QUARTER_YYQQ,\n\tQUARTER_ID,\n\tOPTY_ID,\n\tOPTY_NUMBER,\n\tOPTY_ITEM_ID,\n\tOPTY_ITEM_NUMBER,\n\
+  \tACCOUNT_ID,\n\tPRODUCT_ID,\n\tTERRITORY_ID,\n\tGEO_ID,\n\tBOOKING_BRIDGE_FLAGS_ID,\n\
+  \tFIN_NNACV_USD_DAILY,\n\tFIN_NNACV_USD_CY_FX,\n\tRENEWAL_ACV_CB_COMM_LC,\n\tRENEWAL_ACV_SURV_OPTY_CMSN_USD_DAILY,\n\
+  \tNNACV_SURV_OPTY_DOWNSELL_USD_DAILY,\n\tRENEWAL_CMSN_ACV_ADJUSTED_USD_CY_FX,\n\t\
+  NNACV_SURV_ACCT_DOWNSELL_USD_DAILY,\n\tRENEWAL_ACV_SURV_ACCT_CMSN_USD_DAILY,\n\t\
+  NNACV_SURV_ACCT_UPSELL_USD_DAILY,\n\tNNACV_SURV_OPTY_UPSELL_USD_DAILY,\n\tCACV_DAILY_USD_FX,\n\
+  \tFIN_RENEWAL_LOST_ACV_BU_USD_DAILY,\n\tRENEWAL_ACV_BU_DOWNSELL_USD_DAILY,\n\tFIN_RENEWAL_LOST_ACV_WW_USD_DAILY,\n\
+  \tFIN_RENEWAL_DOWNSELL_ACV_WW_USD_DAILY,\n\tFIN_RENEWAL_UPSELL_ACV_WW_USD_DAILY,\n\
+  \tFIN_RENEWAL_UPSELL_ACV_BU_USD_DAILY,\n\tRENEWAL_ACV_BU_OPTY_LOST_USD_DAILY,\n\t\
+  OPTY_SYSID,\n\tOPTY_ITEM_SYSID,\n\tACCOUNT_SYSID,\n\tPRODUCT_SYSID,\n\tTERRITORY_SYSID,\n\
+  \tCACV_DAILY_USD_CY_FX\n) as\n\n/***********************************************************************************************************************************************\n\
+  CREATE/CHANGE LOG:\nDATE        MOD BY                             \tDESC\n27-Mar-24\t\
+  uppara.manohar.r.rao@accenture.com\tAdded new columns FIN_RENEWAL_LOST_ACV_BU_USD_DAILY,\
+  \ FIN_RENEWAL_LOST_ACV_WW_USD_DAILY\n\t\t\t\t\t\t\t\t\t\t\t\tRENEWAL_ACV_BU_DOWNSELL_USD_DAILY,\
+  \ FIN_RENEWAL_DOWNSELL_ACV_WW_USD_DAILY\n28-Mar-24\tuppara.manohar.r.rao@accenture.com\t\
+  Added new columns FIN_RENEWAL_UPSELL_ACV_WW_USD_DAILY, RENEWAL_ACV_BU_OPTY_LOST_USD_DAILY\n\
+  \t\t\t\t\t\t\t\t\t\t\t\tFIN_RENEWAL_UPSELL_ACV_BU_USD_DAILY\n03-Jul-24   rathinam.santhosh@servicenow.com\
+  \    Added new column CACV_DAILY_USD_CY_FX\n*---------------------*-----------------------------*----------------------------------------------*---------------------*----------------------*\n\
+  List of attributes: 0\nList of views added:0\n*************************************************************************************************************************************************/\n\
+  \nSELECT DISTINCT\n\tQTR.QUARTER_DT  AS  QUARTER_DT,\n\tBKGS.\"OptySalesQuarter\"\
+  \  AS  QUARTER_YYQQ,\n\tQTR.QUARTER_ID  AS  QUARTER_ID,\n\tHASH(BKGS.\"OptySysID\"\
+  ) AS  OPTY_ID,\n\tBKGS.\"OptyNumber\" AS OPTY_NUMBER,\n\tHASH(BKGS.\"OptyItemLineItemNumber\"\
+  )   AS  OPTY_ITEM_ID,--SS 1.5/Avantika/Updated on: 04-01-2024/Release on: 26-01-204/\
+  \ Release Type: Regular\n\tBKGS.\"OptyItemLineItemNumber\" AS OPTY_ITEM_NUMBER,\n\
+  \tACC.ACCOUNT_ID  AS  ACCOUNT_ID,\n\tHASH(SO.\"OptyItemProductSysID\") AS PRODUCT_ID,--SS\
+  \ 1.5/Avantika/Updated on: 04-01-2024/Release on: 26-01-204/ Release Type: Regular\n\
+  \tHASH(BKGS.\"OptyTerritorySysID\")   AS  TERRITORY_ID,\n\tIFNULL(TERR.GEO_ID,HASH(TERR.GEO_ID))\
+  \ AS GEO_ID,\n\tHASH(BKGS.\"AcctBUAtRenewalFlag_CC\",\n\tBKGS.\"AcctBUNNACVBridgeFlag\"\
+  ,\n\tBKGS.\"AcctBUNNACVLossNotatRenewalBridgeFlag\",\n\tBKGS.\"AcctBUSalesAtRenewalFlag_CC\"\
+  ,\n\tBKGS.\"AcctBUSalesNNACVBridgeFlag\",\n\tBKGS.\"AcctBridgeFlagPrjLossAndDownsell_CC\"\
+  ,\n\tBKGS.\"AcctCGeoAtRenewalFlag_CC\",\n\tBKGS.\"AcctCGeoNNACVBridgeFlag\",\n\t\
+  BKGS.\"AcctCGeoWonAccountFlag_CC\",\n\tBKGS.\"AcctPF2WonAccountFlag_CC\",\n\tBKGS.\"\
+  AcctPF3AtRenewalFlag_CC\",\n\tBKGS.\"AcctPF3NNACVBridgeFlag\",\n\tBKGS.\"AcctWFAtRenewalFlag_CC\"\
+  ,\n\tBKGS.\"AcctWFNNACVBridgeFlag\",\n\tBKGS.\"AcctWFWonAccountFlag_CC\",\n\tBKGS.\"\
+  AcctWWAtRenewalFlag_CC\",\n\tBKGS.\"AcctWWNNACVBridgeFlag\",\n\tBKGS.\"AcctWWSalesAtRenewalFlag_CC\"\
+  ,\n    --Start of Change - SS 1.5/Avantika/Updated on: 04-01-2024/Release on: 26-01-204/\
+  \ Release Type: Regular\n\tRNWL.\"RenewalCriteriaIncludeExclude_CC\",\n\tRNWL.\"\
+  AccountConsolidationFlag_CC\",\n\tRNWL.\"OptyRenewalStatus_CC\",\n\tRNWL.\"FieldRenewalCriteriaIncludeExclude_CC\"\
+  ,\n\tRNWL.\"PullinPeriodCriteria_CC\",\n\tRNWL.\"SurvivorAccountBridgeFlag_CC\"\
+  ,\n\tRNWL.\"SurvivorOppBridgeFlag_CC\",\n\tRNWL.\"IneligibleEarliesFlag_CC\",\n\t\
+  RNWL.\"NonCommissionableProductsFlag_CC\") as BOOKING_BRIDGE_FLAGS_ID,\n\t--End\
+  \ of Change - SS 1.5/Avantika/Updated on: 04-01-2024/Release on: 26-01-204/ Release\
+  \ Type: Regular\n\tBKGS.FINNNACV_CC as FIN_NNACV_USD_DAILY,\n\tBKGS.\"FinNNACVDCConstFX_CC\"\
+  \ as FIN_NNACV_USD_CY_FX,\n\tRNWL.\"CB_CommRenewalACVDC_CC\" as RENEWAL_ACV_CB_COMM_LC,\n\
+  \tRNWL.\"NetSurvivorOptyCommRenewalACV_CC\" as RENEWAL_ACV_SURV_OPTY_CMSN_USD_DAILY,\n\
+  \tRNWL.\"SurvivorOptyDownsellNNACV_CC\" as NNACV_SURV_OPTY_DOWNSELL_USD_DAILY,\n\
+  \tRNWL.\"CommRenewalACVConstantFXAdjusted_CC\" as RENEWAL_CMSN_ACV_ADJUSTED_USD_CY_FX,\n\
+  \tRNWL.\"SurvivorAccountDownsellNNACV_CC\" as NNACV_SURV_ACCT_DOWNSELL_USD_DAILY,\n\
+  \tRNWL.\"NetSurvivorAccountCommRenewalACV_CC\" as RENEWAL_ACV_SURV_ACCT_CMSN_USD_DAILY,\n\
+  \tRNWL.\"SurvivorAccountUpsellNNACV_CC\" as NNACV_SURV_ACCT_UPSELL_USD_DAILY,\n\t\
+  RNWL.\"SurvivorOptyUpsellNNACV_CC\" as NNACV_SURV_OPTY_UPSELL_USD_DAILY,\n    BKGS.\"\
+  CumulativeNetNewACV\" as CACV_DAILY_USD_FX, ---Added for sales perf dash to show\
+  \ CACV daily fx: 31-03-2024 --Saranya / Release on 10-04-2024\n\t/* Begin: Added\
+  \ by Manohar (Accenture) on 26-Mar-2024 */\n\tCASE\n\t\tWHEN BKGS.\"AcctBUNNACVBridgeFlag\"\
+  \ = 'random' THEN ZEROIFNULL(BKGS.FINNNACV_CC)\n\tEND AS FIN_RENEWAL_LOST_ACV_BU_USD_DAILY,\n\
+  \tCASE\n\t\tWHEN BKGS.\"AcctBUNNACVBridgeFlag\" = 'random' THEN ZEROIFNULL(BKGS.FINNNACV_CC)\n\
+  \tEND AS RENEWAL_ACV_BU_DOWNSELL_USD_DAILY,\n\tCASE\n\t\tWHEN BKGS.\"AcctWWNNACVBridgeFlag\"\
+  \ = 'random' THEN ZEROIFNULL(BKGS.FINNNACV_CC)\n\tEND AS FIN_RENEWAL_LOST_ACV_WW_USD_DAILY,\n\
+  \tCASE\n\t\tWHEN BKGS.\"AcctWWNNACVBridgeFlag\" = 'random' THEN ZEROIFNULL(BKGS.FINNNACV_CC)\n\
+  \tEND AS FIN_RENEWAL_DOWNSELL_ACV_WW_USD_DAILY,\n\tCASE\n\t\tWHEN BKGS.\"AcctWWAtRenewalFlag_CC\"\
+  \ = 'random' THEN ZEROIFNULL(BKGS.FINNNACV_CC)\n\tEND AS FIN_RENEWAL_UPSELL_ACV_WW_USD_DAILY,\n\
+  \tCASE\n\t\tWHEN BKGS.\"AcctBUAtRenewalFlag_CC\" = 'random' THEN ZEROIFNULL(BKGS.FINNNACV_CC)\n\
+  \tEND AS FIN_RENEWAL_UPSELL_ACV_BU_USD_DAILY,\n\tCASE\n\t\tWHEN BKGS.\"AcctBUNNACVBridgeFlag\"\
+  \ = 'random' THEN ZEROIFNULL(BKGS.FINNNACV_CC)\n\tEND AS RENEWAL_ACV_BU_OPTY_LOST_USD_DAILY,\n\
+  \t/* End: Added by Manohar (Accenture) on 26-Mar-2024 */\n\tBKGS.\"OptySysID\" AS\
+  \ OPTY_SYSID,\n\tSO.\"OptyItemLineItemSysID\" AS  OPTY_ITEM_SYSID,\n\tACC.ACCOUNT_SYSID\
+  \    AS  ACCOUNT_SYSID,\n\tSO.\"OptyItemProductSysID\" AS PRODUCT_SYSID,--SS 1.5/Avantika/Updated\
+  \ on: 04-01-2024/Release on: 26-01-204/ Release Type: Regular\n\tTERR.TERRITORY_SYSID\
+  \ AS TERRITORY_SYSID,\n    /* Begin: Added by Santhosh(Accenture) on 03-Jul-2024\
+  \ */\n    COM_CALC.\"CumulativeNetNewACVDCConstFX_CC\" AS CACV_DAILY_USD_CY_FX\n\
+  \    /* End: Added by Santhosh(Accenture) on 03-Jul-2024  */\nFROM CDL_LS.FINANCE_FPA_RPT.BOOKINGS_ADHOC\
+  \ BKGS\nLEFT OUTER JOIN (SELECT DISTINCT \"OptyItemLineItemNumber\",\n         \
+  \                        \"NetSurvivorOptyCommRenewalACV_CC\",\n               \
+  \                  \"SurvivorOptyDownsellNNACV_CC\",\n                         \
+  \        \"CommRenewalACVConstantFXAdjusted_CC\",\n                            \
+  \     \"SurvivorAccountDownsellNNACV_CC\",\n                                 \"\
+  NetSurvivorAccountCommRenewalACV_CC\",\n                                 \"SurvivorAccountUpsellNNACV_CC\"\
+  ,\n                                 \"SurvivorOptyUpsellNNACV_CC\",\n          \
+  \                       --Start of Change - SS 1.5/Avantika/Updated on: 04-01-2024/Release\
+  \ on: 26-01-204/ Release Type: Regular\n                                 \"CB_CommRenewalACVDC_CC\"\
+  ,\n                                 \"RenewalCriteriaIncludeExclude_CC\",\n    \
+  \                             \"AccountConsolidationFlag_CC\",\n               \
+  \                  \"OptyRenewalStatus_CC\",\n                                 \"\
+  FieldRenewalCriteriaIncludeExclude_CC\",\n                                 \"PullinPeriodCriteria_CC\"\
+  ,\n                                 \"SurvivorAccountBridgeFlag_CC\",\n        \
+  \                         \"SurvivorOppBridgeFlag_CC\",\n                      \
+  \           \"IneligibleEarliesFlag_CC\",\n                                 \"NonCommissionableProductsFlag_CC\"\
+  \n                                 --End of Change SS 1.5/Avantika/Updated on: 04-01-2024/Release\
+  \ on: 26-01-204/ Release Type: Regular\n                 FROM CDL_LS.FINANCE_FPA_RPT.BOOKINGS_RENEWAL\n\
+  \                )RNWL ON BKGS.\"OptyItemLineItemNumber\" = RNWL.\"OptyItemLineItemNumber\"\
+  \ --added the subquery to avoid duplicate issue due to BOOKINGS_RENEWAL model\n\
+  LEFT OUTER JOIN EDW_LS.SALES_EM.EM_SALES_OPPORTUNITY_RT SO ON BKGS.\"OptyItemLineItemNumber\"\
+  \ = SO.\"OptyItemLineItemNumber\"--SS 1.5/Avantika/Updated on: 04-01-2024/Release\
+  \ on: 26-01-204/ Release Type: Regular\nLEFT OUTER JOIN EDW_LS.\"FLATFILESOURCE\"\
+  .\"COMMON_CALC_COLUMNS_ST\" COM_CALC ON BKGS.\"OptyItemLineItemNumber\"=COM_CALC.\"\
+  OptyItemLineItemNumber\" --- Added by Santhosh(Accenture) on 03-07-2024 to get the\
+  \ Cummulative CY column\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_ACCOUNT ACC ON BKGS.\"\
+  AcctNumber\" = ACC.ACCOUNT_NUMBER\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_TERRITORY\
+  \ TERR ON BKGS.\"OptyTerritorySysID\" = TERR.TERRITORY_SYSID\nLEFT OUTER JOIN EDW.ENTERPRISE.DIM_QUARTER\
+  \ QTR ON BKGS.\"OptySalesQuarter\" = QTR.QUARTER_YYQQ\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,67 @@
+name: table_1063
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1063
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1063.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TOP_ACCOUNT_VIRTUAL(\n\t\"VirAcctType\"\
+  ,\n\t\"VirAcctSysId\",\n\t\"VirAcctLeadingTerritory\",\n\t\"VirAcctEmployees\",\n\
+  \t\"VirAcctIndustrySysId\",\n\t\"VirAcctSelectAcctFlag\",\n\t\"VirAcctCompanyWebsite\"\
+  ,\n\t\"VirAcctCompanyCountry\",\n\t\"VirAcctPenetration\",\n\t\"VirAcctLeadingTerritorySysId\"\
+  ,\n\t\"VirAcctCountryCode\",\n\t\"VirAcctCity\",\n\t\"VirAcctTopAcctNumber\",\n\t\
+  \"VirAcctSegment\",\n\t\"VirAcctG2K\",\n\t\"VirAcctLeadingRepSysId\",\n\t\"VirAcctleadingRep\"\
+  ,\n\t\"VirAcctTopAccountName\",\n\t\"VirAcctIndustry\",\n\t\"VirAcctG2KSysId\",\n\
+  \t\"VirAcctDUNSNumber\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"DV_U_TYPE\" as\
+  \ \"VirAcctType\",\n       \"SYS_ID\" as \"VirAcctSysId\",\n       \"DV_U_LEADING_TERRITORY\"\
+  \ as \"VirAcctLeadingTerritory\",\n       \"U_EMPLOYEES\" as \"VirAcctEmployees\"\
+  ,\n       \"U_INDUSTRY\" as \"VirAcctIndustrySysId\",\n       \"U_SELECT_ACCOUNT\"\
+  \ as \"VirAcctSelectAcctFlag\",\n       \"U_COMPANY_WEBSITE\" as \"VirAcctCompanyWebsite\"\
+  ,\n       \"DV_U_COMPANY_COUNTRY\" as \"VirAcctCompanyCountry\",\n       \"U_PENETRATION\"\
+  \ as \"VirAcctPenetration\",\n       \"U_LEADING_TERRITORY\" as \"VirAcctLeadingTerritorySysId\"\
+  ,\n       \"U_COMPANY_COUNTRY\" as \"VirAcctCountryCode\",\n       \"U_COMPANY_CITY\"\
+  \ as \"VirAcctCity\",\n       \"U_TOP_ID\" as \"VirAcctTopAcctNumber\",\n      \
+  \ \"DV_U_SEGMENT\" as \"VirAcctSegment\",\n       \"DV_U_G2K\" as \"VirAcctG2K\"\
+  ,\n       \"U_LEADING_REP\" as \"VirAcctLeadingRepSysId\",\n       \"DV_U_LEADING_REP\"\
+  \ as \"VirAcctleadingRep\",\n       \"U_NAME\" as \"VirAcctTopAccountName\",\n \
+  \      \"DV_U_INDUSTRY\" as \"VirAcctIndustry\",\n       \"U_G2K\" as \"VirAcctG2KSysId\"\
+  ,\n       \"U_DUNS\" as \"VirAcctDUNSNumber\"\nFROM \"RDS\".\"SURF\".\"U_VIRTUAL_ACCOUNT\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

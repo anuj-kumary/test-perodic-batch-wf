@@ -1,0 +1,93 @@
+name: table_1075
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1075
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1075.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_KC_ACTIVE_EE_HIERARCHY(\n\tP4,\n\t\"\
+  Level2\",\n\t\"Level3\",\n\t\"Level4\",\n\t\"Level5\",\n\t\"Level6\",\n\t\"Level7\"\
+  ,\n\t\"Level8\",\n\t\"EmployeeNumber\",\n\t\"EmployeeName\",\n\tUSERID,\n\t\"VPNodeDescLvl2\"\
+  ,\n\tEXEC_1,\n\tEXEC_2,\n\tEXEC_3,\n\tEXEC_4,\n\tEXEC_5,\n\tEXEC_6,\n\tEXEC_7,\n\
+  \tACTIVE,\n\tSOURCE\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT TRIM(\"VPNodeDescLvl2\"\
+  ) as \"P4\",\n       LEFT(\"EXEC_1\", REGEXP_INSTR(\"EXEC_1\", 'random')-'random')\
+  \ as \"Level2\",\n       LEFT(\"EXEC_2\", REGEXP_INSTR(\"EXEC_2\", 'random')-'random')\
+  \ as \"Level3\",\n       LEFT(\"EXEC_3\", REGEXP_INSTR(\"EXEC_3\", 'random')-'random')\
+  \ as \"Level4\",\n       LEFT(\"EXEC_4\", REGEXP_INSTR(\"EXEC_4\", 'random')-'random')\
+  \ as \"Level5\",\n       LEFT(\"EXEC_5\", REGEXP_INSTR(\"EXEC_5\", 'random')-'random')\
+  \ as \"Level6\",\n       LEFT(\"EXEC_6\", REGEXP_INSTR(\"EXEC_6\", 'random')-'random')\
+  \ as \"Level7\",\n       LEFT(\"EXEC_7\", REGEXP_INSTR(\"EXEC_7\", 'random')-'random')\
+  \ as \"Level8\",\n       \"EmployeeNumber\" as \"EmployeeNumber\",\n       \"EmployeeName\"\
+  \ as \"EmployeeName\",\n       \"USERID\" as \"USERID\",\n       \"VPNodeDescLvl2\"\
+  \ as \"VPNodeDescLvl2\",\n       \"EXEC_1\" as \"EXEC_1\",\n       \"EXEC_2\" as\
+  \ \"EXEC_2\",\n       \"EXEC_3\" as \"EXEC_3\",\n       \"EXEC_4\" as \"EXEC_4\"\
+  ,\n       \"EXEC_5\" as \"EXEC_5\",\n       \"EXEC_6\" as \"EXEC_6\",\n       \"\
+  EXEC_7\" as \"EXEC_7\",\n       \"ACTIVE\" as \"ACTIVE\",\n       \"SOURCE\" as\
+  \ \"SOURCE\"\nFROM\n  (SELECT \"EmployeeNumber\" as \"EmployeeNumber\",\n      \
+  \    \"EmployeeName\" as \"EmployeeName\",\n          \"USER_NAME\" as \"USERID\"\
+  ,\n          \"VPNodeDescLvl2\" as \"VPNodeDescLvl2\",\n          \"EXEC_1\" as\
+  \ \"EXEC_1\",\n          \"EXEC_2\" as \"EXEC_2\",\n          \"EXEC_3\" as \"EXEC_3\"\
+  ,\n          \"EXEC_4\" as \"EXEC_4\",\n          \"EXEC_5\" as \"EXEC_5\",\n  \
+  \        \"EXEC_6\" as \"EXEC_6\",\n          \"EXEC_7\" as \"EXEC_7\",\n      \
+  \    \"ACTIVE\" as \"ACTIVE\",\n          \"SOURCE\" as \"SOURCE\"\n   FROM\n  \
+  \   (SELECT \"Active_Employees\".\"EmployeeNumber\" as \"EmployeeNumber\",\n   \
+  \          \"Active_Employees\".\"EmployeeName\" as \"EmployeeName\",\n        \
+  \     \"Projection_1\".\"USER_NAME\" as \"USER_NAME\",\n             \"Active_Employees\"\
+  .\"VPNodeDescLvl2\" as \"VPNodeDescLvl2\",\n             \"Active_Employees\".\"\
+  EXEC_1\" as \"EXEC_1\",\n             \"Active_Employees\".\"EXEC_2\" as \"EXEC_2\"\
+  ,\n             \"Active_Employees\".\"EXEC_3\" as \"EXEC_3\",\n             \"\
+  Active_Employees\".\"EXEC_4\" as \"EXEC_4\",\n             \"Active_Employees\"\
+  .\"EXEC_5\" as \"EXEC_5\",\n             \"Active_Employees\".\"EXEC_6\" as \"EXEC_6\"\
+  ,\n             \"Active_Employees\".\"EXEC_7\" as \"EXEC_7\",\n             \"\
+  Projection_1\".\"ACTIVE\" as \"ACTIVE\",\n             \"Projection_1\".\"SOURCE\"\
+  \ as \"SOURCE\"\n      FROM\n        (SELECT \"EmployeeNumber\" as \"EmployeeNumber\"\
+  ,\n                \"EmployeeName\" as \"EmployeeName\",\n                \"VPNodeDescLvl2\"\
+  \ as \"VPNodeDescLvl2\",\n                \"EXEC_1\" as \"EXEC_1\",\n          \
+  \      \"EXEC_2\" as \"EXEC_2\",\n                \"EXEC_3\" as \"EXEC_3\",\n  \
+  \              \"EXEC_4\" as \"EXEC_4\",\n                \"EXEC_5\" as \"EXEC_5\"\
+  ,\n                \"EXEC_6\" as \"EXEC_6\",\n                \"EXEC_7\" as \"EXEC_7\"\
+  \n         FROM \"PEOPLE_NSN_SHARE\".\"NSN_WORKDAY\".\"V_NSN_ACTIVE_EES_CWS\")\"\
+  Active_Employees\"\n      LEFT JOIN\n        (SELECT \"EMPLOYEE_NUMBER\" as \"EMPLOYEE_NUMBER\"\
+  ,\n                \"USER_NAME\" as \"USER_NAME\",\n                \"ACTIVE\" as\
+  \ \"ACTIVE\",\n                \"SOURCE\" as \"SOURCE\"\n         FROM \"ODS_LS\"\
+  .\"SURF\".\"U_EMPLOYEE\")\"Projection_1\" ON \"Active_Employees\".\"EmployeeNumber\"\
+  \ = \"Projection_1\".\"EMPLOYEE_NUMBER\")\"Join_2\"\n   WHERE \"ACTIVE\" = 'random'\
+  \ )Projection_2;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

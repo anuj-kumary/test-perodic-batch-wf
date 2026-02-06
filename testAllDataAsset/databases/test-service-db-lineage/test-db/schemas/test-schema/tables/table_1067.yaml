@@ -1,0 +1,66 @@
+name: table_1067
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1067
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1067.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_ANAPLAN_REP_TERRITORY(\n\tTERRITORY_ID,\n\
+  \tEMPLOYEE_ID,\n\tRESTATED_TERRITORY_ID,\n\tANAPLAN_QUARTER_YYQQ,\n\tTERRITORY_NAME,\n\
+  \tMARKED_TERRITORY,\n\tIS_ACTIVE_TERRITORY,\n\tEMPLOYEE_NUMBER,\n\tEMPLOYEE_NAME,\n\
+  \tEMPLOYEE_TITTLE,\n\tEMPLOYEE_MANAGER,\n\tEMPLOYEE_TERRITORY_TYPE,\n\tEMPLOYEE_RAMPED,\n\
+  \tEMPLOYEE_REP_FLAG,\n\tEMPLOYEE_REP_TYPE,\n\tEMPLOYEE_TERRITORY_BU,\n\tEMPLOYEE_TERRITORY_HC,\n\
+  \tEMPLOYEE_TENURE,\n\tEMPLOYEE_QUOTA_COMPONENT,\n\tEMPLOYEE_PLAN_START_DT,\n\tEMPLOYEE_PLAN_END_DT,\n\
+  \tIS_ACTIVE_EMPLOYEE,\n\tTERRITORY_SYSID,\n\tEMPLOYEE_SYSID,\n\tEMPLOYEE_TERRITORY_RESTATED_SYSID\n\
+  ) as\nSELECT distinct\n\tHASH(\"STEmpTerrTerritorySysId\") TERRITORY_ID,\n\tHASH(\"\
+  STEmpTerrEmployeeSysId\") EMPLOYEE_ID,\n\tHASH(\"STEmpTerrRestatedTerrSysId\") RESTATED_TERRITORY_ID,\n\
+  \    \"STEmpTerrQuarter\" ANAPLAN_QUARTER_YYQQ,\n    \"STEmpTerrTerritoy\" TERRITORY_NAME,\n\
+  \t\"STEmpTerrMarkedTerritory\" MARKED_TERRITORY,\n\t\"STEmpActiveTerritory\" IS_ACTIVE_TERRITORY,\n\
+  \t\"STEmpTerrEmployeeNumber\" EMPLOYEE_NUMBER,\n\t\"STEmpTerrEmployeeName\" EMPLOYEE_NAME,\n\
+  \t\"STEmpTerrEmpTitle\" EMPLOYEE_TITTLE,\n\t\"STEmpTerrEmployeeManager\" EMPLOYEE_MANAGER,\n\
+  \t\"STEmpTerrTerritotyType\" EMPLOYEE_TERRITORY_TYPE,\n\t\"STEmpTerrRamped\" EMPLOYEE_RAMPED,\n\
+  \t\"STEmpTerrRepFlag\" EMPLOYEE_REP_FLAG,\n\t\"STEmpTerrRepType\" EMPLOYEE_REP_TYPE,\n\
+  \t\"STEmpTerrBU\" EMPLOYEE_TERRITORY_BU,\n\t\"STEmpTerrHCTerritory\" EMPLOYEE_TERRITORY_HC,\n\
+  \t\"STEmpTerrTenure\" EMPLOYEE_TENURE,\n    \"STEmpQuotaComponent\" EMPLOYEE_QUOTA_COMPONENT,\n\
+  \t\"STEmpPlanStartDate\" EMPLOYEE_PLAN_START_DT,\n\t\"STEmpPlanEndDate\" EMPLOYEE_PLAN_END_DT,\n\
+  \t\"STEmpTerrActive\" IS_ACTIVE_EMPLOYEE,\n    \"STEmpTerrTerritorySysId\" TERRITORY_SYSID,\n\
+  \t\"STEmpTerrEmployeeSysId\" EMPLOYEE_SYSID,\n\t\"STEmpTerrRestatedTerrSysId\" EMPLOYEE_TERRITORY_RESTATED_SYSID\n\
+  from ODS_LS.ANAPLAN.SALES_EMPLOYEE_TERRITORY_MAPPING;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

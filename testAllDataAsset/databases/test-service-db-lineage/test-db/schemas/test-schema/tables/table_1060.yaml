@@ -1,0 +1,95 @@
+name: table_1060
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1060
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1060.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SRC_V_DIM_BOOKING_BRIDGE_FLAGS(\n\tBOOKING_BRIDGE_FLAGS_ID,\n\
+  \tACCT_BU_RENEWAL_FLAG,\n\tACCT_BU_NNACV_FLAG,\n\tACCT_BU_NNACV_LOSS_NA_RENEWAL_FLAG,\n\
+  \tACCT_BU_SALES_RENEWAL_FLAG,\n\tACCT_BU_SALES_NNACV_FLAG,\n\tACCT_PRJ_LOSS_DOWNSELL_FLAG,\n\
+  \tACCT_GEO_RENEWAL_FLAG,\n\tACCT_GEO_NNACV_FLAG,\n\tACCT_GEO_WON_FLAG,\n\tACCT_PF2_WON_FLAG,\n\
+  \tACCT_PF3_RENEWAL_FLAG,\n\tACCT_PF3_NNACV_FLAG,\n\tACCT_WORKFLOW_RENEWAL_FLAG,\n\
+  \tACCT_WORKFLOW_NNACV_FLAG,\n\tACCT_WORKFLOW_WON_FLAG,\n\tACCT_WW_RENEWAL_FLAG,\n\
+  \tACCT_WW_NNACV_FLAG,\n\tACCT_WW_SALES_RENEWAL_FLAG,\n\tRENEWAL_CRITERIA_FLAG,\n\
+  \tACCT_CONSOLIDATION_FLAG,\n\tOPTY_RENEWAL_STATUS_FLAG,\n\tFIELD_RENEWAL_CRITERIA_FLAG,\n\
+  \tPULL_IN_PERIOD_CRITERIA_FLAG,\n\tACCT_SURVIVOR_BRIDGE_FLAG,\n\tOPTY_SURVIVOR_BRIDGE_FLAG,\n\
+  \tINELIGIBLE_EARLIES_FLAG,\n\tNON_COMISSIONABLE_PRD_FLAG\n) as\n\nselect distinct\n\
+  hash(BKG_ADHOC.\"AcctBUAtRenewalFlag_CC\",\nBKG_ADHOC.\"AcctBUNNACVBridgeFlag\"\
+  ,\nBKG_ADHOC.\"AcctBUNNACVLossNotatRenewalBridgeFlag\",\nBKG_ADHOC.\"AcctBUSalesAtRenewalFlag_CC\"\
+  ,\nBKG_ADHOC.\"AcctBUSalesNNACVBridgeFlag\",\nBKG_ADHOC.\"AcctBridgeFlagPrjLossAndDownsell_CC\"\
+  ,\nBKG_ADHOC.\"AcctCGeoAtRenewalFlag_CC\",\nBKG_ADHOC.\"AcctCGeoNNACVBridgeFlag\"\
+  ,\nBKG_ADHOC.\"AcctCGeoWonAccountFlag_CC\",\nBKG_ADHOC.\"AcctPF2WonAccountFlag_CC\"\
+  ,\nBKG_ADHOC.\"AcctPF3AtRenewalFlag_CC\",\nBKG_ADHOC.\"AcctPF3NNACVBridgeFlag\"\
+  ,\nBKG_ADHOC.\"AcctWFAtRenewalFlag_CC\",\nBKG_ADHOC.\"AcctWFNNACVBridgeFlag\",\n\
+  BKG_ADHOC.\"AcctWFWonAccountFlag_CC\",\nBKG_ADHOC.\"AcctWWAtRenewalFlag_CC\",\n\
+  BKG_ADHOC.\"AcctWWNNACVBridgeFlag\",\nBKG_ADHOC.\"AcctWWSalesAtRenewalFlag_CC\"\
+  ,\nBKG_RNW.\"RenewalCriteriaIncludeExclude_CC\",\nBKG_RNW.\"AccountConsolidationFlag_CC\"\
+  ,\nBKG_RNW.\"OptyRenewalStatus_CC\",\nBKG_RNW.\"FieldRenewalCriteriaIncludeExclude_CC\"\
+  ,\nBKG_RNW.\"PullinPeriodCriteria_CC\",\nBKG_RNW.\"SurvivorAccountBridgeFlag_CC\"\
+  ,\nBKG_RNW.\"SurvivorOppBridgeFlag_CC\",\nBKG_RNW.\"IneligibleEarliesFlag_CC\",\n\
+  BKG_RNW.\"NonCommissionableProductsFlag_CC\") as BOOKING_BRIDGE_FLAGS_ID, --SS 1.5/Avantika/Updated\
+  \ on: 04-01-2024/Release on: 02/02/2024/ Release Type: Regular\nBKG_ADHOC.\"AcctBUAtRenewalFlag_CC\"\
+  \ as ACCT_BU_RENEWAL_FLAG,\nBKG_ADHOC.\"AcctBUNNACVBridgeFlag\" as ACCT_BU_NNACV_FLAG,\n\
+  BKG_ADHOC.\"AcctBUNNACVLossNotatRenewalBridgeFlag\" as ACCT_BU_NNACV_LOSS_NA_RENEWAL_FLAG,\n\
+  BKG_ADHOC.\"AcctBUSalesAtRenewalFlag_CC\" as ACCT_BU_SALES_RENEWAL_FLAG,\nBKG_ADHOC.\"\
+  AcctBUSalesNNACVBridgeFlag\" as ACCT_BU_SALES_NNACV_FLAG,\nBKG_ADHOC.\"AcctBridgeFlagPrjLossAndDownsell_CC\"\
+  \ as ACCT_PRJ_LOSS_DOWNSELL_FLAG,\nBKG_ADHOC.\"AcctCGeoAtRenewalFlag_CC\" as ACCT_GEO_RENEWAL_FLAG,\n\
+  BKG_ADHOC.\"AcctCGeoNNACVBridgeFlag\"  as ACCT_GEO_NNACV_FLAG,\nBKG_ADHOC.\"AcctCGeoWonAccountFlag_CC\"\
+  \ as ACCT_GEO_WON_FLAG,\nBKG_ADHOC.\"AcctPF2WonAccountFlag_CC\" as ACCT_PF2_WON_FLAG,\n\
+  BKG_ADHOC.\"AcctPF3AtRenewalFlag_CC\" as ACCT_PF3_RENEWAL_FLAG,\nBKG_ADHOC.\"AcctPF3NNACVBridgeFlag\"\
+  \ as ACCT_PF3_NNACV_FLAG,\nBKG_ADHOC.\"AcctWFAtRenewalFlag_CC\" as ACCT_WORKFLOW_RENEWAL_FLAG,\n\
+  BKG_ADHOC.\"AcctWFNNACVBridgeFlag\" as ACCT_WORKFLOW_NNACV_FLAG,\nBKG_ADHOC.\"AcctWFWonAccountFlag_CC\"\
+  \ as ACCT_WORKFLOW_WON_FLAG,\nBKG_ADHOC.\"AcctWWAtRenewalFlag_CC\" as ACCT_WW_RENEWAL_FLAG,\n\
+  BKG_ADHOC.\"AcctWWNNACVBridgeFlag\" as ACCT_WW_NNACV_FLAG,\nBKG_ADHOC.\"AcctWWSalesAtRenewalFlag_CC\"\
+  \ as ACCT_WW_SALES_RENEWAL_FLAG,\n--Start of SS 1.5 Changes /Avantika/Updated on:\
+  \ 04-01-2024/Release on: 02/02/2024/ Release Type: Regular\nBKG_RNW.\"RenewalCriteriaIncludeExclude_CC\"\
+  \ as RENEWAL_CRITERIA_FLAG,\nBKG_RNW.\"AccountConsolidationFlag_CC\" as ACCT_CONSOLIDATION_FLAG,\n\
+  BKG_RNW.\"OptyRenewalStatus_CC\" as OPTY_RENEWAL_STATUS_FLAG,\nBKG_RNW.\"FieldRenewalCriteriaIncludeExclude_CC\"\
+  \ as FIELD_RENEWAL_CRITERIA_FLAG,\nBKG_RNW.\"PullinPeriodCriteria_CC\" as PULL_IN_PERIOD_CRITERIA_FLAG,\n\
+  BKG_RNW.\"SurvivorAccountBridgeFlag_CC\" as ACCT_SURVIVOR_BRIDGE_FLAG,\nBKG_RNW.\"\
+  SurvivorOppBridgeFlag_CC\" as OPTY_SURVIVOR_BRIDGE_FLAG,\nBKG_RNW.\"IneligibleEarliesFlag_CC\"\
+  \ as INELIGIBLE_EARLIES_FLAG,\nBKG_RNW.\"NonCommissionableProductsFlag_CC\" as NON_COMISSIONABLE_PRD_FLAG\n\
+  --End of SS 1.5 Changes /Avantika/Updated on: 04-01-2024/Release on: 02/02/2024/\
+  \ Release Type: Regular\nfrom CDL_LS.FINANCE_FPA_RPT.BOOKINGS_ADHOC BKG_ADHOC\n\
+  left join CDL_LS.FINANCE_FPA_RPT.BOOKINGS_RENEWAL BKG_RNW on BKG_ADHOC.\"OptyItemLineItemNumber\"\
+  \ = BKG_RNW.\"OptyItemLineItemNumber\" --SS 1.5/Avantika/Updated on: 04-01-2024/Release\
+  \ on: 02/02/2024/ Release Type: Regular\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

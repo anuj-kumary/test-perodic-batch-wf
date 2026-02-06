@@ -1,0 +1,80 @@
+name: table_1015
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1015
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1015.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_CONTRACT_ENTITLEMENT_APP_AND_PLUGINS(\n\
+  \tPRODUCT,\n\tFROM_PRODUCT_SUBCLASS_CODE,\n\tPRODUCT_NAME,\n\tAPPLICATIONS,\n\t\
+  APPICATION_NAME,\n\tCHILD_APPLICATION,\n\tCHILD_APPLICATION_NAME,\n\tPLUGINID,\n\
+  \tPLUGIN_NAME,\n\tPLUGINID2,\n\tPLUGIN2_NAME,\n\tPLUGINIDS,\n\tPLUGIN_NAMES,\n\t\
+  AET,\n\tCAET,\n\tPET,\n\tLPHASE\n) as\n/***************************************************************************************************************************************************\n\
+  \ * Program  Name             :   VW_CONTRACT_ENTITLEMENT_APP_AND_PLUGINS\n * ---------------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n *----------------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \ * CR#                 Modified By         Date Modified           Brief Description\
+  \ of Change\n\n * 1                   NVIJAYVARGIYA       18-10-2023           \
+  \   STRY2562846  : Get applications and plugins for Contract entitlement dashboard\n\
+  \n ****************************************************************************************************************************************************/\n\
+  select\n    Distinct a.*,\n    PEXC.type as PET,\n    LCE.LIFECYCLE_PHASE as LPHASE\n\
+  from\n    EDW_LS.PRODUCT_COMPLIANCE_EM.VW_GET_APPLICATIONS_PLUGINS a\n    LEFT JOIN\
+  \ ODS_LS.MDM.V_MDM_PRODUCT_EXCLUSION AS PEXC ON PEXC.PRODUCT_NUM = a.Product\n \
+  \   Left join ODS_LS.MDM.VW_V_MDM_PRODUCT_LIFECYCLE AS LCE ON LCE.PRODUCT_NUM =\
+  \ a.Product\n    AND LCE.START_DATE <= SYSDATE()\n    AND (\n        LCE.END_DATE\
+  \ >= SYSDATE()\n        OR LCE.END_DATE IS NULL\n    )\nwhere\n    a.from_product_subclass_code\
+  \ in (\n        'random',\n        'random',\n        'random',\n        'random',\n\
+  \        'random',\n        'random',\n        'random',\n        'random',\n  \
+  \      'random',\n        'random',\n        'random',\n        'random',\n    \
+  \    'random',\n        'random',\n        'random',\n        'random'\n    )\n\
+  \    and a.Product like 'random'\nUNION\nselect\n    Distinct vdm.PRODUCT_NUM as\
+  \ product,\n    'random',\n    vdm.PRODUCT_NAME as product_name,\n    'random' AS\
+  \ applications,\n    'random' as appication_name,\n    'random' AS child_application,\n\
+  \    'random' as child_application_name,\n    'random' AS pluginID,\n    'random'\
+  \ as plugin_name,\n    'random' AS pluginID2,\n    'random' AS plugin2_name,\n \
+  \   'random' as pluginIDs,\n    'random' as plugin_names,\n    'random' as AET,\n\
+  \    'random' as CAET,\n    PEXC.TYPE as PET,\n    LCE.LIFECYCLE_PHASE as LPHASE\n\
+  from\n    ODS_LS.MDM.V_MDM_PRODUCT as vdm\n    LEFT JOIN ODS_LS.MDM.V_MDM_PRODUCT_EXCLUSION\
+  \ AS PEXC ON PEXC.PRODUCT_NUM = vdm.PRODUCT_NUM\n    Left join ODS_LS.MDM.VW_V_MDM_PRODUCT_LIFECYCLE\
+  \ AS LCE ON LCE.PRODUCT_NUM = vdm.PRODUCT_NUM\n    AND LCE.START_DATE <= SYSDATE()\n\
+  \    AND (\n        LCE.END_DATE >= SYSDATE()\n        OR LCE.END_DATE IS NULL\n\
+  \    )\nwhere\n    vdm.product_num not in (\n        select\n            from_product_num\n\
+  \        from\n            ODS_LS.MDM.V_MDM_PRODUCT_BOM_COMPONENT\n    )\n    and\
+  \ vdm.ACTIVE_FLAG = 'random'\n    and vdm.product_num like 'random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

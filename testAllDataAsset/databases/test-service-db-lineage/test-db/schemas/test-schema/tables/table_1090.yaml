@@ -1,0 +1,269 @@
+name: table_1090
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1090
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1090.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TF_CUSTOM_SKUS(\n\t\"TableauKey\",\n\t\"\
+  OptyQuarter\",\n\t\"TerrGeo\",\n\t\"TerrMajorArea\",\n\t\"TerrArea\",\n\t\"TerrRegion\"\
+  ,\n\t\"TerrDistrict\",\n\t\"TerrName\",\n\t\"AcctNumber\",\n\t\"AcctName\",\n\t\"\
+  OptyTypeValue\",\n\t\"OptyNumber\",\n\t\"ProductCode\",\n\t\"ProductUnit\",\n\t\"\
+  ProductBusinessUnitValue\",\n\t\"OptyItemLineItemNumber\",\n\t\"NNACV USD\",\n\t\
+  ITSM,\n\t\"AppEngine\",\n\tITOM,\n\t\"Customer Service\",\n\t\"Security\",\n\tHR,\n\
+  \tPA,\n\tITBM,\n\tITAM,\n\t\"Risk\",\n\t\"Integration PaaS\",\n\t\"Finance\",\n\t\
+  \"Platform - Other\",\n\t\"DevOps\",\n\t\"Customer Success\",\n\t\"Other\",\n\t\
+  FSM,\n\t\"Workplace\",\n\t\"Legal\",\n\t\"Training\",\n\t\"% TTL\",\n\t\"CSKUType\"\
+  ,\n\t\"ProductDescription\",\n\t\"DateTimeGenerated\"\n) as\n\n\n/* Comments retained\
+  \ from HANA input file */\n\n /****************************************************************************************************************************************************\n\
+  \ * Program  Name              :     TF_CUSTOM_SKUS\n * Development Request # \t\
+  \ :\n * Date Created               : \t   2020-11-17\n * Developed By          \
+  \     :     William Brown\n * Brief Description          : \t   New Custom SKU Data\
+  \ Generation Function\n * ---------------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n *----------------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \ * CR#                 Date Modified           Modified By        Brief Description\
+  \ of Change\n * 1 \t\t\t\t  07-12-2020              WBROWN             Add TableauKey\n\
+  \ * 2\t\t\t\t\t  15-02-2021\t\t\t  MANI\t\t\t\t Added additional BU's\n *****************************************************************************************************************************************************/\n\
+  with DATABASE_NAME as (SELECT IFNULL(CURRENT_ACCOUNT(), 'random') AS DATABASE_NAME),\n\
+  \     QUARTER_MINUS_ONE as (select CASE WHEN (SELECT DATABASE_NAME FROM DATABASE_NAME\
+  \ )!= 'random' THEN ( SELECT NAME FROM EDW_LS.SALES_FD_EM.TBLQUARTER)\n        \
+  \                   ELSE\n                    (SELECT CASE\n                   \
+  \ WHEN 'random'||QUARTER(CURRENT_DATE)='random' THEN RIGHT(YEAR(CURRENT_DATE)-'random',\
+  \ 'random')|| 'random'\n                    WHEN 'random'||QUARTER(CURRENT_DATE)='random'\
+  \ THEN RIGHT(YEAR(CURRENT_DATE), 'random') || 'random'\n                    WHEN\
+  \ 'random'||QUARTER(CURRENT_DATE)='random' THEN RIGHT(YEAR(CURRENT_DATE), 'random')\
+  \ || 'random'\n                    WHEN 'random'||QUARTER(CURRENT_DATE)='random'\
+  \ THEN RIGHT(YEAR(CURRENT_DATE), 'random') || 'random' END\n                   \
+  \ ) END AS QUARTER_MINUS_ONE ),\n    historical as  (SELECT DISTINCT hist.\"AccountNumber\"\
+  ,\n                   hist.\"Product Code\",\n                   a.\"OptyQuarter\"\
+  ,\n                   a.\"TerrGeo\",\n                   a.\"TerrMajorArea\",\n\
+  \                   a.\"TerrArea\",\n                   a.\"TerrRegion\",\n    \
+  \               a.\"TerrDistrict\",\n                   a.\"TerrName\",\n      \
+  \             a.\"AcctNumber\",\n                   a.\"AcctName\",\n          \
+  \         a.\"OptyTypeValue\",\n                   a.\"OptyNumber\",\n         \
+  \          a.\"ProductCode\",\n                   a.\"ProductUnit\",\n         \
+  \          a.\"ProductBusinessUnitValue\",\n                   a.\"OptyItemLineItemNumber\"\
+  ,\n                   a.\"NNACV USD\",\n                   IFNULL(ROUND(hist.\"\
+  ITSM\", 'random'), 'random') as \"ITSM\",\n                   IFNULL(ROUND(hist.\"\
+  AppEngine\", 'random'), 'random') as \"AppEngine\",\n                   IFNULL(ROUND(hist.\"\
+  ITOM\", 'random'), 'random') as \"ITOM\",\n                   IFNULL(ROUND(hist.\"\
+  Customer Service\", 'random'), 'random') as \"Customer Service\",\n            \
+  \       IFNULL(ROUND(hist.\"Security\", 'random'), 'random') as \"Security\",\n\
+  \                   IFNULL(ROUND(hist.\"HR\", 'random'), 'random') as \"HR\",\n\
+  \                   IFNULL(ROUND(hist.\"PA\", 'random'), 'random') as \"PA\",\n\
+  \                   IFNULL(ROUND(hist.\"ITBM\", 'random'), 'random') as \"ITBM\"\
+  ,\n                   IFNULL(ROUND(hist.\"ITAM\", 'random'), 'random') as \"ITAM\"\
+  ,\n                   IFNULL(ROUND(hist.\"Risk\", 'random'), 'random') as \"Risk\"\
+  ,\n                   IFNULL(ROUND(hist.\"Integration Paas\", 'random'), 'random')\
+  \ as \"Integration Paas\",\n                   IFNULL(ROUND(hist.\"Finance\", 'random'),\
+  \ 'random') as \"Finance\",\n                   IFNULL(ROUND(hist.\"Platform - Other\"\
+  , 'random'), 'random') as \"Platform - Other\",\n                   IFNULL(ROUND(hist.\"\
+  DevOps\", 'random'), 'random') as \"DevOps\",\n                   IFNULL(ROUND(hist.\"\
+  Customer Success\", 'random'), 'random') as \"Customer Success\",\n            \
+  \       IFNULL(ROUND(hist.\"Other\", 'random'), 'random') as \"Other\",\n      \
+  \             IFNULL(ROUND(hist.\"FSM\", 'random'), 'random') as \"FSM\",\n    \
+  \               IFNULL(ROUND(hist.\"Workplace\", 'random'), 'random') as \"Workplace\"\
+  ,\n                   IFNULL(ROUND(hist.\"Legal\", 'random'), 'random') as \"Legal\"\
+  ,\n                   IFNULL(ROUND(hist.\"Training\", 'random'), 'random') as \"\
+  Training\",\n                   ROUND(IFNULL(hist.\"ITSM\", 'random') + IFNULL(hist.\"\
+  AppEngine\", 'random') + IFNULL(hist.\"ITOM\", 'random') + IFNULL(hist.\"Customer\
+  \ Service\", 'random') + IFNULL(hist.\"Security\", 'random') + IFNULL(hist.\"HR\"\
+  , 'random') + IFNULL(hist.\"PA\", 'random') + IFNULL(hist.\"ITBM\", 'random') +\
+  \ IFNULL(hist.\"ITAM\", 'random') + IFNULL(hist.\"Risk\", 'random') + IFNULL(hist.\"\
+  Integration Paas\", 'random') + IFNULL(hist.\"Finance\", 'random') + IFNULL(hist.\"\
+  Platform - Other\", 'random') + IFNULL(hist.\"DevOps\", 'random') + IFNULL(hist.\"\
+  Customer Success\", 'random') + IFNULL(hist.\"FSM\", 'random') + IFNULL(hist.\"\
+  Workplace\", 'random') + IFNULL(hist.\"Legal\", 'random') + IFNULL(hist.\"Training\"\
+  , 'random') + IFNULL(hist.\"Other\", 'random'), 'random') as \"% TTL\",\n      \
+  \             CASE WHEN hist.\"Multi BU\" = 'random' THEN 'random' ELSE 'random'\
+  \ END as \"CSKUType\",\n                   a.\"ProductDescription\",\n         \
+  \          CURRENT_TIMESTAMP as \"DateTimeGenerated\",\n                   case\
+  \ when a.\"OptyItemTermStartDate\" > a.\"OptyOrderTermStartDate\" then 'random'\
+  \ else 'random' end as \"Built-in Upsell\"\n                     FROM\n        \
+  \               (select *\n                            from\n                  \
+  \              (select *, DENSE_RANK() OVER (PARTITION BY \"AccountNumber\" || \"\
+  Product Code\" ORDER BY \"QTR\" DESC) AS \"most_recent\"\n                     \
+  \            from \"EDW_LS\".\"SALES_FD_EM\".\"TBLCUSTOMSKU_HISTORICAL\" where \"\
+  QTR\" <> (SELECT QUARTER_MINUS_ONE FROM QUARTER_MINUS_ONE) )\n                 \
+  \       where \"most_recent\" = 'random' and ROUND(\"Total (%)\", 'random') = 'random'\n\
+  \                       ) hist\n                     INNER JOIN\n              \
+  \         (SELECT RIGHT(YEAR(\"OptyCloseDate\") ||'random'|| QUARTER(\"OptyCloseDate\"\
+  ), 'random') as \"OptyQuarter\",\n                         st.\"TerrGeo\",\n   \
+  \                      st.\"TerrMajorArea\",\n                         st.\"TerrArea\"\
+  ,\n                         st.\"TerrRegion\",\n                         st.\"TerrDistrict\"\
+  ,\n                         st.\"TerrName\",\n                         sa.\"AcctNumber\"\
+  ,\n                         sa.\"AcctName\",\n                         so.\"OptyTypeValue\"\
+  ,\n                         so.\"OptyNumber\",\n                         p.\"ProductCode\"\
+  ,\n                         p.\"ProductUnit\",\n                         p.\"ProductBusinessUnitValue\"\
+  ,\n                         LEFT(p.\"ProductDescription\",'random') as \"ProductDescription\"\
+  ,\n                         oi.\"OptyItemLineItemNumber\",\n                   \
+  \      oi.\"OptyItemNetNewACVAmount_USD\" as \"NNACV USD\",\n                  \
+  \       oi.\"OptyItemTermStartDate\",\n                         so.\"OptyOrderTermStartDate\"\
+  \n                        FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY_ITEM\" oi\n\
+  \                        INNER JOIN\n                          (SELECT *\n     \
+  \                      FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\"\n        \
+  \                   WHERE \"OptyStageValue\" in ('random','random')\n          \
+  \                 AND RIGHT(YEAR(\"OptyCloseDate\") ||'random'|| QUARTER(\"OptyCloseDate\"\
+  ), 'random') = (SELECT QUARTER_MINUS_ONE FROM QUARTER_MINUS_ONE)\n             \
+  \             ) so on oi.\"OptyItemOpportunitySysID\" = so.\"OptySysID\"\n     \
+  \                   INNER JOIN \"ODS_LS\".\"SURF\".\"SALES_ACCOUNT\" sa on so.\"\
+  OptyAccountSysID\" = sa.\"AcctSysID\"\n                        INNER JOIN\n    \
+  \                      (SELECT *\n                           FROM \"ODS_LS\".\"\
+  SURF\".\"SALES_PRODUCT\"\n                           WHERE \"ProductFamily3\" IN\
+  \ ('random',\n                                                      'random',\n\
+  \                                                      'random',\n             \
+  \                                         'random',\n                          \
+  \                            'random',\n                                       \
+  \               'random',\n                                                    \
+  \  'random',\n                                                      'random',\n\
+  \                                                      'random',\n             \
+  \                                         'random',\n                          \
+  \                            'random',\n                                       \
+  \               'random',\n                                                    \
+  \  'random',\n                                                      'random',\n\
+  \                                                      'random',\n             \
+  \                                         'random',\n                          \
+  \                            'random',\n                                       \
+  \               'random',\n                                                    \
+  \  'random',\n                                                      'random',\n\
+  \                                                      'random') ) p on oi.\"OptyItemProductSysID\"\
+  \ = p.\"ProductSysID\"\n                        LEFT OUTER JOIN \"ODS_LS\".\"SURF\"\
+  .\"SALES_TERRITORY\" st on sa.\"AcctTerritorySysID\" = st.\"TerrSysID\"\n      \
+  \                  WHERE oi.\"OptyItemOpportunitySysID\" IN\n                  \
+  \          (SELECT IFNULL(\"OptySysID\", 'random')\n                           \
+  \  FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\"\n                            \
+  \ WHERE (\"OptyStageValue\" = 'random'\n                                    or \"\
+  OptyStageValue\" = 'random'\n                                    and \"OptyTypeValue\"\
+  \ = 'random')\n                               AND RIGHT(YEAR(\"OptyCloseDate\")\
+  \ ||'random'|| QUARTER(\"OptyCloseDate\"), 'random') = (SELECT QUARTER_MINUS_ONE\
+  \ FROM QUARTER_MINUS_ONE) )\n                  --AND oi.\"OptyItemFlagsValue\" not\
+  \ like '%First Time Purchase%'\n\n                  --AND oi.\"OptyItemMinDealsThresholdApprovalValue\"\
+  \ is null\n                   ) a on IFNULL(hist.\"AccountNumber\", 'random') ||\
+  \ IFNULL(hist.\"Product Code\", 'random') = IFNULL(a.\"AcctNumber\", 'random') ||\
+  \ IFNULL(a.\"ProductCode\", 'random')),\n  netnew as\n  (SELECT RIGHT(YEAR(\"OptyCloseDate\"\
+  ) ||'random'|| QUARTER(\"OptyCloseDate\"), 'random') as \"OptyQuarter\",\n     \
+  \     st.\"TerrGeo\",\n          st.\"TerrMajorArea\",\n          st.\"TerrArea\"\
+  ,\n          st.\"TerrRegion\",\n          st.\"TerrDistrict\",\n          st.\"\
+  TerrName\",\n          sa2.\"AcctNumber\",\n          sa2.\"AcctName\",\n      \
+  \    so2.\"OptyTypeValue\",\n          so2.\"OptyNumber\",\n          oi2.\"ProductCode\"\
+  ,\n          oi2.\"ProductUnit\",\n          oi2.\"ProductBusinessUnitValue\",\n\
+  \          oi2.\"OptyItemLineItemNumber\",\n          oi2.\"OptyItemNetNewACVAmount_USD\"\
+  \ as \"NNACV USD\",\n          'random' as \"ITSM\",\n          'random' as \"AppEngine\"\
+  ,\n          'random' as \"ITOM\",\n          'random' as \"Customer Service\",\n\
+  \          'random' as \"Security\",\n          'random' as \"HR\",\n          'random'\
+  \ as \"PA\",\n          'random' as \"ITBM\",\n          'random' as \"ITAM\",\n\
+  \          'random' as \"Risk\",\n          'random' as \"Integration PaaS\",\n\
+  \          'random' as \"Finance\",\n          'random' as \"Platform - Other\"\
+  ,\n          'random' as \"DevOps\",\n          'random' as \"Customer Success\"\
+  ,\n          'random' as \"Other\",\n          'random' as \"FSM\",\n          'random'\
+  \ as \"Workplace\",\n          'random' as \"Legal\",\n          'random' as \"\
+  Training\",\n          'random' as \"% TTL\",\n          'random' as \"CSKUType\"\
+  ,\n          oi2.\"ProductDescription\",\n          CURRENT_TIMESTAMP as \"DateTimeGenerated\"\
+  ,\n          case\n              when oi2.\"OptyItemTermStartDate\" > so2.\"OptyOrderTermStartDate\"\
+  \ then 'random'\n              else 'random'\n          end as \"Built-in Upsell\"\
+  \n   FROM\n     (SELECT *\n      FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\"\n\
+  \      WHERE (\"OptyStageValue\" = 'random'\n             or \"OptyStageValue\"\
+  \ = 'random'\n             and \"OptyTypeValue\" = 'random')\n        AND RIGHT(YEAR(\"\
+  OptyCloseDate\") ||'random'|| QUARTER(\"OptyCloseDate\"), 'random') = (SELECT QUARTER_MINUS_ONE\
+  \ FROM QUARTER_MINUS_ONE) ) so2\n   INNER JOIN\n     (SELECT oi.*,\n           \
+  \  p.\"ProductSysID\",\n             p.\"ProductBusinessUnitValue\",\n         \
+  \    p.\"ProductCode\",\n             p.\"ProductFullName\",\n             p.\"\
+  ProductFamily3\",\n             LEFT(p.\"ProductDescription\", 'random') as \"ProductDescription\"\
+  ,\n             p.\"ProductUnit\"\n      FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY_ITEM\"\
+  \ oi\n      LEFT OUTER JOIN \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\" so ON oi.\"\
+  OptyItemOpportunitySysID\" = so.\"OptySysID\"\n      LEFT OUTER JOIN \"ODS_LS\"\
+  .\"SURF\".\"SALES_ACCOUNT\" sa on so.\"OptyAccountSysID\" = sa.\"AcctSysID\"\n \
+  \     LEFT OUTER JOIN \"ODS_LS\".\"SURF\".\"SALES_PRODUCT\" sp ON oi.\"OptyItemProductSysID\"\
+  \ = sp.\"ProductSysID\"\n      INNER JOIN\n        (SELECT *\n         FROM \"ODS_LS\"\
+  .\"SURF\".\"SALES_PRODUCT\"\n         WHERE \"ProductFamily3\" IN ('random',\n \
+  \                                   'random',\n                                \
+  \    'random',\n                                    'random',\n                \
+  \                    'random',\n                                    'random',\n\
+  \                                    'random',\n                               \
+  \     'random',\n                                    'random',\n               \
+  \                     'random',\n                                    'random',\n\
+  \                                    'random',\n                               \
+  \     'random',\n                                    'random',\n               \
+  \                     'random',\n                                    'random',\n\
+  \                                    'random',\n                               \
+  \     'random',\n                                    'random',\n               \
+  \                     'random',\n                                    'random') )\
+  \ p on oi.\"OptyItemProductSysID\" = p.\"ProductSysID\"\n      WHERE oi.\"OptyItemOpportunitySysID\"\
+  \ IN\n          (SELECT \"OptySysID\"\n           FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\"\
+  \n           WHERE \"OptyStageValue\" in ('random',\n                          \
+  \            'random')\n             AND RIGHT(YEAR(\"OptyCloseDate\") ||'random'||\
+  \ QUARTER(\"OptyCloseDate\"), 'random') = (SELECT QUARTER_MINUS_ONE FROM QUARTER_MINUS_ONE)\
+  \ )\n--AND (oi.\"OptyItemFlagsValue\" like '%First Time Purchase%' or oi.\"OptyItemMinDealsThresholdApprovalValue\"\
+  \ is not null)\n\n        AND oi.\"OptyItemOpportunitySysID\" NOT IN\n         \
+  \ (SELECT \"OptySysID\"\n           FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\"\
+  \n           WHERE \"OptyStageValue\" in ('random')\n             AND RIGHT(YEAR(\"\
+  OptyCloseDate\") ||'random'|| QUARTER(\"OptyCloseDate\"), 'random') = (SELECT QUARTER_MINUS_ONE\
+  \ FROM QUARTER_MINUS_ONE)\n             AND \"OptyTypeValue\" = 'random' )\n   \
+  \     AND oi.\"OptyItemOpportunitySysID\" NOT IN\n          (SELECT \"OptySysID\"\
+  \n           FROM \"ODS_LS\".\"SURF\".\"SALES_OPPORTUNITY\"\n           WHERE \"\
+  OptyStageValue\" in ('random')\n             AND RIGHT(YEAR(\"OptyCloseDate\") ||'random'||\
+  \ QUARTER(\"OptyCloseDate\"), 'random') = (SELECT QUARTER_MINUS_ONE FROM QUARTER_MINUS_ONE)\n\
+  \             AND \"OptyTypeValue\" = 'random' )\n        AND IFNULL(sa.\"AcctNumber\"\
+  , 'random') || IFNULL(sp.\"ProductCode\", 'random') NOT IN\n          (select IFNULL(hist.\"\
+  AccountNumber\", 'random') || IFNULL(hist.\"Product Code\", 'random')\n        \
+  \   from historical hist) ) oi2 on so2.\"OptySysID\" = oi2.\"OptyItemOpportunitySysID\"\
+  \n   INNER JOIN \"ODS_LS\".\"SURF\".\"SALES_ACCOUNT\" sa2 on so2.\"OptyAccountSysID\"\
+  \ = sa2.\"AcctSysID\"\n   LEFT OUTER JOIN \"ODS_LS\".\"SURF\".\"SALES_TERRITORY\"\
+  \ st on sa2.\"AcctTerritorySysID\" = st.\"TerrSysID\")\n-- Main SQL starts here\n\
+  SELECT CAST(UUID_STRING() as VARCHAR) as \"TableauKey\",\n       \"OptyQuarter\"\
+  ,\n       \"TerrGeo\",\n       \"TerrMajorArea\",\n       \"TerrArea\",\n      \
+  \ \"TerrRegion\",\n       \"TerrDistrict\",\n       \"TerrName\",\n       \"AcctNumber\"\
+  ,\n       \"AcctName\",\n       \"OptyTypeValue\",\n       \"OptyNumber\",\n   \
+  \    \"ProductCode\",\n       \"ProductUnit\",\n       \"ProductBusinessUnitValue\"\
+  ,\n       \"OptyItemLineItemNumber\",\n       \"NNACV USD\",\n       \"ITSM\",\n\
+  \       \"AppEngine\",\n       \"ITOM\",\n       \"Customer Service\",\n       \"\
+  Security\",\n       \"HR\",\n       \"PA\",\n       \"ITBM\",\n       \"ITAM\",\n\
+  \       \"Risk\",\n       \"Integration PaaS\",\n       \"Finance\",\n       \"\
+  Platform - Other\",\n       \"DevOps\",\n       \"Customer Success\",\n       \"\
+  Other\",\n       \"FSM\",\n       \"Workplace\",\n       \"Legal\",\n       \"Training\"\
+  ,\n       \"% TTL\",\n       CASE WHEN \"Customer Success\" > 'random' THEN 'random'\
+  \ ELSE \"CSKUType\" END AS \"CSKUType\",\n       \"ProductDescription\",\n     \
+  \  \"DateTimeGenerated\"\nFROM\n  (\n--NetNew Custom SKU\n SELECT 'random' as \"\
+  Accountnumber\",\n        'random' as \"Product Code\",\n        *\n   FROM netnew\n\
+  \   WHERE \"OptyItemLineItemNumber\" NOT IN (SELECT \"OptyItemLineItemNumber\" FROM\
+  \ historical )\n   UNION ALL\n--Union Recurring Deals with & without Allocation\n\
+  \ SELECT *\n FROM historical\n  )\nWHERE \"Built-in Upsell\" <> 'random'\nORDER\
+  \ BY \"OptyItemLineItemNumber\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

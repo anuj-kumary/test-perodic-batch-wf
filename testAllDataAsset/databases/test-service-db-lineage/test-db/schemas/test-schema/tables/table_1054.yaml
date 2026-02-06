@@ -1,0 +1,73 @@
+name: table_1054
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1054
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1054.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view MARVEL_CUSTOMERS(\n\t\"Name\",\n\t\"Handling_Notes\"\
+  ,\n\tACV,\n\t\"Interaction_Score\",\n\t\"Tags\",\n\t\"State\",\n\t\"Program_Start\"\
+  ,\n\t\"Account_Executive\",\n\t\"Status\",\n\t\"Status_Reason\",\n\t\"Program\"\
+  ,\n\t\"Success_Lead\",\n\t\"Solution_Consultant\",\n\t\"Type\",\n\t\"Play_Status\"\
+  ,\n\t\"Territory\",\n\t\"Geo\",\n\t\"District\",\n\t\"Updated\",\n\t\"Updated_by\"\
+  ,\n\t\"Number\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"Name\" as \"Name\",\n\
+  \       \"Handling_Notes\" as \"Handling_Notes\",\n       \"ACV\" as \"ACV\",\n\
+  \       \"Interaction_Score\" as \"Interaction_Score\",\n       \"Tags\" as \"Tags\"\
+  ,\n       \"State\" as \"State\",\n       \"Program_Start\" as \"Program_Start\"\
+  ,\n       \"Account_Executive\" as \"Account_Executive\",\n       \"Status\" as\
+  \ \"Status\",\n       \"Status_Reason\" as \"Status_Reason\",\n       \"Program\"\
+  \ as \"Program\",\n       \"Success_Lead\" as \"Success_Lead\",\n       \"Solution_Consultant\"\
+  \ as \"Solution_Consultant\",\n       \"Type\" as \"Type\",\n       \"Play_Status\"\
+  \ as \"Play_Status\",\n       \"Territory\" as \"Territory\",\n       \"Geo\" as\
+  \ \"Geo\",\n       \"District\" as \"District\",\n       \"Updated\" as \"Updated\"\
+  ,\n       \"Updated_by\" as \"Updated_by\",\n       \"Number\" as \"Number\"\nFROM\n\
+  \  (SELECT \"Name\" as \"Name\",\n          \"Handling Notes\" as \"Handling_Notes\"\
+  ,\n          \"ACV\" as \"ACV\",\n          \"Interaction Score\" as \"Interaction_Score\"\
+  ,\n          \"Tags\" as \"Tags\",\n          \"State\" as \"State\",\n        \
+  \  \"Program Start\" as \"Program_Start\",\n          \"Account Executive\" as \"\
+  Account_Executive\",\n          \"Status\" as \"Status\",\n          \"Status Reason\"\
+  \ as \"Status_Reason\",\n          \"Program\" as \"Program\",\n          \"Success\
+  \ Lead\" as \"Success_Lead\",\n          \"Solution Consultant\" as \"Solution_Consultant\"\
+  ,\n          \"Type\" as \"Type\",\n          \"Play Status\" as \"Play_Status\"\
+  ,\n          \"Territory\" as \"Territory\",\n          \"Geo\" as \"Geo\",\n  \
+  \        \"District\" as \"District\",\n          \"Updated\" as \"Updated\",\n\
+  \          \"Updated by\" as \"Updated_by\",\n          \"Number\" as \"Number\"\
+  \n   FROM \"RDS\".\"FLATFILESOURCE\".\"MARVEL_CUSTOMERS\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

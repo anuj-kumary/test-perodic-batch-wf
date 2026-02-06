@@ -1,0 +1,56 @@
+name: table_1085
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1085
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1085.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TBL_SALES_P4_PRIORITIES(\n\t\"RecordType_New\"\
+  ,\n\t\"RecordType\",\n\t\"Baseline\",\n\t\"Targets\",\n\t\"Actuals_Q1\",\n\t\"Actuals_Q2\"\
+  ,\n\t\"Actuals_Q3\",\n\t\"Actuals_Q4\",\n\t\"Actuals\",\n\t\"Pipeline\",\n\t\"Prediction\"\
+  ,\n\t\"UpdateFrequency\"\n) as\n    SELECT \"RECORDTYPE_NEW\" as \"RecordType_New\"\
+  ,\n          \"RECORDTYPE\" as \"RecordType\",\n          \"BASELINE\" as \"Baseline\"\
+  ,\n          \"TARGETS\" as \"Targets\",\n          \"ACTUALS_Q1\" as \"Actuals_Q1\"\
+  ,\n          \"ACTUALS_Q2\" as \"Actuals_Q2\",\n          \"ACTUALS_Q3\" as \"Actuals_Q3\"\
+  ,\n          \"ACTUALS_Q4\" as \"Actuals_Q4\",\n          \"ACTUALS_FY\" as \"Actuals\"\
+  ,\n          \"PIPELINE\" as \"Pipeline\",\n          \"PREDICTION\" as \"Prediction\"\
+  ,\n          \"UPDATE_FREQUENCY\" as \"UpdateFrequency\"\n   FROM \"RDS\".\"FLATFILESOURCE\"\
+  .\"TBL_SALES_P4_PRIORITIES\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,52 @@
+name: table_109
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_109
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_109.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_U_JOB_TITLE(\n\t\"SJobTitleExtractDate\"\
+  ,\n\t\"SJobTitleSysID\",\n\t\"SJobTitleJobFunction\",\n\t\"SJobTitleTitle\",\n\t\
+  \"SJobTitleJobFunctionSysID\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"EXTRACT_DATE\"\
+  \ as \"SJobTitleExtractDate\",\n       \"SYS_ID\" as \"SJobTitleSysID\",\n     \
+  \  \"DV_U_JOB_FUNCTION\" as \"SJobTitleJobFunction\",\n       \"U_TITLE\" as \"\
+  SJobTitleTitle\",\n       \"U_JOB_FUNCTION\" as \"SJobTitleJobFunctionSysID\"\n\
+  FROM \"RDS\".\"SURF\".\"ST_U_JOB_TITLE\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

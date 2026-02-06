@@ -1,0 +1,79 @@
+name: table_1066
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1066
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1066.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view WW_SURVIVOR_ACCT_WON_LOST_SAME_QTR(\n\t\"\
+  WonLostSameQtrFlag_CC\",\n\t\"FinNNACV_CC\",\n\t\"SurvivorOptyAcctNumber\",\n\t\"\
+  OptySalesQuarter\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"WonLostSameQtrFlag_CC\"\
+  \ as \"WonLostSameQtrFlag_CC\",\n       \"FinNNACV_CC\" as \"FinNNACV_CC\",\n  \
+  \     \"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\",\n       \"OptySalesQuarter\"\
+  \ as \"OptySalesQuarter\"\nFROM\n  (SELECT \"WonLostSameQtrFlag_CC\" as \"WonLostSameQtrFlag_CC\"\
+  ,\n          \"FinNNACV_CC\" as \"FinNNACV_CC\",\n          \"SurvivorOptyAcctNumber\"\
+  \ as \"SurvivorOptyAcctNumber\",\n          \"OptySalesQuarter\" as \"OptySalesQuarter\"\
+  \n   FROM\n     (SELECT \"Lost\".\"WonLostSameQtrFlag\" as \"WonLostSameQtrFlag\"\
+  ,\n             \"Aggregation_1\".\"FinNNACV_CC\" as \"FinNNACV_CC\",\n        \
+  \     \"Lost\".\"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\",\n     \
+  \        \"Lost\".\"OptySalesQuarter\" as \"OptySalesQuarter\",\n             IFF(\"\
+  WonLostSameQtrFlag\" = 'random'\n                 and \"FinNNACV_CC\" = 'random',\
+  \ 'random', 'random') as \"WonLostSameQtrFlag_CC\"\n      FROM\n        (SELECT\
+  \ \"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\",\n                \"\
+  OptySalesQuarter\" as \"OptySalesQuarter\",\n                'random' as \"WonLostSameQtrFlag\"\
+  \n         FROM\n           (SELECT \"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\"\
+  ,\n                   \"OptySalesQuarter\" as \"OptySalesQuarter\",\n          \
+  \         \"OptyStage\" as \"OptyStage\",\n                   \"OptyRenewalStatus\"\
+  \ as \"OptyRenewalStatus\",\n                   \"FinNNACV_CC\" as \"FinNNACV_CC\"\
+  ,\n                   IFF((\"OptyRenewalStatus\") IS NULL\n                    \
+  \   or \"OptyRenewalStatus\" = 'random', 'random', \"OptyRenewalStatus\") as \"\
+  OptyRenewalStatus_CC\"\n            FROM \"CDL_LS\".\"PRODUCT_RPT\".\"SURVIVOR_OPP_ACCOUNT\"\
+  \n            WHERE \"OptyStage\" = 'random'\n              AND \"FinNNACV_CC\"\
+  \ <> 'random'\n              AND \"OptyRenewalStatus_CC\" <> 'random' )\"Projection_1\"\
+  \n         GROUP BY \"SurvivorOptyAcctNumber\",\n                  \"OptySalesQuarter\"\
+  )\"Lost\"\n      LEFT JOIN\n        (SELECT SUM(\"FinNNACV_CC\") as \"FinNNACV_CC\"\
+  ,\n                \"SurvivorOptyAcctNumber\" as \"SurvivorOptyAcctNumber\",\n \
+  \               \"OptySalesQuarter\" as \"OptySalesQuarter\"\n         FROM \"CDL_LS\"\
+  .\"PRODUCT_RPT\".\"SURVIVOR_OPP_ACCOUNT\"\n         GROUP BY \"SurvivorOptyAcctNumber\"\
+  ,\n                  \"OptySalesQuarter\")\"Aggregation_1\" ON \"Lost\".\"SurvivorOptyAcctNumber\"\
+  \ = \"Aggregation_1\".\"SurvivorOptyAcctNumber\"\n      AND \"Lost\".\"OptySalesQuarter\"\
+  \ = \"Aggregation_1\".\"OptySalesQuarter\")\"Join_2\"\n   WHERE \"WonLostSameQtrFlag_CC\"\
+  \ = 'random' )Projection_2 ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

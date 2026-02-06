@@ -1,0 +1,92 @@
+name: table_102
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_102
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_102.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_PREPIPELINE(\n\t\"PartnerAccount\",\n\t\
+  \"PartnerAccountSysID\",\n\t\"CustAccount\",\n\t\"CustAccountSysID\",\n\t\"CustAccountTerritory\"\
+  ,\n\t\"CustAccountTerritorySysID\",\n\t\"AcctIndustrySegmentCategory\",\n\t\"AcctIndustrySegmentCategorySysID\"\
+  ,\n\t\"PrepipeBU\",\n\t\"PrePipelineNumber\",\n\t\"PrepipelineState\",\n\t\"AgreementBetweenPartner\"\
+  ,\n\t\"AlignedDate\",\n\t\"EngagementActivities\",\n\t\"EngagedDate\",\n\t\"Owner\"\
+  ,\n\t\"AreaSalesDirector\",\n\t\"UpdatedOn\",\n\t\"UpdatedBy\",\n\t\"PursuitName\"\
+  ,\n\t\"CreatedOn\",\n\tRAM,\n\tSRAM,\n\t\"SalesRep\",\n\t\"SolutionConsultant\"\
+  ,\n\t\"ConvertedDate\",\n\t\"PracticeDevelopmentManager\",\n\t\"IndustrySolutionTeam\"\
+  ,\n\t\"Prepipeline_GUID\",\n\t\"SubStatus\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"PartnerAccount\" as \"PartnerAccount\",\n \"PartnerAccountSysID\" as \"PartnerAccountSysID\"\
+  ,\n \"CustAccount\" as \"CustAccount\",\n \"CustAccountSysID\" as \"CustAccountSysID\"\
+  ,\n \"CustAccountTerritory\" as \"CustAccountTerritory\",\n \"CustAccountTerritorySysID\"\
+  \ as \"CustAccountTerritorySysID\",\n \"AcctIndustrySegmentCategory\" as \"AcctIndustrySegmentCategory\"\
+  ,\n \"AcctIndustrySegmentCategorySysID\" as \"AcctIndustrySegmentCategorySysID\"\
+  ,\n \"PrepipeBU\" as \"PrepipeBU\",\n \"PrePipelineNumber\" as \"PrePipelineNumber\"\
+  ,\n \"PrepipelineState\" as \"PrepipelineState\",\n \"AgreementBetweenPartner\"\
+  \ as \"AgreementBetweenPartner\",\n \"AlignedDate\" as \"AlignedDate\",\n \"EngagementActivities\"\
+  \ as \"EngagementActivities\",\n \"EngagedDate\" as \"EngagedDate\",\n \"Owner\"\
+  \ as \"Owner\",\n \"AreaSalesDirector\" as \"AreaSalesDirector\",\n \"UpdatedOn\"\
+  \ as \"UpdatedOn\",\n \"UpdatedBy\" as \"UpdatedBy\",\n \"PursuitName_CC\" as \"\
+  PursuitName\",\n \"CreatedOn\" as \"CreatedOn\",\n \"RAM\" as \"RAM\",\n \"SRAM\"\
+  \ as \"SRAM\",\n \"SalesRep\" as \"SalesRep\",\n \"SolutionConsultant\" as \"SolutionConsultant\"\
+  ,\n \"U_CONVERTED_DATE\" as \"ConvertedDate\",\n \"DV_U_PRACTICE_DEVELOPMENT_MANAGER\"\
+  \ as \"PracticeDevelopmentManager\",\n \"DV_U_INDUSTRY_SOLUTIONS_TEAM\" as \"IndustrySolutionTeam\"\
+  ,\n \"U_DYNAMICS_GUID\" as \"Prepipeline_GUID\",\n \"SubStatus\" as \"SubStatus\"\
+  \nFROM\n (SELECT \"DV_U_PARTNER_ACCOUNT\" as \"PartnerAccount\",\n \"U_PARTNER_ACCOUNT\"\
+  \ as \"PartnerAccountSysID\",\n \"DV_U_CUSTOMER_ACCOUNT\" as \"CustAccount\",\n\
+  \ \"U_CUSTOMER_ACCOUNT\" as \"CustAccountSysID\",\n \"DV_U_CUSTOMER_ACCOUNT_TERRITORY\"\
+  \ as \"CustAccountTerritory\",\n \"U_CUSTOMER_ACCOUNT_TERRITORY\" as \"CustAccountTerritorySysID\"\
+  ,\n \"DV_U_ACCOUNT_INDUSTRY_SEGMENT_CATEGORY\" as \"AcctIndustrySegmentCategory\"\
+  ,\n \"U_ACCOUNT_INDUSTRY_SEGMENT_CATEGORY\" as \"AcctIndustrySegmentCategorySysID\"\
+  ,\n \"DV_U_BUSINESS_UNIT\" as \"PrepipeBU\",\n \"U_NUMBER\" as \"PrePipelineNumber\"\
+  ,\n \"DV_U_STATE\" as \"PrepipelineState\",\n \"DV_U_AGREEMENT_BTWN_PARTNER_SERVICENOW\"\
+  \ as \"AgreementBetweenPartner\",\n \"U_ALIGNED_DATE\" as \"AlignedDate\",\n \"\
+  DV_U_ENGAGEMENT_ACTIVITES\" as \"EngagementActivities\",\n \"U_ENGAGED_DATE\" as\
+  \ \"EngagedDate\",\n \"DV_U_OWNER\" as \"Owner\",\n \"U_PURSUIT_NAME\" as \"PursuitName\"\
+  ,\n \"DV_U_AREA_SALES_DIRECTOR\" as \"AreaSalesDirector\",\n \"SYS_UPDATED_ON\"\
+  \ as \"UpdatedOn\",\n \"SYS_UPDATED_BY\" as \"UpdatedBy\",\n \"SYS_CREATED_ON\"\
+  \ as \"SYS_CREATED_ON\",\n \"DV_U_REGIONAL_ALLIANCE_MANAGER\" as \"RAM\",\n \"DV_U_STRATEGIC_REGIONAL_ALLIANCE_MANAGER\"\
+  \ as \"SRAM\",\n \"DV_U_SALES_REP\" as \"SalesRep\",\n \"DV_U_SOLUTION_CONSULTANT\"\
+  \ as \"SolutionConsultant\",\n \"PursuitName\" as \"PursuitName_CC\",\n TO_date(\"\
+  SYS_CREATED_ON\") as \"CreatedOn\",\n \"U_CONVERTED_DATE\" as \"U_CONVERTED_DATE\"\
+  , --- newly added columns\n \"DV_U_PRACTICE_DEVELOPMENT_MANAGER\" as \"DV_U_PRACTICE_DEVELOPMENT_MANAGER\"\
+  ,\n \"DV_U_INDUSTRY_SOLUTIONS_TEAM\" as \"DV_U_INDUSTRY_SOLUTIONS_TEAM\",\n \"U_DYNAMICS_GUID\"\
+  \ as \"U_DYNAMICS_GUID\", -----newly added columns\n \"DV_U_SUB_STATUS\" as \"SubStatus\"\
+  \n FROM \"RDS\".\"SURF\".\"U_PREPIPELINE\"\n WHERE \"PrepipeBU\" <> 'random' or\
+  \  \"PrepipeBU\" IS NULL)Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

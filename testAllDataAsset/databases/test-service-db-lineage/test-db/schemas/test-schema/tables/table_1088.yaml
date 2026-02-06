@@ -1,0 +1,57 @@
+name: table_1088
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1088
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_1088.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view CUSTOMER_CACV_ZERO_VALUE(\n\t\"AcctName\"\
+  ,\n\t\"AcctNumber\",\n\tCACV\n) as\n\n\n/* Comments retained from HANA input file\
+  \ */\n\n /***********************************************************************************************************************\n\
+  \ * Program  Name              :  CUSTOMER_CACV_ZERO_VALUE\n * Development Request\
+  \ # \t :\n * Date Created               : \t2020-09-28\n * Developed By        \
+  \       :  Sridhar Bankuru\n * Brief Description          : \tKnowledge Cards -\
+  \ CUSTOMER WITH CACV ZERO VALUES\n * ---------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n *----------------------------------------------------------------------------------------------------------------\n\
+  \ * CR#\n * 1\n * 2\n  *********************************************************************************************************************/\n\
+  \n\n\n\n\nSELECT\n \t\t\"AcctName\",\n \t\t\"AcctNumber\",\n \t\t\"CACV\"\n \t FROM\n\
+  \"CDL_LS\".\"CUSTOMER_CD_RPT\".\"EM_CUSTOMER_INDEX_PORTFOLIO_FLIP_FLOP\"\n \t WHERE\
+  \ USERID LIKE 'random' AND (\"CACV\" = 'random' OR \"CACV\" IS NULL );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
