@@ -1,0 +1,173 @@
+name: cdb_snapshot_logs
+fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs
+tableType: View
+columns:
+  - name: log_owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the snapshot log
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.log_owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: master
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the master table which  changes are logged
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.master
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_table
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Log table; with rowids and timestamps of rows which changed in the
+      master
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.log_table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: log_trigger
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: An after-row trigger on the master which inserts rows into the log
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.log_trigger
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rowids
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If YES, the snapshot log records rowid information"
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.rowids
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: primary_key
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If YES, the snapshot log records primary key information"
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.primary_key
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_id
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If YES, the snapshot log records object id information"
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.object_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: filter_columns
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If YES, the snapshot log records filter column information"
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.filter_columns
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sequence
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If YES, the snapshot log records sequence information"
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.sequence
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: include_new_values
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: "If YES, the snapshot log records old and new values (else only old\
+      \ values)"
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.include_new_values
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: current_snapshots
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: One date per snapshot -- the date the snapshot of the master last
+      refreshed
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.current_snapshots
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: snapshot_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Unique identifier of the snapshot
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.snapshot_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: con_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: container id
+    fullyQualifiedName: oracle_test.default.sys.cdb_snapshot_logs.con_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 2a6aefa1007bea07ce482bf909d98d37
+processedLineage: false
+entityStatus: Approved
