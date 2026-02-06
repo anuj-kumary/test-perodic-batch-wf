@@ -1,0 +1,428 @@
+name: dba_mviews
+fullyQualifiedName: oracle_test.default.sys.dba_mviews
+tableType: View
+columns:
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the materialized view
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: mview_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the materialized view
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.mview_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: container_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the materialized view container table
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.container_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: query
+    dataType: LONG
+    dataLength: 1
+    dataTypeDisplay: long
+    description: The defining query that the materialized view instantiates
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.query
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query_len
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The number of bytes in the defining query (based on the server character
+      set
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.query_len
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: updatable
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates whether the materialized view can be updated
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.updatable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: update_log
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the table that logs changes to an updatable materialized
+      view
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.update_log
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: master_rollback_seg
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the rollback segment to use at the master site
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.master_rollback_seg
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: master_link
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the database link to the master site
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.master_link
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rewrite_enabled
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates whether rewrite is enabled for the materialized view
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.rewrite_enabled
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rewrite_capability
+    dataType: VARCHAR
+    dataLength: 9
+    dataTypeDisplay: varchar2(9)
+    description: Indicates the kind of rewrite that is enabled
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.rewrite_capability
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_mode
+    dataType: VARCHAR
+    dataLength: 9
+    dataTypeDisplay: varchar2(9)
+    description: Indicates how and when the materialized view will be refreshed
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.refresh_mode
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_method
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: varchar2(8)
+    description: "The default refresh method for the materialized view (complete,\
+      \ fast, ...)"
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.refresh_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: build_mode
+    dataType: VARCHAR
+    dataLength: 9
+    dataTypeDisplay: varchar2(9)
+    description: How and when to initially build (load) the materialized view container
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.build_mode
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: fast_refreshable
+    dataType: VARCHAR
+    dataLength: 18
+    dataTypeDisplay: varchar2(18)
+    description: Indicates the kinds of operations that can be fast refreshed for
+      the MV
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.fast_refreshable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_refresh_type
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: varchar2(8)
+    description: Indicates the kind of refresh that was last performed on the MV
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.last_refresh_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_refresh_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The date that the materialized view was last refreshed
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.last_refresh_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_refresh_end_time
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The time that the last materialized view refresh ended
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.last_refresh_end_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: staleness
+    dataType: VARCHAR
+    dataLength: 19
+    dataTypeDisplay: varchar2(19)
+    description: "Indicates the staleness state of the materialized view (fresh, stale,\
+      \ ...)"
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.staleness
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: after_fast_refresh
+    dataType: VARCHAR
+    dataLength: 19
+    dataTypeDisplay: varchar2(19)
+    description: Indicates the staleness state the MV will have after a fast refresh
+      is done
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.after_fast_refresh
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unknown_prebuilt
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates if the materialized view is prebuilt
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.unknown_prebuilt
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unknown_plsql_func
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates if the materialized view contains PL/SQL function
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.unknown_plsql_func
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unknown_external_table
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates if the materialized view contains external tables
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.unknown_external_table
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unknown_consider_fresh
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates if the materialized view is considered fresh
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.unknown_consider_fresh
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unknown_import
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates if the materialized view is imported
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.unknown_import
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unknown_trusted_fd
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates if the materialized view used trusted constraints for refresh
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.unknown_trusted_fd
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: compile_state
+    dataType: VARCHAR
+    dataLength: 19
+    dataTypeDisplay: varchar2(19)
+    description: Indicates the validity of the MV meta-data
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.compile_state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: use_no_index
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates whether the MV uses no index
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.use_no_index
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: stale_since
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Time from when the materialized view became stale
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.stale_since
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: num_pct_tables
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Number of PCT detail tables
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.num_pct_tables
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: num_fresh_pct_regions
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Number of fresh PCT partition regions
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.num_fresh_pct_regions
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: num_stale_pct_regions
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Number of stale PCT partition regions
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.num_stale_pct_regions
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: segment_created
+    dataType: VARCHAR
+    dataLength: 3
+    dataTypeDisplay: varchar2(3)
+    description: Whether the materialized view segment is created or not
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.segment_created
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: evaluation_edition
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the evaluation edition assigned to the materialized view
+      subquery
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.evaluation_edition
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unusable_before
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the oldest edition eligible for query rewrite
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.unusable_before
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unusable_beginning
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the oldest edition in which query rewrite becomes perpetually
+      disabled
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.unusable_beginning
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_collation
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar2(100)
+    description: Default collation for the materialized view
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.default_collation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: on_query_computation
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: Indicates if the materialized view is a Real-Time MV
+    fullyQualifiedName: oracle_test.default.sys.dba_mviews.on_query_computation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 8bb2105d209e982447138025c1c8178d
+processedLineage: false
+entityStatus: Approved
