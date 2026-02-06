@@ -1,0 +1,43 @@
+name: 5f052c86fba463f00de7454aec9b462c
+fullyQualifiedName: ingest_dbt_test.5f052c86fba463f00de7454aec9b462c
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"ab4b94bc-9e10-4efb-9ab2-4d9a83f0f9f7\",\"type\":\"table\"\
+        ,\"name\":\"MY_SECOND_DBT_MODEL\",\"fullyQualifiedName\":\"ingest_dbt_test.HK_DB.HK_SCHEMA.MY_SECOND_DBT_MODEL\"\
+        ,\"displayName\":\"MY_SECOND_DBT_MODEL\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 167.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "create or replace   view hk_db.HK_SCHEMA.my_second_dbt_model\n  \n   as (\n\
+  \    -- Use the `ref` function to select from other models\n\nselect *\nfrom hk_db.HK_SCHEMA.my_first_dbt_model\n\
+  where id = ?\n  );"
+checksum: 5f052c86fba463f00de7454aec9b462c
+queryDate: 1751932800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 665f000e-7d2c-46be-9ebb-a4f6768ad542
+    type: table
+    name: MY_FIRST_DBT_MODEL
+    fullyQualifiedName: ingest_dbt_test.HK_DB.HK_SCHEMA.MY_FIRST_DBT_MODEL
+    description: A starter dbt model
+    displayName: MY_FIRST_DBT_MODEL
+    deleted: false
+processedLineage: false
+service:
+  id: 47ed96e3-fb2c-4f8e-adeb-7bec14c6a308
+  type: databaseService
+  name: ingest_dbt_test
+  fullyQualifiedName: ingest_dbt_test
