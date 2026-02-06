@@ -1,0 +1,188 @@
+name: Catalog
+displayName: Catalog
+fullyQualifiedName: TestApi.Catalog
+description: API to enumerate datasets
+endpointURL: https://ressources.data.sncf.com/api/explore/v2.1/swagger.json#tag/Catalog
+apiEndpoints:
+  - id: 4dce7b3b-5e64-4276-acec-a452f46a619f
+    type: apiEndpoint
+    name: exportCatalogCSV
+    fullyQualifiedName: TestApi.Catalog.exportCatalogCSV
+    description: Export a catalog in CSV (Comma Separated Values). Specific parameters
+      are described here
+    displayName: exportCatalogCSV
+    deleted: false
+  - id: c9b27f0e-5c53-45a9-9b51-c795fc4950d1
+    type: apiEndpoint
+    name: exportCatalogDCAT
+    fullyQualifiedName: TestApi.Catalog.exportCatalogDCAT
+    description: Export a catalog in RDF/XML described with DCAT (Data Catalog Vocabulary).
+      Specific parameters are described here
+    displayName: exportCatalogDCAT
+    deleted: false
+  - id: 7932e53a-fb87-4a70-8525-1acba790bd80
+    type: apiEndpoint
+    name: exportDatasets
+    fullyQualifiedName: TestApi.Catalog.exportDatasets
+    description: Export a catalog in the desired format.
+    displayName: exportDatasets
+    deleted: false
+  - id: 64096d3e-7845-4965-9833-e016ffe4c835
+    type: apiEndpoint
+    name: getDataset
+    fullyQualifiedName: TestApi.Catalog.getDataset
+    description: |-
+      Returns a list of available endpoints for the specified dataset, with metadata and endpoints.
+
+      The response includes the following links:
+      * the attachments endpoint
+      * the files endpoint
+      * the records endpoint
+      * the catalog endpoint.
+    displayName: getDataset
+    deleted: false
+  - id: 5b6309ee-adcd-42a9-b6ec-2347719fdbc1
+    type: apiEndpoint
+    name: getDatasets
+    fullyQualifiedName: TestApi.Catalog.getDatasets
+    description: Retrieve available datasets.
+    displayName: getDatasets
+    deleted: false
+  - id: 05c365f0-1496-42e5-87ec-28fb530fdf97
+    type: apiEndpoint
+    name: getDatasetsFacets
+    fullyQualifiedName: TestApi.Catalog.getDatasetsFacets
+    description: |-
+      Enumerate facet values for datasets and returns a list of values for each facet.
+      Can be used to implement guided navigation in large result sets.
+    displayName: getDatasetsFacets
+    deleted: false
+  - id: 333ec821-6dc6-4b70-84a4-eca59bebee7c
+    type: apiEndpoint
+    name: listExportFormats
+    fullyQualifiedName: TestApi.Catalog.listExportFormats
+    description: List available export formats
+    displayName: listExportFormats
+    deleted: false
+owners:
+  - id: fb8e44c9-b9c5-45bc-9691-b3343b5d5b7c
+    type: user
+    name: 23saints23
+    fullyQualifiedName: 23saints23
+    displayName: 23saints23
+    deleted: false
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+  - id: d80a224c-d4e4-4d8d-acbc-c07f8eac81f2
+    type: user
+    name: cschultz
+    fullyQualifiedName: cschultz
+    displayName: Aaron Brandt
+    deleted: false
+  - id: d0107fe9-afbe-4966-914f-bfec7dfc5861
+    type: user
+    name: wilsondanny
+    fullyQualifiedName: wilsondanny
+    displayName: Aaron Baker
+    deleted: false
+tags:
+  - tagFQN: Tier.Tier4
+    name: Tier4
+    description: |-
+      **Team level datasets that are typically non-business and general internal system**
+
+      - Used in product metrics, and dashboards to drive team decisions
+
+      - Used to track operational metrics of internal systems owned by the team
+
+      - Source used to derive other critical Tier-4 datasets
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1770016715419
+    appliedBy: anujkumar.yadav
+  - tagFQN: '`custom`.tag1'
+    name: tag1
+    displayName: tag1
+    description: <p>tag1</p>
+    style:
+      color: "#fd3f3f"
+      iconURL: https://cdn-icons-png.flaticon.com/512/9029/9029931.png
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: testexclusive.exclusive
+    name: exclusive
+    displayName: exclusive
+    description: exclusive
+    style: {}
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+service:
+  id: beb2cc18-7148-4487-aaa5-f2861ef2cb7d
+  type: apiService
+  name: TestApi
+  fullyQualifiedName: TestApi
+  description: ""
+  displayName: TestApi
+  deleted: false
+serviceType: Rest
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tags
+      newValue: "[{\"tagFQN\":\"Tier.Tier4\",\"name\":\"Tier4\",\"description\":\"\
+        **Team level datasets that are typically non-business and general internal\
+        \ system**\\n\\n- Used in product metrics, and dashboards to drive team decisions\\\
+        n\\n- Used to track operational metrics of internal systems owned by the team\\\
+        n\\n- Source used to derive other critical Tier-4 datasets\",\"source\":\"\
+        Classification\",\"labelType\":\"Manual\",\"state\":\"Confirmed\",\"appliedBy\"\
+        :\"anujkumar.yadav\"}]"
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: tags
+      oldValue: "[{\"tagFQN\":\"Tier.Tier3\",\"name\":\"Tier3\",\"description\":\"\
+        **Department/group level datasets that are typically non-business and general\
+        \ internal system**\\n\\n- Used in product metrics, and dashboards to drive\
+        \ product decisions\\n\\n- Used to track operational metrics of internal systems\\\
+        n\\n- Source used to derive other critical Tier-3 datasets\",\"source\":\"\
+        Classification\",\"labelType\":\"Manual\",\"state\":\"Confirmed\",\"appliedAt\"\
+        :\"2026-02-02T07:17:58.000849Z\",\"appliedBy\":\"anujkumar.yadav\"}]"
+  previousVersion: 0.6
+  changeSummary: {}
+domains:
+  - id: 2e79f0ec-3e03-45f2-ba5a-93116362eec8
+    type: domain
+    name: TestingD
+    fullyQualifiedName: TestingD
+    description: <p>testing</p>
+    displayName: TestingD
+dataProducts:
+  - id: f16da5a8-2f2c-40af-aa75-2a65455e0af4
+    type: dataProduct
+    name: PW Data Product 1234
+    fullyQualifiedName: PW Data Product 1234
+    description: <p><strong>PW Data Product b09444c9</strong></p>
+    displayName: PW Data Product 12345
+  - id: 03e33c09-c4c3-4448-ae23-b95e29f9af6d
+    type: dataProduct
+    name: PW Data Product b09444c9
+    fullyQualifiedName: PW Data Product b09444c9
+    description: <p><strong>PW Data Product b09444c9</strong></p>
+    displayName: PW Data Product b09444c9
+sourceHash: 2c7380c02c0c1d101d69d8f07df350aa
+entityStatus: Unprocessed
