@@ -1,0 +1,30 @@
+name: 560c7a61b7aec9fc4c71a12d3082ca87
+fullyQualifiedName: hktest.560c7a61b7aec9fc4c71a12d3082ca87
+owners: []
+duration: 118.0
+users: []
+query: "WITH \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\" AS \n(SELECT \"CALL_CENTER_1\"\
+  .\"CC_SQ_FT\" AS \"CC_SQ_FT\" \nFROM \"TPCDS_SF100TCL\".\"CALL_CENTER\" AS \"CALL_CENTER_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"6e20a905f6b43f3b0ccd2e5ded96c253_sample\" AS \n\
+  (SELECT \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\".\"CC_SQ_FT\" AS \"CC_SQ_FT\" \n\
+  FROM \"6e20a905f6b43f3b0ccd2e5ded96c253_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"CC_SQ_FT\") AS count_1 \nFROM \"6e20a905f6b43f3b0ccd2e5ded96c253_sample\"\
+  \ GROUP BY \"CC_SQ_FT\" \nHAVING count(\"CC_SQ_FT\") = ?) AS only_once\n LIMIT ?"
+checksum: 560c7a61b7aec9fc4c71a12d3082ca87
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 531ee58b-4045-4f54-a1b5-eac7668fb709
+    type: table
+    name: CALL_CENTER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER
+    displayName: CALL_CENTER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

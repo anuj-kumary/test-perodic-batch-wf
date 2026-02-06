@@ -1,0 +1,36 @@
+name: 56922d87fa007204300c235203a402d4
+fullyQualifiedName: hktest.56922d87fa007204300c235203a402d4
+owners: []
+duration: 85.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"IA_CRM_TERRITORY_C\"\
+  \ AS \"IA_CRM_TERRITORY_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  IA_CRM_TERRITORY_C\" AS \"IA_CRM_TERRITORY_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(LEN(\"IA_CRM_TERRITORY_C\")) AS mean, count(\"IA_CRM_TERRITORY_C\"\
+  ) AS \"valuesCount\", count(DISTINCT \"IA_CRM_TERRITORY_C\") AS \"distinctCount\"\
+  , MIN(LEN(\"IA_CRM_TERRITORY_C\")) AS min, MAX(LEN(\"IA_CRM_TERRITORY_C\")) AS max,\
+  \ coalesce(SUM(CASE WHEN (\"IA_CRM_TERRITORY_C\" IS ?) THEN ? ELSE ? END), ?) AS\
+  \ \"nullCount\", STDDEV_POP(LEN(\"IA_CRM_TERRITORY_C\")) AS stddev, SUM(LEN(\"IA_CRM_TERRITORY_C\"\
+  )) AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT ?"
+checksum: 56922d87fa007204300c235203a402d4
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

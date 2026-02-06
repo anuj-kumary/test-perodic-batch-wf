@@ -1,0 +1,29 @@
+name: 597d76fc11fb02ed5300ad35ac7cade5
+fullyQualifiedName: hktest.597d76fc11fb02ed5300ad35ac7cade5
+owners: []
+duration: 109.0
+users: []
+query: "SELECT avg(LEN(\"NO_BILL_IND\")) AS mean, count(\"NO_BILL_IND\") AS \"valuesCount\"\
+  , count(DISTINCT \"NO_BILL_IND\") AS \"distinctCount\", MIN(LEN(\"NO_BILL_IND\"\
+  )) AS min, MAX(LEN(\"NO_BILL_IND\")) AS max, coalesce(SUM(CASE WHEN (\"NO_BILL_IND\"\
+  \ IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"NO_BILL_IND\"\
+  )) AS stddev, SUM(LEN(\"NO_BILL_IND\")) AS sum \nFROM \"CURATED\".\"CNTRCT\"\n LIMIT\
+  \ ?"
+checksum: 597d76fc11fb02ed5300ad35ac7cade5
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,32 @@
+name: 597bad58a9952798db55ea609aa0918a
+fullyQualifiedName: hktest.597bad58a9952798db55ea609aa0918a
+owners: []
+duration: 168.0
+users: []
+query: "WITH \"8291f7c1c0279d1bdf55b50c34234ac2_rnd\" AS \n(SELECT \"NATION_1\".\"\
+  N_NAME\" AS \"N_NAME\" \nFROM \"TPCH_SF10\".\"NATION\" AS \"NATION_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"8291f7c1c0279d1bdf55b50c34234ac2_sample\" AS \n(SELECT \"8291f7c1c0279d1bdf55b50c34234ac2_rnd\"\
+  .\"N_NAME\" AS \"N_NAME\" \nFROM \"8291f7c1c0279d1bdf55b50c34234ac2_rnd\")\n SELECT\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"N_NAME\") ASC) AS median, percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"N_NAME\") ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"N_NAME\") ASC) AS \"thirdQuartile\" \nFROM \"8291f7c1c0279d1bdf55b50c34234ac2_sample\"\
+  \n LIMIT ?"
+checksum: 597bad58a9952798db55ea609aa0918a
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: a74b0f11-b7dd-44fd-b8e7-b7f7228490f5
+    type: table
+    name: NATION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.NATION
+    description: Nation data as defined by TPC-H
+    displayName: NATION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

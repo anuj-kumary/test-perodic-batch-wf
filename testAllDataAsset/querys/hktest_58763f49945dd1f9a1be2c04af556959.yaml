@@ -1,0 +1,33 @@
+name: 58763f49945dd1f9a1be2c04af556959
+fullyQualifiedName: hktest.58763f49945dd1f9a1be2c04af556959
+owners: []
+duration: 68.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"IA_CRM_TAXABLE_C\"\
+  \ AS \"IA_CRM_TAXABLE_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  IA_CRM_TAXABLE_C\" AS \"IA_CRM_TAXABLE_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"IA_CRM_TAXABLE_C\")\
+  \ AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"IA_CRM_TAXABLE_C\"\
+  \ \nHAVING count(\"IA_CRM_TAXABLE_C\") = ?) AS only_once\n LIMIT ?"
+checksum: 58763f49945dd1f9a1be2c04af556959
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

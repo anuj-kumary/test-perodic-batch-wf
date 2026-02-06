@@ -1,0 +1,39 @@
+name: 58c08eaff46f0e61db40ea0b372756a5
+fullyQualifiedName: hktest.58c08eaff46f0e61db40ea0b372756a5
+owners: []
+duration: 272.0
+users: []
+query: "WITH \"2b911c015ed17a423c74ab9987330e60_rnd\" AS \n(SELECT \"ITEM_1\".\"I_SIZE\"\
+  \ AS \"I_SIZE\" \nFROM \"TPCDS_SF100TCL\".\"ITEM\" AS \"ITEM_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"2b911c015ed17a423c74ab9987330e60_sample\" AS \n(SELECT \"2b911c015ed17a423c74ab9987330e60_rnd\"\
+  .\"I_SIZE\" AS \"I_SIZE\" \nFROM \"2b911c015ed17a423c74ab9987330e60_rnd\")\n SELECT\
+  \ count(CASE WHEN (LEN(\"I_SIZE\") >= ? AND LEN(\"I_SIZE\") < ?) THEN LEN(\"I_SIZE\"\
+  ) END) AS \"3.000 to 4.086\", count(CASE WHEN (LEN(\"I_SIZE\") >= ? AND LEN(\"I_SIZE\"\
+  ) < ?) THEN LEN(\"I_SIZE\") END) AS \"4.086 to 5.172\", count(CASE WHEN (LEN(\"\
+  I_SIZE\") >= ? AND LEN(\"I_SIZE\") < ?) THEN LEN(\"I_SIZE\") END) AS \"5.172 to\
+  \ 6.257\", count(CASE WHEN (LEN(\"I_SIZE\") >= ? AND LEN(\"I_SIZE\") < ?) THEN LEN(\"\
+  I_SIZE\") END) AS \"6.257 to 7.343\", count(CASE WHEN (LEN(\"I_SIZE\") >= ? AND\
+  \ LEN(\"I_SIZE\") < ?) THEN LEN(\"I_SIZE\") END) AS \"7.343 to 8.429\", count(CASE\
+  \ WHEN (LEN(\"I_SIZE\") >= ? AND LEN(\"I_SIZE\") < ?) THEN LEN(\"I_SIZE\") END)\
+  \ AS \"8.429 to 9.515\", count(CASE WHEN (LEN(\"I_SIZE\") >= ? AND LEN(\"I_SIZE\"\
+  ) < ?) THEN LEN(\"I_SIZE\") END) AS \"9.515 to 10.600\", count(CASE WHEN (LEN(\"\
+  I_SIZE\") >= ?) THEN LEN(\"I_SIZE\") END) AS \"10.600 and up\" \nFROM \"2b911c015ed17a423c74ab9987330e60_sample\"\
+  \n LIMIT ?"
+checksum: 58c08eaff46f0e61db40ea0b372756a5
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: a20953ec-ac01-4b78-a92c-7d8e0cc25281
+    type: table
+    name: ITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.ITEM
+    displayName: ITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

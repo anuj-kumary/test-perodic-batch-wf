@@ -1,0 +1,33 @@
+name: 5c0c3865b91ff4801d19eccd6621b9bc
+fullyQualifiedName: hktest.5c0c3865b91ff4801d19eccd6621b9bc
+owners: []
+duration: 71.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"RENEWAL_LIKELIHOOD_C\"\
+  \ AS \"RENEWAL_LIKELIHOOD_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  RENEWAL_LIKELIHOOD_C\" AS \"RENEWAL_LIKELIHOOD_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"RENEWAL_LIKELIHOOD_C\"\
+  ) AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"RENEWAL_LIKELIHOOD_C\"\
+  \ \nHAVING count(\"RENEWAL_LIKELIHOOD_C\") = ?) AS only_once\n LIMIT ?"
+checksum: 5c0c3865b91ff4801d19eccd6621b9bc
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

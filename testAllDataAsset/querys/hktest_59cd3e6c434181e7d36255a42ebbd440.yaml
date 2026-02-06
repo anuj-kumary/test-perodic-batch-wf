@@ -1,0 +1,33 @@
+name: 59cd3e6c434181e7d36255a42ebbd440
+fullyQualifiedName: hktest.59cd3e6c434181e7d36255a42ebbd440
+owners: []
+duration: 502.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_QUANTITY\" AS \"WS_QUANTITY\" \nFROM \"TPCDS_SF100TCL\".\"WEB_SALES\" AS \"\
+  WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_QUANTITY\" AS \"WS_QUANTITY\"\
+  \ \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n SELECT avg(\"WS_QUANTITY\"\
+  ) AS mean, count(\"WS_QUANTITY\") AS \"valuesCount\", count(DISTINCT \"WS_QUANTITY\"\
+  ) AS \"distinctCount\", MIN(\"WS_QUANTITY\") AS min, MAX(\"WS_QUANTITY\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"WS_QUANTITY\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(\"WS_QUANTITY\") AS stddev, SUM(\"WS_QUANTITY\") AS sum \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \n LIMIT ?"
+checksum: 59cd3e6c434181e7d36255a42ebbd440
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7f12a8b5-822b-4eb5-97e2-6d3a4cb1ca7e
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

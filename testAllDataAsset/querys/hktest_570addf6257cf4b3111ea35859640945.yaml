@@ -1,0 +1,37 @@
+name: 570addf6257cf4b3111ea35859640945
+fullyQualifiedName: hktest.570addf6257cf4b3111ea35859640945
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"8213dbf1-647b-4c39-8dac-cc9f4f0135e3\",\"type\":\"table\"\
+        ,\"name\":\"SAMPLE_CUSTOMERS_UPPER\",\"fullyQualifiedName\":\"hktest.HK_DB.HK_SCHEMA.SAMPLE_CUSTOMERS_UPPER\"\
+        ,\"displayName\":\"SAMPLE_CUSTOMERS_UPPER\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 99.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"CUSTOMERID\" ASC) AS median,\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY \"CUSTOMERID\" ASC) AS \"firstQuartile\"\
+  , percentile_cont(?) WITHIN GROUP (ORDER BY \"CUSTOMERID\" ASC) AS \"thirdQuartile\"\
+  \ \nFROM \"HK_SCHEMA\".\"SAMPLE_CUSTOMERS_UPPER\"\n LIMIT ?"
+checksum: 570addf6257cf4b3111ea35859640945
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 8213dbf1-647b-4c39-8dac-cc9f4f0135e3
+    type: table
+    name: SAMPLE_CUSTOMERS_UPPER
+    fullyQualifiedName: hktest.HK_DB.HK_SCHEMA.SAMPLE_CUSTOMERS_UPPER
+    displayName: SAMPLE_CUSTOMERS_UPPER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

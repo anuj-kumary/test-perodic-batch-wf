@@ -1,0 +1,52 @@
+name: 5bd459c7414b4273c6ce1edffe26dc15
+fullyQualifiedName: hktest.5bd459c7414b4273c6ce1edffe26dc15
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"25275c7a-6a78-413e-9b68-9105a233d254\",\"type\":\"table\"\
+        ,\"name\":\"ELEMENTARY_TEST_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.ELEMENTARY_TEST_RESULTS\"\
+        ,\"displayName\":\"ELEMENTARY_TEST_RESULTS\",\"deleted\":false}]"
+  previousVersion: 0.7
+  changeSummary: {}
+owners: []
+duration: 449.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "create or replace   view dbt_db.DBT_SAMPLE_elementary.alerts_anomaly_detection\n\
+  \  \n   as (\n    \n\nwith elementary_test_results as (\n    select * from dbt_db.DBT_SAMPLE_elementary.elementary_test_results\n\
+  ),\n\nalerts_anomaly_detection as (\n    select id as alert_id,\n           data_issue_id,\n\
+  \           test_execution_id,\n           test_unique_id,\n           model_unique_id,\n\
+  \           detected_at,\n           database_name,\n           schema_name,\n \
+  \          table_name,\n           column_name,\n           test_type as alert_type,\n\
+  \           test_sub_type as sub_type,\n           test_results_description as alert_description,\n\
+  \           owners,\n           tags,\n           test_results_query as alert_results_query,\n\
+  \           other,\n           test_name,\n           test_short_name,\n       \
+  \    test_params,\n           severity,\n           status,\n           result_rows\n\
+  \        from elementary_test_results\n        where ? and lower(status) != ?and\
+  \ lower(status) != ?and test_type = ?\n)\n\nselect * from alerts_anomaly_detection\n\
+  \  );"
+checksum: 5bd459c7414b4273c6ce1edffe26dc15
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 7459035c-b190-4009-a3ff-280afbf84319
+    type: table
+    name: ALERTS_ANOMALY_DETECTION
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_ANOMALY_DETECTION
+    displayName: ALERTS_ANOMALY_DETECTION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

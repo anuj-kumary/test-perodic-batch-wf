@@ -1,0 +1,33 @@
+name: 58d695bb3ea7c736c6c7f0fabf31a893
+fullyQualifiedName: hktest.58d695bb3ea7c736c6c7f0fabf31a893
+owners: []
+duration: 663.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_EXT_TAX\" AS \"WS_EXT_TAX\" \nFROM \"TPCDS_SF100TCL\".\"WEB_SALES\" AS \"\
+  WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_EXT_TAX\" AS \"WS_EXT_TAX\"\
+  \ \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n SELECT avg(\"WS_EXT_TAX\")\
+  \ AS mean, count(\"WS_EXT_TAX\") AS \"valuesCount\", count(DISTINCT \"WS_EXT_TAX\"\
+  ) AS \"distinctCount\", MIN(\"WS_EXT_TAX\") AS min, MAX(\"WS_EXT_TAX\") AS max,\
+  \ coalesce(SUM(CASE WHEN (\"WS_EXT_TAX\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\"\
+  , STDDEV_POP(\"WS_EXT_TAX\") AS stddev, SUM(\"WS_EXT_TAX\") AS sum \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \n LIMIT ?"
+checksum: 58d695bb3ea7c736c6c7f0fabf31a893
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7f12a8b5-822b-4eb5-97e2-6d3a4cb1ca7e
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

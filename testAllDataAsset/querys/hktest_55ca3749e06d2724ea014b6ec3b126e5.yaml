@@ -1,0 +1,31 @@
+name: 55ca3749e06d2724ea014b6ec3b126e5
+fullyQualifiedName: hktest.55ca3749e06d2724ea014b6ec3b126e5
+owners: []
+duration: 1014.0
+users: []
+query: "WITH \"7acd5a55767403e4819968ec03121cca_rnd\" AS \n(SELECT \"STORE_RETURNS_1\"\
+  .\"SR_ITEM_SK\" AS \"SR_ITEM_SK\" \nFROM \"TPCDS_SF10TCL\".\"STORE_RETURNS\" AS\
+  \ \"STORE_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"7acd5a55767403e4819968ec03121cca_sample\"\
+  \ AS \n(SELECT \"7acd5a55767403e4819968ec03121cca_rnd\".\"SR_ITEM_SK\" AS \"SR_ITEM_SK\"\
+  \ \nFROM \"7acd5a55767403e4819968ec03121cca_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"SR_ITEM_SK\") AS count_1 \nFROM \"7acd5a55767403e4819968ec03121cca_sample\"\
+  \ GROUP BY \"SR_ITEM_SK\" \nHAVING count(\"SR_ITEM_SK\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 55ca3749e06d2724ea014b6ec3b126e5
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e86ff48f-2b49-4cdf-b51b-651c26d03830
+    type: table
+    name: STORE_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.STORE_RETURNS
+    displayName: STORE_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

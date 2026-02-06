@@ -1,0 +1,31 @@
+name: 5659b81c9fe125b3cff0cb3a9e4d4aef
+fullyQualifiedName: hktest.5659b81c9fe125b3cff0cb3a9e4d4aef
+owners: []
+duration: 356.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_QUANTITY\" AS \"WS_QUANTITY\" \nFROM \"TPCDS_SF10TCL\".\"WEB_SALES\" AS \"\
+  WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_QUANTITY\" AS \"WS_QUANTITY\"\
+  \ \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"WS_QUANTITY\") AS count_1 \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ GROUP BY \"WS_QUANTITY\" \nHAVING count(\"WS_QUANTITY\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 5659b81c9fe125b3cff0cb3a9e4d4aef
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: fe6947d0-4f65-437f-a917-f1853723e385
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
