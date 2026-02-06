@@ -1,0 +1,126 @@
+name: customer360
+fullyQualifiedName: red-pere.dev.collate_shop.customer360
+tableType: View
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.collate_shop.customer360.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.collate_shop.customer360.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.collate_shop.customer360.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_orders
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.collate_shop.customer360.total_orders
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: lifetime_value
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 38
+    scale: 2
+    dataTypeDisplay: "numeric(38,2)"
+    fullyQualifiedName: red-pere.dev.collate_shop.customer360.lifetime_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: red-pere.dev.collate_shop.customer360.last_order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_tier
+    dataType: TEXT
+    dataLength: 1
+    dataTypeDisplay: text
+    fullyQualifiedName: red-pere.dev.collate_shop.customer360.customer_tier
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: eco_products_purchased
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.collate_shop.customer360.eco_products_purchased
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f842b6bc-98b7-470e-a9ff-eb8ea51075b2
+  type: databaseSchema
+  name: collate_shop
+  fullyQualifiedName: red-pere.dev.collate_shop
+  displayName: collate_shop
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW collate_shop.customer360 AS  SELECT c.customer_id,\
+  \ c.first_name, c.last_name, count(DISTINCT o.order_id) AS total_orders, sum(oi.total_amount)\
+  \ AS lifetime_value, \"max\"(o.order_date) AS last_order_date, \n        CASE\n\
+  \            WHEN sum(oi.total_amount) > 200::numeric THEN 'High Value'::text\n\
+  \            WHEN sum(oi.total_amount) >= 50::numeric AND sum(oi.total_amount) <=\
+  \ 200::numeric THEN 'Medium Value'::text\n            ELSE 'Low Value'::text\n \
+  \       END AS customer_tier, sum(\n        CASE\n            WHEN p.eco_friendly\
+  \ = true THEN 1\n            ELSE 0\n        END) AS eco_products_purchased\n  \
+  \ FROM collate_shop.customers c\n   LEFT JOIN collate_shop.orders o ON c.customer_id\
+  \ = o.customer_id\n   LEFT JOIN collate_shop.order_items oi ON o.order_id = oi.order_id\n\
+  \   LEFT JOIN collate_shop.products p ON oi.product_id = p.product_id\n  GROUP BY\
+  \ c.customer_id, c.first_name, c.last_name;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: dbf215c8fe84c00ddb823f7277adc3af
+processedLineage: false
+entityStatus: Unprocessed

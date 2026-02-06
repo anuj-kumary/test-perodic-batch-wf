@@ -1,0 +1,83 @@
+name: stg_payments
+fullyQualifiedName: red-pere.dev.collate_shop.stg_payments
+tableType: View
+columns:
+  - name: payment_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.collate_shop.stg_payments.payment_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.collate_shop.stg_payments.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_method
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: red-pere.dev.collate_shop.stg_payments.payment_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 15
+    scale: 4
+    dataTypeDisplay: "numeric(15,4)"
+    fullyQualifiedName: red-pere.dev.collate_shop.stg_payments.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: f842b6bc-98b7-470e-a9ff-eb8ea51075b2
+  type: databaseSchema
+  name: collate_shop
+  fullyQualifiedName: red-pere.dev.collate_shop
+  displayName: collate_shop
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW collate_shop.stg_payments AS  SELECT renamed.payment_id, renamed.order_id, renamed.payment_method, renamed.amount
+     FROM ( SELECT source.id AS payment_id, source.order_id, source.payment_method, source.amount::numeric / 100.0 AS amount
+             FROM ( SELECT raw_payments.id, raw_payments.order_id, raw_payments.payment_method, raw_payments.amount
+                     FROM collate_shop.raw_payments) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: fdab0d01f65f9e3a076b02052ba93b21
+processedLineage: false
+entityStatus: Unprocessed
