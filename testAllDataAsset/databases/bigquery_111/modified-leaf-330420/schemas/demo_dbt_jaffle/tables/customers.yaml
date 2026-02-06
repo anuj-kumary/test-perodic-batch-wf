@@ -1,0 +1,191 @@
+name: customers
+fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers
+tableType: View
+columns:
+  - name: customer_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.customer_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: count_lifetime_orders
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.count_lifetime_orders
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_ordered_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.first_ordered_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_ordered_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.last_ordered_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: lifetime_spend_pretax
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: numeric
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.lifetime_spend_pretax
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: lifetime_tax_paid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: numeric
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.lifetime_tax_paid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: lifetime_spend
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: numeric
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.lifetime_spend
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.customers.customer_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3d30154b-c676-4441-8409-e63d26aac7dc
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle
+  description: ""
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: fb3a207a-4029-4635-817c-ad4bc5251bc7
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: bigquery 111.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: c721902a-455f-433b-8bdc-958e82710043
+  type: databaseService
+  name: bigquery 111
+  fullyQualifiedName: bigquery 111
+  description: ""
+  displayName: bigquery 111
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: |-
+  CREATE VIEW demo_dbt_jaffle.customers AS with
+
+  customers as (
+
+      select * from `modified-leaf-330420`.`demo_dbt_jaffle`.`stg_customers`
+
+  ),
+
+  orders as (
+
+      select * from `modified-leaf-330420`.`demo_dbt_jaffle`.`orders`
+
+  ),
+
+  customer_orders_summary as (
+
+      select
+          orders.customer_id,
+
+          count(distinct orders.order_id) as count_lifetime_orders,
+          count(distinct orders.order_id) > 1 as is_repeat_buyer,
+          min(orders.ordered_at) as first_ordered_at,
+          max(orders.ordered_at) as last_ordered_at,
+          sum(orders.subtotal) as lifetime_spend_pretax,
+          sum(orders.tax_paid) as lifetime_tax_paid,
+          sum(orders.order_total) as lifetime_spend
+
+      from orders
+
+      group by 1
+
+  ),
+
+  joined as (
+
+      select
+          customers.*,
+
+          customer_orders_summary.count_lifetime_orders,
+          customer_orders_summary.first_ordered_at,
+          customer_orders_summary.last_ordered_at,
+          customer_orders_summary.lifetime_spend_pretax,
+          customer_orders_summary.lifetime_tax_paid,
+          customer_orders_summary.lifetime_spend,
+
+          case
+              when customer_orders_summary.is_repeat_buyer then 'returning'
+              else 'new'
+          end as customer_type
+
+      from customers
+
+      left join customer_orders_summary
+          on customers.customer_id = customer_orders_summary.customer_id
+
+  )
+
+  select * from joined
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2sdemo_dbt_jaffle!3scustomers
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1762959049778
+sourceHash: 35ee33d486f01c7c02ed8c893d2bbc1b
+processedLineage: false
+entityStatus: Unprocessed

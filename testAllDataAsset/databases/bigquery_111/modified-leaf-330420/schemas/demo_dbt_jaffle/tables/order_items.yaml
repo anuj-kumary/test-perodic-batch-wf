@@ -1,0 +1,199 @@
+name: order_items
+fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items
+tableType: View
+columns:
+  - name: order_item_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.order_item_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.product_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ordered_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.ordered_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.product_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_price
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: numeric
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.product_price
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_food_item
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.is_food_item
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_drink_item
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.is_drink_item
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: supply_cost
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: numeric
+    fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle.order_items.supply_cost
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3d30154b-c676-4441-8409-e63d26aac7dc
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: bigquery 111.modified-leaf-330420.demo_dbt_jaffle
+  description: ""
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: fb3a207a-4029-4635-817c-ad4bc5251bc7
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: bigquery 111.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: c721902a-455f-433b-8bdc-958e82710043
+  type: databaseService
+  name: bigquery 111
+  fullyQualifiedName: bigquery 111
+  description: ""
+  displayName: bigquery 111
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: |-
+  CREATE VIEW demo_dbt_jaffle.order_items AS with
+
+  order_items as (
+
+      select * from `modified-leaf-330420`.`demo_dbt_jaffle`.`stg_order_items`
+
+  ),
+
+
+  orders as (
+
+      select * from `modified-leaf-330420`.`demo_dbt_jaffle`.`stg_orders`
+
+  ),
+
+  products as (
+
+      select * from `modified-leaf-330420`.`demo_dbt_jaffle`.`stg_products`
+
+  ),
+
+  supplies as (
+
+      select * from `modified-leaf-330420`.`demo_dbt_jaffle`.`stg_supplies`
+
+  ),
+
+  order_supplies_summary as (
+
+      select
+          product_id,
+
+          sum(supply_cost) as supply_cost
+
+      from supplies
+
+      group by 1
+
+  ),
+
+  joined as (
+
+      select
+          order_items.*,
+
+          orders.ordered_at,
+
+          products.product_name,
+          products.product_price,
+          products.is_food_item,
+          products.is_drink_item,
+
+          order_supplies_summary.supply_cost
+
+      from order_items
+
+      left join orders on order_items.order_id = orders.order_id
+
+      left join products on order_items.product_id = products.product_id
+
+      left join order_supplies_summary
+          on order_items.product_id = order_supplies_summary.product_id
+
+  )
+
+  select * from joined
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2sdemo_dbt_jaffle!3sorder_items
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1762959044594
+sourceHash: dacb154458fa2029cc33969899d22660
+processedLineage: false
+entityStatus: Unprocessed

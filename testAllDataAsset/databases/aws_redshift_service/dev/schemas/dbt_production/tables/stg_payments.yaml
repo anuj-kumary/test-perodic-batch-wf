@@ -1,0 +1,90 @@
+name: stg_payments
+fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_payments
+tableType: View
+columns:
+  - name: payment_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_payments.payment_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_payments.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_method
+    dataType: VARCHAR
+    dataLength: 13
+    dataTypeDisplay: character varying(13)
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_payments.payment_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: cycle_name
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_payments.cycle_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_payments.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: b071b978-fb35-48ef-b38c-1a84ccb8170c
+  type: databaseSchema
+  name: dbt_production
+  fullyQualifiedName: aws_redshift_service.dev.dbt_production
+  displayName: dbt_production
+  deleted: false
+database:
+  id: f482e9ce-5f45-416a-9af6-91b440537857
+  type: database
+  name: dev
+  fullyQualifiedName: aws_redshift_service.dev
+  displayName: dev
+  deleted: false
+service:
+  id: c70847a6-a338-4889-a336-46fd68887898
+  type: databaseService
+  name: aws_redshift_service
+  fullyQualifiedName: aws_redshift_service
+  displayName: aws_redshift_service
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_production.stg_payments AS  SELECT renamed.payment_id, renamed.order_id, renamed.payment_method, renamed.cycle_name, renamed.amount
+     FROM ( SELECT source.id AS payment_id, source.order_id, source.payment_method, source.cycle_name, source.amount / 100 AS amount
+             FROM ( SELECT raw_payments.id, raw_payments.order_id, raw_payments.payment_method, raw_payments.amount, raw_payments.cycle_name
+                     FROM dbt_production.raw_payments) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: a516b06a6245d38348427f7fe414cec9
+processedLineage: false
+entityStatus: Unprocessed

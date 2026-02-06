@@ -1,0 +1,90 @@
+name: stg_orders
+fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_orders
+tableType: View
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_orders.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: cycle_name
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: aws_redshift_service.dev.dbt_production.stg_orders.cycle_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: b071b978-fb35-48ef-b38c-1a84ccb8170c
+  type: databaseSchema
+  name: dbt_production
+  fullyQualifiedName: aws_redshift_service.dev.dbt_production
+  displayName: dbt_production
+  deleted: false
+database:
+  id: f482e9ce-5f45-416a-9af6-91b440537857
+  type: database
+  name: dev
+  fullyQualifiedName: aws_redshift_service.dev
+  displayName: dev
+  deleted: false
+service:
+  id: c70847a6-a338-4889-a336-46fd68887898
+  type: databaseService
+  name: aws_redshift_service
+  fullyQualifiedName: aws_redshift_service
+  displayName: aws_redshift_service
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_production.stg_orders AS  SELECT renamed.order_id, renamed.customer_id, renamed.order_date, renamed.status, renamed.cycle_name
+     FROM ( SELECT source.id AS order_id, source.user_id AS customer_id, source.order_date, source.status, source.cycle_name
+             FROM ( SELECT raw_orders.id, raw_orders.user_id, raw_orders.order_date, raw_orders.status, raw_orders.cycle_name
+                     FROM dbt_production.raw_orders) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 8483e3b9a31c6f2f687ee594a5ed184e
+processedLineage: false
+entityStatus: Unprocessed

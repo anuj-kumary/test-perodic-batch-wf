@@ -1,0 +1,133 @@
+name: stg_payments
+displayName: ""
+fullyQualifiedName: aws_redshift_tableau.dev.dbt_ctest.stg_payments
+description: ""
+tableType: View
+columns:
+  - name: payment_id
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: ""
+    fullyQualifiedName: aws_redshift_tableau.dev.dbt_ctest.stg_payments.payment_id
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 31
+    children: []
+    customMetrics: []
+  - name: order_id
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: ""
+    fullyQualifiedName: aws_redshift_tableau.dev.dbt_ctest.stg_payments.order_id
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 32
+    children: []
+    customMetrics: []
+  - name: payment_method
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 13
+    dataTypeDisplay: character varying(13)
+    description: ""
+    fullyQualifiedName: aws_redshift_tableau.dev.dbt_ctest.stg_payments.payment_method
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 33
+    children: []
+    customMetrics: []
+  - name: amount
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: ""
+    fullyQualifiedName: aws_redshift_tableau.dev.dbt_ctest.stg_payments.amount
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 34
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 14ee3f47-5945-4319-80df-03cad9906189
+  type: databaseSchema
+  name: dbt_ctest
+  fullyQualifiedName: aws_redshift_tableau.dev.dbt_ctest
+  description: ""
+  displayName: dbt_ctest
+  deleted: false
+database:
+  id: 4d499853-91e3-44c7-b418-cb2c05d52440
+  type: database
+  name: dev
+  fullyQualifiedName: aws_redshift_tableau.dev
+  description: <p>new description for testing</p>
+  displayName: dev
+  deleted: false
+  href: https://sandbox-beta.open-metadata.org/api/v1/databases/4d499853-91e3-44c7-b418-cb2c05d52440
+service:
+  id: ff5fa04b-7367-4096-8886-0fa928b5cbbb
+  type: databaseService
+  name: aws_redshift_tableau
+  fullyQualifiedName: aws_redshift_tableau
+  description: ""
+  displayName: aws_redshift_tableau
+  deleted: false
+  href: https://sandbox-beta.open-metadata.org/api/v1/services/databaseServices/ff5fa04b-7367-4096-8886-0fa928b5cbbb
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_ctest.stg_payments AS  SELECT renamed.payment_id, renamed.order_id, renamed.payment_method, renamed.amount
+     FROM ( SELECT source.id AS payment_id, source.order_id, source.payment_method, source.amount / 100 AS amount
+             FROM ( SELECT raw_payments.id, raw_payments.order_id, raw_payments.payment_method, raw_payments.amount
+                     FROM dbt_ctest.raw_payments) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.amount.description
+      newValue: ""
+    - name: columns.amount.displayName
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.6
+  changeSummary:
+    description:
+      changedBy: anujkumar.yadav
+      changedAt: 1769496925355
+    columns.amount.description:
+      changedBy: anujkumar.yadav
+      changedAt: 1769496925714
+    columns.order_id.description:
+      changedBy: anujkumar.yadav
+      changedAt: 1769496925355
+    columns.payment_id.description:
+      changedBy: anujkumar.yadav
+      changedAt: 1769496925355
+    columns.payment_method.description:
+      changedBy: anujkumar.yadav
+      changedAt: 1769496925355
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: 1f54f7fb-109c-4ae5-997d-1960c41339a4
+    type: domain
+    name: domain%.with%.stuff
+    fullyQualifiedName: '"domain%.with%.stuff"'
+    description: <p>ads</p>
+    displayName: domain%.with%.stuff
+dataProducts: []
+sourceHash: f66a1f8dec1499739a3069de1bf08c31
+processedLineage: true
+entityStatus: Approved
