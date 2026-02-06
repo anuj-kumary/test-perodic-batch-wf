@@ -1,0 +1,82 @@
+name: UDF_VIEW
+fullyQualifiedName: hktest.NEW_E2E.PUBLIC.UDF_VIEW
+tableType: View
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.NEW_E2E.PUBLIC.UDF_VIEW.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest.NEW_E2E.PUBLIC.UDF_VIEW.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 84865b96-72ee-4247-9c16-f09741eabdc2
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: hktest.NEW_E2E.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: 054b9feb-fd89-4926-9696-262fea54a11d
+  type: database
+  name: NEW_E2E
+  fullyQualifiedName: hktest.NEW_E2E
+  displayName: NEW_E2E
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: create view udf_view as SELECT * FROM table(test_udf3())
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: lifeCycle
+      oldValue: "{\"created\":{\"timestamp\":1744761600000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+      newValue: "{\"created\":{\"timestamp\":1744761600000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"},\"accessed\":{\"timestamp\":1751500800000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/NEW_E2E/schemas/PUBLIC/view/UDF_VIEW
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1744761600000
+    accessedByAProcess: TESTOPENMETADATA
+  accessed:
+    timestamp: 1751500800000
+    accessedByAProcess: TESTOPENMETADATA
+sourceHash: 3a543fccc87a31c32e931f3d3a9e12d1
+processedLineage: true
+entityStatus: Approved

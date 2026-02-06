@@ -1,0 +1,80 @@
+name: DYNAMIC_TABLE
+fullyQualifiedName: hktest.NEW_E2E.PUBLIC.DYNAMIC_TABLE
+tableType: Dynamic
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: hktest.NEW_E2E.PUBLIC.DYNAMIC_TABLE.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest.NEW_E2E.PUBLIC.DYNAMIC_TABLE.NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 84865b96-72ee-4247-9c16-f09741eabdc2
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: hktest.NEW_E2E.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: 054b9feb-fd89-4926-9696-262fea54a11d
+  type: database
+  name: NEW_E2E
+  fullyQualifiedName: hktest.NEW_E2E
+  displayName: NEW_E2E
+  deleted: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
+  description: ""
+  displayName: hktest
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace dynamic table DYNAMIC_TABLE(\n\tID,\n\tNAME\n\
+  ) target_lag = '20 minutes' refresh_mode = AUTO initialize = ON_CREATE warehouse\
+  \ = COMPUTE_WH\n as select * from t1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: lifeCycle
+      oldValue: "{\"accessed\":{\"timestamp\":1750204800000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+      newValue: "{\"accessed\":{\"timestamp\":1752278400000,\"accessedByAProcess\"\
+        :\"TESTOPENMETADATA\"}}"
+  fieldsDeleted: []
+  previousVersion: 0.4
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/NEW_E2E/schemas/PUBLIC/table/DYNAMIC_TABLE
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1752278400000
+    accessedByAProcess: TESTOPENMETADATA
+sourceHash: bfee3c56bf68bc45179cd61aa06154c5
+processedLineage: true
+entityStatus: Approved
