@@ -1,0 +1,155 @@
+name: CUSTOMER360
+fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360
+tableType: View
+columns:
+  - name: CUSTOMER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360.CUSTOMER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360.FIRST_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LAST_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360.LAST_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TOTAL_ORDERS
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 18
+    scale: 0
+    dataTypeDisplay: "number(18,0)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360.TOTAL_ORDERS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LIFETIME_VALUE
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 22
+    scale: 2
+    dataTypeDisplay: "number(22,2)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360.LIFETIME_VALUE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LAST_ORDER_DATE
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360.LAST_ORDER_DATE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CUSTOMER_TIER
+    dataType: VARCHAR
+    dataLength: 12
+    dataTypeDisplay: text(12)
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360.CUSTOMER_TIER
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ECO_PRODUCTS_PURCHASED
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 13
+    scale: 0
+    dataTypeDisplay: "number(13,0)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.CUSTOMER360.ECO_PRODUCTS_PURCHASED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: eac2a909-2372-4402-a6ad-e464dee7423e
+  type: databaseSchema
+  name: COLLATE_SHOP
+  fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP
+  description: Collate e-commerce
+  displayName: COLLATE_SHOP
+  deleted: false
+database:
+  id: 78630a6b-090e-4a98-8f33-fb0d25d9ec9d
+  type: database
+  name: CUSTOMERS
+  fullyQualifiedName: snow_new_111.CUSTOMERS
+  description: Updated database description
+  displayName: CUSTOMERS
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: |-
+  CREATE OR REPLACE VIEW COLLATE_SHOP.CUSTOMER360 AS
+  SELECT
+      c.CUSTOMER_ID,
+      c.FIRST_NAME,
+      c.LAST_NAME,
+      COUNT(DISTINCT o.ORDER_ID) AS TOTAL_ORDERS,
+      SUM(oi.TOTAL_AMOUNT) AS LIFETIME_VALUE,
+      MAX(o.ORDER_DATE) AS LAST_ORDER_DATE,
+      CASE
+          WHEN SUM(oi.TOTAL_AMOUNT) > 200 THEN 'High Value'
+          WHEN SUM(oi.TOTAL_AMOUNT) BETWEEN 50 AND 200 THEN 'Medium Value'
+          ELSE 'Low Value'
+      END AS CUSTOMER_TIER,
+      COUNT_IF(p.ECO_FRIENDLY) AS ECO_PRODUCTS_PURCHASED
+  FROM COLLATE_SHOP.CUSTOMERS c
+  LEFT JOIN COLLATE_SHOP.ORDERS o
+      ON c.CUSTOMER_ID = o.CUSTOMER_ID
+  LEFT JOIN COLLATE_SHOP.ORDER_ITEMS oi
+      ON o.ORDER_ID = oi.ORDER_ID
+  LEFT JOIN COLLATE_SHOP.PRODUCTS p
+      ON oi.PRODUCT_ID = p.PRODUCT_ID
+  GROUP BY c.CUSTOMER_ID, c.FIRST_NAME, c.LAST_NAME;
+tags:
+  - tagFQN: GENERAL.Person
+    name: Person
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/CUSTOMERS/schemas/COLLATE_SHOP/view/CUSTOMER360
+domains: []
+dataProducts: []
+sourceHash: bdff4e44635da705d62e7c09abc5e19d
+processedLineage: false
+entityStatus: Unprocessed

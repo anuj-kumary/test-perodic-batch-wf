@@ -1,0 +1,97 @@
+name: ORDERS
+fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDERS
+tableType: Regular
+columns:
+  - name: ORDER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDERS.ORDER_ID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: CUSTOMER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDERS.CUSTOMER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ORDER_DATE
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDERS.ORDER_DATE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: STATUS
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDERS.STATUS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - CUSTOMER_ID
+    referredColumns:
+      - snow_new_111.HK_DB.HK_SCHEMA.CUSTOMERS.CUSTOMER_ID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 908b4c49-9223-4bd6-9bcb-a3e201bc9823
+  type: databaseSchema
+  name: HK_SCHEMA
+  fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA
+  displayName: HK_SCHEMA
+  deleted: false
+database:
+  id: 1e66fc8e-25fd-4d47-b639-7654595e5bc2
+  type: database
+  name: HK_DB
+  fullyQualifiedName: snow_new_111.HK_DB
+  displayName: HK_DB
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: ad9ade22d5ff8912addc3ccabe774737
+      newValue: dc54a21f024569110d32c07f3c07061c
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/HK_DB/schemas/HK_SCHEMA/table/ORDERS
+domains: []
+dataProducts: []
+sourceHash: dc54a21f024569110d32c07f3c07061c
+processedLineage: false
+entityStatus: Unprocessed

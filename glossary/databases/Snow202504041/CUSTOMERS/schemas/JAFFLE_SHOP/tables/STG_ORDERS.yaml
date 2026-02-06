@@ -1,0 +1,96 @@
+name: STG_ORDERS
+fullyQualifiedName: Snow202504041.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS
+tableType: View
+columns:
+  - name: ORDER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: Snow202504041.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS.ORDER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CUSTOMER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: Snow202504041.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS.CUSTOMER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ORDER_DATE
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: Snow202504041.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS.ORDER_DATE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: STATUS
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: Snow202504041.CUSTOMERS.JAFFLE_SHOP.STG_ORDERS.STATUS
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: eb1fce6c-227a-49b6-bda7-7b9e5d646b4e
+  type: databaseSchema
+  name: JAFFLE_SHOP
+  fullyQualifiedName: Snow202504041.CUSTOMERS.JAFFLE_SHOP
+  displayName: JAFFLE_SHOP
+  deleted: false
+database:
+  id: cedc181e-8a6d-4032-9465-7b7f3928e6c3
+  type: database
+  name: CUSTOMERS
+  fullyQualifiedName: Snow202504041.CUSTOMERS
+  displayName: CUSTOMERS
+  deleted: false
+service:
+  id: e041515c-b7c3-4820-b885-33947a571d2d
+  type: databaseService
+  name: Snow202504041
+  fullyQualifiedName: Snow202504041
+  description: ""
+  displayName: Snow202504041
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view STG_ORDERS(\n\tORDER_ID,\n\tCUSTOMER_ID,\n\
+  \tORDER_DATE,\n\tSTATUS\n) as (\n    with source as (\n    select * from CUSTOMERS.jaffle_shop.raw_orders\n\
+  \n),\n\nrenamed as (\n\n    select\n        id as order_id,\n        user_id as\
+  \ customer_id,\n        order_date,\n        status\n\n    from source\n\n)\n\n\
+  select * from renamed\n  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: processedLineage
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/gwtbvpm/pg25341/#/data/databases/CUSTOMERS/schemas/JAFFLE_SHOP/view/STG_ORDERS
+domains: []
+dataProducts: []
+sourceHash: 41c90a76e66c95d03e97837d1cd894be
+processedLineage: true
+entityStatus: Approved

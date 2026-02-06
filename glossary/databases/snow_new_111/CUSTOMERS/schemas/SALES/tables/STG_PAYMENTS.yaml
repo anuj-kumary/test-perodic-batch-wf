@@ -1,0 +1,100 @@
+name: STG_PAYMENTS
+fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.STG_PAYMENTS
+tableType: View
+columns:
+  - name: PAYMENT_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.STG_PAYMENTS.PAYMENT_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ORDER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.STG_PAYMENTS.ORDER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: PAYMENT_METHOD
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.STG_PAYMENTS.PAYMENT_METHOD
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: AMOUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 6
+    dataTypeDisplay: "number(38,6)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.STG_PAYMENTS.AMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8ed94a63-748d-4b6c-9d70-02c9b92da266
+  type: databaseSchema
+  name: SALES
+  fullyQualifiedName: snow_new_111.CUSTOMERS.SALES
+  description: Reverse metadata ingestion testing.
+  displayName: SALES
+  deleted: false
+database:
+  id: 78630a6b-090e-4a98-8f33-fb0d25d9ec9d
+  type: database
+  name: CUSTOMERS
+  fullyQualifiedName: snow_new_111.CUSTOMERS
+  description: Updated database description
+  displayName: CUSTOMERS
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view CUSTOMERS.SALES.STG_PAYMENTS\n  \n   as\
+  \ (\n    with source as (\n    select * from CUSTOMERS.jaffle_shop.raw_payments\n\
+  \n),\n\nrenamed as (\n\n    select\n        id as payment_id,\n        order_id,\n\
+  \        payment_method,\n\n        -- `amount` is currently stored in cents, so\
+  \ we convert it to dollars\n        amount / 100 as amount\n\n    from source\n\n\
+  )\n\nselect * from renamed\n  );"
+tags:
+  - tagFQN: GENERAL.Person
+    name: Person
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/CUSTOMERS/schemas/SALES/view/STG_PAYMENTS
+domains: []
+dataProducts: []
+sourceHash: 57add4311e6f8270bd425ce935a331d5
+processedLineage: false
+entityStatus: Unprocessed

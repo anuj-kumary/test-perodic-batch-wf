@@ -1,0 +1,56 @@
+name: MY_SECOND_DBT_MODEL
+fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.MY_SECOND_DBT_MODEL
+tableType: View
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 1
+    scale: 0
+    dataTypeDisplay: "number(1,0)"
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.MY_SECOND_DBT_MODEL.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 908b4c49-9223-4bd6-9bcb-a3e201bc9823
+  type: databaseSchema
+  name: HK_SCHEMA
+  fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA
+  displayName: HK_SCHEMA
+  deleted: false
+database:
+  id: 1e66fc8e-25fd-4d47-b639-7654595e5bc2
+  type: database
+  name: HK_DB
+  fullyQualifiedName: snow_new_111.HK_DB
+  displayName: HK_DB
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view HK_DB.HK_SCHEMA.my_second_dbt_model\n\
+  \  \n   as (\n    -- Use the `ref` function to select from other models\n\nselect\
+  \ *\nfrom HK_DB.HK_SCHEMA.my_first_dbt_model\nwhere id = 1\n  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/HK_DB/schemas/HK_SCHEMA/view/MY_SECOND_DBT_MODEL
+domains: []
+dataProducts: []
+sourceHash: 06654e40b8818bfd044aa26478a1e441
+processedLineage: false
+entityStatus: Unprocessed

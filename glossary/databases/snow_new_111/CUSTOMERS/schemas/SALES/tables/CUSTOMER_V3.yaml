@@ -1,0 +1,115 @@
+name: CUSTOMER_V3
+fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.CUSTOMER_V3
+tableType: View
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.CUSTOMER_V3.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.CUSTOMER_V3.FIRST_NAME
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LAST_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.CUSTOMERS.SALES.CUSTOMER_V3.LAST_NAME
+    tags:
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Automated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8ed94a63-748d-4b6c-9d70-02c9b92da266
+  type: databaseSchema
+  name: SALES
+  fullyQualifiedName: snow_new_111.CUSTOMERS.SALES
+  description: Reverse metadata ingestion testing.
+  displayName: SALES
+  deleted: false
+database:
+  id: 78630a6b-090e-4a98-8f33-fb0d25d9ec9d
+  type: database
+  name: CUSTOMERS
+  fullyQualifiedName: snow_new_111.CUSTOMERS
+  description: Updated database description
+  displayName: CUSTOMERS
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: CREATE VIEW CUSTOMERS.SALES.CUSTOMER_V3 AS SELECT * FROM RAW_CUSTOMERS;
+tags:
+  - tagFQN: GENERAL.Person
+    name: Person
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/CUSTOMERS/schemas/SALES/view/CUSTOMER_V3
+domains: []
+dataProducts: []
+sourceHash: 6360a656ed943fa21b42586a3d7dbc90
+processedLineage: false
+entityStatus: Unprocessed

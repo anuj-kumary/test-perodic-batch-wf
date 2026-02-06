@@ -1,0 +1,78 @@
+name: TOP_5_CUSTOMERS_TOTAL_TRANSACTION_AMOUNT
+fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE.TOP_5_CUSTOMERS_TOTAL_TRANSACTION_AMOUNT
+tableType: View
+columns:
+  - name: CUSTOMER_NAME
+    dataType: VARCHAR
+    dataLength: 201
+    dataTypeDisplay: text(201)
+    fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE.TOP_5_CUSTOMERS_TOTAL_TRANSACTION_AMOUNT.CUSTOMER_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TOTAL_AMOUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 30
+    scale: 2
+    dataTypeDisplay: "number(30,2)"
+    fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE.TOP_5_CUSTOMERS_TOTAL_TRANSACTION_AMOUNT.TOTAL_AMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3a7e34bd-9a79-4fb5-926a-cd3f654c3bef
+  type: databaseSchema
+  name: DBT_COLLATE
+  fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE
+  displayName: DBT_COLLATE
+  deleted: false
+database:
+  id: 83b0c25a-1dad-46ff-b20b-d088fa50e414
+  type: database
+  name: FIVETRAN
+  fullyQualifiedName: snow_new_111.FIVETRAN
+  displayName: FIVETRAN
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view FIVETRAN.dbt_collate.top_5_customers_total_transaction_amount\n\
+  \  \n  \n  \n  \n  as (\n    \n\n/*\n * Returns top 5 customers with the highest\
+  \ total transaction amount, joined with customer names from their accounts in Snowflake\
+  \ banking data.\n */\n\nWITH \"customer_totals\" AS (\n  SELECT\n    \"ca\".\"FIRSTNAME\"\
+  \ || ' ' || \"ca\".\"LASTNAME\" AS \"CUSTOMER_NAME\",\n    SUM(\"t\".\"AMOUNT\"\
+  ) AS \"TOTAL_AMOUNT\"\n  FROM FIVETRAN.MSSQLBANKING_STG.TRANSACT AS \"t\"\n  JOIN\
+  \ FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS AS \"ca\"\n    ON \"t\".\"ACCOUNTID\"\
+  \ = \"ca\".\"ACCOUNTID\"\n  WHERE\n    (\n      \"t\".\"_FIVETRAN_DELETED\" IS NULL\
+  \ OR \"t\".\"_FIVETRAN_DELETED\" = FALSE\n    )\n    AND (\n      \"ca\".\"_FIVETRAN_DELETED\"\
+  \ IS NULL OR \"ca\".\"_FIVETRAN_DELETED\" = FALSE\n    )\n  GROUP BY\n    \"ca\"\
+  .\"FIRSTNAME\",\n    \"ca\".\"LASTNAME\"\n)\nSELECT\n  \"CUSTOMER_NAME\",\n  \"\
+  TOTAL_AMOUNT\"\nFROM \"customer_totals\"\nORDER BY\n  \"TOTAL_AMOUNT\" DESC NULLS\
+  \ LAST\nFETCH FIRST 5 ROWS ONLY\n  )\n/* {\"app\": \"dbt\", \"dbt_version\": \"\
+  2025.10.3+e006d20\", \"profile_name\": \"user\", \"target_name\": \"default\", \"\
+  node_id\": \"model.collate_dbt_snowflake.top_5_customers_total_transaction_amount\"\
+  } */;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/FIVETRAN/schemas/DBT_COLLATE/view/TOP_5_CUSTOMERS_TOTAL_TRANSACTION_AMOUNT
+domains: []
+dataProducts: []
+sourceHash: 0bc30ac7592b57dedc6c93eed0c0bf4f
+processedLineage: false
+entityStatus: Unprocessed

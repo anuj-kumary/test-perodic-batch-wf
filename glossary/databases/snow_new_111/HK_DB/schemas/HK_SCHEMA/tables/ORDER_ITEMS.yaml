@@ -1,0 +1,122 @@
+name: ORDER_ITEMS
+fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDER_ITEMS
+tableType: Regular
+columns:
+  - name: ORDER_ITEM_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDER_ITEMS.ORDER_ITEM_ID
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: ORDER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDER_ITEMS.ORDER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: PRODUCT_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDER_ITEMS.PRODUCT_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: QUANTITY
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDER_ITEMS.QUANTITY
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: UNIT_PRICE
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 10
+    scale: 2
+    dataTypeDisplay: "number(10,2)"
+    fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA.ORDER_ITEMS.UNIT_PRICE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - PRODUCT_ID
+    referredColumns:
+      - snow_new_111.HK_DB.HK_SCHEMA.PRODUCTS.PRODUCT_ID
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - ORDER_ID
+    referredColumns:
+      - snow_new_111.HK_DB.HK_SCHEMA.ORDERS.ORDER_ID
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 908b4c49-9223-4bd6-9bcb-a3e201bc9823
+  type: databaseSchema
+  name: HK_SCHEMA
+  fullyQualifiedName: snow_new_111.HK_DB.HK_SCHEMA
+  displayName: HK_SCHEMA
+  deleted: false
+database:
+  id: 1e66fc8e-25fd-4d47-b639-7654595e5bc2
+  type: database
+  name: HK_DB
+  fullyQualifiedName: snow_new_111.HK_DB
+  displayName: HK_DB
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"ORDER_ID\"],\"\
+        referredColumns\":[\"snow_new_111.HK_DB.HK_SCHEMA.ORDERS.ORDER_ID\"],\"relationshipType\"\
+        :\"MANY_TO_ONE\"}]"
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 06c00b9a1729f96df789388bbb116d98
+      newValue: 6f1c230b540bd077976d95b774f7c6a4
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/HK_DB/schemas/HK_SCHEMA/table/ORDER_ITEMS
+domains: []
+dataProducts: []
+sourceHash: 6f1c230b540bd077976d95b774f7c6a4
+processedLineage: false
+entityStatus: Unprocessed

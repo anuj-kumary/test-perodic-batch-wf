@@ -1,0 +1,85 @@
+name: STG_CUSTOMERS
+fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.STG_CUSTOMERS
+tableType: View
+columns:
+  - name: CUSTOMER_ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.STG_CUSTOMERS.CUSTOMER_ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.STG_CUSTOMERS.FIRST_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LAST_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP.STG_CUSTOMERS.LAST_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: eac2a909-2372-4402-a6ad-e464dee7423e
+  type: databaseSchema
+  name: COLLATE_SHOP
+  fullyQualifiedName: snow_new_111.CUSTOMERS.COLLATE_SHOP
+  description: Collate e-commerce
+  displayName: COLLATE_SHOP
+  deleted: false
+database:
+  id: 78630a6b-090e-4a98-8f33-fb0d25d9ec9d
+  type: database
+  name: CUSTOMERS
+  fullyQualifiedName: snow_new_111.CUSTOMERS
+  description: Updated database description
+  displayName: CUSTOMERS
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view CUSTOMERS.jaffle_shop.stg_customers\n\
+  \  \n   as (\n    with source as (\n    select * from CUSTOMERS.jaffle_shop.raw_customers\n\
+  \n),\n\nrenamed as (\n\n    select\n        id as customer_id,\n        first_name,\n\
+  \        last_name\n\n    from source\n\n)\n\nselect * from renamed\n  );"
+tags:
+  - tagFQN: GENERAL.Person
+    name: Person
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Automated
+    state: Suggested
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/CUSTOMERS/schemas/COLLATE_SHOP/view/STG_CUSTOMERS
+domains: []
+dataProducts: []
+sourceHash: 3ced0ab6351906cd3ca7820ed1e37025
+processedLineage: false
+entityStatus: Unprocessed

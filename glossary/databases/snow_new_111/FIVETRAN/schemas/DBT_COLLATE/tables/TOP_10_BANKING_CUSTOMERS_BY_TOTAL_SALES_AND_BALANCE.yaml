@@ -1,0 +1,103 @@
+name: TOP_10_BANKING_CUSTOMERS_BY_TOTAL_SALES_AND_BALANCE
+fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE.TOP_10_BANKING_CUSTOMERS_BY_TOTAL_SALES_AND_BALANCE
+tableType: View
+columns:
+  - name: CUSTOMERID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE.TOP_10_BANKING_CUSTOMERS_BY_TOTAL_SALES_AND_BALANCE.CUSTOMERID
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: EMAIL
+    dataType: VARCHAR
+    dataLength: 200
+    dataTypeDisplay: text(200)
+    fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE.TOP_10_BANKING_CUSTOMERS_BY_TOTAL_SALES_AND_BALANCE.EMAIL
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: TOTAL_SALES
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 30
+    scale: 2
+    dataTypeDisplay: "number(30,2)"
+    fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE.TOP_10_BANKING_CUSTOMERS_BY_TOTAL_SALES_AND_BALANCE.TOTAL_SALES
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: BALANCE
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 18
+    scale: 2
+    dataTypeDisplay: "number(18,2)"
+    fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE.TOP_10_BANKING_CUSTOMERS_BY_TOTAL_SALES_AND_BALANCE.BALANCE
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 3a7e34bd-9a79-4fb5-926a-cd3f654c3bef
+  type: databaseSchema
+  name: DBT_COLLATE
+  fullyQualifiedName: snow_new_111.FIVETRAN.DBT_COLLATE
+  displayName: DBT_COLLATE
+  deleted: false
+database:
+  id: 83b0c25a-1dad-46ff-b20b-d088fa50e414
+  type: database
+  name: FIVETRAN
+  fullyQualifiedName: snow_new_111.FIVETRAN
+  displayName: FIVETRAN
+  deleted: false
+service:
+  id: 16c4356d-5e3d-4c8f-a20c-f1eb2af8f2eb
+  type: databaseService
+  name: snow_new_111
+  fullyQualifiedName: snow_new_111
+  description: ""
+  displayName: snow_new_111
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view FIVETRAN.dbt_collate.top_10_banking_customers_by_total_sales_and_balance\n\
+  \  \n  \n  \n  \n  as (\n    \n\n/*\n * This model lists the top 10 banking customers\
+  \ on Snowflake by total sales amount and reports their current balance.\n */\n\n\
+  WITH \"positive_sales\" AS (\n  SELECT\n    \"t\".\"ACCOUNTID\",\n    \"t\".\"AMOUNT\"\
+  \n  FROM FIVETRAN.MSSQLBANKING_STG.TRANSACT AS \"t\"\n  WHERE\n    \"t\".\"AMOUNT\"\
+  \ > 0\n    AND (\n      \"t\".\"_FIVETRAN_DELETED\" IS NULL OR \"t\".\"_FIVETRAN_DELETED\"\
+  \ = FALSE\n    )\n), \"customer_sales\" AS (\n  SELECT\n    \"ca\".\"CUSTOMERID\"\
+  ,\n    \"ca\".\"EMAIL\",\n    SUM(\"ps\".\"AMOUNT\") AS \"TOTAL_SALES\"\n  FROM\
+  \ FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS AS \"ca\"\n  LEFT JOIN \"positive_sales\"\
+  \ AS \"ps\"\n    ON \"ca\".\"ACCOUNTID\" = \"ps\".\"ACCOUNTID\"\n  WHERE\n    \"\
+  ca\".\"_FIVETRAN_DELETED\" IS NULL OR \"ca\".\"_FIVETRAN_DELETED\" = FALSE\n  GROUP\
+  \ BY\n    \"ca\".\"CUSTOMERID\",\n    \"ca\".\"EMAIL\"\n)\nSELECT\n  \"cs\".\"CUSTOMERID\"\
+  ,\n  \"cs\".\"EMAIL\",\n  \"cs\".\"TOTAL_SALES\",\n  \"ca\".\"BALANCE\"\nFROM \"\
+  customer_sales\" AS \"cs\"\nJOIN FIVETRAN.MSSQLBANKING_STG.CUSTOMERACCOUNTS AS \"\
+  ca\"\n  ON \"cs\".\"CUSTOMERID\" = \"ca\".\"CUSTOMERID\"\nORDER BY\n  \"cs\".\"\
+  TOTAL_SALES\" DESC NULLS LAST\nFETCH FIRST 10 ROWS ONLY\n  )\n/* {\"app\": \"dbt\"\
+  , \"dbt_version\": \"2025.10.3+e006d20\", \"profile_name\": \"user\", \"target_name\"\
+  : \"default\", \"node_id\": \"model.collate_dbt_snowflake.top_10_banking_customers_by_total_sales_and_balance\"\
+  } */;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/FIVETRAN/schemas/DBT_COLLATE/view/TOP_10_BANKING_CUSTOMERS_BY_TOTAL_SALES_AND_BALANCE
+domains: []
+dataProducts: []
+sourceHash: c39297bd5916fc97a8452a4999c92927
+processedLineage: false
+entityStatus: Unprocessed
