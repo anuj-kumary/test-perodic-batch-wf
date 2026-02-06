@@ -1,0 +1,221 @@
+name: mytable6
+displayName: ""
+fullyQualifiedName: Athena Test.default.default.mytable6
+description: "This table stores detailed personal information, including names, ages,\
+  \ addresses, and contact numbers, allowing users to manage and analyze individual\
+  \ profiles effectively for various applications such as customer relationship management\
+  \ or demographic studies."
+tableType: External
+columns:
+  - name: id
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "This column serves as a unique identifier for each record in the\
+      \ table, ensuring that each entry can be distinctly referenced."
+    fullyQualifiedName: Athena Test.default.default.mytable6.id
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 60
+    children: []
+    customMetrics: []
+  - name: name
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "This column holds the name of the individual, which is essential\
+      \ for identification and personalization."
+    fullyQualifiedName: Athena Test.default.default.mytable6.name
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 61
+    children: []
+    customMetrics: []
+  - name: age
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "This column represents the age of the individual, providing insight\
+      \ into their demographic profile."
+    fullyQualifiedName: Athena Test.default.default.mytable6.age
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 62
+    children: []
+    customMetrics: []
+  - name: address
+    displayName: ""
+    dataType: STRUCT
+    dataTypeDisplay: "struct<street:string,city:string,state:string,zip:int,coordinates:map<float,float>>"
+    description: "This column contains the address details of an individual, including\
+      \ the street, city, state, zip code, and geographical coordinates."
+    fullyQualifiedName: Athena Test.default.default.mytable6.address
+    tags: []
+    ordinalPosition: 63
+    children:
+      - name: street
+        displayName: ""
+        dataType: STRING
+        dataTypeDisplay: string
+        description: ""
+        fullyQualifiedName: Athena Test.default.default.mytable6.address.street
+        tags: []
+        ordinalPosition: 64
+        children: []
+      - name: city
+        displayName: ""
+        dataType: STRING
+        dataTypeDisplay: string
+        description: ""
+        fullyQualifiedName: Athena Test.default.default.mytable6.address.city
+        tags: []
+        ordinalPosition: 65
+        children: []
+      - name: state
+        displayName: ""
+        dataType: STRING
+        dataTypeDisplay: string
+        description: ""
+        fullyQualifiedName: Athena Test.default.default.mytable6.address.state
+        tags: []
+        ordinalPosition: 66
+        children: []
+      - name: zip
+        displayName: ""
+        dataType: INT
+        dataTypeDisplay: int
+        description: ""
+        fullyQualifiedName: Athena Test.default.default.mytable6.address.zip
+        tags: []
+        ordinalPosition: 67
+        children: []
+      - name: coordinates
+        displayName: ""
+        dataType: MAP
+        dataTypeDisplay: "map<float,float>"
+        description: ""
+        fullyQualifiedName: Athena Test.default.default.mytable6.address.coordinates
+        tags: []
+        ordinalPosition: 68
+        children: []
+    customMetrics: []
+  - name: phone_numbers
+    displayName: ""
+    dataType: ARRAY
+    arrayDataType: INT
+    dataTypeDisplay: array<int>
+    description: "This column contains a list of phone numbers associated with the\
+      \ individual, allowing for multiple contact options."
+    fullyQualifiedName: Athena Test.default.default.mytable6.phone_numbers
+    tags: []
+    ordinalPosition: 69
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners:
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+databaseSchema:
+  id: ec39d618-f154-4eb7-8639-73551dc781f7
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: Athena Test.default.default
+  description: <p>This is test 2</p>
+  displayName: Default
+  deleted: false
+database:
+  id: 5f384ce9-28bd-48cc-bb2e-e3ecfa6444b9
+  type: database
+  name: default
+  fullyQualifiedName: Athena Test.default
+  description: ""
+  displayName: default
+  deleted: false
+service:
+  id: c289313f-168d-43eb-8996-07b4a13c6a26
+  type: databaseService
+  name: Athena Test
+  fullyQualifiedName: Athena Test
+  description: ""
+  displayName: Athena Test
+  deleted: false
+serviceType: Athena
+locationPath: s3://athena-postgres/output
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.phone_numbers.displayName
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    owners:
+      changedBy: ashish
+      changedAt: 1744565017289
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1744557881263
+    columns.id.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557881263
+    columns.age.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557881263
+    columns.name.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557881263
+    columns.address.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557881263
+    columns.address.zip.description:
+      changedBy: ashish
+      changedAt: 1744565017289
+    columns.address.city.description:
+      changedBy: ashish
+      changedAt: 1744565017289
+    columns.address.state.description:
+      changedBy: ashish
+      changedAt: 1744565017289
+    columns.phone_numbers.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557881263
+    columns.address.street.description:
+      changedBy: ashish
+      changedAt: 1744565017289
+    columns.address.coordinates.description:
+      changedBy: ashish
+      changedAt: 1744565017289
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: 9b777e79-3556-4eff-b9e9-bb71037b8dd0
+    type: domain
+    name: TestHarsha2
+    fullyQualifiedName: TestHarsha.TestHarsha2
+    description: <p>TestHarsha</p>
+    displayName: TestHarsha2
+    inherited: true
+dataProducts: []
+sourceHash: 20bb987398ec3346637fc9cdfb5ed52e
+processedLineage: false
+entityStatus: Approved

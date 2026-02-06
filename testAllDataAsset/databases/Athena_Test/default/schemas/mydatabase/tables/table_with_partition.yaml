@@ -1,0 +1,207 @@
+name: table_with_partition
+displayName: ""
+fullyQualifiedName: Athena Test.default.mydatabase.table_with_partition
+description: "This table stores demographic data, including age and identification\
+  \ details, organized by day, month, and year, allowing users to analyze trends and\
+  \ patterns over time for various datasets."
+tableType: Partitioned
+columns:
+  - name: year
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Represents the year in which the record was created or relevant,\
+      \ important for historical data analysis."
+    fullyQualifiedName: Athena Test.default.mydatabase.table_with_partition.year
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 344
+    children: []
+    customMetrics: []
+  - name: month
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Denotes the month of the year, aiding in time-related data aggregation\
+      \ and analysis."
+    fullyQualifiedName: Athena Test.default.mydatabase.table_with_partition.month
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 345
+    children: []
+    customMetrics: []
+  - name: day
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Indicates the specific day of the month, useful for time-based queries\
+      \ and reporting."
+    fullyQualifiedName: Athena Test.default.mydatabase.table_with_partition.day
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 346
+    children: []
+    customMetrics: []
+  - name: id
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "A unique identifier for each record in the table, essential for\
+      \ distinguishing between different entries."
+    fullyQualifiedName: Athena Test.default.mydatabase.table_with_partition.id
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 347
+    children: []
+    customMetrics: []
+  - name: name
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Stores the name of an individual, which can be used for identification\
+      \ and reporting purposes."
+    fullyQualifiedName: Athena Test.default.mydatabase.table_with_partition.name
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 348
+    children: []
+    customMetrics: []
+  - name: age
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "Represents the age of an individual, typically used for demographic\
+      \ analysis."
+    fullyQualifiedName: Athena Test.default.mydatabase.table_with_partition.age
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 349
+    children: []
+    customMetrics: []
+tableConstraints: []
+tablePartition:
+  columns:
+    - columnName: year
+      intervalType: COLUMN-VALUE
+    - columnName: month
+      intervalType: COLUMN-VALUE
+    - columnName: day
+      intervalType: COLUMN-VALUE
+owners:
+  - id: fb8e44c9-b9c5-45bc-9691-b3343b5d5b7c
+    type: user
+    name: 23saints23
+    fullyQualifiedName: 23saints23
+    displayName: 23saints23
+    deleted: false
+    inherited: true
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+    inherited: true
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+    inherited: true
+  - id: 02d03179-e7fb-4006-8a82-aa058a46c57e
+    type: user
+    name: jaimecrosby
+    fullyQualifiedName: jaimecrosby
+    displayName: Aaron Bradley
+    deleted: false
+    inherited: true
+  - id: d0107fe9-afbe-4966-914f-bfec7dfc5861
+    type: user
+    name: wilsondanny
+    fullyQualifiedName: wilsondanny
+    displayName: Aaron Baker
+    deleted: false
+    inherited: true
+databaseSchema:
+  id: fa11fa82-63d8-4253-9352-38faf1183deb
+  type: databaseSchema
+  name: mydatabase
+  fullyQualifiedName: Athena Test.default.mydatabase
+  description: ""
+  displayName: mydatabase
+  deleted: false
+database:
+  id: 5f384ce9-28bd-48cc-bb2e-e3ecfa6444b9
+  type: database
+  name: default
+  fullyQualifiedName: Athena Test.default
+  description: ""
+  displayName: default
+  deleted: false
+service:
+  id: c289313f-168d-43eb-8996-07b4a13c6a26
+  type: databaseService
+  name: Athena Test
+  fullyQualifiedName: Athena Test
+  description: ""
+  displayName: Athena Test
+  deleted: false
+serviceType: Athena
+locationPath: s3://athena-postgres/output
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.age.displayName
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1744183287568
+    columns.id.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183287568
+    columns.age.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183287568
+    columns.day.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183287568
+    columns.name.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183287568
+    columns.year.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183287568
+    columns.month.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183287568
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: 9b777e79-3556-4eff-b9e9-bb71037b8dd0
+    type: domain
+    name: TestHarsha2
+    fullyQualifiedName: TestHarsha.TestHarsha2
+    description: <p>TestHarsha</p>
+    displayName: TestHarsha2
+    inherited: true
+dataProducts: []
+sourceHash: e71b1f7cc4c3bd101a918c2c15e2dcc0
+processedLineage: false
+entityStatus: Approved

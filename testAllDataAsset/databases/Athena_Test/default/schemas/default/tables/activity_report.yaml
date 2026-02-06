@@ -1,0 +1,204 @@
+name: activity_report
+displayName: ""
+fullyQualifiedName: Athena Test.default.default.activity_report
+description: "This table provides insights into various activities by tracking metrics\
+  \ over specified periods, allowing users to analyze performance trends, source effectiveness,\
+  \ and time-based changes in activity levels for informed decision-making."
+tableType: External
+columns:
+  - name: metric_name
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "This column indicates the name of the metric being reported, which\
+      \ helps in identifying what specific data is being measured."
+    fullyQualifiedName: Athena Test.default.default.activity_report.metric_name
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 92
+    children: []
+    customMetrics: []
+  - name: period_start_date
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "This column marks the starting date of the reporting period, providing\
+      \ a reference point for when the data collection began."
+    fullyQualifiedName: Athena Test.default.default.activity_report.period_start_date
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 93
+    children: []
+    customMetrics: []
+  - name: count
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: <p>This column represents the total number of occurrences or instances
+      recorded for a specific metric during the defined period.</p><div data-type="file-attachment"
+      data-url="" data-filename="" data-mimetype="image" data-uploading="false" data-upload-progress="0"
+      data-is-image="true"></div><p></p>
+    fullyQualifiedName: Athena Test.default.default.activity_report.count
+    tags:
+      - tagFQN: Business Department.test_business_term
+        name: test_business_term
+        displayName: Test Business Term
+        description: this is test_business_term
+        style: {}
+        source: Glossary
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1769147083000
+        appliedBy: harsha
+      - tagFQN: my_tag2nd.2nd_two
+        name: 2nd_two
+        description: SNOWFLAKE TAG VALUE
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1769147084000
+        appliedBy: harsha
+    constraint: "NULL"
+    ordinalPosition: 94
+    children: []
+    customMetrics: []
+  - name: period
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "This column specifies the time frame for which the data is aggregated,\
+      \ allowing users to understand the duration of the report."
+    fullyQualifiedName: Athena Test.default.default.activity_report.period
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 95
+    children: []
+    customMetrics: []
+  - name: source
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "This column identifies the origin of the data, which can help in\
+      \ understanding where the information was sourced from."
+    fullyQualifiedName: Athena Test.default.default.activity_report.source
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 96
+    children: []
+    customMetrics: []
+  - name: report_time
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "This column indicates the timestamp when the report was generated,\
+      \ which is crucial for tracking the recency of the data."
+    fullyQualifiedName: Athena Test.default.default.activity_report.report_time
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 97
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners:
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+databaseSchema:
+  id: ec39d618-f154-4eb7-8639-73551dc781f7
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: Athena Test.default.default
+  description: <p>This is test 2</p>
+  displayName: Default
+  deleted: false
+database:
+  id: 5f384ce9-28bd-48cc-bb2e-e3ecfa6444b9
+  type: database
+  name: default
+  fullyQualifiedName: Athena Test.default
+  description: ""
+  displayName: default
+  deleted: false
+service:
+  id: c289313f-168d-43eb-8996-07b4a13c6a26
+  type: databaseService
+  name: Athena Test
+  fullyQualifiedName: Athena Test
+  description: ""
+  displayName: Athena Test
+  deleted: false
+serviceType: Athena
+locationPath: s3://collate-landing-zone/activity_report/agora-data
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: columns.count.description
+      oldValue: This column represents the total number of occurrences or instances
+        recorded for a specific metric during the defined period.
+      newValue: <p>This column represents the total number of occurrences or instances
+        recorded for a specific metric during the defined period.</p><div data-type="file-attachment"
+        data-url="" data-filename="" data-mimetype="image" data-uploading="false"
+        data-upload-progress="0" data-is-image="true"></div><p></p>
+  fieldsDeleted: []
+  previousVersion: 0.4
+  changeSummary:
+    owners:
+      changedBy: ashish
+      changedAt: 1744565023660
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1744557891702
+    columns.count.description:
+      changedBy: harsha
+      changedAt: 1769147792871
+    columns.period.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557891702
+    columns.source.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557891702
+    columns.metric_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557891702
+    columns.report_time.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557891702
+    columns.period_start_date.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557891702
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: 9b777e79-3556-4eff-b9e9-bb71037b8dd0
+    type: domain
+    name: TestHarsha2
+    fullyQualifiedName: TestHarsha.TestHarsha2
+    description: <p>TestHarsha</p>
+    displayName: TestHarsha2
+    inherited: true
+dataProducts: []
+sourceHash: dd354223de9ace7474cb7cd0a98a6fbf
+processedLineage: false
+entityStatus: Approved

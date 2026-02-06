@@ -1,0 +1,196 @@
+name: telemetry3
+displayName: ""
+fullyQualifiedName: Athena Test.default.dev.telemetry3
+description: "This table stores telemetry data related to various services and entities,\
+  \ capturing metrics such as counts and values over time, which can be utilized for\
+  \ performance monitoring, trend analysis, and operational insights within a cluster\
+  \ environment."
+tableType: External
+columns:
+  - name: count
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: The total number of occurrences or events recorded for the specified
+      entity type within the given time frame.
+    fullyQualifiedName: Athena Test.default.dev.telemetry3.count
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 275
+    children: []
+    customMetrics: []
+  - name: value
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "A numerical representation of the measurement or metric being tracked,\
+      \ providing quantitative insights into the entity's performance."
+    fullyQualifiedName: Athena Test.default.dev.telemetry3.value
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 276
+    children: []
+    customMetrics: []
+  - name: service_type
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The type of service associated with the telemetry data, helping\
+      \ to categorize the data based on the service being monitored."
+    fullyQualifiedName: Athena Test.default.dev.telemetry3.service_type
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 277
+    children: []
+    customMetrics: []
+  - name: entity_type
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The type of entity that the telemetry data pertains to, such as\
+      \ a service, application, or resource."
+    fullyQualifiedName: Athena Test.default.dev.telemetry3.entity_type
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 278
+    children: []
+    customMetrics: []
+  - name: cluster_name
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The name of the cluster where the telemetry data is collected, used\
+      \ to identify the specific environment or group of resources."
+    fullyQualifiedName: Athena Test.default.dev.telemetry3.cluster_name
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 279
+    children: []
+    customMetrics: []
+  - name: timestamp
+    displayName: ""
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: "A numeric representation of the exact time when the telemetry data\
+      \ was recorded, allowing for precise time-based analysis."
+    fullyQualifiedName: Athena Test.default.dev.telemetry3.timestamp
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 280
+    children: []
+    customMetrics: []
+  - name: date
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The date on which the telemetry data was recorded, providing a reference\
+      \ for when the events occurred."
+    fullyQualifiedName: Athena Test.default.dev.telemetry3.date
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 281
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners:
+  - id: 02d03179-e7fb-4006-8a82-aa058a46c57e
+    type: user
+    name: jaimecrosby
+    fullyQualifiedName: jaimecrosby
+    displayName: Aaron Bradley
+    deleted: false
+  - id: d0107fe9-afbe-4966-914f-bfec7dfc5861
+    type: user
+    name: wilsondanny
+    fullyQualifiedName: wilsondanny
+    displayName: Aaron Baker
+    deleted: false
+databaseSchema:
+  id: 8952212b-e24f-4e0b-962d-107d96bcc5be
+  type: databaseSchema
+  name: dev
+  fullyQualifiedName: Athena Test.default.dev
+  description: <p>This is test 3</p>
+  displayName: Dev
+  deleted: false
+database:
+  id: 5f384ce9-28bd-48cc-bb2e-e3ecfa6444b9
+  type: database
+  name: default
+  fullyQualifiedName: Athena Test.default
+  description: ""
+  displayName: default
+  deleted: false
+service:
+  id: c289313f-168d-43eb-8996-07b4a13c6a26
+  type: databaseService
+  name: Athena Test
+  fullyQualifiedName: Athena Test
+  description: ""
+  displayName: Athena Test
+  deleted: false
+serviceType: Athena
+locationPath: s3://collate-landing-zone/telemetry
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.date.displayName
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    owners:
+      changedBy: ashish
+      changedAt: 1744565066014
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1744183301970
+    columns.date.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183301970
+    columns.count.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183301970
+    columns.value.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183301970
+    columns.timestamp.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183301970
+    columns.entity_type.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183301970
+    columns.cluster_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183301970
+    columns.service_type.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183301970
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: 9b777e79-3556-4eff-b9e9-bb71037b8dd0
+    type: domain
+    name: TestHarsha2
+    fullyQualifiedName: TestHarsha.TestHarsha2
+    description: <p>TestHarsha</p>
+    displayName: TestHarsha2
+    inherited: true
+dataProducts: []
+sourceHash: 23979ed2a2f89527ce914aafdd16d454
+processedLineage: false
+entityStatus: Approved

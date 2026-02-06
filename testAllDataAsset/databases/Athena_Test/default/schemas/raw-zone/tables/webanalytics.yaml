@@ -1,0 +1,378 @@
+name: webanalytics
+displayName: ""
+fullyQualifiedName: Athena Test.default.raw-zone.webanalytics
+description: "This table captures web analytics data, detailing user interactions\
+  \ through various events, including session information, page load times, and referrer\
+  \ details, enabling businesses to analyze user behavior and optimize their online\
+  \ presence."
+tableType: Partitioned
+columns:
+  - name: clustername
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: varchar(512)
+    description: The name of the cluster where the web analytics data is collected.
+    fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.clustername
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 580
+    children: []
+    customMetrics: []
+  - name: year
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "The year in which the event was recorded, represented as an integer."
+    fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.year
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 581
+    children: []
+    customMetrics: []
+  - name: month
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "The month during which the event took place, represented as an integer."
+    fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.month
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 582
+    children: []
+    customMetrics: []
+  - name: day
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "The specific day of the month when the event occurred, represented\
+      \ as an integer."
+    fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.day
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 583
+    children: []
+    customMetrics: []
+  - name: eventid
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: varchar(512)
+    description: A unique identifier for each event recorded in the web analytics.
+    fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventid
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 584
+    children: []
+    customMetrics: []
+  - name: eventdata
+    displayName: ""
+    dataType: STRUCT
+    dataTypeDisplay: "struct<eventtype:varchar(512),eventvalue:varchar(512),fullurl:varchar(512),hostname:varchar(512),language:varchar(512),pageloadtime:double,referrer:varchar(512),screensize:varchar(512),sessionid:varchar(512),url:varchar(512),userid:varchar(512)>"
+    description: "A structured object containing detailed information about the event,\
+      \ including event type, value, full URL, hostname, language, page load time,\
+      \ referrer, screen size, session ID, URL, and user ID."
+    fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata
+    tags: []
+    ordinalPosition: 585
+    children:
+      - name: eventtype
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.eventtype
+        tags: []
+        ordinalPosition: 586
+        children: []
+      - name: eventvalue
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.eventvalue
+        tags: []
+        ordinalPosition: 587
+        children: []
+      - name: fullurl
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.fullurl
+        tags: []
+        ordinalPosition: 588
+        children: []
+      - name: hostname
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.hostname
+        tags: []
+        ordinalPosition: 589
+        children: []
+      - name: language
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.language
+        tags: []
+        ordinalPosition: 590
+        children: []
+      - name: pageloadtime
+        displayName: ""
+        dataType: DOUBLE
+        dataTypeDisplay: double
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.pageloadtime
+        tags: []
+        ordinalPosition: 591
+        children: []
+      - name: referrer
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.referrer
+        tags: []
+        ordinalPosition: 592
+        children: []
+      - name: screensize
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.screensize
+        tags: []
+        ordinalPosition: 593
+        children: []
+      - name: sessionid
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.sessionid
+        tags: []
+        ordinalPosition: 594
+        children: []
+      - name: url
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.url
+        tags: []
+        ordinalPosition: 595
+        children: []
+      - name: userid
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventdata.userid
+        tags: []
+        ordinalPosition: 596
+        children: []
+    customMetrics: []
+  - name: eventtype
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: varchar(256)
+    description: "The type of event that occurred, such as a page view, click, or\
+      \ interaction."
+    fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.eventtype
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 597
+    children: []
+    customMetrics: []
+  - name: timestamp
+    displayName: ""
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: "The exact time when the event occurred, represented as a Unix timestamp."
+    fullyQualifiedName: Athena Test.default.raw-zone.webanalytics.timestamp
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 598
+    children: []
+    customMetrics: []
+tableConstraints: []
+tablePartition:
+  columns:
+    - columnName: clustername
+      intervalType: COLUMN-VALUE
+    - columnName: year
+      intervalType: INTEGER-RANGE
+    - columnName: month
+      intervalType: INTEGER-RANGE
+    - columnName: day
+      intervalType: INTEGER-RANGE
+owners:
+  - id: fb8e44c9-b9c5-45bc-9691-b3343b5d5b7c
+    type: user
+    name: 23saints23
+    fullyQualifiedName: 23saints23
+    displayName: 23saints23
+    deleted: false
+    inherited: true
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+    inherited: true
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+    inherited: true
+  - id: 02d03179-e7fb-4006-8a82-aa058a46c57e
+    type: user
+    name: jaimecrosby
+    fullyQualifiedName: jaimecrosby
+    displayName: Aaron Bradley
+    deleted: false
+    inherited: true
+  - id: d0107fe9-afbe-4966-914f-bfec7dfc5861
+    type: user
+    name: wilsondanny
+    fullyQualifiedName: wilsondanny
+    displayName: Aaron Baker
+    deleted: false
+    inherited: true
+databaseSchema:
+  id: 0d31a63e-fe0b-4b3f-9f37-da9d73f22a4f
+  type: databaseSchema
+  name: raw-zone
+  fullyQualifiedName: Athena Test.default.raw-zone
+  description: ""
+  displayName: raw-zone
+  deleted: false
+database:
+  id: 5f384ce9-28bd-48cc-bb2e-e3ecfa6444b9
+  type: database
+  name: default
+  fullyQualifiedName: Athena Test.default
+  description: ""
+  displayName: default
+  deleted: false
+service:
+  id: c289313f-168d-43eb-8996-07b4a13c6a26
+  type: databaseService
+  name: Athena Test
+  fullyQualifiedName: Athena Test
+  description: ""
+  displayName: Athena Test
+  deleted: false
+serviceType: Athena
+locationPath: s3://collate-raw-zone/webanalytics
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.timestamp.displayName
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.day.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.year.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.month.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.eventid.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.eventdata.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.eventtype.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.timestamp.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.clustername.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183284715
+    columns.eventdata.url.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.userid.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.fullurl.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.hostname.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.language.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.referrer.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.eventtype.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.sessionid.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.eventvalue.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.screensize.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+    columns.eventdata.pageloadtime.description:
+      changedBy: ashish
+      changedAt: 1744565134204
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: 9b777e79-3556-4eff-b9e9-bb71037b8dd0
+    type: domain
+    name: TestHarsha2
+    fullyQualifiedName: TestHarsha.TestHarsha2
+    description: <p>TestHarsha</p>
+    displayName: TestHarsha2
+    inherited: true
+dataProducts: []
+sourceHash: 793f96ef08b9b3e5dbb5bcf8567f01c3
+processedLineage: false
+entityStatus: Approved

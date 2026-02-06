@@ -1,0 +1,288 @@
+name: cloudfront_logs
+displayName: cloudfront_logs_display_name
+fullyQualifiedName: athena_prod.default.default.cloudfront_logs
+tableType: External
+columns:
+  - name: date
+    displayName: test
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: '`Description`'
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.date
+    tags:
+      - tagFQN: Finance.asdasdasda
+        name: asdasdasda
+        displayName: ""
+        description: asdasdasda
+        source: Glossary
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: General.test
+        name: test
+        displayName: ""
+        description: imri's tag
+        style: {}
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: time
+    displayName: testtime
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: <p>This is test description</p>
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: location
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.location
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: bytes
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: requestip
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.requestip
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: method
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: host1
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.host1
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: uri1
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.uri1
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: referrer
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.referrer
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: os
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.os
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: browser
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.browser
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: browserversion
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.browserversion
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: test_array_str
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.test_array_str
+    tags: []
+    children: []
+    customMetrics: []
+  - name: test_array_complex
+    dataType: ARRAY
+    arrayDataType: STRUCT
+    dataTypeDisplay: "array<struct<place:string,start_year:int>>"
+    description: ""
+    fullyQualifiedName: athena_prod.default.default.cloudfront_logs.test_array_complex
+    tags: []
+    children:
+      - name: place
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: athena_prod.default.default.cloudfront_logs.test_array_complex.place
+        tags: []
+        children: []
+      - name: start_year
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: athena_prod.default.default.cloudfront_logs.test_array_complex.start_year
+        tags: []
+        children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - time
+    referredColumns:
+      - athena_prod.default.default.cloudfront_logs2.status
+    relationshipType: ONE_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - requestip
+    referredColumns:
+      - athena_prod.default.default.cloudfront_logs2.result_type
+    relationshipType: ONE_TO_MANY
+  - constraintType: FOREIGN_KEY
+    columns:
+      - date
+    referredColumns:
+      - athena_prod.default.default.cloudfront_logs2.location
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - uri1
+    referredColumns:
+      - athena_prod.default.default.cloudfront_logs2.uri
+    relationshipType: MANY_TO_MANY
+owners:
+  - id: 9cd9a536-ab77-4d73-bb65-cc71ed8a85ac
+    type: user
+    name: sachin
+    fullyQualifiedName: sachin
+    displayName: Sachin Chaurasiya
+    deleted: false
+databaseSchema:
+  id: 8964b4e4-1534-427c-9080-4dc97a5bbe7a
+  type: databaseSchema
+  name: default
+  fullyQualifiedName: athena_prod.default.default
+  description: <p>test update description test</p>
+  displayName: default
+  deleted: false
+database:
+  id: 6488250e-b45c-4c34-bad8-6be286cb3463
+  type: database
+  name: default
+  fullyQualifiedName: athena_prod.default
+  description: ""
+  displayName: default_display_name
+  deleted: false
+service:
+  id: 27eb56a8-103c-4879-b1b5-0fdd71b02b82
+  type: databaseService
+  name: athena_prod
+  fullyQualifiedName: athena_prod
+  description: ""
+  displayName: athena_prod_display_name
+  deleted: false
+serviceType: Athena
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: bb5c761b-311c-4c18-a39e-f8108bc437ab
+  type: testSuite
+  name: cloudfront_logs.testSuite
+  fullyQualifiedName: athena_prod.default.default.cloudfront_logs.testSuite
+  displayName: cloudfront_logs.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.date.tags
+      newValue: "[{\"tagFQN\":\"Finance.asdasdasda\",\"name\":\"asdasdasda\",\"displayName\"\
+        :\"\",\"description\":\"asdasdasda\",\"source\":\"Glossary\",\"labelType\"\
+        :\"Manual\",\"state\":\"Confirmed\"},{\"tagFQN\":\"Finance.asdasdasda\",\"\
+        name\":\"asdasdasda\",\"displayName\":\"\",\"description\":\"asdasdasda\"\
+        ,\"source\":\"Glossary\",\"labelType\":\"Manual\",\"state\":\"Confirmed\"\
+        }]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 1.0
+  changeSummary: {}
+retentionPeriod: ""
+domains:
+  - id: 52fc9c67-78b7-42bf-8147-69278853c230
+    type: domain
+    name: Design
+    fullyQualifiedName: Design
+    description: <p>Here' the description for Product Design</p>
+    displayName: 'Product Design '
+    inherited: true
+dataProducts:
+  - id: 44bc6684-a477-444a-b79d-40d71677c147
+    type: dataProduct
+    name: test_data_product
+    fullyQualifiedName: test_data_product
+    description: <p>desc</p><hr><p></p>
+    displayName: Test Data Product
+processedLineage: false
+entityStatus: Approved

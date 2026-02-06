@@ -1,0 +1,369 @@
+name: projected_partition
+displayName: ""
+fullyQualifiedName: Athena Test.default.mydatabase.projected_partition
+description: Projected partition table
+tableType: Partitioned
+columns:
+  - name: clustername
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: varchar(512)
+    description: "The name of the cluster where the event was generated, used to identify\
+      \ the source of the data."
+    fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.clustername
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 533
+    children: []
+    customMetrics: []
+  - name: year
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "The year in which the event occurred, represented as an integer,\
+      \ allowing for yearly data aggregation and analysis."
+    fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.year
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 534
+    children: []
+    customMetrics: []
+  - name: month
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "The month in which the event took place, represented as an integer,\
+      \ useful for aggregating data on a monthly basis."
+    fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.month
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 535
+    children: []
+    customMetrics: []
+  - name: day
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: "The specific day of the event, represented as an integer, which\
+      \ helps in organizing and filtering events by date."
+    fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.day
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 536
+    children: []
+    customMetrics: []
+  - name: eventid
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: varchar(512)
+    description: "A unique identifier for each event, used to distinguish between\
+      \ different events in the dataset."
+    fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventid
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 537
+    children: []
+    customMetrics: []
+  - name: eventdata
+    displayName: ""
+    dataType: STRUCT
+    dataTypeDisplay: "struct<eventtpe:varchar(512),eventvalue:varchar(512),fullurl:varchar(512),hostname:varchar(512),language:varchar(512),pageloadtime:double,referrer:varchar(512),screensize:varchar(512),sessionid:varchar(512),url:varchar(512),userid:varchar(512)>"
+    description: "A structured field containing detailed information about the event,\
+      \ including various attributes such as event type, value, URL, hostname, language,\
+      \ page load time, referrer, screen size, session ID, and user ID."
+    fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata
+    tags: []
+    ordinalPosition: 538
+    children:
+      - name: eventtpe
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.eventtpe
+        tags: []
+        ordinalPosition: 539
+        children: []
+      - name: eventvalue
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.eventvalue
+        tags: []
+        ordinalPosition: 540
+        children: []
+      - name: fullurl
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.fullurl
+        tags: []
+        ordinalPosition: 541
+        children: []
+      - name: hostname
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.hostname
+        tags: []
+        ordinalPosition: 542
+        children: []
+      - name: language
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.language
+        tags: []
+        ordinalPosition: 543
+        children: []
+      - name: pageloadtime
+        displayName: ""
+        dataType: DOUBLE
+        dataTypeDisplay: double
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.pageloadtime
+        tags: []
+        ordinalPosition: 544
+        children: []
+      - name: referrer
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.referrer
+        tags: []
+        ordinalPosition: 545
+        children: []
+      - name: screensize
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.screensize
+        tags: []
+        ordinalPosition: 546
+        children: []
+      - name: sessionid
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.sessionid
+        tags: []
+        ordinalPosition: 547
+        children: []
+      - name: url
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.url
+        tags: []
+        ordinalPosition: 548
+        children: []
+      - name: userid
+        displayName: ""
+        dataType: VARCHAR
+        dataLength: 512
+        dataTypeDisplay: VARCHAR
+        description: ""
+        fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventdata.userid
+        tags: []
+        ordinalPosition: 549
+        children: []
+    customMetrics: []
+  - name: eventtype
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: varchar(256)
+    description: foo bar
+    fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.eventtype
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 550
+    children: []
+    customMetrics: []
+  - name: timestamp
+    displayName: ""
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: bazz bazz
+    fullyQualifiedName: Athena Test.default.mydatabase.projected_partition.timestamp
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 551
+    children: []
+    customMetrics: []
+tableConstraints: []
+tablePartition:
+  columns:
+    - columnName: clustername
+      intervalType: INJECTED
+    - columnName: year
+      intervalType: INTEGER-RANGE
+    - columnName: month
+      intervalType: INTEGER-RANGE
+    - columnName: day
+      intervalType: INTEGER-RANGE
+owners:
+  - id: fb8e44c9-b9c5-45bc-9691-b3343b5d5b7c
+    type: user
+    name: 23saints23
+    fullyQualifiedName: 23saints23
+    displayName: 23saints23
+    deleted: false
+    inherited: true
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+    inherited: true
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+    inherited: true
+  - id: 02d03179-e7fb-4006-8a82-aa058a46c57e
+    type: user
+    name: jaimecrosby
+    fullyQualifiedName: jaimecrosby
+    displayName: Aaron Bradley
+    deleted: false
+    inherited: true
+  - id: d0107fe9-afbe-4966-914f-bfec7dfc5861
+    type: user
+    name: wilsondanny
+    fullyQualifiedName: wilsondanny
+    displayName: Aaron Baker
+    deleted: false
+    inherited: true
+databaseSchema:
+  id: fa11fa82-63d8-4253-9352-38faf1183deb
+  type: databaseSchema
+  name: mydatabase
+  fullyQualifiedName: Athena Test.default.mydatabase
+  description: ""
+  displayName: mydatabase
+  deleted: false
+database:
+  id: 5f384ce9-28bd-48cc-bb2e-e3ecfa6444b9
+  type: database
+  name: default
+  fullyQualifiedName: Athena Test.default
+  description: ""
+  displayName: default
+  deleted: false
+service:
+  id: c289313f-168d-43eb-8996-07b4a13c6a26
+  type: databaseService
+  name: Athena Test
+  fullyQualifiedName: Athena Test
+  description: ""
+  displayName: Athena Test
+  deleted: false
+serviceType: Athena
+locationPath: s3://collate-raw-zone/webanalytics
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.timestamp.displayName
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    columns.day.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183288032
+    columns.year.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183288032
+    columns.month.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183288032
+    columns.eventid.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183288032
+    columns.eventdata.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183288032
+    columns.clustername.description:
+      changedBy: ingestion-bot
+      changedAt: 1744183288032
+    columns.eventdata.url.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.userid.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.fullurl.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.eventtpe.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.hostname.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.language.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.referrer.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.sessionid.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.eventvalue.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.screensize.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+    columns.eventdata.pageloadtime.description:
+      changedBy: ashish
+      changedAt: 1744565125736
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: 9b777e79-3556-4eff-b9e9-bb71037b8dd0
+    type: domain
+    name: TestHarsha2
+    fullyQualifiedName: TestHarsha.TestHarsha2
+    description: <p>TestHarsha</p>
+    displayName: TestHarsha2
+    inherited: true
+dataProducts: []
+sourceHash: 11884b02170ed6e6de6f69ff3e70ff57
+processedLineage: false
+entityStatus: Approved
