@@ -1,0 +1,133 @@
+name: table_privileges
+fullyQualifiedName: red-pere.dev.information_schema.table_privileges
+tableType: View
+columns:
+  - name: grantor
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_privileges.grantor
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: grantee
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_privileges.grantee
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_privileges.table_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_privileges.table_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.table_privileges.table_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: privilege_type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.table_privileges.privilege_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_grantable
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.table_privileges.is_grantable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: with_hierarchy
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.table_privileges.with_hierarchy
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW information_schema.table_privileges AS  SELECT u_grantor.usename::information_schema.sql_identifier\
+  \ AS grantor, grantee.name::information_schema.sql_identifier AS grantee, current_database()::information_schema.sql_identifier\
+  \ AS table_catalog, nc.nspname::information_schema.sql_identifier AS table_schema,\
+  \ c.relname::information_schema.sql_identifier AS table_name, pr.\"type\"::information_schema.character_data\
+  \ AS privilege_type, \n        CASE\n            WHEN aclcontains(c.relacl, makeaclitem(grantee.usesysid,\
+  \ grantee.grosysid, u_grantor.usesysid, pr.\"type\"::text, true)) THEN 'YES'::text\n\
+  \            ELSE 'NO'::text\n        END::information_schema.character_data AS\
+  \ is_grantable, 'NO'::information_schema.character_data::information_schema.character_data\
+  \ AS with_hierarchy\n   FROM pg_class c, pg_namespace nc, pg_user u_grantor, ((\
+  \ SELECT pg_user.usesysid, 0, pg_user.usename\n           FROM pg_user\nUNION ALL\
+  \ \n         SELECT 0, pg_group.grosysid, pg_group.groname\n           FROM pg_group)\n\
+  UNION ALL \n         SELECT 0, 0, 'PUBLIC'::name) grantee(usesysid, grosysid, name),\
+  \ (((((( SELECT 'SELECT'::character varying\nUNION ALL \n         SELECT 'DELETE'::character\
+  \ varying)\nUNION ALL \n         SELECT 'INSERT'::character varying)\nUNION ALL\
+  \ \n         SELECT 'UPDATE'::character varying)\nUNION ALL \n         SELECT 'REFERENCES'::character\
+  \ varying)\nUNION ALL \n         SELECT 'RULE'::character varying)\nUNION ALL \n\
+  \         SELECT 'TRIGGER'::character varying) pr(\"type\")\n  WHERE c.relnamespace\
+  \ = nc.oid AND (c.relkind = 'r'::\"char\" OR c.relkind = 'v'::\"char\") AND aclcontains(c.relacl,\
+  \ makeaclitem(grantee.usesysid, grantee.grosysid, u_grantor.usesysid, pr.\"type\"\
+  ::text, false)) AND (u_grantor.usename = \"current_user\"()::name OR grantee.name\
+  \ = \"current_user\"()::name OR grantee.name = 'PUBLIC'::name);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 686f80c42c670e42669342eab31cfce0
+processedLineage: false
+entityStatus: Unprocessed

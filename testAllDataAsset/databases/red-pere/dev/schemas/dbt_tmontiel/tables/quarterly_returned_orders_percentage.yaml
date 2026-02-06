@@ -1,0 +1,72 @@
+name: quarterly_returned_orders_percentage
+fullyQualifiedName: red-pere.dev.dbt_tmontiel.quarterly_returned_orders_percentage
+tableType: View
+columns:
+  - name: quarter
+    dataType: TEXT
+    dataLength: 1
+    dataTypeDisplay: text
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.quarterly_returned_orders_percentage.quarter
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: returned_percentage
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 34
+    scale: 24
+    dataTypeDisplay: "numeric(34,24)"
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.quarterly_returned_orders_percentage.returned_percentage
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 61510722-b00c-4bee-974b-368008066e9f
+  type: databaseSchema
+  name: dbt_tmontiel
+  fullyQualifiedName: red-pere.dev.dbt_tmontiel
+  displayName: dbt_tmontiel
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW dbt_tmontiel.quarterly_returned_orders_percentage AS\
+  \  SELECT orders_count.quarter, orders_count.returned_orders::numeric::numeric(10,4)\
+  \ / \n        CASE\n            WHEN orders_count.total_orders = 0 THEN NULL::bigint\n\
+  \            ELSE orders_count.total_orders\n        END::numeric * 100::numeric\
+  \ AS returned_percentage\n   FROM ( SELECT orders_with_quarter.quarter, count(*)\
+  \ AS total_orders, count(\n                CASE\n                    WHEN lower(orders_with_quarter.status::text)\
+  \ = 'returned'::text THEN 1\n                    ELSE NULL::integer\n          \
+  \      END) AS returned_orders\n           FROM ( SELECT orders.order_id, orders.status,\
+  \ (\"date_part\"('year'::text, orders.order_date)::text || '-Q'::text) || \"date_part\"\
+  ('quarter'::text, orders.order_date)::text AS quarter\n                   FROM shoes_retail.orders)\
+  \ orders_with_quarter\n          GROUP BY orders_with_quarter.quarter) orders_count\n\
+  \  ORDER BY orders_count.quarter NULLS FIRST\n LIMIT 50;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: c8460f21d081e11711d289577ad9607b
+processedLineage: false
+entityStatus: Unprocessed

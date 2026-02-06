@@ -1,0 +1,66 @@
+name: top_5_products_by_sales
+fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_5_products_by_sales
+tableType: View
+columns:
+  - name: name
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: character varying(255)
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_5_products_by_sales.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_quantity_sold
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.top_5_products_by_sales.total_quantity_sold
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 61510722-b00c-4bee-974b-368008066e9f
+  type: databaseSchema
+  name: dbt_tmontiel
+  fullyQualifiedName: red-pere.dev.dbt_tmontiel
+  displayName: dbt_tmontiel
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_tmontiel.top_5_products_by_sales AS  SELECT p.name, "ts".total_quantity_sold
+     FROM ( SELECT o.product_id, sum(o.quantity) AS total_quantity_sold
+             FROM shoes_retail.orders o
+            GROUP BY o.product_id) "ts"
+     JOIN shoes_retail.products p ON "ts".product_id = p.product_id
+    ORDER BY "ts".total_quantity_sold DESC NULLS LAST
+   LIMIT 5;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 650382cfc353a2c1621c12f1dc4d69ae
+processedLineage: false
+entityStatus: Unprocessed

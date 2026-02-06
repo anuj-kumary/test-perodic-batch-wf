@@ -1,0 +1,113 @@
+name: orders
+fullyQualifiedName: red-pere.dev.ecommerce_test.orders
+description: Core transactional record of purchases placed by customers.
+tableType: Regular
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: order_id integer PK
+    fullyQualifiedName: red-pere.dev.ecommerce_test.orders.order_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: customer_id integer FK → customers
+    fullyQualifiedName: red-pere.dev.ecommerce_test.orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: product_id integer FK → products
+    fullyQualifiedName: red-pere.dev.ecommerce_test.orders.product_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: quantity
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: units ordered
+    fullyQualifiedName: red-pere.dev.ecommerce_test.orders.quantity
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: price
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 18
+    scale: 2
+    dataTypeDisplay: "numeric(18,2)"
+    description: unit price
+    fullyQualifiedName: red-pere.dev.ecommerce_test.orders.price
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: timestamp
+    fullyQualifiedName: red-pere.dev.ecommerce_test.orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    description: state
+    fullyQualifiedName: red-pere.dev.ecommerce_test.orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 41e4fd35-4814-4737-8553-b369496746d8
+  type: databaseSchema
+  name: ecommerce_test
+  fullyQualifiedName: red-pere.dev.ecommerce_test
+  displayName: ecommerce_test
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 1c75f8c77967833a716910332bc057d7
+processedLineage: false
+entityStatus: Unprocessed

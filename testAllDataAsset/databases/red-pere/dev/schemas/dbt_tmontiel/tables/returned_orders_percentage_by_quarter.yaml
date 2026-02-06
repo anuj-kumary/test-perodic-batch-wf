@@ -1,0 +1,73 @@
+name: returned_orders_percentage_by_quarter
+fullyQualifiedName: red-pere.dev.dbt_tmontiel.returned_orders_percentage_by_quarter
+tableType: View
+columns:
+  - name: quarter
+    dataType: TEXT
+    dataLength: 1
+    dataTypeDisplay: text
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.returned_orders_percentage_by_quarter.quarter
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: returned_percentage
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 34
+    scale: 22
+    dataTypeDisplay: "numeric(34,22)"
+    fullyQualifiedName: red-pere.dev.dbt_tmontiel.returned_orders_percentage_by_quarter.returned_percentage
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 61510722-b00c-4bee-974b-368008066e9f
+  type: databaseSchema
+  name: dbt_tmontiel
+  fullyQualifiedName: red-pere.dev.dbt_tmontiel
+  displayName: dbt_tmontiel
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW dbt_tmontiel.returned_orders_percentage_by_quarter\
+  \ AS  SELECT (orders_by_quarter.order_year::text || '-Q'::text) || orders_by_quarter.order_quarter::text\
+  \ AS quarter, orders_by_quarter.returned_orders::numeric::numeric(10,2) / \n   \
+  \     CASE\n            WHEN orders_by_quarter.total_orders = 0 THEN NULL::bigint\n\
+  \            ELSE orders_by_quarter.total_orders\n        END::numeric * 100::numeric\
+  \ AS returned_percentage\n   FROM ( SELECT \"date_part\"('year'::text, orders.order_date)\
+  \ AS order_year, \"date_part\"('quarter'::text, orders.order_date) AS order_quarter,\
+  \ count(*) AS total_orders, count(\n                CASE\n                    WHEN\
+  \ lower(orders.status::text) = 'returned'::text THEN 1\n                    ELSE\
+  \ NULL::integer\n                END) AS returned_orders\n           FROM shoes_retail.orders\n\
+  \          GROUP BY \"date_part\"('year'::text, orders.order_date), \"date_part\"\
+  ('quarter'::text, orders.order_date)) orders_by_quarter\n  ORDER BY orders_by_quarter.order_year\
+  \ NULLS FIRST, orders_by_quarter.order_quarter NULLS FIRST\n LIMIT 50;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b3d8f2eb9fc473c046d2469deb05e0ef
+processedLineage: false
+entityStatus: Unprocessed

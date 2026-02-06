@@ -1,0 +1,111 @@
+name: customer_addresses
+fullyQualifiedName: red-pere.dev.ecommerce_test.customer_addresses
+description: Separate table storing multiple addresses per customer.
+tableType: Regular
+columns:
+  - name: address_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: address_id integer PK
+    fullyQualifiedName: red-pere.dev.ecommerce_test.customer_addresses.address_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: customer_id integer FK → customers
+    fullyQualifiedName: red-pere.dev.ecommerce_test.customer_addresses.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: address_type
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    description: billing/shipping
+    fullyQualifiedName: red-pere.dev.ecommerce_test.customer_addresses.address_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: VARCHAR
+    dataLength: 500
+    dataTypeDisplay: character varying(500)
+    description: street
+    fullyQualifiedName: red-pere.dev.ecommerce_test.customer_addresses.address
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: city
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    description: city
+    fullyQualifiedName: red-pere.dev.ecommerce_test.customer_addresses.city
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: country
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    description: country
+    fullyQualifiedName: red-pere.dev.ecommerce_test.customer_addresses.country
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: updated_at
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: updated at
+    fullyQualifiedName: red-pere.dev.ecommerce_test.customer_addresses.updated_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 41e4fd35-4814-4737-8553-b369496746d8
+  type: databaseSchema
+  name: ecommerce_test
+  fullyQualifiedName: red-pere.dev.ecommerce_test
+  displayName: ecommerce_test
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: c01df11d2dc0a2d4489f11a7b1ed8fd9
+processedLineage: false
+entityStatus: Unprocessed

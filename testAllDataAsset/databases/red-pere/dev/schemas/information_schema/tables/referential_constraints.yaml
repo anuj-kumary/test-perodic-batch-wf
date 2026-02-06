@@ -1,0 +1,150 @@
+name: referential_constraints
+fullyQualifiedName: red-pere.dev.information_schema.referential_constraints
+tableType: View
+columns:
+  - name: constraint_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.constraint_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: constraint_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.constraint_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: constraint_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.constraint_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unique_constraint_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.unique_constraint_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unique_constraint_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.unique_constraint_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: unique_constraint_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.unique_constraint_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: match_option
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.match_option
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: update_rule
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.update_rule
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: delete_rule
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.referential_constraints.delete_rule
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW information_schema.referential_constraints AS  SELECT\
+  \ current_database()::information_schema.sql_identifier AS constraint_catalog, ncon.nspname::information_schema.sql_identifier\
+  \ AS constraint_schema, con.conname::information_schema.sql_identifier AS constraint_name,\
+  \ \n        CASE\n            WHEN npkc.nspname IS NULL THEN NULL::name\n      \
+  \      ELSE current_database()\n        END::information_schema.sql_identifier AS\
+  \ unique_constraint_catalog, npkc.nspname::information_schema.sql_identifier AS\
+  \ unique_constraint_schema, pkc.conname::information_schema.sql_identifier AS unique_constraint_name,\
+  \ \n        CASE\n            WHEN con.confmatchtype = 'f'::\"char\" THEN 'FULL'::text\n\
+  \            WHEN con.confmatchtype = 'p'::\"char\" THEN 'PARTIAL'::text\n     \
+  \       WHEN con.confmatchtype = 'u'::\"char\" THEN 'NONE'::text\n            ELSE\
+  \ NULL::text\n        END::information_schema.character_data AS match_option, \n\
+  \        CASE\n            WHEN con.confupdtype = 'c'::\"char\" THEN 'CASCADE'::text\n\
+  \            WHEN con.confupdtype = 'n'::\"char\" THEN 'SET NULL'::text\n      \
+  \      WHEN con.confupdtype = 'd'::\"char\" THEN 'SET DEFAULT'::text\n         \
+  \   WHEN con.confupdtype = 'r'::\"char\" THEN 'RESTRICT'::text\n            WHEN\
+  \ con.confupdtype = 'a'::\"char\" THEN 'NO ACTION'::text\n            ELSE NULL::text\n\
+  \        END::information_schema.character_data AS update_rule, \n        CASE\n\
+  \            WHEN con.confdeltype = 'c'::\"char\" THEN 'CASCADE'::text\n       \
+  \     WHEN con.confdeltype = 'n'::\"char\" THEN 'SET NULL'::text\n            WHEN\
+  \ con.confdeltype = 'd'::\"char\" THEN 'SET DEFAULT'::text\n            WHEN con.confdeltype\
+  \ = 'r'::\"char\" THEN 'RESTRICT'::text\n            WHEN con.confdeltype = 'a'::\"\
+  char\" THEN 'NO ACTION'::text\n            ELSE NULL::text\n        END::information_schema.character_data\
+  \ AS delete_rule\n   FROM pg_namespace ncon\n   JOIN pg_constraint con ON ncon.oid\
+  \ = con.connamespace\n   JOIN pg_class c ON con.conrelid = c.oid\n   JOIN pg_user\
+  \ u ON c.relowner = u.usesysid\n   LEFT JOIN (pg_constraint pkc\n   JOIN pg_namespace\
+  \ npkc ON pkc.connamespace = npkc.oid) ON con.confrelid = pkc.conrelid AND information_schema._pg_keysequal(con.confkey,\
+  \ pkc.conkey)\n  WHERE c.relkind = 'r'::\"char\" AND con.contype = 'f'::\"char\"\
+  \ AND (pkc.contype = 'p'::\"char\" OR pkc.contype = 'u'::\"char\" OR pkc.contype\
+  \ IS NULL) AND u.usename = \"current_user\"()::name;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 13b6a96026c172a22231d91252c1b9fb
+processedLineage: false
+entityStatus: Unprocessed

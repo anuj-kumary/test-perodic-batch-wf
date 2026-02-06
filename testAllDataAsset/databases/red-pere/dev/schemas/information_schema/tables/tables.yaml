@@ -1,0 +1,141 @@
+name: tables
+fullyQualifiedName: red-pere.dev.information_schema.tables
+tableType: View
+columns:
+  - name: table_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.tables.table_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.tables.table_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.tables.table_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.tables.table_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: self_referencing_column_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.tables.self_referencing_column_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: reference_generation
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.tables.reference_generation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user_defined_type_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.tables.user_defined_type_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user_defined_type_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.tables.user_defined_type_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user_defined_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.tables.user_defined_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW information_schema.tables AS  SELECT current_database()::information_schema.sql_identifier\
+  \ AS table_catalog, nc.nspname::information_schema.sql_identifier AS table_schema,\
+  \ c.relname::information_schema.sql_identifier AS table_name, \n        CASE\n \
+  \           WHEN nc.nspname ~~ like_escape('pg!_temp!_%'::text, '!'::text) THEN\
+  \ 'LOCAL TEMPORARY'::text\n            WHEN c.relkind = 'r'::\"char\" THEN 'BASE\
+  \ TABLE'::text\n            WHEN c.relkind = 'v'::\"char\" THEN 'VIEW'::text\n \
+  \           ELSE NULL::text\n        END::information_schema.character_data AS table_type,\
+  \ NULL::information_schema.sql_identifier::information_schema.sql_identifier AS\
+  \ self_referencing_column_name, NULL::information_schema.character_data::information_schema.character_data\
+  \ AS reference_generation, NULL::information_schema.sql_identifier::information_schema.sql_identifier\
+  \ AS user_defined_type_catalog, NULL::information_schema.sql_identifier::information_schema.sql_identifier\
+  \ AS user_defined_type_schema, NULL::information_schema.sql_identifier::information_schema.sql_identifier\
+  \ AS user_defined_name\n   FROM pg_namespace nc, pg_class c, pg_user u\n  WHERE\
+  \ c.relnamespace = nc.oid AND u.usesysid = c.relowner AND (c.relkind = 'r'::\"char\"\
+  \ OR c.relkind = 'v'::\"char\") AND (u.usename = \"current_user\"()::name OR has_table_privilege(c.oid,\
+  \ 'SELECT'::text) OR has_table_privilege(c.oid, 'INSERT'::text) OR has_table_privilege(c.oid,\
+  \ 'UPDATE'::text) OR has_table_privilege(c.oid, 'DELETE'::text) OR has_table_privilege(c.oid,\
+  \ 'RULE'::text) OR has_table_privilege(c.oid, 'REFERENCES'::text) OR has_table_privilege(c.oid,\
+  \ 'TRIGGER'::text) OR has_any_column_privilege(c.oid, 'SELECT'::text) OR has_any_column_privilege(c.oid,\
+  \ 'UPDATE'::text));"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: e99587797658d0ae2c1bf62d2bdefaed
+processedLineage: false
+entityStatus: Unprocessed

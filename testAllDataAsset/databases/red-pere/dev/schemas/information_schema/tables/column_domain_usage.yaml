@@ -1,0 +1,107 @@
+name: column_domain_usage
+fullyQualifiedName: red-pere.dev.information_schema.column_domain_usage
+tableType: View
+columns:
+  - name: domain_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.column_domain_usage.domain_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: domain_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.column_domain_usage.domain_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: domain_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.column_domain_usage.domain_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.column_domain_usage.table_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.column_domain_usage.table_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.column_domain_usage.table_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: column_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.column_domain_usage.column_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW information_schema.column_domain_usage AS  SELECT current_database()::information_schema.sql_identifier AS domain_catalog, nt.nspname::information_schema.sql_identifier AS domain_schema, t.typname::information_schema.sql_identifier AS domain_name, current_database()::information_schema.sql_identifier AS table_catalog, nc.nspname::information_schema.sql_identifier AS table_schema, c.relname::information_schema.sql_identifier AS table_name, a.attname::information_schema.sql_identifier AS column_name
+     FROM pg_type t, pg_namespace nt, pg_class c, pg_namespace nc, pg_attribute a, pg_user u
+    WHERE t.typnamespace = nt.oid AND c.relnamespace = nc.oid AND a.attrelid = c.oid AND a.atttypid = t.oid AND t.typowner = u.usesysid AND t.typtype = 'd'::"char" AND (c.relkind = 'r'::"char" OR c.relkind = 'v'::"char") AND a.attnum > 0 AND NOT a.attisdropped AND u.usename = "current_user"()::name;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: cb2d7b84b854d49ed57a6e724404acf3
+processedLineage: false
+entityStatus: Unprocessed

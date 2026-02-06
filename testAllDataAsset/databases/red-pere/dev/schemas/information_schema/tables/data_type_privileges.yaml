@@ -1,0 +1,99 @@
+name: data_type_privileges
+fullyQualifiedName: red-pere.dev.information_schema.data_type_privileges
+tableType: View
+columns:
+  - name: object_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.data_type_privileges.object_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.data_type_privileges.object_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.data_type_privileges.object_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: object_type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.data_type_privileges.object_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dtd_identifier
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.data_type_privileges.dtd_identifier
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW information_schema.data_type_privileges AS  SELECT\
+  \ current_database()::information_schema.sql_identifier AS object_catalog, x.objschema::information_schema.sql_identifier\
+  \ AS object_schema, x.objname::information_schema.sql_identifier AS object_name,\
+  \ x.objtype::information_schema.character_data AS object_type, x.objdtdid::information_schema.sql_identifier\
+  \ AS dtd_identifier\n   FROM ((( SELECT \"columns\".table_schema, \"columns\".table_name,\
+  \ 'TABLE'::character varying AS \"varchar\", \"columns\".dtd_identifier\n      \
+  \     FROM information_schema.\"columns\"\nUNION ALL \n         SELECT domains.domain_schema,\
+  \ domains.domain_name, 'DOMAIN'::character varying AS \"varchar\", domains.dtd_identifier\n\
+  \           FROM information_schema.domains)\nUNION ALL \n         SELECT \"parameters\"\
+  .specific_schema, \"parameters\".specific_name, 'ROUTINE'::character varying AS\
+  \ \"varchar\", \"parameters\".dtd_identifier\n           FROM information_schema.\"\
+  parameters\")\nUNION ALL \n         SELECT routines.specific_schema, routines.specific_name,\
+  \ 'ROUTINE'::character varying AS \"varchar\", routines.dtd_identifier\n       \
+  \    FROM information_schema.routines) x(objschema, objname, objtype, objdtdid);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 51a056aaf03a9388933b587255600fea
+processedLineage: false
+entityStatus: Unprocessed

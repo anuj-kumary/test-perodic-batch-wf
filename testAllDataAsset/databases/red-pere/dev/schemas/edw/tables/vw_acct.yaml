@@ -1,0 +1,61 @@
+name: vw_acct
+fullyQualifiedName: red-pere.dev.edw.vw_acct
+tableType: View
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.edw.vw_acct.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: red-pere.dev.edw.vw_acct.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 0734865c-637f-4fab-9ea6-b52469d0feb1
+  type: databaseSchema
+  name: edw
+  fullyQualifiedName: red-pere.dev.edw
+  displayName: edw
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW edw.vw_acct AS  SELECT acct.id, acct.name
+     FROM edw.acct;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 87df870b91fc8d0ada031c18457a9eea
+processedLineage: false
+entityStatus: Unprocessed
