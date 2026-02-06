@@ -1,0 +1,129 @@
+name: customers
+fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.customers
+tableType: Partitioned
+columns:
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    description: Name of the person
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.customers.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    description: "The last_name column contains the family name of the customer, which\
+      \ is often used in conjunction with the first name for full identification."
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Represents the date when the order was placed.
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.customers.first_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: most_recent_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Represents the date when the order was placed.
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.customers.most_recent_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: number_of_orders
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: ID
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.customers.number_of_orders
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_lifetime_value
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.customers.customer_lifetime_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: Unique identifier
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.customers.customer_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: DIST_KEY
+    columns:
+      - customer_lifetime_value
+tablePartition:
+  columns:
+    - columnName: customer_lifetime_value
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: b911861a-39be-493e-a407-5612bbf81981
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: dc152b49-eeac-4b93-8c6b-c30ff5f39e23
+  type: database
+  name: dev
+  fullyQualifiedName: redshift_powerbi.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 7a43b4f2-d7e5-46b1-8099-a802f7e92487
+  type: databaseService
+  name: redshift_powerbi
+  fullyQualifiedName: redshift_powerbi
+  description: ""
+  displayName: redshift_powerbi
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1701232635115}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1701232635115
+sourceHash: a9d7ab136f7171bef0765468cebeb53a
+processedLineage: false
+entityStatus: Approved

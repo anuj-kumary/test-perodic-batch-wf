@@ -1,0 +1,430 @@
+name: dim_address
+fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address
+description: "This dimension table contains the billing and shipping addresses of\
+  \ customers. You can join this table with the sales table to generate lists of the\
+  \ billing and shipping addresses. Customers can enter their addresses more than\
+  \ once, so the same address can appear in more than one row in this table. This\
+  \ table contains one row per customer address."
+tableType: Regular
+columns:
+  - name: address_id
+    displayName: Address Id
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: Unique identifier for the address.
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.address_id
+    tags:
+      - tagFQN: Business Department.Finance
+        name: Finance
+        displayName: Finance
+        description: A finance department is the unit of a business responsible for
+          obtaining and handling any monies on behalf of the organization
+        style:
+          color: "#a80000"
+          iconURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJUAAACUCAMAAACtIJvYAAAAA1BMVEX/AAAZ4gk3AAAALElEQVR4nO3BMQEAAADCoPVP7WkJoAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAGVrgAAQdwvSEAAAAASUVORK5CYII="
+        source: Glossary
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Derived
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PersonalData.Personal
+        name: Personal
+        description: Data that can be used to directly or indirectly identify a person.
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PostgresPolicyTags.author_policy
+        name: author_policy
+        description: Postgres Tag Value
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: TestPolicyTag.test_policy_tag
+        name: test_policy_tag
+        description: Bigquery Policy Tag
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: color.red
+        name: red
+        description: "<p>Bigquery Dataset Label What is Lorem Ipsum?</p><p><strong>Lorem\
+          \ Ipsum</strong> is simply dummy text of the printing and typesetting industry.\
+          \ Lorem Ipsum has been the industry's standard dummy text ever since the\
+          \ 1500s, when an unknown printer took a galley of type and scrambled it\
+          \ to make a type specimen book. It has survived not only five centuries,\
+          \ but also the leap into electronic typesetting, remaining essentially unchanged.\
+          \ It was popularised in the 1960s with the release of Letraset sheets containing\
+          \ Lorem Ipsum passages, and more recently with desktop publishing software\
+          \ like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+        style:
+          color: "#d32727"
+        source: Classification
+        labelType: Derived
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: test.testcheck
+        name: testcheck
+        description: Bigquery Dataset Label
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: testexclusive.exclusive-2
+        name: exclusive-2
+        displayName: exclusive 2
+        description: exclusive
+        style: {}
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: shop_id
+    displayName: ""
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: The ID of the store. This column is a foreign key reference to the
+      shop_id column in the dim_shop table.
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.shop_id
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: first_name
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar
+    description: First name of the customer.
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.first_name
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: last_name
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar
+    description: Last name of the customer.
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.last_name
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: address1
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 500
+    dataTypeDisplay: varchar
+    description: "The first address line. For example, 150 Elgin St."
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.address1
+    tags: []
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: address2
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 500
+    dataTypeDisplay: varchar
+    description: "The second address line. For example, Suite 800."
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.address2
+    tags: []
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: company
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar
+    description: "The name of the customer's business, if one exists."
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.company
+    tags: []
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: city
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar
+    description: "The name of the city. For example, Palo Alto."
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.city
+    tags: []
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: region
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 512
+    dataTypeDisplay: varchar
+    description: "The name of the region, such as a province or state, where the customer\
+      \ is located. For example, Ontario or New York. This column is the same as CustomerAddress.province\
+      \ in the Admin API."
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.region
+    tags: []
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: zip
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: varchar
+    description: "The ZIP or postal code. For example, 90210."
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.zip
+    tags: []
+    ordinalPosition: 10
+    children: []
+    customMetrics:
+      - id: 8666de97-53b3-4449-b396-db615cb8f1a9
+        name: CountOfLAZipCode
+        columnName: zip
+        expression: SELECT COUNT(zip) FROM dim_address WHERE zip LIKE '900%'
+        updatedAt: 1764077171193
+        updatedBy: ingestion-bot
+      - id: 8d7f67dd-a26d-4b7f-9502-2eb1f714c0ae
+        name: CountOfOrangeCountyZipCode
+        columnName: zip
+        expression: SELECT COUNT(zip) FROM dim_address WHERE zip LIKE '92%'
+        updatedAt: 1764077171532
+        updatedBy: ingestion-bot
+  - name: country
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: varchar
+    description: "The full name of the country. For example, Canada."
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.country
+    tags: []
+    ordinalPosition: 11
+    children: []
+    customMetrics: []
+  - name: phone
+    displayName: ""
+    dataType: VARCHAR
+    dataLength: 15
+    dataTypeDisplay: varchar
+    description: The phone number of the customer.
+    fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.phone
+    tags: []
+    ordinalPosition: 12
+    children: []
+    customMetrics:
+      - id: 20ecb304-7e9f-4d5a-935d-23cefb828d25
+        name: CountOfNonUsPhoneNumbers
+        columnName: phone
+        expression: SELECT COUNT(phone) FROM dim_address WHERE phone NOT LIKE '1%'
+        updatedAt: 1764077171867
+        updatedBy: ingestion-bot
+owners:
+  - id: b7c8dcaf-1b29-4b57-8ac5-16f48ec4c096
+    type: team
+    name: abc.def.ghiabc.def.ghiabc.def.ghiabc.def.ghi
+    fullyQualifiedName: '"abc.def.ghiabc.def.ghiabc.def.ghiabc.def.ghi"'
+    description: ""
+    displayName: abc.def.ghiabc.def.ghiabc.def.ghiabc.def.ghi
+    deleted: true
+databaseSchema:
+  id: 9f127bdc-d060-4fac-ae7b-c635933fc2e0
+  type: databaseSchema
+  name: shopify
+  fullyQualifiedName: sample_data.ecommerce_db.shopify
+  description: |-
+    <p>This <strong>mock</strong> database contains schema related to shopify sales and orders with related dimension tables.
+    <a data-type="mention" target="_blank" data-id="e806dc5e-c5c9-461d-af80-0d22438f45e9" data-label="测试" href="https://sandbox-beta.open-metadata.org/users/%E6%B5%8B%E8%AF%95" data-entitytype="user" data-fqn="测试"><#E::user::测试|[@测试](https://sandbox-beta.open-metadata.org/users/%E6%B5%8B%E8%AF%95)></a> </p>
+  displayName: shopify
+  deleted: false
+database:
+  id: 77147d45-888b-42dd-a369-8b7ba882dffb
+  type: database
+  name: ecommerce_db
+  fullyQualifiedName: sample_data.ecommerce_db
+  description: This **mock** database contains schemas related to shopify sales and
+    orders with related dimension tables.
+  displayName: ecommerce_db
+  deleted: false
+service:
+  id: 75199480-3d06-4b6f-89d2-e8805ebe8d01
+  type: databaseService
+  name: sample_data
+  fullyQualifiedName: sample_data
+  displayName: sample_data
+  deleted: false
+serviceType: BigQuery
+tags:
+  - tagFQN: AirflowTags.OpenMetadata
+    name: OpenMetadata
+    description: Airflow Tag
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: Customer Success.Business Decision Maker
+    name: Business Decision Maker
+    displayName: Business Decision Maker (BDM)
+    description: Business Decision Maker
+    style: {}
+    source: Glossary
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1769066423000
+    appliedBy: anujkumar.yadav
+  - tagFQN: KnowledgeCenter.Article
+    name: Article
+    description: Knowledge Article Description
+    style: {}
+    source: Classification
+    labelType: Derived
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: PII.Sensitive
+    name: Sensitive
+    description: "PII which if lost, compromised, or disclosed without authorization,\
+      \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+      \ to an individual."
+    style:
+      color: "#ff0000"
+    source: Classification
+    labelType: Derived
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: Person.Address
+    name: Address
+    description: Address of a Person.
+    style:
+      color: "#d54110"
+    source: Glossary
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: PersonalData.Personal
+    name: Personal
+    description: Data that can be used to directly or indirectly identify a person.
+    source: Classification
+    labelType: Derived
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: Tier.Tier1
+    name: Tier1
+    description: |-
+      **Critical Source of Truth business data assets of an organization**
+
+      - Used in critical metrics and dashboards to drive business and product decisions
+
+      - Used in critical compliance reporting to regulators, govt entities, and third party
+
+      - Used in brand or revenue impacting online user-facing experiences (search results, advertisement, promotions, and experimentation)
+
+      - Other high impact use, such as ML models and fraud detection
+
+      - Source used to derive other critical Tier-1 datasets
+    style:
+      color: "#ec1313"
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: my_tag2nd.2nd_two
+    name: 2nd_two
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1769066423000
+    appliedBy: anujkumar.yadav
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins:
+    - columnName: address_id
+      joinedWith:
+        - fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address_clean.address_id
+          joinCount: 0
+  directTableJoins:
+    - fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address_clean
+      joinCount: 0
+tableProfilerConfig:
+  profileSampleType: PERCENTAGE
+  profileSample: 17.0
+  sampleDataCount: 50
+  randomizedSample: true
+  computeTableMetrics: true
+  computeColumnMetrics: true
+customMetrics:
+  - id: af3f44d9-2744-4490-8c2d-47584026d661
+    name: CountOfFRAddress
+    expression: SELECT COUNT(address_id) FROM dim_address WHERE country = 'FR'
+    updatedAt: 1764077170855
+    updatedBy: ingestion-bot
+  - id: a678bc16-db35-4890-8f3a-6fb0184e172f
+    name: CountOfUSAddress
+    expression: SELECT COUNT(address_id) FROM dim_address WHERE country = 'US'
+    updatedAt: 1764077170520
+    updatedBy: ingestion-bot
+testSuite:
+  id: 64bfc565-de66-4252-af98-19b507d55f39
+  type: testSuite
+  name: sample_data.ecommerce_db.shopify.dim_address.testSuite
+  fullyQualifiedName: sample_data.ecommerce_db.shopify.dim_address.testSuite
+  description: This is an executable test suite linked to an entity
+  displayName: sample_data.ecommerce_db.shopify.dim_address.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: extension
+      newValue: "[{\"columnCP\":\"Lorem ipsum dolor sit amet, consectetur adipiscing\
+        \ elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
+        \ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi\
+        \ ut aliquip ex ea commodo consequat.\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 1.0
+  changeSummary: {}
+extension:
+  columnCP: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\
+    \ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\
+    \ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+sourceUrl: http://localhost:8080/dim_address
+domains:
+  - id: e3f8138b-8db5-4850-807c-585cc86f4185
+    type: domain
+    name: Domain2
+    fullyQualifiedName: Domain2
+    description: <p>Domain2</p>
+    displayName: Domain2
+dataProducts: []
+processedLineage: false
+entityStatus: Unprocessed

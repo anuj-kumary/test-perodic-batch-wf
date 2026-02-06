@@ -1,0 +1,82 @@
+name: stg_orders
+fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.stg_orders
+tableType: View
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.stg_orders.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.stg_orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.stg_orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle.stg_orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: b911861a-39be-493e-a407-5612bbf81981
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: redshift_powerbi.dev.demo_dbt_jaffle
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: dc152b49-eeac-4b93-8c6b-c30ff5f39e23
+  type: database
+  name: dev
+  fullyQualifiedName: redshift_powerbi.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 7a43b4f2-d7e5-46b1-8099-a802f7e92487
+  type: databaseService
+  name: redshift_powerbi
+  fullyQualifiedName: redshift_powerbi
+  description: ""
+  displayName: redshift_powerbi
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW demo_dbt_jaffle.stg_orders AS  SELECT renamed.order_id, renamed.customer_id, renamed.order_date, renamed.status
+     FROM ( SELECT source.id AS order_id, source.user_id AS customer_id, source.order_date, source.status
+             FROM ( SELECT raw_orders.id, raw_orders.user_id, raw_orders.order_date, raw_orders.status
+                     FROM demo_dbt_jaffle.raw_orders) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b702c1af20d869185030480bdd061f0d
+processedLineage: false
+entityStatus: Approved

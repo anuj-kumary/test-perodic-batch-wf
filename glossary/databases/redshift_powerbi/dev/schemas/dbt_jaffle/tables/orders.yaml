@@ -1,0 +1,141 @@
+name: orders
+fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders
+description: testing comments here
+tableType: Partitioned
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: credit_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.credit_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: coupon_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.coupon_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: bank_transfer_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.bank_transfer_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: gift_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.gift_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.orders.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: DIST_KEY
+    columns:
+      - order_id
+tablePartition:
+  columns:
+    - columnName: order_id
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: 031c565e-c7c7-4550-8e98-07f31a03778d
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: dc152b49-eeac-4b93-8c6b-c30ff5f39e23
+  type: database
+  name: dev
+  fullyQualifiedName: redshift_powerbi.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 7a43b4f2-d7e5-46b1-8099-a802f7e92487
+  type: databaseService
+  name: redshift_powerbi
+  fullyQualifiedName: redshift_powerbi
+  description: ""
+  displayName: redshift_powerbi
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1700477489334}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1700477489334
+sourceHash: e6774ac5f2d430d9ec02504b3eece0e0
+processedLineage: false
+entityStatus: Approved

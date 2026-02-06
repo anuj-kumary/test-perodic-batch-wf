@@ -1,0 +1,73 @@
+name: stg_customers
+fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.stg_customers
+tableType: View
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.stg_customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.stg_customers.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle.stg_customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 031c565e-c7c7-4550-8e98-07f31a03778d
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: redshift_powerbi.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: dc152b49-eeac-4b93-8c6b-c30ff5f39e23
+  type: database
+  name: dev
+  fullyQualifiedName: redshift_powerbi.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 7a43b4f2-d7e5-46b1-8099-a802f7e92487
+  type: databaseService
+  name: redshift_powerbi
+  fullyQualifiedName: redshift_powerbi
+  description: ""
+  displayName: redshift_powerbi
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_jaffle.stg_customers AS  SELECT renamed.customer_id, renamed.first_name, renamed.last_name
+     FROM ( SELECT source.id AS customer_id, source.first_name, source.last_name
+             FROM ( SELECT raw_customers.id, raw_customers.first_name, raw_customers.last_name
+                     FROM dbt_jaffle.raw_customers) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 09484f8631268173fdb5eb4ce83c205d
+processedLineage: false
+entityStatus: Approved
