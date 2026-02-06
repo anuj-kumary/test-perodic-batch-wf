@@ -1,0 +1,27 @@
+name: 1a322281b724aa4c223a84fdafd75f95
+fullyQualifiedName: hktest.1a322281b724aa4c223a84fdafd75f95
+owners: []
+duration: 1044.0
+users: []
+query: "SELECT count(\"NAME\") AS \"valuesCount\", (SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"NAME\") AS count_1 \nFROM \"PUBLIC\".\"REGULAR_VIEW\" GROUP\
+  \ BY \"NAME\" \nHAVING count(\"NAME\") = ?) AS only_once) AS \"uniqueCount\" \n\
+  FROM \"PUBLIC\".\"REGULAR_VIEW\"\n LIMIT ?"
+checksum: 1a322281b724aa4c223a84fdafd75f95
+queryDate: 1751932800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: c7780f9c-8451-4aa1-9948-ac5a1b07edf7
+    type: table
+    name: REGULAR_VIEW
+    fullyQualifiedName: hktest.NEW_E2E.PUBLIC.REGULAR_VIEW
+    displayName: REGULAR_VIEW
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

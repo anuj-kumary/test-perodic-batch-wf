@@ -1,0 +1,38 @@
+name: 1f6d7979cabcc1ecd4262d569e0880fc
+fullyQualifiedName: hktest.1f6d7979cabcc1ecd4262d569e0880fc
+owners: []
+duration: 101.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\"\
+  \ AS \"LEVEL_1_CROSS_INTEREST_BACKLOG_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT\
+  \ c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\" AS \"\
+  LEVEL_1_CROSS_INTEREST_BACKLOG_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT avg(\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\") AS mean, count(\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\"\
+  ) AS \"valuesCount\", count(DISTINCT \"LEVEL_1_CROSS_INTEREST_BACKLOG_C\") AS \"\
+  distinctCount\", MIN(\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\") AS min, MAX(\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\"\
+  ) AS max, coalesce(SUM(CASE WHEN (\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\"\
+  ) AS stddev, SUM(\"LEVEL_1_CROSS_INTEREST_BACKLOG_C\") AS sum \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: 1f6d7979cabcc1ecd4262d569e0880fc
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

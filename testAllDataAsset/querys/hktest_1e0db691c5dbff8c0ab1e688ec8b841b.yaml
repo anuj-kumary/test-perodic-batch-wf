@@ -1,0 +1,39 @@
+name: 1e0db691c5dbff8c0ab1e688ec8b841b
+fullyQualifiedName: hktest.1e0db691c5dbff8c0ab1e688ec8b841b
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0b565859-50f2-4c96-b4f3-2abd5feeecb1\",\"type\":\"table\"\
+        ,\"name\":\"LINEITEM\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM\"\
+        ,\"description\":\"Lineitem data as defined by TPC-H\",\"displayName\":\"\
+        LINEITEM\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 63.0
+users: []
+query: "SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"L_LINESTATUS\") ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"L_LINESTATUS\") ASC)\
+  \ AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"L_LINESTATUS\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"TPCH_SF1\".\"LINEITEM\"\n LIMIT ?"
+checksum: 1e0db691c5dbff8c0ab1e688ec8b841b
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0b565859-50f2-4c96-b4f3-2abd5feeecb1
+    type: table
+    name: LINEITEM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+    description: Lineitem data as defined by TPC-H
+    displayName: LINEITEM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

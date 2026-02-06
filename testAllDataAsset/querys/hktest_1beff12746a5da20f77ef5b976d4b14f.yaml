@@ -1,0 +1,33 @@
+name: 1beff12746a5da20f77ef5b976d4b14f
+fullyQualifiedName: hktest.1beff12746a5da20f77ef5b976d4b14f
+owners: []
+duration: 94.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"ACCOUNT_WRITTEN_OFF_C\"\
+  \ AS \"ACCOUNT_WRITTEN_OFF_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  ACCOUNT_WRITTEN_OFF_C\" AS \"ACCOUNT_WRITTEN_OFF_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"ACCOUNT_WRITTEN_OFF_C\"\
+  ) AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"ACCOUNT_WRITTEN_OFF_C\"\
+  \ \nHAVING count(\"ACCOUNT_WRITTEN_OFF_C\") = ?) AS only_once\n LIMIT ?"
+checksum: 1beff12746a5da20f77ef5b976d4b14f
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

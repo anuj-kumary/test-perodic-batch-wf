@@ -1,0 +1,35 @@
+name: 1af2f18e899ad81a45ec03750ac93142
+fullyQualifiedName: hktest.1af2f18e899ad81a45ec03750ac93142
+owners: []
+duration: 94.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(\"LATEST_METRIC_VALUE\") AS mean, count(\"LATEST_METRIC_VALUE\"\
+  ) AS \"valuesCount\", count(DISTINCT \"LATEST_METRIC_VALUE\") AS \"distinctCount\"\
+  , MIN(\"LATEST_METRIC_VALUE\") AS min, MAX(\"LATEST_METRIC_VALUE\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"LATEST_METRIC_VALUE\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"\
+  LATEST_METRIC_VALUE\") AS stddev, SUM(\"LATEST_METRIC_VALUE\") AS sum \nFROM \"\
+  DBT_SAMPLE_ELEMENTARY\".\"METRICS_ANOMALY_SCORE\"\n LIMIT ?"
+checksum: 1af2f18e899ad81a45ec03750ac93142
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 49ed908c-886f-4af7-bb76-f93d3d974e9b
+    type: table
+    name: METRICS_ANOMALY_SCORE
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.METRICS_ANOMALY_SCORE
+    displayName: METRICS_ANOMALY_SCORE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

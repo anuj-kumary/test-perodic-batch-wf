@@ -1,0 +1,31 @@
+name: 1f4abe5c3d1455e9bf799f5fa28b766b
+fullyQualifiedName: hktest.1f4abe5c3d1455e9bf799f5fa28b766b
+owners: []
+duration: 99.0
+users: []
+query: "WITH \"4b01351da2eb8bbeff411b56da59d101_rnd\" AS \n(SELECT \"WAREHOUSE_1\"\
+  .\"W_STREET_TYPE\" AS \"W_STREET_TYPE\" \nFROM \"TPCDS_SF10TCL\".\"WAREHOUSE\" AS\
+  \ \"WAREHOUSE_1\" TABLESAMPLE ROW(? ROWS)), \n\"4b01351da2eb8bbeff411b56da59d101_sample\"\
+  \ AS \n(SELECT \"4b01351da2eb8bbeff411b56da59d101_rnd\".\"W_STREET_TYPE\" AS \"\
+  W_STREET_TYPE\" \nFROM \"4b01351da2eb8bbeff411b56da59d101_rnd\")\n SELECT count(*)\
+  \ AS \"uniqueCount\" \nFROM (SELECT count(\"W_STREET_TYPE\") AS count_1 \nFROM \"\
+  4b01351da2eb8bbeff411b56da59d101_sample\" GROUP BY \"W_STREET_TYPE\" \nHAVING count(\"\
+  W_STREET_TYPE\") = ?) AS only_once\n LIMIT ?"
+checksum: 1f4abe5c3d1455e9bf799f5fa28b766b
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 5521668f-8fd0-4dbf-960e-32ac18b7affa
+    type: table
+    name: WAREHOUSE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WAREHOUSE
+    displayName: WAREHOUSE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

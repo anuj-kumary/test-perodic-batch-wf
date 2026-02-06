@@ -1,0 +1,38 @@
+name: 1c3a2dd0403ecb4579d8002979de1fdd
+fullyQualifiedName: hktest.1c3a2dd0403ecb4579d8002979de1fdd
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"e4a80c06-2eeb-4d82-8a71-61523f5b7361\",\"type\":\"table\"\
+        ,\"name\":\"CUSTOMERINFO\",\"fullyQualifiedName\":\"hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO\"\
+        ,\"displayName\":\"CUSTOMERINFO\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 81.0
+users: []
+query: "SELECT count(CASE WHEN (\"CUSTOMERID\" >= ? AND \"CUSTOMERID\" < ?) THEN \"\
+  CUSTOMERID\" END) AS \"1.000 to 457.964\", count(CASE WHEN (\"CUSTOMERID\" >= ?\
+  \ AND \"CUSTOMERID\" < ?) THEN \"CUSTOMERID\" END) AS \"457.964 to 914.929\", count(CASE\
+  \ WHEN (\"CUSTOMERID\" >= ?) THEN \"CUSTOMERID\" END) AS \"914.929 and up\" \nFROM\
+  \ \"MSSQLBANKING_CUSTOMER\".\"CUSTOMERINFO\"\n LIMIT ?"
+checksum: 1c3a2dd0403ecb4579d8002979de1fdd
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: e4a80c06-2eeb-4d82-8a71-61523f5b7361
+    type: table
+    name: CUSTOMERINFO
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_CUSTOMER.CUSTOMERINFO
+    displayName: CUSTOMERINFO
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

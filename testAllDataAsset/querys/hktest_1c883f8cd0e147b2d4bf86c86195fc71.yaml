@@ -1,0 +1,36 @@
+name: 1c883f8cd0e147b2d4bf86c86195fc71
+fullyQualifiedName: hktest.1c883f8cd0e147b2d4bf86c86195fc71
+owners: []
+duration: 54.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"NUMBER_OF_MARKETING_EMAIL_CLICKS_C\"\
+  \ AS \"NUMBER_OF_MARKETING_EMAIL_CLICKS_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"\
+  ACCOUNT_1\" TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample\
+  \ AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"NUMBER_OF_MARKETING_EMAIL_CLICKS_C\"\
+  \ AS \"NUMBER_OF_MARKETING_EMAIL_CLICKS_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"NUMBER_OF_MARKETING_EMAIL_CLICKS_C\"\
+  \ ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY \"NUMBER_OF_MARKETING_EMAIL_CLICKS_C\"\
+  \ ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY \"NUMBER_OF_MARKETING_EMAIL_CLICKS_C\"\
+  \ ASC) AS \"thirdQuartile\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n LIMIT\
+  \ ?"
+checksum: 1c883f8cd0e147b2d4bf86c86195fc71
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,41 @@
+name: 19d9160c1001c1391a3121af537c1bb7
+fullyQualifiedName: hktest.19d9160c1001c1391a3121af537c1bb7
+owners: []
+duration: 442.0
+users: []
+query: "WITH \"979ee13f032c02b4652a4e3c3928d90b_rnd\" AS \n(SELECT \"CUSTOMER_1\"\
+  .\"C_FIRST_NAME\" AS \"C_FIRST_NAME\" \nFROM \"TPCDS_SF10TCL\".\"CUSTOMER\" AS \"\
+  CUSTOMER_1\" TABLESAMPLE ROW(? ROWS)), \n\"979ee13f032c02b4652a4e3c3928d90b_sample\"\
+  \ AS \n(SELECT \"979ee13f032c02b4652a4e3c3928d90b_rnd\".\"C_FIRST_NAME\" AS \"C_FIRST_NAME\"\
+  \ \nFROM \"979ee13f032c02b4652a4e3c3928d90b_rnd\")\n SELECT count(CASE WHEN (LEN(\"\
+  C_FIRST_NAME\") >= ? AND LEN(\"C_FIRST_NAME\") < ?) THEN LEN(\"C_FIRST_NAME\") END)\
+  \ AS \"3.000 to 3.543\", count(CASE WHEN (LEN(\"C_FIRST_NAME\") >= ? AND LEN(\"\
+  C_FIRST_NAME\") < ?) THEN LEN(\"C_FIRST_NAME\") END) AS \"3.543 to 4.086\", count(CASE\
+  \ WHEN (LEN(\"C_FIRST_NAME\") >= ? AND LEN(\"C_FIRST_NAME\") < ?) THEN LEN(\"C_FIRST_NAME\"\
+  ) END) AS \"4.086 to 4.629\", count(CASE WHEN (LEN(\"C_FIRST_NAME\") >= ? AND LEN(\"\
+  C_FIRST_NAME\") < ?) THEN LEN(\"C_FIRST_NAME\") END) AS \"4.629 to 5.172\", count(CASE\
+  \ WHEN (LEN(\"C_FIRST_NAME\") >= ? AND LEN(\"C_FIRST_NAME\") < ?) THEN LEN(\"C_FIRST_NAME\"\
+  ) END) AS \"5.172 to 5.714\", count(CASE WHEN (LEN(\"C_FIRST_NAME\") >= ? AND LEN(\"\
+  C_FIRST_NAME\") < ?) THEN LEN(\"C_FIRST_NAME\") END) AS \"5.714 to 6.257\", count(CASE\
+  \ WHEN (LEN(\"C_FIRST_NAME\") >= ? AND LEN(\"C_FIRST_NAME\") < ?) THEN LEN(\"C_FIRST_NAME\"\
+  ) END) AS \"6.257 to 6.800\", count(CASE WHEN (LEN(\"C_FIRST_NAME\") >= ?) THEN\
+  \ LEN(\"C_FIRST_NAME\") END) AS \"6.800 and up\" \nFROM \"979ee13f032c02b4652a4e3c3928d90b_sample\"\
+  \n LIMIT ?"
+checksum: 19d9160c1001c1391a3121af537c1bb7
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b17bebfd-6661-4983-a4e4-1c07f7b19158
+    type: table
+    name: CUSTOMER
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CUSTOMER
+    displayName: CUSTOMER
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

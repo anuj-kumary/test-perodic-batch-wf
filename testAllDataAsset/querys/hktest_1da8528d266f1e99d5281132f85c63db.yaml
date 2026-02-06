@@ -1,0 +1,41 @@
+name: 1da8528d266f1e99d5281132f85c63db
+fullyQualifiedName: hktest.1da8528d266f1e99d5281132f85c63db
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"b8edd128-e9a7-4b1e-9a7a-6f441d6c3cb4\",\"type\":\"table\"\
+        ,\"name\":\"ORDERS\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.ORDERS\"\
+        ,\"description\":\"Orders data as defined by TPC-H\",\"displayName\":\"ORDERS\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 99.0
+users: []
+query: "SELECT avg(LEN(\"O_ORDERSTATUS\")) AS mean, count(\"O_ORDERSTATUS\") AS \"\
+  valuesCount\", count(DISTINCT \"O_ORDERSTATUS\") AS \"distinctCount\", MIN(LEN(\"\
+  O_ORDERSTATUS\")) AS min, MAX(LEN(\"O_ORDERSTATUS\")) AS max, coalesce(SUM(CASE\
+  \ WHEN (\"O_ORDERSTATUS\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  O_ORDERSTATUS\")) AS stddev, SUM(LEN(\"O_ORDERSTATUS\")) AS sum \nFROM \"TPCH_SF1000\"\
+  .\"ORDERS\"\n LIMIT ?"
+checksum: 1da8528d266f1e99d5281132f85c63db
+queryDate: 1752105600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: b8edd128-e9a7-4b1e-9a7a-6f441d6c3cb4
+    type: table
+    name: ORDERS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.ORDERS
+    description: Orders data as defined by TPC-H
+    displayName: ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

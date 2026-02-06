@@ -1,0 +1,41 @@
+name: 1df041373dffb9e0a6e815ad88ebade5
+fullyQualifiedName: hktest.1df041373dffb9e0a6e815ad88ebade5
+owners: []
+duration: 455.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_RETURN_AMT_INC_TAX\" AS \"CR_RETURN_AMT_INC_TAX\" \nFROM \"TPCDS_SF10TCL\"\
+  .\"CATALOG_RETURNS\" AS \"CATALOG_RETURNS_1\" TABLESAMPLE ROW(? ROWS)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_RETURN_AMT_INC_TAX\"\
+  \ AS \"CR_RETURN_AMT_INC_TAX\" \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n\
+  \ SELECT count(CASE WHEN (\"CR_RETURN_AMT_INC_TAX\" >= ? AND \"CR_RETURN_AMT_INC_TAX\"\
+  \ < ?) THEN \"CR_RETURN_AMT_INC_TAX\" END) AS \"60.000T to 953.935\", count(CASE\
+  \ WHEN (\"CR_RETURN_AMT_INC_TAX\" >= ? AND \"CR_RETURN_AMT_INC_TAX\" < ?) THEN \"\
+  CR_RETURN_AMT_INC_TAX\" END) AS \"953.935 to 1.908K\", count(CASE WHEN (\"CR_RETURN_AMT_INC_TAX\"\
+  \ >= ? AND \"CR_RETURN_AMT_INC_TAX\" < ?) THEN \"CR_RETURN_AMT_INC_TAX\" END) AS\
+  \ \"1.908K to 2.862K\", count(CASE WHEN (\"CR_RETURN_AMT_INC_TAX\" >= ? AND \"CR_RETURN_AMT_INC_TAX\"\
+  \ < ?) THEN \"CR_RETURN_AMT_INC_TAX\" END) AS \"2.862K to 3.816K\", count(CASE WHEN\
+  \ (\"CR_RETURN_AMT_INC_TAX\" >= ? AND \"CR_RETURN_AMT_INC_TAX\" < ?) THEN \"CR_RETURN_AMT_INC_TAX\"\
+  \ END) AS \"3.816K to 4.769K\", count(CASE WHEN (\"CR_RETURN_AMT_INC_TAX\" >= ?\
+  \ AND \"CR_RETURN_AMT_INC_TAX\" < ?) THEN \"CR_RETURN_AMT_INC_TAX\" END) AS \"4.769K\
+  \ to 5.723K\", count(CASE WHEN (\"CR_RETURN_AMT_INC_TAX\" >= ?) THEN \"CR_RETURN_AMT_INC_TAX\"\
+  \ END) AS \"5.723K and up\" \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\"\n\
+  \ LIMIT ?"
+checksum: 1df041373dffb9e0a6e815ad88ebade5
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 1958181b-5456-47f3-ae43-17e600b97d68
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

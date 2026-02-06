@@ -1,0 +1,31 @@
+name: 1cae0f2f33bb744bf3d380c9d2c2d271
+fullyQualifiedName: hktest.1cae0f2f33bb744bf3d380c9d2c2d271
+owners: []
+duration: 638.0
+users: []
+query: "WITH bb70fc319f31ef506fc099f8db12e70f_rnd AS \n(SELECT \"CATALOG_SALES_1\"\
+  .\"CS_COUPON_AMT\" AS \"CS_COUPON_AMT\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_SALES\"\
+  \ AS \"CATALOG_SALES_1\" TABLESAMPLE ROW(? ROWS)), \nbb70fc319f31ef506fc099f8db12e70f_sample\
+  \ AS \n(SELECT bb70fc319f31ef506fc099f8db12e70f_rnd.\"CS_COUPON_AMT\" AS \"CS_COUPON_AMT\"\
+  \ \nFROM bb70fc319f31ef506fc099f8db12e70f_rnd)\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"CS_COUPON_AMT\") AS count_1 \nFROM bb70fc319f31ef506fc099f8db12e70f_sample\
+  \ GROUP BY \"CS_COUPON_AMT\" \nHAVING count(\"CS_COUPON_AMT\") = ?) AS only_once\n\
+  \ LIMIT ?"
+checksum: 1cae0f2f33bb744bf3d380c9d2c2d271
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 2c3b67ba-852a-449e-b9b1-18d6862e9d96
+    type: table
+    name: CATALOG_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_SALES
+    displayName: CATALOG_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

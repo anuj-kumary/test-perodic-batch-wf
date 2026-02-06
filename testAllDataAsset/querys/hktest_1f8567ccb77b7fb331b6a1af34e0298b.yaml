@@ -1,0 +1,30 @@
+name: 1f8567ccb77b7fb331b6a1af34e0298b
+fullyQualifiedName: hktest.1f8567ccb77b7fb331b6a1af34e0298b
+owners: []
+duration: 51.0
+users: []
+query: "WITH e3c58aee13887c409aa5a310c57a9757_rnd AS \n(SELECT \"CNTRCT_1\".\"DI_RPTG_CD\"\
+  \ AS \"DI_RPTG_CD\" \nFROM \"CURATED\".\"CNTRCT\" AS \"CNTRCT_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \ne3c58aee13887c409aa5a310c57a9757_sample AS \n(SELECT e3c58aee13887c409aa5a310c57a9757_rnd.\"\
+  DI_RPTG_CD\" AS \"DI_RPTG_CD\" \nFROM e3c58aee13887c409aa5a310c57a9757_rnd)\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"DI_RPTG_CD\") AS count_1 \n\
+  FROM e3c58aee13887c409aa5a310c57a9757_sample GROUP BY \"DI_RPTG_CD\" \nHAVING count(\"\
+  DI_RPTG_CD\") = ?) AS only_once\n LIMIT ?"
+checksum: 1f8567ccb77b7fb331b6a1af34e0298b
+queryDate: 1749254400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f3f7adf0-5934-40b1-9c34-71aa27a03cd6
+    type: table
+    name: CNTRCT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CNTRCT
+    displayName: CNTRCT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

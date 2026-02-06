@@ -1,0 +1,44 @@
+name: 1a3853ca864e249f15af422383e372b6
+fullyQualifiedName: hktest.1a3853ca864e249f15af422383e372b6
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0777e470-b01c-42a9-b275-67217059c629\",\"type\":\"table\"\
+        ,\"name\":\"MONITORS_RUNS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS\"\
+        ,\"displayName\":\"MONITORS_RUNS\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 86.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT ? AS anon_1, count(\"LAST_BUCKET_END\") AS \"valuesCount\", count(DISTINCT\
+  \ \"LAST_BUCKET_END\") AS \"distinctCount\", MIN(\"LAST_BUCKET_END\") AS min, MAX(\"\
+  LAST_BUCKET_END\") AS max, coalesce(SUM(CASE WHEN (\"LAST_BUCKET_END\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", ? AS anon__1, ? AS anon__2 \nFROM \"DBT_SAMPLE_ELEMENTARY\"\
+  .\"MONITORS_RUNS\"\n LIMIT ?"
+checksum: 1a3853ca864e249f15af422383e372b6
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 0777e470-b01c-42a9-b275-67217059c629
+    type: table
+    name: MONITORS_RUNS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS
+    displayName: MONITORS_RUNS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
