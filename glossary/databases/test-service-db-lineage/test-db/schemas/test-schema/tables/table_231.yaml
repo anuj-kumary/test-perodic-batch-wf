@@ -1,0 +1,73 @@
+name: table_231
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_231
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_231.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_JOINT_PURSUIT_PLAN(\n\t\"JPPSysID\",\n\
+  \t\"JPPNumber\",\n\t\"PODAccountGeoSysID\",\n\t\"PODAccountGeo\",\n\t\"PODAccount\"\
+  ,\n\t\"JPPOpenedAt\",\n\t\"JPPPriority\",\n\t\"JPPSISOAccount\",\n\t\"JPPPartnerAcctMgrSRAM\"\
+  ,\n\t\"JPPPlanedWorkshop\",\n\t\"JPPSolutionConsultant\",\n\t\"JPPRejectionState\"\
+  ,\n\t\"JPPDueDate\",\n\t\"JPPCategory\",\n\t\"JPPDeliveryPlan\",\n\t\"JPPClosedBy\"\
+  ,\n\t\"JPPCompany\",\n\t\"JPPParent\",\n\t\"JPPState\",\n\t\"JPPApproval\",\n\t\"\
+  JPPOwner\",\n\t\"JPPActive\",\n\t\"JPPSISOAccountSysID\",\n\t\"PODAccountSysID\"\
+  ,\n\t\"JPPRegionalAllianceManager\",\n\t\"PartnerContact\",\n\t\"GlobalAllianceDirector\"\
+  ,\n\t\"JPPCreatedOn\",\n\t\"JPPCreatedBy\",\n\t\"PODType\"\n) as -- SEMANTIC LAYER\
+  \ BEGINS\n\nSELECT \"SYS_ID\" as \"JPPSysID\",\n       \"NUMBER\" as \"JPPNumber\"\
+  ,\n       \"U_POD_ACCOUNT_GEO\" as \"PODAccountGeoSysID\",\n       \"DV_U_POD_ACCOUNT_GEO\"\
+  \ as \"PODAccountGeo\",\n       \"DV_U_POD_ACCOUNT\" as \"PODAccount\",\n      \
+  \ \"OPENED_AT\" as \"JPPOpenedAt\",\n       \"DV_PRIORITY\" as \"JPPPriority\",\n\
+  \       \"DV_U_SISO_ACCOUNT\" as \"JPPSISOAccount\",\n       \"DV_U_PARTNER_ACCOUNT_MANAGER_SRAM\"\
+  \ as \"JPPPartnerAcctMgrSRAM\",\n       \"U_PLANNED_JPP_WORKSHOP\" as \"JPPPlanedWorkshop\"\
+  ,\n       \"DV_U_SOLUTION_CONSULTANT\" as \"JPPSolutionConsultant\",\n       \"\
+  U_JPP_REJECTION_STATE\" as \"JPPRejectionState\",\n       \"DUE_DATE\" as \"JPPDueDate\"\
+  ,\n       \"DV_CATEGORY\" as \"JPPCategory\",\n       \"DV_DELIVERY_PLAN\" as \"\
+  JPPDeliveryPlan\",\n       \"DV_CLOSED_BY\" as \"JPPClosedBy\",\n       \"DV_COMPANY\"\
+  \ as \"JPPCompany\",\n       \"DV_PARENT\" as \"JPPParent\",\n       \"DV_STATE\"\
+  \ as \"JPPState\",\n       \"DV_APPROVAL\" as \"JPPApproval\",\n       \"DV_U_JPP_OWNER\"\
+  \ as \"JPPOwner\",\n       \"ACTIVE\" as \"JPPActive\",\n       \"U_SISO_ACCOUNT\"\
+  \ as \"JPPSISOAccountSysID\",\n       \"U_POD_ACCOUNT\" as \"PODAccountSysID\",\n\
+  \       \"DV_U_REGIONAL_ALLIANCE_MANAGER\" as \"JPPRegionalAllianceManager\",\n\
+  \       \"DV_U_SISO_CONTACT_1\" as \"PartnerContact\",\n       \"DV_U_GLOBAL_ALLIANCE_DIRECTOR\"\
+  \ as \"GlobalAllianceDirector\",\n       \"SYS_CREATED_ON\" as \"JPPCreatedOn\"\
+  ,\n       \"SYS_CREATED_BY\" as \"JPPCreatedBy\",\n       \"U_POD_TYPE\" as \"PODType\"\
+  \nFROM \"RDS\".\"SURF\".\"U_JOINT_PURSUIT_PLAN\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

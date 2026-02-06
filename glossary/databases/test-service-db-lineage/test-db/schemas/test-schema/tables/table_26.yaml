@@ -1,0 +1,74 @@
+name: table_26
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_26
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_26.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_CRPO_PREDICTION_OVERRIDE_FACTOR(\n\t\"\
+  Date\",\n\t\"ReportingQuarter\",\n\t\"BacklogACVUSD\",\n\t\"NNACVBookingsMulORF\"\
+  ,\n\t\"NNACVBookingsAddORF\",\n\t\"NNACVCRPOMulORF\",\n\t\"NNACVCRPOAddORF\",\n\t\
+  \"OnPremNNACVMulORF\",\n\t\"OnPremNNACVAddORF\",\n\t\"PQOverdueMulORF\",\n\t\"PQOverdueAddORF\"\
+  ,\n\t\"EarlyRenewalsBookingsMulORF\",\n\t\"EarlyRenewalsBookingsAddORF\",\n\t\"\
+  EarlyRenewalsCRPOMulORF\",\n\t\"EarlyRenewalsCRPOAddORF\",\n\t\"PushedLateMulORF\"\
+  ,\n\t\"PushedLateAddORF\",\n\t\"BIUBookedCRPOMulORF\",\n\t\"BIUBookedCRPOAddORF\"\
+  ,\n\t\"NNACVCRPOTermAdjMulORF\",\n\t\"NNACVCRPOTermAdjAddORF\",\n\t\"BIUInPeriodCRPOMulORF\"\
+  ,\n\t\"BIUInPeriodCRPOAddORF\",\n\t\"OnTimeOnPremRACVMulORF\",\n\t\"OnTimeOnPremRACVAddORF\"\
+  ,\n\t\"OnTimeRenewalTermAdjMulORF\",\n\t\"OnTimeRenewalTermAdjAddORF\",\n\t\"RenewalsScheduledMulORF\"\
+  ,\n\t\"RenewalsScheduledAddORF\",\n\t\"PreSignedBookedNNACVMulORF\",\n\t\"PreSignedBookedNNACVAddORF\"\
+  ,\n\t\"PreSignedBookedRACVMulORF\",\n\t\"PreSignedBookedRACVAddORF\",\n\t\"PreSignedInPeriodNNACVMulORF\"\
+  ,\n\t\"PreSignedInPeriodNNACVAddORF\",\n\t\"PreSignedInPeriodRACVMulORF\",\n\t\"\
+  PreSignedInPeriodRACVAddORF\",\n\t\"SubscriptionAccountingAdjustment\",\n\t\"ServicesAccountingAdjustment\"\
+  \n) as\n(\nSELECT\n    \"Date\",\n\t\"ReportingQuarter\",\n\t\"BacklogACVUSD\",\n\
+  \t\"NNACVBookingsMulORF\",\n\t\"NNACVBookingsAddORF\",\n\t\"NNACVCRPOMulORF\",\n\
+  \t\"NNACVCRPOAddORF\",\n\t\"OnPremNNACVMulORF\",\n\t\"OnPremNNACVAddORF\",\n\t\"\
+  PQOverdueMulORF\",\n\t\"PQOverdueAddORF\",\n\t\"EarlyRenewalsBookingsMulORF\",\n\
+  \t\"EarlyRenewalsBookingsAddORF\",\n\t\"EarlyRenewalsCRPOMulORF\",\n\t\"EarlyRenewalsCRPOAddORF\"\
+  ,\n\t\"PushedLateMulORF\",\n\t\"PushedLateAddORF\",\n\t\"BIUBookedCRPOMulORF\",\n\
+  \t\"BIUBookedCRPOAddORF\",\n\t\"NNACVCRPOTermAdjMulORF\",\n\t\"NNACVCRPOTermAdjAddORF\"\
+  ,\n\t\"BIUInPeriodCRPOMulORF\",\n\t\"BIUInPeriodCRPOAddORF\",\n\t\"OnTimeOnPremRACVMulORF\"\
+  ,\n\t\"OnTimeOnPremRACVAddORF\",\n\t\"OnTimeRenewalTermAdjMulORF\",\n\t\"OnTimeRenewalTermAdjAddORF\"\
+  ,\n\t\"RenewalsScheduledMulORF\",\n\t\"RenewalsScheduledAddORF\",\n    \"PreSignedBookedNNACVMulORF\"\
+  ,\n    \"PreSignedBookedNNACVAddORF\",\n    \"PreSignedBookedRACVMulORF\",\n   \
+  \ \"PreSignedBookedRACVAddORF\",\n    \"PreSignedInPeriodNNACVMulORF\",\n    \"\
+  PreSignedInPeriodNNACVAddORF\",\n    \"PreSignedInPeriodRACVMulORF\",\n    \"PreSignedInPeriodRACVAddORF\"\
+  ,\n    \"SubscriptionAccountingAdjustment\",\n    \"ServicesAccountingAdjustment\"\
+  \n FROM RDS.FLATFILESOURCE.TBL_CRPO_PREDICTION_OVERRIDE_FACTOR\n);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

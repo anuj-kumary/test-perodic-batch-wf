@@ -1,0 +1,79 @@
+name: table_213
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_213
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_213.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_LMS_TRANSCRIPT(\n\t\"LmsTransCourseStartDate\"\
+  ,\n\t\"LmsTransCourseEndDate\",\n\t\"LmsTransLmsOrder\",\n\t\"LmsTransClassLearnerName\"\
+  ,\n\t\"LmsTransCourseID\",\n\t\"LmsTransLeanerUserName\",\n\t\"LmsCourseSku\",\n\
+  \t\"LmsClassPriceAmount\",\n\t\"LmsTransCourseName\",\n\t\"LmsTransClassRegion\"\
+  ,\n\t\"LMSTransLineItem\",\n\t\"LmsDeliveryType\",\n\t\"LmsClassID\",\n\t\"LmsClassDetails\"\
+  ,\n\t\"LmsClassRegistrationDate\",\n\t\"LmsCountry\",\n\t\"LmsPaymentInstrumentType\"\
+  ,\n\t\"LmsTUAUsed\",\n\t\"LmsUnusedTrainingUnits\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"U_COURSE_START_DATE\" as \"LmsTransCourseStartDate\",\n       \"U_COURSE_END_DATE\"\
+  \ as \"LmsTransCourseEndDate\",\n       \"U_LMS_ORDER\" as \"LmsTransLmsOrder\"\
+  ,\n       \"U_CLASS_LEARNER_NAME\" as \"LmsTransClassLearnerName\",\n       \"U_COURSE_ID\"\
+  \ as \"LmsTransCourseID\",\n       \"U_LEANER_USERNAME\" as \"LmsTransLeanerUserName\"\
+  ,\n       \"U_COURSE_SKU\" as \"LmsCourseSku\",\n       \"U_CLASS_PRICE_AMOUNT\"\
+  \ as \"LmsClassPriceAmount\",\n       \"U_COURSE_NAME\" as \"LmsTransCourseName\"\
+  ,\n       \"U_CLASS_REGION\" as \"LmsTransClassRegion\",\n       \"DV_U_LINE_ITEM\"\
+  \ as \"LMSTransLineItem\",\n       \"U_DELIVERY_TYPE\" as \"LmsDeliveryType\",\n\
+  \       \"U_CLASS_ID\" as \"LmsClassID\",\n       \"U_CLASS_DETAILS\" as \"LmsClassDetails\"\
+  ,\n       \"U_CLASS_REGISTRATION_DATE\" as \"LmsClassRegistrationDate\",\n     \
+  \  \"U_COUNTRY\" as \"LmsCountry\",\n       \"DV_U_PAYMENT_INSTRUMENT_TYPE\" as\
+  \ \"LmsPaymentInstrumentType\",\n       \"U_TUA_USED\" as \"LmsTUAUsed\",\n    \
+  \   \"U_UNUSED_TRAINING_UNITS\" as \"LmsUnusedTrainingUnits\"\nFROM\n  (SELECT \"\
+  U_COURSE_START_DATE\" as \"U_COURSE_START_DATE\",\n          \"U_COURSE_END_DATE\"\
+  \ as \"U_COURSE_END_DATE\",\n          \"U_LMS_ORDER\" as \"U_LMS_ORDER\",\n   \
+  \       \"U_CLASS_LEARNER_NAME\" as \"U_CLASS_LEARNER_NAME\",\n          \"U_COURSE_ID\"\
+  \ as \"U_COURSE_ID\",\n          \"U_LEANER_USERNAME\" as \"U_LEANER_USERNAME\"\
+  ,\n          \"U_COURSE_SKU\" as \"U_COURSE_SKU\",\n          \"U_CLASS_PRICE_AMOUNT\"\
+  \ as \"U_CLASS_PRICE_AMOUNT\",\n          \"U_COURSE_NAME\" as \"U_COURSE_NAME\"\
+  ,\n          \"U_CLASS_REGION\" as \"U_CLASS_REGION\",\n          \"DV_U_LINE_ITEM\"\
+  \ as \"DV_U_LINE_ITEM\",\n          \"U_DELIVERY_TYPE\" as \"U_DELIVERY_TYPE\",\n\
+  \          \"U_CLASS_ID\" as \"U_CLASS_ID\",\n          \"U_CLASS_DETAILS\" as \"\
+  U_CLASS_DETAILS\",\n          \"U_CLASS_REGISTRATION_DATE\" as \"U_CLASS_REGISTRATION_DATE\"\
+  ,\n          \"U_COUNTRY\" as \"U_COUNTRY\",\n          \"DV_U_PAYMENT_INSTRUMENT_TYPE\"\
+  \ as \"DV_U_PAYMENT_INSTRUMENT_TYPE\",\n          \"U_TUA_USED\" as \"U_TUA_USED\"\
+  ,\n          \"U_UNUSED_TRAINING_UNITS\" as \"U_UNUSED_TRAINING_UNITS\"\n   FROM\
+  \ \"RDS\".\"SURF\".\"U_LMS_TRANSCRIPT\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

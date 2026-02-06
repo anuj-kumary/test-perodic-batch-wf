@@ -1,0 +1,57 @@
+name: table_265
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_265
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_265.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_GSD_HIERARCHY(\n\t\"ADRSysID\",\n\t\"\
+  ADRArea\",\n\t\"SysID\",\n\t\"SrDirectorArea\",\n\t\"Number\",\n\t\"UserSysID\"\
+  ,\n\t\"UserName\",\n\t\"DirectorArea\",\n\t\"ManagerName\",\n\t\"DirectorName\"\
+  ,\n\t\"ADRName\",\n\t\"DirectorSysID\",\n\t\"ManagerArea\",\n\t\"ManagerSysID\"\n\
+  ) as\nSELECT \"U_ADR\" as \"ADRSysID\",\n       \"U_ADR_AREA\" as \"ADRArea\",\n\
+  \       \"SYS_ID\" as \"SysID\",\n       \"U_SR_DIRECTOR_AREA\" as \"SrDirectorArea\"\
+  ,\n       \"U_NUMBER\" as \"Number\",\n       \"U_USER\" as \"UserSysID\",\n   \
+  \    \"DV_U_USER\" as \"UserName\",\n       \"U_DIRECTOR_AREA\" as \"DirectorArea\"\
+  ,\n       \"DV_U_MANAGER\" as \"ManagerName\",\n       \"DV_U_DIRECTOR\" as \"DirectorName\"\
+  ,\n       \"DV_U_ADR\" as \"ADRName\",\n       \"U_DIRECTOR\" as \"DirectorSysID\"\
+  ,\n       \"U_MANAGER_AREA\" as \"ManagerArea\",\n       \"U_MANAGER\" as \"ManagerSysID\"\
+  \nFROM \"RDS\".\"SURF\".\"U_GSD_HIERARCHY\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,59 @@
+name: table_203
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_203
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_203.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_M2M_DEPLOYMENT_APPLICATIONS(\n\t\"DplyAppDeployment\"\
+  ,\n\t\"DplyAppApplication\",\n\t\"DplyAppDeploymentSysID\",\n\t\"DplyAppApplicationSysID\"\
+  ,\n\t\"DplyAppDeploymentConsultant\",\n\t\"DplyAppComplexity\",\n\t\"DplyAppImplementationStatus\"\
+  ,\n\t\"DplyServiceOffering\",\n\t\"DplyCustomerAppProfile\",\n\t\"DplyAppStatementOfWork\"\
+  ,\n\t\"DplyAppServiceOffering\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"DV_U_DEPLOYMENT\"\
+  \ as \"DplyAppDeployment\",\n       \"DV_U_APPLICATION\" as \"DplyAppApplication\"\
+  ,\n       \"U_DEPLOYMENT\" as \"DplyAppDeploymentSysID\",\n       \"U_APPLICATION\"\
+  \ as \"DplyAppApplicationSysID\",\n       \"DV_U_DEPLOYMENT_CONSULTANT\" as \"DplyAppDeploymentConsultant\"\
+  ,\n       \"DV_U_COMPLEXITY\" as \"DplyAppComplexity\",\n       \"DV_U_IMPLEMENTATION_STATUS\"\
+  \ as \"DplyAppImplementationStatus\",\n       \"DV_U_SERVICE_OFFERING\" as \"DplyServiceOffering\"\
+  ,\n       \"DV_U_CUSTOMER_APPLICATION_PROFILE\" as \"DplyCustomerAppProfile\",\n\
+  \t\t\"DV_U_STATEMENT_OF_WORK\"  as    \"DplyAppStatementOfWork\",\n\t\t\"DV_U_SERVICE_OFFERING\"\
+  \  as    \"DplyAppServiceOffering\"\n\nFROM \"RDS\".\"SURF\".\"U_M2M_DEPLOYMENT_APPLICATIONS\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

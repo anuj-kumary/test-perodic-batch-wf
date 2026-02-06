@@ -1,0 +1,77 @@
+name: table_225
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_225
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_225.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_LMS_CURRICULUM_DATA(\n\t\"LMSCurriType\"\
+  ,\n\t\"LMSCurriPathName\",\n\t\"LMSCurriName\",\n\t\"LMSCarriLearningItemName\"\
+  ,\n\t\"LMSStudentCurriStatus\",\n\t\"LMSCurriCompletionPercentage\",\n\t\"LMSCurriUserName\"\
+  ,\n\t\"LMSCurriPersonDomain\",\n\t\"LMSCurriItemDate\",\n\t\"LMSCurrAcquiredOn\"\
+  ,\n\t\"LMSSysId\",\n\t\"LMSCurriStartedOn\",\n\t\"LMSCurriOrganizationName\",\n\t\
+  \"LMSCurriItemRegistrationStatus\",\n\t\"LMSCurriDueDate\",\n\t\"LMSCurriCourseStatus\"\
+  ,\n\t\"LMSCurriAssignedOn\",\n\t\"LMSCurriItemNumber\",\n\t\"LMSStatus\",\n\t\"\
+  LMSCurrAssignedBy\",\n\t\"LMSCurrSourceType\",\n\t\"LMSCurrOverDueDays\",\n\t\"\
+  LMSCertOverDueByDays\",\n\t\"LMSPersonOrgNumber\",\n\t\"LMSSysCreatedOn\",\n\t\"\
+  LMSCurriInternalId\",\n\tU_STATUS,\n\tU_STUDENT_CURRICULUM_STATUS,\n\t\"LMSAssignUpdatedOn\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"DV_U_TYPE\" as \"LMSCurriType\",\n \
+  \      \"U_CURRICULUM_PATH_NAME\" as \"LMSCurriPathName\",\n       \"U_CURRICULUM_NAME\"\
+  \ as \"LMSCurriName\",\n       \"U_CURRICULA_LEARNING_ITEM_NAME\" as \"LMSCarriLearningItemName\"\
+  ,\n       \"DV_U_STUDENT_CURRICULUM_STATUS\" as \"LMSStudentCurriStatus\",\n   \
+  \    \"U_CURRICULA_COMPLETION_PERCENTAGE\" as \"LMSCurriCompletionPercentage\",\n\
+  \       \"U_USERNAME\" as \"LMSCurriUserName\",\n       \"U_PERSON_DOMAIN\" as \"\
+  LMSCurriPersonDomain\",\n       \"U_CURRICULUM_ITEM_DATE_COMPLETE\" as \"LMSCurriItemDate\"\
+  ,\n       \"U_STUDENT_CURRICULUM_ACQUIRED_ON\" as \"LMSCurrAcquiredOn\",\n     \
+  \  \"SYS_ID\" as \"LMSSysId\",\n       \"U_CURRICULA_STARTED_ON\" as \"LMSCurriStartedOn\"\
+  ,\n       \"U_PERSON_ORGANIZATION_NAME\" as \"LMSCurriOrganizationName\",\n    \
+  \   \"U_CURRICULUM_ITEM_REGISTRATION_STATUS\" as \"LMSCurriItemRegistrationStatus\"\
+  ,\n       \"U_CURRICULA_DUE_DATE\" as \"LMSCurriDueDate\",\n       \"U_CURRICULA_ITEM_STATUS\"\
+  \ as \"LMSCurriCourseStatus\",\n       \"U_CURRICULUM_ASSIGNED_ON\" as \"LMSCurriAssignedOn\"\
+  ,\n       \"U_CURRICULA_ITEM_NUMBER\" as \"LMSCurriItemNumber\",\n       \"DV_U_STATUS\"\
+  \ as \"LMSStatus\",\n       \"U_CURRICULA_ASSIGNED_BY\" as \"LMSCurrAssignedBy\"\
+  ,\n       \"U_CURRICULA_SOURCE_TYPE\" as \"LMSCurrSourceType\",\n       \"U_CURRICULA_OVERDUE_DAYS\"\
+  \ as \"LMSCurrOverDueDays\",\n       \"U_CERTIFICATE_OVERDUE_BY_DAYS\" as \"LMSCertOverDueByDays\"\
+  ,\n       \"U_PERSON_ORGANIZATION_NUMBER\" as \"LMSPersonOrgNumber\",\n       \"\
+  SYS_CREATED_ON\" as \"LMSSysCreatedOn\",\n       \"U_CURRICULA_INTERNAL_ID\" as\
+  \ \"LMSCurriInternalId\",\n       \"U_STATUS\" as \"U_STATUS\",\n       \"U_STUDENT_CURRICULUM_STATUS\"\
+  \ as \"U_STUDENT_CURRICULUM_STATUS\",\n       \"U_CURRICULA_ASSIGNMENT_UPDATED_ON\"\
+  \ as \"LMSAssignUpdatedOn\"\nFROM \"RDS\".\"SURF\".\"U_LMS_CURRICULUM_DATA\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

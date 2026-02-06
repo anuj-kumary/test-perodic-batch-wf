@@ -1,0 +1,82 @@
+name: table_223
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_223
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_223.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_SPECIALISTFORECASTS(\n\t\"SPFTerritoryName\"\
+  ,\n\t\"SPFTerritoryGUID\",\n\t\"SPFBusinessUnitName\",\n\t\"SPFBusinessUnitGUID\"\
+  ,\n\t\"SPFOpportunityName\",\n\t\"SPFOpportunityGUID\",\n\t\"SPFReason\",\n\t\"\
+  SPFSpecialistNNACVReporting\",\n\t\"SPFStateCodeName\",\n\t\"SPFForecastCategoryReportingName\"\
+  ,\n\t\"SPFOpportunityProductStartDate\",\n\t\"SPFOwnerIDName\",\n\t\"SPFForecastCategoryName\"\
+  ,\n\t\"SPFModifiedByName\",\n\t\"SPFCreatedByName\",\n\t\"SPFSpecialistStartDate\"\
+  ,\n\t\"SPFModifiedOn\",\n\t\"SPFForecastTypeName\",\n\t\"SPFBURiskName\",\n\t\"\
+  SPFBUDownsellLostRiskCategoryName\",\n\t\"SPFBUDownsellLostRiskIssueName\",\n\t\"\
+  SPFBUDownsellLostRiskOtherReason\",\n\t\"SPFCreatedOn\",\n\t\"SPFProductNNACVBase\"\
+  ,\n\t\"SPFProductNNACV\",\n\t\"SPFSpecialistForecastNNACVBase\",\n\t\"SPFSpecialistForecastNNACV\"\
+  ,\n\t\"SPFSpecialistNNACVReportingBase\",\n\t\"SPFSpecialistReportingStartDate\"\
+  ,\n\t\"SPFSpecialistForecastID\",\n\t\"SPFOwnerID\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"SN_TERRITORYNAME\" as \"SPFTerritoryName\",\n       \"SN_TERRITORY\"\
+  \ as \"SPFTerritoryGUID\",\n       \"SN_BUSINESSUNITNAME\" as \"SPFBusinessUnitName\"\
+  ,\n       \"SN_BUSINESSUNIT\" as \"SPFBusinessUnitGUID\",\n       \"SN_OPPORTUNITYNAME\"\
+  \ as \"SPFOpportunityName\",\n       \"SN_OPPORTUNITY\" as \"SPFOpportunityGUID\"\
+  ,\n       \"SN_REASON\" as \"SPFReason\",\n       \"SN_SPECIALISTNNACVREPORTING\"\
+  \ as \"SPFSpecialistNNACVReporting\",\n       \"STATECODENAME\" as \"SPFStateCodeName\"\
+  ,\n       \"SN_SPECIALISTFORECASTCATEGORYREPORTINGNAME\" as \"SPFForecastCategoryReportingName\"\
+  ,\n       \"SN_OPPORTUNITYPRODUCTSTARTDATE\" as \"SPFOpportunityProductStartDate\"\
+  ,\n       \"OWNERIDNAME\" as \"SPFOwnerIDName\",\n       \"SN_SPECIALISTFORECASTCATEGORYNAME\"\
+  \ as \"SPFForecastCategoryName\",\n       \"MODIFIEDBYNAME\" as \"SPFModifiedByName\"\
+  ,\n       \"CREATEDBYNAME\" as \"SPFCreatedByName\",\n       \"SN_SPECIALISTSTARTDATE\"\
+  \ as \"SPFSpecialistStartDate\",\n       \"MODIFIEDON\" as \"SPFModifiedOn\",\n\
+  \       \"SN_FORECASTTYPENAME\" as \"SPFForecastTypeName\",\n       \"SN_BURISKNAME\"\
+  \ as \"SPFBURiskName\",\n       \"SN_BUDOWNSELLLOSTRISKCATEGORYNAME\" as \"SPFBUDownsellLostRiskCategoryName\"\
+  ,\n       \"SN_BUDOWNSELLLOSTRISKISSUENAME\" as \"SPFBUDownsellLostRiskIssueName\"\
+  ,\n       \"SN_BUDOWNSELLLOSTRISKOTHERREASON\" as \"SPFBUDownsellLostRiskOtherReason\"\
+  ,\n       \"CREATEDON\" as \"SPFCreatedOn\",\n       \"SN_PRODUCTNNACV_BASE\" as\
+  \ \"SPFProductNNACVBase\",\n       \"SN_PRODUCTNNACV\" as \"SPFProductNNACV\",\n\
+  \       \"SN_SPECIALISTFORECASTNNACV_BASE\" as \"SPFSpecialistForecastNNACVBase\"\
+  ,\n       \"SN_SPECIALISTFORECASTNNACV\" as \"SPFSpecialistForecastNNACV\",\n  \
+  \     \"SN_SPECIALISTNNACVREPORTING_BASE\" as \"SPFSpecialistNNACVReportingBase\"\
+  ,\n       \"SN_SPECIALISTSTARTDATEREPORTING\" as \"SPFSpecialistReportingStartDate\"\
+  ,\n       \"SN_SPECIALISTFORECASTID\" as \"SPFSpecialistForecastID\",\n       \"\
+  OWNERID\" as \"SPFOwnerID\"\nFROM RDS.\"DYNAMICS365\".\"SN_SPECIALISTFORECASTS\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

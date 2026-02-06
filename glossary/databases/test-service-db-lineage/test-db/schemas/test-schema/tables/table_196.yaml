@@ -1,0 +1,87 @@
+name: table_196
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_196
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_196.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view X_SNC_PSP_PLS_FORECAST(\n\t\"SysID\",\n\t\
+  \"OpportunitySysID\",\n\t\"PLSRiskAssessment\",\n\t\"SysCreatedOn\",\n\t\"SysUpdatedOn\"\
+  ,\n\t\"PLSCloseDate\",\n\t\"PLSDealSize\",\n\t\"PLSLeadSolution\",\n\t\"AccountSysID\"\
+  ,\n\t\"BusinessUnit\",\n\t\"PLSBusinessIssueS\",\n\t\"PLSReasonValue\",\n\t\"PLSOtherReason\"\
+  ,\n\t\"Number\",\n\t\"BusinessUnitSysId\",\n\t\"Account\",\n\t\"PLSDirectorOverrideSysId\"\
+  ,\n\t\"PLSDirectorOverride\",\n\t\"PLSSpecialistOverrideSysId\",\n\t\"PLSSpecialistOverride\"\
+  ,\n\t\"PlanTypeSysId\",\n\t\"PlanType\",\n\t\"Opportunity\",\n\t\"PLSCategorySysId\"\
+  ,\n\t\"PLSCategory\",\n\t\"PLSCategoryOverrideSysId\",\n\t\"PLSCategoryOverride\"\
+  ,\n\t\"PLSCloseDateOverride\",\n\t\"NetNewACVUSD\",\n\t\"PLSNetNewACVUSD\",\n\t\"\
+  PLSActionAssessment\",\n\t\"PLSChampion\",\n\t\"SysUpdatedBy\",\n\t\"PlsNotes\"\
+  ,\n\t\"PLSStepsToClose\",\n\t\"UBURenewalACVUSDUnallocated\",\n\t\"PLSSpecialist\"\
+  ,\n\t\"PLSDirector\",\n\t\"CustomerBusinessUnitProfileSysId\",\n\t\"CustomerBusinessUnitProfile\"\
+  ,\n\t\"PLSDirectorSysId\",\n\t\"PLSSpecialistSysId\",\n\t\"UBUTotalACVUSDUnallocated\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SYS_ID\" as \"SysID\",\n       \"OPPORTUNITY\"\
+  \ as \"OpportunitySysID\",\n       \"DV_PLS_RISK_ASSESSMENT\" as \"PLSRiskAssessment\"\
+  ,\n       \"SYS_CREATED_ON\" as \"SysCreatedOn\",\n       \"SYS_UPDATED_ON\" as\
+  \ \"SysUpdatedOn\",\n       \"PLS_CLOSE_DATE\" as \"PLSCloseDate\",\n       \"PLS_DEAL_SIZE\"\
+  \ as \"PLSDealSize\",\n       \"PLS_LEAD_SOLUTION\" as \"PLSLeadSolution\",\n  \
+  \     \"ACCOUNT\" as \"AccountSysID\",\n       \"DV_BUSINESS_UNIT\" as \"BusinessUnit\"\
+  ,\n       LEFT(\"PLS_BUSINESS_ISSUE_S\", 'random') as \"PLSBusinessIssueS\",\n \
+  \      \"DV_PLS_REASON\" as \"PLSReasonValue\",\n       \"PLS_OTHER_REASON\" as\
+  \ \"PLSOtherReason\",\n       \"NUMBER\" as \"Number\",\n       \"BUSINESS_UNIT\"\
+  \ as \"BusinessUnitSysId\",\n       \"DV_ACCOUNT\" as \"Account\",\n       \"PLS_DIRECTOR_OVERRIDE\"\
+  \ as \"PLSDirectorOverrideSysId\",\n       \"DV_PLS_DIRECTOR_OVERRIDE\" as \"PLSDirectorOverride\"\
+  ,\n       \"PLS_SPECIALIST_OVERRIDE\" as \"PLSSpecialistOverrideSysId\",\n     \
+  \  \"DV_PLS_SPECIALIST_OVERRIDE\" as \"PLSSpecialistOverride\",\n       \"PLAN_TYPE\"\
+  \ as \"PlanTypeSysId\",\n       \"DV_PLAN_TYPE\" as \"PlanType\",\n       \"DV_OPPORTUNITY\"\
+  \ as \"Opportunity\",\n       \"PLS_CATEGORY\" as \"PLSCategorySysId\",\n      \
+  \ \"DV_PLS_CATEGORY\" as \"PLSCategory\",\n       \"PLS_CATEGORY_OVERRIDE\" as \"\
+  PLSCategoryOverrideSysId\",\n       \"DV_PLS_CATEGORY_OVERRIDE\" as \"PLSCategoryOverride\"\
+  ,\n       \"PLS_CLOSE_DATE_OVERRIDE\" as \"PLSCloseDateOverride\",\n       \"NET_NEW_ACV_USD\"\
+  \ as \"NetNewACVUSD\",\n       \"PLS_NET_NEW_ACV_USD\" as \"PLSNetNewACVUSD\",\n\
+  \       \"DV_PLS_ACTION_ASSESSMENT\" as \"PLSActionAssessment\",\n       \"PLS_CHAMPION\"\
+  \ as \"PLSChampion\",\n       \"SYS_UPDATED_BY\" as \"SysUpdatedBy\",\n       LEFT(\"\
+  PLS_NOTES\", 'random') as \"PlsNotes\",\n       LEFT(\"PLS_STEPS_TO_CLOSE\", 'random')\
+  \ as \"PLSStepsToClose\",\n       \"U_BU_RENEWAL_ACV_USD_UNALLOCATED\" as \"UBURenewalACVUSDUnallocated\"\
+  ,\n       \"DV_PLS_SPECIALIST\" as \"PLSSpecialist\",\n       \"DV_PLS_DIRECTOR\"\
+  \ as \"PLSDirector\",\n       \"CUSTOMER_BUSINESS_UNIT_PROFILE\" as \"CustomerBusinessUnitProfileSysId\"\
+  ,\n       \"DV_CUSTOMER_BUSINESS_UNIT_PROFILE\" as \"CustomerBusinessUnitProfile\"\
+  ,\n       \"PLS_DIRECTOR\" as \"PLSDirectorSysId\",\n       \"PLS_SPECIALIST\" as\
+  \ \"PLSSpecialistSysId\",\n       \"U_BU_TOTAL_ACV_USD_UNALLOCATED\" as \"UBUTotalACVUSDUnallocated\"\
+  \nFROM \"RDS\".\"SURF\".\"X_SNC_PSP_PLS_FORECAST\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

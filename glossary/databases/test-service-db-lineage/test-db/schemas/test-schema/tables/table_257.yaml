@@ -1,0 +1,61 @@
+name: table_257
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_257
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_257.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SEND_EMAIL(\n\tID,\n\t\"MarketoGUID\",\n\
+  \t\"LeadID\",\n\t\"ActivityDate\",\n\t\"ActivityTypeID\",\n\t\"PrimaryAttributeValueID\"\
+  ,\n\t\"PrimaryAttributeValue\",\n\t\"CampaignID\",\n\t\"Campaign\",\n\t\"CampaignRunID\"\
+  ,\n\t\"ChoiceNumber\",\n\t\"HasPredective\",\n\t\"StepID\",\n\t\"ClientIPAddress\"\
+  ,\n\t\"QueryParameters\",\n\t\"ReferrerURL\",\n\t\"WebPageURL\",\n\t\"TestVariant\"\
+  \n) as\nSELECT \"ID\" as \"ID\",\n       \"MARKETOGUID\" as \"MarketoGUID\",\n \
+  \      \"LEADID\" as \"LeadID\",\n       \"ACTIVITYDATE\" as \"ActivityDate\",\n\
+  \       \"ACTIVITYTYPEID\" as \"ActivityTypeID\",\n       \"PRIMARYATTRIBUTEVALUEID\"\
+  \ as \"PrimaryAttributeValueID\",\n       \"PRIMARYATTRIBUTEVALUE\" as \"PrimaryAttributeValue\"\
+  ,\n       \"CAMPAIGNID\" as \"CampaignID\",\n       \"CAMPAIGN\" as \"Campaign\"\
+  ,\n       \"CAMPAIGN_RUN_ID\" as \"CampaignRunID\",\n       \"CHOICE_NUMBER\" as\
+  \ \"ChoiceNumber\",\n       \"HAS_PREDECTIVE\" as \"HasPredective\",\n       \"\
+  STEP_ID\" as \"StepID\",\n       \"CLIENT_IP_ADDRESS\" as \"ClientIPAddress\",\n\
+  \       \"QUERY_PARAMETERS\" as \"QueryParameters\",\n       \"REFERRER_URL\" as\
+  \ \"ReferrerURL\",\n       \"WEBPAGE_URL\" as \"WebPageURL\",\n       \"TEST_VARIANT\"\
+  \ as \"TestVariant\"\n  FROM \"RDS\".\"MARKETO\".\"SEND_EMAIL\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

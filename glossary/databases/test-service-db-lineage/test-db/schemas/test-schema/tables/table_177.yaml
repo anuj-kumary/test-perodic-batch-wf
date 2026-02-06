@@ -1,0 +1,61 @@
+name: table_177
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_177
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_177.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TBL_CPR_ACTIVITY_MILESTONE(\n\t\"RoleID\"\
+  ,\n\t\"Role\",\n\t\"LevelID\",\n\t\"Level\",\n\t\"SuperBadge\",\n\t\"MilestoneID\"\
+  ,\n\t\"Milestone\",\n\t\"ActID\",\n\t\"ActName\",\n\t\"ActivityTypeID\",\n\t\"TypeName\"\
+  ,\n\t\"ActivitySubTypeID\",\n\t\"SubTypeName\",\n\t\"ActivityValueID\",\n\t\"ValueName\"\
+  ,\n\t\"SourceID\",\n\t\"SourceName\",\n\t\"ConditionText\",\n\t\"Quantifier\",\n\
+  \t\"RoleLevelID\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"ROLE_ID\" as \"RoleID\"\
+  ,\n       \"ROLE\" as \"Role\",\n       \"LEVEL_ID\" as \"LevelID\",\n       \"\
+  LEVEL\" as \"Level\",\n       \"SUPERBADGE\" as \"SuperBadge\",\n       \"MILESTONE_ID\"\
+  \ as \"MilestoneID\",\n       \"MILESTONE\" as \"Milestone\",\n       \"ACT_ID\"\
+  \ as \"ActID\",\n       \"ACT_NAME\" as \"ActName\",\n       \"ACTIVITY_TYPE_ID\"\
+  \ as \"ActivityTypeID\",\n       \"TYPE_NAME\" as \"TypeName\",\n       \"ACTIVITY_SUB_TYPE_ID\"\
+  \ as \"ActivitySubTypeID\",\n       \"SUBTYPE_NAME\" as \"SubTypeName\",\n     \
+  \  \"ACTIVITY_VALUE_ID\" as \"ActivityValueID\",\n       \"VALUE_NAME\" as \"ValueName\"\
+  ,\n       \"SOURCE_ID\" as \"SourceID\",\n       \"SOURCE_NAME\" as \"SourceName\"\
+  ,\n       \"CONDITION_TEXT\" as \"ConditionText\",\n       \"QUANTIFIER\" as \"\
+  Quantifier\",\n       \"ROLELEVEL_ID\" as \"RoleLevelID\"\nFROM RDS.FLATFILESOURCE.TBL_CPR_ACTIVITY_MILESTONE;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,69 @@
+name: table_21
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_21
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_21.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view MDM_CUST_ACCOUNT(\n\t\"MDMCustPKeySrcObject\"\
+  ,\n\t\"MDMCustSAPNumber\",\n\t\"MDMCustMDMID\",\n\t\"MDMCustEntityID\",\n\t\"MDMCustSurfID\"\
+  ,\n\t\"MDMCustPartyName\",\n\t\"MDMCustAccountName\",\n\t\"MDMCustSAPName1\",\n\t\
+  \"MDMCustSAPName2\",\n\t\"MDMCustSAPName3\",\n\t\"MDMCustAddrLn1\",\n\t\"MDMCustCity\"\
+  ,\n\t\"MDMCustSrcStateCode\",\n\t\"MDMCustCountryCD\",\n\t\"MDMCustPostalCode\"\
+  ,\n\t\"MDMCustDUNSNmbr\",\n\t\"MDMCustGlobalUlitimateDUNS\",\n\t\"MDMCustG2KParent\"\
+  ,\n\t\"MDMCustParent\",\n\t\"MDMCustPaymentStatus\",\n\t\"MDMCustPOReqd\",\n\t\"\
+  MDMCustPONotes\",\n\t\"MDMCustTaxNumber\",\n\t\"MDMCustPhone\",\n\t\"MDMCustFax\"\
+  ,\n\t\"ETLExtractDate\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"PKEY_SRC_OBJECT\"\
+  \ as \"MDMCustPKeySrcObject\",\n       \"SAP_NMBR\" as \"MDMCustSAPNumber\",\n \
+  \      \"MDM_ID\" as \"MDMCustMDMID\",\n       \"ENTITY_ID\" as \"MDMCustEntityID\"\
+  ,\n       \"SURF_ID\" as \"MDMCustSurfID\",\n       \"PARTY_NM\" as \"MDMCustPartyName\"\
+  ,\n       \"ACCT_NM\" as \"MDMCustAccountName\",\n       \"SAP_NM1\" as \"MDMCustSAPName1\"\
+  ,\n       \"SAP_NM2\" as \"MDMCustSAPName2\",\n       \"SAP_NM3\" as \"MDMCustSAPName3\"\
+  ,\n       \"ADDR_LN1\" as \"MDMCustAddrLn1\",\n       \"CITY\" as \"MDMCustCity\"\
+  ,\n       \"SRC_STATE_CODE\" as \"MDMCustSrcStateCode\",\n       \"COUNTRY_CD\"\
+  \ as \"MDMCustCountryCD\",\n       \"POSTAL_CD\" as \"MDMCustPostalCode\",\n   \
+  \    \"DUNS_NMBR\" as \"MDMCustDUNSNmbr\",\n       \"GLOBAL_ULTIMATE_DUNS\" as \"\
+  MDMCustGlobalUlitimateDUNS\",\n       \"G2K_PARENT\" as \"MDMCustG2KParent\",\n\
+  \       \"PARENT\" as \"MDMCustParent\",\n       \"PAYMENT_STATUS\" as \"MDMCustPaymentStatus\"\
+  ,\n       \"PO_REQD\" as \"MDMCustPOReqd\",\n       \"PO_NOTES\" as \"MDMCustPONotes\"\
+  ,\n       \"TAX_NMBR\" as \"MDMCustTaxNumber\",\n       \"PHONE\" as \"MDMCustPhone\"\
+  ,\n       \"FAX\" as \"MDMCustFax\",\n       \"ETL_EXTRACT_DATE\" as \"ETLExtractDate\"\
+  \nFROM \"RDS\".\"MDM\".\"MDM_BI_CUST_ACCOUNT\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

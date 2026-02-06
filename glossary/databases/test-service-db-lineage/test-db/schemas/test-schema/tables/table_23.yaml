@@ -1,0 +1,66 @@
+name: table_23
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_23
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_23.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view TASK(\n\t\"Number\",\n\t\"Priority\",\n\t\
+  \"Company\",\n\t\"AssignedTo\",\n\t\"AssignedToSysId\",\n\t\"TaskTags\",\n\t\"Parent\"\
+  ,\n\t\"AssignmentGroupSysId\",\n\t\"AssignmentGroup\",\n\t\"CreatedOn\",\n\t\"SysClassName\"\
+  ,\n\t\"ShortDescription\",\n\t\"Active\",\n\t\"OpenedBy\",\n\t\"OpenedByName\",\n\
+  \t\"SysCreatedBy\",\n\t\"SysId\",\n\t\"ClosedAt\",\n\t\"ReassignmentCount\",\n\t\
+  \"UEscalated\",\n\t\"DvEscalated\",\n\t\"ContactType\",\n\t\"DvState\",\n\t\"ClosedBy\"\
+  ,\n\t\"ClosedByName\",\n\t\"CompanySysId\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"NUMBER\" as \"Number\",\n       \"DV_PRIORITY\" as \"Priority\",\n       \"\
+  DV_COMPANY\" as \"Company\",\n       \"DV_ASSIGNED_TO\" as \"AssignedTo\",\n   \
+  \    \"ASSIGNED_TO\" as \"AssignedToSysId\",\n       \"U_TAGS\" as \"TaskTags\"\
+  ,\n       \"DV_PARENT\" as \"Parent\",\n       \"ASSIGNMENT_GROUP\" as \"AssignmentGroupSysId\"\
+  ,\n       \"DV_ASSIGNMENT_GROUP\" as \"AssignmentGroup\",\n       \"SYS_CREATED_ON\"\
+  \ as \"CreatedOn\",\n       \"DV_SYS_CLASS_NAME\" as \"SysClassName\",\n       \"\
+  SHORT_DESCRIPTION\" as \"ShortDescription\",\n       \"ACTIVE\" as \"Active\",\n\
+  \       \"OPENED_BY\" as \"OpenedBy\",\n       \"DV_OPENED_BY\" as \"OpenedByName\"\
+  ,\n       \"SYS_CREATED_BY\" as \"SysCreatedBy\",\n       \"SYS_ID\" as \"SysId\"\
+  ,\n       \"CLOSED_AT\" as \"ClosedAt\",\n       \"REASSIGNMENT_COUNT\" as \"ReassignmentCount\"\
+  ,\n       \"U_ESCALATED\" as \"UEscalated\",\n       \"DV_ESCALATION\" as \"DvEscalated\"\
+  ,\n       \"CONTACT_TYPE\" as \"ContactType\",\n       \"DV_STATE\" as \"DvState\"\
+  ,\n       \"CLOSED_BY\" as \"ClosedBy\",\n       \"DV_CLOSED_BY\" as \"ClosedByName\"\
+  ,\n       \"COMPANY\" as \"CompanySysId\"\nFROM \"RDS\".\"HI\".\"TASK\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

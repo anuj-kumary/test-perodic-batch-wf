@@ -1,0 +1,57 @@
+name: table_200
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_200
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_200.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_MINIMUM_DEAL_SIZE_THRESHOLD_APPROVALS(\n\
+  \t\"FTPProfessionalImplementService\",\n\t\"FTPReasonNotsellingImpl\",\n\t\"FTPSummCompleted\"\
+  ,\n\t\"FTPSurveyCompletedDate\",\n\t\"FTPWhereProfServiceIncluded\",\n\t\"FTPAttributeValue\"\
+  ,\n\t\"FTPWhoPerformingService\",\n\t\"FTPSysID\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"U_PROFESSIONAL_IMPLEMENTATION_SERVICES_S\" as \"FTPProfessionalImplementService\"\
+  ,\n       \"U_REASON_NOT_SELLING_IMPLEMENTATION\" as \"FTPReasonNotsellingImpl\"\
+  ,\n       \"U_SUMMARY_COMPLETED\" as \"FTPSummCompleted\",\n       \"U_SURVEY_COMPLETION_DATE\"\
+  \ as \"FTPSurveyCompletedDate\",\n       \"DV_U_WHERE_PROFESSIONAL_SERVICES_INCLUDED\"\
+  \ as \"FTPWhereProfServiceIncluded\",\n       \"U_FIRST_TIME_PURCHASE_ATTRIBUTE_VALUE\"\
+  \ as \"FTPAttributeValue\",\n       \"DV_U_WHO_IS_PERFORMING_THE_SERVICES\" as \"\
+  FTPWhoPerformingService\",\n       \"SYS_ID\" as \"FTPSysID\"\nFROM \"RDS\".\"SURF\"\
+  .\"U_MINIMUM_DEAL_SIZE_THRESHOLD_APPROVALS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,101 @@
+name: table_188
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_188
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_188.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_VALUEPROMPTERS(\n\t\"ValueSellPersonalValue\"\
+  ,\n\t\"ValueSellDifferentiatedProblem\",\n\t\"ValueSellBusinessValue\",\n\t\"ValueSellCreatedOn\"\
+  ,\n\t\"ValueSellContactSysID\",\n\t\"ValueSellUMaster\",\n\t\"ValueSellPower\",\n\
+  \t\"InfluencerRole\",\n\t\"ValuesellBusinessIssue\",\n\t\"ValuePrompterUpdatedOn\"\
+  ,\n\t\"ValueSellSysCreatedBy\",\n\t\"ValueSellDifferentiatedSolution\",\n\t\"ValueSellActive\"\
+  ,\n\t\"ValueSellContactName\",\n\t\"ValueSellNumber\",\n\t\"ValueSellOpportunityGUID\"\
+  ,\n\t\"ValueSellVPSysID\",\n\t\"ValueSellSysUpdatedBy\"\n) as -- SEMANTIC LAYER\
+  \ BEGINS\n\nSELECT \"ValueSellPersonalValue\" as \"ValueSellPersonalValue\",\n \
+  \      \"ValueSellProblem\" as \"ValueSellDifferentiatedProblem\",\n       \"ValueSellBusinessValue\"\
+  \ as \"ValueSellBusinessValue\",\n       \"ValueSellCreatedOn\" as \"ValueSellCreatedOn\"\
+  ,\n       \"ValueSellContactSysID\" as \"ValueSellContactSysID\",\n       \"ValueSellUMaster\"\
+  \ as \"ValueSellUMaster\",\n       \"ValueSellPower\" as \"ValueSellPower\",\n \
+  \      \"InfluencerRole\" as \"InfluencerRole\",\n       \"SN_OBJECTIVES\" as \"\
+  ValuesellBusinessIssue\",\n       \"ValuePrompterUpdatedOn\" as \"ValuePrompterUpdatedOn\"\
+  ,\n       \"ValueSellSysCreatedBy\" as \"ValueSellSysCreatedBy\",\n       \"SN_SOLUTION\"\
+  \ as \"ValueSellDifferentiatedSolution\",\n       \"ValueSellActive\" as \"ValueSellActive\"\
+  ,\n       \"ValueSellContactName\" as \"ValueSellContactName\",\n       \"ValueSellNumber\"\
+  \ as \"ValueSellNumber\",\n       \"ValueSellOpportunityGUID\" as \"ValueSellOpportunityGUID\"\
+  ,\n       \"ValueSellVPSysID\" as \"ValueSellVPSysID\",\n       \"ValueSellSysUpdatedBy\"\
+  \ as \"ValueSellSysUpdatedBy\"\nFROM\n  (SELECT \"SN_PERSONALVALUE\" as \"ValueSellPersonalValue\"\
+  ,\n          \"SN_ECONOMICBUYERINFLUENCERS\" as \"ValueSellPower\",\n          \"\
+  SN_SOLUTIONS\" as \"SN_SOLUTION\",\n          \"SN_OBJECTIVES\" as \"SN_OBJECTIVES\"\
+  ,\n          \"SN_CHALLENGES\" as \"ValueSellProblem\",\n          \"SN_TITLE\"\
+  \ as \"ValueSellNumber\",\n          \"SN_CONTACTIDNAME\" as \"ValueSellContactName\"\
+  ,\n          \"STATECODE\" as \"ValueSellActive\",\n          \"SN_OPPORTUNITYID\"\
+  \ as \"ValueSellOpportunityGUID\",\n          \"CREATEDBYNAME\" as \"ValueSellSysCreatedBy\"\
+  ,\n          \"MODIFIEDON\" as \"ValuePrompterUpdatedOn\",\n          \"SN_ROLENAME\"\
+  \ as \"InfluencerRole\",\n          \"SN_MASTER\" as \"ValueSellUMaster\",\n   \
+  \       \"SN_CONTACTID\" as \"ValueSellContactSysID\",\n          \"CREATEDON\"\
+  \ as \"ValueSellCreatedOn\",\n          \"SN_OUTCOMES\" as \"ValueSellBusinessValue\"\
+  ,\n          \"SN_OPPORTUNITYSUMMARYID\" as \"ValueSellVPSysID\",\n          \"\
+  MODIFIEDBYNAME\" as \"ValueSellSysUpdatedBy\"\n   FROM\n     (SELECT \"SN_PERSONALVALUE\"\
+  \ as \"SN_PERSONALVALUE1\",\n             \"SN_CHALLENGES\" as \"SN_CHALLENGES1\"\
+  ,\n             \"SN_BUSINESSVALUEDEPRECATED\" as \"SN_BUSINESSVALUEDEPRECATED1\"\
+  ,\n             \"CREATEDON\" as \"CREATEDON\",\n             \"SN_CONTACTID\" as\
+  \ \"SN_CONTACTID\",\n             \"MODIFIEDBY\" as \"MODIFIEDBY\",\n          \
+  \   \"SN_MASTER\" as \"SN_MASTER\",\n             \"SN_ECONOMICBUYERINFLUENCERS\"\
+  \ as \"SN_ECONOMICBUYERINFLUENCERS1\",\n             \"SN_ROLENAME\" as \"SN_ROLENAME\"\
+  ,\n             \"SN_OBJECTIVES\" as \"SN_OBJECTIVES1\",\n             \"MODIFIEDON\"\
+  \ as \"MODIFIEDON\",\n             \"SN_TITLE\" as \"SN_TITLE1\",\n            \
+  \ \"CREATEDBYNAME\" as \"CREATEDBYNAME\",\n             \"SN_SOLUTIONS\" as \"SN_SOLUTIONS1\"\
+  ,\n             \"SN_OPPORTUNITYID\" as \"SN_OPPORTUNITYID\",\n             \"STATECODE\"\
+  \ as \"STATECODE\",\n             \"SN_CONTACTIDNAME\" as \"SN_CONTACTIDNAME\",\n\
+  \             \"SN_BUSINESSPROBLEMS\" as \"SN_BUSINESSPROBLEMS1\",\n           \
+  \  \"SN_OUTCOMES\" as \"SN_OUTCOMES1\",\n             \"SN_OPPORTUNITYSUMMARYID\"\
+  \ as \"SN_OPPORTUNITYSUMMARYID\",\n             \"MODIFIEDBYNAME\" as \"MODIFIEDBYNAME\"\
+  ,\n             (\"SN_TITLE1\") :: VARCHAR('random') as \"SN_TITLE\",\n        \
+  \     (\"SN_CHALLENGES1\") :: VARCHAR('random') as \"SN_CHALLENGES\",\n        \
+  \     (\"SN_OBJECTIVES1\") :: VARCHAR('random') as \"SN_OBJECTIVES\",\n        \
+  \     (\"SN_BUSINESSPROBLEMS1\") :: VARCHAR('random') as \"SN_BUSINESSPROBLEMS\"\
+  ,\n             (\"SN_BUSINESSVALUEDEPRECATED1\") :: VARCHAR('random') as \"SN_BUSINESSVALUEDEPRECATED\"\
+  ,\n             (\"SN_SOLUTIONS1\") :: VARCHAR('random') as \"SN_SOLUTIONS\",\n\
+  \             (\"SN_ECONOMICBUYERINFLUENCERS1\") :: VARCHAR('random') as \"SN_ECONOMICBUYERINFLUENCERS\"\
+  ,\n             (\"SN_PERSONALVALUE1\") :: VARCHAR('random') as \"SN_PERSONALVALUE\"\
+  ,\n             (\"SN_OUTCOMES1\") :: VARCHAR('random') as \"SN_OUTCOMES\"\n   \
+  \   FROM RDS.\"DYNAMICS365\".\"SN_OPPORTUNITYSUMMARIES\")\"Projection_1Copy\")Projection_2Copy;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

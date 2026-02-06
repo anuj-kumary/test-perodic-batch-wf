@@ -1,0 +1,64 @@
+name: table_192
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_192
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_192.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_UD_ACCOUNTS_ATRISK_DETAILS(\n\t\"AcctNumber\"\
+  ,\n\t\"ContractNumber\",\n\t\"AccountSysID\",\n\t\"OptyNumber\",\n\t\"ExtractDate\"\
+  ,\n\t\"DisplayPredictiveScoreFlag\",\n\t\"ReasonCode1\",\n\t\"ReasonCode2\",\n\t\
+  \"ReasonCode3\",\n\t\"ReasonCode4\",\n\t\"MetricName\",\n\t\"AccountSeverity\"\n\
+  ) as\nSELECT \"ACCT_NUMBER\" as \"AcctNumber\",\n       \"CONTRACT_NUMBER\" as \"\
+  ContractNumber\",\n       \"ACCOUNTSYSID\" as \"AccountSysID\",\n       \"OPP_NUMBER\"\
+  \ as \"OptyNumber\",\n       \"EXTRACT_DATE\" as \"ExtractDate\",\n       \"DISPLAY_PREDICTIVE_SCORE_FLAG\"\
+  \ as \"DisplayPredictiveScoreFlag\",\n       \"REASON_CODE1\" as \"ReasonCode1\"\
+  ,\n       \"REASON_CODE2\" as \"ReasonCode2\",\n       \"REASON_CODE3\" as \"ReasonCode3\"\
+  ,\n       \"REASON_CODE4\" as \"ReasonCode4\",\n       \"METRIC_NAME\" as \"MetricName\"\
+  ,\n       \"ACCOUNTSEVERITY\" as \"AccountSeverity\"\nFROM\n  (SELECT \"ACCT_NUMBER\"\
+  \ as \"ACCT_NUMBER\",\n          \"CONTRACT_NUMBER\" as \"CONTRACT_NUMBER\",\n \
+  \         \"ACCOUNTSYSID\" as \"ACCOUNTSYSID\",\n          \"OPP_NUMBER\" as \"\
+  OPP_NUMBER\",\n          \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n          \"DISPLAY_PREDICTIVE_SCORE_FLAG\"\
+  \ as \"DISPLAY_PREDICTIVE_SCORE_FLAG\",\n          \"REASON_CODE1\" as \"REASON_CODE1\"\
+  ,\n          \"REASON_CODE2\" as \"REASON_CODE2\",\n          \"REASON_CODE3\" as\
+  \ \"REASON_CODE3\",\n          \"REASON_CODE4\" as \"REASON_CODE4\",\n         \
+  \ \"METRIC_NAME\" as \"METRIC_NAME\",\n          \"ACCOUNTSEVERITY\" as \"ACCOUNTSEVERITY\"\
+  \n   FROM EDW_LS.FLATFILESOURCE.ST_UD_ACCOUNTS_ATRISK_DETAILS)Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

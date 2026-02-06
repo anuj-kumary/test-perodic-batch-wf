@@ -1,0 +1,96 @@
+name: table_212
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_212
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_212.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EBC_BRIEFING_REQUESTS(\n\t\"EBCState\",\n\
+  \t\"EBCOriginalState\",\n\t\"EBCAccountName\",\n\t\"EBCConfirmedLocation\",\n\t\"\
+  EBCAccount\",\n\t\"EBCVisitType\",\n\t\"EBCBriefingAgendaTitle\",\n\t\"EBCSpeakerName\"\
+  ,\n\t\"EBCNumber\",\n\t\"EBCSysID\",\n\t\"EBCConfirmedStartTime\",\n\t\"EBCStartDate\"\
+  ,\n\t\"EBCAttendeeNames\",\n\t\"EBCSpeakers\",\n\t\"EBCSurvey\",\n\t\"EBCRequesterName\"\
+  ,\n\t\"EBCPrimaryPlanner\",\n\t\"EBCRequesterNameSysID\",\n\t\"EBCEventType\",\n\
+  \t\"EBCRegion\",\n\t\"EBCAccountSysID\",\n\t\"EBCConfirmedLocationSysID\",\n\t\"\
+  EBCName\",\n\t\"Source\"\n) as\n/*********************************************************************************\n\
+  * Program Name  :  ODS_LS.SURF.EBC_BRIEFING_REQUESTS\n* Development Request # :\
+  \ STRY2540973 - EBC to Briefing Source Migration\n* Usage :\n* Date Created  : 07-06-2023\n\
+  * Developed By  : Bharath Bachu\n* Brief Description :\n* --------------------------------------------------------------------------------------------------------------------------\n\
+  * REVISION HISTORY:\n*---------------------------------------------------------------------------------------------------------------------------\n\
+  * CR#                 Date Modified           Modified By        Brief Description\
+  \ of Change\n*STRY2540973          07-06-2023              Bharath Bachu       \
+  \  Added Briefing Source data set via Union.and changed \"EBCSysID\" with \"EBCNumber\"\
+  \ as \"EBCSysID\" for EBC data.\n                       28-06-2023             Nilesh\
+  \ Mahajan  Added EBCOriginalState column and derived logic for EBCState column\n\
+  **********************************************************************************/\n\
+  \nselect\n\"EBCState\",\n\"EBCOriginalState\",\n\t\"EBCAccountName\",\n\t\"EBCConfirmedLocation\"\
+  ,\n\t\"EBCAccount\",\n\t\"EBCVisitType\",\n\t\"EBCBriefingAgendaTitle\",\n\t\"EBCSpeakerName\"\
+  ,\n\tto_char(\"EBCNumber\") as \"EBCNumber\",\n\tto_char(\"EBCSysID\") as \"EBCSysID\"\
+  ,\n\t\"EBCConfirmedStartTime\",\n\t\"EBCStartDate\",\n\t\"EBCAttendeeNames\",\n\t\
+  \"EBCSpeakers\",\n\t\"EBCSurvey\",\n\t\"EBCRequesterName\",\n\t\"EBCPrimaryPlanner\"\
+  ,\n\t\"EBCRequesterNameSysID\",\n\t\"EBCEventType\",\n\t\"EBCRegion\",\n\t\"EBCAccountSysID\"\
+  ,\n\tto_char(\"EBCConfirmedLocationSysID\") \"EBCConfirmedLocationSysID\",\n\t\"\
+  EBCName\"\n    ,'random' as \"Source\"\n    FROM ODS_LS.BRIEFING_SOURCE.VW_BRIEFING_REQUESTS\n\
+  union all\nSELECT \"EBCState\" as \"EBCState\",\n\"EBCState\" as \"EBCOriginalState\"\
+  ,\n\"EBCAccountName\" as \"EBCAccountName\",\n\"EBCConfirmedLocation\" as \"EBCConfirmedLocation\"\
+  ,\n\"EBCAccount\" as \"EBCAccount\",\n\"EBCVisitType\" as \"EBCVisitType\",\n\"\
+  EBCBriefingAgendaTitle\" as \"EBCBriefingAgendaTitle\",\n\"EBCSpeakerName\" as \"\
+  EBCSpeakerName\",\n\"EBCNumber\" as \"EBCNumber\",\n\"EBCNumber\" as \"EBCSysID\"\
+  ,--\"EBCSysID\" as \"EBCSysID\",\n\"EBCConfirmedStartTime\" as \"EBCConfirmedStartTime\"\
+  ,\n\"EBCStartDate\" as \"EBCStartDate\",\n\"EBCAttendeeNames\" as \"EBCAttendeeNames\"\
+  ,\n\"EBCSpeakers\" as \"EBCSpeakers\",\n\"EBCSurvey\" as \"EBCSurvey\",\n\"EBCRequesterName\"\
+  \ as \"EBCRequesterName\",\n\"EBCPrimaryPlanner\" as \"EBCPrimaryPlanner\",\n\"\
+  OPENED_BY\" as \"EBCRequesterNameSysID\",\n\"EBCEventType\" as \"EBCEventType\"\
+  ,\n\"EBCRegion\"  as \"EBCRegion\",\n\"EBCAccountSysID\" as \"EBCAccountSysID\"\
+  ,\n\"EBCConfirmedLocationSysID\" as \"EBCConfirmedLocationSysID\",\n\"EBCName\"\
+  \ as \"EBCName\"\n    ,'random' as \"Source\"\n\nFROM (\nSELECT \"DV_STATE_EBC\"\
+  \ as \"EBCState\",\n\"DV_STATE_EBC\" as \"EBCOriginalState\",\n\"DV_ACCOUNT\" as\
+  \ \"EBCAccountName\",\n\"DV_CONFIRMED_LOCATION\" as \"EBCConfirmedLocation\",\n\"\
+  ACCOUNT\" as \"EBCAccount\",\n\"VISIT_TYPE\" as \"EBCVisitType\",\n\"BRIEFING_AGENDA_TITLE\"\
+  \ as \"EBCBriefingAgendaTitle\",\n\"DV_SPEAKERS\" as \"EBCSpeakerName\",\n\"NUMBER\"\
+  \ as \"EBCNumber\",\n\"SYS_ID\" as \"EBCSysID\",\n\"CONFIRMED_START_TIME\" as \"\
+  EBCConfirmedStartTime\",\n\"START_DATE\" as \"EBCStartDate\",\n\"ATTENDEE_NAMES\"\
+  \ as \"EBCAttendeeNames\",\n\"SPEAKERS\" as \"EBCSpeakers\",\n\"SURVEY\" as \"EBCSurvey\"\
+  ,\n\"DV_OPENED_BY\" as \"EBCRequesterName\",\n\"DV_PRIMARY_PLANNER\" as \"EBCPrimaryPlanner\"\
+  ,\n\"OPENED_BY\" as \"OPENED_BY\",\n\"DV_EVENT_TYPE\" as \"EBCEventType\",\n \"\
+  DV_REGION\"  as \"EBCRegion\",\n \"ACCOUNT\" as \"EBCAccountSysID\",\n\"CONFIRMED_LOCATION\"\
+  \ as \"EBCConfirmedLocationSysID\",\n\"NAME\" as \"EBCName\"\n  FROM RDS.\"SURF\"\
+  .\"X_SNC_EBC_BRIEFING_REQUESTS\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,70 @@
+name: table_226
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_226
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_226.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SALES_HEADCOUNT_GEO(\n\t\"SerialNumber\"\
+  ,\n\t\"Geo\",\n\t\"Department\",\n\t\"DepartmentName\",\n\t\"LastQtrEndingBalance\"\
+  ,\n\t\"NewHires\",\n\t\"NetTransfers\",\n\t\"GeoTransfers\",\n\t\"Terms\",\n\t\"\
+  OffersAccepted\",\n\t\"OffersInProcess\",\n\t\"CurrentQtrProjected\",\n\t\"AttritionForecast\"\
+  ,\n\t\"ProjectedWithAttrition\",\n\t\"Target\",\n\t\"Delta\"\n) as -- SEMANTIC LAYER\
+  \ BEGINS\n\nSELECT \"SerialNumber\" as \"SerialNumber\",\n       \"Geo\" as \"Geo\"\
+  ,\n       \"Department\" as \"Department\",\n       \"DepartmentName\" as \"DepartmentName\"\
+  ,\n       \"LastQtrEndingBalance\" as \"LastQtrEndingBalance\",\n       \"NewHires\"\
+  \ as \"NewHires\",\n       \"NetTransfers\" as \"NetTransfers\",\n       \"GeoTransfers\"\
+  \ as \"GeoTransfers\",\n       \"Terms\" as \"Terms\",\n       \"OffersAccepted\"\
+  \ as \"OffersAccepted\",\n       \"OffersInProcess\" as \"OffersInProcess\",\n \
+  \      \"CurrentQtrProjected\" as \"CurrentQtrProjected\",\n       \"AttritionForecast\"\
+  \ as \"AttritionForecast\",\n       \"ProjectedWithAttrition\" as \"ProjectedWithAttrition\"\
+  ,\n       \"Target\" as \"Target\",\n       \"Delta\" as \"Delta\"\nFROM\n  (SELECT\
+  \ \"SerialNumber\" as \"SerialNumber\",\n          \"Geo\" as \"Geo\",\n       \
+  \   \"Department\" as \"Department\",\n          \"DepartmentName\" as \"DepartmentName\"\
+  ,\n          \"LastQtrEndingBalance\" as \"LastQtrEndingBalance\",\n          \"\
+  NewHires\" as \"NewHires\",\n          \"NetTransfers\" as \"NetTransfers\",\n \
+  \         \"GeoTransfers\" as \"GeoTransfers\",\n          \"Terms\" as \"Terms\"\
+  ,\n          \"OffersAccepted\" as \"OffersAccepted\",\n          \"OffersInProcess\"\
+  \ as \"OffersInProcess\",\n          \"CurrentQtrProjected\" as \"CurrentQtrProjected\"\
+  ,\n          \"AttritionForecast\" as \"AttritionForecast\",\n          \"ProjectedWithAttrition\"\
+  \ as \"ProjectedWithAttrition\",\n          \"Target\" as \"Target\",\n        \
+  \  \"Delta\" as \"Delta\"\n   FROM \"RDS\".\"FLATFILESOURCE\".\"FF_SALES_HEADCOUNT_GEO\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

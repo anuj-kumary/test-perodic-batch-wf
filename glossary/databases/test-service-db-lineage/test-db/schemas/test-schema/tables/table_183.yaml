@@ -1,0 +1,79 @@
+name: table_183
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_183
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_183.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EBC_SPEAKER(\n\t\"EBCSpeakerEBCStatus\"\
+  ,\n\t\"EBCSpeakerDVName\",\n\t\"EBCSpeakerSysID\",\n\t\"EBCSpeakerName\",\n\t\"\
+  EBCSpeakerFullName\",\n\t\"EBCSpeakerRegion\",\n\t\"EBCSpeakerJobTitle\",\n\t\"\
+  EBCSpeakerDVEBCStatus\",\n\t\"EBCSpeakerDVProduct\",\n\t\"EBCSpeakerDVApplication\"\
+  ,\n\t\"EBCSpeakerActive\",\n\t\"EBCSpeakerNumber\",\n\t\"EBCSpeakerLocation\",\n\
+  \t\"EBCSpeakerProduct\",\n\t\"EBCSpeakerApplication\",\n\t\"EBCSpeakerDVCloudService\"\
+  ,\n\t\"EBCSpeakerEMSNumber\",\n\t\"EBCSpeakerDVEMSNumber\",\n\t\"EBCSpeakerSpecialty\"\
+  ,\n\t\"Source\"\n) as -- SEMANTIC LAYER BEGINS\n/*********************************************************************************\n\
+  * Program Name  :  ODS_LS.SURF.EBC_SPEAKER\n* Development Request # : STRY2540973\
+  \ - EBC to Briefing Source Migration\n* Usage :\n* Date Created  : 07-06-2023\n\
+  * Developed By  : Bharath Bachu\n* Brief Description :\n* --------------------------------------------------------------------------------------------------------------------------\n\
+  * REVISION HISTORY:\n*---------------------------------------------------------------------------------------------------------------------------\n\
+  * CR#                 Date Modified           Modified By        Brief Description\
+  \ of Change\n*STRY2540973          07-06-2023              Bharath Bachu       \
+  \  Added Briefing Source data set via Union\n**********************************************************************************/\n\
+  select \"EBCSpeakerEBCStatus\",\n\t\"EBCSpeakerDVName\",\n\t\"EBCSpeakerSysID\"\
+  ,\n\t\"EBCSpeakerName\",\n\t\"EBCSpeakerFullName\",\n\t\"EBCSpeakerRegion\",\n\t\
+  \"EBCSpeakerJobTitle\",\n\t\"EBCSpeakerDVEBCStatus\",\n\t\"EBCSpeakerDVProduct\"\
+  ,\n\t\"EBCSpeakerDVApplication\",\n\t\"EBCSpeakerActive\",\n\t\"EBCSpeakerNumber\"\
+  ,\n\t\"EBCSpeakerLocation\",\n\t\"EBCSpeakerProduct\",\n\t\"EBCSpeakerApplication\"\
+  ,\n\t\"EBCSpeakerDVCloudService\",\n\t\"EBCSpeakerEMSNumber\",\n\t\"EBCSpeakerDVEMSNumber\"\
+  ,\n\t\"EBCSpeakerSpecialty\"\n    ,'random' as \"Source\"\nfrom ODS_LS.BRIEFING_SOURCE.VW_SPEAKER\n\
+  union all\nSELECT \"EBC_STATUS\" as \"EBCSpeakerEBCStatus\",\n       \"DV_NAME\"\
+  \ as \"EBCSpeakerDVName\",\n       \"SYS_ID\" as \"EBCSpeakerSysID\",\n       \"\
+  NAME\" as \"EBCSpeakerName\",\n       \"FULL_NAME\" as \"EBCSpeakerFullName\",\n\
+  \       \"REGION\" as \"EBCSpeakerRegion\",\n       \"JOB_TITLE\" as \"EBCSpeakerJobTitle\"\
+  ,\n       \"DV_EBC_STATUS\" as \"EBCSpeakerDVEBCStatus\",\n       \"DV_PRODUCT\"\
+  \ as \"EBCSpeakerDVProduct\",\n       \"DV_APPLICATION\" as \"EBCSpeakerDVApplication\"\
+  ,\n       \"ACTIVE\" as \"EBCSpeakerActive\",\n       \"NUMBER\" as \"EBCSpeakerNumber\"\
+  ,\n       \"LOCATION\" as \"EBCSpeakerLocation\",\n       \"PRODUCT\" as \"EBCSpeakerProduct\"\
+  ,\n       \"APPLICATION\" as \"EBCSpeakerApplication\",\n       \"DV_CLOUD_SERVICE\"\
+  \ as \"EBCSpeakerDVCloudService\",\n       \"EMS_NUMBER\" as \"EBCSpeakerEMSNumber\"\
+  ,\n       \"DV_EMS_NUMBER\" as \"EBCSpeakerDVEMSNumber\",\n       \"SPECIALTY\"\
+  \ as \"EBCSpeakerSpecialty\"\n           ,'random' as \"Source\"\nFROM RDS.SURF.X_SNC_EBC_SPEAKER;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

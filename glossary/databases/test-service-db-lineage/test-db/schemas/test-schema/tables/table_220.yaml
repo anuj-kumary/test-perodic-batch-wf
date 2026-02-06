@@ -1,0 +1,66 @@
+name: table_220
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_220
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_220.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_TIMECARD_DAILY(\n\t\"TimeCardSysID\"\
+  ,\n\t\"TimeCardWeekStartsOn\",\n\t\"TimeCardDate\",\n\t\"TimeCardDayName\",\n\t\"\
+  TimeCardHours\",\n\t\"TimeCardState\",\n\t\"TimeCardUserSysID\",\n\t\"TimeCardCategory\"\
+  ,\n\t\"TimeCardSubcategory\",\n\t\"TimeCardBillingRateSysID\",\n\t\"TimeCardBillingRate\"\
+  ,\n\t\"TimeCardTaskSysID\",\n\t\"TimeCardTask\",\n\t\"TimeCardTotalRevenue\",\n\t\
+  \"TimeCardUser\",\n\t\"TimeCardApprovedDate\",\n\t\"TimeCardSubmittedDate\",\n\t\
+  \"TimeCardSubmittedBy\",\n\t\"TimeCardApprovedBy\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"TimeCardSysID\" as \"TimeCardSysID\",\n       \"TimeCardWeekStartsOn\"\
+  \ as \"TimeCardWeekStartsOn\",\n       \"TimeCardDate\" as \"TimeCardDate\",\n \
+  \      \"TimeCardDayName\" as \"TimeCardDayName\",\n       \"TimeCardHours\" as\
+  \ \"TimeCardHours\",\n       \"TimeCardState\" as \"TimeCardState\",\n       \"\
+  TimeCardUserSysID\" as \"TimeCardUserSysID\",\n       \"TimeCardCategory\" as \"\
+  TimeCardCategory\",\n       \"TimeCardSubcategory\" as \"TimeCardSubcategory\",\n\
+  \       \"TimeCardBillingRateSysID\" as \"TimeCardBillingRateSysID\",\n       \"\
+  TimeCardBillingRate\" as \"TimeCardBillingRate\",\n       \"TimeCardTaskSysID\"\
+  \ as \"TimeCardTaskSysID\",\n       \"TimeCardTask\" as \"TimeCardTask\",\n    \
+  \   \"TimeCardTotalRevenue\" as \"TimeCardTotalRevenue\",\n       \"TimeCardUser\"\
+  \ as \"TimeCardUser\",\n       \"TimeCardApprovedDate\" as \"TimeCardApprovedDate\"\
+  ,\n       \"TimeCardSubmittedDate\" as \"TimeCardSubmittedDate\",\n       \"TimeCardSubmittedBy\"\
+  \ as \"TimeCardSubmittedBy\",\n       \"TimeCardApprovedBy\" as \"TimeCardApprovedBy\"\
+  \nFROM \"RDS\".\"SURF\".\"ST_TIMECARD_DAILY\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

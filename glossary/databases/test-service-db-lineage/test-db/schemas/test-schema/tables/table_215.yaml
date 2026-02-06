@@ -1,0 +1,64 @@
+name: table_215
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_215
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_215.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SALES_REPS_QUOTA(\n\t\"SRepQuotaValue\"\
+  ,\n\t\"SRepQuarter\",\n\t\"SRepCountry\",\n\t\"SRepRegion\",\n\t\"SRepArea\",\n\t\
+  \"SRepGeo\",\n\t\"SRepEmployeeNumber\",\n\t\"SRepTerrSysId\",\n\t\"SRepAdjustedQuota\"\
+  \n) as\nSELECT SUM(\"QUOTA\") as \"SRepQuotaValue\",\n       \"QUARTER\" as \"SRepQuarter\"\
+  ,\n       \"COUNTRY\" as \"SRepCountry\",\n       \"REGION\" as \"SRepRegion\",\n\
+  \       \"AREA\" as \"SRepArea\",\n       \"GEO\" as \"SRepGeo\",\n       \"EMPLOYEE_NUMBER\"\
+  \ as \"SRepEmployeeNumber\",\n       \"TERRITORYSYSID\" as \"SRepTerrSysId\",\n\
+  \       SUM(\"ADJUSTEDREPQUOTA\") as \"SRepAdjustedQuota\"\nFROM\n  (SELECT \"EMPLOYEE_NUMBER\"\
+  \ as \"EMPLOYEE_NUMBER\",\n          \"GEO\" as \"GEO\",\n          \"AREA\" as\
+  \ \"AREA\",\n          \"REGION\" as \"REGION\",\n          \"COUNTRY\" as \"COUNTRY\"\
+  ,\n          \"QUARTER\" as \"QUARTER\",\n          SUM(\"QUOTA\") as \"QUOTA\"\
+  ,\n          \"TERRITORYSYSID\" as \"TERRITORYSYSID\",\n          SUM(\"ADJUSTEDREPQUOTA\"\
+  ) as \"ADJUSTEDREPQUOTA\",\n          'random' as \"DUMMY\"\n   FROM \"EDW_LS\"\
+  .\"SALES_EM\".\"TBLREPQUOTA\"\n   where \"QUOTACOMPONENT\"='random'\n   GROUP BY\
+  \ \"EMPLOYEE_NUMBER\",\n            \"GEO\",\n            \"AREA\",\n          \
+  \  \"REGION\",\n            \"COUNTRY\",\n            \"QUARTER\",\n           \
+  \ \"TERRITORYSYSID\") Aggregation_1\nGROUP BY \"QUARTER\",\n         \"COUNTRY\"\
+  ,\n         \"REGION\",\n         \"AREA\",\n         \"GEO\",\n         \"EMPLOYEE_NUMBER\"\
+  ,\n         \"TERRITORYSYSID\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

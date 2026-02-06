@@ -1,0 +1,58 @@
+name: table_194
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_194
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_194.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_TERRITORYMEMBERS(\n\t\"TerrMemberRoleName\"\
+  ,\n\t\"TerrMemberUserSysID\",\n\t\"TerrMemberTerritoryName\",\n\t\"TerrMemberName\"\
+  ,\n\t\"TerrMemberActive\",\n\t\"TerrMemberTerritorySysID\",\n\t\"TerrMemberUserName\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SN_ROLENAME\" as \"TerrMemberRoleName\"\
+  ,\n       \"SN_USER\" as \"TerrMemberUserSysID\",\n       \"SN_TERRITORYNAME\" as\
+  \ \"TerrMemberTerritoryName\",\n       \"SN_USERNAME\" as \"TerrMemberName\",\n\
+  \       \"SN_ACTIVE\" as \"TerrMemberActive\",\n       \"SN_TERRITORY\" as \"TerrMemberTerritorySysID\"\
+  ,\n       LOWER(REPLACE(\"TerrMemberName\", 'random', 'random')) as \"TerrMemberUserName\"\
+  \nFROM\n  (SELECT \"SN_ROLENAME\" as \"SN_ROLENAME\",\n          \"SN_USER\" as\
+  \ \"SN_USER\",\n          \"SN_TERRITORYNAME\" as \"SN_TERRITORYNAME\",\n      \
+  \    \"SN_USERNAME\" as \"SN_USERNAME\",\n          \"SN_ACTIVE\" as \"SN_ACTIVE\"\
+  ,\n          \"SN_TERRITORY\" as \"SN_TERRITORY\"\n   FROM \"RDS\".\"DYNAMICS365\"\
+  .\"SN_TERRITORYMEMBERS\"\n   WHERE \"SN_ACTIVE\" = 'random' )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,70 @@
+name: table_228
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_228
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_228.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EBC_ACCOUNT(\n\t\"OpportunityName\",\n\t\
+  \"EbrSysID\",\n\t\"AccountName\",\n\t\"Opportunites\",\n\t\"Opportunity\",\n\t\"\
+  SysID\",\n\t\"AcctSysID\",\n\t\"EbrNumber\",\n\t\"EBCAccountNotes\",\n\t\"Source\"\
+  \n) as\n\n/*********************************************************************************\n\
+  * Program Name  :  ODS_LS.SURF.EBC_ACCOUNT\n* Development Request # : STRY2540973\
+  \ - EBC to Briefing Source Migration\n* Usage :\n* Date Created  : 07-06-2023\n\
+  * Developed By  : Bharath Bachu\n* Brief Description :\n* --------------------------------------------------------------------------------------------------------------------------\n\
+  * REVISION HISTORY:\n*---------------------------------------------------------------------------------------------------------------------------\n\
+  * CR#                 Date Modified           Modified By        Brief Description\
+  \ of Change\n*STRY2540973          07-06-2023              Bharath Bachu       \
+  \  Added Briefing Source data set via Union\n*STRY2545096          05-07-2023  \
+  \            Nilesh Mahajan     Pulling \"EbrNumber\" for \"EbrSysID\"\n**********************************************************************************/\n\
+  select\n\"OpportunityName\",\n\tto_char(\"EbrSysID\") \"EbrSysID\",\n\t\"AccountName\"\
+  ,\n\t\"Opportunites\",\n\t\"Opportunity\",\n\t\"SysID\",\n\t\"AcctSysID\",\n\tto_char(\"\
+  EbrNumber\") as \"EbrNumber\",\n\t\"EBCAccountNotes\"\n    ,'random' as \"Source\"\
+  \nfrom ODS_LS.BRIEFING_SOURCE.VW_BRIEFING_ACCOUNT\nunion all\nSELECT \"OpportunityName\"\
+  \ as \"OpportunityName\",\n\"EbrNumber\" as \"EbrSysID\",\n\"AccountName\" as \"\
+  AccountName\",\n\"Opportunites\" as \"Opportunites\",\n\"Opportunity\" as \"Opportunity\"\
+  ,\n\"SysID\" as \"SysID\",\n\"AcctSysID\" as \"AcctSysID\",\n\"EbrNumber\" as \"\
+  EbrNumber\",\n\"EBCAccountNotes\" AS \"EBCAccountNotes\"\n,'random' as \"Source\"\
+  \nFROM (\nSELECT \"DV_OPPORTUNITY\" as \"OpportunityName\",\n\"REQUEST_NUMBER\"\
+  \ as \"EbrSysID\",\n\"DV_ACCOUNT\" as \"AccountName\",\n\"DV_OPPORTUNITIES\" as\
+  \ \"Opportunites\",\n\"OPPORTUNITY\" as \"Opportunity\",\n\"SYS_ID\" as \"SysID\"\
+  ,\n\"ACCOUNT\" as \"AcctSysID\",\n\"DV_REQUEST_NUMBER\" as \"EbrNumber\",\n\"NOTES\"\
+  \ AS \"EBCAccountNotes\"\nFROM \"RDS\".\"SURF\".\"X_SNC_EBC_ACCOUNT\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

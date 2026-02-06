@@ -1,0 +1,96 @@
+name: table_198
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_198
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_198.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EBC_GUEST(\n\t\"GuestName\",\n\t\"GuestSysID\"\
+  ,\n\t\"Title\",\n\t\"GuestEmail\",\n\t\"GuestStatus\",\n\t\"GuestKeyInfo\",\n\t\"\
+  RequestGoal\",\n\t\"EBCNumber\",\n\t\"EBCSysID\",\n\t\"CoreCompany\",\n\t\"CoreCompanySysID\"\
+  ,\n\t\"CompanyString\",\n\t\"SalesContactSysID\",\n\t\"ValuePrompterSysID\",\n\t\
+  \"ValuePrompter\",\n\t\"GuestExecutiveFlag\",\n\t\"DecisionMakerFlag\",\n\t\"SupporterFlag\"\
+  ,\n\t\"SysCreatedOn\",\n\t\"SysUpdatedOn\",\n\t\"EBCVisitNumber\",\n\tSOURCE\n)\
+  \ as\n/*********************************************************************************\n\
+  * Program Name  :  ODS_LS.SURF.EBC_GUEST\n* Development Request # : STRY2540973\
+  \ - EBC to Briefing Source Migration\n* Usage :\n* Date Created  : 07-06-2023\n\
+  * Developed By  : Bharath Bachu\n* Brief Description :\n* --------------------------------------------------------------------------------------------------------------------------\n\
+  * REVISION HISTORY:\n*---------------------------------------------------------------------------------------------------------------------------\n\
+  * CR#                 Date Modified           Modified By        Brief Description\
+  \ of Change\n*STRY2540973          06-27-2023              Bharath Bachu       \
+  \ changed the \"EBCSysID\" source from Visit to DV_visit\n*                    \
+  \ 28/06/2023              Nilesh Mahajan     Added \"CompanyString\" column\n* \
+  \                    06-28-2023              Bharawth Bachu        Changed the source\
+  \ for EBCNumber for EBC Source. DV_VISIT is stopped refreshing since 2019.\n**********************************************************************************/\n\
+  SELECT\n\"GuestName\",\n\t to_char(\"GuestSysID\") AS \"GuestSysID\",\n\t \"Title\"\
+  ,\n\t \"GuestEmail\",\n\t \"GuestStatus\",\n\t \"GuestKeyInfo\",\n\t \"RequestGoal\"\
+  ,\n\t  to_char(\"EBCNumber\") \"EBCNumber\" ,\n\t  to_char(\"EBCSysID\") \"EBCSysID\"\
+  ,\n\t \"CoreCompany\",\n\t \"CoreCompanySysID\",\n     \"CompanyString\",\n\t \"\
+  SalesContactSysID\",\n\t \"ValuePrompterSysID\",\n\t \"ValuePrompter\",\n\t \"GuestExecutiveFlag\"\
+  ,\n\t \"DecisionMakerFlag\",\n\t \"SupporterFlag\",\n\t \"SysCreatedOn\",\n\t \"\
+  SysUpdatedOn\",\n\t to_char(\"EBCVisitNumber\") \"EBCVisitNumber\"\n     ,'random'\
+  \ as Source\n\n     FROM ODS_LS.BRIEFING_SOURCE.VW_GUEST\nunion all\nSELECT\n\t\
+  \ \"NAME\" as \"GuestName\",\n\t \"SYS_ID\" as \"GuestSysID\",\n\t \"TITLE\" as\
+  \ \"Title\",\n\t \"EMAIL\" as \"GuestEmail\",\n\t \"DV_STATUS\" as \"GuestStatus\"\
+  ,\n\t \"KEY_INFORMATION\" as \"GuestKeyInfo\",\n\t \"GOALS\" as \"RequestGoal\"\
+  ,\n\t \"DV_EBC_VISIT\" as \"EBCNumber\",--\"DV_VISIT\" as \"EBCNumber\",\n\t \"\
+  DV_VISIT\" as \"EBCSysID\",--\"VISIT\" as \"EBCSysID\",\n\t \"DV_COMPANY\" as \"\
+  CoreCompany\",\n\t \"COMPANY\" as \"CoreCompanySysID\",\n     \"COMPANY_STRING\"\
+  \ as \"CompanyString\",\n\t \"CONTACT_NAME\" as \"SalesContactSysID\",\n\t \"VALUE_PROMPTER\"\
+  \ as \"ValuePrompterSysID\",\n\t \"DV_VALUE_PROMPTER\" as \"ValuePrompter\",\n\t\
+  \ \"EXECUTIVE\" as \"GuestExecutiveFlag\",\n\t \"DECISION_MAKER\" as \"DecisionMakerFlag\"\
+  ,\n\t \"SUPPORTER\" as \"SupporterFlag\",\n\t \"SYS_CREATED_ON\" as \"SysCreatedOn\"\
+  ,\n\t \"SYS_UPDATED_ON\" as \"SysUpdatedOn\",\n\t \"DV_EBC_VISIT\" as \"EBCVisitNumber\"\
+  \n     ,'random' as Source\nFROM ( SELECT\n\t \"NAME\" as \"NAME\",\n\t \"GOALS\"\
+  \ as \"GOALS\",\n\t \"SYS_ID\" as \"SYS_ID\",\n\t \"TITLE\" as \"TITLE\",\n\t \"\
+  COMPANY\" as \"COMPANY\",\n     \"COMPANY_STRING\" as \"COMPANY_STRING\",\n\t \"\
+  CONTACT_NAME\" as \"CONTACT_NAME\",\n\t \"DV_STATUS\" as \"DV_STATUS\",\n\t \"EMAIL\"\
+  \ as \"EMAIL\",\n\t \"KEY_INFORMATION\" as \"KEY_INFORMATION\",\n\t \"STATUS\" as\
+  \ \"STATUS\",\n\t \"DV_VALUE_PROMPTER\" as \"DV_VALUE_PROMPTER\",\n\t \"TECHNICAL\"\
+  \ as \"TECHNICAL\",\n\t \"VISIT\" as \"VISIT\",\n\t \"EXECUTIVE\" as \"EXECUTIVE\"\
+  ,\n\t \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n\t \"ORDER\" as \"ORDER\"\
+  ,\n\t \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n\t \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n\t \"DECISION_MAKER\" as \"DECISION_MAKER\",\n\t \"SUPPORTER\" as \"SUPPORTER\"\
+  ,\n\t \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n\t \"DV_COMPANY\" as \"DV_COMPANY\"\
+  ,\n\t \"VALUE_PROMPTER\" as \"VALUE_PROMPTER\",\n\t \"DV_VISIT\" as \"DV_VISIT\"\
+  ,\n\t \"OPPONENT\" as \"OPPONENT\",\n\t \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  ,\n\t \"SYS_MOD_COUNT\" as \"SYS_MOD_COUNT\",\n\t \"DV_EBC_VISIT\" as \"DV_EBC_VISIT\"\
+  \n\tFROM \"RDS\".\"SURF\".\"X_SNC_EBC_GUEST\")Projection_1\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

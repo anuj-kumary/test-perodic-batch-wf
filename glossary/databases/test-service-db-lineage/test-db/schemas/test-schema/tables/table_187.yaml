@@ -1,0 +1,64 @@
+name: table_187
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_187
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_187.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view STRATEGIC_EVENTS_EXHIBITOR_CATALOG(\n\t\"\
+  ExhibitorID\",\n\t\"ExhibitorName\",\n\t\"ExhibitorDescription\",\n\t\"ExhibitorItemStatus\"\
+  ,\n\t\"ExhibitorType\",\n\t\"ExhibitorEvent\",\n\t\"ExhibitorDemoLocation\",\n\t\
+  \"ExhibitorDemoCategory\",\n\t\"ExhibitorDemoBusinessUnit\",\n\t\"ExhibitorDemoScanMethod\"\
+  ,\n\t\"ExhibitorEloquaCampaignID\"\n) as\nSELECT \"EXHIBITOR_ID\" as \"ExhibitorID\"\
+  ,\n       \"NAME\" as \"ExhibitorName\",\n       \"DESCRIPTION\" as \"ExhibitorDescription\"\
+  ,\n       \"ITEM_STATUS\" as \"ExhibitorItemStatus\",\n       \"TYPES\" as \"ExhibitorType\"\
+  ,\n       \"EVENTS\" as \"ExhibitorEvent\",\n       \"SKODEMOS_LOCATION\" as \"\
+  ExhibitorDemoLocation\",\n       \"SKODEMOS_CATEGORY\" as \"ExhibitorDemoCategory\"\
+  ,\n       \"SKODEMO_BUSINESS_UNIT\" as \"ExhibitorDemoBusinessUnit\",\n       \"\
+  SKODEMOS_-_SCAN_METHOD\" as \"ExhibitorDemoScanMethod\",\n       \"ELOQUACAMPAIGNID\"\
+  \ as \"ExhibitorEloquaCampaignID\"\nFROM\n  (SELECT \"EXHIBITOR_ID\" as \"EXHIBITOR_ID\"\
+  ,\n          \"NAME\" as \"NAME\",\n          \"DESCRIPTION\" as \"DESCRIPTION\"\
+  ,\n          \"ITEM_STATUS\" as \"ITEM_STATUS\",\n          \"TYPES\" as \"TYPES\"\
+  ,\n          \"EVENTS\" as \"EVENTS\",\n          \"SKODEMOS LOCATION\" as \"SKODEMOS_LOCATION\"\
+  ,\n          \"SKODEMOS CATEGORY\" as \"SKODEMOS_CATEGORY\",\n          \"SKODEMO\
+  \ BUSINESS UNIT\" as \"SKODEMO_BUSINESS_UNIT\",\n          \"SKODEMOS - SCAN METHOD\"\
+  \ as \"SKODEMOS_-_SCAN_METHOD\",\n          \"ELOQUACAMPAIGNID\" as \"ELOQUACAMPAIGNID\"\
+  \n   FROM \"RDS\".\"FLATFILESOURCE\".\"STRATEGIC_EVENTS_EXHIBITOR_CATALOG\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

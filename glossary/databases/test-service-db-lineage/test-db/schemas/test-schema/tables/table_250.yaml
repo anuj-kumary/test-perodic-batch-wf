@@ -1,0 +1,119 @@
+name: table_250
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_250
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_250.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_INVOICE_SCHEDULE(\n\t\"EstimatedTax\"\
+  ,\n\t\"InvoiceDate\",\n\t\"InvoiceDisplay\",\n\t\"InvoiceSchedule\",\n\t\"InvoiceDateType\"\
+  ,\n\t\"Quote\",\n\t\"Name\",\n\t\"GrandTotal\",\n\t\"Amount\",\n\t\"SysUpdatedOn\"\
+  ,\n\t\"SysID\",\n\t\"InvoiceScheduleOrder\",\n\t\"Number\",\n\t\"StartDate\",\n\t\
+  \"EndDate\",\n\t\"TermMonthsAndDays\",\n\t\"PSPPerUpdateDate\",\n\t\"PSPPerInsertDate\"\
+  ,\n\t\"QuoteSysID\",\n\t\"InvoiceScheduleQuoteLineNo\",\n\t\"InvoiceScheduleSource\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"U_ESTIMATED_TAX\" as \"EstimatedTax\"\
+  ,\n       \"U_INVOICE_DATE\" as \"InvoiceDate\",\n       \"U_INVOICE_DISPLAY\" as\
+  \ \"InvoiceDisplay\",\n       \"U_INVOICE_SCHEDULE\" as \"InvoiceSchedule\",\n \
+  \      \"U_INVOICE_DATE_TYPE\" as \"InvoiceDateType\",\n       \"DV_U_QUOTE\" as\
+  \ \"Quote\",\n       \"U_NAME\" as \"Name\",\n       \"U_GRAND_TOTAL\" as \"GrandTotal\"\
+  ,\n       \"U_AMOUNT\" as \"Amount\",\n       \"SYS_UPDATED_ON\" as \"SysUpdatedOn\"\
+  ,\n       \"SYS_ID\" as \"SysID\",\n       \"U_ORDER\" as \"InvoiceScheduleOrder\"\
+  ,\n       \"U_NUMBER\" as \"Number\",\n       \"START_DATE\" as \"StartDate\",\n\
+  \       \"END_DATE\" as \"EndDate\",\n       \"TERM_MONTHS_AND_DAYS\" as \"TermMonthsAndDays\"\
+  ,\n       \"PSP_PER_UPDATE_DT\" as \"PSPPerUpdateDate\",\n       \"PSP_PER_INSERT_DT\"\
+  \ as \"PSPPerInsertDate\",\n       \"U_QUOTE\" as \"QuoteSysID\",\n       \"SN_QUOTE_LINE_NO\"\
+  \ as \"InvoiceScheduleQuoteLineNo\",\n       \"InvoiceScheduleSource\" as \"InvoiceScheduleSource\"\
+  \nFROM\n(\n    SELECT * FROM\n    (\n        SELECT   \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  ,\n                 \"U_INVOICE_DISPLAY\" as \"U_INVOICE_DISPLAY\",\n          \
+  \       \"U_INVOICE_SCHEDULE\" as \"U_INVOICE_SCHEDULE\",\n                 \"U_NAME\"\
+  \ as \"U_NAME\",\n                 \"U_ESTIMATED_TAX\" as \"U_ESTIMATED_TAX\",\n\
+  \                 \"U_INVOICE_DATE\" as \"U_INVOICE_DATE\",\n                 \"\
+  U_AMOUNT\" as \"U_AMOUNT\",\n                 \"DV_U_QUOTE\" as \"DV_U_QUOTE\",\n\
+  \                 \"U_NUMBER\" as \"U_NUMBER\",\n                 \"U_INVOICE_DATE_TYPE\"\
+  \ as \"U_INVOICE_DATE_TYPE\",\n                 'random' as \"TERM_MONTHS_AND_DAYS\"\
+  ,\n                 'random' as \"END_DATE\",\n                 'random' as \"START_DATE\"\
+  ,\n                 \"U_GRAND_TOTAL\" as \"U_GRAND_TOTAL\",\n                 \"\
+  SYS_ID\" as \"SYS_ID\",\n                 \"U_ORDER\" as \"U_ORDER\",\n        \
+  \         \"PSP_PER_UPDATE_DT\" as \"PSP_PER_UPDATE_DT\",\n                 \"PSP_PER_INSERT_DT\"\
+  \ as \"PSP_PER_INSERT_DT\",\n                 \"U_QUOTE\" as \"U_QUOTE\",\n    \
+  \             \"InvoiceScheduleSource_CC\" as \"InvoiceScheduleSource\",\n     \
+  \            'random' as \"SN_QUOTE_LINE_NO\"\n      FROM\n      (\n          SELECT\
+  \ \"U_ESTIMATED_TAX\" as \"U_ESTIMATED_TAX\",\n                 \"U_INVOICE_DATE\"\
+  \ as \"U_INVOICE_DATE\",\n                 \"U_INVOICE_DISPLAY\" as \"U_INVOICE_DISPLAY\"\
+  ,\n                 \"U_INVOICE_SCHEDULE\" as \"U_INVOICE_SCHEDULE\",\n        \
+  \         \"U_INVOICE_DATE_TYPE\" as \"U_INVOICE_DATE_TYPE\",\n                \
+  \ \"DV_U_QUOTE\" as \"DV_U_QUOTE\",\n                 \"U_NAME\" as \"U_NAME\",\n\
+  \                 \"U_GRAND_TOTAL\" as \"U_GRAND_TOTAL\",\n                 \"U_AMOUNT\"\
+  \ as \"U_AMOUNT\",\n                 \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n\
+  \                 \"SYS_ID\" as \"SYS_ID\",\n                 \"U_QUOTE\" as \"\
+  U_QUOTE\",\n                 \"U_ORDER\" as \"U_ORDER\",\n                 \"U_NUMBER\"\
+  \ as \"U_NUMBER\",\n                 \"PSP_PER_UPDATE_DT\" as \"PSP_PER_UPDATE_DT\"\
+  ,\n                 \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n          \
+  \       'random' as \"InvoiceScheduleSource_CC\"\n          FROM \"RDS\".\"SURF\"\
+  .\"U_INVOICE_SCHEDULE\"\n      )\"SURF\"\n\n      UNION ALL\n\n      SELECT 'random'\
+  \ as \"SYS_UPDATED_ON\",\n             \"INVOICE_DATE_STR\" as \"U_INVOICE_DISPLAY\"\
+  ,\n             \"INVOICE_DATE_STR\" as \"U_INVOICE_SCHEDULE\",\n             'random'\
+  \ as \"U_NAME\",\n             \"ESTIMATED_TAX\" as \"U_ESTIMATED_TAX\",\n     \
+  \        \"INVOICE_DATE\" as \"U_INVOICE_DATE\",\n             \"AMOUNT\" as \"\
+  U_AMOUNT\",\n             \"QUOTENUMBER\" as \"DV_U_QUOTE\",\n             \"INVOICE_NUMBER\"\
+  \ as \"U_NUMBER\",\n             \"CATEGORY\" as \"U_INVOICE_DATE_TYPE\",\n    \
+  \         \"TERM_MONTHS_AND_DAYS\" as \"TERM_MONTHS_AND_DAYS\",\n             \"\
+  END_DATE\" as \"END_DATE\",\n             \"START_DATE\" as \"START_DATE\",\n  \
+  \           \"TOTAL_AMOUNT\" as \"U_GRAND_TOTAL\",\n             \"QUOTE_IDENTIFIER\"\
+  \ as \"SYS_ID\",\n             \"PRECISION_TERM_CC\" as \"U_ORDER\",\n         \
+  \    'random' as \"PSP_PER_UPDATE_DT\",\n             'random' as \"PSP_PER_INSERT_DT\"\
+  ,\n             \"QUOTENUMBER\" as \"U_QUOTE\",\n             \"InvoiceScheduleSource_CC\"\
+  \ as \"InvoiceScheduleSource\",\n             \"SN_QUOTE_LINE_NO\" as \"SN_QUOTE_LINE_NO\"\
+  \n      FROM\n      (\n          SELECT \"INVOICE_DATE\" as \"INVOICE_DATE\",\n\
+  \                 \"AMOUNT\" as \"AMOUNT\",\n                 \"ESTIMATED_TAX\"\
+  \ as \"ESTIMATED_TAX\",\n                 \"QUOTENUMBER\" as \"QUOTENUMBER\",\n\
+  \                 \"INVOICE_NUMBER\" as \"INVOICE_NUMBER\",\n                 \"\
+  CATEGORY\" as \"CATEGORY\",\n                 \"PRECISION_TERM\" as \"PRECISION_TERM\"\
+  ,\n                 \"TERM_MONTHS_AND_DAYS\" as \"TERM_MONTHS_AND_DAYS\",\n    \
+  \             \"END_DATE\" as \"END_DATE\",\n                 \"START_DATE\" as\
+  \ \"START_DATE\",\n                 \"TOTAL_AMOUNT\" as \"TOTAL_AMOUNT\",\n    \
+  \             \"INVOICE_DATE_STR\" as \"INVOICE_DATE_STR\",\n                 \"\
+  ITEMSTATE\" as \"ITEMSTATE\",\n                 \"SN_QUOTE_LINE_NO\" as \"SN_QUOTE_LINE_NO\"\
+  ,\n                 \"QUOTENUMBER\" || 'random' || \"INVOICE_NUMBER\" as \"QUOTE_IDENTIFIER\"\
+  ,\n                 \"PRECISION_TERM\"::NUMBER('random', 'random') as \"PRECISION_TERM_CC\"\
+  ,\n                 'random' as \"InvoiceScheduleSource_CC\"\n          FROM \"\
+  RDS\".\"CALLIDUS\".\"INVOICE_SCHEDULE\"\n          WHERE (\"ITEMSTATE\" = 'random'\
+  \ OR (\"ITEMSTATE\") IS NULL)\n      )\"CALLIDUS\"\n  )\n)Union_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,77 @@
+name: table_249
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_249
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_249.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_PROGRAMTAGGINGS_PIP_PRG(\n\t\"PTTaggedEntityCode\"\
+  ,\n\t\"PTTaggedEntityCodeName\",\n\t\"PTOpportunityProductGUID\",\n\t\"PTSubProgramName\"\
+  ,\n\t\"PTStatusCodeName\",\n\t\"PTAccountGUID\",\n\t\"PTOpportunityGUID\",\n\t\"\
+  PTOpportunityProductIDName\",\n\t\"PTProgramName\",\n\t\"PTProgramGUID\",\n\t\"\
+  PTAccountName\",\n\t\"PTEndDate\",\n\t\"PTStartDate\",\n\t\"PTTopAccountIDName\"\
+  ,\n\t\"PTTopAccountID\",\n\t\"PTCreatedOn\",\n\t\"PTModifiedOn\"\n) as /*\nREVISION\
+  \ HISTORY:\n** STRY2484101         2022-MAY-05        Ramana Reddy       Added \"\
+  PTCreatedOn\",\"PTModifiedOn\"\n*/\nSELECT \"PTTaggedEntityCode\" as \"PTTaggedEntityCode\"\
+  ,\n       \"PTTaggedEntityCodeName\" as \"PTTaggedEntityCodeName\",\n       \"PTOpportunityProductGUID\"\
+  \ as \"PTOpportunityProductGUID\",\n       \"PTSubProgramName\" as \"PTSubProgramName\"\
+  ,\n       \"PTStatusCodeName\" as \"PTStatusCodeName\",\n       \"PTAccountGUID\"\
+  \ as \"PTAccountGUID\",\n       \"PTOpportunityGUID\" as \"PTOpportunityGUID\",\n\
+  \       \"PTOpportunityProductIDName\" as \"PTOpportunityProductIDName\",\n    \
+  \   \"PTProgramName\" as \"PTProgramName\",\n       \"PTProgramGUID\" as \"PTProgramGUID\"\
+  ,\n       \"PTAccountName\" as \"PTAccountName\",\n       \"PTEndDate\" as \"PTEndDate\"\
+  ,\n       \"PTStartDate\" as \"PTStartDate\",\n       \"PTTopAccountIDName\" as\
+  \ \"PTTopAccountIDName\",\n       \"PTTopAccountID\" as \"PTTopAccountID\",\n  \
+  \     \"PTCreatedOn\" AS \"PTCreatedOn\",\n       \"PTModifiedOn\" AS \"PTModifiedOn\"\
+  \nFROM\n  (SELECT \"SN_TAGGEDENTITYCODE\" as \"PTTaggedEntityCode\",\n         \
+  \ \"SN_TAGGEDENTITYCODENAME\" as \"PTTaggedEntityCodeName\",\n          \"SN_OPPORTUNITYPRODUCTID\"\
+  \ as \"PTOpportunityProductGUID\",\n          \"SN_SUBPROGRAMNAME\" as \"PTSubProgramName\"\
+  ,\n          \"STATUSCODENAME\" as \"PTStatusCodeName\",\n          \"SN_ACCOUNTID\"\
+  \ as \"PTAccountGUID\",\n          \"SN_OPPORTUNITYID\" as \"PTOpportunityGUID\"\
+  ,\n          \"SN_OPPORTUNITYPRODUCTIDNAME\" as \"PTOpportunityProductIDName\",\n\
+  \          \"SN_PROGRAMDETAILIDNAME\" as \"PTProgramName\",\n          \"SN_PROGRAMDETAILID\"\
+  \ as \"PTProgramGUID\",\n          \"SN_ACCOUNTIDNAME\" as \"PTAccountName\",\n\
+  \          \"SN_ENDDATE\" as \"PTEndDate\",\n          \"SN_STARTDATE\" as \"PTStartDate\"\
+  ,\n          \"SN_TOPACCOUNTIDNAME\" as \"PTTopAccountIDName\",\n          \"SN_TOPACCOUNTID\"\
+  \ as \"PTTopAccountID\",\n          \"CREATEDON\" AS \"PTCreatedOn\",\n        \
+  \  \"MODIFIEDON\" AS \"PTModifiedOn\"\n   FROM \"RDS_SHARE\".\"DYNAMICS365\".\"\
+  SN_PROGRAMTAGGINGS\"\n       -- \"RDS_SHARE\".\"DYNAMICS365\".\"SN_PROGRAMTAGGINGS\"\
+  \n\t   )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

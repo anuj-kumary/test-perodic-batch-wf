@@ -1,0 +1,64 @@
+name: table_207
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_207
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_207.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view VW_PSP_COLUMN_DETAILS(\n\tNAME,\n\tSQL\n\
+  ) as\nwith prepared_data as\n(\n    select table_name,\n    case\n    when is_active='random'\n\
+  \        or has_acl_issue='random'\n        or is_masked='random'\n        or psp_has_null='random'\n\
+  \        or should_include_in_hash='random'\n    then 'random'||column_name||'random'\n\
+  \    when zero_if_null='random' then 'random'||column_name||'random'\n    when comment='random'\
+  \ then 'random'||column_name||'random'\n    else 'random'||column_name||'random'\n\
+  \    end as column_name,\n    case\n    when startswith(column_name,'random') then\
+  \ 'random'\n    else 'random'\n    end as is_display_value\n    from rds.staging.surf_column_catalog\n\
+  \    --where coalesce(is_active,has_acl_issue,is_masked,zero_if_null) is not null\n\
+  ),\nnon_dv_columns as (\n    select table_name,listagg(column_name,'random') as\
+  \ non_dv_columns from prepared_data where is_display_value IS NULL group by table_name\n\
+  ),\ndv_columns as (\n    select table_name,listagg(column_name,'random') as dv_columns\
+  \ from prepared_data where is_display_value='random' group by table_name\n),\nfinal_list\
+  \ as(\n    select t1.table_name,t1.non_dv_columns,t2.dv_columns from non_dv_columns\
+  \ t1\n    full outer join dv_columns t2\n    on t1.table_name=t2.table_name\n)\n\
+  select\n'random' as name,'random'||\nlistagg('random'||lower(table_name)||'random'||non_dv_columns||'random'||dv_columns||'random'||table_name,'random')\n\
+  ||'random'||\nlistagg('random'||lower(table_name)||'random'||non_dv_columns||'random'||dv_columns||'random'||table_name,'random')\n\
+  ||'random'\n||'random'\nas sql from final_list\nunion\nselect * from dv_columns\n\
+  union\nselect * from non_dv_columns;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

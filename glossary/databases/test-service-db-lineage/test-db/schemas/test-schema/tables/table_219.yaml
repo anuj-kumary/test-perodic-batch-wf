@@ -1,0 +1,73 @@
+name: table_219
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_219
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_219.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_LMS_REGISTRATION(\n\t\"LMSRegisCourseID\"\
+  ,\n\t\"LMSRegisCourseTitle\",\n\t\"LMSRegisPerOrganizationName\",\n\t\"LMSRegisPerFullName\"\
+  ,\n\t\"LMSRegisPersUserName\",\n\t\"LMSRegisCountry\",\n\t\"LMSRegisCompletedCourceMarkedComplete\"\
+  ,\n\t\"LMSRegisCourceActivityStatus\",\n\t\"LMSPersonDomain\",\n\t\"LMSClassId\"\
+  ,\n\t\"LMSOrderNumber\",\n\t\"LMSClassDeliveryName\",\n\t\"LMSCourseAssignedBySourceType\"\
+  ,\n\t\"LMSCourseAssignedByAllSources\",\n\t\"LMSRegistrationStatus\",\n\t\"LMSRegistrationDate\"\
+  ,\n\t\"LMSCompletionStatus\",\n\t\"LMSCompletedCoursesStatus\",\n\t\"LMSCompletedCourcesScore\"\
+  ,\n\t\"LMSIsCourseOverdue\",\n\t\"LMSCourseAssignedOn\",\n\t\"LMSPersonOrganizationNumber\"\
+  ,\n\t\"LMSCourseOverDueByDays\",\n\t\"LMSIsLearningMandatory\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"U_COURSE_ID\" as \"LMSRegisCourseID\",\n       \"U_COURSE_TITLE\"\
+  \ as \"LMSRegisCourseTitle\",\n       \"U_PERSON_ORGANIZATION_NAME\" as \"LMSRegisPerOrganizationName\"\
+  ,\n       \"U_PERSON_FULL_NAME\" as \"LMSRegisPerFullName\",\n       \"U_PERSON_USERNAME\"\
+  \ as \"LMSRegisPersUserName\",\n       \"U_COUNTRY\" as \"LMSRegisCountry\",\n \
+  \      \"U_COMPLETED_COURSES_MARKED_COMPLETE\" as \"LMSRegisCompletedCourceMarkedComplete\"\
+  ,\n       \"U_COURSE_ACTIVITY_STATUS\" as \"LMSRegisCourceActivityStatus\",\n  \
+  \     \"U_PERSON_DOMAIN\" as \"LMSPersonDomain\",\n       \"U_CLASS_ID\" as \"LMSClassId\"\
+  ,\n       \"U_ORDER_NUMBER\" as \"LMSOrderNumber\",\n       \"U_CLASS_DELIVERY_NAME\"\
+  \ as \"LMSClassDeliveryName\",\n       \"U_COURSE_ASSIGNED_BY_SOURCE_TYPE\" as \"\
+  LMSCourseAssignedBySourceType\",\n       \"U_COURSE_ASSIGNED_BY_ALL_SOURCES\" as\
+  \ \"LMSCourseAssignedByAllSources\",\n       \"U_REGISTRATION_STATUS\" as \"LMSRegistrationStatus\"\
+  ,\n       \"U_REGISTRATION_DATE\" as \"LMSRegistrationDate\",\n       \"U_COMPLETION_STATUS\"\
+  \ as \"LMSCompletionStatus\",\n       \"U_COMPLETED_COURSES_STATUS\" as \"LMSCompletedCoursesStatus\"\
+  ,\n       \"U_COMPLETED_COURSES_SCORE\" as \"LMSCompletedCourcesScore\",\n     \
+  \  \"U_IS_COURSE_OVERDUE\" as \"LMSIsCourseOverdue\",\n       \"U_COURSE_ASSIGNED_ON\"\
+  \ as \"LMSCourseAssignedOn\",\n       \"U_PERSON_ORGANIZATION_NUMBER\" as \"LMSPersonOrganizationNumber\"\
+  ,\n       \"U_COURSE_OVERDUE_BY_DAYS\" as \"LMSCourseOverDueByDays\",\n       \"\
+  U_IS_LEARNING_MANDATORY\" as \"LMSIsLearningMandatory\"\nFROM \"RDS\".\"SURF\".\"\
+  U_LMS_REGISTRATIONS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

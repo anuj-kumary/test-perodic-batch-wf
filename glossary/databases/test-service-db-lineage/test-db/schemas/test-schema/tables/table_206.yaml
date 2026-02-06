@@ -1,0 +1,64 @@
+name: table_206
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_206
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_206.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SPM_NODE_QUOTA(\n\t\"SPMNodeQuotaValue\"\
+  ,\n\t\"SPMNodeQuotaQuarter\",\n\t\"SPMNodeQuotaTerritoryType\",\n\t\"SPMNodeQuotaTerritoryName\"\
+  ,\n\t\"SPMNodeQuotaCountry\",\n\t\"SPMNodeQuotaRegion\",\n\t\"SPMNodeQuotaArea\"\
+  ,\n\t\"SPMNodeQuotaGeo\",\n\t\"SPMNodeQuotaTerritorySysID\",\n\t\"SPMNodeQuotaDistrict\"\
+  ,\n\t\"SPMNodeSourcedQuotaValue\",\n\t\"SPFlag\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"QUOTA\" as \"SPMNodeQuotaValue\",\n       \"QUARTER\" as \"SPMNodeQuotaQuarter\"\
+  ,\n       \"TERRITORYTYPE\" as \"SPMNodeQuotaTerritoryType\",\n       \"TERRITORYNAME\"\
+  \ as \"SPMNodeQuotaTerritoryName\",\n       \"COUNTRY\" as \"SPMNodeQuotaCountry\"\
+  ,\n       \"REGION\" as \"SPMNodeQuotaRegion\",\n       \"AREA\" as \"SPMNodeQuotaArea\"\
+  ,\n       \"GEO\" as \"SPMNodeQuotaGeo\",\n       \"TERRITORYSYSID\" as \"SPMNodeQuotaTerritorySysID\"\
+  ,\n       \"DISTRICT\" as \"SPMNodeQuotaDistrict\",\n       \"SOURCEDQUOTA\" as\
+  \ \"SPMNodeSourcedQuotaValue\",\n       \"SERVICEPROVIDERFLAG\" as \"SPFlag\"\n\
+  FROM\n  (SELECT \"TERRITORYSYSID\" as \"TERRITORYSYSID\",\n          \"GEO\" as\
+  \ \"GEO\",\n          \"AREA\" as \"AREA\",\n          \"REGION\" as \"REGION\"\
+  ,\n          \"COUNTRY\" as \"COUNTRY\",\n          \"TERRITORYNAME\" as \"TERRITORYNAME\"\
+  ,\n          \"TERRITORYTYPE\" as \"TERRITORYTYPE\",\n          \"QUARTER\" as \"\
+  QUARTER\",\n          \"QUOTA\" as \"QUOTA\",\n          \"DISTRICT\" as \"DISTRICT\"\
+  ,\n          \"SOURCEDQUOTA\" as \"SOURCEDQUOTA\",\n          \"SERVICEPROVIDERFLAG\"\
+  \ as \"SERVICEPROVIDERFLAG\"\n   FROM RDS.SURF.TBLSPMNODEQUOTA)Projection_2;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

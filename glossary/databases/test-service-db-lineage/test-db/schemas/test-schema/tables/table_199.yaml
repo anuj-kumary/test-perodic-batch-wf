@@ -1,0 +1,81 @@
+name: table_199
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_199
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_199.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_U_DEPLOYMENT(\n\t\"SDplySysID\",\n\t\"\
+  SDplyExtractDate\",\n\t\"SDplyPartnerDirectSow\",\n\t\"SDplyLineItem\",\n\t\"SDplyTerritorySysID\"\
+  ,\n\t\"SDplyEngagementManager\",\n\t\"SDplyLastStatusReportSubmitted\",\n\t\"SDplyNumber\"\
+  ,\n\t\"SDplyParentDeployment\",\n\t\"SDplyAccount\",\n\t\"SDplyState\",\n\t\"SDplyEndDate\"\
+  ,\n\t\"SDplyStartDate\",\n\t\"SDplyStatusReportRequired\",\n\t\"SDplyEngagementManagerSysID\"\
+  ,\n\t\"SDplyLineItemSysID\",\n\t\"SDplyActive\",\n\t\"SDplyWorkAtRisk\",\n\t\"SDplyParentDeploymentSysID\"\
+  ,\n\t\"SDplyTotalProjectHoursUsed\",\n\t\"SDplyOpportunity\",\n\t\"SDplyOpportunitySysID\"\
+  ,\n\t\"SDplyAccountSysID\",\n\t\"SDplyLineItemRevRevType\",\n\t\"SDplyStatus\",\n\
+  \t\"SDplyParentDeploymentValue\",\n\t\"SDplyPSTerritory\",\n\t\"SDplyCategory\"\
+  ,\n\t\"SDplyRequiresSurvey\",\n\t\"SDplyAssignedTo\",\n\t\"SDplyLastStatusReport\"\
+  ,\n\t\"SDplyImplementationPartner\",\n\t\"SDplyImplementationPartnerType\",\n\t\"\
+  SDplyCreatedOn\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"SYS_ID\" as \"SDplySysID\"\
+  ,\n       \"EXTRACT_DATE\" as \"SDplyExtractDate\",\n       \"U_PARTNER_DIRECT_SOW\"\
+  \ as \"SDplyPartnerDirectSow\",\n       \"DV_U_LINE_ITEM\" as \"SDplyLineItem\"\
+  ,\n       \"U_PS_TERRITORY\" as \"SDplyTerritorySysID\",\n       \"DV_U_ENGAGEMENT_MANAGER\"\
+  \ as \"SDplyEngagementManager\",\n       \"U_LAST_STATUS_REPORT_SUBMITTED\" as \"\
+  SDplyLastStatusReportSubmitted\",\n       \"NUMBER\" as \"SDplyNumber\",\n     \
+  \  \"DV_U_PARENT_DEPLOYMENT\" as \"SDplyParentDeployment\",\n       \"DV_U_ACCOUNT\"\
+  \ as \"SDplyAccount\",\n       \"DV_STATE\" as \"SDplyState\",\n       \"U_END_DATE\"\
+  \ as \"SDplyEndDate\",\n       \"U_START_DATE\" as \"SDplyStartDate\",\n       \"\
+  U_STATUS_REPORT_REQUIRED\" as \"SDplyStatusReportRequired\",\n       \"U_ENGAGEMENT_MANAGER\"\
+  \ as \"SDplyEngagementManagerSysID\",\n       \"U_LINE_ITEM\" as \"SDplyLineItemSysID\"\
+  ,\n       \"ACTIVE\" as \"SDplyActive\",\n       \"U_WORK_AT_RISK\" as \"SDplyWorkAtRisk\"\
+  ,\n       \"U_PARENT_DEPLOYMENT\" as \"SDplyParentDeploymentSysID\",\n       \"\
+  U_TOTAL_PROJECT_HOURS_USED\" as \"SDplyTotalProjectHoursUsed\",\n       \"DV_U_OPPORTUNITY\"\
+  \ as \"SDplyOpportunity\",\n       \"U_OPPORTUNITY\" as \"SDplyOpportunitySysID\"\
+  ,\n       \"U_ACCOUNT\" as \"SDplyAccountSysID\",\n       \"U_LINE_ITEM_REV_REC_TYPE\"\
+  \ as \"SDplyLineItemRevRevType\",\n       \"DV_STATUS\" as \"SDplyStatus\",\n  \
+  \     \"DV_PARENT\" as \"SDplyParentDeploymentValue\",\n       \"DV_U_PS_TERRITORY\"\
+  \ as \"SDplyPSTerritory\",\n       \"DV_CATEGORY\" as \"SDplyCategory\",\n     \
+  \  \"U_REQUIRES_SURVEY\" as \"SDplyRequiresSurvey\",\n       \"DV_ASSIGNED_TO\"\
+  \ as \"SDplyAssignedTo\",\n       \"DV_U_LAST_STATUS_REPORT\" as \"SDplyLastStatusReport\"\
+  ,\n       \"DV_U_IMPLEMENTATION_PARTNER\" as \"SDplyImplementationPartner\",\n \
+  \      \"DV_U_IMPLEMENTATION_PARTNER_TYPE\" as \"SDplyImplementationPartnerType\"\
+  ,\n       \"SYS_CREATED_ON\" as \"SDplyCreatedOn\"\nFROM \"RDS\".\"SURF\".\"ST_U_DEPLOYMENT\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

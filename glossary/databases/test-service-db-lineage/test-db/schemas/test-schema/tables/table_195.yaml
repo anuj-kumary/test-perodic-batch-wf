@@ -1,0 +1,67 @@
+name: table_195
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_195
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_195.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_OPPORTUNITY_EXTENSION(\n\t\"OptySysID\"\
+  ,\n\t\"OptyName\",\n\t\"OptyExtnNumber\",\n\t\"OptyExtnTransactingPartner\",\n\t\
+  \"OptyExtnChannelTransactionType\",\n\t\"OptyExtnChannelTransactionType_CC\",\n\t\
+  \"OptyExtnTransactingPartnerSysID\",\n\t\"OptyExtnTransactingTerrritory\",\n\t\"\
+  OptyExtnTransactingTerrritorySysID\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"\
+  U_OPPORTUNITY\" as \"OptySysID\",\n       \"DV_U_OPPORTUNITY\" as \"OptyName\",\n\
+  \       \"U_NUMBER\" as \"OptyExtnNumber\",\n       \"DV_U_TRANSACTING_PARTNER\"\
+  \ as \"OptyExtnTransactingPartner\",\n       \"DV_U_CHANNEL_TRANSACTION_TYPE\" as\
+  \ \"OptyExtnChannelTransactionType\",\n\t\tCASE WHEN B.\"OptyPartnered\" = 'random'\
+  \ THEN 'random'\n            WHEN A.\"DV_U_CHANNEL_TRANSACTION_TYPE\" IN ('random','random','random')\
+  \ THEN 'random'\n\t\t\tWHEN A.\"DV_U_CHANNEL_TRANSACTION_TYPE\" IN ('random','random','random','random',\
+  \ 'random') THEN 'random'\n\t\t\tWHEN A.\"DV_U_CHANNEL_TRANSACTION_TYPE\" IS NULL\
+  \ THEN 'random'\n\t\t\tWHEN A.\"DV_U_CHANNEL_TRANSACTION_TYPE\" IN ('random','random')\
+  \ THEN 'random'\n\t\t\tWHEN A.\"DV_U_CHANNEL_TRANSACTION_TYPE\" IN ('random','random')\
+  \ THEN 'random'\n\t\t\tWHEN A.\"DV_U_CHANNEL_TRANSACTION_TYPE\" = 'random' AND (A.\"\
+  DV_U_TRANSACTING_PARTNER\" LIKE 'random' or A.\"DV_U_TRANSACTING_PARTNER\" IS NULL)\
+  \ THEN 'random'\n\t\t\tELSE A.\"DV_U_CHANNEL_TRANSACTION_TYPE\"\n\t\tEND AS \"OptyExtnChannelTransactionType_CC\"\
+  ,\n       \"U_TRANSACTING_PARTNER\" as \"OptyExtnTransactingPartnerSysID\",\n  \
+  \     \"DV_U_TRANSACTING_TERRITORY\" as \"OptyExtnTransactingTerrritory\",\n   \
+  \    \"U_TRANSACTING_TERRITORY\" as \"OptyExtnTransactingTerrritorySysID\"\nFROM\
+  \ \"RDS\".\"SURF\".\"U_OPPORTUNITY_EXTENSION\" AS A\nLEFT JOIN ODS_LS.SURF.SALES_OPPORTUNITY\
+  \ AS B ON A.\"U_OPPORTUNITY\" = B.\"OptySysID\"\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
