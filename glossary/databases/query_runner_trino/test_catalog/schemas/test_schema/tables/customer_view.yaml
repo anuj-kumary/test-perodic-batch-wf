@@ -1,0 +1,66 @@
+name: customer_view
+fullyQualifiedName: query_runner_trino.test_catalog.test_schema.customer_view
+description: new description for testing reverse metadata3
+tableType: View
+columns:
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: varchar(100)
+    description: "{description}"
+    fullyQualifiedName: query_runner_trino.test_catalog.test_schema.customer_view.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a9fa8f58-4d57-4db5-a05f-7838ed544a3b
+  type: databaseSchema
+  name: test_schema
+  fullyQualifiedName: query_runner_trino.test_catalog.test_schema
+  displayName: test_schema
+  deleted: false
+database:
+  id: ea2ee9e1-3efd-4438-ad69-2f77d763f5ea
+  type: database
+  name: test_catalog
+  fullyQualifiedName: query_runner_trino.test_catalog
+  displayName: test_catalog
+  deleted: false
+service:
+  id: f334ee58-aa52-47f1-8c6b-ea1b2237521e
+  type: databaseService
+  name: query_runner_trino
+  fullyQualifiedName: query_runner_trino
+  description: ""
+  displayName: query_runner_trino
+  deleted: false
+serviceType: Trino
+schemaDefinition: |-
+  CREATE VIEW test_catalog.test_schema.customer_view COMMENT 'new description for testing reverse metadata3' SECURITY DEFINER AS
+  SELECT first_name
+  FROM
+    test_catalog.test_schema.customers
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: processedLineage
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: c9a482d723d8b970d773a178c04967f2
+processedLineage: true
+entityStatus: Unprocessed

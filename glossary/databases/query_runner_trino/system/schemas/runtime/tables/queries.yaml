@@ -1,0 +1,372 @@
+name: queries
+fullyQualifiedName: query_runner_trino.system.runtime.queries
+tableType: Regular
+columns:
+  - name: query_id
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.query_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: state
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.user
+    tags:
+      - tagFQN: General.Email
+        name: Email
+        description: Email address.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.Sensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: source
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.source
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.query
+    tags:
+      - tagFQN: General.URL
+        name: URL
+        description: "A URL (Uniform Resource Locator), unique identifier used to\
+          \ locate a resource on the Internet."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: resource_group_id
+    dataType: ARRAY
+    arrayDataType: VARCHAR
+    dataTypeDisplay: array<varchar>
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.resource_group_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: queued_time_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.queued_time_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: analysis_time_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.analysis_time_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: planning_time_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.planning_time_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: created
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(3) with time zone
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.created
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: started
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(3) with time zone
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.started
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_heartbeat
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(3) with time zone
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.last_heartbeat
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: end
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(3) with time zone
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.end
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.error_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_code
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.runtime.queries.error_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: b54fdbf6-ecbd-4c2b-a404-5b0046d72fa0
+  type: databaseSchema
+  name: runtime
+  fullyQualifiedName: query_runner_trino.system.runtime
+  displayName: runtime
+  deleted: false
+database:
+  id: 433d26f7-15f3-4109-859b-a2291efe0ea6
+  type: database
+  name: system
+  fullyQualifiedName: query_runner_trino.system
+  displayName: system
+  deleted: false
+service:
+  id: f334ee58-aa52-47f1-8c6b-ea1b2237521e
+  type: databaseService
+  name: query_runner_trino
+  fullyQualifiedName: query_runner_trino
+  description: ""
+  displayName: query_runner_trino
+  deleted: false
+serviceType: Trino
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.user.tags
+      newValue: "[{\"tagFQN\":\"General.Email\",\"name\":\"Email\",\"description\"\
+        :\"Email address.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\"\
+        ,\"description\":\"PII which if lost, compromised, or disclosed without authorization,\
+        \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.Sensitive\
+        \ with a classification score of 1.00\"}]"
+    - name: columns.query.tags
+      newValue: "[{\"tagFQN\":\"General.URL\",\"name\":\"URL\",\"description\":\"\
+        A URL (Uniform Resource Locator), unique identifier used to locate a resource\
+        \ on the Internet.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\"\
+        ,\"description\":\"PII which is easily accessible from public sources and\
+        \ can include zip code, race, gender, and date of birth.\",\"style\":{},\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        ,\"reason\":\"Chose PII.NonSensitive with a classification score of 1.00\"\
+        }]"
+    - name: columns.created.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+    - name: columns.started.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+    - name: columns.last_heartbeat.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+    - name: columns.end.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: 550e4095f215d861c8b63d168491a4e9
+processedLineage: false
+entityStatus: Unprocessed
