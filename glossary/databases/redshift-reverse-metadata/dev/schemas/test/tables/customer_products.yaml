@@ -1,0 +1,89 @@
+name: customer_products
+fullyQualifiedName: redshift-reverse-metadata.dev.test.customer_products
+tableType: Regular
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.test.customer_products.customer_id
+    tags: []
+    children: []
+    customMetrics: []
+  - name: product_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: redshift-reverse-metadata.dev.test.customer_products.product_id
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - customer_id
+      - product_id
+  - constraintType: FOREIGN_KEY
+    columns:
+      - customer_id
+    referredColumns:
+      - redshift-reverse-metadata.dev.test.customers.customer_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - product_id
+    referredColumns:
+      - redshift-reverse-metadata.dev.test.products.product_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 2891e6f5-c9e2-4d72-8f46-1841c004edd7
+  type: databaseSchema
+  name: test
+  fullyQualifiedName: redshift-reverse-metadata.dev.test
+  displayName: test
+  deleted: false
+database:
+  id: c8d5760a-7ecd-4578-9818-0c09c681537c
+  type: database
+  name: dev
+  fullyQualifiedName: redshift-reverse-metadata.dev
+  description: <p>desc for schema</p>
+  displayName: dev
+  deleted: false
+service:
+  id: d61a448e-f25d-4655-9e04-825911da9125
+  type: databaseService
+  name: redshift-reverse-metadata
+  fullyQualifiedName: redshift-reverse-metadata
+  description: <p>new desc</p>
+  displayName: redshift-reverse-metadata
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"customer_id\"\
+        ],\"referredColumns\":[\"redshift-reverse-metadata.dev.test.customers.customer_id\"\
+        ],\"relationshipType\":\"MANY_TO_ONE\"},{\"constraintType\":\"FOREIGN_KEY\"\
+        ,\"columns\":[\"product_id\"],\"referredColumns\":[\"redshift-reverse-metadata.dev.test.products.product_id\"\
+        ],\"relationshipType\":\"MANY_TO_ONE\"}]"
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 2e5860ee485d689389ce188c5a8908f4
+      newValue: ec4e7b24b99e640590f3f5b81fadc0e1
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: ec4e7b24b99e640590f3f5b81fadc0e1
+processedLineage: false
+entityStatus: Approved
