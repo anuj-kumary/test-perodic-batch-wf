@@ -1,0 +1,92 @@
+name: sales
+fullyQualifiedName: sample_kafka.sales
+description: All sales related events gets captured in this topic
+service:
+  id: 46f09e52-34de-4580-8133-a7e54e23c22b
+  type: messagingService
+  name: sample_kafka
+  fullyQualifiedName: sample_kafka
+  displayName: sample_kafka
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: "{\"namespace\":\"openmetadata.kafka\",\"type\":\"record\",\"name\"\
+    :\"Order\",\"fields\":[{\"name\":\"sale_id\",\"type\":\"int\"},{\"name\":\"billing_address_id\"\
+    ,\"type\":\"int\"},{\"name\":\"billing_address_id_2\",\"type\":\"int\"},{\"name\"\
+    :\"api_client_id\",\"type\":\"int\"},{\"name\":\"customer_id\",\"type\":\"int\"\
+    },{\"name\":\"product_id\",\"type\":\"int\"},{\"name\":\"location_id\",\"type\"\
+    :\"int\"},{\"name\":\"order_id\",\"type\":\"double\"}]}"
+  schemaType: Avro
+  schemaFields:
+    - name: Order
+      dataType: RECORD
+      fullyQualifiedName: sample_kafka.sales.Order
+      tags: []
+      children:
+        - name: sale_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.sales.Order.sale_id
+          tags: []
+        - name: billing_address_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.sales.Order.billing_address_id
+          tags: []
+        - name: billing_address_id_2
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.sales.Order.billing_address_id_2
+          tags: []
+        - name: api_client_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.sales.Order.api_client_id
+          tags: []
+        - name: customer_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.sales.Order.customer_id
+          tags: []
+        - name: product_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.sales.Order.product_id
+          tags: []
+        - name: location_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.sales.Order.location_id
+          tags: []
+        - name: order_id
+          dataType: DOUBLE
+          dataTypeDisplay: double
+          fullyQualifiedName: sample_kafka.sales.Order.order_id
+          tags: []
+partitions: 128
+cleanupPolicies:
+  - compact
+  - delete
+replicationFactor: 4
+maximumMessageSize: 249
+retentionSize: 1.931232624E9
+owners: []
+tags: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: Unprocessed
+  fieldsDeleted: []
+  previousVersion: 0.7
+  changeSummary: {}
+domains:
+  - id: 761f0a12-7b08-4889-acc3-b8d4d11a7865
+    type: domain
+    name: domain.with.dot
+    fullyQualifiedName: '"domain.with.dot"'
+    description: domain.with.dot
+    displayName: domain.with.dot
+dataProducts: []
+entityStatus: Unprocessed

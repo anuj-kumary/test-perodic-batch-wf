@@ -1,0 +1,65 @@
+name: shop_updates
+fullyQualifiedName: SampleKafkaDataService.shop_updates
+description: "Kafka topic to get any shop updates such as new products, location"
+service:
+  id: a0d5f96b-07a7-42f2-9eac-50234040e22c
+  type: messagingService
+  name: SampleKafkaDataService
+  fullyQualifiedName: SampleKafkaDataService
+  displayName: SampleKafkaDataService
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: "{\"namespace\":\"openmetadata.kafka\",\"type\":\"record\",\"name\"\
+    :\"Shop\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"domain\"\
+    ,\"type\":\"string\"},{\"name\":\"user_id\",\"type\":\"int\"},{\"name\":\"first_name\"\
+    ,\"type\":\"string\"},{\"name\":\"last_name\",\"type\":\"string\"},{\"name\":\"\
+    email\",\"type\":\"string\"}]}"
+  schemaType: Avro
+  schemaFields:
+    - name: Shop
+      dataType: RECORD
+      fullyQualifiedName: SampleKafkaDataService.shop_updates.Shop
+      tags: []
+      children:
+        - name: name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.shop_updates.Shop.name
+          tags: []
+        - name: domain
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.shop_updates.Shop.domain
+          tags: []
+        - name: user_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.shop_updates.Shop.user_id
+          tags: []
+        - name: first_name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.shop_updates.Shop.first_name
+          tags: []
+        - name: last_name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.shop_updates.Shop.last_name
+          tags: []
+        - name: email
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.shop_updates.Shop.email
+          tags: []
+partitions: 16
+cleanupPolicies:
+  - delete
+replicationFactor: 3
+maximumMessageSize: 226
+retentionSize: 2.13590548E8
+owners: []
+tags: []
+domains: []
+dataProducts: []
+entityStatus: Unprocessed

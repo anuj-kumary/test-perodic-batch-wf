@@ -1,0 +1,113 @@
+name: shop_products
+fullyQualifiedName: sample_kafka.shop_products
+description: Kafka topic to get products in a shop. This is constantly updating
+service:
+  id: 46f09e52-34de-4580-8133-a7e54e23c22b
+  type: messagingService
+  name: sample_kafka
+  fullyQualifiedName: sample_kafka
+  displayName: sample_kafka
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: "{\"namespace\":\"openmetadata.kafka\",\"type\":\"record\",\"name\"\
+    :\"Shop\",\"fields\":[{\"name\":\"prodcut_id\",\"type\":\"int\"},{\"name\":\"\
+    product_variant_id\",\"type\":\"int\"},{\"name\":\"shop_id\",\"type\":\"int\"\
+    },{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"product_title\",\"type\"\
+    :\"string\"},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"quantity\",\"\
+    type\":\"int\"},{\"name\":\"product_vendor\",\"type\":\"int\"},{\"name\":\"fulfillable_quantity\"\
+    ,\"type\":\"int\"},{\"name\":\"fulfilment_service\",\"type\":\"string\"}]}"
+  schemaType: Avro
+  schemaFields:
+    - name: Shop
+      dataType: RECORD
+      fullyQualifiedName: sample_kafka.shop_products.Shop
+      tags: []
+      children:
+        - name: prodcut_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.shop_products.Shop.prodcut_id
+          tags: []
+        - name: product_variant_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.shop_products.Shop.product_variant_id
+          tags: []
+        - name: shop_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.shop_products.Shop.shop_id
+          tags: []
+        - name: name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.shop_products.Shop.name
+          tags: []
+        - name: product_title
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.shop_products.Shop.product_title
+          tags: []
+        - name: price
+          dataType: DOUBLE
+          dataTypeDisplay: double
+          fullyQualifiedName: sample_kafka.shop_products.Shop.price
+          tags: []
+        - name: quantity
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.shop_products.Shop.quantity
+          tags: []
+        - name: product_vendor
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.shop_products.Shop.product_vendor
+          tags: []
+        - name: fulfillable_quantity
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.shop_products.Shop.fulfillable_quantity
+          tags: []
+        - name: fulfilment_service
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.shop_products.Shop.fulfilment_service
+          tags: []
+partitions: 128
+cleanupPolicies:
+  - compact
+  - delete
+replicationFactor: 2
+maximumMessageSize: 244
+retentionSize: 1.475079463E9
+owners: []
+tags:
+  - tagFQN: New parent Glossary2.testing_children_2.testing_children_term1.detailed_children
+    name: detailed_children
+    displayName: detailed_children
+    description: detailed_children
+    style: {}
+    source: Glossary
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: Unprocessed
+  fieldsDeleted: []
+  previousVersion: 1.0
+  changeSummary: {}
+domains:
+  - id: 761f0a12-7b08-4889-acc3-b8d4d11a7865
+    type: domain
+    name: domain.with.dot
+    fullyQualifiedName: '"domain.with.dot"'
+    description: domain.with.dot
+    displayName: domain.with.dot
+dataProducts: []
+entityStatus: Unprocessed

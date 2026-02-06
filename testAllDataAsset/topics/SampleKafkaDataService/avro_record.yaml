@@ -1,0 +1,140 @@
+name: avro_record
+fullyQualifiedName: SampleKafkaDataService.avro_record
+description: All Avro record related events gets captured in this topic
+service:
+  id: a0d5f96b-07a7-42f2-9eac-50234040e22c
+  type: messagingService
+  name: SampleKafkaDataService
+  fullyQualifiedName: SampleKafkaDataService
+  displayName: SampleKafkaDataService
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: |-
+    {
+        "namespace": "openmetadata.kafka",
+        "name": "level",
+        "type": "record",
+        "doc": "This is a first level record",
+        "fields": [
+            {
+                "name": "uid",
+                "type": "int",
+                "doc": "The field represents unique id"
+            },
+            {
+                "name": "somefield",
+                "type": "string"
+            },
+            {
+                "name": "options",
+                "doc": "The field represents options array",
+                "type": {
+                    "type": "array",
+                    "items": {
+                        "type": "record",
+                        "name": "lvl2_record",
+                        "doc": "The field represents a level 2 record",
+                        "fields": [
+                            {
+                                "name": "item1_lvl2",
+                                "type": "string"
+                            },
+                            {
+                                "name": "item2_lvl2",
+                                "type": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "record",
+                                        "name": "lvl3_record",
+                                        "fields": [
+                                            {
+                                                "name": "item1_lvl3",
+                                                "type": "string",
+                                                "doc": "The field represents level3 item"
+                                            },
+                                            {
+                                                "name": "item2_lvl3",
+                                                "type": "string"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+  schemaType: Avro
+  schemaFields:
+    - name: level
+      dataType: RECORD
+      description: This is a first level record
+      fullyQualifiedName: SampleKafkaDataService.avro_record.level
+      tags: []
+      children:
+        - name: uid
+          dataType: INT
+          dataTypeDisplay: int
+          description: The field represents unique id
+          fullyQualifiedName: SampleKafkaDataService.avro_record.level.uid
+          tags: []
+        - name: somefield
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.avro_record.level.somefield
+          tags: []
+        - name: options
+          dataType: ARRAY
+          dataTypeDisplay: ARRAY<record>
+          description: The field represents options array
+          fullyQualifiedName: SampleKafkaDataService.avro_record.level.options
+          tags: []
+          children:
+            - name: lvl2_record
+              dataType: RECORD
+              description: The field represents a level 2 record
+              fullyQualifiedName: SampleKafkaDataService.avro_record.level.options.lvl2_record
+              tags: []
+              children:
+                - name: item1_lvl2
+                  dataType: STRING
+                  dataTypeDisplay: string
+                  fullyQualifiedName: SampleKafkaDataService.avro_record.level.options.lvl2_record.item1_lvl2
+                  tags: []
+                - name: item2_lvl2
+                  dataType: ARRAY
+                  dataTypeDisplay: ARRAY<record>
+                  fullyQualifiedName: SampleKafkaDataService.avro_record.level.options.lvl2_record.item2_lvl2
+                  tags: []
+                  children:
+                    - name: lvl3_record
+                      dataType: RECORD
+                      fullyQualifiedName: SampleKafkaDataService.avro_record.level.options.lvl2_record.item2_lvl2.lvl3_record
+                      tags: []
+                      children:
+                        - name: item1_lvl3
+                          dataType: STRING
+                          dataTypeDisplay: string
+                          description: The field represents level3 item
+                          fullyQualifiedName: SampleKafkaDataService.avro_record.level.options.lvl2_record.item2_lvl2.lvl3_record.item1_lvl3
+                          tags: []
+                        - name: item2_lvl3
+                          dataType: STRING
+                          dataTypeDisplay: string
+                          fullyQualifiedName: SampleKafkaDataService.avro_record.level.options.lvl2_record.item2_lvl2.lvl3_record.item2_lvl3
+                          tags: []
+partitions: 128
+cleanupPolicies:
+  - compact
+  - delete
+replicationFactor: 4
+maximumMessageSize: 249
+retentionSize: 1.931232624E9
+owners: []
+tags: []
+domains: []
+dataProducts: []
+entityStatus: Unprocessed

@@ -1,0 +1,80 @@
+name: shop_updates
+fullyQualifiedName: sample_kafka.shop_updates
+description: "Kafka topic to get any shop updates such as new products, location"
+service:
+  id: 46f09e52-34de-4580-8133-a7e54e23c22b
+  type: messagingService
+  name: sample_kafka
+  fullyQualifiedName: sample_kafka
+  displayName: sample_kafka
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: "{\"namespace\":\"openmetadata.kafka\",\"type\":\"record\",\"name\"\
+    :\"Shop\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"domain\"\
+    ,\"type\":\"string\"},{\"name\":\"user_id\",\"type\":\"int\"},{\"name\":\"first_name\"\
+    ,\"type\":\"string\"},{\"name\":\"last_name\",\"type\":\"string\"},{\"name\":\"\
+    email\",\"type\":\"string\"}]}"
+  schemaType: Avro
+  schemaFields:
+    - name: Shop
+      dataType: RECORD
+      fullyQualifiedName: sample_kafka.shop_updates.Shop
+      tags: []
+      children:
+        - name: name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.shop_updates.Shop.name
+          tags: []
+        - name: domain
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.shop_updates.Shop.domain
+          tags: []
+        - name: user_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.shop_updates.Shop.user_id
+          tags: []
+        - name: first_name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.shop_updates.Shop.first_name
+          tags: []
+        - name: last_name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.shop_updates.Shop.last_name
+          tags: []
+        - name: email
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.shop_updates.Shop.email
+          tags: []
+partitions: 16
+cleanupPolicies:
+  - delete
+replicationFactor: 3
+maximumMessageSize: 226
+retentionSize: 2.13590548E8
+owners: []
+tags: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: Unprocessed
+  fieldsDeleted: []
+  previousVersion: 0.5
+  changeSummary: {}
+domains:
+  - id: 761f0a12-7b08-4889-acc3-b8d4d11a7865
+    type: domain
+    name: domain.with.dot
+    fullyQualifiedName: '"domain.with.dot"'
+    description: domain.with.dot
+    displayName: domain.with.dot
+dataProducts: []
+entityStatus: Unprocessed

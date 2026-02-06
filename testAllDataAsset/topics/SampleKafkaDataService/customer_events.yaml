@@ -1,0 +1,77 @@
+name: customer_events
+fullyQualifiedName: SampleKafkaDataService.customer_events
+description: Kafka topic to capture the customer events such as location updates or
+  profile updates
+service:
+  id: a0d5f96b-07a7-42f2-9eac-50234040e22c
+  type: messagingService
+  name: SampleKafkaDataService
+  fullyQualifiedName: SampleKafkaDataService
+  displayName: SampleKafkaDataService
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: "{\"namespace\":\"openmetadata.kafka\",\"name\":\"Customer\",\"type\"\
+    :\"record\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"first_name\"\
+    ,\"type\":\"string\"},{\"name\":\"last_name\",\"type\":\"string\"},{\"name\":\"\
+    email\",\"type\":\"string\"},{\"name\":\"address_line_1\",\"type\":\"string\"\
+    },{\"name\":\"address_line_2\",\"type\":\"string\"},{\"name\":\"post_code\",\"\
+    type\":\"string\"},{\"name\":\"country\",\"type\":\"string\"}]}"
+  schemaType: Avro
+  schemaFields:
+    - name: Customer
+      dataType: RECORD
+      fullyQualifiedName: SampleKafkaDataService.customer_events.Customer
+      tags: []
+      children:
+        - name: id
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.customer_events.Customer.id
+          tags: []
+        - name: first_name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.customer_events.Customer.first_name
+          tags: []
+        - name: last_name
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.customer_events.Customer.last_name
+          tags: []
+        - name: email
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.customer_events.Customer.email
+          tags: []
+        - name: address_line_1
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.customer_events.Customer.address_line_1
+          tags: []
+        - name: address_line_2
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.customer_events.Customer.address_line_2
+          tags: []
+        - name: post_code
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.customer_events.Customer.post_code
+          tags: []
+        - name: country
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.customer_events.Customer.country
+          tags: []
+partitions: 56
+cleanupPolicies:
+  - delete
+replicationFactor: 2
+maximumMessageSize: 167
+retentionSize: 4.55858109E8
+owners: []
+tags: []
+domains: []
+dataProducts: []
+entityStatus: Unprocessed

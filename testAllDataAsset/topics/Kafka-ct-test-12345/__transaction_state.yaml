@@ -1,0 +1,494 @@
+name: __transaction_state
+fullyQualifiedName: Kafka-ct-test-12345.__transaction_state
+description: "<p>این ماژول مربوط به تراکنش ها و حسابداری می باشد. در این ماژول ما\
+  \ میفهمیم که این تراکنش را چه مودی در چه سالی برای چه منبع مالیاتی پرداخت کرده ا\
+  ست.</p><p>&nbsp;</p><p>مهمترین جدول این ماژول جدول TT01_TRANSACTIONS است:</p><p>ف\
+  یلد CT01_TRANSACTION_ID که کلید اصلی و داخلی جدول است.<br>فیلد CSTD_TRAN_TYPE که\
+  \ نوع تراکنش را نشان می دهد. که چک برگشتی یا سفته یا موارد دیگری بوده است.<br>فی\
+  لد CSTD_DC که بدهی یا پرداختی را نشان می دهد.<br>فیلد CT01_AMOUNT که مبلغ تراکنش\
+  \ را نشان می دهد.<br>فیلد CT01_REVERSED_FLAG که میگه آیا بدهی REVERSE یا معکوس ش\
+  ده؟<br>فیلد CT01_CLEARED_FLAG که میگه آیا بدهی CLEARE &nbsp;یا تسویه شده است؟<br>ف\
+  یلد CSTD_LIABILITY_TYPE که نوع بدهی یا پرداخت را نشان می دهد.<br>فیلد CSTD_ENTITY\
+  \ که موجودی تراکنش را بیان می کند. یعنی این رکورد چه موجودی دارد مثلا این رکورد\
+  \ برای پرداخت است (PAY) یا بدهی تشخیصی یا قطعی (RET) و غیره.</p><p>جداول دیگر:</p><p>ج\
+  داول های JOURNAL که مربوط به اسنادی است که فرد به وسیله آن مالیات خود را کسر می\
+  \ کند. جداول RPP که مربوط به اطلاعات اقساط پرداخت مالیات هاست.</p><p>درک مفهوم:</p><p>ن\
+  کته ای که باید به آن توجه شود این است که در این ماژول هم تراکنش های پرداختی و هم\
+  \ تراکنش های بدهی موجود است. در حقیقت تمام تراکنش هایی که باید صورت بگیرد اینجا\
+  \ می آید. برای فهم بهتر به مثال زیر دقت کنید:<br>فرض کنید برای یک پرونده حقیقی ا\
+  نفرادی در سال مشخصی مالیات بر درامد مشاغل (tax_type_code = ITXB) برایش مالیات (CSTD_LIABILITY_TYPE\
+  \ = TAXLB و CSTD_ENTITY = RET) تعیین شده. تا این جا یک رکورد در این جدول میاید ب\
+  ا CSTD_DC = DT و CSTD_TRAN_TYPE = ASSESS(ارزیابی). ← ردیف 1 جدول پایین<br>حال فر\
+  ض کنید این فرد&nbsp; بدلیل دیر کرد در پرداخت مالیات سازمان برایش جریمه (CSTD_TRAN_TYPE\
+  \ = INTRST و CSTD_LIABILITY_TYPE = INTRESE و CSTD_ENTITY = INT) میزند. پس برای ا\
+  ین جریمه هم یک رکورد میاندازد. ← ردیف 2 جدول پایین<br>اکنون فرد میاید و مالیات خ\
+  ود را پرداخت می کند. پس یک رکورد برای پرداخت (CSTD_DC = CT و CSTD_LIABILITY_TYPE\
+  \ = TAXLB و CSTD_ENTITY = PAY) میاندازد.( فرد از طریق بانک پرداخت کرده است. CSTD_TRAN_TYPE\
+  \ = BNKTSF) ← ردیف 3 جدول پایین<br>حال فرد میخواهد جریمه اش را پرداخت کند. پس یک\
+  \ رکورد هم برای پرداخت جریمه میاید.(CSTD_DC = CT و CSTD_LIABILITY_TYPE = INTRES\
+  \ و CSTD_ENTITY = PAY و CSTD_TRAN_TYPE = BNKTSF) ← ردیف 4 جدول پایین<br>پس برای\
+  \ این مورد کلا 4 رکورد میاید با TRANSACTION_ID&nbsp; های مختلف. دو تا برای مقدار\
+  ی که باید پرداخت شود و دو عدد برای مقداری که پرداخت شده است.</p><p>&nbsp;</p><table\
+  \ class=\"om-table\" data-om-table=\"om-table\" style=\"minWidth: 225px\"><colgroup><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>CSTD_ENTITY</strong></p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p><strong>CSTD_LIABILITY_TYPE</strong></p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>CSTD_TAX_TYPE</strong></p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p><strong>CSTD_TRAN_TYPE</strong></p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>CSTD_DC</strong></p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p><strong>TRANSACTION_ID</strong></p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>TAX_YEAR</strong></p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p><strong>FOLLOWCODE</strong></p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>ردیف</strong></p></td></tr><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>RET</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>TAXLB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>ASSESS</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>DT</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>21456</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>1</p></td></tr><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>INT</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>INTRES</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>INTRST</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>DT</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>34578</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>2</p></td></tr><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>PAY</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>TAXLB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>BNKTSF</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>CT</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>39145</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>3</p></td></tr><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>PAY</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>INTRES</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>BNKTSF</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>CT</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>41655</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>4</p></td></tr></tbody></table><p>&nbsp;</p><p>ن\
+  کات :</p><p>CSTD_ENTITY: تگ های &nbsp;PAY, RPP, LGS تراکنش های پرداخت شده را نشا\
+  ن میدهد. در غیر اینصورت بدهی را نمایش می دهد. پس ما نباید تمام CSTD_DC = CT &nbsp;ر\
+  ا پرداخت در نظر بگیریم.<br>چون برخی از رکورد هایی که CT خوردند واقعا مودی وجهی پ\
+  رداخت نکرده است فقط به خاطر این که مثلا فردی مالیاتش تغییر می کند رکوردش آپدیت ن\
+  می شود یک رکوردی اضافه می شود به عنوان CT تا اصلاح شود.</p><p>CSTD_TRAN_TYPE: ما\
+  \ برای یافتن پرداختی ها تگ های سفته و تضامن و چک برگشتی نباشد.( RTNCQU, MRTNCQU,\
+  \ GARPAY, PMNPAY, PMNRTN, RPMNPAY)</p><p>گاهی از لحاظ تاریخی که بررسی می کنیم می\
+  \ بینیم رکورد پرداخت زود تر از تعیین مبلغ مالیات است. این به این دلیل است که اظه\
+  ارنامه دیرتر بر روی سامانه می نشیند.</p><p>&nbsp;</p><p>&nbsp;</p><p>MAPPING:</p><p>د\
+  ر این جداول تمامی مپینگ ها نیامده است.</p><table class=\"om-table\" data-om-table=\"\
+  om-table\" style=\"minWidth: 75px\"><colgroup><col><col><col></colgroup><tbody><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p><strong>CSTD_DC</strong></p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p></p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"om-table-row\"\
+  ><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\"\
+  \ rowspan=\"1\"><p>پرداختی</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>CT</p></td><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>بدهی</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>DT</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"\
+  om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"3\" rowspan=\"1\"><p><strong>CSTD_LIABILITY_TYPE</strong></p></td></tr><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p>مالیات</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>TAXLB</p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"om-table-row\"\
+  ><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"2\"\
+  \ rowspan=\"1\"><p>جریمه / خوش حسابی</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>INTRES</p></td></tr><tr class=\"\
+  om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"2\" rowspan=\"1\"><p>قانون مالیاتهای مستقیم: جریمه درخ\
+  صوص ماده 169 اصلاحی</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+  \ colspan=\"1\" rowspan=\"1\"><p>AUD169R</p></td></tr></tbody></table><p>&nbsp;</p><table\
+  \ class=\"om-table\" data-om-table=\"om-table\" style=\"minWidth: 50px\"><colgroup><col><col></colgroup><tbody><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p><strong>CSTD_ENTITY</strong></p></td></tr><tr\
+  \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+  \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>پرداخت</p></td><td\
+  \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+  1\"><p>PAY</p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"om-table-row\"\
+  ><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\"\
+  \ rowspan=\"1\"><p>اظهارنامه</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>RET</p></td></tr><tr class=\"om-table-row\"\
+  \ data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"\
+  om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>ترتیب پرداخت</p></td><td class=\"\
+  om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"\
+  ><p>RP</p></td></tr></tbody></table><p></p>"
+service:
+  id: 8fe03c5b-2f4a-4863-bd96-d88e909d7343
+  type: messagingService
+  name: Kafka-ct-test-12345
+  fullyQualifiedName: Kafka-ct-test-12345
+  description: "<p>این ماژول مربوط به تراکنش ها و حسابداری می باشد. در این ماژول م\
+    ا میفهمیم که این تراکنش را چه مودی در چه سالی برای چه منبع مالیاتی پرداخت کرده\
+    \ است.</p><p>&nbsp;</p><p>مهمترین جدول این ماژول جدول TT01_TRANSACTIONS است:</p><p>ف\
+    یلد CT01_TRANSACTION_ID که کلید اصلی و داخلی جدول است.<br>فیلد CSTD_TRAN_TYPE\
+    \ که نوع تراکنش را نشان می دهد. که چک برگشتی یا سفته یا موارد دیگری بوده است.<br>ف\
+    یلد CSTD_DC که بدهی یا پرداختی را نشان می دهد.<br>فیلد CT01_AMOUNT که مبلغ ترا\
+    کنش را نشان می دهد.<br>فیلد CT01_REVERSED_FLAG که میگه آیا بدهی REVERSE یا معک\
+    وس شده؟<br>فیلد CT01_CLEARED_FLAG که میگه آیا بدهی CLEARE &nbsp;یا تسویه شده ا\
+    ست؟<br>فیلد CSTD_LIABILITY_TYPE که نوع بدهی یا پرداخت را نشان می دهد.<br>فیلد\
+    \ CSTD_ENTITY که موجودی تراکنش را بیان می کند. یعنی این رکورد چه موجودی دارد م\
+    ثلا این رکورد برای پرداخت است (PAY) یا بدهی تشخیصی یا قطعی (RET) و غیره.</p><p>ج\
+    داول دیگر:</p><p>جداول های JOURNAL که مربوط به اسنادی است که فرد به وسیله آن م\
+    الیات خود را کسر می کند. جداول RPP که مربوط به اطلاعات اقساط پرداخت مالیات هاس\
+    ت.</p><p>درک مفهوم:</p><p>نکته ای که باید به آن توجه شود این است که در این ماژ\
+    ول هم تراکنش های پرداختی و هم تراکنش های بدهی موجود است. در حقیقت تمام تراکنش\
+    \ هایی که باید صورت بگیرد اینجا می آید. برای فهم بهتر به مثال زیر دقت کنید:<br>ف\
+    رض کنید برای یک پرونده حقیقی انفرادی در سال مشخصی مالیات بر درامد مشاغل (tax_type_code\
+    \ = ITXB) برایش مالیات (CSTD_LIABILITY_TYPE = TAXLB و CSTD_ENTITY = RET) تعیین\
+    \ شده. تا این جا یک رکورد در این جدول میاید با CSTD_DC = DT و CSTD_TRAN_TYPE =\
+    \ ASSESS(ارزیابی). ← ردیف 1 جدول پایین<br>حال فرض کنید این فرد&nbsp; بدلیل دیر\
+    \ کرد در پرداخت مالیات سازمان برایش جریمه (CSTD_TRAN_TYPE = INTRST و CSTD_LIABILITY_TYPE\
+    \ = INTRESE و CSTD_ENTITY = INT) میزند. پس برای این جریمه هم یک رکورد میاندازد\
+    . ← ردیف 2 جدول پایین<br>اکنون فرد میاید و مالیات خود را پرداخت می کند. پس یک\
+    \ رکورد برای پرداخت (CSTD_DC = CT و CSTD_LIABILITY_TYPE = TAXLB و CSTD_ENTITY\
+    \ = PAY) میاندازد.( فرد از طریق بانک پرداخت کرده است. CSTD_TRAN_TYPE = BNKTSF)\
+    \ ← ردیف 3 جدول پایین<br>حال فرد میخواهد جریمه اش را پرداخت کند. پس یک رکورد ه\
+    م برای پرداخت جریمه میاید.(CSTD_DC = CT و CSTD_LIABILITY_TYPE = INTRES و CSTD_ENTITY\
+    \ = PAY و CSTD_TRAN_TYPE = BNKTSF) ← ردیف 4 جدول پایین<br>پس برای این مورد کلا\
+    \ 4 رکورد میاید با TRANSACTION_ID&nbsp; های مختلف. دو تا برای مقداری که باید پ\
+    رداخت شود و دو عدد برای مقداری که پرداخت شده است.</p><p>&nbsp;</p><table class=\"\
+    om-table\" data-om-table=\"om-table\" style=\"minWidth: 225px\"><colgroup><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>CSTD_ENTITY</strong></p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p><strong>CSTD_LIABILITY_TYPE</strong></p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>CSTD_TAX_TYPE</strong></p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p><strong>CSTD_TRAN_TYPE</strong></p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>CSTD_DC</strong></p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p><strong>TRANSACTION_ID</strong></p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>TAX_YEAR</strong></p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p><strong>FOLLOWCODE</strong></p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>ردیف</strong></p></td></tr><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>RET</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>TAXLB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>ASSESS</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>DT</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>21456</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>1</p></td></tr><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>INT</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>INTRES</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>INTRST</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>DT</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>34578</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>2</p></td></tr><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>PAY</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>TAXLB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>BNKTSF</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>CT</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>39145</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>3</p></td></tr><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>PAY</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>INTRES</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>BNKTSF</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>CT</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>41655</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>4</p></td></tr></tbody></table><p>&nbsp;</p><p>ن\
+    کات :</p><p>CSTD_ENTITY: تگ های &nbsp;PAY, RPP, LGS تراکنش های پرداخت شده را ن\
+    شان میدهد. در غیر اینصورت بدهی را نمایش می دهد. پس ما نباید تمام CSTD_DC = CT\
+    \ &nbsp;را پرداخت در نظر بگیریم.<br>چون برخی از رکورد هایی که CT خوردند واقعا\
+    \ مودی وجهی پرداخت نکرده است فقط به خاطر این که مثلا فردی مالیاتش تغییر می کند\
+    \ رکوردش آپدیت نمی شود یک رکوردی اضافه می شود به عنوان CT تا اصلاح شود.</p><p>CSTD_TRAN_TYPE:\
+    \ ما برای یافتن پرداختی ها تگ های سفته و تضامن و چک برگشتی نباشد.( RTNCQU, MRTNCQU,\
+    \ GARPAY, PMNPAY, PMNRTN, RPMNPAY)</p><p>گاهی از لحاظ تاریخی که بررسی می کنیم\
+    \ می بینیم رکورد پرداخت زود تر از تعیین مبلغ مالیات است. این به این دلیل است ک\
+    ه اظهارنامه دیرتر بر روی سامانه می نشیند.</p><p>&nbsp;</p><p>&nbsp;</p><p>MAPPING:</p><p>د\
+    ر این جداول تمامی مپینگ ها نیامده است.</p><table class=\"om-table\" data-om-table=\"\
+    om-table\" style=\"minWidth: 75px\"><colgroup><col><col><col></colgroup><tbody><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p><strong>CSTD_DC</strong></p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p></p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"om-table-row\"\
+    ><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\"\
+    \ rowspan=\"1\"><p>پرداختی</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>CT</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>بدهی</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>DT</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"1\" rowspan=\"1\"><p></p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"\
+    om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+    \ colspan=\"3\" rowspan=\"1\"><p><strong>CSTD_LIABILITY_TYPE</strong></p></td></tr><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p>مالیات</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>TAXLB</p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"om-table-row\"\
+    ><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"2\"\
+    \ rowspan=\"1\"><p>جریمه / خوش حسابی</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>INTRES</p></td></tr><tr class=\"\
+    om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p>قانون ما\
+    لیاتهای مستقیم: جریمه درخصوص ماده 169 اصلاحی</p></td><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>AUD169R</p></td></tr></tbody></table><p>&nbsp;</p><table\
+    \ class=\"om-table\" data-om-table=\"om-table\" style=\"minWidth: 50px\"><colgroup><col><col></colgroup><tbody><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p><strong>CSTD_ENTITY</strong></p></td></tr><tr\
+    \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+    \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>پرداخت</p></td><td\
+    \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>PAY</p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"om-table-row\"\
+    ><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\"\
+    \ rowspan=\"1\"><p>اظهارنامه</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>RET</p></td></tr><tr class=\"om-table-row\"\
+    \ data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"\
+    om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>ترتیب پرداخت</p></td><td class=\"\
+    om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+    1\"><p>RP</p></td></tr></tbody></table><p></p>"
+  displayName: Kafka-ct-test-12345
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: ""
+  schemaType: Other
+  schemaFields: []
+partitions: 50
+cleanupPolicies: []
+replicationFactor: 1
+retentionSize: -1.0
+owners: []
+tags:
+  - tagFQN: PII.Sensitive
+    name: Sensitive
+    description: "PII which if lost, compromised, or disclosed without authorization,\
+      \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+      \ to an individual."
+    style:
+      color: "#ff0000"
+    source: Classification
+    labelType: Derived
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: testing2.new_term_kh edited
+    name: new_term_kh edited
+    displayName: ""
+    description: new_term_kh
+    style: {}
+    source: Glossary
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: description
+      newValue: "<p>این ماژول مربوط به تراکنش ها و حسابداری می باشد. در این ماژول\
+        \ ما میفهمیم که این تراکنش را چه مودی در چه سالی برای چه منبع مالیاتی پردا\
+        خت کرده است.</p><p>&nbsp;</p><p>مهمترین جدول این ماژول جدول TT01_TRANSACTIONS\
+        \ است:</p><p>فیلد CT01_TRANSACTION_ID که کلید اصلی و داخلی جدول است.<br>فی\
+        لد CSTD_TRAN_TYPE که نوع تراکنش را نشان می دهد. که چک برگشتی یا سفته یا مو\
+        ارد دیگری بوده است.<br>فیلد CSTD_DC که بدهی یا پرداختی را نشان می دهد.<br>ف\
+        یلد CT01_AMOUNT که مبلغ تراکنش را نشان می دهد.<br>فیلد CT01_REVERSED_FLAG\
+        \ که میگه آیا بدهی REVERSE یا معکوس شده؟<br>فیلد CT01_CLEARED_FLAG که میگه\
+        \ آیا بدهی CLEARE &nbsp;یا تسویه شده است؟<br>فیلد CSTD_LIABILITY_TYPE که ن\
+        وع بدهی یا پرداخت را نشان می دهد.<br>فیلد CSTD_ENTITY که موجودی تراکنش را\
+        \ بیان می کند. یعنی این رکورد چه موجودی دارد مثلا این رکورد برای پرداخت اس\
+        ت (PAY) یا بدهی تشخیصی یا قطعی (RET) و غیره.</p><p>جداول دیگر:</p><p>جداول\
+        \ های JOURNAL که مربوط به اسنادی است که فرد به وسیله آن مالیات خود را کسر\
+        \ می کند. جداول RPP که مربوط به اطلاعات اقساط پرداخت مالیات هاست.</p><p>در\
+        ک مفهوم:</p><p>نکته ای که باید به آن توجه شود این است که در این ماژول هم ت\
+        راکنش های پرداختی و هم تراکنش های بدهی موجود است. در حقیقت تمام تراکنش های\
+        ی که باید صورت بگیرد اینجا می آید. برای فهم بهتر به مثال زیر دقت کنید:<br>ف\
+        رض کنید برای یک پرونده حقیقی انفرادی در سال مشخصی مالیات بر درامد مشاغل (tax_type_code\
+        \ = ITXB) برایش مالیات (CSTD_LIABILITY_TYPE = TAXLB و CSTD_ENTITY = RET) ت\
+        عیین شده. تا این جا یک رکورد در این جدول میاید با CSTD_DC = DT و CSTD_TRAN_TYPE\
+        \ = ASSESS(ارزیابی). ← ردیف 1 جدول پایین<br>حال فرض کنید این فرد&nbsp; بدل\
+        یل دیر کرد در پرداخت مالیات سازمان برایش جریمه (CSTD_TRAN_TYPE = INTRST و\
+        \ CSTD_LIABILITY_TYPE = INTRESE و CSTD_ENTITY = INT) میزند. پس برای این جر\
+        یمه هم یک رکورد میاندازد. ← ردیف 2 جدول پایین<br>اکنون فرد میاید و مالیات\
+        \ خود را پرداخت می کند. پس یک رکورد برای پرداخت (CSTD_DC = CT و CSTD_LIABILITY_TYPE\
+        \ = TAXLB و CSTD_ENTITY = PAY) میاندازد.( فرد از طریق بانک پرداخت کرده است\
+        . CSTD_TRAN_TYPE = BNKTSF) ← ردیف 3 جدول پایین<br>حال فرد میخواهد جریمه اش\
+        \ را پرداخت کند. پس یک رکورد هم برای پرداخت جریمه میاید.(CSTD_DC = CT و CSTD_LIABILITY_TYPE\
+        \ = INTRES و CSTD_ENTITY = PAY و CSTD_TRAN_TYPE = BNKTSF) ← ردیف 4 جدول پا\
+        یین<br>پس برای این مورد کلا 4 رکورد میاید با TRANSACTION_ID&nbsp; های مختل\
+        ف. دو تا برای مقداری که باید پرداخت شود و دو عدد برای مقداری که پرداخت شده\
+        \ است.</p><p>&nbsp;</p><table class=\"om-table\" data-om-table=\"om-table\"\
+        \ style=\"minWidth: 225px\"><colgroup><col><col><col><col><col><col><col><col><col></colgroup><tbody><tr\
+        \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>CSTD_ENTITY</strong></p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p><strong>CSTD_LIABILITY_TYPE</strong></p></td><td class=\"\
+        om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+        1\"><p><strong>CSTD_TAX_TYPE</strong></p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>CSTD_TRAN_TYPE</strong></p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p><strong>CSTD_DC</strong></p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>TRANSACTION_ID</strong></p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p><strong>TAX_YEAR</strong></p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p><strong>FOLLOWCODE</strong></p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p><strong>ردیف</strong></p></td></tr><tr class=\"om-table-row\"\
+        \ data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>RET</p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>TAXLB</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>ASSESS</p></td><td class=\"\
+        om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+        1\"><p>DT</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>21456</p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>1400</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>1</p></td></tr><tr class=\"\
+        om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>INT</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>INTRES</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>INTRST</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>DT</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>34578</p></td><td class=\"\
+        om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+        1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>2</p></td></tr><tr class=\"\
+        om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>PAY</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>TAXLB</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>BNKTSF</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>CT</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>39145</p></td><td class=\"\
+        om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+        1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>3</p></td></tr><tr class=\"\
+        om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>PAY</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>INTRES</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>ITXB</p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>BNKTSF</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>CT</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>41655</p></td><td class=\"\
+        om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+        1\"><p>1400</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>A</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>4</p></td></tr></tbody></table><p>&nbsp;</p><p>ن\
+        کات :</p><p>CSTD_ENTITY: تگ های &nbsp;PAY, RPP, LGS تراکنش های پرداخت شده\
+        \ را نشان میدهد. در غیر اینصورت بدهی را نمایش می دهد. پس ما نباید تمام CSTD_DC\
+        \ = CT &nbsp;را پرداخت در نظر بگیریم.<br>چون برخی از رکورد هایی که CT خورد\
+        ند واقعا مودی وجهی پرداخت نکرده است فقط به خاطر این که مثلا فردی مالیاتش ت\
+        غییر می کند رکوردش آپدیت نمی شود یک رکوردی اضافه می شود به عنوان CT تا اصل\
+        اح شود.</p><p>CSTD_TRAN_TYPE: ما برای یافتن پرداختی ها تگ های سفته و تضامن\
+        \ و چک برگشتی نباشد.( RTNCQU, MRTNCQU, GARPAY, PMNPAY, PMNRTN, RPMNPAY)</p><p>گ\
+        اهی از لحاظ تاریخی که بررسی می کنیم می بینیم رکورد پرداخت زود تر از تعیین\
+        \ مبلغ مالیات است. این به این دلیل است که اظهارنامه دیرتر بر روی سامانه می\
+        \ نشیند.</p><p>&nbsp;</p><p>&nbsp;</p><p>MAPPING:</p><p>در این جداول تمامی\
+        \ مپینگ ها نیامده است.</p><table class=\"om-table\" data-om-table=\"om-table\"\
+        \ style=\"minWidth: 75px\"><colgroup><col><col><col></colgroup><tbody><tr\
+        \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p><strong>CSTD_DC</strong></p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p></p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"\
+        om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>پرداختی</p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>CT</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p></p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"\
+        om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>بدهی</p></td><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>DT</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p></p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"\
+        om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"3\" rowspan=\"1\"><p><strong>CSTD_LIABILITY_TYPE</strong></p></td></tr><tr\
+        \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p>مالی\
+        ات</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>TAXLB</p></td></tr><tr class=\"om-table-row\"\
+        \ data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"2\" rowspan=\"1\"><p>جریمه / خوش حسابی</p></td><td\
+        \ class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>INTRES</p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"\
+        om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"2\" rowspan=\"1\"><p>قانون مالیاتهای مستقیم: جریمه درخصوص ماده\
+        \ 169 اصلاحی</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>AUD169R</p></td></tr></tbody></table><p>&nbsp;</p><table\
+        \ class=\"om-table\" data-om-table=\"om-table\" style=\"minWidth: 50px\"><colgroup><col><col></colgroup><tbody><tr\
+        \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"2\" rowspan=\"1\"><p><strong>CSTD_ENTITY</strong></p></td></tr><tr\
+        \ class=\"om-table-row\" data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\"\
+        \ data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>پردا\
+        خت</p></td><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\"\
+        \ colspan=\"1\" rowspan=\"1\"><p>PAY</p></td></tr><tr class=\"om-table-row\"\
+        \ data-om-table-row=\"om-table-row\"><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>اظهارنامه</p></td><td class=\"\
+        om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"1\" rowspan=\"\
+        1\"><p>RET</p></td></tr><tr class=\"om-table-row\" data-om-table-row=\"om-table-row\"\
+        ><td class=\"om-table-cell\" data-om-table-cell=\"om-table-cell\" colspan=\"\
+        1\" rowspan=\"1\"><p>ترتیب پرداخت</p></td><td class=\"om-table-cell\" data-om-table-cell=\"\
+        om-table-cell\" colspan=\"1\" rowspan=\"1\"><p>RP</p></td></tr></tbody></table><p></p>"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.7
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: 930f91d3cd23ca13730d90ef42f5ce85
+entityStatus: Approved

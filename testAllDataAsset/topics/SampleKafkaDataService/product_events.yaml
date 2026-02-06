@@ -1,0 +1,66 @@
+name: product_events
+fullyQualifiedName: SampleKafkaDataService.product_events
+description: "Kafka topic to capture the product events. This topic will get updates\
+  \ on products decription, price etc."
+service:
+  id: a0d5f96b-07a7-42f2-9eac-50234040e22c
+  type: messagingService
+  name: SampleKafkaDataService
+  fullyQualifiedName: SampleKafkaDataService
+  displayName: SampleKafkaDataService
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: "{\"namespace\":\"openmetadata.kafka\",\"type\":\"record\",\"name\"\
+    :\"Product\",\"fields\":[{\"name\":\"product_id\",\"type\":\"int\"},{\"name\"\
+    :\"title\",\"type\":\"string\"},{\"name\":\"price\",\"type\":\"double\"},{\"name\"\
+    :\"sku\",\"type\":\"string\"},{\"name\":\"barcode\",\"type\":\"string\"},{\"name\"\
+    :\"shop_id\",\"type\":\"int\"}]}"
+  schemaType: Avro
+  schemaFields:
+    - name: Product
+      dataType: RECORD
+      fullyQualifiedName: SampleKafkaDataService.product_events.Product
+      tags: []
+      children:
+        - name: product_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.product_events.Product.product_id
+          tags: []
+        - name: title
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.product_events.Product.title
+          tags: []
+        - name: price
+          dataType: DOUBLE
+          dataTypeDisplay: double
+          fullyQualifiedName: SampleKafkaDataService.product_events.Product.price
+          tags: []
+        - name: sku
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.product_events.Product.sku
+          tags: []
+        - name: barcode
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.product_events.Product.barcode
+          tags: []
+        - name: shop_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.product_events.Product.shop_id
+          tags: []
+partitions: 128
+cleanupPolicies:
+  - delete
+replicationFactor: 4
+maximumMessageSize: 208
+retentionSize: 1.068320655E9
+owners: []
+tags: []
+domains: []
+dataProducts: []
+entityStatus: Unprocessed

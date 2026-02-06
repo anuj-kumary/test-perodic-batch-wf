@@ -1,0 +1,108 @@
+name: orders
+fullyQualifiedName: sample_kafka.orders
+description: All the order events on our online store
+service:
+  id: 46f09e52-34de-4580-8133-a7e54e23c22b
+  type: messagingService
+  name: sample_kafka
+  fullyQualifiedName: sample_kafka
+  displayName: sample_kafka
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: "{\"namespace\":\"openmetadata.kafka\",\"type\":\"record\",\"name\"\
+    :\"Order\",\"fields\":[{\"name\":\"order_id\",\"type\":\"int\"},{\"name\":\"api_client_id\"\
+    ,\"type\":\"int\"},{\"name\":\"billing_address_id\",\"type\":\"int\"},{\"name\"\
+    :\"customer_id\",\"type\":\"int\"},{\"name\":\"location_id\",\"type\":\"int\"\
+    },{\"name\":\"shipping_address_id\",\"type\":\"int\"},{\"name\":\"user_id\",\"\
+    type\":\"int\"},{\"name\":\"total_price\",\"type\":\"double\"},{\"name\":\"discount_code\"\
+    ,\"type\":\"string\"},{\"name\":\"processed_at\",\"type\":\"int\"}]}"
+  schemaType: Avro
+  schemaFields:
+    - name: Order
+      dataType: RECORD
+      fullyQualifiedName: sample_kafka.orders.Order
+      tags: []
+      children:
+        - name: order_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.orders.Order.order_id
+          tags: []
+        - name: api_client_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.orders.Order.api_client_id
+          tags: []
+        - name: billing_address_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.orders.Order.billing_address_id
+          tags: []
+        - name: customer_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.orders.Order.customer_id
+          tags: []
+        - name: location_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.orders.Order.location_id
+          tags: []
+        - name: shipping_address_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.orders.Order.shipping_address_id
+          tags: []
+        - name: user_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.orders.Order.user_id
+          tags: []
+        - name: total_price
+          dataType: DOUBLE
+          dataTypeDisplay: double
+          fullyQualifiedName: sample_kafka.orders.Order.total_price
+          tags: []
+        - name: discount_code
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: sample_kafka.orders.Order.discount_code
+          tags: []
+        - name: processed_at
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: sample_kafka.orders.Order.processed_at
+          tags: []
+partitions: 128
+cleanupPolicies:
+  - compact
+replicationFactor: 3
+maximumMessageSize: 61
+retentionSize: 2.91959935E8
+owners:
+  - id: f7971c49-bca7-48fb-bb1a-821a1e2c5802
+    type: user
+    name: prajwal161998
+    fullyQualifiedName: prajwal161998
+    displayName: prajwal161998
+    deleted: false
+tags: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: Unprocessed
+  fieldsDeleted: []
+  previousVersion: 0.8
+  changeSummary: {}
+domains:
+  - id: 761f0a12-7b08-4889-acc3-b8d4d11a7865
+    type: domain
+    name: domain.with.dot
+    fullyQualifiedName: '"domain.with.dot"'
+    description: domain.with.dot
+    displayName: domain.with.dot
+dataProducts: []
+entityStatus: Unprocessed

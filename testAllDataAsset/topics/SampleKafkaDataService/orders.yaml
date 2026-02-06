@@ -1,0 +1,87 @@
+name: orders
+fullyQualifiedName: SampleKafkaDataService.orders
+description: All the order events on our online store
+service:
+  id: a0d5f96b-07a7-42f2-9eac-50234040e22c
+  type: messagingService
+  name: SampleKafkaDataService
+  fullyQualifiedName: SampleKafkaDataService
+  displayName: SampleKafkaDataService
+  deleted: false
+serviceType: Kafka
+messageSchema:
+  schemaText: "{\"namespace\":\"openmetadata.kafka\",\"type\":\"record\",\"name\"\
+    :\"Order\",\"fields\":[{\"name\":\"order_id\",\"type\":\"int\"},{\"name\":\"api_client_id\"\
+    ,\"type\":\"int\"},{\"name\":\"billing_address_id\",\"type\":\"int\"},{\"name\"\
+    :\"customer_id\",\"type\":\"int\"},{\"name\":\"location_id\",\"type\":\"int\"\
+    },{\"name\":\"shipping_address_id\",\"type\":\"int\"},{\"name\":\"user_id\",\"\
+    type\":\"int\"},{\"name\":\"total_price\",\"type\":\"double\"},{\"name\":\"discount_code\"\
+    ,\"type\":\"string\"},{\"name\":\"processed_at\",\"type\":\"int\"}]}"
+  schemaType: Avro
+  schemaFields:
+    - name: Order
+      dataType: RECORD
+      fullyQualifiedName: SampleKafkaDataService.orders.Order
+      tags: []
+      children:
+        - name: order_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.order_id
+          tags: []
+        - name: api_client_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.api_client_id
+          tags: []
+        - name: billing_address_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.billing_address_id
+          tags: []
+        - name: customer_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.customer_id
+          tags: []
+        - name: location_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.location_id
+          tags: []
+        - name: shipping_address_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.shipping_address_id
+          tags: []
+        - name: user_id
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.user_id
+          tags: []
+        - name: total_price
+          dataType: DOUBLE
+          dataTypeDisplay: double
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.total_price
+          tags: []
+        - name: discount_code
+          dataType: STRING
+          dataTypeDisplay: string
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.discount_code
+          tags: []
+        - name: processed_at
+          dataType: INT
+          dataTypeDisplay: int
+          fullyQualifiedName: SampleKafkaDataService.orders.Order.processed_at
+          tags: []
+partitions: 128
+cleanupPolicies:
+  - compact
+replicationFactor: 3
+maximumMessageSize: 61
+retentionSize: 2.91959935E8
+owners: []
+tags: []
+domains: []
+dataProducts: []
+entityStatus: Unprocessed
