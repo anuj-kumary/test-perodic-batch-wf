@@ -1,0 +1,42 @@
+name: 0cc86f1008f6486a70d9a46c6a03b9ac
+fullyQualifiedName: snowflake_demo.0cc86f1008f6486a70d9a46c6a03b9ac
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"0717d126-662e-480a-92e0-76a7cbcbbac5\",\"type\":\"table\"\
+        ,\"name\":\"RAW_PAYMENTS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS\"\
+        ,\"displayName\":\"RAW_PAYMENTS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 39.0
+users: []
+query: "SELECT avg(LEN(\"PAYMENT_METHOD\")) AS mean, count(\"PAYMENT_METHOD\") AS\
+  \ \"valuesCount\", count(DISTINCT \"PAYMENT_METHOD\") AS \"distinctCount\", MIN(LEN(\"\
+  PAYMENT_METHOD\")) AS min, MAX(LEN(\"PAYMENT_METHOD\")) AS max, coalesce(SUM(CASE\
+  \ WHEN (\"PAYMENT_METHOD\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"\
+  PAYMENT_METHOD\")) AS stddev, SUM(LEN(\"PAYMENT_METHOD\")) AS sum \nFROM \"JAFFLE_SHOP\"\
+  .\"RAW_PAYMENTS\"\n LIMIT ?"
+checksum: 0cc86f1008f6486a70d9a46c6a03b9ac
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 0717d126-662e-480a-92e0-76a7cbcbbac5
+    type: table
+    name: RAW_PAYMENTS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_PAYMENTS
+    description: "This table stores payment transaction details, including amounts,\
+      \ unique identifiers, and payment methods, enabling businesses to analyze payment\
+      \ patterns and manage financial records effectively."
+    displayName: RAW_PAYMENTS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo

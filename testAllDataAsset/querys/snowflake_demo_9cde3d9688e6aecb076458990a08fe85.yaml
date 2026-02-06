@@ -1,0 +1,40 @@
+name: 9cde3d9688e6aecb076458990a08fe85
+fullyQualifiedName: snowflake_demo.9cde3d9688e6aecb076458990a08fe85
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"513faa55-626b-4490-a138-956e08e5625e\",\"type\":\"table\"\
+        ,\"name\":\"RAW_ORDERS\",\"fullyQualifiedName\":\"snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_ORDERS\"\
+        ,\"displayName\":\"RAW_ORDERS\",\"deleted\":false}]"
+  previousVersion: 0.2
+  changeSummary: {}
+owners: []
+duration: 52.0
+users: []
+query: "SELECT avg(\"ID\") AS mean, count(\"ID\") AS \"valuesCount\", count(DISTINCT\
+  \ \"ID\") AS \"distinctCount\", MIN(\"ID\") AS min, MAX(\"ID\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"ID\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"ID\"\
+  ) AS stddev, SUM(\"ID\") AS sum \nFROM \"JAFFLE_SHOP\".\"RAW_ORDERS\"\n LIMIT ?"
+checksum: 9cde3d9688e6aecb076458990a08fe85
+queryDate: 1744070400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 513faa55-626b-4490-a138-956e08e5625e
+    type: table
+    name: RAW_ORDERS
+    fullyQualifiedName: snowflake_demo.CUSTOMERS.JAFFLE_SHOP.RAW_ORDERS
+    description: "This table stores order details from customers, including unique\
+      \ identifiers, order dates, statuses, and user IDs, enabling businesses to track\
+      \ and analyze customer purchasing behavior and order fulfillment processes."
+    displayName: RAW_ORDERS
+    deleted: false
+processedLineage: false
+service:
+  id: 03949cda-9a45-47d2-bd35-5abd07bcf91e
+  type: databaseService
+  name: snowflake_demo
+  fullyQualifiedName: snowflake_demo

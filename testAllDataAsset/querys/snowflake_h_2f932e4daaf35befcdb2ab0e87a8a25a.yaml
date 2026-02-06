@@ -1,0 +1,39 @@
+name: 2f932e4daaf35befcdb2ab0e87a8a25a
+fullyQualifiedName: snowflake_h.2f932e4daaf35befcdb2ab0e87a8a25a
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: usedBy
+      oldValue: "[]"
+      newValue: "[\"TESTOPENMETADATA\"]"
+  fieldsDeleted: []
+  previousVersion: 0.5
+owners: []
+duration: 931222.0
+users: []
+query: "WITH \"7492547a05b84d643fd227e52ada40ff_rnd\" AS \n(SELECT \"CATALOG_RETURNS_1\"\
+  .\"CR_NET_LOSS\" AS \"CR_NET_LOSS\" \nFROM \"TPCDS_SF100TCL\".\"CATALOG_RETURNS\"\
+  \ AS \"CATALOG_RETURNS_1\" TABLESAMPLE bernoulli(?)), \n\"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ AS \n(SELECT \"7492547a05b84d643fd227e52ada40ff_rnd\".\"CR_NET_LOSS\" AS \"CR_NET_LOSS\"\
+  \ \nFROM \"7492547a05b84d643fd227e52ada40ff_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"CR_NET_LOSS\") AS count_1 \nFROM \"7492547a05b84d643fd227e52ada40ff_sample\"\
+  \ GROUP BY \"CR_NET_LOSS\" \nHAVING count(\"CR_NET_LOSS\") = ?) AS only_once\n LIMIT\
+  \ ?"
+checksum: 2f932e4daaf35befcdb2ab0e87a8a25a
+queryDate: 1740700800000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7103b5aa-a032-43da-be04-f3459f1ac097
+    type: table
+    name: CATALOG_RETURNS
+    fullyQualifiedName: snowflake_h.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_RETURNS
+    displayName: CATALOG_RETURNS
+    deleted: false
+processedLineage: false
+service:
+  id: cbbdff8d-32ef-4fdd-a383-cc3b8f0a41ea
+  type: databaseService
+  name: snowflake_h
+  fullyQualifiedName: snowflake_h
