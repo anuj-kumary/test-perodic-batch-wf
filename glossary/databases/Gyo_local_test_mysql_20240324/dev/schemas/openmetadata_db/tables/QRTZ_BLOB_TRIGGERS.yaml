@@ -1,0 +1,100 @@
+name: QRTZ_BLOB_TRIGGERS
+fullyQualifiedName: Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_BLOB_TRIGGERS
+tableType: Regular
+columns:
+  - name: SCHED_NAME
+    dataType: VARCHAR
+    dataLength: 120
+    dataTypeDisplay: varchar(120)
+    fullyQualifiedName: Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_BLOB_TRIGGERS.SCHED_NAME
+    tags: []
+    children: []
+    customMetrics: []
+  - name: TRIGGER_NAME
+    dataType: VARCHAR
+    dataLength: 190
+    dataTypeDisplay: varchar(190)
+    fullyQualifiedName: Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_BLOB_TRIGGERS.TRIGGER_NAME
+    tags: []
+    children: []
+    customMetrics: []
+  - name: TRIGGER_GROUP
+    dataType: VARCHAR
+    dataLength: 190
+    dataTypeDisplay: varchar(190)
+    fullyQualifiedName: Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_BLOB_TRIGGERS.TRIGGER_GROUP
+    tags: []
+    children: []
+    customMetrics: []
+  - name: BLOB_DATA
+    dataType: BLOB
+    dataLength: 1
+    dataTypeDisplay: blob
+    fullyQualifiedName: Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_BLOB_TRIGGERS.BLOB_DATA
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - SCHED_NAME
+      - TRIGGER_GROUP
+      - TRIGGER_NAME
+    referredColumns:
+      - Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_TRIGGERS.SCHED_NAME
+      - Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_TRIGGERS.TRIGGER_NAME
+      - Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_TRIGGERS.TRIGGER_GROUP
+    relationshipType: MANY_TO_MANY
+owners: []
+databaseSchema:
+  id: 46a47ac8-ecec-4832-a500-68963b6e3601
+  type: databaseSchema
+  name: openmetadata_db
+  fullyQualifiedName: Gyo local test mysql 20240324.dev.openmetadata_db
+  displayName: openmetadata_db
+  deleted: false
+database:
+  id: 10d003d9-752e-4fd1-b689-f672d928d570
+  type: database
+  name: dev
+  fullyQualifiedName: Gyo local test mysql 20240324.dev
+  displayName: dev
+  deleted: false
+service:
+  id: dd58523e-5854-4abb-a406-2ebc62218821
+  type: databaseService
+  name: Gyo local test mysql 20240324
+  fullyQualifiedName: Gyo local test mysql 20240324
+  description: ""
+  displayName: Gyo local test mysql 20240324
+  deleted: false
+serviceType: Mysql
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"SCHED_NAME\"\
+        ,\"TRIGGER_GROUP\",\"TRIGGER_NAME\"],\"referredColumns\":[\"Gyo local test\
+        \ mysql 20240324.dev.openmetadata_db.QRTZ_TRIGGERS.SCHED_NAME\",\"Gyo local\
+        \ test mysql 20240324.dev.openmetadata_db.QRTZ_TRIGGERS.TRIGGER_NAME\",\"\
+        Gyo local test mysql 20240324.dev.openmetadata_db.QRTZ_TRIGGERS.TRIGGER_GROUP\"\
+        ],\"relationshipType\":\"MANY_TO_MANY\"}]"
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: tableConstraints
+      oldValue: "[{\"constraintType\":\"PRIMARY_KEY\",\"columns\":[\"SCHED_NAME\"\
+        ,\"TRIGGER_GROUP\",\"TRIGGER_NAME\"]}]"
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: e4ee0b2a245fd5631a64a149576688f7
+processedLineage: false
+entityStatus: Approved
