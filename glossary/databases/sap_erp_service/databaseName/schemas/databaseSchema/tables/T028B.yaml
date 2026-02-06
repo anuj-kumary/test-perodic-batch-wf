@@ -1,0 +1,199 @@
+name: T028B
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B
+description: Transaction Type of Sender Bank
+tableType: Regular
+columns:
+  - name: ANZTG
+    displayName: Days until Deletion
+    dataType: CHAR
+    dataLength: 2
+    dataTypeDisplay: numc(2)
+    description: Days after which Dunning Block Is Deleted
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.ANZTG
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 13
+    children: []
+    customMetrics: []
+  - name: BANKL
+    displayName: Bank Key
+    dataType: CHAR
+    dataLength: 15
+    dataTypeDisplay: char(15)
+    description: Bank key (usually bank number)
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.BANKL
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: BNKKO
+    displayName: Cash Management Account Name
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Cash Management Account Name
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.BNKKO
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: BUKRS
+    displayName: Company Code
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Company Code
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.BUKRS
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: CURRKEY
+    displayName: Currency code class
+    dataType: CHAR
+    dataLength: 8
+    dataTypeDisplay: char(8)
+    description: Class of the currency key used
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.CURRKEY
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: DSART
+    displayName: Planning type
+    dataType: CHAR
+    dataLength: 2
+    dataTypeDisplay: char(2)
+    description: Planning type
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.DSART
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: KTONR
+    displayName: Bank Account
+    dataType: CHAR
+    dataLength: 18
+    dataTypeDisplay: char(18)
+    description: Bank account number
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.KTONR
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: MANSP
+    displayName: Set Dunning Block
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Set Dunning Block
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.MANSP
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 12
+    children: []
+    customMetrics: []
+  - name: NOCLEAR
+    displayName: No Automatic Clearing
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: No Automatic Clearing
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.NOCLEAR
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 11
+    children: []
+    customMetrics: []
+  - name: VGTYP
+    displayName: Transaction type
+    dataType: CHAR
+    dataLength: 8
+    dataTypeDisplay: char(8)
+    description: Transaction type
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.VGTYP
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: WORKLIST
+    displayName: Worklist
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Worklist
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.WORKLIST
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 10
+    children: []
+    customMetrics: []
+  - name: XVERD
+    displayName: Summarization
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Summarize bank statement items
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028B.XVERD
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - BANKL
+      - KTONR
+      - MANDT
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 03227974b4e5c12491b8da225ed91195
+processedLineage: false
+entityStatus: Approved

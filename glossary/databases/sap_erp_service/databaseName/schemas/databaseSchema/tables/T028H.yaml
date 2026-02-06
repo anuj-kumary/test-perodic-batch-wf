@@ -1,0 +1,151 @@
+name: T028H
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H
+description: Allocate Manual to Internal Transactions
+tableType: Regular
+columns:
+  - name: INTAG
+    displayName: Interpret. Algorithm
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: numc(3)
+    description: Interpretation algorithm
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.INTAG
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: KFMOD
+    displayName: Account modification
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Account modification
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.KFMOD
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: VGINT
+    displayName: Posting rule
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Posting rule
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.VGINT
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: VGMAN
+    displayName: Transaction
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Transaction
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.VGMAN
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: VGSAP
+    displayName: SAP bank transaction
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: SAP bank transaction
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.VGSAP
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: VORGA
+    displayName: Transaction type
+    dataType: CHAR
+    dataLength: 8
+    dataTypeDisplay: char(8)
+    description: Transaction type for determining bank terms
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.VORGA
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: VOZPM
+    displayName: +/- sign
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: +/- sign of the incoming amount
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.VOZPM
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: VTYPM
+    displayName: Transaction type
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: Transaction type for manual bank transactions
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T028H.VTYPM
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - MANDT
+      - VGMAN
+      - VOZPM
+      - VTYPM
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d497af3a0a74c8301f666a997eedfd88
+processedLineage: false
+entityStatus: Approved

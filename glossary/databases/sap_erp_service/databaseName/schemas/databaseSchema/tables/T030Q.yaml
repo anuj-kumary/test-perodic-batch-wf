@@ -1,0 +1,103 @@
+name: T030Q
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030Q
+description: Clearing Accounts for Distributed Systems
+tableType: Regular
+columns:
+  - name: KONTO_NACH
+    displayName: Target account
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Account of Target System
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030Q.KONTO_NACH
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: KTOPL_NACH
+    displayName: Target chart/accts
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Chart of Accounts of Target System
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030Q.KTOPL_NACH
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: KTOSL_VERR
+    displayName: Account category
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: char(3)
+    description: Clearing Account Type for Distributed Systems
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030Q.KTOSL_VERR
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030Q.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: SYS_VON
+    displayName: Sender log.system
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Logical System of Sender
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030Q.SYS_VON
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - KTOPL_NACH
+      - KTOSL_VERR
+      - MANDT
+      - SYS_VON
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: ab84c6acc65c21816e63fb6c45adafb1
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,103 @@
+name: T030I
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030I
+description: Acct Determination for Intercompany Cost Flow (CE Ledger)
+tableType: Regular
+columns:
+  - name: KONTO_CO
+    displayName: Cost Element
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: Cost Element
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030I.KONTO_CO
+    tags: []
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: KONTO_FI
+    displayName: G/L Account
+    dataType: CHAR
+    dataLength: 10
+    dataTypeDisplay: char(10)
+    description: G/L Account Number
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030I.KONTO_FI
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: KTOPL_CO
+    displayName: CO chart/accts
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Controlling Chart of Accounts
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030I.KTOPL_CO
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: KTOPL_FI
+    displayName: FI chart/accts
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Financial Accounting Chart of Accounts
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030I.KTOPL_FI
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T030I.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - KONTO_CO
+      - KTOPL_CO
+      - KTOPL_FI
+      - MANDT
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: daaab03ca0b069d18f359c507acb41cf
+processedLineage: false
+entityStatus: Approved
