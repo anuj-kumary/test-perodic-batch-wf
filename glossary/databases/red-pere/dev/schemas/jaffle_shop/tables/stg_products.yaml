@@ -1,0 +1,110 @@
+name: stg_products
+fullyQualifiedName: red-pere.dev.jaffle_shop.stg_products
+tableType: View
+columns:
+  - name: product_id
+    dataType: VARCHAR
+    dataLength: 7
+    dataTypeDisplay: character varying(7)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_products.product_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_name
+    dataType: VARCHAR
+    dataLength: 23
+    dataTypeDisplay: character varying(23)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_products.product_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_type
+    dataType: VARCHAR
+    dataLength: 8
+    dataTypeDisplay: character varying(8)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_products.product_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_description
+    dataType: VARCHAR
+    dataLength: 94
+    dataTypeDisplay: character varying(94)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_products.product_description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_price
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 20
+    scale: 6
+    dataTypeDisplay: "numeric(20,6)"
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_products.product_price
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_food_item
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_products.is_food_item
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_drink_item
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_products.is_drink_item
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00db8b6c-9ad4-42f8-bc86-ba5afdf93edb
+  type: databaseSchema
+  name: jaffle_shop
+  fullyQualifiedName: red-pere.dev.jaffle_shop
+  displayName: jaffle_shop
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW jaffle_shop.stg_products AS  SELECT renamed.product_id, renamed.product_name, renamed.product_type, renamed.product_description, renamed.product_price, renamed.is_food_item, renamed.is_drink_item
+     FROM ( SELECT source.sku AS product_id, source.name AS product_name, source."type" AS product_type, source.description AS product_description, source.price::numeric::numeric(16,2) / 100::numeric AS product_price, COALESCE(source."type"::text = 'jaffle'::text, false) AS is_food_item, COALESCE(source."type"::text = 'beverage'::text, false) AS is_drink_item
+             FROM ( SELECT raw_products.sku, raw_products.name, raw_products."type", raw_products.price, raw_products.description
+                     FROM "raw".raw_products) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 1a04ceaad3ae3ce43c3d1826dab55af5
+processedLineage: false
+entityStatus: Unprocessed

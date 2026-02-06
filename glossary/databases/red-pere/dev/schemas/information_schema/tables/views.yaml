@@ -1,0 +1,119 @@
+name: views
+fullyQualifiedName: red-pere.dev.information_schema.views
+tableType: View
+columns:
+  - name: table_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.views.table_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.views.table_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: table_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.views.table_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: view_definition
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.views.view_definition
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: check_option
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.views.check_option
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_updatable
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.views.is_updatable
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_insertable_into
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.views.is_insertable_into
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW information_schema.views AS  SELECT current_database()::information_schema.sql_identifier\
+  \ AS table_catalog, nc.nspname::information_schema.sql_identifier AS table_schema,\
+  \ c.relname::information_schema.sql_identifier AS table_name, \n        CASE\n \
+  \           WHEN u.usename = \"current_user\"()::name THEN pg_get_viewdef(c.oid)\n\
+  \            ELSE NULL::text\n        END::information_schema.character_data AS\
+  \ view_definition, 'NONE'::information_schema.character_data::information_schema.character_data\
+  \ AS check_option, NULL::information_schema.character_data::information_schema.character_data\
+  \ AS is_updatable, NULL::information_schema.character_data::information_schema.character_data\
+  \ AS is_insertable_into\n   FROM pg_namespace nc, pg_class c, pg_user u\n  WHERE\
+  \ c.relnamespace = nc.oid AND u.usesysid = c.relowner AND c.relkind = 'v'::\"char\"\
+  \ AND (u.usename = \"current_user\"()::name OR has_table_privilege(c.oid, 'SELECT'::text)\
+  \ OR has_table_privilege(c.oid, 'INSERT'::text) OR has_table_privilege(c.oid, 'UPDATE'::text)\
+  \ OR has_table_privilege(c.oid, 'DELETE'::text) OR has_table_privilege(c.oid, 'RULE'::text)\
+  \ OR has_table_privilege(c.oid, 'REFERENCES'::text) OR has_table_privilege(c.oid,\
+  \ 'TRIGGER'::text) OR has_any_column_privilege(c.oid, 'SELECT'::text) OR has_any_column_privilege(c.oid,\
+  \ 'UPDATE'::text));"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 4b1a2c6b31102d3f55da11d7593c1034
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,83 @@
+name: raw_customers
+fullyQualifiedName: red-test-dc.dev.dbt_jaffle.raw_customers
+tableType: Partitioned
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.raw_customers.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.raw_customers.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.raw_customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: DIST_KEY
+    columns:
+      - id
+tablePartition:
+  columns:
+    - columnName: id
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: ea310f1d-0436-4fe7-b452-8898e9be3e92
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: red-test-dc.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: ce307a71-0126-48b4-96d2-ed26d9025857
+  type: database
+  name: dev
+  fullyQualifiedName: red-test-dc.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 8bb82497-dc97-441a-ac49-be207f2f497c
+  type: databaseService
+  name: red-test-dc
+  fullyQualifiedName: red-test-dc
+  description: ""
+  displayName: red-test-dc
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667996111994
+sourceHash: cf1c544dc39be8f058a1ddd8c43b7bbd
+processedLineage: false
+entityStatus: Approved

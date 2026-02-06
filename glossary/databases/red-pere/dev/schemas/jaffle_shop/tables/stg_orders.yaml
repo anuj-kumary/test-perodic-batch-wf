@@ -1,0 +1,141 @@
+name: stg_orders
+fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders
+tableType: View
+columns:
+  - name: order_id
+    dataType: VARCHAR
+    dataLength: 36
+    dataTypeDisplay: character varying(36)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: location_id
+    dataType: VARCHAR
+    dataLength: 36
+    dataTypeDisplay: character varying(36)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.location_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: VARCHAR
+    dataLength: 36
+    dataTypeDisplay: character varying(36)
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: subtotal_cents
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.subtotal_cents
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: tax_paid_cents
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.tax_paid_cents
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_total_cents
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.order_total_cents
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: subtotal
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 20
+    scale: 6
+    dataTypeDisplay: "numeric(20,6)"
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.subtotal
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: tax_paid
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 20
+    scale: 6
+    dataTypeDisplay: "numeric(20,6)"
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.tax_paid
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_total
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 20
+    scale: 6
+    dataTypeDisplay: "numeric(20,6)"
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.order_total
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ordered_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp without time zone
+    fullyQualifiedName: red-pere.dev.jaffle_shop.stg_orders.ordered_at
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00db8b6c-9ad4-42f8-bc86-ba5afdf93edb
+  type: databaseSchema
+  name: jaffle_shop
+  fullyQualifiedName: red-pere.dev.jaffle_shop
+  displayName: jaffle_shop
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW jaffle_shop.stg_orders AS  SELECT renamed.order_id, renamed.location_id, renamed.customer_id, renamed.subtotal_cents, renamed.tax_paid_cents, renamed.order_total_cents, renamed.subtotal, renamed.tax_paid, renamed.order_total, renamed.ordered_at
+     FROM ( SELECT source.id AS order_id, source.store_id AS location_id, source.customer AS customer_id, source.subtotal AS subtotal_cents, source.tax_paid AS tax_paid_cents, source.order_total AS order_total_cents, source.subtotal::numeric::numeric(16,2) / 100::numeric AS subtotal, source.tax_paid::numeric::numeric(16,2) / 100::numeric AS tax_paid, source.order_total::numeric::numeric(16,2) / 100::numeric AS order_total, date_trunc('day'::text, source.ordered_at) AS ordered_at
+             FROM ( SELECT raw_orders.id, raw_orders.customer, raw_orders.ordered_at, raw_orders.store_id, raw_orders.subtotal, raw_orders.tax_paid, raw_orders.order_total
+                     FROM "raw".raw_orders) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 4feb748bae0aeaa8a8115c0c9c543a0e
+processedLineage: false
+entityStatus: Unprocessed

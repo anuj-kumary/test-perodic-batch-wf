@@ -1,0 +1,115 @@
+name: event
+fullyQualifiedName: red-pere.dev.public.event
+tableType: Partitioned
+columns:
+  - name: eventid
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-pere.dev.public.event.eventid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: venueid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: red-pere.dev.public.event.venueid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: catid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: red-pere.dev.public.event.catid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: dateid
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: red-pere.dev.public.event.dateid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: eventname
+    dataType: VARCHAR
+    dataLength: 200
+    dataTypeDisplay: character varying(200)
+    fullyQualifiedName: red-pere.dev.public.event.eventname
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: starttime
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp without time zone
+    fullyQualifiedName: red-pere.dev.public.event.starttime
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: SORT_KEY
+    columns:
+      - dateid
+  - constraintType: DIST_KEY
+    columns:
+      - eventid
+tablePartition:
+  columns:
+    - columnName: eventid
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: f3b1a11b-f1cf-46d9-aa13-1b7453a47efe
+  type: databaseSchema
+  name: public
+  fullyQualifiedName: red-pere.dev.public
+  displayName: public
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"created\":{\"timestamp\":1667992140082}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667992140082
+sourceHash: 0bd525599e142b0279f3752138269e8e
+processedLineage: false
+entityStatus: Unprocessed

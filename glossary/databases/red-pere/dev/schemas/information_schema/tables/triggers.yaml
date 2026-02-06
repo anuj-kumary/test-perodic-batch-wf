@@ -1,0 +1,187 @@
+name: triggers
+fullyQualifiedName: red-pere.dev.information_schema.triggers
+tableType: View
+columns:
+  - name: trigger_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.trigger_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: trigger_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.trigger_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: trigger_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.trigger_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event_manipulation
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.event_manipulation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event_object_catalog
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.event_object_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event_object_schema
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.event_object_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event_object_table
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.event_object_table
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: action_order
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: information_schema.cardinal_number
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.action_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: action_condition
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.action_condition
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: action_statement
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.action_statement
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: action_orientation
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.action_orientation
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: condition_timing
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.character_data
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.condition_timing
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: condition_reference_old_table
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.condition_reference_old_table
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: condition_reference_new_table
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: information_schema.sql_identifier
+    fullyQualifiedName: red-pere.dev.information_schema.triggers.condition_reference_new_table
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 800cba3a-a34c-47ac-8390-699ec15e5e4f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: red-pere.dev.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 2da3a66d-ee52-4772-a36b-33235bd5fd46
+  type: database
+  name: dev
+  fullyQualifiedName: red-pere.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 0161f1c0-0881-4409-8387-85521aa692e3
+  type: databaseService
+  name: red-pere
+  fullyQualifiedName: red-pere
+  displayName: red-pere
+  deleted: false
+serviceType: Redshift
+schemaDefinition: "CREATE VIEW information_schema.triggers AS  SELECT current_database()::information_schema.sql_identifier\
+  \ AS trigger_catalog, n.nspname::information_schema.sql_identifier AS trigger_schema,\
+  \ t.tgname::information_schema.sql_identifier AS trigger_name, em.text::information_schema.character_data\
+  \ AS event_manipulation, current_database()::information_schema.sql_identifier AS\
+  \ event_object_catalog, n.nspname::information_schema.sql_identifier AS event_object_schema,\
+  \ c.relname::information_schema.sql_identifier AS event_object_table, NULL::information_schema.cardinal_number::information_schema.cardinal_number\
+  \ AS action_order, NULL::information_schema.character_data::information_schema.character_data\
+  \ AS action_condition, \"substring\"(pg_get_triggerdef(t.oid), \"position\"(\"substring\"\
+  (pg_get_triggerdef(t.oid), 48), 'EXECUTE PROCEDURE'::text) + 47)::information_schema.character_data\
+  \ AS action_statement, \n        CASE\n            WHEN (t.tgtype::integer & 1)\
+  \ = 1 THEN 'ROW'::text\n            ELSE 'STATEMENT'::text\n        END::information_schema.character_data\
+  \ AS action_orientation, \n        CASE\n            WHEN (t.tgtype::integer & 2)\
+  \ = 2 THEN 'BEFORE'::text\n            ELSE 'AFTER'::text\n        END::information_schema.character_data\
+  \ AS condition_timing, NULL::information_schema.sql_identifier::information_schema.sql_identifier\
+  \ AS condition_reference_old_table, NULL::information_schema.sql_identifier::information_schema.sql_identifier\
+  \ AS condition_reference_new_table\n   FROM pg_namespace n, pg_class c, pg_trigger\
+  \ t, pg_user u, (( SELECT 4, 'INSERT'::character varying\nUNION ALL \n         SELECT\
+  \ 8, 'DELETE'::character varying)\nUNION ALL \n         SELECT 16, 'UPDATE'::character\
+  \ varying) em(num, text)\n  WHERE n.oid = c.relnamespace AND c.oid = t.tgrelid AND\
+  \ c.relowner = u.usesysid AND (t.tgtype::integer & em.num) <> 0 AND NOT t.tgisconstraint\
+  \ AND u.usename = \"current_user\"()::name;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: c68612b6ce431604710923f2d7862f7c
+processedLineage: false
+entityStatus: Unprocessed
