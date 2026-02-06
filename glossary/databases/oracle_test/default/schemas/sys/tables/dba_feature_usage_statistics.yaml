@@ -1,0 +1,180 @@
+name: dba_feature_usage_statistics
+fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics
+tableType: View
+columns:
+  - name: dbid
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: database ID of database being tracked
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.dbid
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: name of feature
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: version
+    dataType: VARCHAR
+    dataLength: 17
+    dataTypeDisplay: varchar2(17)
+    description: the database version the feature was tracked in
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.version
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: detected_usages
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: number of times the system has detected usage for the feature
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.detected_usages
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: total_samples
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: number of times the system has woken up and checked for usage
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.total_samples
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: currently_used
+    dataType: VARCHAR
+    dataLength: 5
+    dataTypeDisplay: varchar2(5)
+    description: if usage was detected the last time the system checked
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.currently_used
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_usage_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: the first sample time the system detected usage for the feature
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.first_usage_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_usage_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: the last sample time the system detected usage for the feature
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.last_usage_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: aux_count
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: extra column to store feature specific usage data
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.aux_count
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: feature_info
+    dataType: CLOB
+    dataLength: 1
+    dataTypeDisplay: clob
+    description: extra column to store feature specific usage data
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.feature_info
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_sample_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: last time the system checked for usage
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.last_sample_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_sample_period
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: "amount of time between the last two usage sample times, in number\
+      \ of seconds"
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.last_sample_period
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sample_interval
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.sample_interval
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: describes feature and usage detection logic
+    fullyQualifiedName: oracle_test.default.sys.dba_feature_usage_statistics.description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b1b70d5c14c4a5c40af19b270d2066ac
+processedLineage: false
+entityStatus: Approved
