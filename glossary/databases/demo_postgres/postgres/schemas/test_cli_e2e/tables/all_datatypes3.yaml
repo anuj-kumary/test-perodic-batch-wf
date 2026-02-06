@@ -1,0 +1,106 @@
+name: all_datatypes3
+fullyQualifiedName: demo_postgres.postgres.test_cli_e2e.all_datatypes3
+tableType: Regular
+columns:
+  - name: column3
+    dataType: DATETIMERANGE
+    dataLength: 1
+    dataTypeDisplay: tsrange
+    fullyQualifiedName: demo_postgres.postgres.test_cli_e2e.all_datatypes3.column3
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners:
+  - id: 1d17752e-dc86-4185-9173-a32a7e94a159
+    type: team
+    name: Accounting
+    fullyQualifiedName: Accounting
+    description: ""
+    displayName: Accounting
+    deleted: false
+databaseSchema:
+  id: 73b717bd-e084-41b4-9a13-d5421d1b57cf
+  type: databaseSchema
+  name: test_cli_e2e
+  fullyQualifiedName: demo_postgres.postgres.test_cli_e2e
+  displayName: test_cli_e2e
+  deleted: false
+database:
+  id: 4c25d6a1-3f9e-46a4-a92a-1683e0f228fb
+  type: database
+  name: postgres
+  fullyQualifiedName: demo_postgres.postgres
+  displayName: postgres
+  deleted: false
+service:
+  id: 192b73bd-7729-4f7f-8c86-3f22c4a42609
+  type: databaseService
+  name: demo_postgres
+  fullyQualifiedName: demo_postgres
+  description: ""
+  displayName: demo_postgres
+  deleted: false
+serviceType: Postgres
+schemaDefinition: "CREATE TABLE test_cli_e2e.all_datatypes3 (\n\tcolumn3 TSRANGE\n\
+  )"
+tags:
+  - tagFQN: PII.Sensitive
+    name: Sensitive
+    description: "PII which if lost, compromised, or disclosed without authorization,\
+      \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+      \ to an individual."
+    style:
+      color: "#ff0000"
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: Tier.Tier3
+    name: Tier3
+    description: |-
+      **Department/group level datasets that are typically non-business and general internal system**
+
+      - Used in product metrics, and dashboards to drive product decisions
+
+      - Used to track operational metrics of internal systems
+
+      - Source used to derive other critical Tier-3 datasets
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tags
+      newValue: "[{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\",\"description\"\
+        :\"PII which if lost, compromised, or disclosed without authorization, could\
+        \ result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Manual\",\"state\":\"Confirmed\"},{\"tagFQN\":\"PII.Sensitive\"\
+        ,\"name\":\"Sensitive\",\"description\":\"PII which if lost, compromised,\
+        \ or disclosed without authorization, could result in substantial harm, embarrassment,\
+        \ inconvenience, or unfairness to an individual.\",\"style\":{\"color\":\"\
+        #ff0000\"},\"source\":\"Classification\",\"labelType\":\"Manual\",\"state\"\
+        :\"Confirmed\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.4
+  changeSummary:
+    owners:
+      changedBy: tomas
+      changedAt: 1758696439068
+domains: []
+dataProducts: []
+sourceHash: c52cf33bfc2d141b577727a831d22a28
+processedLineage: false
+entityStatus: Approved

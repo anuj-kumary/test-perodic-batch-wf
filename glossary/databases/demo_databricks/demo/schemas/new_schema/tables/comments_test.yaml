@@ -1,0 +1,103 @@
+name: comments_test
+fullyQualifiedName: demo_databricks.demo.new_schema.comments_test
+description: "The 'comments_test' table is designed to hold data related to user comments\
+  \ on various test items. It includes information such as the unique identifier of\
+  \ each comment and a complex column that stores additional data related to the comment.\
+  \ This table can be useful for analyzing user feedback on tests, identifying common\
+  \ issues or areas of improvement, and tracking changes over time in user comments."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: new comm
+    fullyQualifiedName: demo_databricks.demo.new_schema.comments_test.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: complex_col
+    dataType: STRUCT
+    dataTypeDisplay: "struct<b1:int,b2:struct<b11:int>>"
+    description: demo com
+    fullyQualifiedName: demo_databricks.demo.new_schema.comments_test.complex_col
+    tags: []
+    children:
+      - name: b1
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: demo_databricks.demo.new_schema.comments_test.complex_col.b1
+        tags: []
+        children: []
+      - name: b2
+        dataType: STRUCT
+        dataTypeDisplay: struct<b11:int>
+        fullyQualifiedName: demo_databricks.demo.new_schema.comments_test.complex_col.b2
+        tags: []
+        children:
+          - name: b11
+            dataType: INT
+            dataTypeDisplay: int
+            fullyQualifiedName: demo_databricks.demo.new_schema.comments_test.complex_col.b2.b11
+            tags: []
+            children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 5e67f900-0b5b-431d-97f9-ec5e1a37aba1
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: demo_databricks.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: ad5f6cff-edc7-4ba0-a7f9-bc6c04c6ced2
+  type: database
+  name: demo
+  fullyQualifiedName: demo_databricks.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 48efaee1-3eaf-4769-b5bc-60eeea8cad6d
+  type: databaseService
+  name: demo_databricks
+  fullyQualifiedName: demo_databricks
+  description: ""
+  displayName: demo_databricks
+  deleted: false
+serviceType: Databricks
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 5cb95776-d9fa-4484-9ef6-038c790e6535
+  type: testSuite
+  name: comments_test.testSuite
+  fullyQualifiedName: demo_databricks.demo.new_schema.comments_test.testSuite
+  displayName: comments_test.testSuite
+  deleted: false
+domains: []
+dataProducts: []
+certification:
+  tagLabel:
+    tagFQN: Certification.Bronze
+    name: Bronze
+    displayName: Bronze_medal
+    description: Bronze certified Data Asset test
+    style:
+      color: "#C08329"
+      iconURL: BronzeCertification.svg
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+  appliedDate: 1732806465840
+  expiryDate: 1735398465840
+sourceHash: bba23b6ee879438da04f4b2c6ec61c2b
+processedLineage: false
+entityStatus: Approved

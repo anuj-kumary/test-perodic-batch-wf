@@ -1,0 +1,412 @@
+name: usage
+fullyQualifiedName: DBX_TEXT.system.billing.usage
+tableType: Regular
+columns:
+  - name: account_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the account this report was generated for
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.account_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: workspace_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ID of the Workspace this usage was associated with
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.workspace_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: record_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Unique ID for this record
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.record_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sku_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the SKU
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.sku_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: cloud
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Cloud this usage is relevant for. Possible values are AWS, AZURE,\
+      \ and GCP."
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.cloud
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: usage_start_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    description: The start time relevant to this usage record. Timezone information
+      is recorded at the end of the value with +00:00 representing UTC timezone.
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_start_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: usage_end_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    description: The end time relevant to this usage record. Timezone information
+      is recorded at the end of the value with +00:00 representing UTC timezone.
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_end_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: usage_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: "Date of the usage record, this field can be used for faster aggregation\
+      \ by date"
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: custom_tags
+    dataType: MAP
+    dataTypeDisplay: "map<string,string>"
+    description: Tags applied by the users to this usage. Includes compute resource
+      tags and jobs tags.
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.custom_tags
+    tags: []
+    children: []
+    customMetrics: []
+  - name: usage_unit
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Unit this usage is measured in. Possible values include DBUs.
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_unit
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: usage_quantity
+    dataType: DECIMAL
+    dataLength: 1
+    dataTypeDisplay: "decimal(38,18)"
+    description: Number of units consumed for this record.
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_quantity
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: usage_metadata
+    dataType: STRUCT
+    dataTypeDisplay: "struct<cluster_id:string,job_id:string,warehouse_id:string,instance_pool_id:string,node_type:string,job_run_id:string,notebook_id:string,dlt_pipeline_id:string,endpoint_name:string,endpoint_id:string,dlt_update_id:string,dlt_maintenance_id:string,run_name:string,job_name:string,notebook_path:string,central_clean_room_id:string,source_region:string,destination_region:string,app_id:string,app_name:string,metastore_id:string>"
+    description: "System-provided metadata about the usage, including IDs for compute\
+      \ resources and jobs (if applicable). See [Analyze usage metadata](https://docs.databricks.com/en/admin/system-tables/billing.html#usage-metadata)."
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata
+    tags: []
+    children:
+      - name: cluster_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.cluster_id
+        tags: []
+        children: []
+      - name: job_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.job_id
+        tags: []
+        children: []
+      - name: warehouse_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.warehouse_id
+        tags: []
+        children: []
+      - name: instance_pool_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.instance_pool_id
+        tags: []
+        children: []
+      - name: node_type
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.node_type
+        tags: []
+        children: []
+      - name: job_run_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.job_run_id
+        tags: []
+        children: []
+      - name: notebook_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.notebook_id
+        tags: []
+        children: []
+      - name: dlt_pipeline_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.dlt_pipeline_id
+        tags: []
+        children: []
+      - name: endpoint_name
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.endpoint_name
+        tags: []
+        children: []
+      - name: endpoint_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.endpoint_id
+        tags: []
+        children: []
+      - name: dlt_update_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.dlt_update_id
+        tags: []
+        children: []
+      - name: dlt_maintenance_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.dlt_maintenance_id
+        tags: []
+        children: []
+      - name: run_name
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.run_name
+        tags: []
+        children: []
+      - name: job_name
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.job_name
+        tags: []
+        children: []
+      - name: notebook_path
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.notebook_path
+        tags: []
+        children: []
+      - name: central_clean_room_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.central_clean_room_id
+        tags: []
+        children: []
+      - name: source_region
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.source_region
+        tags: []
+        children: []
+      - name: destination_region
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.destination_region
+        tags: []
+        children: []
+      - name: app_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.app_id
+        tags: []
+        children: []
+      - name: app_name
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.app_name
+        tags: []
+        children: []
+      - name: metastore_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_metadata.metastore_id
+        tags: []
+        children: []
+    customMetrics: []
+  - name: identity_metadata
+    dataType: STRUCT
+    dataTypeDisplay: "struct<run_as:string,created_by:string>"
+    description: "System-provided metadata about the identities involved in the usage.\
+      \ See [Analyze identity metadata](https://docs.databricks.com/en/admin/system-tables/billing.html#identity-metadata)."
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.identity_metadata
+    tags: []
+    children:
+      - name: run_as
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.identity_metadata.run_as
+        tags: []
+        children: []
+      - name: created_by
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.identity_metadata.created_by
+        tags: []
+        children: []
+    customMetrics: []
+  - name: record_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Whether the record is original, a retraction, or a restatement.\
+      \ The value is ORIGINAL unless the record is related to a correction. See [Analyze\
+      \ correction records](https://docs.databricks.com/en/admin/system-tables/billing.html#record-type)."
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.record_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ingestion_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Date the record was ingested into the usage table.
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.ingestion_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: billing_origin_product
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The product that originated the usage. Some products can be billed\
+      \ as different SKUs. For possible values, see [View information about the product\
+      \ associated with the usage](https://docs.databricks.com/en/admin/system-tables/billing.html#features)."
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.billing_origin_product
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: product_features
+    dataType: STRUCT
+    dataTypeDisplay: "struct<jobs_tier:string,sql_tier:string,dlt_tier:string,is_serverless:boolean,is_photon:boolean,serving_type:string,networking:struct<connectivity_type:string>>"
+    description: Details about the specific product features used.
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features
+    tags: []
+    children:
+      - name: jobs_tier
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features.jobs_tier
+        tags: []
+        children: []
+      - name: sql_tier
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features.sql_tier
+        tags: []
+        children: []
+      - name: dlt_tier
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features.dlt_tier
+        tags: []
+        children: []
+      - name: is_serverless
+        dataType: BOOLEAN
+        dataTypeDisplay: boolean
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features.is_serverless
+        tags: []
+        children: []
+      - name: is_photon
+        dataType: BOOLEAN
+        dataTypeDisplay: boolean
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features.is_photon
+        tags: []
+        children: []
+      - name: serving_type
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features.serving_type
+        tags: []
+        children: []
+      - name: networking
+        dataType: STRUCT
+        dataTypeDisplay: struct<connectivity_type:string>
+        fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features.networking
+        tags: []
+        children:
+          - name: connectivity_type
+            dataType: STRING
+            dataTypeDisplay: string
+            fullyQualifiedName: DBX_TEXT.system.billing.usage.product_features.networking.connectivity_type
+            tags: []
+            children: []
+    customMetrics: []
+  - name: usage_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The type of usage attributed to the product or workload for billing\
+      \ purposes. Possible values are COMPUTE_TIME, STORAGE_SPACE, NETWORK_BYTES,\
+      \ API_CALLS, TOKEN, or GPU_TIME."
+    fullyQualifiedName: DBX_TEXT.system.billing.usage.usage_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 24ca5ecf-b132-4408-904b-4ed839557735
+  type: databaseSchema
+  name: billing
+  fullyQualifiedName: DBX_TEXT.system.billing
+  displayName: billing
+  deleted: false
+database:
+  id: 50dfef21-41eb-49c0-a730-45d52180143c
+  type: database
+  name: system
+  fullyQualifiedName: DBX_TEXT.system
+  displayName: system
+  deleted: false
+service:
+  id: bd97b214-e735-4211-a08b-a0f384214564
+  type: databaseService
+  name: DBX_TEXT
+  fullyQualifiedName: DBX_TEXT
+  description: ""
+  displayName: DBX_TEXT
+  deleted: false
+serviceType: Databricks
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 80cc24361682d2bab0b0edf2f9011d87
+processedLineage: false
+entityStatus: Approved

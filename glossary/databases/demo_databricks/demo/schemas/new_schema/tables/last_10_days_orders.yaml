@@ -1,0 +1,120 @@
+name: last_10_days_orders
+fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders
+tableType: View
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: Unique identifier
+    fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Name of the person
+    fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: STRUCT
+    dataTypeDisplay: "struct<street:string,city:string,state:string,postal_code:string,country:string,coordinates:struct<latitude:double,longitude:double>>"
+    description: Address information
+    fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address
+    tags: []
+    children:
+      - name: street
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address.street
+        tags: []
+        children: []
+      - name: city
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address.city
+        tags: []
+        children: []
+      - name: state
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address.state
+        tags: []
+        children: []
+      - name: postal_code
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address.postal_code
+        tags: []
+        children: []
+      - name: country
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address.country
+        tags: []
+        children: []
+      - name: coordinates
+        dataType: STRUCT
+        dataTypeDisplay: "struct<latitude:double,longitude:double>"
+        fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address.coordinates
+        tags: []
+        children:
+          - name: latitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address.coordinates.latitude
+            tags: []
+            children: []
+          - name: longitude
+            dataType: DOUBLE
+            dataTypeDisplay: double
+            fullyQualifiedName: demo_databricks.demo.new_schema.last_10_days_orders.address.coordinates.longitude
+            tags: []
+            children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 5e67f900-0b5b-431d-97f9-ec5e1a37aba1
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: demo_databricks.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: ad5f6cff-edc7-4ba0-a7f9-bc6c04c6ced2
+  type: database
+  name: demo
+  fullyQualifiedName: demo_databricks.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 48efaee1-3eaf-4769-b5bc-60eeea8cad6d
+  type: databaseService
+  name: demo_databricks
+  fullyQualifiedName: demo_databricks
+  description: ""
+  displayName: demo_databricks
+  deleted: false
+serviceType: Databricks
+schemaDefinition: "(\n  SELECT \n    l.id,\n    l.name,\n    o.address\n  FROM demo.new_schema.orders_list\
+  \ o\n  INNER JOIN demo.new_schema.person_address l ON o.name = l.name\n  LIMIT 10\n\
+  )"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 51f1dc158f3ef631d8618a38732c7b8a
+processedLineage: false
+entityStatus: Approved

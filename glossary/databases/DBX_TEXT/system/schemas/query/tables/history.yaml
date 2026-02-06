@@ -1,0 +1,493 @@
+name: history
+fullyQualifiedName: DBX_TEXT.system.query.history
+tableType: Regular
+columns:
+  - name: account_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The account ID.
+    fullyQualifiedName: DBX_TEXT.system.query.history.account_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: workspace_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The workspace ID.
+    fullyQualifiedName: DBX_TEXT.system.query.history.workspace_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: statement_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The statement ID.
+    fullyQualifiedName: DBX_TEXT.system.query.history.statement_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: executed_by
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The user name.
+    fullyQualifiedName: DBX_TEXT.system.query.history.executed_by
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: session_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The spark session ID.
+    fullyQualifiedName: DBX_TEXT.system.query.history.session_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: execution_status
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Enum of QUEUED, RUNNING, FINISHED, FAILED, CANCELED"
+    fullyQualifiedName: DBX_TEXT.system.query.history.execution_status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: compute
+    dataType: STRUCT
+    dataTypeDisplay: "struct<type:string,cluster_id:string,warehouse_id:string>"
+    description: A struct that represents the type of compute resource used to run
+      the statement and the ID of the resource where applicable. The type value will
+      be WAREHOUSE.
+    fullyQualifiedName: DBX_TEXT.system.query.history.compute
+    tags: []
+    children:
+      - name: type
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.compute.type
+        tags: []
+        children: []
+      - name: cluster_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.compute.cluster_id
+        tags: []
+        children: []
+      - name: warehouse_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.compute.warehouse_id
+        tags: []
+        children: []
+    customMetrics: []
+  - name: executed_by_user_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The ID of the user who ran the query.
+    fullyQualifiedName: DBX_TEXT.system.query.history.executed_by_user_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: statement_text
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The text of the query.
+    fullyQualifiedName: DBX_TEXT.system.query.history.statement_text
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: statement_type
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "Enum: OTHER, ALTER, ANALYZE, COPY, CREATE, DELETE, DESCRIBE, DROP,\
+      \ EXPLAIN, GRANT, INSERT, MERGE, OPTIMIZE, REFRESH, REPLACE, REVOKE, SELECT,\
+      \ SET, SHOW, TRUNCATE, UPDATE, USE"
+    fullyQualifiedName: DBX_TEXT.system.query.history.statement_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_message
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Message describing why the query could not complete.
+    fullyQualifiedName: DBX_TEXT.system.query.history.error_message
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: client_application
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: DBSQL UI/Tableau/PBI/etc.
+    fullyQualifiedName: DBX_TEXT.system.query.history.client_application
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: client_driver
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: ODBC/JDBC/REST/PYTHON/GO/NODE/etc. + version
+    fullyQualifiedName: DBX_TEXT.system.query.history.client_driver
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_duration_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Total execution time of the statement ( excluding result fetch time
+      ).
+    fullyQualifiedName: DBX_TEXT.system.query.history.total_duration_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: waiting_for_compute_duration_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Time spent in queue pending provisioning in milliseconds.
+    fullyQualifiedName: DBX_TEXT.system.query.history.waiting_for_compute_duration_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: waiting_at_capacity_duration_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Time spent in queue due to warehouse at capacity in milliseconds.
+    fullyQualifiedName: DBX_TEXT.system.query.history.waiting_at_capacity_duration_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: execution_duration_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Time spent executing the query in milliseconds.
+    fullyQualifiedName: DBX_TEXT.system.query.history.execution_duration_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: compilation_duration_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Time spent loading metadata and optimizing the statement in milliseconds.
+    fullyQualifiedName: DBX_TEXT.system.query.history.compilation_duration_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: total_task_duration_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Time spent fetching the statement results after the execution finished
+      in milliseconds.
+    fullyQualifiedName: DBX_TEXT.system.query.history.total_task_duration_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: result_fetch_duration_ms
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: "Time spent fetching the statement results after the execution finished,\
+      \ in milliseconds."
+    fullyQualifiedName: DBX_TEXT.system.query.history.result_fetch_duration_ms
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: start_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    description: The time the statement started.
+    fullyQualifiedName: DBX_TEXT.system.query.history.start_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: end_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    description: The time the statement ended (including results fetch time).
+    fullyQualifiedName: DBX_TEXT.system.query.history.end_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: update_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    description: The time the statement last received a progress update
+    fullyQualifiedName: DBX_TEXT.system.query.history.update_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: read_partitions
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The number of partitions read after pruning.
+    fullyQualifiedName: DBX_TEXT.system.query.history.read_partitions
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: pruned_files
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The number of pruned files.
+    fullyQualifiedName: DBX_TEXT.system.query.history.pruned_files
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: read_files
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The number of files read after pruning.
+    fullyQualifiedName: DBX_TEXT.system.query.history.read_files
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: read_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Total number of rows read by the query.
+    fullyQualifiedName: DBX_TEXT.system.query.history.read_rows
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: produced_rows
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Total number of rows returned by the query.
+    fullyQualifiedName: DBX_TEXT.system.query.history.produced_rows
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: read_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Total size of data read by the query in bytes.
+    fullyQualifiedName: DBX_TEXT.system.query.history.read_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: read_io_cache_percent
+    dataType: TINYINT
+    dataLength: 1
+    dataTypeDisplay: tinyint
+    description: '% persistent data read from the IO cache in bytes.'
+    fullyQualifiedName: DBX_TEXT.system.query.history.read_io_cache_percent
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: from_result_cache
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    description: True if the statement result was fetched from cache
+    fullyQualifiedName: DBX_TEXT.system.query.history.from_result_cache
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: spilled_local_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Size of data temporarily written to disk while executing the query
+      in bytes.
+    fullyQualifiedName: DBX_TEXT.system.query.history.spilled_local_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: written_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Size of persistent data written to cloud object storage in your cloud
+      tenant in bytes.
+    fullyQualifiedName: DBX_TEXT.system.query.history.written_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: shuffle_read_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: Total amount of data sent over the network in bytes.
+    fullyQualifiedName: DBX_TEXT.system.query.history.shuffle_read_bytes
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: query_source
+    dataType: STRUCT
+    dataTypeDisplay: "struct<job_info:struct<job_id:string,job_run_id:string>,legacy_dashboard_id:string,dashboard_id:string,alert_id:string,notebook_id:string,sql_query_id:string,genie_space_id:string>"
+    description: "A struct that contains key-value pairs representing one or more\
+      \ Databricks entities that were involved in the execution of this statement,\
+      \ such as jobs, notebooks, or dashboards. This field only records Databricks\
+      \ entities."
+    fullyQualifiedName: DBX_TEXT.system.query.history.query_source
+    tags: []
+    children:
+      - name: job_info
+        dataType: STRUCT
+        dataTypeDisplay: "struct<job_id:string,job_run_id:string>"
+        fullyQualifiedName: DBX_TEXT.system.query.history.query_source.job_info
+        tags: []
+        children:
+          - name: job_id
+            dataType: STRING
+            dataTypeDisplay: string
+            fullyQualifiedName: DBX_TEXT.system.query.history.query_source.job_info.job_id
+            tags: []
+            children: []
+          - name: job_run_id
+            dataType: STRING
+            dataTypeDisplay: string
+            fullyQualifiedName: DBX_TEXT.system.query.history.query_source.job_info.job_run_id
+            tags: []
+            children: []
+      - name: legacy_dashboard_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.query_source.legacy_dashboard_id
+        tags: []
+        children: []
+      - name: dashboard_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.query_source.dashboard_id
+        tags: []
+        children: []
+      - name: alert_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.query_source.alert_id
+        tags: []
+        children: []
+      - name: notebook_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.query_source.notebook_id
+        tags: []
+        children: []
+      - name: sql_query_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.query_source.sql_query_id
+        tags: []
+        children: []
+      - name: genie_space_id
+        dataType: STRING
+        dataTypeDisplay: string
+        fullyQualifiedName: DBX_TEXT.system.query.history.query_source.genie_space_id
+        tags: []
+        children: []
+    customMetrics: []
+  - name: executed_as_user_id
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The ID of the user or service principal whose privilege was used
+      to run the statement.
+    fullyQualifiedName: DBX_TEXT.system.query.history.executed_as_user_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: executed_as
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the user or service principal whose privilege was used
+      to run the statement.
+    fullyQualifiedName: DBX_TEXT.system.query.history.executed_as
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 44c1ed56-a038-46dc-a2b5-4e9e1558f193
+  type: databaseSchema
+  name: query
+  fullyQualifiedName: DBX_TEXT.system.query
+  displayName: query
+  deleted: false
+database:
+  id: 50dfef21-41eb-49c0-a730-45d52180143c
+  type: database
+  name: system
+  fullyQualifiedName: DBX_TEXT.system
+  displayName: system
+  deleted: false
+service:
+  id: bd97b214-e735-4211-a08b-a0f384214564
+  type: databaseService
+  name: DBX_TEXT
+  fullyQualifiedName: DBX_TEXT
+  description: ""
+  displayName: DBX_TEXT
+  deleted: false
+serviceType: Databricks
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: bd900d3d570290a64f3721dc1d7c7458
+processedLineage: false
+entityStatus: Approved
