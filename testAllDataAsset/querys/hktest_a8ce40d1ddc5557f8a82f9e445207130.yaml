@@ -1,0 +1,34 @@
+name: a8ce40d1ddc5557f8a82f9e445207130
+fullyQualifiedName: hktest.a8ce40d1ddc5557f8a82f9e445207130
+owners: []
+duration: 118.0
+users: []
+query: "WITH \"8511959cacf194b495273e731f3ed7de_rnd\" AS \n(SELECT \"WEB_PAGE_1\"\
+  .\"WP_IMAGE_COUNT\" AS \"WP_IMAGE_COUNT\" \nFROM \"TPCDS_SF10TCL\".\"WEB_PAGE\"\
+  \ AS \"WEB_PAGE_1\" TABLESAMPLE ROW(? ROWS)), \n\"8511959cacf194b495273e731f3ed7de_sample\"\
+  \ AS \n(SELECT \"8511959cacf194b495273e731f3ed7de_rnd\".\"WP_IMAGE_COUNT\" AS \"\
+  WP_IMAGE_COUNT\" \nFROM \"8511959cacf194b495273e731f3ed7de_rnd\")\n SELECT avg(\"\
+  WP_IMAGE_COUNT\") AS mean, count(\"WP_IMAGE_COUNT\") AS \"valuesCount\", count(DISTINCT\
+  \ \"WP_IMAGE_COUNT\") AS \"distinctCount\", MIN(\"WP_IMAGE_COUNT\") AS min, MAX(\"\
+  WP_IMAGE_COUNT\") AS max, coalesce(SUM(CASE WHEN (\"WP_IMAGE_COUNT\" IS ?) THEN\
+  \ ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"WP_IMAGE_COUNT\") AS stddev,\
+  \ SUM(\"WP_IMAGE_COUNT\") AS sum \nFROM \"8511959cacf194b495273e731f3ed7de_sample\"\
+  \n LIMIT ?"
+checksum: a8ce40d1ddc5557f8a82f9e445207130
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 15850230-c0de-41cd-9f07-b1bdcb2d47b6
+    type: table
+    name: WEB_PAGE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_PAGE
+    displayName: WEB_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

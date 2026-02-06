@@ -1,0 +1,32 @@
+name: a604d143a8cfd2580c88006f2ddbf9f0
+fullyQualifiedName: hktest.a604d143a8cfd2580c88006f2ddbf9f0
+owners: []
+duration: 62.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"DETECTED_AT\") AS\
+  \ count_1 \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"ALERTS_ANOMALY_DETECTION\" GROUP BY\
+  \ \"DETECTED_AT\" \nHAVING count(\"DETECTED_AT\") = ?) AS only_once\n LIMIT ?"
+checksum: a604d143a8cfd2580c88006f2ddbf9f0
+queryDate: 1748563200000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 7459035c-b190-4009-a3ff-280afbf84319
+    type: table
+    name: ALERTS_ANOMALY_DETECTION
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_ANOMALY_DETECTION
+    displayName: ALERTS_ANOMALY_DETECTION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,34 @@
+name: a10667c5305d9c2bacf2e801cf972c53
+fullyQualifiedName: hktest.a10667c5305d9c2bacf2e801cf972c53
+owners: []
+duration: 103.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_PVM_NUM_GRN_PAY_RM\"\
+  \ AS \"CONT_PVM_NUM_GRN_PAY_RM\" \nFROM \"CURATED\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_PVM_NUM_GRN_PAY_RM\" AS \"CONT_PVM_NUM_GRN_PAY_RM\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT avg(LEN(\"CONT_PVM_NUM_GRN_PAY_RM\")) AS mean, count(\"CONT_PVM_NUM_GRN_PAY_RM\"\
+  ) AS \"valuesCount\", count(DISTINCT \"CONT_PVM_NUM_GRN_PAY_RM\") AS \"distinctCount\"\
+  , MIN(LEN(\"CONT_PVM_NUM_GRN_PAY_RM\")) AS min, MAX(LEN(\"CONT_PVM_NUM_GRN_PAY_RM\"\
+  )) AS max, coalesce(SUM(CASE WHEN (\"CONT_PVM_NUM_GRN_PAY_RM\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"CONT_PVM_NUM_GRN_PAY_RM\")) AS stddev,\
+  \ SUM(LEN(\"CONT_PVM_NUM_GRN_PAY_RM\")) AS sum \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\
+  \n LIMIT ?"
+checksum: a10667c5305d9c2bacf2e801cf972c53
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 3f948976-e437-44ba-a8ed-576af3cb0807
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.CURATED.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

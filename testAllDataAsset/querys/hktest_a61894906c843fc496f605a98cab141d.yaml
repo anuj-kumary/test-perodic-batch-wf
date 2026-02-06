@@ -1,0 +1,32 @@
+name: a61894906c843fc496f605a98cab141d
+fullyQualifiedName: hktest.a61894906c843fc496f605a98cab141d
+owners: []
+duration: 91.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_TTL_1035_XCHNG_AMT\"\
+  \ AS \"CONT_TTL_1035_XCHNG_AMT\" \nFROM \"LANDING\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_TTL_1035_XCHNG_AMT\" AS \"CONT_TTL_1035_XCHNG_AMT\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_TTL_1035_XCHNG_AMT\"\
+  ) ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_TTL_1035_XCHNG_AMT\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_TTL_1035_XCHNG_AMT\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\n\
+  \ LIMIT ?"
+checksum: a61894906c843fc496f605a98cab141d
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,45 @@
+name: a64808c06581e221b0f49986454bb25c
+fullyQualifiedName: hktest.a64808c06581e221b0f49986454bb25c
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"7459035c-b190-4009-a3ff-280afbf84319\",\"type\":\"table\"\
+        ,\"name\":\"ALERTS_ANOMALY_DETECTION\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_ANOMALY_DETECTION\"\
+        ,\"displayName\":\"ALERTS_ANOMALY_DETECTION\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 85.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(LEN(\"TEST_NAME\")) AS mean, count(\"TEST_NAME\") AS \"valuesCount\"\
+  , count(DISTINCT \"TEST_NAME\") AS \"distinctCount\", MIN(LEN(\"TEST_NAME\")) AS\
+  \ min, MAX(LEN(\"TEST_NAME\")) AS max, coalesce(SUM(CASE WHEN (\"TEST_NAME\" IS\
+  \ ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(LEN(\"TEST_NAME\")) AS\
+  \ stddev, SUM(LEN(\"TEST_NAME\")) AS sum \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"ALERTS_ANOMALY_DETECTION\"\
+  \n LIMIT ?"
+checksum: a64808c06581e221b0f49986454bb25c
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 7459035c-b190-4009-a3ff-280afbf84319
+    type: table
+    name: ALERTS_ANOMALY_DETECTION
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.ALERTS_ANOMALY_DETECTION
+    displayName: ALERTS_ANOMALY_DETECTION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

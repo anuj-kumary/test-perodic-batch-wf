@@ -1,0 +1,31 @@
+name: a745a3acf09c3c59fb2dddd05875b692
+fullyQualifiedName: hktest.a745a3acf09c3c59fb2dddd05875b692
+owners: []
+duration: 193.0
+users: []
+query: "WITH \"34042d04d5b9455f924448e95d0f54a4_rnd\" AS \n(SELECT \"HOUSEHOLD_DEMOGRAPHICS_1\"\
+  .\"HD_BUY_POTENTIAL\" AS \"HD_BUY_POTENTIAL\" \nFROM \"TPCDS_SF10TCL\".\"HOUSEHOLD_DEMOGRAPHICS\"\
+  \ AS \"HOUSEHOLD_DEMOGRAPHICS_1\" TABLESAMPLE ROW(? ROWS)), \n\"34042d04d5b9455f924448e95d0f54a4_sample\"\
+  \ AS \n(SELECT \"34042d04d5b9455f924448e95d0f54a4_rnd\".\"HD_BUY_POTENTIAL\" AS\
+  \ \"HD_BUY_POTENTIAL\" \nFROM \"34042d04d5b9455f924448e95d0f54a4_rnd\")\n SELECT\
+  \ count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"HD_BUY_POTENTIAL\") AS count_1\
+  \ \nFROM \"34042d04d5b9455f924448e95d0f54a4_sample\" GROUP BY \"HD_BUY_POTENTIAL\"\
+  \ \nHAVING count(\"HD_BUY_POTENTIAL\") = ?) AS only_once\n LIMIT ?"
+checksum: a745a3acf09c3c59fb2dddd05875b692
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: fcc57c4d-d777-4c6c-ac9b-7a8bf1ff1e89
+    type: table
+    name: HOUSEHOLD_DEMOGRAPHICS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.HOUSEHOLD_DEMOGRAPHICS
+    displayName: HOUSEHOLD_DEMOGRAPHICS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

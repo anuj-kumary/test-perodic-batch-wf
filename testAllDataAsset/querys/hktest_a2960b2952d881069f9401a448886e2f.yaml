@@ -1,0 +1,33 @@
+name: a2960b2952d881069f9401a448886e2f
+fullyQualifiedName: hktest.a2960b2952d881069f9401a448886e2f
+owners: []
+duration: 689.0
+users: []
+query: "WITH \"7e1e38f985be2754c08477ddaebae286_rnd\" AS \n(SELECT \"WEB_SALES_1\"\
+  .\"WS_EXT_WHOLESALE_COST\" AS \"WS_EXT_WHOLESALE_COST\" \nFROM \"TPCDS_SF100TCL\"\
+  .\"WEB_SALES\" AS \"WEB_SALES_1\" TABLESAMPLE ROW(? ROWS)), \n\"7e1e38f985be2754c08477ddaebae286_sample\"\
+  \ AS \n(SELECT \"7e1e38f985be2754c08477ddaebae286_rnd\".\"WS_EXT_WHOLESALE_COST\"\
+  \ AS \"WS_EXT_WHOLESALE_COST\" \nFROM \"7e1e38f985be2754c08477ddaebae286_rnd\")\n\
+  \ SELECT percentile_cont(?) WITHIN GROUP (ORDER BY \"WS_EXT_WHOLESALE_COST\" ASC)\
+  \ AS median, percentile_cont(?) WITHIN GROUP (ORDER BY \"WS_EXT_WHOLESALE_COST\"\
+  \ ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY \"WS_EXT_WHOLESALE_COST\"\
+  \ ASC) AS \"thirdQuartile\" \nFROM \"7e1e38f985be2754c08477ddaebae286_sample\"\n\
+  \ LIMIT ?"
+checksum: a2960b2952d881069f9401a448886e2f
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 7f12a8b5-822b-4eb5-97e2-6d3a4cb1ca7e
+    type: table
+    name: WEB_SALES
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES
+    displayName: WEB_SALES
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

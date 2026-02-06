@@ -1,0 +1,33 @@
+name: a26a4b02ab1138745a2553818993f89a
+fullyQualifiedName: hktest.a26a4b02ab1138745a2553818993f89a
+owners: []
+duration: 191.0
+users: []
+query: "WITH f2f2d2f01de19150bb3ebe920b2950a7_rnd AS \n(SELECT \"INCOME_BAND_1\".\"\
+  IB_LOWER_BOUND\" AS \"IB_LOWER_BOUND\" \nFROM \"TPCDS_SF10TCL\".\"INCOME_BAND\"\
+  \ AS \"INCOME_BAND_1\" TABLESAMPLE ROW(? ROWS)), \nf2f2d2f01de19150bb3ebe920b2950a7_sample\
+  \ AS \n(SELECT f2f2d2f01de19150bb3ebe920b2950a7_rnd.\"IB_LOWER_BOUND\" AS \"IB_LOWER_BOUND\"\
+  \ \nFROM f2f2d2f01de19150bb3ebe920b2950a7_rnd)\n SELECT avg(\"IB_LOWER_BOUND\")\
+  \ AS mean, count(\"IB_LOWER_BOUND\") AS \"valuesCount\", count(DISTINCT \"IB_LOWER_BOUND\"\
+  ) AS \"distinctCount\", MIN(\"IB_LOWER_BOUND\") AS min, MAX(\"IB_LOWER_BOUND\")\
+  \ AS max, coalesce(SUM(CASE WHEN (\"IB_LOWER_BOUND\" IS ?) THEN ? ELSE ? END), ?)\
+  \ AS \"nullCount\", STDDEV_POP(\"IB_LOWER_BOUND\") AS stddev, SUM(\"IB_LOWER_BOUND\"\
+  ) AS sum \nFROM f2f2d2f01de19150bb3ebe920b2950a7_sample\n LIMIT ?"
+checksum: a26a4b02ab1138745a2553818993f89a
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9802e2fc-a93d-4541-bc83-3f25521547b4
+    type: table
+    name: INCOME_BAND
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.INCOME_BAND
+    displayName: INCOME_BAND
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

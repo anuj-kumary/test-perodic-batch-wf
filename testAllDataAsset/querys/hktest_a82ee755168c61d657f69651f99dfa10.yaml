@@ -1,0 +1,37 @@
+name: a82ee755168c61d657f69651f99dfa10
+fullyQualifiedName: hktest.a82ee755168c61d657f69651f99dfa10
+owners: []
+duration: 115.0
+users: []
+query: "WITH \"69aede266809f89b89fe70681f6a129f_rnd\" AS \n(SELECT \"REGION_1\".\"\
+  R_NAME\" AS \"R_NAME\" \nFROM \"TPCH_SF100\".\"REGION\" AS \"REGION_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"69aede266809f89b89fe70681f6a129f_sample\" AS \n(SELECT \"69aede266809f89b89fe70681f6a129f_rnd\"\
+  .\"R_NAME\" AS \"R_NAME\" \nFROM \"69aede266809f89b89fe70681f6a129f_rnd\")\n SELECT\
+  \ count(CASE WHEN (LEN(\"R_NAME\") >= ? AND LEN(\"R_NAME\") < ?) THEN LEN(\"R_NAME\"\
+  ) END) AS \"4.000 to 5.170\", count(CASE WHEN (LEN(\"R_NAME\") >= ? AND LEN(\"R_NAME\"\
+  ) < ?) THEN LEN(\"R_NAME\") END) AS \"5.170 to 6.339\", count(CASE WHEN (LEN(\"\
+  R_NAME\") >= ? AND LEN(\"R_NAME\") < ?) THEN LEN(\"R_NAME\") END) AS \"6.339 to\
+  \ 7.509\", count(CASE WHEN (LEN(\"R_NAME\") >= ? AND LEN(\"R_NAME\") < ?) THEN LEN(\"\
+  R_NAME\") END) AS \"7.509 to 8.678\", count(CASE WHEN (LEN(\"R_NAME\") >= ? AND\
+  \ LEN(\"R_NAME\") < ?) THEN LEN(\"R_NAME\") END) AS \"8.678 to 9.848\", count(CASE\
+  \ WHEN (LEN(\"R_NAME\") >= ?) THEN LEN(\"R_NAME\") END) AS \"9.848 and up\" \nFROM\
+  \ \"69aede266809f89b89fe70681f6a129f_sample\"\n LIMIT ?"
+checksum: a82ee755168c61d657f69651f99dfa10
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 4256ee58-a99c-4d03-9ce3-b0ecb5c45b05
+    type: table
+    name: REGION
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.REGION
+    description: Region data as defined by TPC-H
+    displayName: REGION
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,36 @@
+name: a61151e18094676a0c52637370577657
+fullyQualifiedName: hktest.a61151e18094676a0c52637370577657
+owners: []
+duration: 71.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"LAST_CONTACT_AUDIT_DATE_C\"\
+  \ AS \"LAST_CONTACT_AUDIT_DATE_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT\
+  \ c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"LAST_CONTACT_AUDIT_DATE_C\" AS \"LAST_CONTACT_AUDIT_DATE_C\"\
+  \ \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n SELECT ? AS anon_1, count(\"LAST_CONTACT_AUDIT_DATE_C\"\
+  ) AS \"valuesCount\", count(DISTINCT \"LAST_CONTACT_AUDIT_DATE_C\") AS \"distinctCount\"\
+  , MIN(\"LAST_CONTACT_AUDIT_DATE_C\") AS min, MAX(\"LAST_CONTACT_AUDIT_DATE_C\")\
+  \ AS max, coalesce(SUM(CASE WHEN (\"LAST_CONTACT_AUDIT_DATE_C\" IS ?) THEN ? ELSE\
+  \ ? END), ?) AS \"nullCount\", ? AS anon__1, ? AS anon__2 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample\n\
+  \ LIMIT ?"
+checksum: a61151e18094676a0c52637370577657
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

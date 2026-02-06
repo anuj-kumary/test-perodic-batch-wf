@@ -1,0 +1,38 @@
+name: a09e16e7eed7e3d94ac671a5c3392648
+fullyQualifiedName: hktest.a09e16e7eed7e3d94ac671a5c3392648
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"9bc6307f-5d2d-4ecf-b1f5-f791a29d4443\",\"type\":\"table\"\
+        ,\"name\":\"PART\",\"fullyQualifiedName\":\"hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART\"\
+        ,\"description\":\"Part data as defined by TPC-H\",\"displayName\":\"PART\"\
+        ,\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 156.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"P_NAME\") AS count_1\
+  \ \nFROM \"TPCH_SF1\".\"PART\" GROUP BY \"P_NAME\" \nHAVING count(\"P_NAME\") =\
+  \ ?) AS only_once\n LIMIT ?"
+checksum: a09e16e7eed7e3d94ac671a5c3392648
+queryDate: 1747526400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 9bc6307f-5d2d-4ecf-b1f5-f791a29d4443
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,31 @@
+name: a2a47126d3be838e832d6ed1fff6056d
+fullyQualifiedName: hktest.a2a47126d3be838e832d6ed1fff6056d
+owners: []
+duration: 98.0
+users: []
+query: "WITH \"15e219364c9158944561b60284e81c87_rnd\" AS \n(SELECT \"DATE_DIM_1\"\
+  .\"D_QUARTER_NAME\" AS \"D_QUARTER_NAME\" \nFROM \"TPCDS_SF100TCL\".\"DATE_DIM\"\
+  \ AS \"DATE_DIM_1\" TABLESAMPLE ROW(? ROWS)), \n\"15e219364c9158944561b60284e81c87_sample\"\
+  \ AS \n(SELECT \"15e219364c9158944561b60284e81c87_rnd\".\"D_QUARTER_NAME\" AS \"\
+  D_QUARTER_NAME\" \nFROM \"15e219364c9158944561b60284e81c87_rnd\")\n SELECT count(*)\
+  \ AS \"uniqueCount\" \nFROM (SELECT count(\"D_QUARTER_NAME\") AS count_1 \nFROM\
+  \ \"15e219364c9158944561b60284e81c87_sample\" GROUP BY \"D_QUARTER_NAME\" \nHAVING\
+  \ count(\"D_QUARTER_NAME\") = ?) AS only_once\n LIMIT ?"
+checksum: a2a47126d3be838e832d6ed1fff6056d
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 31e5520d-ab7b-465c-9eee-1849572de9b7
+    type: table
+    name: DATE_DIM
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.DATE_DIM
+    displayName: DATE_DIM
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

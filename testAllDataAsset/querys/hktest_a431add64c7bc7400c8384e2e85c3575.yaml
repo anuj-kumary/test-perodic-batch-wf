@@ -1,0 +1,32 @@
+name: a431add64c7bc7400c8384e2e85c3575
+fullyQualifiedName: hktest.a431add64c7bc7400c8384e2e85c3575
+owners: []
+duration: 60.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CREATED_AT\") AS\
+  \ count_1 \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"SCHEMA_COLUMNS_SNAPSHOT\" GROUP BY\
+  \ \"CREATED_AT\" \nHAVING count(\"CREATED_AT\") = ?) AS only_once\n LIMIT ?"
+checksum: a431add64c7bc7400c8384e2e85c3575
+queryDate: 1748563200000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: c27ff794-d899-421c-a0d8-d5b1667216d9
+    type: table
+    name: SCHEMA_COLUMNS_SNAPSHOT
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SCHEMA_COLUMNS_SNAPSHOT
+    displayName: SCHEMA_COLUMNS_SNAPSHOT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

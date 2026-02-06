@@ -1,0 +1,53 @@
+name: a298e272c7808177330501e78f0425e0
+fullyQualifiedName: hktest.a298e272c7808177330501e78f0425e0
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"1067c449-1123-409b-88c7-98614f62bedd\",\"type\":\"table\"\
+        ,\"name\":\"SNAPSHOT_RUN_RESULTS\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SNAPSHOT_RUN_RESULTS\"\
+        ,\"displayName\":\"SNAPSHOT_RUN_RESULTS\",\"deleted\":false}]"
+  previousVersion: 1.1
+  changeSummary: {}
+owners: []
+duration: 244.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "create or replace   view dbt_db.DBT_SAMPLE_elementary.snapshot_run_results\n\
+  \  \n   as (\n    \n\nwith dbt_run_results as (\n    select * from dbt_db.DBT_SAMPLE_elementary.dbt_run_results\n\
+  ),\n\ndbt_snapshots as (\n    select * from dbt_db.DBT_SAMPLE_elementary.dbt_snapshots\n\
+  )\n\nSELECT\n    run_results.model_execution_id,\n    run_results.unique_id,\n \
+  \   run_results.invocation_id,\n    run_results.query_id,\n    run_results.name,\n\
+  \    run_results.generated_at,\n    run_results.status,\n    run_results.full_refresh,\n\
+  \    run_results.message,\n    run_results.execution_time,\n    run_results.execute_started_at,\n\
+  \    run_results.execute_completed_at,\n    run_results.compile_started_at,\n  \
+  \  run_results.compile_completed_at,\n    run_results.compiled_code,\n    run_results.adapter_response,\n\
+  \    run_results.thread_id,\n    snapshots.database_name,\n    snapshots.schema_name,\n\
+  \    coalesce(run_results.materialization, snapshots.materialization) as materialization,\n\
+  \    snapshots.tags,\n    snapshots.package_name,\n    snapshots.path,\n    snapshots.original_path,\n\
+  \    snapshots.owner,\n    snapshots.alias\nFROM dbt_run_results run_results\nJOIN\
+  \ dbt_snapshots snapshots ON run_results.unique_id = snapshots.unique_id\n  );"
+checksum: a298e272c7808177330501e78f0425e0
+queryDate: 1748476800000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 1a977e20-ac5d-4bad-8a66-725d5b95e434
+    type: table
+    name: DBT_SNAPSHOTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.DBT_SNAPSHOTS
+    displayName: DBT_SNAPSHOTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

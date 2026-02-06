@@ -1,0 +1,30 @@
+name: aa1019cc5e974d13cab5bb7e902b9f9d
+fullyQualifiedName: hktest.aa1019cc5e974d13cab5bb7e902b9f9d
+owners: []
+duration: 90.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_CONTRACT_MAIL_DATE\"\
+  \ AS \"CONT_CONTRACT_MAIL_DATE\" \nFROM \"LANDING\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_CONTRACT_MAIL_DATE\" AS \"CONT_CONTRACT_MAIL_DATE\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"CONT_CONTRACT_MAIL_DATE\"\
+  ) AS count_1 \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\" GROUP BY \"CONT_CONTRACT_MAIL_DATE\"\
+  \ \nHAVING count(\"CONT_CONTRACT_MAIL_DATE\") = ?) AS only_once\n LIMIT ?"
+checksum: aa1019cc5e974d13cab5bb7e902b9f9d
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

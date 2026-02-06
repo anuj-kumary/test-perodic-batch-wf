@@ -1,0 +1,45 @@
+name: a8207fba1b0ace2aae761a9729a5ffe3
+fullyQualifiedName: hktest.a8207fba1b0ace2aae761a9729a5ffe3
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: queryUsedIn
+      oldValue: "[{\"id\":\"05b69fe3-187a-4d25-9617-b7917cea2158\",\"type\":\"table\"\
+        ,\"name\":\"MY_SECOND_DBT_MODEL\",\"fullyQualifiedName\":\"hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL\"\
+        ,\"displayName\":\"MY_SECOND_DBT_MODEL\",\"deleted\":false}]"
+  previousVersion: 0.1
+  changeSummary: {}
+owners: []
+duration: 159.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT avg(\"ID\") AS mean, count(\"ID\") AS \"valuesCount\", count(DISTINCT\
+  \ \"ID\") AS \"distinctCount\", MIN(\"ID\") AS min, MAX(\"ID\") AS max, coalesce(SUM(CASE\
+  \ WHEN (\"ID\" IS ?) THEN ? ELSE ? END), ?) AS \"nullCount\", STDDEV_POP(\"ID\"\
+  ) AS stddev, SUM(\"ID\") AS sum \nFROM \"DBT_SAMPLE\".\"MY_SECOND_DBT_MODEL\"\n\
+  \ LIMIT ?"
+checksum: a8207fba1b0ace2aae761a9729a5ffe3
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 05b69fe3-187a-4d25-9617-b7917cea2158
+    type: table
+    name: MY_SECOND_DBT_MODEL
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE.MY_SECOND_DBT_MODEL
+    description: A starter dbt model
+    displayName: MY_SECOND_DBT_MODEL
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

@@ -1,0 +1,33 @@
+name: a5c0538ac7a6563217adfc8e1ed611ee
+fullyQualifiedName: hktest.a5c0538ac7a6563217adfc8e1ed611ee
+owners: []
+duration: 62.0
+users: []
+query: "WITH c40eb667c7e828cfdcfb437c5d221bf6_rnd AS \n(SELECT \"ACCOUNT_1\".\"YOU_TUBE_CLICKS_YTD_C\"\
+  \ AS \"YOU_TUBE_CLICKS_YTD_C\" \nFROM \"PUBLIC\".\"ACCOUNT\" AS \"ACCOUNT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \nc40eb667c7e828cfdcfb437c5d221bf6_sample AS \n(SELECT c40eb667c7e828cfdcfb437c5d221bf6_rnd.\"\
+  YOU_TUBE_CLICKS_YTD_C\" AS \"YOU_TUBE_CLICKS_YTD_C\" \nFROM c40eb667c7e828cfdcfb437c5d221bf6_rnd)\n\
+  \ SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"YOU_TUBE_CLICKS_YTD_C\"\
+  ) AS count_1 \nFROM c40eb667c7e828cfdcfb437c5d221bf6_sample GROUP BY \"YOU_TUBE_CLICKS_YTD_C\"\
+  \ \nHAVING count(\"YOU_TUBE_CLICKS_YTD_C\") = ?) AS only_once\n LIMIT ?"
+checksum: a5c0538ac7a6563217adfc8e1ed611ee
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: f8ab8061-1d41-4b83-987f-d8d5ffba7396
+    type: table
+    name: ACCOUNT
+    fullyQualifiedName: hktest.TEST_DB.PUBLIC.ACCOUNT
+    description: |-
+      new description for testing.
+      collate
+    displayName: ACCOUNT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

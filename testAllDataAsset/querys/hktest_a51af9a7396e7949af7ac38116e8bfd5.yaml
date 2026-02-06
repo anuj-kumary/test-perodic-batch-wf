@@ -1,0 +1,36 @@
+name: a51af9a7396e7949af7ac38116e8bfd5
+fullyQualifiedName: hktest.a51af9a7396e7949af7ac38116e8bfd5
+owners: []
+duration: 252.0
+users: []
+query: "WITH e1e55cb3593a67b4598950cbcd482369_rnd AS \n(SELECT \"CUSTOMER_DEMOGRAPHICS_1\"\
+  .\"CD_EDUCATION_STATUS\" AS \"CD_EDUCATION_STATUS\" \nFROM \"TPCDS_SF10TCL\".\"\
+  CUSTOMER_DEMOGRAPHICS\" AS \"CUSTOMER_DEMOGRAPHICS_1\" TABLESAMPLE ROW(? ROWS)),\
+  \ \ne1e55cb3593a67b4598950cbcd482369_sample AS \n(SELECT e1e55cb3593a67b4598950cbcd482369_rnd.\"\
+  CD_EDUCATION_STATUS\" AS \"CD_EDUCATION_STATUS\" \nFROM e1e55cb3593a67b4598950cbcd482369_rnd)\n\
+  \ SELECT count(CASE WHEN (LEN(\"CD_EDUCATION_STATUS\") >= ? AND LEN(\"CD_EDUCATION_STATUS\"\
+  ) < ?) THEN LEN(\"CD_EDUCATION_STATUS\") END) AS \"7.000 to 9.172\", count(CASE\
+  \ WHEN (LEN(\"CD_EDUCATION_STATUS\") >= ? AND LEN(\"CD_EDUCATION_STATUS\") < ?)\
+  \ THEN LEN(\"CD_EDUCATION_STATUS\") END) AS \"9.172 to 11.343\", count(CASE WHEN\
+  \ (LEN(\"CD_EDUCATION_STATUS\") >= ? AND LEN(\"CD_EDUCATION_STATUS\") < ?) THEN\
+  \ LEN(\"CD_EDUCATION_STATUS\") END) AS \"11.343 to 13.515\", count(CASE WHEN (LEN(\"\
+  CD_EDUCATION_STATUS\") >= ?) THEN LEN(\"CD_EDUCATION_STATUS\") END) AS \"13.515\
+  \ and up\" \nFROM e1e55cb3593a67b4598950cbcd482369_sample\n LIMIT ?"
+checksum: a51af9a7396e7949af7ac38116e8bfd5
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: ed3bd8c4-a63a-4a06-883b-1e5c05ca6392
+    type: table
+    name: CUSTOMER_DEMOGRAPHICS
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CUSTOMER_DEMOGRAPHICS
+    displayName: CUSTOMER_DEMOGRAPHICS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
