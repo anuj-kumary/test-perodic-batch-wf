@@ -1,0 +1,102 @@
+name: forecast_sales
+fullyQualifiedName: mlflow_svc.forecast_sales
+displayName: Sales Forecast Predictions
+description: Sales Forecast Predictions Model
+algorithm: mlmodel
+mlFeatures:
+  - name: historical_sales
+    dataType: numerical
+    fullyQualifiedName: mlflow_svc.forecast_sales.historical_sales
+    featureSources: []
+  - name: month
+    dataType: categorical
+    fullyQualifiedName: mlflow_svc.forecast_sales.month
+    featureSources: []
+  - name: promotion_flag
+    dataType: categorical
+    fullyQualifiedName: mlflow_svc.forecast_sales.promotion_flag
+    featureSources: []
+mlHyperParameters:
+  - name: seasonality_mode
+    value: multiplicative
+  - name: changepoint_prior_scale
+    value: 0.05
+  - name: seasonality_prior_scale
+    value: 10.0
+dashboard:
+  id: 2c61aff2-14be-4cb7-adfc-e2140dec6bc0
+  type: dashboard
+  name: forecast_sales_performance
+  fullyQualifiedName: sample_superset.forecast_sales_performance
+  description: ""
+  displayName: ETA Predictions Performance
+  deleted: false
+mlStore:
+  storage: mlflow-artifacts:/2/xyz789abc012/artifacts/model
+owners:
+  - id: 18ca6cd1-d696-4a22-813f-c7a42fc09dc4
+    type: user
+    name: ashish
+    fullyQualifiedName: ashish
+    description: this is test description. this is test description!this is test description!this
+      is test description!this is test description!this is test description!this is
+      test description!this is test description!this is test description!this is test
+      description!this is test description!
+    displayName: Ashish Gupta
+    deleted: false
+tags:
+  - tagFQN: PII.Sensitive
+    name: Sensitive
+    description: "PII which if lost, compromised, or disclosed without authorization,\
+      \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+      \ to an individual."
+    style:
+      color: "#ff0000"
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+service:
+  id: b8cbebe5-58f0-493e-81f9-ad76e7695164
+  type: mlmodelService
+  name: mlflow_svc
+  fullyQualifiedName: mlflow_svc
+  displayName: mlflow_svc
+  deleted: false
+serviceType: Mlflow
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: mlFeatures
+      newValue: "[{\"name\":\"historical_sales\",\"dataType\":\"numerical\",\"fullyQualifiedName\"\
+        :\"mlflow_svc.forecast_sales.historical_sales\",\"featureSources\":[]},{\"\
+        name\":\"month\",\"dataType\":\"categorical\",\"fullyQualifiedName\":\"mlflow_svc.forecast_sales.month\"\
+        ,\"featureSources\":[]},{\"name\":\"promotion_flag\",\"dataType\":\"categorical\"\
+        ,\"fullyQualifiedName\":\"mlflow_svc.forecast_sales.promotion_flag\",\"featureSources\"\
+        :[]}]"
+    - name: mlHyperParameters
+      newValue: "[{\"name\":\"seasonality_mode\",\"value\":\"multiplicative\"},{\"\
+        name\":\"changepoint_prior_scale\",\"value\":\"0.05\"},{\"name\":\"seasonality_prior_scale\"\
+        ,\"value\":\"10.0\"}]"
+    - name: mlStore
+      newValue: "{\"storage\":\"mlflow-artifacts:/2/xyz789abc012/artifacts/model\"\
+        }"
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: Unprocessed
+    - name: algorithm
+      oldValue: Time Series
+      newValue: mlmodel
+  fieldsDeleted: []
+  previousVersion: 2.7
+  changeSummary: {}
+domains:
+  - id: 761f0a12-7b08-4889-acc3-b8d4d11a7865
+    type: domain
+    name: domain.with.dot
+    fullyQualifiedName: '"domain.with.dot"'
+    description: domain.with.dot
+    displayName: domain.with.dot
+dataProducts: []
+entityStatus: Unprocessed

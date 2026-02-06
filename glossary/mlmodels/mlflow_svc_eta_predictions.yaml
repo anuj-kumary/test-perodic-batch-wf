@@ -1,0 +1,216 @@
+name: eta_predictions
+fullyQualifiedName: mlflow_svc.eta_predictions
+displayName: ETA Predictions
+description: ETA Predictions Model
+algorithm: mlmodel
+mlFeatures:
+  - name: distance
+    dataType: numerical
+    fullyQualifiedName: mlflow_svc.eta_predictions.distance
+    featureSources: []
+  - name: traffic_density
+    dataType: numerical
+    fullyQualifiedName: mlflow_svc.eta_predictions.traffic_density
+    featureSources: []
+  - name: weather_condition
+    dataType: categorical
+    fullyQualifiedName: mlflow_svc.eta_predictions.weather_condition
+    featureSources: []
+  - name: day_of_week
+    dataType: categorical
+    fullyQualifiedName: mlflow_svc.eta_predictions.day_of_week
+    featureSources: []
+mlHyperParameters:
+  - name: learning_rate
+    value: 0.001
+  - name: batch_size
+    value: 32
+  - name: epochs
+    value: 100
+  - name: dropout_rate
+    value: 0.3
+dashboard:
+  id: 1faa74ba-9952-4591-aef2-9acfaf9c14d1
+  type: dashboard
+  name: eta_predictions_performance
+  fullyQualifiedName: sample_superset.eta_predictions_performance
+  description: ""
+  displayName: ETA Predictions Performance
+  deleted: false
+mlStore:
+  storage: mlflow-artifacts:/1/abc123def456/artifacts/model
+owners:
+  - id: fb8e44c9-b9c5-45bc-9691-b3343b5d5b7c
+    type: user
+    name: 23saints23
+    fullyQualifiedName: 23saints23
+    displayName: 23saints23
+    deleted: false
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+  - id: d9b7c607-9f6d-4478-b02f-8fd754aac26b
+    type: user
+    name: carlosmartinez
+    fullyQualifiedName: carlosmartinez
+    displayName: Aaron Cantrell
+    deleted: false
+  - id: d80a224c-d4e4-4d8d-acbc-c07f8eac81f2
+    type: user
+    name: cschultz
+    fullyQualifiedName: cschultz
+    displayName: Aaron Brandt
+    deleted: false
+  - id: 02d03179-e7fb-4006-8a82-aa058a46c57e
+    type: user
+    name: jaimecrosby
+    fullyQualifiedName: jaimecrosby
+    displayName: Aaron Bradley
+    deleted: false
+  - id: 10f000b3-98e8-44ce-9323-e5428da915ba
+    type: user
+    name: jeffery97
+    fullyQualifiedName: jeffery97
+    displayName: Aaron Brown
+    deleted: false
+  - id: d8cd184a-ca4d-4312-b8a3-a3e009cd3686
+    type: user
+    name: sweta.agarwalla
+    fullyQualifiedName: '"sweta.agarwalla"'
+    description: ""
+    displayName: sweta.agarwalla
+    deleted: false
+  - id: d0107fe9-afbe-4966-914f-bfec7dfc5861
+    type: user
+    name: wilsondanny
+    fullyQualifiedName: wilsondanny
+    displayName: Aaron Baker
+    deleted: false
+tags:
+  - tagFQN: Tier.Tier1
+    name: Tier1
+    description: |-
+      **Critical Source of Truth business data assets of an organization**
+
+      - Used in critical metrics and dashboards to drive business and product decisions
+
+      - Used in critical compliance reporting to regulators, govt entities, and third party
+
+      - Used in brand or revenue impacting online user-facing experiences (search results, advertisement, promotions, and experimentation)
+
+      - Other high impact use, such as ML models and fraud detection
+
+      - Source used to derive other critical Tier-1 datasets
+    style:
+      color: "#ec1313"
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: '`custom`.tag1'
+    name: tag1
+    displayName: tag1
+    description: <p>tag1</p>
+    style:
+      color: "#fd3f3f"
+      iconURL: https://cdn-icons-png.flaticon.com/512/9029/9029931.png
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+service:
+  id: b8cbebe5-58f0-493e-81f9-ad76e7695164
+  type: mlmodelService
+  name: mlflow_svc
+  fullyQualifiedName: mlflow_svc
+  displayName: mlflow_svc
+  deleted: false
+serviceType: Mlflow
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: mlFeatures
+      newValue: "[{\"name\":\"distance\",\"dataType\":\"numerical\",\"fullyQualifiedName\"\
+        :\"mlflow_svc.eta_predictions.distance\",\"featureSources\":[]},{\"name\"\
+        :\"traffic_density\",\"dataType\":\"numerical\",\"fullyQualifiedName\":\"\
+        mlflow_svc.eta_predictions.traffic_density\",\"featureSources\":[]},{\"name\"\
+        :\"weather_condition\",\"dataType\":\"categorical\",\"fullyQualifiedName\"\
+        :\"mlflow_svc.eta_predictions.weather_condition\",\"featureSources\":[]},{\"\
+        name\":\"day_of_week\",\"dataType\":\"categorical\",\"fullyQualifiedName\"\
+        :\"mlflow_svc.eta_predictions.day_of_week\",\"featureSources\":[]}]"
+    - name: mlHyperParameters
+      newValue: "[{\"name\":\"learning_rate\",\"value\":\"0.001\"},{\"name\":\"batch_size\"\
+        ,\"value\":\"32\"},{\"name\":\"epochs\",\"value\":\"100\"},{\"name\":\"dropout_rate\"\
+        ,\"value\":\"0.3\"}]"
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: Unprocessed
+    - name: algorithm
+      oldValue: Neural Network
+      newValue: mlmodel
+    - name: mlStore
+      oldValue: "{\"storage\":\"s3://path-to-pickle\",\"imageRepository\":\"https://docker.hub.com/image\"\
+        }"
+      newValue: "{\"storage\":\"mlflow-artifacts:/1/abc123def456/artifacts/model\"\
+        }"
+  fieldsDeleted:
+    - name: mlFeatures
+      oldValue: "[{\"name\":\"sales\",\"dataType\":\"numerical\",\"description\":\"\
+        Sales amount\",\"fullyQualifiedName\":\"mlflow_svc.eta_predictions.sales\"\
+        ,\"featureSources\":[{\"name\":\"gross_sales\",\"dataType\":\"integer\",\"\
+        fullyQualifiedName\":\"sample_data.ecommerce_db.shopify.fact_sale.gross_sales\"\
+        ,\"dataSource\":{\"id\":\"8cb6dbd3-1c4b-48c3-ab53-1e964f355d03\",\"type\"\
+        :\"table\",\"fullyQualifiedName\":\"sample_data.ecommerce_db.shopify.fact_sale\"\
+        ,\"description\":\"The fact table captures the value of products sold or returned,\
+        \ as well as the values of other charges such as taxes and shipping costs.\
+        \ The sales table contains one row per order line item, one row per returned\
+        \ line item, and one row per shipping charge. Use this table when you need\
+        \ financial metrics.\",\"href\":\"https://sandbox-beta.open-metadata.org/v1/tables/8cb6dbd3-1c4b-48c3-ab53-1e964f355d03\"\
+        },\"tags\":[]}]},{\"name\":\"persona\",\"dataType\":\"categorical\",\"description\"\
+        :\"type of buyer\",\"fullyQualifiedName\":\"mlflow_svc.eta_predictions.persona\"\
+        ,\"featureSources\":[{\"name\":\"membership\",\"dataType\":\"string\",\"fullyQualifiedName\"\
+        :\"sample_data.ecommerce_db.shopify.raw_customer.membership\",\"dataSource\"\
+        :{\"id\":\"7de1572e-e66a-47b4-aec0-67366f1c56fb\",\"type\":\"table\",\"fullyQualifiedName\"\
+        :\"sample_data.ecommerce_db.shopify.raw_customer\",\"description\":\"This\
+        \ is a raw customers table as represented in our online DB. This contains\
+        \ personal, shipping and billing addresses and details of the customer store\
+        \ and customer profile. This table is used to build our dimensional and fact\
+        \ tables\",\"href\":\"https://sandbox-beta.open-metadata.org/v1/tables/7de1572e-e66a-47b4-aec0-67366f1c56fb\"\
+        },\"tags\":[]},{\"name\":\"platform\",\"dataType\":\"string\",\"fullyQualifiedName\"\
+        :\"sample_data.ecommerce_db.shopify.raw_customer.platform\",\"dataSource\"\
+        :{\"id\":\"7de1572e-e66a-47b4-aec0-67366f1c56fb\",\"type\":\"table\",\"fullyQualifiedName\"\
+        :\"sample_data.ecommerce_db.shopify.raw_customer\",\"description\":\"This\
+        \ is a raw customers table as represented in our online DB. This contains\
+        \ personal, shipping and billing addresses and details of the customer store\
+        \ and customer profile. This table is used to build our dimensional and fact\
+        \ tables\",\"href\":\"https://sandbox-beta.open-metadata.org/v1/tables/7de1572e-e66a-47b4-aec0-67366f1c56fb\"\
+        },\"tags\":[]}],\"featureAlgorithm\":\"PCA\"}]"
+    - name: mlHyperParameters
+      oldValue: "[{\"name\":\"regularisation\",\"value\":\"0.5\"},{\"name\":\"random\"\
+        ,\"value\":\"hello\"}]"
+    - name: server
+      oldValue: http://my-server.ai/
+    - name: target
+      oldValue: ETA_time
+  previousVersion: 1.4
+  changeSummary: {}
+domains:
+  - id: c5953260-03a0-47dc-a602-7431689b0a3e
+    type: domain
+    name: testing-rbac-sub-domain
+    fullyQualifiedName: Design.testing-rbac-sub-domain
+    description: Testing RBAC SUB DOMAIN
+    displayName: Testing RBAC SUB DOMAIN
+dataProducts: []
+entityStatus: Unprocessed

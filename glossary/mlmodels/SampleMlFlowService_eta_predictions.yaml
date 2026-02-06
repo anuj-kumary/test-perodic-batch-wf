@@ -1,0 +1,61 @@
+name: eta_predictions
+fullyQualifiedName: SampleMlFlowService.eta_predictions
+displayName: ETA Predictions
+description: ETA Predictions Model
+algorithm: Neural Network
+mlFeatures:
+  - name: sales
+    dataType: numerical
+    description: Sales amount
+    fullyQualifiedName: SampleMlFlowService.eta_predictions.sales
+    featureSources:
+      - name: gross_sales
+        dataType: integer
+        fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.fact_sale.gross_sales
+        dataSource:
+          type: table
+          fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.fact_sale
+        tags: []
+  - name: persona
+    dataType: categorical
+    description: type of buyer
+    fullyQualifiedName: SampleMlFlowService.eta_predictions.persona
+    featureSources:
+      - name: membership
+        dataType: string
+        fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.raw_customer.membership
+        dataSource:
+          type: table
+          fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.raw_customer
+        tags: []
+      - name: platform
+        dataType: string
+        fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.raw_customer.platform
+        dataSource:
+          type: table
+          fullyQualifiedName: SampleBigQueryDataService.ecommerce_db.shopify.raw_customer
+        tags: []
+    featureAlgorithm: PCA
+mlHyperParameters:
+  - name: regularisation
+    value: 0.5
+  - name: random
+    value: hello
+target: ETA_time
+mlStore:
+  storage: s3://path-to-pickle
+  imageRepository: https://docker.hub.com/image
+server: http://my-server.ai
+owners: []
+tags: []
+service:
+  id: 7ef4d899-01d1-4b4d-890d-5b61c872cf71
+  type: mlmodelService
+  name: SampleMlFlowService
+  fullyQualifiedName: SampleMlFlowService
+  displayName: SampleMlFlowService
+  deleted: false
+serviceType: Mlflow
+domains: []
+dataProducts: []
+entityStatus: Unprocessed

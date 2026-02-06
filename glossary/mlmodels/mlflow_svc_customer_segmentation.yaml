@@ -1,0 +1,66 @@
+name: customer_segmentation
+fullyQualifiedName: mlflow_svc.customer_segmentation
+displayName: Customer Segmentation Model
+description: Clustering model for customer segmentation based on purchase behavior
+  and demographics
+algorithm: mlmodel
+mlFeatures:
+  - name: total_purchase_amount
+    dataType: numerical
+    fullyQualifiedName: mlflow_svc.customer_segmentation.total_purchase_amount
+    featureSources: []
+  - name: purchase_frequency
+    dataType: numerical
+    fullyQualifiedName: mlflow_svc.customer_segmentation.purchase_frequency
+    featureSources: []
+  - name: avg_basket_size
+    dataType: numerical
+    fullyQualifiedName: mlflow_svc.customer_segmentation.avg_basket_size
+    featureSources: []
+  - name: customer_age_group
+    dataType: categorical
+    fullyQualifiedName: mlflow_svc.customer_segmentation.customer_age_group
+    featureSources: []
+  - name: preferred_category
+    dataType: categorical
+    fullyQualifiedName: mlflow_svc.customer_segmentation.preferred_category
+    featureSources: []
+mlHyperParameters:
+  - name: n_clusters
+    value: 5
+  - name: max_iter
+    value: 300
+  - name: init
+    value: k-means++
+  - name: random_state
+    value: 42
+dashboard:
+  id: 1faa74ba-9952-4591-aef2-9acfaf9c14d1
+  type: dashboard
+  name: eta_predictions_performance
+  fullyQualifiedName: sample_superset.eta_predictions_performance
+  description: ""
+  displayName: ETA Predictions Performance
+  deleted: false
+mlStore:
+  storage: mlflow-artifacts:/3/seg456cluster/artifacts/model
+owners: []
+tags: []
+service:
+  id: b8cbebe5-58f0-493e-81f9-ad76e7695164
+  type: mlmodelService
+  name: mlflow_svc
+  fullyQualifiedName: mlflow_svc
+  displayName: mlflow_svc
+  deleted: false
+serviceType: Mlflow
+domains:
+  - id: 761f0a12-7b08-4889-acc3-b8d4d11a7865
+    type: domain
+    name: domain.with.dot
+    fullyQualifiedName: '"domain.with.dot"'
+    description: domain.with.dot
+    displayName: domain.with.dot
+    inherited: true
+dataProducts: []
+entityStatus: Unprocessed
