@@ -1,0 +1,83 @@
+name: comments_test
+fullyQualifiedName: dbx - keshav.demo.new_schema.comments_test
+description: "The 'comments_test' table is designed to hold data related to user comments\
+  \ on various test items. It includes information such as the unique identifier of\
+  \ each comment and a complex column that stores additional data related to the comment.\
+  \ This table can be useful for analyzing user feedback on tests, identifying common\
+  \ issues or areas of improvement, and tracking changes over time in user comments."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: new comm
+    fullyQualifiedName: dbx - keshav.demo.new_schema.comments_test.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: complex_col
+    dataType: STRUCT
+    dataTypeDisplay: "struct<b1:int,b2:struct<b11:int>>"
+    description: demo com
+    fullyQualifiedName: dbx - keshav.demo.new_schema.comments_test.complex_col
+    tags: []
+    children:
+      - name: b1
+        dataType: INT
+        dataTypeDisplay: int
+        fullyQualifiedName: dbx - keshav.demo.new_schema.comments_test.complex_col.b1
+        tags: []
+        children: []
+      - name: b2
+        dataType: STRUCT
+        dataTypeDisplay: struct<b11:int>
+        fullyQualifiedName: dbx - keshav.demo.new_schema.comments_test.complex_col.b2
+        tags: []
+        children:
+          - name: b11
+            dataType: INT
+            dataTypeDisplay: int
+            fullyQualifiedName: dbx - keshav.demo.new_schema.comments_test.complex_col.b2.b11
+            tags: []
+            children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 2a2db377-ffd6-47f1-91e3-9567258fd981
+  type: databaseSchema
+  name: new_schema
+  fullyQualifiedName: dbx - keshav.demo.new_schema
+  displayName: new_schema
+  deleted: false
+database:
+  id: cd17a1de-b8f6-4b2b-b7d3-046376580f00
+  type: database
+  name: demo
+  fullyQualifiedName: dbx - keshav.demo
+  displayName: demo
+  deleted: false
+service:
+  id: 0cda8939-ffbd-4f42-8c1b-29552ea53c0f
+  type: databaseService
+  name: dbx - keshav
+  fullyQualifiedName: dbx - keshav
+  description: ""
+  displayName: dbx - keshav
+  deleted: false
+serviceType: Databricks
+locationPath: s3://awsdatalake-testing/databricks-new-metastore/3849887a-24ae-4b8e-a470-9d953589f80e/tables/e1a7250c-1d90-4503-8117-2b46e501ab86
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 5647026586a23421c73b3699b0fb7458
+processedLineage: false
+entityStatus: Unprocessed
