@@ -1,0 +1,118 @@
+name: stg_customers
+fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_customers
+tableType: View
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_customers.customer_id
+    tags:
+      - tagFQN: test 1.id
+        name: id
+        displayName: ""
+        description: <p>this tags an id</p>
+        style: {}
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_customers.first_name
+    tags:
+      - tagFQN: bdd.sda
+        name: sda
+        description: DATABRICKS TAG
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 2c30f8fa-e8a0-4dc2-9368-f74adb6c0fd5
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle
+  description: <p>test description power</p>
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: b5bfa890-3da2-44ea-ba03-f18346e6395d
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: permission_test.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: dfa5fe55-8d43-4817-93ae-a56b87044b3c
+  type: databaseService
+  name: permission_test
+  fullyQualifiedName: permission_test
+  description: ""
+  displayName: permission_test
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: |-
+  CREATE VIEW demo_dbt_jaffle.stg_customers AS with source as (
+      select * from `modified-leaf-330420`.`demo_dbt_jaffle`.`raw_customers`
+
+  ),
+
+  renamed as (
+
+      select
+          id as customer_id,
+          first_name,
+          last_name
+
+      from source
+
+  )
+
+  select * from renamed
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.first_name.tags
+      newValue: "[{\"tagFQN\":\"bdd.sda\",\"name\":\"sda\",\"description\":\"DATABRICKS\
+        \ TAG\",\"source\":\"Classification\",\"labelType\":\"Manual\",\"state\":\"\
+        Confirmed\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2sdemo_dbt_jaffle!3sstg_customers
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1701231017080
+sourceHash: d0caad71cec2937c55ea4137c8521ec5
+processedLineage: false
+entityStatus: Approved

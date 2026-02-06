@@ -1,0 +1,206 @@
+name: orders
+fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders
+description: <p>test4</p>
+tableType: Regular
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.order_id
+    tags:
+      - tagFQN: General.NationalID
+        name: NationalID
+        description: "Region specific identifiers, such as [ABN](https://en.wikipedia.org/wiki/Australian_Business_Number),\
+          \ [NIF](https://es.wikipedia.org/wiki/N%C3%BAmero_de_identificaci%C3%B3n_fiscal)\
+          \ or [NHS](https://en.wikipedia.org/wiki/National_Health_Service)."
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: credit_card_amount
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.credit_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: coupon_amount
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.coupon_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: bank_transfer_amount
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.bank_transfer_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: gift_card_amount
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.gift_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.orders.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - customer_id
+    referredColumns:
+      - permission_test.modified-leaf-330420.demo_dbt_jaffle.customers.customer_id
+owners: []
+databaseSchema:
+  id: 2c30f8fa-e8a0-4dc2-9368-f74adb6c0fd5
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle
+  description: <p>test description power</p>
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: b5bfa890-3da2-44ea-ba03-f18346e6395d
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: permission_test.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: dfa5fe55-8d43-4817-93ae-a56b87044b3c
+  type: databaseService
+  name: permission_test
+  fullyQualifiedName: permission_test
+  description: ""
+  displayName: permission_test
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: "CREATE TABLE demo_dbt_jaffle.orders (\n\torder_id INTEGER, \n\t\
+  customer_id INTEGER, \n\torder_date DATE, \n\tstatus VARCHAR, \n\tcredit_card_amount\
+  \ FLOAT, \n\tcoupon_amount FLOAT, \n\tbank_transfer_amount FLOAT, \n\tgift_card_amount\
+  \ FLOAT, \n\tamount FLOAT, \n\tCONSTRAINT \"orders.fk$1\" FOREIGN KEY(customer_id)\
+  \ REFERENCES demo_dbt_jaffle.customers (customer_id)\n)"
+tags:
+  - tagFQN: General.NationalID
+    name: NationalID
+    description: "Region specific identifiers, such as [ABN](https://en.wikipedia.org/wiki/Australian_Business_Number),\
+      \ [NIF](https://es.wikipedia.org/wiki/N%C3%BAmero_de_identificaci%C3%B3n_fiscal)\
+      \ or [NHS](https://en.wikipedia.org/wiki/National_Health_Service)."
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: General.URL
+    name: URL
+    description: "A URL (Uniform Resource Locator), unique identifier used to locate\
+      \ a resource on the Internet."
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: PII.None
+    name: None
+    description: Non PII
+    style: {}
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: RedashTags.worldtag
+    name: worldtag
+    description: Redash Tag
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+  - tagFQN: label_1.tagWithColon
+    name: tagWithColon
+    displayName: colon:tag
+    description: <p>colon:tag</p>
+    style: {}
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: description
+      oldValue: <p>test3</p>
+      newValue: <p>test4</p>
+  fieldsDeleted: []
+  previousVersion: 0.5
+  changeSummary:
+    description:
+      changedBy: imri.paran
+      changedAt: 1744266245809
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2sdemo_dbt_jaffle!3sorders
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1701231020672
+sourceHash: 7d828c0907a4424c32ae3b6c56222bcb
+processedLineage: false
+entityStatus: Approved
