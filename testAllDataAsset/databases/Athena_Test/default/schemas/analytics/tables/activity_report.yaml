@@ -1,0 +1,235 @@
+name: activity_report
+displayName: ""
+fullyQualifiedName: Athena Test.default.analytics.activity_report
+description: Updated table description
+tableType: External
+columns:
+  - name: metric_name
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: "The name of the specific metric being reported. This provides context\
+      \ for what the count refers to, such as 'login attempts' or 'data processed'."
+    fullyQualifiedName: Athena Test.default.analytics.activity_report.metric_name
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 13
+    children: []
+    customMetrics: []
+  - name: period_start_date
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The starting date of the reporting period. This is essential for
+      determining the timeframe of the data being analyzed.
+    fullyQualifiedName: Athena Test.default.analytics.activity_report.period_start_date
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 14
+    children: []
+    customMetrics: []
+  - name: count
+    displayName: ""
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int
+    description: The numerical value representing the count of activities or events
+      that occurred during the specified period. This is used for quantifying the
+      activity level.
+    fullyQualifiedName: Athena Test.default.analytics.activity_report.count
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 15
+    children: []
+    customMetrics: []
+  - name: period
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The time frame during which the activities were measured. This helps
+      in understanding the duration of the reported metrics.
+    fullyQualifiedName: Athena Test.default.analytics.activity_report.period
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 16
+    children: []
+    customMetrics: []
+  - name: source
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The origin of the data or the system from which the metrics were
+      collected. This helps in identifying the source of the activity data.
+    fullyQualifiedName: Athena Test.default.analytics.activity_report.source
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 17
+    children: []
+    customMetrics: []
+  - name: report_time
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The timestamp indicating when the report was generated. This is important
+      for tracking when the data was collected and reported.
+    fullyQualifiedName: Athena Test.default.analytics.activity_report.report_time
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 18
+    children: []
+    customMetrics: []
+  - name: cluster_name
+    displayName: ""
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: The name of the cluster where the activity is being reported. This
+      helps in identifying the specific cluster associated with the metrics.
+    fullyQualifiedName: Athena Test.default.analytics.activity_report.cluster_name
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 19
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners:
+  - id: fb8e44c9-b9c5-45bc-9691-b3343b5d5b7c
+    type: user
+    name: 23saints23
+    fullyQualifiedName: 23saints23
+    displayName: 23saints23
+    deleted: false
+  - id: 4614b5b7-7acc-4b93-96a5-3913903851f8
+    type: user
+    name: aanqueti18
+    fullyQualifiedName: aanqueti18
+    displayName: aanqueti18
+    deleted: false
+  - id: 089347d6-806c-4a27-8b95-9d101d0d3667
+    type: user
+    name: bethbryant
+    fullyQualifiedName: bethbryant
+    displayName: Aaron Alexander
+    deleted: false
+  - id: 02d03179-e7fb-4006-8a82-aa058a46c57e
+    type: user
+    name: jaimecrosby
+    fullyQualifiedName: jaimecrosby
+    displayName: Aaron Bradley
+    deleted: false
+  - id: d8cd184a-ca4d-4312-b8a3-a3e009cd3686
+    type: user
+    name: sweta.agarwalla
+    fullyQualifiedName: '"sweta.agarwalla"'
+    description: ""
+    displayName: sweta.agarwalla
+    deleted: false
+  - id: d0107fe9-afbe-4966-914f-bfec7dfc5861
+    type: user
+    name: wilsondanny
+    fullyQualifiedName: wilsondanny
+    displayName: Aaron Baker
+    deleted: false
+databaseSchema:
+  id: c221dfe3-6962-4017-8f26-cf7208fe63d8
+  type: databaseSchema
+  name: analytics
+  fullyQualifiedName: Athena Test.default.analytics
+  description: <p>This is test 1</p>
+  displayName: Analytics
+  deleted: false
+database:
+  id: 5f384ce9-28bd-48cc-bb2e-e3ecfa6444b9
+  type: database
+  name: default
+  fullyQualifiedName: Athena Test.default
+  description: ""
+  displayName: default
+  deleted: false
+service:
+  id: c289313f-168d-43eb-8996-07b4a13c6a26
+  type: databaseService
+  name: Athena Test
+  fullyQualifiedName: Athena Test
+  description: ""
+  displayName: Athena Test
+  deleted: false
+serviceType: Athena
+locationPath: s3://collate-landing-zone/activity_report
+tags:
+  - tagFQN: STAGE.production
+    name: production
+    description: SNOWFLAKE TAG VALUE
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: owners
+      newValue: "[{\"id\":\"4614b5b7-7acc-4b93-96a5-3913903851f8\",\"type\":\"user\"\
+        ,\"name\":\"aanqueti18\",\"fullyQualifiedName\":\"aanqueti18\",\"displayName\"\
+        :\"aanqueti18\",\"deleted\":false},{\"id\":\"089347d6-806c-4a27-8b95-9d101d0d3667\"\
+        ,\"type\":\"user\",\"name\":\"bethbryant\",\"fullyQualifiedName\":\"bethbryant\"\
+        ,\"displayName\":\"Aaron Alexander\",\"deleted\":false},{\"id\":\"02d03179-e7fb-4006-8a82-aa058a46c57e\"\
+        ,\"type\":\"user\",\"name\":\"jaimecrosby\",\"fullyQualifiedName\":\"jaimecrosby\"\
+        ,\"displayName\":\"Aaron Bradley\",\"deleted\":false},{\"id\":\"d8cd184a-ca4d-4312-b8a3-a3e009cd3686\"\
+        ,\"type\":\"user\",\"name\":\"sweta.agarwalla\",\"fullyQualifiedName\":\"\\\
+        \"sweta.agarwalla\\\"\",\"description\":\"\",\"displayName\":\"sweta.agarwalla\"\
+        ,\"deleted\":false},{\"id\":\"d0107fe9-afbe-4966-914f-bfec7dfc5861\",\"type\"\
+        :\"user\",\"name\":\"wilsondanny\",\"fullyQualifiedName\":\"wilsondanny\"\
+        ,\"displayName\":\"Aaron Baker\",\"deleted\":false}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.4
+  changeSummary:
+    owners:
+      changedBy: dhruv.p
+      changedAt: 1749136724427
+    columns.count.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557894851
+    columns.period.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557894851
+    columns.source.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557894851
+    columns.metric_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557894851
+    columns.report_time.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557894851
+    columns.cluster_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557894851
+    columns.period_start_date.description:
+      changedBy: ingestion-bot
+      changedAt: 1744557894851
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: 9b777e79-3556-4eff-b9e9-bb71037b8dd0
+    type: domain
+    name: TestHarsha2
+    fullyQualifiedName: TestHarsha.TestHarsha2
+    description: <p>TestHarsha</p>
+    displayName: TestHarsha2
+    inherited: true
+dataProducts: []
+sourceHash: d9759359123d3f9e942b15935350fb30
+processedLineage: false
+entityStatus: Approved

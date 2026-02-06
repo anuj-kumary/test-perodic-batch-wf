@@ -1,0 +1,95 @@
+name: DYNAMIC_TABLE
+fullyQualifiedName: Another Hybrid Runner Snowflake 1.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE
+tableType: Dynamic
+columns:
+  - name: PROCESSED
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    fullyQualifiedName: Another Hybrid Runner Snowflake 1.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.PROCESSED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: RECORD_COUNT
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 18
+    scale: 0
+    dataTypeDisplay: "number(18,0)"
+    fullyQualifiedName: Another Hybrid Runner Snowflake 1.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.RECORD_COUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LAST_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: Another Hybrid Runner Snowflake 1.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.LAST_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_CREATED
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: Another Hybrid Runner Snowflake 1.MT_DB.ALL_LINAGE_SCHEMA.DYNAMIC_TABLE.FIRST_CREATED
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: c01c6d2f-75c3-424d-9507-b3bc29176d3e
+  type: databaseSchema
+  name: ALL_LINAGE_SCHEMA
+  fullyQualifiedName: Another Hybrid Runner Snowflake 1.MT_DB.ALL_LINAGE_SCHEMA
+  displayName: ALL_LINAGE_SCHEMA
+  deleted: false
+database:
+  id: 2f53226f-c34d-4ddf-86d8-a9f670766c00
+  type: database
+  name: MT_DB
+  fullyQualifiedName: Another Hybrid Runner Snowflake 1.MT_DB
+  description: This is a testing database
+  displayName: MT_DB
+  deleted: false
+service:
+  id: 50c58172-4982-4483-ad52-50c683cc2b43
+  type: databaseService
+  name: Another Hybrid Runner Snowflake 1
+  fullyQualifiedName: Another Hybrid Runner Snowflake 1
+  description: ""
+  displayName: Another Hybrid Runner Snowflake 1
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace dynamic table DYNAMIC_TABLE(\n\tPROCESSED,\n\t\
+  RECORD_COUNT,\n\tLAST_CREATED,\n\tFIRST_CREATED\n) target_lag = '30 days' refresh_mode\
+  \ = AUTO initialize = ON_CREATE warehouse = COMPUTE_WH\n as\nSELECT\n    processed,\n\
+  \    COUNT(*) as record_count,\n    MAX(created_at) as last_created,\n    MIN(created_at)\
+  \ as first_created\nFROM transient_table\nGROUP BY processed;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: processedLineage
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/MT_DB/schemas/ALL_LINAGE_SCHEMA/dynamic-table/DYNAMIC_TABLE
+domains: []
+dataProducts: []
+sourceHash: 71c4a9982a75d03a319ea683b4379824
+processedLineage: true
+entityStatus: Unprocessed

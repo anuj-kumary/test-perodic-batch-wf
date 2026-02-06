@@ -1,0 +1,109 @@
+name: employee_department_view
+fullyQualifiedName: Another Hybrid Runner Redshift 2.dev.redshift_connector_testing.employee_department_view
+description: This is employee depart viewss
+tableType: View
+columns:
+  - name: employee_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Another Hybrid Runner Redshift 2.dev.redshift_connector_testing.employee_department_view.employee_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: Another Hybrid Runner Redshift 2.dev.redshift_connector_testing.employee_department_view.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: Another Hybrid Runner Redshift 2.dev.redshift_connector_testing.employee_department_view.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    fullyQualifiedName: Another Hybrid Runner Redshift 2.dev.redshift_connector_testing.employee_department_view.email
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: phone_number
+    dataType: VARCHAR
+    dataLength: 20
+    dataTypeDisplay: character varying(20)
+    fullyQualifiedName: Another Hybrid Runner Redshift 2.dev.redshift_connector_testing.employee_department_view.phone_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: department_name
+    dataType: VARCHAR
+    dataLength: 100
+    dataTypeDisplay: character varying(100)
+    fullyQualifiedName: Another Hybrid Runner Redshift 2.dev.redshift_connector_testing.employee_department_view.department_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 027762a3-6cb5-4bfd-ac5b-585cf0346079
+  type: databaseSchema
+  name: redshift_connector_testing
+  fullyQualifiedName: Another Hybrid Runner Redshift 2.dev.redshift_connector_testing
+  displayName: redshift_connector_testing
+  deleted: false
+database:
+  id: 43e80d87-9ab5-4eb9-bf7d-09786036304d
+  type: database
+  name: dev
+  fullyQualifiedName: Another Hybrid Runner Redshift 2.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 1ad6636f-d986-4238-a799-5798fe2aaa87
+  type: databaseService
+  name: Another Hybrid Runner Redshift 2
+  fullyQualifiedName: Another Hybrid Runner Redshift 2
+  description: ""
+  displayName: Another Hybrid Runner Redshift 2
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW redshift_connector_testing.employee_department_view AS  SELECT e.employee_id, e.first_name, e.last_name, e.email, e.phone_number, d.department_name
+     FROM redshift_connector_testing.employees e
+     JOIN redshift_connector_testing.departments d ON e.department_id = d.department_id;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: processedLineage
+      oldValue: false
+      newValue: true
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: cec24e5fc73f29985cd84eecee1b49de
+processedLineage: true
+entityStatus: Unprocessed
