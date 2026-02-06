@@ -1,0 +1,103 @@
+name: stg_payments
+fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_payments
+tableType: View
+columns:
+  - name: payment_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_payments.payment_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_payments.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_method
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: varchar
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_payments.payment_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle.stg_payments.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 2c30f8fa-e8a0-4dc2-9368-f74adb6c0fd5
+  type: databaseSchema
+  name: demo_dbt_jaffle
+  fullyQualifiedName: permission_test.modified-leaf-330420.demo_dbt_jaffle
+  description: <p>test description power</p>
+  displayName: demo_dbt_jaffle
+  deleted: false
+database:
+  id: b5bfa890-3da2-44ea-ba03-f18346e6395d
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: permission_test.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: dfa5fe55-8d43-4817-93ae-a56b87044b3c
+  type: databaseService
+  name: permission_test
+  fullyQualifiedName: permission_test
+  description: ""
+  displayName: permission_test
+  deleted: false
+serviceType: BigQuery
+schemaDefinition: |-
+  CREATE VIEW demo_dbt_jaffle.stg_payments AS with source as (
+      select * from `modified-leaf-330420`.`demo_dbt_jaffle`.`raw_payments`
+
+  ),
+
+  renamed as (
+
+      select
+          id as payment_id,
+          order_id,
+          payment_method,
+
+          -- `amount` is currently stored in cents, so we convert it to dollars
+          amount / 100 as amount
+
+      from source
+
+  )
+
+  select * from renamed
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2sdemo_dbt_jaffle!3sstg_payments
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1701231017250
+sourceHash: 975c2a597fa1cb2ed7ed80fbebac2969
+processedLineage: false
+entityStatus: Approved
