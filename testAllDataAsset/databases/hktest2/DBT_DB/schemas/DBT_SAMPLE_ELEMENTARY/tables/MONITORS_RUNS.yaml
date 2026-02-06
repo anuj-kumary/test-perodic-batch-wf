@@ -1,0 +1,103 @@
+name: MONITORS_RUNS
+fullyQualifiedName: hktest2.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS
+tableType: View
+columns:
+  - name: FULL_TABLE_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest2.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS.FULL_TABLE_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: COLUMN_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest2.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS.COLUMN_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: METRIC_NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest2.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS.METRIC_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: METRIC_PROPERTIES
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: hktest2.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS.METRIC_PROPERTIES
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: LAST_BUCKET_END
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: hktest2.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS.LAST_BUCKET_END
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: FIRST_BUCKET_END
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp_ntz
+    fullyQualifiedName: hktest2.DBT_DB.DBT_SAMPLE_ELEMENTARY.MONITORS_RUNS.FIRST_BUCKET_END
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 59ae5f52-bf18-4c7c-a444-16d0d55748df
+  type: databaseSchema
+  name: DBT_SAMPLE_ELEMENTARY
+  fullyQualifiedName: hktest2.DBT_DB.DBT_SAMPLE_ELEMENTARY
+  displayName: DBT_SAMPLE_ELEMENTARY
+  deleted: false
+database:
+  id: 8a5b200a-0838-4865-b221-ed427537b11d
+  type: database
+  name: DBT_DB
+  fullyQualifiedName: hktest2.DBT_DB
+  displayName: DBT_DB
+  deleted: false
+service:
+  id: 75865179-7a07-461c-8b40-d6e08822f13e
+  type: databaseService
+  name: hktest2
+  fullyQualifiedName: hktest2
+  description: ""
+  displayName: hktest2
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace   view dbt_db.DBT_SAMPLE_elementary.monitors_runs\n\
+  \  \n   as (\n    \n\nwith data_monitoring_metrics as (\n\n    select * from dbt_db.DBT_SAMPLE_elementary.data_monitoring_metrics\n\
+  \n),\n\nmax_bucket_end as (\n\n    select full_table_name,\n           column_name,\n\
+  \           metric_name,\n           metric_properties,\n           max(bucket_end)\
+  \ as last_bucket_end,\n           min(bucket_end) as first_bucket_end\n    from\
+  \ data_monitoring_metrics\n    group by 1,2,3,4\n\n)\n\nselect * from max_bucket_end\n\
+  \  );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+sourceUrl: https://app.snowflake.com/vcgkhnh/ic95276/#/data/databases/DBT_DB/schemas/DBT_SAMPLE_ELEMENTARY/view/MONITORS_RUNS
+domains: []
+dataProducts: []
+sourceHash: 93a714a85ed17d0dfe2259d07a314110
+processedLineage: false
+entityStatus: Approved

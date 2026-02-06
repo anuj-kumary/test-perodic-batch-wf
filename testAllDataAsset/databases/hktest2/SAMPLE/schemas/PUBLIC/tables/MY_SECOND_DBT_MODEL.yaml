@@ -1,0 +1,115 @@
+name: MY_SECOND_DBT_MODEL
+fullyQualifiedName: hktest2.SAMPLE.PUBLIC.MY_SECOND_DBT_MODEL
+description: A starter dbt model
+tableType: Transient
+columns:
+  - name: ID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 1
+    scale: 0
+    dataTypeDisplay: "number(1,0)"
+    description: The primary key for this table
+    fullyQualifiedName: hktest2.SAMPLE.PUBLIC.MY_SECOND_DBT_MODEL.ID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+owners:
+  - id: 13b1a4af-9bb8-43f1-8796-be7263095227
+    type: team
+    name: AyushDomainSpecific
+    fullyQualifiedName: AyushDomainSpecific
+    description: AyushDomainSpecific
+    displayName: AyushDomainSpecific
+    deleted: false
+databaseSchema:
+  id: b57973b3-35b4-4eee-96cc-3836ac51aac0
+  type: databaseSchema
+  name: PUBLIC
+  fullyQualifiedName: hktest2.SAMPLE.PUBLIC
+  displayName: PUBLIC
+  deleted: false
+database:
+  id: 6e98240c-665b-406a-9765-8cf78e076f51
+  type: database
+  name: SAMPLE
+  fullyQualifiedName: hktest2.SAMPLE
+  displayName: SAMPLE
+  deleted: false
+service:
+  id: 75865179-7a07-461c-8b40-d6e08822f13e
+  type: databaseService
+  name: hktest2
+  fullyQualifiedName: hktest2
+  description: ""
+  displayName: hktest2
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 86087d62-bbe2-4dec-a07a-641878fa3557
+  type: testSuite
+  name: hktest2.SAMPLE.PUBLIC.MY_SECOND_DBT_MODEL.TestSuite
+  fullyQualifiedName: hktest2.SAMPLE.PUBLIC.MY_SECOND_DBT_MODEL.testSuite
+  displayName: hktest2.SAMPLE.PUBLIC.MY_SECOND_DBT_MODEL.TestSuite
+  deleted: false
+dataModel:
+  modelType: DBT
+  resourceType: model
+  description: A starter dbt model
+  path: models/example/my_second_dbt_model.sql
+  rawSql: |-
+    -- Use the `ref` function to select from other models
+
+    select *
+    from {{ ref('my_first_dbt_model') }}
+    where id = 1
+  sql: |-
+    -- Use the `ref` function to select from other models
+
+    select *
+    from "SAMPLE"."PUBLIC".my_first_dbt_model
+    where id = 1
+  upstream:
+    - hktest2.SAMPLE.PUBLIC.MY_FIRST_DBT_MODEL
+  tags: []
+  columns:
+    - name: id
+      dataType: UNKNOWN
+      dataLength: 1
+      description: The primary key for this table
+      tags: []
+      children: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: owners
+      newValue: "[{\"id\":\"13b1a4af-9bb8-43f1-8796-be7263095227\",\"type\":\"team\"\
+        ,\"name\":\"AyushDomainSpecific\",\"fullyQualifiedName\":\"AyushDomainSpecific\"\
+        ,\"description\":\"AyushDomainSpecific\",\"displayName\":\"AyushDomainSpecific\"\
+        ,\"deleted\":false}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    owners:
+      changedBy: dhruv.p
+      changedAt: 1750749545496
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1747743081653
+    columns.ID.description:
+      changedBy: ingestion-bot
+      changedAt: 1747743081653
+sourceUrl: https://app.snowflake.com/vcgkhnh/ic95276/#/data/databases/SAMPLE/schemas/PUBLIC/table/MY_SECOND_DBT_MODEL
+domains: []
+dataProducts: []
+sourceHash: da83c62c5baaa980ca92dd2a10e94151
+processedLineage: false
+entityStatus: Approved
