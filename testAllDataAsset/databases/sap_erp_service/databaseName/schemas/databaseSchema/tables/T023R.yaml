@@ -1,0 +1,93 @@
+name: T023R
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T023R
+description: Penalty interest rates & validity periods
+tableType: Regular
+columns:
+  - name: INT_RATE
+    displayName: Iinterest rate
+    dataType: DECIMAL
+    dataLength: 10
+    precision: 10
+    scale: 7
+    dataTypeDisplay: "dec(10,7)"
+    description: Interest Rate
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T023R.INT_RATE
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T023R.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: RATETYP
+    displayName: Interest rate type
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: PPA Interest Rate Type
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T023R.RATETYP
+    tags: []
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+  - name: VALID_FROM
+    displayName: From date
+    dataType: DATE
+    dataLength: 8
+    dataTypeDisplay: dats(8)
+    description: Date from
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T023R.VALID_FROM
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - MANDT
+      - RATETYP
+      - VALID_FROM
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: d3629584ed961cc229e2c537f5e7a9c0
+processedLineage: false
+entityStatus: Approved

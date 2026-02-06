@@ -1,0 +1,153 @@
+name: T014
+fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014
+description: Credit control areas
+tableType: Regular
+columns:
+  - name: ALLCC
+    displayName: All company codes
+    dataType: CHAR
+    dataLength: 1
+    dataTypeDisplay: char(1)
+    description: "Indicator: Is posting possible for all company codes?"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.ALLCC
+    tags: []
+    constraint: "NULL"
+    ordinalPosition: 9
+    children: []
+    customMetrics: []
+  - name: CTLPC
+    displayName: RiskCategNewCustomer
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: char(3)
+    description: "Credit Management: Risk Category New Customer"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.CTLPC
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 6
+    children: []
+    customMetrics: []
+  - name: KKBER
+    displayName: Credit Control Area
+    dataType: CHAR
+    dataLength: 4
+    dataTypeDisplay: char(4)
+    description: Credit Control Area
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.KKBER
+    tags: []
+    ordinalPosition: 2
+    children: []
+    customMetrics: []
+  - name: KLIMK
+    displayName: Credit management
+    dataType: DECIMAL
+    dataLength: 15
+    precision: 15
+    scale: 2
+    dataTypeDisplay: "curr(15,2)"
+    description: "Credit limit (default setting, unless maintained by cust.)"
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.KLIMK
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 7
+    children: []
+    customMetrics: []
+  - name: MANDT
+    displayName: Client
+    dataType: INT
+    dataLength: 3
+    dataTypeDisplay: clnt(3)
+    description: Client
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.MANDT
+    tags: []
+    ordinalPosition: 1
+    children: []
+    customMetrics: []
+  - name: PERIV
+    displayName: Fiscal year variant
+    dataType: CHAR
+    dataLength: 2
+    dataTypeDisplay: char(2)
+    description: Fiscal Year Variant of Credit Control Area
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.PERIV
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 5
+    children: []
+    customMetrics: []
+  - name: SBGRP
+    displayName: "Rep group: new custs"
+    dataType: CHAR
+    dataLength: 3
+    dataTypeDisplay: char(3)
+    description: Credit management representatives group for new customers
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.SBGRP
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 8
+    children: []
+    customMetrics: []
+  - name: STAFO
+    displayName: Update
+    dataType: CHAR
+    dataLength: 6
+    dataTypeDisplay: char(6)
+    description: Credit update for open order/delivery/billing document value
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.STAFO
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 4
+    children: []
+    customMetrics: []
+  - name: WAERS
+    displayName: Currency
+    dataType: CHAR
+    dataLength: 5
+    dataTypeDisplay: cuky(5)
+    description: Currency Key
+    fullyQualifiedName: sap_erp_service.databaseName.databaseSchema.T014.WAERS
+    tags: []
+    constraint: NOT_NULL
+    ordinalPosition: 3
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: PRIMARY_KEY
+    columns:
+      - KKBER
+      - MANDT
+owners: []
+databaseSchema:
+  id: 9f06eb9b-1717-4f0b-9cb2-31cff00378da
+  type: databaseSchema
+  name: databaseSchema
+  fullyQualifiedName: sap_erp_service.databaseName.databaseSchema
+  displayName: databaseSchema
+  deleted: false
+database:
+  id: dc93518e-32e8-4924-b933-e05b4af30ff6
+  type: database
+  name: databaseName
+  fullyQualifiedName: sap_erp_service.databaseName
+  displayName: databaseName
+  deleted: false
+service:
+  id: 164d847b-1fd1-48df-a6f9-286e1dc28a2e
+  type: databaseService
+  name: sap_erp_service
+  fullyQualifiedName: sap_erp_service
+  displayName: sap_erp_service
+  deleted: false
+serviceType: SapErp
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 23efce89ed4e4514434b5b85aed30bd8
+processedLineage: false
+entityStatus: Approved
