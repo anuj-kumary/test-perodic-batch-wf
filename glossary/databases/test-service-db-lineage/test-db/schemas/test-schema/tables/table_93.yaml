@@ -1,0 +1,125 @@
+name: table_93
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_93
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_93.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view GROUP_REFERENCE_CALLS(\n\tADVOCATE,\n\t\
+  SYS_CREATED_ON,\n\tDV_ADVOCATE_2,\n\tDV_MODERATOR,\n\tDV_STATUS,\n\tCUSTOMER,\n\t\
+  PSP_PER_INSERT_DT,\n\tBUSINESS_UNIT,\n\tSYS_TAGS,\n\tDV_BUSINESS_UNIT,\n\tPSP_PER_UPDATE_DT,\n\
+  \tSYS_ID,\n\tDV_ADVOCATE,\n\tDATE_OF_CALL,\n\tSYS_MOD_COUNT,\n\tNUMBER,\n\tMODERATOR,\n\
+  \tSYS_UPDATED_BY,\n\tPSP_PER_DELETE_DT,\n\tDV_CALL_ID,\n\tDV_CUSTOMER,\n\tCALL_ID,\n\
+  \tADVOCATE_2,\n\tPREP_CALL_DATE,\n\tSYS_CREATED_BY,\n\tCALL_NNACV,\n\tNAME,\n\t\
+  CUSTOMER_NOTES,\n\tSYS_UPDATED_ON,\n\tSTATUS,\n\tQUOTES,\n\tNOTES,\n\tREGISTRATION_LINK,\n\
+  \tTOPIC,\n\tZOOMINAR_LINK,\n\tDV_GEO,\n\tGEO\n) as\n/*********************************************************************************\n\
+  \    * REVISION HISTORY:\n    *--------------------------------------------------------------------------------------------------------------------\n\
+  \    * CR#                 Date Modified           Modified By        Brief Description\
+  \ of Change\n    * STRY2570223         12-Dec-2023             Hamith          \
+  \   Business Unit logic added\n    * STRY2589434         07-Mar-2024           \
+  \  Ganesh/Hamith      Enhancements: Customer Advocacy Dashboard\n\t**********************************************************************************************************************/\n\
+  SELECT \"ADVOCATE\" as \"ADVOCATE\",\n       \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n       \"DV_ADVOCATE_2\" as \"DV_ADVOCATE_2\",\n       \"DV_MODERATOR\" as \"\
+  DV_MODERATOR\",\n       \"DV_STATUS\" as \"DV_STATUS\",\n       \"CUSTOMER\" as\
+  \ \"CUSTOMER\",\n       \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n      \
+  \ \"BUSINESS_UNIT\" as \"BUSINESS_UNIT\",\n       \"SYS_TAGS\" as \"SYS_TAGS\",\n\
+  \       \"DV_BUSINESS_UNIT\" as \"DV_BUSINESS_UNIT\",\n       \"PSP_PER_UPDATE_DT\"\
+  \ as \"PSP_PER_UPDATE_DT\",\n       \"SYS_ID\" as \"SYS_ID\",\n       \"DV_ADVOCATE\"\
+  \ as \"DV_ADVOCATE\",\n       \"DATE_OF_CALL\" as \"DATE_OF_CALL\",\n       \"SYS_MOD_COUNT\"\
+  \ as \"SYS_MOD_COUNT\",\n       \"NUMBER\" as \"NUMBER\",\n       \"MODERATOR\"\
+  \ as \"MODERATOR\",\n       \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n       \"\
+  PSP_PER_DELETE_DT\" as \"PSP_PER_DELETE_DT\",\n       \"DV_CALL_ID\" as \"DV_CALL_ID\"\
+  ,\n       \"DV_CUSTOMER\" as \"DV_CUSTOMER\",\n       \"CALL_ID\" as \"CALL_ID\"\
+  ,\n       \"ADVOCATE_2\" as \"ADVOCATE_2\",\n       \"PREP_CALL_DATE\" as \"PREP_CALL_DATE\"\
+  ,\n       \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n       SUM(\"CALL_NNACV\")\
+  \ as \"CALL_NNACV\",\n       \"NAME\" as \"NAME\",\n       \"CUSTOMER_NOTES\" as\
+  \ \"CUSTOMER_NOTES\",\n       \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n      \
+  \ \"STATUS\" as \"STATUS\",\n       \"QUOTES\" as \"QUOTES\",\n       \"NOTES\"\
+  \ as \"NOTES\",\n       \"REGISTRATION_LINK\" as \"REGISTRATION_LINK\",\n      \
+  \ \"TOPIC\" as \"TOPIC\",\n       \"ZOOMINAR_LINK\" as \"ZOOMINAR_LINK\",\n    \
+  \   --CASE WHEN \"DV_GEO\" IN ('JPN','JAPAN') THEN 'JPN' WHEN \"DV_GEO\"='APJ' THEN\
+  \ 'APAC' ELSE \"DV_GEO\" END as \"DV_GEO\",\n       \"DV_GEO\" as \"DV_GEO\",\n\
+  \       \"GEO\" as \"GEO\"\nFROM\n  (SELECT GRC.\"ADVOCATE\" as \"ADVOCATE\",\n\
+  \          GRC.\"SYS_CREATED_ON\" as \"SYS_CREATED_ON\",\n          GRC.\"DV_ADVOCATE_2\"\
+  \ as \"DV_ADVOCATE_2\",\n          GRC.\"DV_MODERATOR\" as \"DV_MODERATOR\",\n \
+  \         GRC.\"DV_STATUS\" as \"DV_STATUS\",\n          GRC.\"CUSTOMER\" as \"\
+  CUSTOMER\",\n          GRC.\"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n   \
+  \       GRC.\"BUSINESS_UNIT\" as \"BUSINESS_UNIT\",\n          GRC.\"SYS_TAGS\"\
+  \ as \"SYS_TAGS\",\n          GRC.\"STATUS\" as \"STATUS_1\",\n          BUSINESS_UNIT.\"\
+  ReportingValues\" as \"DV_BUSINESS_UNIT\",\n          GRC.\"PSP_PER_UPDATE_DT\"\
+  \ as \"PSP_PER_UPDATE_DT\",\n          GRC.\"SYS_ID\" as \"SYS_ID\",\n         \
+  \ GRC.\"DV_ADVOCATE\" as \"DV_ADVOCATE\",\n          GRC.\"DATE_OF_CALL\" as \"\
+  DATE_OF_CALL\",\n          GRC.\"SYS_MOD_COUNT\" as \"SYS_MOD_COUNT\",\n       \
+  \   GRC.\"NUMBER\" as \"NUMBER\",\n          GRC.\"MODERATOR\" as \"MODERATOR\"\
+  ,\n          GRC.\"QUOTES\" as \"QUOTES_1\",\n          GRC.\"SYS_UPDATED_BY\" as\
+  \ \"SYS_UPDATED_BY\",\n          GRC.\"PSP_PER_DELETE_DT\" as \"PSP_PER_DELETE_DT\"\
+  ,\n          GRC.\"DV_CALL_ID\" as \"DV_CALL_ID\",\n          GRC.\"DV_CUSTOMER\"\
+  \ as \"DV_CUSTOMER\",\n          GRC.\"NOTES\" as \"NOTES_1\",\n          GRC.\"\
+  CALL_ID\" as \"CALL_ID\",\n          GRC.\"ADVOCATE_2\" as \"ADVOCATE_2\",\n   \
+  \       GRC.\"PREP_CALL_DATE\" as \"PREP_CALL_DATE\",\n          GRC.\"REGISTRATION_LINK\"\
+  \ as \"REGISTRATION_LINK_1\",\n          GRC.\"SYS_CREATED_BY\" as \"SYS_CREATED_BY\"\
+  ,\n          GRC.\"CALL_NNACV\" as \"CALL_NNACV\",\n          GRC.\"NAME\" as \"\
+  NAME\",\n          GRC.\"CUSTOMER_NOTES\" as \"CUSTOMER_NOTES\",\n          GRC.\"\
+  TOPIC\" as \"TOPIC_1\",\n          GRC.\"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  ,\n          GRC.\"ZOOMINAR_LINK\" as \"ZOOMINAR_LINK_1\",\n          GRC.\"DV_GEO\"\
+  \ as \"DV_GEO\",\n          T.\"DV_U_GEO\" as \"GEO\",\n          (\"STATUS_1\"\
+  ) :: string as \"STATUS\",\n          (\"QUOTES_1\") :: string as \"QUOTES\",\n\
+  \          (\"NOTES_1\") :: string as \"NOTES\",\n          (\"REGISTRATION_LINK_1\"\
+  ) :: string as \"REGISTRATION_LINK\",\n          (\"TOPIC_1\") :: string as \"TOPIC\"\
+  ,\n          (\"ZOOMINAR_LINK_1\") :: string as \"ZOOMINAR_LINK\"\n   FROM \"RDS\"\
+  .\"SURF\".\"X_SNC_GROUP_REFERE_GROUP_REFERENCE_CALLS\" GRC\n   LEFT JOIN (SELECT\
+  \ DISTINCT \"ValueAtSource\",\"ReportingValues\"\n                 FROM RDS.FLATFILESOURCE.MKT_DIMENSION_MAPPING_TABLE\n\
+  \                 WHERE \"CategoryType\"='random' AND \"ActiveFlag\"='random')BUSINESS_UNIT\
+  \ ON BUSINESS_UNIT.\"ValueAtSource\"= GRC.\"DV_BUSINESS_UNIT\"\n    LEFT JOIN RDS.SURF.SALES_ACCOUNT\
+  \ A on A.sys_id = GRC.customer\n    LEFT JOIN RDS.SURF.U_SALES_TERRITORY T on A.u_account_territory=\
+  \ T.sys_id\n   )Projection_1\nGROUP BY \"ADVOCATE\",\n         \"SYS_CREATED_ON\"\
+  ,\n         \"DV_ADVOCATE_2\",\n         \"DV_MODERATOR\",\n         \"DV_STATUS\"\
+  ,\n         \"CUSTOMER\",\n         \"PSP_PER_INSERT_DT\",\n         \"BUSINESS_UNIT\"\
+  ,\n         \"SYS_TAGS\",\n         \"DV_BUSINESS_UNIT\",\n         \"PSP_PER_UPDATE_DT\"\
+  ,\n         \"SYS_ID\",\n         \"DV_ADVOCATE\",\n         \"DATE_OF_CALL\",\n\
+  \         \"SYS_MOD_COUNT\",\n         \"NUMBER\",\n         \"MODERATOR\",\n  \
+  \       \"SYS_UPDATED_BY\",\n         \"PSP_PER_DELETE_DT\",\n         \"DV_CALL_ID\"\
+  ,\n         \"DV_CUSTOMER\",\n         \"CALL_ID\",\n         \"ADVOCATE_2\",\n\
+  \         \"PREP_CALL_DATE\",\n         \"SYS_CREATED_BY\",\n         \"NAME\",\n\
+  \         \"CUSTOMER_NOTES\",\n         \"SYS_UPDATED_ON\",\n         \"STATUS\"\
+  ,\n         \"QUOTES\",\n         \"NOTES\",\n         \"REGISTRATION_LINK\",\n\
+  \         \"TOPIC\",\n         \"ZOOMINAR_LINK\",\n         \"DV_GEO\",\n      \
+  \   \"GEO\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

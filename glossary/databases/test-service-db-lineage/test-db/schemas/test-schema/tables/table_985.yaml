@@ -1,0 +1,57 @@
+name: table_985
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_985
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_985.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view NEWLOGO_TARGETS(\n\t\"TerritorySysID\",\n\
+  \t\"Geo\",\n\t\"MajorArea\",\n\t\"Area\",\n\t\"TerritoryName\",\n\t\"TerritoryType\"\
+  ,\n\t\"Quarter\",\n\t\"NewLogoTargets\",\n\t\"NewLogoTargetsACE\",\n\t\"Region\"\
+  ,\n\t\"District\",\n\t\"NewLogoTargetsDigitalSales\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"TERRITORYSYSID\" as \"TerritorySysID\",\n       \"GEO\" as \"Geo\",\n\
+  \       \"MAJORAREA\" as \"MajorArea\",\n       \"AREA\" as \"Area\",\n       \"\
+  TERRITORYNAME\" as \"TerritoryName\",\n       \"TERRITORYTYPE\" as \"TerritoryType\"\
+  ,\n       \"QUARTER\" as \"Quarter\",\n       \"NEWLOGOTARGETS\" as \"NewLogoTargets\"\
+  ,\n       \"NEWLOGOTARGETS_ACE\" as \"NewLogoTargetsACE\",\n       \"REGION\" as\
+  \ \"Region\",\n       \"DISTRICT\" as \"District\",\n       --\"NEWLOGOTARGETS_DIGITALSALES\"\
+  \ as \"NewLogoTargetsDigitalSales\"\n       'random' as \"NewLogoTargetsDigitalSales\"\
+  \nFROM  EDW_LS.\"SALES_EM\".\"TBLNEWLOGOTARGETS\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

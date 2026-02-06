@@ -1,0 +1,93 @@
+name: table_966
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_966
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_966.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PLS_TERR_HIST(\n\t\"PLSTerrNameC\",\n\t\"\
+  PLSTerrName\",\n\t\"PLSEmpID\",\n\t\"PLSName\",\n\t\"PLSPlanStartDate\",\n\t\"PLSPlanEndDate\"\
+  ,\n\t\"PLSBusinessUnit\",\n\t\"PLSManagerEffDate\",\n\t\"PLSRepManagerFlag\",\n\t\
+  \"PLSQuotaComponent\",\n\t\"PLSTerritorySysIDC\",\n\t\"PLSTerritorySysID\",\n\t\"\
+  PLSYear\",\n\t\"PLSException\",\n\t\"PLSActiveTerritory\",\n\t\"PlanStartDateDerived\"\
+  ,\n\t\"PlanEndDateDerived\",\n\t\"PLSHCTerritory\",\n\t\"PLSHRManagerName\",\n\t\
+  \"PLSManagerName\",\n\t\"PLSLevel\",\n\t\"LevelType\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT \"PLSTerrName\" as \"PLSTerrNameC\",\n       \"PLSTerrNameC\" as \"PLSTerrName\"\
+  ,\n       \"PLSEmpID\" as \"PLSEmpID\",\n       \"PLSName\" as \"PLSName\",\n  \
+  \     \"PLSPlanStartDate\" as \"PLSPlanStartDate\",\n       \"PLSPlanEndDate\" as\
+  \ \"PLSPlanEndDate\",\n       \"PLSBusinessUnit\" as \"PLSBusinessUnit\",\n    \
+  \   \"PLSManagerEffDate\" as \"PLSManagerEffDate\",\n       \"PLSRepManagerFlag\"\
+  \ as \"PLSRepManagerFlag\",\n       \"PLSQuotaComponent\" as \"PLSQuotaComponent\"\
+  ,\n       \"PLSTerritorySysID\" as \"PLSTerritorySysIDC\",\n       \"PLSTerritorySysIDC\"\
+  \ as \"PLSTerritorySysID\",\n       \"PLSYear\" as \"PLSYear\",\n       \"PLSException\"\
+  \ as \"PLSException\",\n       IFF(\"PLSPlanStartDate\" <= date(convert_timezone('random',\
+  \ current_timestamp))\n           and \"PLSPlanEndDate\" >= date(convert_timezone('random',\
+  \ current_timestamp)), 'random', 'random') as \"PLSActiveTerritory\",\n       IFF\
+  \ (substr((\"PLSPlanStartDate\") :: VARCHAR('random'), 'random', 'random') <'random',\
+  \ date(substr((\"PLSPlanStartDate\") :: VARCHAR('random'), 'random', 'random') ||\
+  \ 'random'), ADD_MONTHS(date(substr((\"PLSPlanStartDate\") :: VARCHAR('random'),\
+  \ 'random', 'random')||'random'), 'random')) as \"PlanStartDateDerived\",\n    \
+  \   \"PLSPlanEndDate\" as \"PlanEndDateDerived\",\n       \"HC_TERRITORY\" as \"\
+  PLSHCTerritory\",\n       \"PLSHRManagerName\" as \"PLSHRManagerName\",\n      \
+  \ \"PLSManagerName\" as \"PLSManagerName\",\n       \"PLSLevel\" as \"PLSLevel\"\
+  ,\n       \"LevelType\" as \"LevelType\"\nFROM\n  (SELECT \"TERRITORYNAME\" as \"\
+  PLSTerrName\",\n          \"EMPLOYEE_ID\" as \"PLSEmpID\",\n          \"EMPLOYEE_NAME\"\
+  \ as \"PLSName\",\n          \"MANAGER_NAME\" as \"PLSHRManagerName\",\n       \
+  \   \"PLAN_START_DATE\" as \"PLSPlanStartDate\",\n          \"PLAN_END_DATE\" as\
+  \ \"PLSPlanEndDate\",\n          \"BUSINESS_UNIT\" as \"PLSBusinessUnit\",\n   \
+  \       \"MANAGER_EFF_DATE\" as \"PLSManagerEffDate\",\n          \"REP_MANAGER_FLAG\"\
+  \ as \"PLSRepManagerFlag\",\n          \"QUOTA_COMPONENT\" as \"PLSQuotaComponent\"\
+  ,\n          \"TERRITORYSYSID\" as \"PLSTerritorySysID\",\n          \"YEAR\" as\
+  \ \"PLSYear\",\n          \"EXCEPTION\" as \"PLSException\",\n          \"HC_TERRITORY\"\
+  \ as \"HC_TERRITORY\",\n          \"PLS_MANAGER_NAME\" as \"PLSManagerName\",\n\
+  \          \"PLS_LEVEL\" as \"PLS_LEVEL\",\n          case\n              when LOWER(\"\
+  PLS_LEVEL\") =LOWER('random') then 'random'\n              when LOWER(\"PLS_LEVEL\"\
+  ) = LOWER('random') then 'random'\n              when LOWER(\"PLS_LEVEL\") = LOWER('random')\
+  \ then 'random'\n              when LOWER(\"PLS_LEVEL\") = LOWER('random') then\
+  \ 'random'\n              when LOWER(\"PLS_LEVEL\") = LOWER('random') then 'random'\n\
+  \              when LOWER(\"PLS_LEVEL\") = LOWER('random') then 'random'\n     \
+  \     end as \"PLSLevel\",\n          case\n              when LOWER(\"PLS_LEVEL\"\
+  ) = LOWER('random') then 'random'\n              when LOWER(\"PLS_LEVEL\") = LOWER('random')\
+  \ then 'random'\n              when LOWER(\"PLS_LEVEL\") = LOWER('random') then\
+  \ 'random'\n              when LOWER(\"PLS_LEVEL\") = LOWER('random') then 'random'\n\
+  \              when LOWER(\"PLS_LEVEL\") = LOWER('random') then 'random'\n     \
+  \         when LOWER(\"PLS_LEVEL\") = LOWER('random') then 'random'\n          end\
+  \ as \"LevelType\"\n   FROM \"EDW_LS\".\"SALES_EM\".\"TBLPLSTERRHIST\") Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,58 @@
+name: table_936
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_936
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_936.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view MVB_TF_ALL_USER_TERRITORY_SECURITY_WITH_LVL(\n\
+  \tTERRITORYSYSID,\n\tUSERID,\n\tLVL\n) as\n\n\n/* Comments retained from HANA input\
+  \ file */\n\n /*********************************************************************************\n\
+  \ \t\t* Program  Name              :    TF_ALL_USER_TERRITORY_SECURITY_WITH_LVL\n\
+  \ \t\t* Development Request # \t :\n \t\t* Date Created               : \t   2017-06-17\n\
+  \ \t\t* Developed By               :     Imran Khan\n \t\t* Brief Description  \
+  \        : \t   Sales Team Territory security for ALL Users\n \t\t* ---------------------------------------------------------------------------------------------------------------\n\
+  \ \t\t* REVISION HISTORY:\n \t\t*----------------------------------------------------------------------------------------------------------------\n\
+  \n ********************************************************************************************************************************/\n\
+  \n\n\n\n\n(SELECT DISTINCT\n \t \tUV.TERRITORYSYSID,\n \t \tUV.USERID,\n \t \tUL.LVL\n\
+  \   FROM \"EDW_LS\".\"SALES_SEC_EM\".\"TF_ALL_USER_TERRITORY_SECURITY\" UV\n  INNER\
+  \ JOIN \"EDW_LS\".\"SALES_SEC_EM\".\"TF_ALL_USER_TERRITORY_LVL\" UL ON UV.USERID\
+  \ = UL.USERID );"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

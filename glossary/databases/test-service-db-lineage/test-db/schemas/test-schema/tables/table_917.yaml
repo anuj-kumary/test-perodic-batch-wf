@@ -1,0 +1,89 @@
+name: table_917
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_917
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_917.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_KC_CUSTOMER_INCOME_STATEMENT(\n\t\"AccountNumber\"\
+  ,\n\tITAM_CACV,\n\t\"StrategicPortfolioManagement_CACV\",\n\tITSM_CACV,\n\tITOM_CACV,\n\
+  \t\"Risk_CACV\",\n\t\"Security_CACV\",\n\tCSM_CACV,\n\tFSM_CACV,\n\t\"Workplace_CACV\"\
+  ,\n\t\"Legal_CACV\",\n\tHR_CACV,\n\t\"AppEngine_CACV\",\n\t\"AutomationEngine_CACV\"\
+  ,\n\tCS_CACV,\n\t\"Other_CACV\",\n\t\"PlatformOther_CACV\",\n\tFL_CACV,\n\tFSP_TAM\n\
+  ) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"AccountNumber\" as \"AccountNumber\",\n\
+  \       Floor(SUM(\"ITAM_CACV\")) as \"ITAM_CACV\",\n       Floor(SUM(\"StrategicPortfolioManagement_CACV\"\
+  )) as \"StrategicPortfolioManagement_CACV\",\n       Floor(SUM(\"ITSM_CACV\")) as\
+  \ \"ITSM_CACV\",\n       Floor(SUM(\"ITOM_CACV\")) as \"ITOM_CACV\",\n       Floor(SUM(\"\
+  Risk_CACV\")) as \"Risk_CACV\",\n       Floor(SUM(\"Security_CACV\")) as \"Security_CACV\"\
+  ,\n       Floor(SUM(\"CSM_CACV\")) as \"CSM_CACV\",\n       Floor(SUM(\"FSM_CACV\"\
+  )) as \"FSM_CACV\",\n       Floor(SUM(\"Workplace_CACV\")) as \"Workplace_CACV\"\
+  ,\n       Floor(SUM(\"Legal_CACV\")) as \"Legal_CACV\",\n       Floor(SUM(\"HR_CACV\"\
+  )) as \"HR_CACV\",\n       Floor(SUM(\"AppEngine_CACV\")) as \"AppEngine_CACV\"\
+  ,\n       Floor(SUM(\"AutomationEngine_CACV\")) as \"AutomationEngine_CACV\",\n\
+  \       Floor(SUM(\"CS_CACV\")) as \"CS_CACV\",\n       Floor(SUM(\"Other_CACV\"\
+  )) as \"Other_CACV\",\n       Floor(SUM(\"PlatformOther_CACV\")) as \"PlatformOther_CACV\"\
+  ,\n       Floor(SUM(\"FL_CACV\")) as \"FL_CACV\",\n       SUM(\"FSP_TAM\") as \"\
+  FSP_TAM\"\nFROM\n  (SELECT \"AccountNumber\" as \"AccountNumber\",\n          \"\
+  BUCombined\" as \"BUCombined\",\n          \"CACV\" as \"CACV\",\n          \"AcctFSPTAM\"\
+  \ as \"AcctFSPTAM\",\n          IFF(\"BUCombined\" = 'random', \"CACV\", 'random')\
+  \ as \"ITAM_CACV\",\n          IFF(\"BUCombined\" = 'random', \"CACV\", 'random')\
+  \ as \"StrategicPortfolioManagement_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"ITSM_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"ITOM_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"Risk_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"Security_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"CSM_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"FSM_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"Workplace_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"Legal_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"HR_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"AppEngine_CACV\",\n          IFF(\"BUCombined\" = 'random',\
+  \ \"CACV\", 'random') as \"AutomationEngine_CACV\",\n          IFF(\"BUCombined\"\
+  \ = 'random', \"CACV\", 'random') as \"Other_CACV\",\n          IFF(\"BUCombined\"\
+  \ = 'random', \"CACV\", 'random') as \"FL_CACV\",\n          IFF(\"BUCombined\"\
+  \ = 'random', \"CACV\", 'random') as \"PlatformOther_CACV\",\n          IFF(\"BUCombined\"\
+  \ = 'random', \"CACV\", 'random') as \"CS_CACV\",\n          CASE\n            \
+  \  WHEN \"BUCombined\" IS NULL then 'random'\n              else IFF(\"BUCombined\"\
+  \ = 'random', \"AcctFSPTAM\", 'random')\n          END as \"FSP_TAM\"\n   FROM\n\
+  \     (SELECT \"AccountNumber\" as \"AccountNumber\",\n             \"BUCombined\"\
+  \ as \"BUCombined\",\n             \"CACV\" as \"CACV\",\n             \"AcctFSPTAM\"\
+  \ as \"AcctFSPTAM\"\n      FROM \"CDL_LS\".\"CUSTOMER_CD_RPT\".\"RPT_CUSTOMER_INCOME_STATEMENT\"\
+  )\"IncomeStatement\")Projection_1\nGROUP BY \"AccountNumber\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

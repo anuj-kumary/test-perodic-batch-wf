@@ -1,0 +1,60 @@
+name: table_954
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_954
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_954.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PRODUCT_QUOTA(\n\t\"Territory\",\n\t\"BusinessUnit\"\
+  ,\n\t\"Quarter\",\n\t\"Quota\",\n\t\"BusinessUnitSysID\",\n\t\"TerritorySysID\"\
+  ,\n\t\"QuotaWithPA\",\n\t\"Coverage\",\n\t\"Quota_Coverage_CC\"\n) as -- SEMANTIC\
+  \ LAYER BEGINS\n\nSELECT \"Territory\" as \"Territory\",\n       \"BusinessUnit\"\
+  \ as \"BusinessUnit\",\n       \"Quarter\" as \"Quarter\",\n       \"Quota\" as\
+  \ \"Quota\",\n       \"BusinessUnitSysID\" as \"BusinessUnitSysID\",\n       \"\
+  TerritorySysID\" as \"TerritorySysID\",\n       \"QuotaWithPA\" as \"QuotaWithPA\"\
+  ,\n       \"Coverage\" as \"Coverage\",\n       \"Quota_Coverage_CC\" as \"Quota_Coverage_CC\"\
+  \nFROM\n  (SELECT \"Territory\" as \"Territory\",\n          \"BusinessUnit\" as\
+  \ \"BusinessUnit\",\n          \"Quarter\" as \"Quarter\",\n          \"Quota\"\
+  \ as \"Quota\",\n          \"BusinessUnitSysID\" as \"BusinessUnitSysID\",\n   \
+  \       \"TerritorySysID\" as \"TerritorySysID\",\n          \"QuotaWithPA\" as\
+  \ \"QuotaWithPA\",\n          \"BUCoverage\" as \"Coverage\",\n          (\"Coverage\"\
+  \ :: DOUBLE * \"Quota\" :: DOUBLE) :: NUMBER('random', 'random') as \"Quota_Coverage_CC\"\
+  \n   FROM \"EDW_LS\".\"SALES_EM\".\"TBLPRODUCTQUOTA\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

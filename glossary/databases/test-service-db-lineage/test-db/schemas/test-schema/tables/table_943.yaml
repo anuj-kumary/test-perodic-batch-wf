@@ -1,0 +1,66 @@
+name: table_943
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_943
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_943.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PS_APJ_YELLOWRED_TRACKER(\n\t\"AccountNumber\"\
+  ,\n\t\"AccountName\",\n\t\"ProjectName\",\n\t\"Geo\",\n\t\"Area\",\n\t\"EscalationStartDate\"\
+  ,\n\t\"Status\",\n\t\"Trending\",\n\t\"ServiceNowResponsiblePerson\",\n\t\"CustomerSuccessSponsor\"\
+  ,\n\t\"EngagementManager\",\n\t\"DeliveryManager\",\n\t\"CustomerKeyStakeHolder\"\
+  ,\n\t\"CustomerKeyStakeHolderRole\",\n\t\"Background\",\n\t\"WhereWeAreAt\",\n\t\
+  \"NextSteps\",\n\t\"AskofLeadership\",\n\t\"FinancialBudgetaryImpact\",\n\t\"ActionsFromCall\"\
+  ,\n\t\"ReviewOnGlobalRed\"\n) as -- SEMANTIC LAYER BEGINS\n\nselect\n\"ACCOUNT_NUMBER\"\
+  \ as \"AccountNumber\",\n\"ACCOUNT_NAME\" as \"AccountName\",\n\"PROJECT_NAME\"\
+  \ as \"ProjectName\",\n\"GEO\" as \"Geo\",\n\"AREA\" as \"Area\",\n try_to_date(\"\
+  ESCALATION_START_DATE\") as \"EscalationStartDate\",\ncase when upper(\"STATUS\"\
+  )='random' then 'random' else \"STATUS\" end as \"Status\",\n\"TRENDING\" as \"\
+  Trending\",\n\"SERVICENOW_RESPONSIBLE_PERSON\" as \"ServiceNowResponsiblePerson\"\
+  ,\n\"CUSTOMER_SUCCESS_SPONSOR\" as \"CustomerSuccessSponsor\",\n\"ENGAGEMENT_MANAGER\"\
+  \ as \"EngagementManager\",\n\"DELIVERY_MANAGER\" as \"DeliveryManager\",\n\"CUSTOMER_KEY_STAKEHOLDER\"\
+  \ as \"CustomerKeyStakeHolder\",\n\"CUSTOMER_KEY_STAKEHOLDER_ROLE\" as \"CustomerKeyStakeHolderRole\"\
+  ,\n\"BACKGROUND\" as \"Background\",\n\"WHERE WE ARE AT\" as \"WhereWeAreAt\",\n\
+  \"NEXT_STEPS\" as \"NextSteps\",\n\"ASK_OF_LEADERSHIP\" as \"AskofLeadership\",\n\
+  \"FINANCIAL_BUDGETARY_IMPACT\" as \"FinancialBudgetaryImpact\",\n\"ACTIONS_FROM\
+  \ CALL\" as \"ActionsFromCall\",\n\"REVIEW_ON_GLOBAL_RED\" as \"ReviewOnGlobalRed\"\
+  \n  from \"RDS\".\"FLATFILESOURCE\".\"PS_APJ_YELLOWRED_TRACKER\"\n  where upper(\"\
+  STATUS\") in ('random','random','random')\n  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

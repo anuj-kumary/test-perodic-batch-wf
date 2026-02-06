@@ -1,0 +1,138 @@
+name: table_930
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_930
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_930.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ACCOUNTS(\n\t\"AccountTerritorySysID\",\n\
+  \t\"AccountNumber\",\n\t\"AccountName\",\n\t\"AccountCustomerSince\",\n\t\"AccountCreatedOn\"\
+  ,\n\t\"AccountSegment\",\n\t\"AccountDUNSNumber\",\n\t\"AccountFieldSalesRepSysID\"\
+  ,\n\t\"AccountMergedFlag\",\n\t\"AccountIndustrySegmentSysID\",\n\t\"AccountSydID\"\
+  ,\n\t\"AccountparentSysID\",\n\t\"AccountIndustrySegment\",\n\t\"AccountMaintenance\"\
+  ,\n\t\"AccountPlanUploaded\",\n\t\"AccountPlanUploadedBy\",\n\t\"AccountPlanUploadedDate\"\
+  ,\n\t\"BusinessValueAssessmentUploaded\",\n\t\"BusinessValueAssessmentUploadedBy\"\
+  ,\n\t\"BusinessValueAssementUploadedOn\",\n\t\"StrategyPlanUploaded\",\n\t\"StrategyPlanUploadedBy\"\
+  ,\n\t\"StrategyPlanUploadedOn\",\n\t\"RenewalAccountPlanUploaded\",\n\t\"RenewalAccountPlanUploadedBy\"\
+  ,\n\t\"RenewalAccountPlanUploadedOn\",\n\t\"AccountMDMID\",\n\t\"AccountGUID\",\n\
+  \tSN_EXECUTIVESPONSORSERVICENOW,\n\tSN_PARTNERNAME,\n\t\"AccountTaxExemption\",\n\
+  \tSTATUSCODE,\n\tSTATUSCODENAME\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"AccountTerritorySysID\"\
+  \ as \"AccountTerritorySysID\",\n       \"AccountNumber\" as \"AccountNumber\",\n\
+  \       \"AccountName\" as \"AccountName\",\n       \"AccountCustomerSince\" as\
+  \ \"AccountCustomerSince\",\n       \"AccountCreatedOn\" as \"AccountCreatedOn\"\
+  ,\n       \"AccountSegment\" as \"AccountSegment\",\n       \"AccountDUNSNumber\"\
+  \ as \"AccountDUNSNumber\",\n       \"AccountFieldSalesRepSysID\" as \"AccountFieldSalesRepSysID\"\
+  ,\n       \"AccountMergedFlag\" as \"AccountMergedFlag\",\n       \"AccountIndustrySegmentSysID\"\
+  \ as \"AccountIndustrySegmentSysID\",\n       \"AccountSydID\" as \"AccountSydID\"\
+  ,\n       \"AccountparentSysID\" as \"AccountparentSysID\",\n       \"AccountIndustrySegment\"\
+  \ as \"AccountIndustrySegment\",\n       \"AccountMaintenance\" as \"AccountMaintenance\"\
+  ,\n       \"SN_ACCOUNTPLANUPLOADED\" as \"AccountPlanUploaded\",\n       \"SN_ACCOUNTPLANUPLOADEDBY\"\
+  \ as \"AccountPlanUploadedBy\",\n       \"SN_ACCOUNTPLANUPLOADEDDATE\" as \"AccountPlanUploadedDate\"\
+  ,\n       \"SN_BUSINESSVALUEASSESSMENTUPLOADED\" as \"BusinessValueAssessmentUploaded\"\
+  ,\n       \"SN_BUSINESSVALUEASSESSMENTUPLOADEDBY\" as \"BusinessValueAssessmentUploadedBy\"\
+  ,\n       \"SN_BUSINESSVALUEASSESSMENTUPLOADEDON\" as \"BusinessValueAssementUploadedOn\"\
+  ,\n       \"SN_STRATEGYPLANUPLOADED\" as \"StrategyPlanUploaded\",\n       \"SN_STRATEGYPLANUPLOADEDBY\"\
+  \ as \"StrategyPlanUploadedBy\",\n       \"SN_STRATEGYPLANUPLOADEDON\" as \"StrategyPlanUploadedOn\"\
+  ,\n       \"SN_RENEWALACCOUNTPLANUPLOADED\" as \"RenewalAccountPlanUploaded\",\n\
+  \       \"SN_RENEWALACCOUNTPLANUPLOADEDBY\" as \"RenewalAccountPlanUploadedBy\"\
+  ,\n       \"SN_RENEWALACCOUNTPLANUPLOADEDON\" as \"RenewalAccountPlanUploadedOn\"\
+  ,\n       \"SN_MDMID\" as \"AccountMDMID\",\n\t   \"SN_PARTNER\" as \"AccountGUID\"\
+  ,\n       \"SN_EXECUTIVESPONSORSERVICENOW\" as SN_EXECUTIVESPONSORSERVICENOW,\n\t\
+  \   \"SN_PARTNERNAME\" as \"SN_PARTNERNAME\",\n       \"SN_TAXEXEMPT\" as \"AccountTaxExemption\"\
+  ,\n       \"STATUSCODE\" as \"STATUSCODE\",\n       \"STATUSCODENAME\" as \"STATUSCODENAME\"\
+  \nFROM\n  (SELECT \"TERRITORYID\" as \"AccountTerritorySysID\",\n          \"ACCOUNTNUMBER\"\
+  \ as \"AccountNumber\",\n          \"NAME\" as \"AccountName\",\n          \"SN_CUSTOMERSINCE\"\
+  \ as \"AccountCustomerSince\",\n          \"CREATEDON\" as \"AccountCreatedOn\"\
+  ,\n          \"SN_SEGMENT\" as \"AccountSegment\",\n          \"SN_DUNSNUMBER\"\
+  \ as \"AccountDUNSNumber\",\n          \"SN_PRIMARYSALESREP\" as \"AccountFieldSalesRepSysID\"\
+  ,\n          \"MERGED\" as \"AccountMergedFlag\",\n          \"SN_INDUSTRYSEGMENT\"\
+  \ as \"AccountIndustrySegmentSysID\",\n          \"ACCOUNTID\" as \"AccountSydID\"\
+  ,\n          \"PARENTACCOUNTID\" as \"AccountparentSysID\",\n          \"SN_INDUSTRYSEGMENTNAME\"\
+  \ as \"AccountIndustrySegment\",\n          \"SN_ACCOUNTMAINTENANCENAME\" as \"\
+  AccountMaintenance\",\n          \"SN_ACCOUNTPLANUPLOADEDBY\" as \"SN_ACCOUNTPLANUPLOADEDBY\"\
+  ,\n          \"SN_ACCOUNTPLANUPLOADEDDATE\" as \"SN_ACCOUNTPLANUPLOADEDDATE\",\n\
+  \          \"SN_BUSINESSVALUEASSESSMENTUPLOADED\" as \"SN_BUSINESSVALUEASSESSMENTUPLOADED\"\
+  ,\n          \"SN_BUSINESSVALUEASSESSMENTUPLOADEDBY\" as \"SN_BUSINESSVALUEASSESSMENTUPLOADEDBY\"\
+  ,\n          \"SN_BUSINESSVALUEASSESSMENTUPLOADEDON\" as \"SN_BUSINESSVALUEASSESSMENTUPLOADEDON\"\
+  ,\n          \"SN_STRATEGYPLANUPLOADED\" as \"SN_STRATEGYPLANUPLOADED\",\n     \
+  \     \"SN_STRATEGYPLANUPLOADEDBY\" as \"SN_STRATEGYPLANUPLOADEDBY\",\n        \
+  \  \"SN_STRATEGYPLANUPLOADEDON\" as \"SN_STRATEGYPLANUPLOADEDON\",\n          \"\
+  SN_RENEWALACCOUNTPLANUPLOADED\" as \"SN_RENEWALACCOUNTPLANUPLOADED\",\n        \
+  \  \"SN_RENEWALACCOUNTPLANUPLOADEDBY\" as \"SN_RENEWALACCOUNTPLANUPLOADEDBY\",\n\
+  \          \"SN_RENEWALACCOUNTPLANUPLOADEDON\" as \"SN_RENEWALACCOUNTPLANUPLOADEDON\"\
+  ,\n          \"SN_ACCOUNTPLANUPLOADED\" as \"SN_ACCOUNTPLANUPLOADED\",\n       \
+  \   \"SN_MDMID\" as \"SN_MDMID\",\n\t\t  \"SN_PARTNER\", --Adding this column to\
+  \ join with SN_PARTNERENGAGEMENTS implementation partner GUID in PARTNERS360NOWASSURE\n\
+  \          \"SN_EXECUTIVESPONSORSERVICENOW\" as SN_EXECUTIVESPONSORSERVICENOW,\n\
+  \t\t  \"SN_PARTNERNAME\" as \"SN_PARTNERNAME\",\n          \"SN_TAXEXEMPT\" as \"\
+  SN_TAXEXEMPT\",\n          \"STATUSCODE\" as \"STATUSCODE\",\n          \"STATUSCODENAME\"\
+  \ as \"STATUSCODENAME\"\n   FROM\n     (SELECT \"ACCOUNTID\" as \"ACCOUNTID\",\n\
+  \             \"ACCOUNTCATEGORYCODENAME\" as \"ACCOUNTCATEGORYCODENAME\",\n    \
+  \         \"TERRITORYID\" as \"TERRITORYID\",\n             \"TERRITORYIDNAME\"\
+  \ as \"TERRITORYIDNAME\",\n             \"PARENTACCOUNTIDNAME\" as \"PARENTACCOUNTIDNAME\"\
+  ,\n             \"NUMBEROFEMPLOYEES\" as \"NUMBEROFEMPLOYEES\",\n             \"\
+  NAME\" as \"NAME\",\n             \"ACCOUNTNUMBER\" as \"ACCOUNTNUMBER\",\n    \
+  \         \"SN_DUNSNUMBER\" as \"SN_DUNSNUMBER\",\n             \"SN_PARTNER\" as\
+  \ \"SN_PARTNER\",\n             \"CUSTOMERTYPECODE\" as \"CUSTOMERTYPECODE\",\n\
+  \             \"CUSTOMERTYPECODENAME\" as \"CUSTOMERTYPECODENAME\",\n          \
+  \   \"PARENTACCOUNTID\" as \"PARENTACCOUNTID\",\n             \"SN_CUSTOMERSINCE\"\
+  \ as \"SN_CUSTOMERSINCE\",\n             \"CREATEDON\" as \"CREATEDON\",\n     \
+  \        \"SN_SEGMENT\" as \"SN_SEGMENT\",\n             \"SN_PRIMARYSALESREP\"\
+  \ as \"SN_PRIMARYSALESREP\",\n             \"MERGED\" as \"MERGED\",\n         \
+  \    \"SN_INDUSTRYSEGMENT\" as \"SN_INDUSTRYSEGMENT\",\n             \"SN_INDUSTRYSEGMENTNAME\"\
+  \ as \"SN_INDUSTRYSEGMENTNAME\",\n             \"SN_ACCOUNTMAINTENANCENAME\" as\
+  \ \"SN_ACCOUNTMAINTENANCENAME\",\n             \"SN_ACCOUNTPLANUPLOADEDBY\" as \"\
+  SN_ACCOUNTPLANUPLOADEDBY\",\n             \"SN_ACCOUNTPLANUPLOADEDDATE\" as \"SN_ACCOUNTPLANUPLOADEDDATE\"\
+  ,\n             \"SN_BUSINESSVALUEASSESSMENTUPLOADED\" as \"SN_BUSINESSVALUEASSESSMENTUPLOADED\"\
+  ,\n             \"SN_BUSINESSVALUEASSESSMENTUPLOADEDBY\" as \"SN_BUSINESSVALUEASSESSMENTUPLOADEDBY\"\
+  ,\n             \"SN_BUSINESSVALUEASSESSMENTUPLOADEDON\" as \"SN_BUSINESSVALUEASSESSMENTUPLOADEDON\"\
+  ,\n             \"SN_STRATEGYPLANUPLOADED\" as \"SN_STRATEGYPLANUPLOADED\",\n  \
+  \           \"SN_STRATEGYPLANUPLOADEDBY\" as \"SN_STRATEGYPLANUPLOADEDBY\",\n  \
+  \           \"SN_STRATEGYPLANUPLOADEDON\" as \"SN_STRATEGYPLANUPLOADEDON\",\n  \
+  \           \"SN_RENEWALACCOUNTPLANUPLOADED\" as \"SN_RENEWALACCOUNTPLANUPLOADED\"\
+  ,\n             \"SN_RENEWALACCOUNTPLANUPLOADEDBY\" as \"SN_RENEWALACCOUNTPLANUPLOADEDBY\"\
+  ,\n             \"SN_RENEWALACCOUNTPLANUPLOADEDON\" as \"SN_RENEWALACCOUNTPLANUPLOADEDON\"\
+  ,\n             \"SN_ACCOUNTPLANUPLOADED\" as \"SN_ACCOUNTPLANUPLOADED\",\n    \
+  \         \"SN_MDMID\" as \"SN_MDMID\",\n             \"SN_EXECUTIVESPONSORSERVICENOW\"\
+  \ as SN_EXECUTIVESPONSORSERVICENOW,\n\t\t\t \"SN_PARTNERNAME\" as \"SN_PARTNERNAME\"\
+  ,\n             \"SN_TAXEXEMPT\" as \"SN_TAXEXEMPT\",\n             \"STATUSCODE\"\
+  \ as \"STATUSCODE\",\n             \"STATUSCODENAME\" as \"STATUSCODENAME\"\n  \
+  \    FROM RDS.\"DYNAMICS365\".\"ACCOUNTS\")\"Projection_1\")Projection_3;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

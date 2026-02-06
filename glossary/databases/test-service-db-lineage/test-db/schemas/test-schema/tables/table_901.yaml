@@ -1,0 +1,67 @@
+name: table_901
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_901
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_901.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_USERS(\n\tID,\n\tGUID,\n\tCREATED_AT,\n\
+  \tUPDATED_AT,\n\tNAME,\n\tFIRST_NAME,\n\tLAST_NAME,\n\tJOB_ROLE,\n\tACTIVE,\n\t\
+  TIME_ZONE,\n\tLOCALE_UTC_OFFSET,\n\tSLACK_USERNAME,\n\tTWITTER_HANDLE,\n\tEMAIL,\n\
+  \tEMAIL_CLIENT_EMAIL_ADDRESS,\n\tSENDING_EMAIL_ADDRESS,\n\tFULL_EMAIL_ADDRESS,\n\
+  \tBCC_EMAIL_ADDRESS,\n\tWORK_COUNTRY,\n\tEMAIL_SIGNATURE,\n\tEMAIL_SIGNATURE_TYPE,\n\
+  \tEMAIL_SIGNATURE_CLICK_TRACKING_DISABLED,\n\tTEAM_ADMIN,\n\tLOCAL_DIAL_ENABLED,\n\
+  \tCLICK_TO_CALL_ENABLED,\n\tEMAIL_CLIENT_CONFIGURED,\n\tCRM_CONNECTED,\n\tTEAM_HREF,\n\
+  \tTEAM_ID,\n\tROLE_ID,\n\tGROUP_HREF,\n\tGROUP_ID,\n\tROLE_HREF,\n\tPHONE_CLIENT_ID,\n\
+  \tFROM_ADDRESS\n) as\n/* Comments retained from HANA input file */\n    /*************************************************************************************************************************************************\n\
+  \     * Story \t\t\t\t\t :    STRY2589383\n     * Date Created   : \t  05/03/2024\n\
+  \     * Developed By   :    UDAY KUMAR REDDY\t :\n     * Brief Description    :\
+  \ \tBuild a new data model to calculate LDR's Email Adoption Rate on top of Sales\
+  \ loft Data\n     * ------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \     * REVISION HISTORY:\n     *---------------------------------------------------------------------------------------------------------------------------------------\n\
+  \    * Story#   Date Modified     Modified By  Brief Description of Change\n  *************************************************************************************************************************************************/\n\
+  SELECT\nID,\nGUID,\nCREATED_AT,\nUPDATED_AT,\nNAME,\nFIRST_NAME,\nLAST_NAME,\nJOB_ROLE,\n\
+  ACTIVE,\nTIME_ZONE,\nLOCALE_UTC_OFFSET,\nSLACK_USERNAME,\nTWITTER_HANDLE,\nEMAIL,\n\
+  EMAIL_CLIENT_EMAIL_ADDRESS,\nSENDING_EMAIL_ADDRESS,\nFULL_EMAIL_ADDRESS,\nBCC_EMAIL_ADDRESS,\n\
+  WORK_COUNTRY,\n--SEAT_PACKAGE,\nEMAIL_SIGNATURE,\nEMAIL_SIGNATURE_TYPE,\nEMAIL_SIGNATURE_CLICK_TRACKING_DISABLED,\n\
+  TEAM_ADMIN,\nLOCAL_DIAL_ENABLED,\nCLICK_TO_CALL_ENABLED,\nEMAIL_CLIENT_CONFIGURED,\n\
+  CRM_CONNECTED,\nTEAM_HREF,\nTEAM_ID,\nROLE_ID,\nGROUP_HREF,\nGROUP_ID,\nROLE_HREF,\n\
+  PHONE_CLIENT_ID,\nFROM_ADDRESS\nFROM RDS.SALESLOFT.USERS\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

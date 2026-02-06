@@ -1,0 +1,59 @@
+name: table_920
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_920
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_920.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view MVB_VW_TBLU_DESKTOP_LICENSE_USAGE(\n\tLASTUSED,\n\
+  \t\"License Key\",\n\t\"User Name\",\n\tASSIGNED_EMAIL,\n\tID,\n\tAPP_VERSION,\n\
+  \tEMAIL,\n\tEXPIRATION_DATE,\n\tFIRST_NAME,\n\tLAST_NAME,\n\tCOMPUTER_USER_ID,\n\
+  \tHOST_NAME,\n\tDEPARTMENT,\n\tCOMPANY,\n\tOS_VERSION,\n\tOS_ARCHITECTURE,\n\tREGISTRATION_DATE,\n\
+  \tLAST_REPORT_DATE,\n\tMAINTENANCE_EXPIRATION,\n\tPRODUCT_NAME,\n\tEDITION,\n\t\
+  TYPE,\n\tPRODUCT_KEYS,\n\tSERIAL_NUMBER,\n\tMAC_ADDRESS,\n\tDOMAIN,\n\tUNIQUE_MACHINE_NUMBER,\n\
+  \tACTION,\n\tACTION_KEY\n) as\nselect\nTO_DATE(convert_timezone( 'random',last_report_date))\
+  \  as LastUsed,\n\"License Key\",\n\"User Name\",\nASSIGNED_EMAIL,\nID,\nAPP_VERSION,\n\
+  EMAIL,\nEXPIRATION_DATE,\nFIRST_NAME,\nLAST_NAME,\nCOMPUTER_USER_ID,\nHOST_NAME,\n\
+  DEPARTMENT,\nCOMPANY,\nOS_VERSION,\nOS_ARCHITECTURE,\nREGISTRATION_DATE,\nLAST_REPORT_DATE,\n\
+  MAINTENANCE_EXPIRATION,\nPRODUCT_NAME,\nEDITION,\nTYPE,\nPRODUCT_KEYS,\nSERIAL_NUMBER,\n\
+  MAC_ADDRESS,\nDOMAIN,\nUNIQUE_MACHINE_NUMBER,\nACTION,\nACTION_KEY\nfrom\n    RDS.TBLU_USAGE_PRD.TBL_TBLU_DESKTOP_LICENSES\
+  \ DL\nLEFT join\n    \"RDS\".\"TBLU_USAGE_DEV\".\"DESKTOP_REPORTING\"  ON LOWER(email)\
+  \ = LOWER(ASSIGNED_EMAIL);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

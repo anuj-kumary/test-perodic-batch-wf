@@ -1,0 +1,52 @@
+name: table_961
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_961
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_961.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ADR6(\n\tCLIENT,\n\tADDRNUMBER,\n\tPERSNUMBER,\n\
+  \tDATE_FROM,\n\tCONSNUMBER,\n\tFLGDEFAULT,\n\tFLG_NOUSE,\n\tHOME_FLAG,\n\tSMTP_ADDR,\n\
+  \tSMTP_SRCH,\n\tDFT_RECEIV,\n\tR3_USER,\n\tENCODE,\n\tTNEF,\n\tVALID_FROM,\n\tVALID_TO,\n\
+  \t_DATAAGING\n) as select\n\t\tCLIENT,\n\t\tADDRNUMBER,\n\t\tPERSNUMBER,\n\t\tDATE_FROM,\n\
+  \t\tCONSNUMBER,\n\t\tFLGDEFAULT,\n\t\tFLG_NOUSE,\n\t\tHOME_FLAG,\n\t\tSMTP_ADDR,\n\
+  \t\tSMTP_SRCH,\n\t\tDFT_RECEIV,\n\t\tR3_USER,\n\t\tENCODE,\n\t\tTNEF,\n\t\tVALID_FROM,\n\
+  \t\tVALID_TO,\n\t\t_DATAAGING\n from RDS.s4hana.ADR6 where CLIENT='random';"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

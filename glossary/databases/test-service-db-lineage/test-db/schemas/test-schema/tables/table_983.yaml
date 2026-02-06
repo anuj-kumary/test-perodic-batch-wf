@@ -1,0 +1,53 @@
+name: table_983
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_983
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_983.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view NOW_ON_NOW_KNOWLEDGE_SESSIONS(\n\tSESSIONCATEGORY,\n\
+  \tEVENT_LOCATION,\n\tSESSIONTITLE,\n\tSESSION_ATTENDEES,\n\tHOT_LEADS,\n\tOVERALL_RATING,\n\
+  \tAVG_CONTENT,\n\tAVG_SPEAKER,\n\tPIPELINE_INFLUENCED,\n\tOPEN_ACV,\n\tPIPELINE_CREATED\n\
+  ) as (\nselect\nSESSIONCATEGORY\n,EVENT_LOCATION\n,SESSIONTITLE\n,SESSION_ATTENDEES\n\
+  ,HOT_LEADS\n,OVERALL_RATING\n,AVG_CONTENT\n,AVG_SPEAKER\n,round((REGEXP_REPLACE(ATTENDED_OPEN_PIPELINE,\
+  \ 'random', 'random')),'random') as PIPELINE_INFLUENCED\n,round((REGEXP_REPLACE(OPEN_ACV,\
+  \ 'random', 'random')),'random') as OPEN_ACV\n,round((REGEXP_REPLACE(CREATED_PIPELINE,\
+  \ 'random', 'random')),'random') as PIPELINE_CREATED\nFROM RDS.FLATFILESOURCE.NOW_ON_NOW_KNOWLEDGE_SESSIONS);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

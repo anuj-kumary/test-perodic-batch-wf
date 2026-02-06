@@ -1,0 +1,59 @@
+name: table_969
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_969
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_969.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PLS_PROD_QUOTA(\n\t\"PLSTerritoryName\"\
+  ,\n\t\"PLSBusinessUnit\",\n\t\"PLSQuarter\",\n\t\"PLSQuota\",\n\t\"PLSBusinessUnitSysID\"\
+  ,\n\t\"PLSTerritorySysID\",\n\t\"PLSEmployeeNumber\",\n\t\"PLSEmployeeName\"\n)\
+  \ as -- SEMANTIC LAYER BEGINS\n\nSELECT \"TERRITORY\" as \"PLSTerritoryName\",\n\
+  \       \"BUSINESSUNIT\" as \"PLSBusinessUnit\",\n       \"QUARTER\" as \"PLSQuarter\"\
+  ,\n       \"QUOTA\" as \"PLSQuota\",\n       \"BUSINESSUNITSYSID\" as \"PLSBusinessUnitSysID\"\
+  ,\n       \"TERRITORYSYSID\" as \"PLSTerritorySysID\",\n       \"EMPLOYEE_NUMBER\"\
+  \ as \"PLSEmployeeNumber\",\n       \"EMPLOYEE_NAME\" as \"PLSEmployeeName\"\nFROM\n\
+  \  (SELECT \"TERRITORY\" as \"TERRITORY\",\n          \"BUSINESSUNIT\" as \"BUSINESSUNIT\"\
+  ,\n          \"QUARTER\" as \"QUARTER\",\n          \"QUOTA\" as \"QUOTA\",\n  \
+  \        \"BUSINESSUNITSYSID\" as \"BUSINESSUNITSYSID\",\n          \"TERRITORYSYSID\"\
+  \ as \"TERRITORYSYSID\",\n          \"EMPLOYEE_NUMBER\" as \"EMPLOYEE_NUMBER\",\n\
+  \          \"EMPLOYEE_NAME\" as \"EMPLOYEE_NAME\"\n   FROM \"EDW_LS\".\"SALES_EM\"\
+  .\"TBLPLSPRODQUOTA\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

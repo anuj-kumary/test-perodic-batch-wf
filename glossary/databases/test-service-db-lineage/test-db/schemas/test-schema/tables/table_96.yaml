@@ -1,0 +1,116 @@
+name: table_96
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_96
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_96.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SALES_PRODUCT_PIP_PRG(\n\t\"ProductSKU\"\
+  ,\n\t\"ProductCategoryValue\",\n\t\"ProductSysID\",\n\t\"ProductFullName\",\n\t\"\
+  ProductCode\",\n\t\"ProductFamilyValue\",\n\t\"ProductActive\",\n\t\"ProductName\"\
+  ,\n\t\"ProductFamily3Value\",\n\t\"ProductFamily2Value\",\n\t\"ProductFamily1Value\"\
+  ,\n\t\"ProductBusinessUnitValue\",\n\t\"ProductFamily1\",\n\t\"ProductFamily2\"\
+  ,\n\t\"ProductFamily3\",\n\t\"ProductBusinessUnitSysID\",\n\t\"ProductAttribute1Value\"\
+  ,\n\t\"BUGroup\",\n\t\"ProductUnit\",\n\t\"ProductBaseAmount\",\n\t\"ProductStatus\"\
+  ,\n\t\"ProductsCreatedOn\",\n\t\"ProdCommissionableBU\",\n\t\"ProductLicenseTypeValue\"\
+  ,\n\t\"ProductUAttribute1Value\",\n\t\"ProductListPriceModelSysID\",\n\t\"ProductListPriceModel\"\
+  ,\n\t\"ProductForecastOnly\",\n\t\"BUWorkFlow\",\n\t\"ProductDescription\",\n\t\"\
+  ProductNowBuyingProgramFlag\",\n\t\"ProductLegacyFlag\",\n\t\"ProductIsInstanceProvisioningRequired\"\
+  ,\n\t\"ProductAttribute2Value\",\n\t\"ProductBasePrice\",\n\t\"ProductCalculateACV\"\
+  ,\n\t\"ProductCustomerDescription\",\n\t\"ProductTermType\",\n\t\"ProductHours\"\
+  ,\n\t\"ProductNewDecsription\",\n\t\"ProductCreatedBy\",\n\t\"ProductParentCustomSKU\"\
+  ,\n\t\"ProductFamily\",\n\t\"ProductVendor\",\n\t\"ProductProgramType\",\n\t\"ProductPackageType\"\
+  ,\n\t\"ProductDefaultRevRecValue\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"U_SKU\"\
+  \ as \"ProductSKU\",\n       \"DV_U_CATEGORY\" as \"ProductCategoryValue\",\n  \
+  \     \"SYS_ID\" as \"ProductSysID\",\n       \"U_FULL_NAME\" as \"ProductFullName\"\
+  ,\n       \"U_PRODUCT_CODE\" as \"ProductCode\",\n       \"DV_U_FAMILY\" as \"ProductFamilyValue\"\
+  ,\n       \"ACTIVE\" as \"ProductActive\",\n       \"NAME\" as \"ProductName\",\n\
+  \       \"DV_U_FAMILY_3\" as \"ProductFamily3Value\",\n       \"DV_U_FAMILY_2\"\
+  \ as \"ProductFamily2Value\",\n       \"DV_U_FAMILY_1\" as \"ProductFamily1Value\"\
+  ,\n       \"DV_U_BUSINESS_UNIT\" as \"ProductBusinessUnitValue\",\n       \"U_FAMILY_1\"\
+  \ as \"ProductFamily1\",\n       \"U_FAMILY_2\" as \"ProductFamily2\",\n       \"\
+  U_FAMILY_3\" as \"ProductFamily3\",\n       \"U_BUSINESS_UNIT\" as \"ProductBusinessUnitSysID\"\
+  ,\n       \"DV_U_ATTRIBUTE_1\" as \"ProductAttribute1Value\",\n       IFF(\"ProductBusinessUnitValue\"\
+  \ = 'random', 'random',\n           IFF(\"ProductBusinessUnitValue\" IN ('random',\
+  \ 'random', 'random', 'random'), 'random',\n               IFF(\"ProductBusinessUnitValue\"\
+  \ IN ('random', 'random', 'random'), 'random',\n                   IFF(\"ProductBusinessUnitValue\"\
+  ='random', 'random',\n                       IFF(\"ProductBusinessUnitValue\"='random',\
+  \ 'random',\n                           IFF(\"ProductBusinessUnitValue\"='random',\
+  \ 'random', \"ProductBusinessUnitValue\")))))) as \"BUGroup\",\n       \"DV_U_UNIT\"\
+  \ as \"ProductUnit\",\n       \"U_BASE_AMOUNT\" as \"ProductBaseAmount\",\n    \
+  \   \"PRODUCT_STATUS\" as \"ProductStatus\",\n       \"SYS_CREATED_ON\" as \"ProductsCreatedOn\"\
+  ,\n       \"DV_U_COM\" as \"ProdCommissionableBU\",\n       \"DV_U_LICENSE_PRODUCT_TYPE\"\
+  \ as \"ProductLicenseTypeValue\",\n       \"U_ATTRIBUTE_1\" as \"ProductUAttribute1Value\"\
+  ,\n       \"U_VARIABLE_LIST_PRICE_MODEL\" as \"ProductListPriceModelSysID\",\n \
+  \      \"DV_U_VARIABLE_LIST_PRICE_MODEL\" as \"ProductListPriceModel\",\n      \
+  \ \"U_FORECAST_ONLY\" as \"ProductForecastOnly\",\n       case\n           when\
+  \ \"ProductBusinessUnitValue\" IN('random',\n                                  \
+  \            'random',\n                                              'random',\n\
+  \                                              'random',\n                     \
+  \                         'random',\n                                          \
+  \    'random',\n                                              'random',\n      \
+  \                                        'random',\n                           \
+  \                   'random') then 'random'\n           when \"ProductBusinessUnitValue\"\
+  \ IN('random',\n                                              'random',\n      \
+  \                                        'random') then 'random'\n           when\
+  \ \"ProductBusinessUnitValue\" IN('random',\n                                  \
+  \            'random') then 'random'\n           when \"ProductBusinessUnitValue\"\
+  \ IN('random',\n                                              'random',\n      \
+  \                                        'random',\n                           \
+  \                   'random',\n                                              'random')\
+  \ then 'random'\n           when \"ProductBusinessUnitValue\"='random' then 'random'\n\
+  \           when \"ProductBusinessUnitValue\"='random' then 'random'\n         \
+  \  when \"ProductBusinessUnitValue\" = 'random' then 'random'\n           when \"\
+  ProductBusinessUnitValue\" IN('random') then 'random'\n           else 'random'\n\
+  \       end as \"BUWorkFlow\",\n       \"U_PRODUCT_DESCRIPTION\" as \"ProductDescription\"\
+  ,\n       \"U_NBP\" as \"ProductNowBuyingProgramFlag\",\n       \"U_LEGACY_PRODUCT\"\
+  \ as \"ProductLegacyFlag\",\n       \"DV_U_IS_INSTANCE_PROVISIONING_REQUIRED\" as\
+  \ \"ProductIsInstanceProvisioningRequired\",\n       \"DV_U_ATTRIBUTE_2\" as \"\
+  ProductAttribute2Value\",\n       \"BASE_PRICE\" as \"ProductBasePrice\",\n    \
+  \   \"U_CALCULATES_TO_ACV\" as \"ProductCalculateACV\",\n       \"DESCRIPTION\"\
+  \ as \"ProductCustomerDescription\",\n       \"DV_U_TERM_TYPE\" as \"ProductTermType\"\
+  ,\n       \"U_PRODUCT_HOURS\" as \"ProductHours\",\n       \"DESCRIPTION\" as \"\
+  ProductNewDecsription\",\n       \"SYS_CREATED_BY\" as \"ProductCreatedBy\",\n \
+  \      \"DV_U_PARENT_CUSTOM_SKU\" as \"ProductParentCustomSKU\",\n       \"U_FAMILY\"\
+  \ as \"ProductFamily\",\n       \"DV_U_VENDOR\" as \"ProductVendor\",\n       \"\
+  U_PROGRAM_TYPE\" as \"ProductProgramType\",\n       \"U_PACKAGE_TYPE\" as \"ProductPackageType\"\
+  ,\n       \"DV_U_DEFAULT_REV_REC\" as \"ProductDefaultRevRecValue\"\nFROM RDS_SHARE.\"\
+  SURF\".\"SALES_PRODUCT\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

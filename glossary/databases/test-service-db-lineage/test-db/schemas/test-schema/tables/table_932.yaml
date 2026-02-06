@@ -1,0 +1,72 @@
+name: table_932
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_932
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_932.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PS_EMEA_YELLOWRED_TRACKER(\n\t\"AccountNumber\"\
+  ,\n\t\"AccountName\",\n\t\"ProjectName\",\n\t\"Geo\",\n\t\"AtRiskStartDate\",\n\t\
+  \"Status\",\n\t\"Trending\",\n\t\"AtRiskReasonCode\",\n\t\"ServiceNowAccountableResource\"\
+  ,\n\t\"CustomerSuccessSponsor\",\n\t\"EngagementManager\",\n\t\"DeliveryManager\"\
+  ,\n\t\"Partner\",\n\t\"PartnerSuccessManager\",\n\t\"ProductSuccess\",\n\t\"EscalatedtoAEMTeamYN\"\
+  ,\n\t\"CustomerKeyStakeholder\",\n\t\"CustomerKeyStakeholderRole\",\n\t\"Background\"\
+  ,\n\t\"GetToGreenPlan\",\n\t\"NextSteps\",\n\t\"AskofLeadership\",\n\t\"FinancialBudgetaryImpact\"\
+  ,\n\t\"DaysAgingNumber\",\n\t\"ReviewOnGlobalRed\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT\n\t\"ACCOUNT_NUMBER\" as \"AccountNumber\",\n\t\"ACCOUNT_NAME\" as \"AccountName\"\
+  ,\n\t\"PROJECT_NAME\" as \"ProjectName\",\n\t\"GEO\" as \"Geo\",\n     try_to_date(\"\
+  AT_RISK_START_DATE\") as \"AtRiskStartDate\",\n    case when upper(\"STATUS\")='random'\
+  \ then 'random' ELSE \"STATUS\" end as \"Status\",\n    \"TRENDING\" as \"Trending\"\
+  ,\n    \"AT_RISK_REASON_CODE\" as \"AtRiskReasonCode\",\n    \"SERVICENOW_ACCOUNTABLE_RESOURCE\"\
+  \ as \"ServiceNowAccountableResource\",\n    \"CUSTOMER_SUCCESS_SPONSOR\" as \"\
+  CustomerSuccessSponsor\",\n    \"ENGAGEMENT_MANAGER\" as \"EngagementManager\",\n\
+  \    \"DELIVERY_MANAGER\" as \"DeliveryManager\",\n    \"PARTNER\" as \"Partner\"\
+  ,\n    \"PARTNER_SUCCESS_MANAGER\" as \"PartnerSuccessManager\",\n    \"PRODUCT_SUCCESS\"\
+  \ as \"ProductSuccess\",\n    \"ESCALATED_TO_AEM_TEAM_Y_or_N\" as \"EscalatedToAEMTeamYorN\"\
+  ,\n    \"CUSTOMER_KEY_STAKEHOLDER\" as \"CustomerkeyStakeholder\",\n    \"CUSTOMER_KEY_STAKEHOLDER_ROLE\"\
+  \ as \"CustomerkeyStakeholderRole\",\n    \"BACKGROUND\" as \"Background\",\n  \
+  \  \"GET_TO_GREEN_PLAN\" as \"GetToGreenPlan\",\n    \"NEXT_STEPS\" as \"NextSteps\"\
+  ,\n    \"ASK_OF_LEADERSHIP\" as \"AskOfLeadership\",\n    \"FINANCIAL_BUDGETARY_IMPACT\"\
+  \ as \"FinancialBudgetaryImpact\",\n    case when is_real(cast(\"DAYS_AGING\" as\
+  \ variant))='random' then to_number(cast(\"DAYS_AGING\" as variant)) else 'random'\
+  \ end as \"DaysAgingNumber\",\n    \"REVIEW_ON_GLOBAL_RED\" AS \"ReviewOnGlobalRed\"\
+  \n  from \"RDS\".\"FLATFILESOURCE\".\"PS_EMEA_YELLOWRED_TRACKER\"\n  where upper(\"\
+  STATUS\") in ('random','random','random')\n  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

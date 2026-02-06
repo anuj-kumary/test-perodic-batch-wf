@@ -1,0 +1,68 @@
+name: table_965
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_965
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_965.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view QUOTES_AUDIT_TRAIL(\n\t\"AuditTrailAction\"\
+  ,\n\t\"AuditTrailAttribute\",\n\t\"AuditTrailChangeSetSystemID\",\n\t\"AuditTrailChangeStep\"\
+  ,\n\t\"AuditTrailCreatedDate\",\n\t\"AuditTrailField\",\n\t\"AuditTrailID\",\n\t\
+  \"AuditTrailNewValue\",\n\t\"AuditTrailOldValue\",\n\t\"AuditTrailPage\",\n\t\"\
+  AuditTrailPerformer\",\n\t\"AuditTrailPerformerIPAddress\",\n\t\"AuditTrailProduct\"\
+  ,\n\t\"AuditTrailQuote\",\n\t\"AuditTrailQuoteItem\",\n\t\"AuditTrailQuoteRevision\"\
+  ,\n\t\"AuditTrailQuoteStatus\"\n) as\nselect\n\"ACTION\" as \"AuditTrailAction\"\
+  ,\n\"ATTRIBUTE\" as \"AuditTrailAttribute\",\n\"CHANGESETSYSTEMID\" as \"AuditTrailChangeSetSystemID\"\
+  ,\n\"CHANGESTEP\" as \"AuditTrailChangeStep\",\n\"CREATED_DATE\" as \"AuditTrailCreatedDate\"\
+  ,\n\"FIELD\" as \"AuditTrailField\",\n\"ID\" as \"AuditTrailID\",\n\"NEWVALUE\"\
+  \ as \"AuditTrailNewValue\",\n\"OLDVALUE\" as \"AuditTrailOldValue\",\n\"PAGE\"\
+  \ as \"AuditTrailPage\",\n\"PERFORMER\" as \"AuditTrailPerformer\",\n\"PERFORMERIPADDRESS\"\
+  \ as \"AuditTrailPerformerIPAddress\",\n\"PRODUCT\" as \"AuditTrailProduct\",\n\"\
+  QUOTE\" as \"AuditTrailQuote\",\n\"QUOTEITEM\" as \"AuditTrailQuoteItem\",\n\"QUOTEREVISION\"\
+  \ as \"AuditTrailQuoteRevision\",\n\"QUOTESTATUS\" as \"AuditTrailQuoteStatus\"\n\
+  from (\nselect\n\"ACTIONNAME\" as \"ACTION\",\n\"ATTRIBUTENAME\" as \"ATTRIBUTE\"\
+  ,\n'random' as \"CHANGESETSYSTEMID\",\n'random' as \"CHANGESTEP\",\n\"ENTRYTIME\"\
+  \ as \"CREATED_DATE\",\n\"FIELDNAME\" as \"FIELD\",\n\"ID\" as \"ID\",\n\"NEWVALUE\"\
+  \ as \"NEWVALUE\",\n\"PREVIOUSVALUE\"  as  \"OLDVALUE\",\n\"PAGE\"  as  \"PAGE\"\
+  ,\n\"PERFORMERNAME\"  as  \"PERFORMER\",\n\"PERFORMERIPADDRESS\"  as  \"PERFORMERIPADDRESS\"\
+  ,\n\"PRODUCTNAME\"  as  \"PRODUCT\",\n\"QUOTE\"  as  \"QUOTE\",\n\"QUOTEITEM\" \
+  \ as  \"QUOTEITEM\",\n\"QUOTEREVISION\"  as  \"QUOTEREVISION\",\n\"QUOTESTATUS\"\
+  \  as  \"QUOTESTATUS\"\nfrom RDS.CALLIDUS.QUOTES_AUDIT_TRAIL);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

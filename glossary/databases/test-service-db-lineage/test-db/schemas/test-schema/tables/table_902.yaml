@@ -1,0 +1,214 @@
+name: table_902
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_902
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_902.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_KC_PROSPECT_SECURITY_AGG(\n\tUSERID,\n\
+  \t\"AcctTerritorySysID\"\n) as\n\n\n/* Comments retained from HANA input file */\n\
+  \n /****************************************************************************************************************\n\
+  \ * Program  Name              :  EM_KC_PROSPECT_SECURITY_AGG\n * Development Request\
+  \ #  :\n * Date Created               : 2020-10-2\n * Developed By             \
+  \  :  Sridhar Bankuru\n * Brief Description          : Knowledge Cards - KC PROSPECT\
+  \ SECURITY\n * ---------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY:\n * Updated On                 :\n *----------------------------------------------------------------------------------------------------------------\n\
+  \ * CR#\n * 1\n * 2\n  ****************************************************************************************************************/\n\
+  \n\n\n\n\nSELECT DISTINCT UE.\"USER_NAME\" AS \"USERID\",\n                \"AcctTerritorySysID\"\
+  \nFROM \"RDS\".\"SURF\".\"U_EMPLOYEE\" UE\nINNER JOIN\n  (SELECT DISTINCT LOWER(\"\
+  USERID\") AS \"USERID\",\n                   \"DynamicSysID\" AS \"AcctTerritorySysID\"\
+  \n   FROM\n     (SELECT DISTINCT \"DynamicSysID\",\n                      \"USERID\"\
+  ,\n                      SUM (LENGTH(\"USERID\")+'random') over(partition by \"\
+  DynamicSysID\"\n                                                    ORDER BY \"\
+  DynamicSysID\" ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) \"LEN\"\n     \
+  \ FROM \"EDW_LS\".\"MARKETING_EM\".\"EM_MKT_HOT_PROSPECTS_SECURITY\")\n   WHERE\
+  \ \"USERID\" IS not NULL\n     AND \"DynamicSysID\" IS not NULL\n   UNION SELECT\
+  \ DISTINCT LOWER(\"USERID\") AS \"USERID\",\n                         \"AcctTerritorySysID\"\
+  \n   FROM\n     (SELECT DISTINCT \"AcctTerritorySysID\",\n                     \
+  \ \"AccountGeo\"\n      FROM \"CDL_LS\".\"MARKETING_ER\".\"ACCOUNTS_ENGAGEMENT_INDEX\"\
+  \n      WHERE \"AcctTerritorySysID\" IS not NULL\n      GROUP BY \"AcctTerritorySysID\"\
+  ,\n               \"AccountGeo\") A\n   INNER JOIN\n     (SELECT DISTINCT U.\"NAME\"\
+  \ as \"USERID\",\n                      G.\"NAME\" ,\n                      (CASE\n\
+  \                           WHEN POSITION ('random',G.\"NAME\"  ) > 'random' THEN\
+  \ 'random'\n                           WHEN POSITION ('random',G.\"NAME\" ) > 'random'\
+  \ THEN 'random'\n                           WHEN POSITION ('random', G.\"NAME\"\
+  \ ) > 'random' THEN 'random'\n                           WHEN POSITION ('random',\
+  \ G.\"NAME\") > 'random' THEN 'random'\n                       END) AS \"AccountGeo\"\
+  \n      FROM RDS.TBLU_USAGE_PRD.SYSTEM_USERS U\n      LEFT JOIN RDS.TBLU_USAGE_PRD.USERS\
+  \ US ON U.ID = US.SYSTEM_USER_ID\n      LEFT JOIN RDS.TBLU_USAGE_PRD.GROUP_USERS\
+  \ GS ON GS.USER_ID = US.ID\n      INNER JOIN RDS.TBLU_USAGE_PRD.GROUPS G ON GS.GROUP_ID\
+  \ = G.ID\n      LEFT JOIN \"RDS\".\"BI_PORTAL\".\"NEXT_GEN_PERMISSIONS\" PER ON\
+  \ GS.GROUP_ID = PER.\"grantee_id\"\n      INNER JOIN RDS.TBLU_USAGE_PRD.WORKBOOKS\
+  \ W ON \"authorizable_id\" = W.ID\n      INNER JOIN RDS.TBLU_USAGE_PRD.PROJECTS\
+  \ P ON P.ID = W.PROJECT_ID\n      WHERE W.NAME = 'random'\n        AND G.NAME in\n\
+  \          (SELECT DISTINCT \"NAME\"\n           FROM RDS.TBLU_USAGE_PRD.GROUPS\n\
+  \           WHERE \"NAME\" LIKE 'random') ) B ON A.\"AccountGeo\" = B.\"AccountGeo\"\
+  \n   UNION SELECT DISTINCT \"USERID\",\n                         \"AcctTerritorySysID\"\
+  \n   FROM\n     (SELECT DISTINCT \"AcctTerritorySysID\",\n                     \
+  \ 'random' AS \"AccessType\"\n      FROM \"CDL_LS\".\"MARKETING_ER\".\"ACCOUNTS_ENGAGEMENT_INDEX\"\
+  ) EI\n   INNER JOIN\n     (SELECT DISTINCT \"USERID\",\n                      \"\
+  AccessType\"\n      FROM\n        (SELECT DISTINCT \"USERID\",\n               \
+  \          'random' AS \"AccessType\"\n         FROM\n           (SELECT A.\"USERID\"\
+  \ AS \"USERID\",\n                   B.\"USERID\" AS \"Dup_USERID\"\n          \
+  \  FROM\n              (SELECT DISTINCT LOWER(U.\"NAME\") as \"USERID\"\n      \
+  \         FROM RDS.TBLU_USAGE_PRD.SYSTEM_USERS U\n               LEFT JOIN RDS.TBLU_USAGE_PRD.USERS\
+  \ US ON U.ID = US.SYSTEM_USER_ID\n               LEFT JOIN RDS.TBLU_USAGE_PRD.GROUP_USERS\
+  \ GS ON GS.USER_ID = US.ID\n               INNER JOIN RDS.TBLU_USAGE_PRD.GROUPS\
+  \ G ON GS.GROUP_ID = G.ID\n               LEFT JOIN \"RDS\".\"BI_PORTAL\".\"NEXT_GEN_PERMISSIONS\"\
+  \ PER ON GS.GROUP_ID = PER.\"grantee_id\"\n               INNER JOIN RDS.TBLU_USAGE_PRD.WORKBOOKS\
+  \ W ON \"authorizable_id\" = W.ID\n               INNER JOIN RDS.TBLU_USAGE_PRD.PROJECTS\
+  \ P ON P.ID = W.PROJECT_ID\n               WHERE G.NAME in ('random',\n        \
+  \                        'random',\n                                'random',\n\
+  \                                'random',\n                                'random',\n\
+  \                                'random')\n               UNION SELECT DISTINCT\
+  \ LOWER(UE.\"EmpUserName\") as \"USERID\"\n               from \"EDW_LS\".\"LEGACY_SALES\"\
+  .\"VW_ALL_USER_TERRITORY_SECURITY_WITH_LVL\"\n               INNER JOIN \"ODS_LS\"\
+  .\"SURF\".\"EMPLOYEE\" UE ON LOWER(UE.\"EmpUserName\") = \"USERID\"\n          \
+  \     INNER JOIN \"EDW_LS\".\"SALES_EM\".\"SYN_TBL_U_ST_TERRITORY\" UST ON UE.\"\
+  EmpSysID\" = UST.\"U_USER\"\n               INNER JOIN \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\"\
+  \ ST ON ST.\"TerrSysID\" = UST.\"U_REC_SYS_ID\"\n               WHERE \"LVL\" =\
+  \ 'random' ) A\n            LEFT OUTER JOIN\n              (SELECT DISTINCT \"USERID\"\
+  \n               FROM\n                 (SELECT DISTINCT \"USERID\"\n          \
+  \        FROM \"EDW_LS\".\"MARKETING_EM\".\"EM_MKT_HOT_PROSPECTS_SECURITY\"\n  \
+  \                UNION SELECT DISTINCT LOWER(U.\"NAME\") AS \"USERID\"\n       \
+  \           FROM RDS.TBLU_USAGE_PRD.SYSTEM_USERS U\n                  LEFT JOIN\
+  \ RDS.TBLU_USAGE_PRD.USERS US ON U.ID = US.SYSTEM_USER_ID\n                  LEFT\
+  \ JOIN RDS.TBLU_USAGE_PRD.GROUP_USERS GS ON GS.USER_ID = US.ID\n               \
+  \   INNER JOIN RDS.TBLU_USAGE_PRD.GROUPS G ON GS.GROUP_ID = G.ID\n             \
+  \     LEFT JOIN \"RDS\".\"BI_PORTAL\".\"NEXT_GEN_PERMISSIONS\" PER ON GS.GROUP_ID\
+  \ = PER.\"grantee_id\"\n                  INNER JOIN RDS.TBLU_USAGE_PRD.WORKBOOKS\
+  \ W ON \"authorizable_id\" = W.ID\n                  INNER JOIN RDS.TBLU_USAGE_PRD.PROJECTS\
+  \ P ON P.ID = W.PROJECT_ID\n                  WHERE W.NAME = 'random'\n        \
+  \            AND G.NAME in\n                      (SELECT DISTINCT \"NAME\"\n  \
+  \                     FROM RDS.TBLU_USAGE_PRD.GROUPS\n                       WHERE\
+  \ \"NAME\" LIKE 'random')\n                  UNION SELECT DISTINCT LOWER(UE.\"EmpUserName\"\
+  ) as \"USERID\"\n                  FROM \"EDW_LS\".\"LEGACY_SALES\".\"VW_ALL_USER_TERRITORY_SECURITY_WITH_LVL\"\
+  \n                  INNER JOIN \"ODS_LS\".\"SURF\".\"EMPLOYEE\" UE ON LOWER(UE.\"\
+  EmpUserName\") = \"USERID\"\n                  INNER JOIN \"EDW_LS\".\"SALES_EM\"\
+  .\"SYN_TBL_U_ST_TERRITORY\" UST ON UE.\"EmpSysID\" = UST.\"U_USER\"\n          \
+  \        INNER JOIN \"ODS_LS\".\"SURF\".\"SALES_TERRITORY_ALL\" ST ON ST.\"TerrSysID\"\
+  \ = UST.\"U_REC_SYS_ID\"\n                  WHERE UE.\"EmpDepartment\" IN ('random',\n\
+  \                                               'random')\n                    AND\
+  \ \"LVL\" = 'random' )) B ON A.\"USERID\" = B.\"USERID\")\n         WHERE \"Dup_USERID\"\
+  \ IS NULL )) GU ON EI.\"AccessType\" = GU.\"AccessType\"\n   UNION\n--- Added this\
+  \ code to cove one if the user issues, this code is redundent and Suresh Podishetti\
+  \ is workin on to eliminate dependency on Tableau Tables\n SELECT DISTINCT \"USERID\"\
+  ,\n                                        \"AcctTerritorySysID\"\n   FROM\n   \
+  \  (\n---- Below code is for Geo users\n SELECT DISTINCT \"AcctTerritorySysID\"\
+  ,\n                                     'random' AS \"AccessType\",\n          \
+  \                           \"AccountGeo\",\n                                  \
+  \   \"GroupName\",\n                                     \"USERID\"\n      FROM\
+  \ \"CDL_LS\".\"MARKETING_ER\".\"ACCOUNTS_ENGAGEMENT_INDEX\"\n      LEFT OUTER JOIN\n\
+  \        (SELECT \"USERID\",\n                LISTAGG(\"GroupName\", 'random') AS\
+  \ \"GroupName\"\n         From\n           (SELECT DISTINCT LOWER(U.\"NAME\") as\
+  \ \"USERID\",\n                            G.NAME as \"GroupName\"\n           \
+  \ FROM RDS.TBLU_USAGE_PRD.SYSTEM_USERS U\n            LEFT JOIN RDS.TBLU_USAGE_PRD.USERS\
+  \ US ON U.ID = US.SYSTEM_USER_ID\n            LEFT JOIN RDS.TBLU_USAGE_PRD.GROUP_USERS\
+  \ GS ON GS.USER_ID = US.ID\n            INNER JOIN RDS.TBLU_USAGE_PRD.GROUPS G ON\
+  \ GS.GROUP_ID = G.ID\n            LEFT JOIN \"RDS\".\"BI_PORTAL\".\"NEXT_GEN_PERMISSIONS\"\
+  \ PER ON GS.GROUP_ID = PER.\"grantee_id\"\n            INNER JOIN RDS.TBLU_USAGE_PRD.WORKBOOKS\
+  \ W ON \"authorizable_id\" = W.ID\n            INNER JOIN RDS.TBLU_USAGE_PRD.PROJECTS\
+  \ P ON P.ID = W.PROJECT_ID\n            WHERE G.NAME in ('random',\n           \
+  \                  'random',\n                             'random',\n         \
+  \                    'random')\n              and LOWER(U.\"NAME\") not in\n   \
+  \             (SELECT DISTINCT LOWER(U.\"NAME\") as \"USERID\"\n               \
+  \  FROM RDS.TBLU_USAGE_PRD.SYSTEM_USERS U\n                 LEFT JOIN RDS.TBLU_USAGE_PRD.USERS\
+  \ US ON U.ID = US.SYSTEM_USER_ID\n                 LEFT JOIN RDS.TBLU_USAGE_PRD.GROUP_USERS\
+  \ GS ON GS.USER_ID = US.ID\n                 INNER JOIN RDS.TBLU_USAGE_PRD.GROUPS\
+  \ G ON GS.GROUP_ID = G.ID\n                 LEFT JOIN \"RDS\".\"BI_PORTAL\".\"NEXT_GEN_PERMISSIONS\"\
+  \ PER ON GS.GROUP_ID = PER.\"grantee_id\"\n                 INNER JOIN RDS.TBLU_USAGE_PRD.WORKBOOKS\
+  \ W ON \"authorizable_id\" = W.ID\n                 INNER JOIN RDS.TBLU_USAGE_PRD.PROJECTS\
+  \ P ON P.ID = W.PROJECT_ID\n                 WHERE G.NAME in ('random') ) )\n  \
+  \       GROUP BY \"USERID\") ON \"GroupName\" LIKE 'random'|| \"AccountGeo\" ||'random'\n\
+  \      UNION\n---- Below code is for Global users\n SELECT DISTINCT \"AcctTerritorySysID\"\
+  ,\n                                           'random' AS \"AccessType\",\n    \
+  \                                       \"AccountGeo\",\n                      \
+  \                     \"GroupName\",\n                                         \
+  \  \"USERID\"\n      FROM \"CDL_LS\".\"MARKETING_ER\".\"ACCOUNTS_ENGAGEMENT_INDEX\"\
+  \n      LEFT OUTER JOIN\n        (SELECT \"USERID\",\n                LISTAGG(\"\
+  GroupName\", 'random') AS \"GroupName\"\n         From\n           (SELECT DISTINCT\
+  \ LOWER(U.\"NAME\") as \"USERID\",\n                            G.NAME as \"GroupName\"\
+  \n            FROM RDS.TBLU_USAGE_PRD.SYSTEM_USERS U\n            LEFT JOIN RDS.TBLU_USAGE_PRD.USERS\
+  \ US ON U.ID = US.SYSTEM_USER_ID\n            LEFT JOIN RDS.TBLU_USAGE_PRD.GROUP_USERS\
+  \ GS ON GS.USER_ID = US.ID\n            INNER JOIN RDS.TBLU_USAGE_PRD.GROUPS G ON\
+  \ GS.GROUP_ID = G.ID\n            LEFT JOIN \"RDS\".\"BI_PORTAL\".\"NEXT_GEN_PERMISSIONS\"\
+  \ PER ON GS.GROUP_ID = PER.\"grantee_id\"\n            INNER JOIN RDS.TBLU_USAGE_PRD.WORKBOOKS\
+  \ W ON \"authorizable_id\" = W.ID\n            INNER JOIN RDS.TBLU_USAGE_PRD.PROJECTS\
+  \ P ON P.ID = W.PROJECT_ID\n            WHERE G.NAME in ('random',\n           \
+  \                  'random')\n              and LOWER(U.\"NAME\") not in\n     \
+  \           (SELECT DISTINCT LOWER(U.\"NAME\") as \"USERID\"\n                 FROM\
+  \ RDS.TBLU_USAGE_PRD.SYSTEM_USERS U\n                 LEFT JOIN RDS.TBLU_USAGE_PRD.USERS\
+  \ US ON U.ID = US.SYSTEM_USER_ID\n                 LEFT JOIN RDS.TBLU_USAGE_PRD.GROUP_USERS\
+  \ GS ON GS.USER_ID = US.ID\n                 INNER JOIN RDS.TBLU_USAGE_PRD.GROUPS\
+  \ G ON GS.GROUP_ID = G.ID\n                 LEFT JOIN \"RDS\".\"BI_PORTAL\".\"NEXT_GEN_PERMISSIONS\"\
+  \ PER ON GS.GROUP_ID = PER.\"grantee_id\"\n                 INNER JOIN RDS.TBLU_USAGE_PRD.WORKBOOKS\
+  \ W ON \"authorizable_id\" = W.ID\n                 INNER JOIN RDS.TBLU_USAGE_PRD.PROJECTS\
+  \ P ON P.ID = W.PROJECT_ID\n                 WHERE G.NAME in ('random') ) )\n  \
+  \       GROUP BY \"USERID\") ON 'random' = 'random')\n   UNION SELECT DISTINCT \"\
+  EmpUserName\" as \"USERID\",\n                         \"TerrSysID\" as \"AcctTerritorySysID\"\
+  \n   FROM\n     (SELECT DISTINCT UE.\"EmpSysID\",\n                      LOWER(UE.\"\
+  EmpUserName\") as \"EmpUserName\", (UE.\"EmpName\") , \"LVL\",\n               \
+  \                                                                  UE.\"EmpDepartment\"\
+  ,\n                                                                            \
+  \     \"TerrTypeValue\",\n                                                     \
+  \                            ST.\"TerrSysID\",\n                               \
+  \                                                  CASE\n                      \
+  \                                                               WHEN \"LVL\" ='random'\
+  \ THEN 'random'\n                                                              \
+  \                       WHEN \"LVL\" ='random' THEN 'random'\n                 \
+  \                                                                    WHEN \"LVL\"\
+  \ ='random' THEN 'random'\n                                                    \
+  \                                 WHEN \"LVL\" ='random' THEN 'random'\n       \
+  \                                                                              WHEN\
+  \ \"LVL\" ='random' THEN 'random'\n                                            \
+  \                                         WHEN \"LVL\" ='random' THEN 'random'\n\
+  \                                                                              \
+  \       ELSE 'random'\n                                                        \
+  \                         END AS \"Territory Level\",\n                        \
+  \                                                         \"TerrName\"\n      from\
+  \ \"EDW_LS\".\"LEGACY_SALES\".\"VW_ALL_USER_TERRITORY_SECURITY_WITH_LVL\"\n    \
+  \  INNER JOIN \"ODS_LS\".\"SURF\".\"EMPLOYEE\" UE ON LOWER(UE.\"EmpUserName\") =\
+  \ \"USERID\"\n      INNER JOIN \"EDW_LS\".\"SALES_EM\".\"SYN_TBL_U_ST_TERRITORY\"\
+  \ UST ON UE.\"EmpSysID\" = UST.\"U_USER\"\n      INNER JOIN \"ODS_LS\".\"SURF\"\
+  .\"SALES_TERRITORY_ALL\" ST ON ST.\"TerrSysID\" = UST.\"U_REC_SYS_ID\"\n      WHERE\
+  \ UE.\"EmpDepartment\" IN ('random',\n                                   'random')\n\
+  \        AND \"LVL\" = 'random' )) ON LOWER(UE.\"USER_NAME\") = LOWER(\"USERID\"\
+  )\nWHERE \"AcctTerritorySysID\" IS not NULL ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

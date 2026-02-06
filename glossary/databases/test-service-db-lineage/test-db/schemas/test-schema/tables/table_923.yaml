@@ -1,0 +1,110 @@
+name: table_923
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_923
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_923.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PS_KPITARGETS(\n\t\"KpiQuarter\",\n\t\"\
+  KpiJobFunction\",\n\t\"KpiUtlizationTarget\",\n\t\"KpiUtlizationGate\",\n\t\"KpiUtlizationScore\"\
+  ,\n\t\"KpiOSATTarget\",\n\t\"KpiOSATScore\",\n\t\"KpiTCSubmittedCompTarget\",\n\t\
+  \"KpiTCSubmittedComplScore\",\n\t\"KpiTCApprovedComplTarget\",\n\t\"KpiTCApprovedComplScore\"\
+  ,\n\t\"KpiResourcePlanAccuracyTarget\",\n\t\"KpiResourcePlanAccuracyScore\",\n\t\
+  \"KpiExpenseReportsComplTarget\",\n\t\"KpiExpenseReportsComplScore\",\n\t\"KpiPlanOnPageComplTarget\"\
+  ,\n\t\"KpiPlanOnPageComplScore\",\n\t\"KpiSurveyResponseRateTarget\",\n\t\"KpiSurveyResponseRateScore\"\
+  ,\n\t\"KpiStatusReportsComplScore\",\n\t\"StatusReportsComplianceTarget\",\n\t\"\
+  GlobalUtilizationTarget\",\n\t\"KpiTeamUtilizationTarget\",\n\t\"KpiTeamUtilizationGate\"\
+  ,\n\t\"KpiTeamUtilizationScore\",\n\t\"KPIGeo\",\n\t\"KPIJobLevel\",\n\t\"LaborTarget\"\
+  ,\n\t\"KPIRemainingBacklog\",\n\t\"KPITeamRemainingBacklog\",\n\t\"KPIBillableUtilizationTargets\"\
+  ,\n\t\"BillableTargetsUtilDash\"\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"Quarter\"\
+  \ as \"KpiQuarter\",\n       \"JobFunction\" as \"KpiJobFunction\",\n       \"UtlizationTarget\"\
+  \ as \"KpiUtlizationTarget\",\n       \"Utlizationgate\" as \"KpiUtlizationGate\"\
+  ,\n       \"UtlizationScore\" as \"KpiUtlizationScore\",\n       \"OSATTarget\"\
+  \ as \"KpiOSATTarget\",\n       \"OSATScore\" as \"KpiOSATScore\",\n       \"TCSubmittedComplianceTarget\"\
+  \ as \"KpiTCSubmittedCompTarget\",\n       \"TCSubmittedComplianceScore\" as \"\
+  KpiTCSubmittedComplScore\",\n       \"TCApprovedComplianceTarget\" as \"KpiTCApprovedComplTarget\"\
+  ,\n       \"TCApprovedComplianceScore\" as \"KpiTCApprovedComplScore\",\n      \
+  \ \"ResourcePlanAccuracyTarget\" as \"KpiResourcePlanAccuracyTarget\",\n       \"\
+  ResourcePlanAccuracyScore\" as \"KpiResourcePlanAccuracyScore\",\n       \"ExpenseReportsComplianceTarget\"\
+  \ as \"KpiExpenseReportsComplTarget\",\n       \"ExpenseReportsComplianceScore\"\
+  \ as \"KpiExpenseReportsComplScore\",\n       \"PlanOnPageComplianceTarget\" as\
+  \ \"KpiPlanOnPageComplTarget\",\n       \"PlanOnPageComplianceScore\" as \"KpiPlanOnPageComplScore\"\
+  ,\n       \"SurveyResponseRateTarget\" as \"KpiSurveyResponseRateTarget\",\n   \
+  \    \"SurveyResponseRateScore\" as \"KpiSurveyResponseRateScore\",\n       \"StatusReportsComplianceScore\"\
+  \ as \"KpiStatusReportsComplScore\",\n       \"StatusReportsComplianceTarget\" as\
+  \ \"StatusReportsComplianceTarget\",\n       \"GlobalUtilizationTarget\" as \"GlobalUtilizationTarget\"\
+  ,\n       \"TeamTarget\" as \"KpiTeamUtilizationTarget\",\n       \"TeamGate\" as\
+  \ \"KpiTeamUtilizationGate\",\n       \"TeamScore\" as \"KpiTeamUtilizationScore\"\
+  ,\n       \"Geo\" as \"KPIGeo\",\n       \"JobLevel\" as \"KPIJobLevel\",\n    \
+  \   \"LaborTarget\" as \"LaborTarget\",\n       \"Remaining_Backlog\" as \"KPIRemainingBacklog\"\
+  ,\n       \"KPITeamRemainingBacklog\" as \"KPITeamRemainingBacklog\",\n       \"\
+  KPIBillableUtilizationTargets\",\n\t   \"BillableTargetsUtilDash\"\nFROM\n  (SELECT\
+  \ \"Quarter\" as \"Quarter\",\n          \"JobFunction\" as \"JobFunction\",\n \
+  \         \"UtlizationTarget\" as \"UtlizationTarget\",\n          \"Utlizationgate\"\
+  \ as \"Utlizationgate\",\n          \"UtlizationScore\" as \"UtlizationScore\",\n\
+  \          \"OSATTarget\" as \"OSATTarget\",\n          \"OSATScore\" as \"OSATScore\"\
+  ,\n          \"TCSubmittedComplianceTarget\" as \"TCSubmittedComplianceTarget\"\
+  ,\n          \"TCSubmittedComplianceScore\" as \"TCSubmittedComplianceScore\",\n\
+  \          \"TCApprovedComplianceTarget\" as \"TCApprovedComplianceTarget\",\n \
+  \         \"TCApprovedComplianceScore\" as \"TCApprovedComplianceScore\",\n    \
+  \      \"ResourcePlanAccuracyTarget\" as \"ResourcePlanAccuracyTarget\",\n     \
+  \     \"ResourcePlanAccuracyScore\" as \"ResourcePlanAccuracyScore\",\n        \
+  \  \"ExpenseReportsComplianceTarget\" as \"ExpenseReportsComplianceTarget\",\n \
+  \         \"ExpenseReportsComplianceScore\" as \"ExpenseReportsComplianceScore\"\
+  ,\n          \"PlanOnPageComplianceTarget\" as \"PlanOnPageComplianceTarget\",\n\
+  \          \"PlanOnPageComplianceScore\" as \"PlanOnPageComplianceScore\",\n   \
+  \       \"SurveyResponseRateTarget\" as \"SurveyResponseRateTarget\",\n        \
+  \  \"SurveyResponseRateScore\" as \"SurveyResponseRateScore\",\n          \"StatusReportsComplianceScore\"\
+  \ as \"StatusReportsComplianceScore\",\n          \"StatusReportsComplianceTarget\"\
+  \ as \"StatusReportsComplianceTarget\",\n          \"GlobalUtilizationTarget\" as\
+  \ \"GlobalUtilizationTarget\",\n          \"TeamTarget\" as \"TeamTarget\",\n  \
+  \        \"TeamGate\" as \"TeamGate\",\n          \"TeamScore\" as \"TeamScore\"\
+  ,\n          \"Geo\" as \"Geo\",\n          \"JobLevel\" as \"JobLevel\",\n    \
+  \      \"LaborTarget\" as \"LaborTarget\",\n          \"Remaining Backlog\" as \"\
+  Remaining_Backlog\",\n          IFF((\"Geo\"='random'\n               and \"JobFunction\"\
+  ='random'\n               and \"JobLevel\" IN ('random', 'random', 'random')) ,'random',\
+  \ IFF(\"Geo\" IN ('random', 'random')\n                                        \
+  \                     and \"JobFunction\"='random'\n                           \
+  \                                  and \"JobLevel\" IN ('random', 'random'), 'random',\
+  \ 'random')) as \"KPITeamRemainingBacklog\",\n          \"BillableUtilizationTargets\"\
+  \ AS \"KPIBillableUtilizationTargets\",\n\t\t  \"BillableTargetsUtilDash\" as \"\
+  BillableTargetsUtilDash\"\n   FROM \"RDS\".\"FLATFILESOURCE\".\"TBLPSKPITARGETS\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

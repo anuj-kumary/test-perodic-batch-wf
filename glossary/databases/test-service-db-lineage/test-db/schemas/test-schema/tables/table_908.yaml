@@ -1,0 +1,160 @@
+name: table_908
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_908
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_908.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_QUOTE_APPROVAL_METRIC(\n\t\"QuoteApprovalMetricSource\"\
+  ,\n\t\"QuoteApprovalQuoteNumber\",\n\t\"QuoteApprovalSysID\",\n\t\"QuoteApprovalQuoteSysId\"\
+  ,\n\t\"QuoteApprovalStage\",\n\t\"QuoteApprovalType\",\n\t\"QuoteApprovalLastApprovedOn\"\
+  ,\n\t\"QuoteApproverName\",\n\t\"QuoteItemState\",\n\t\"SysUpdatedOn\",\n\t\"PSPPerUpdateDate\"\
+  ,\n\t\"PSPPerInsertDate\",\n\t\"QuoteApprovalActive\",\n\t\"QuoteApprovalUpdatedBy\"\
+  ,\n\t\"QuoteApprovalRequired\",\n\t\"QuoteOverrideApproval\",\n\t\"QuoteApprovalCreatedOn\"\
+  ,\n\t\"QuoteApprovalCreatedBy\",\n\t\"QuoteApprovalSysModCount\",\n\t\"QuoteApprovalDescription\"\
+  ,\n\t\"QuoteApprovalOrder\",\n\t\"QuoteApprovalOverrideReason\",\n\t\"QuoteApprovalApproverID\"\
+  ,\n\t\"QuoteApprovalSubmissionDateTimeDisplay\",\n\t\"QuoteApprovalSequence\",\n\
+  \t\"QuoteApprovalOverrideApprovalCallidus\",\n\t\"QuoteApprovalStatus\",\n\t\"QuoteApprovalLevel\"\
+  ,\n\t\"QuoteApproverComments\",\n\t\"QuoteApproverReasonName\",\n\t\"QuoteApprovalResolutionDateTimeDisplay\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"InvoiceScheduleSource\" as \"QuoteApprovalMetricSource\"\
+  ,\n       \"DV_U_QUOTE_ID\" as \"QuoteApprovalQuoteNumber\",\n       \"SYS_ID\"\
+  \ as \"QuoteApprovalSysID\",\n       \"U_QUOTE_ID\" as \"QuoteApprovalQuoteSysId\"\
+  ,\n       \"DV_U_APPROVAL_STAGE\" as \"QuoteApprovalStage\",\n       \"DV_U_APPROVED_TYPE\"\
+  \ as \"QuoteApprovalType\",\n       \"U_LAST_APPROVED_ON\" as \"QuoteApprovalLastApprovedOn\"\
+  ,\n       \"DV_U_APPROVER\" as \"QuoteApproverName\",\n       \"ITEMSTATE\" as \"\
+  QuoteItemState\",\n       \"SYS_UPDATED_ON\" as \"SysUpdatedOn\",\n       \"PSP_PER_UPDATE_DT\"\
+  \ as \"PSPPerUpdateDate\",\n       \"PSP_PER_INSERT_DT\" as \"PSPPerInsertDate\"\
+  ,\n       \"U_ACTIVE\" as \"QuoteApprovalActive\",\n       \"SYS_UPDATED_BY\" as\
+  \ \"QuoteApprovalUpdatedBy\",\n       \"ApprovalRequired\" as \"QuoteApprovalRequired\"\
+  ,\n       \"U_OVERRIDE_APPROVAL\" as \"QuoteOverrideApproval\",\n       \"SYS_CREATED_ON\"\
+  \ as \"QuoteApprovalCreatedOn\",\n       \"SYS_CREATED_BY\" as \"QuoteApprovalCreatedBy\"\
+  ,\n       \"SYS_MOD_COUNT\" as \"QuoteApprovalSysModCount\",\n       \"U_APPROVAL_DESCRIPTION\"\
+  \ as \"QuoteApprovalDescription\",\n       \"U_APPROVAL_ORDER\" as \"QuoteApprovalOrder\"\
+  ,\n       \"DV_U_OVERRIDE_REASON\" as \"QuoteApprovalOverrideReason\",\n       \"\
+  APPROVER_ID\" as \"QuoteApprovalApproverID\",\n       \"SN_APPROVAL_SUBMISSION_DATE_TIME_DISPLAY\"\
+  \ as \"QuoteApprovalSubmissionDateTimeDisplay\",\n       \"APPROVAL_SEQUENCE\" as\
+  \ \"QuoteApprovalSequence\",\n       \"SN_OVERRIDE_APPROVAL\" as \"QuoteApprovalOverrideApprovalCallidus\"\
+  ,\n       \"APPROVAL_STATUS\" as \"QuoteApprovalStatus\",\n       \"APPROVER_LEVEL\"\
+  \ as \"QuoteApprovalLevel\",\n       \"APPROVER_COMMENTS\" as \"QuoteApproverComments\"\
+  ,\n       \"APPROVAL_SUBMISSION_DATE_TIME\" as \"QuoteApproverReasonName\",\n  \
+  \     \"SN_APPROVAL_RESOLUTION_DATE_TIME_DISPLAY\" as \"QuoteApprovalResolutionDateTimeDisplay\"\
+  \n\nFROM\n  (SELECT *\n   FROM\n     (SELECT \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\"\
+  ,\n             \"PSP_PER_UPDATE_DT\" as \"PSP_PER_UPDATE_DT\",\n             \"\
+  PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\",\n             \"InvoiceScheduleSource_CC\"\
+  \ as \"InvoiceScheduleSource\",\n             \"SYS_ID\" as \"SYS_ID\",\n      \
+  \       \"DV_U_APPROVAL_STAGE\" as \"DV_U_APPROVAL_STAGE\",\n             'random'\
+  \ as \"ITEMSTATE\",\n             \"DV_U_APPROVED_TYPE\" as \"DV_U_APPROVED_TYPE\"\
+  ,\n             \"U_LAST_APPROVED_ON\" as \"U_LAST_APPROVED_ON\",\n            \
+  \ \"U_QUOTE_ID\" as \"U_QUOTE_ID\",\n             \"DV_U_APPROVER\" as \"DV_U_APPROVER\"\
+  ,\n             \"DV_U_QUOTE_ID\" as \"DV_U_QUOTE_ID\",\n             \"U_ACTIVE\"\
+  \ as \"U_ACTIVE\",\n             \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n   \
+  \          \"ApprovalRequired\" as \"ApprovalRequired\",\n             \"U_OVERRIDE_APPROVAL\"\
+  \ as \"U_OVERRIDE_APPROVAL\",\n             \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n             \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n             \"SYS_MOD_COUNT\"\
+  \ as \"SYS_MOD_COUNT\",\n             \"U_APPROVAL_DESCRIPTION\" as \"U_APPROVAL_DESCRIPTION\"\
+  ,\n             \"U_APPROVAL_ORDER\" as \"U_APPROVAL_ORDER\",\n             \"DV_U_OVERRIDE_REASON\"\
+  \ as \"DV_U_OVERRIDE_REASON\",\n             'random' as \"APPROVER_ID\",\n    \
+  \         'random' as \"SN_APPROVAL_SUBMISSION_DATE_TIME_DISPLAY\",\n          \
+  \   'random' as \"APPROVAL_SEQUENCE\",\n             'random' as \"SN_OVERRIDE_APPROVAL\"\
+  ,\n             'random' as \"APPROVAL_STATUS\",\n             'random' as \"APPROVER_LEVEL\"\
+  ,\n             'random' as \"APPROVER_COMMENTS\",\n             'random' as \"\
+  APPROVAL_SUBMISSION_DATE_TIME\",\n             'random' as \"SN_APPROVAL_RESOLUTION_DATE_TIME_DISPLAY\"\
+  \n      FROM\n        (SELECT \"SYS_UPDATED_ON\" as \"SYS_UPDATED_ON\",\n      \
+  \          \"SYS_ID\" as \"SYS_ID\",\n                \"PSP_PER_UPDATE_DT\" as \"\
+  PSP_PER_UPDATE_DT\",\n                \"PSP_PER_INSERT_DT\" as \"PSP_PER_INSERT_DT\"\
+  ,\n                \"DV_U_APPROVAL_STAGE\" as \"DV_U_APPROVAL_STAGE\",\n       \
+  \         \"DV_U_APPROVED_TYPE\" as \"DV_U_APPROVED_TYPE\",\n                \"\
+  U_LAST_APPROVED_ON\" as \"U_LAST_APPROVED_ON\",\n                \"U_QUOTE_ID\"\
+  \ as \"U_QUOTE_ID\",\n                \"DV_U_APPROVER\" as \"DV_U_APPROVER\",\n\
+  \                \"DV_U_QUOTE_ID\" as \"DV_U_QUOTE_ID\",\n                \"U_ACTIVE\"\
+  \ as \"U_ACTIVE\",\n                \"U_APPROVAL_ORDER\" as \"U_APPROVAL_ORDER\"\
+  ,\n                \"SYS_UPDATED_BY\" as \"SYS_UPDATED_BY\",\n                \"\
+  U_APPROVAL_REQUIRED\" as \"U_APPROVAL_REQUIRED\",\n                \"U_OVERRIDE_APPROVAL\"\
+  \ as \"U_OVERRIDE_APPROVAL\",\n                \"SYS_CREATED_ON\" as \"SYS_CREATED_ON\"\
+  ,\n                \"SYS_CREATED_BY\" as \"SYS_CREATED_BY\",\n                \"\
+  SYS_MOD_COUNT\" as \"SYS_MOD_COUNT\",\n                \"U_APPROVAL_DESCRIPTION\"\
+  \ as \"U_APPROVAL_DESCRIPTION\",\n                \"DV_U_OVERRIDE_REASON\" as \"\
+  DV_U_OVERRIDE_REASON\",\n                'random' as \"InvoiceScheduleSource_CC\"\
+  ,\n                LEFT(TO_VARCHAR(\"U_APPROVAL_REQUIRED\"), 'random') as \"ApprovalRequired\"\
+  \n         FROM \"RDS\".\"SURF\".\"U_QUOTE_APPROVAL_METRIC\"\n      )\"SURF\"\n\
+  \      UNION ALL SELECT 'random' as \"SYS_UPDATED_ON\",\n                      \
+  \ \"ETL_UPDATE_DATE\" as \"PSP_PER_UPDATE_DT\",\n                       \"ETL_INSERT_DATE\"\
+  \ as \"PSP_PER_INSERT_DT\",\n                       \"InvoiceScheduleSource_CC\"\
+  \ as \"InvoiceScheduleSource\",\n                       \"QUOTENUMBER\" as \"SYS_ID\"\
+  ,\n                       \"APPROVAL_BRANCH\" as \"DV_U_APPROVAL_STAGE\",\n    \
+  \                   \"ITEMSTATE\" as \"ITEMSTATE\",\n                       \"ApprovalType_CC\"\
+  \ as \"DV_U_APPROVED_TYPE\",\n                       \"APPROVAL_RESOLUTION_DATE_TIME\"\
+  \ as \"U_LAST_APPROVED_ON\",\n                       \"QUOTENUMBER\" as \"U_QUOTE_ID\"\
+  ,\n                       \"APPROVER_NAME\" as \"DV_U_APPROVER\",\n            \
+  \           \"QUOTENUMBER\" as \"DV_U_QUOTE_ID\",\n                       'random'\
+  \ as \"U_ACTIVE\",\n                       'random' as \"SYS_UPDATED_BY\",\n   \
+  \                    'random' as \"ApprovalRequired\",\n                       'random'\
+  \ as \"U_OVERRIDE_APPROVAL\",\n                       'random' as \"SYS_CREATED_ON\"\
+  ,\n                       'random' as \"SYS_CREATED_BY\",\n                    \
+  \   'random' as \"SYS_MOD_COUNT\",\n                       \"APPROVAL_REASON_NAME\"\
+  \ as \"U_APPROVAL_DESCRIPTION\",\n                       'random' as \"U_APPROVAL_ORDER\"\
+  ,\n                       'random' as \"DV_U_OVERRIDE_REASON\",\n              \
+  \         \"APPROVER_ID\" as \"APPROVER_ID\",\n                       \"SN_APPROVAL_SUBMISSION_DATE_TIME_DISPLAY\"\
+  \ as \"SN_APPROVAL_SUBMISSION_DATE_TIME_DISPLAY\",\n                       \"APPROVAL_SEQUENCE\"\
+  \ as \"APPROVAL_SEQUENCE\",\n                       \"SN_OVERRIDE_APPROVAL\" as\
+  \ \"SN_OVERRIDE_APPROVAL\",\n                       \"APPROVAL_STATUS\" as \"APPROVAL_STATUS\"\
+  ,\n                       \"APPROVER_LEVEL\" as \"APPROVER_LEVEL\",\n          \
+  \             \"APPROVER_COMMENTS\" as \"APPROVER_COMMENTS\",\n                \
+  \       \"APPROVAL_SUBMISSION_DATE_TIME\" as \"APPROVAL_SUBMISSION_DATE_TIME\",\n\
+  \                       \"SN_APPROVAL_RESOLUTION_DATE_TIME_DISPLAY\" as \"SN_APPROVAL_RESOLUTION_DATE_TIME_DISPLAY\"\
+  \n      FROM\n        (SELECT \"QUOTENUMBER\" as \"QUOTENUMBER\",\n            \
+  \    \"APPROVAL_BRANCH\" as \"APPROVAL_BRANCH\",\n                \"APPROVAL_REASON_NAME\"\
+  \ as \"APPROVAL_REASON_NAME\",\n                \"ITEMSTATE\" as \"ITEMSTATE\",\n\
+  \                \"ETL_INSERT_DATE\" as \"ETL_INSERT_DATE\",\n                \"\
+  ETL_UPDATE_DATE\" as \"ETL_UPDATE_DATE\",\n                \"APPROVAL_RESOLUTION_DATE_TIME\"\
+  \ as \"APPROVAL_RESOLUTION_DATE_TIME\",\n                \"APPROVER_NAME\" as \"\
+  APPROVER_NAME\",\n                \"APPROVER_ID\" as \"APPROVER_ID\",\n        \
+  \        \"SN_APPROVAL_SUBMISSION_DATE_TIME_DISPLAY\" as \"SN_APPROVAL_SUBMISSION_DATE_TIME_DISPLAY\"\
+  ,\n                \"APPROVAL_SEQUENCE\" as \"APPROVAL_SEQUENCE\",\n           \
+  \     \"SN_OVERRIDE_APPROVAL\" as \"SN_OVERRIDE_APPROVAL\",\n                \"\
+  APPROVAL_STATUS\" as \"APPROVAL_STATUS\",\n                \"APPROVER_LEVEL\" as\
+  \ \"APPROVER_LEVEL\",\n                \"APPROVER_COMMENTS\" as \"APPROVER_COMMENTS\"\
+  ,\n                \"APPROVAL_SUBMISSION_DATE_TIME\" as \"APPROVAL_SUBMISSION_DATE_TIME\"\
+  ,\n                \"SN_APPROVAL_RESOLUTION_DATE_TIME_DISPLAY\" as \"SN_APPROVAL_RESOLUTION_DATE_TIME_DISPLAY\"\
+  ,\n                'random' as \"InvoiceScheduleSource_CC\",\n                'random'\
+  \ as \"ApprovalType_CC\"\n         FROM \"RDS\".\"CALLIDUS\".\"APPROVAL_REQUESTS\"\
+  \n         WHERE (\"ITEMSTATE\" = 'random'\n                OR (\"ITEMSTATE\") IS\
+  \ NULL) )\"CALLIDUS\"))Union_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,69 @@
+name: table_950
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_950
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_950.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PS_ACE_YELLOWRED_TRACKER(\n\t\"Customer\"\
+  ,\n\t\"AccountNumber\",\n\t\"Partner\",\n\t\"PartnerSuccessManager\",\n\t\"EscalationSeverity\"\
+  ,\n\t\"Resolved\",\n\t\"StateDetail\",\n\t\"EscalationReasonCode\",\n\t\"EscalationReasonDescription\"\
+  ,\n\t\"DateEngaged\",\n\t\"DeploymentNumber\",\n\t\"Geo\",\n\tBU,\n\t\"ProposedResolution\"\
+  ,\n\t\"FinalOutcome\",\n\t\"CorpEscalationYN\",\n\t\"LatestUpdates\",\n\t\"TimestampUpdate\"\
+  ,\n\t\"Impact\",\n\t\"ImpactinUSDNumber\",\n\t\"DateResolved\",\n\t\"DaysAgingNumber\"\
+  ,\n\t\"ValuableInsights\",\n\t\"ReviewOnGlobalRed\"\n) as -- SEMANTIC LAYER BEGINS\n\
+  \nSELECT\n\"CUSTOMER\" as \"Customer\",\n\"ACCOUNT_NUMBER\" as \"AccountNumber\"\
+  ,\n\"PARTNER\" as \"Partner\",\n\"PARTNER_SUCCESS_MANAGER\" as \"PartnerSuccessManager\"\
+  ,\n\"ESCALATION_SEVERITY\" as \"EscalationSeverity\",\n\"RESOLVED\" as \"Resolved\"\
+  ,\n\"STATE_DETAIL\" as \"StateDetail\",\n\"ESCALATION_REASON_CODE\" as \"EscalationReasonCode\"\
+  ,\n\"ESCALATION_REASON_DESCRIPTION\" as \"EscalationReasonDescription\",\n try_to_date(\"\
+  DATE_ENGAGED (MM-DD-YYYY)\") as \"DateEngaged\",\n\"DEPLOYMENT_NUMBER\" as \"DeploymentNumber\"\
+  ,\n\"GEO\" as \"Geo\",\n\"BU\" as \"BU\",\n\"PROPOSED_RESOLUTION\" as \"ProposedResolution\"\
+  ,\n\"FINAL_OUTCOME\" as \"FinalOutcome\",\n\"CORP_ESCALATION (Y/N)\" as \"CorpEscalationYN\"\
+  ,\n\"LATEST_UPDATES\" as \"LatestUpdates\",\n  try_to_date(\"TIME_STAMP_UPDATE\"\
+  ) as \"TimestampUpdate\",\n\"IMPACT\" as \"Impact\",\ncase when is_real(cast(\"\
+  IMPACT_IN_USD\" as variant))='random' then to_number(cast(\"IMPACT_IN_USD\" as variant))\
+  \ else 'random' end as \"ImpactinUSDNumber\",\n\"DATE_RESOLVED (MM-DD-YYYY)\" as\
+  \ \"DateResolved\",\ncase when is_real(cast(\"DAYS_AGING\" as variant))='random'\
+  \ then to_number(cast(\"DAYS_AGING\" as variant)) else 'random' end as \"DaysAgingNumber\"\
+  ,\n\"VALUABLE_INSIGHTS\" as \"ValuableInsights\",\n\"REVIEW_ON_GLOBAL_RED\" AS \"\
+  ReviewOnGlobalRed\"\nfrom \"RDS\".\"FLATFILESOURCE\".\"PS_ACE_YELLOWRED_TRACKER\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,57 @@
+name: table_934
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_934
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_934.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view PLS_SALES_LIVE_BU_SECURITY(\n\tUSERID,\n\
+  \tBUGROUP,\n\tBUGROUP_CC\n) as\nSELECT \"USERID\",\n       \"BUGROUP\",\n      \
+  \ \"BUGROUP_CC\"\nFROM\n  (-- SEMANTIC LAYER BEGINS\nSELECT \"USERID\" as \"USERID\"\
+  ,\n       \"BUGROUP\" as \"BUGROUP\",\n       \"BUGROUP_CC\" as \"BUGROUP_CC\"\n\
+  \   FROM\n     (SELECT \"Projection_2\".\"USERID\" as \"USERID\",\n            \
+  \ \"Projection_2\".\"BUGROUP\" as \"BUGROUP\",\n             \"Projection_2\".\"\
+  BUGROUP_CC\" as \"BUGROUP_CC\"\n      FROM\n        (SELECT \"USERID\" as \"USERID\"\
+  \n         FROM \"EDW_LS\".\"SALES_EM\".\"EM_SESSION_USER\"\n         WHERE (\"\
+  USERID\") IS not NULL )\"Projection_1\"\n      INNER JOIN\n        (SELECT \"USERID\"\
+  \ as \"USERID\",\n                \"BUGROUP\" as \"BUGROUP\",\n                \"\
+  BUGROUP_CC\" as \"BUGROUP_CC\"\n         FROM EDW_LS.SALES_EM.TF_TBLPLSSLSPRODBU)\"\
+  Projection_2\" ON \"Projection_1\".\"USERID\" = \"Projection_2\".\"USERID\")Join_1);"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

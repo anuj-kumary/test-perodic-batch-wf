@@ -1,0 +1,80 @@
+name: table_941
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_941
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_941.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_PS_TERRITORIES(\n\t\"PSTerrSysID\",\n\t\
+  \"PSTerrPSTerritory\",\n\t\"PSTerrArea\",\n\t\"PSTerrGeo\",\n\t\"PSTerrMajorAreaSysID\"\
+  ,\n\t\"PSTerrMajorArea\",\n\t\"PSTerrGeoSysID\",\n\t\"PSTerrResourceManager\",\n\
+  \t\"PSTerrManager\",\n\t\"PSTerrDeliveryManagerSysID\",\n\t\"PSTerrRegionSysID\"\
+  ,\n\t\"PSTerrManagerSysID\",\n\t\"PSTerrPartnerManager\",\n\t\"PSTerrPrimaryPracticeManagerSysID\"\
+  ,\n\t\"PSterrResourceManagerSysID\",\n\t\"PSTerrDeliveryManager\",\n\t\"PSTerrRegion\"\
+  ,\n\t\"PSTerrAreaSysID\",\n\t\"PSTerrPrimaryPracticeManager\",\n\t\"PSTerrPartnerManagerSysID\"\
+  \n) as -- SEMANTIC LAYER BEGINS\n\nSELECT \"TerrSysID\" as \"PSTerrSysID\",\n  \
+  \     \"TerrName\" as \"PSTerrPSTerritory\",\n       \"TerrArea\" as \"PSTerrArea\"\
+  ,\n       \"TerrGeo\" as \"PSTerrGeo\",\n       \"TerrMajorAreaSysID\" as \"PSTerrMajorAreaSysID\"\
+  ,\n       \"TerrMajorArea\" as \"PSTerrMajorArea\",\n       \"TerrGeoSysID\" as\
+  \ \"PSTerrGeoSysID\",\n       \"PSTerrResourceManager\" as \"PSTerrResourceManager\"\
+  ,\n       \"TerrTerritoryManager\" as \"PSTerrManager\",\n       \"TerrDeliveryManagerSysID\"\
+  \ as \"PSTerrDeliveryManagerSysID\",\n       \"TerrRegionSysID\" as \"PSTerrRegionSysID\"\
+  ,\n       \"TerrTerritoryManagerSysID\" as \"PSTerrManagerSysID\",\n       \"PSTerrPartnerManager\"\
+  \ as \"PSTerrPartnerManager\",\n       \"PSTerrPrimaryPracticeManagerSysID\" as\
+  \ \"PSTerrPrimaryPracticeManagerSysID\",\n       \"PSterrResourceManagerSysID\"\
+  \ as \"PSterrResourceManagerSysID\",\n       \"TerrDeliveryManager\" as \"PSTerrDeliveryManager\"\
+  ,\n       \"TerrRegion\" as \"PSTerrRegion\",\n       \"TerrAreaSysID\" as \"PSTerrAreaSysID\"\
+  ,\n       \"PSTerrPrimaryPracticeManager\" as \"PSTerrPrimaryPracticeManager\",\n\
+  \       \"PSTerrPartnerManagerSysID\" as \"PSTerrPartnerManagerSysID\"\nFROM\n \
+  \ (SELECT \"TerrSysID\" as \"TerrSysID\",\n          \"TerrName\" as \"TerrName\"\
+  ,\n          \"TerrArea\" as \"TerrArea\",\n          \"TerrGeo\" as \"TerrGeo\"\
+  ,\n          \"TerrMajorAreaSysID\" as \"TerrMajorAreaSysID\",\n          \"TerrMajorArea\"\
+  \ as \"TerrMajorArea\",\n          \"TerrGeoSysID\" as \"TerrGeoSysID\",\n     \
+  \     \"TerrTerritoryManager\" as \"TerrTerritoryManager\",\n          \"TerrDeliveryManagerSysID\"\
+  \ as \"TerrDeliveryManagerSysID\",\n          \"TerrRegionSysID\" as \"TerrRegionSysID\"\
+  ,\n          \"TerrTerritoryManagerSysID\" as \"TerrTerritoryManagerSysID\",\n \
+  \         \"TerrDeliveryManager\" as \"TerrDeliveryManager\",\n          \"TerrRegion\"\
+  \ as \"TerrRegion\",\n          \"TerrAreaSysID\" as \"TerrAreaSysID\",\n      \
+  \    'random' as \"PSTerrResourceManager\",\n          'random' as \"PSTerrPartnerManager\"\
+  ,\n          'random' as \"PSTerrPrimaryPracticeManagerSysID\",\n          'random'\
+  \ as \"PSterrResourceManagerSysID\",\n          'random' as \"PSTerrPrimaryPracticeManager\"\
+  ,\n          'random' as \"PSTerrPartnerManagerSysID\"\n   FROM \"ODS_LS\".\"SURF\"\
+  .\"SALES_TERRITORY_ALL\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

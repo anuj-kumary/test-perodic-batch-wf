@@ -1,0 +1,54 @@
+name: table_906
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_906
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_906.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view RENEWAL_TARGET(\n\t\"SalesQuarter\",\n\t\
+  \"TerritoryName\",\n\t\"Target\",\n\t\"TargetType\",\n\t\"TargetWithoutCS\"\n) as\
+  \ -- SEMANTIC LAYER BEGINS\n\nSELECT \"SALESQUARTER\" as \"SalesQuarter\",\n   \
+  \    \"TERRITORYNAME\" as \"TerritoryName\",\n       \"TARGET\" as \"Target\",\n\
+  \       \"TARGET_TYPE\" as \"TargetType\",\n       \"TARGET_WITHOUTCS\" as \"TargetWithoutCS\"\
+  \nFROM\n  (SELECT \"SALESQUARTER\" as \"SALESQUARTER\",\n          \"TERRITORYNAME\"\
+  \ as \"TERRITORYNAME\",\n          \"TARGET\" as \"TARGET\",\n          \"TARGET_TYPE\"\
+  \ as \"TARGET_TYPE\",\n          \"TARGET_WITHOUTCS\" as \"TARGET_WITHOUTCS\"\n\
+  \   FROM \"EDW_LS\".\"SALES_EM\".\"TBLRENEWALTARGET\")Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

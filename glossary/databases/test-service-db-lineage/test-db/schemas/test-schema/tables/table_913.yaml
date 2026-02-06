@@ -1,0 +1,73 @@
+name: table_913
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_913
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_913.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_CADENCES(\n\tID,\n\tCREATED_AT,\n\tUPDATED_AT,\n\
+  \tLATEST_ACTIVE_DATE,\n\tTEAM_CADENCE,\n\tSHARED,\n\tREMOVE_BOUNCES_ENABLED,\n\t\
+  REMOVE_REPLIES_ENABLED,\n\tOPT_OUT_LINK_INCLUDED,\n\tDRAFT,\n\tCADENCE_FUNCTION,\n\
+  \tNAME,\n\tTAGS,\n\tCURRENT_STATE,\n\tGROUPS,\n\tCREATOR_HREF,\n\tCREATOR_ID,\n\t\
+  OWNER_HREF,\n\tOWNER_ID,\n\tBOUNCED_STAGE_HREF,\n\tBOUNCED_STAGE_ID,\n\tREPLIED_STAGE_HREF,\n\
+  \tREPLIED_STAGE_ID,\n\tADDED_STAGE_HREF,\n\tADDED_STAGE_ID,\n\tFINISHED_STAGE_HREF,\n\
+  \tFINISHED_STAGE_ID,\n\tCOUNTS_CADENCE_PEOPLE,\n\tCOUNTS_PEOPLE_ACTED_ON_COUNT,\n\
+  \tCOUNTS_TARGET_DAILY_PEOPLE,\n\tCOUNTS_OPPORTUNITIES_CREATED,\n\tCOUNTS_MEETINGS_BOOKED,\n\
+  \tCADENCE_PRIORITY_HREF,\n\tCADENCE_PRIORITY_ID,\n\tARCHIVED_AT,\n\tEXTERNAL_IDENTIFIER,\n\
+  \tCADENCE_FRAMEWORK_ID,\n\tOVERRIDE_CONTACT_RESTRICTIONS,\n\tPERSONALIZED_CADENCE_FLAG,\n\
+  \tLEAD_EMAIL\n) as\n/* Comments retained from HANA input file */\n    /*************************************************************************************************************************************************\n\
+  \     * Story \t\t\t\t\t :    STRY2589383\n     * Date Created   : \t  05/03/2024\n\
+  \     * Developed By   :    UDAY KUMAR REDDY\t :\n     * Brief Description    :\
+  \ \tBuild a new data model to calculate LDR's Email Adoption Rate on top of Sales\
+  \ loft Data\n     * ------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \     * REVISION HISTORY:\n     *---------------------------------------------------------------------------------------------------------------------------------------\n\
+  \    * Story#   Date Modified     Modified By  Brief Description of Change\n  *************************************************************************************************************************************************/\n\
+  SELECT\nID,\nCREATED_AT,\nUPDATED_AT,\nLATEST_ACTIVE_DATE,\nTEAM_CADENCE,\nSHARED,\n\
+  REMOVE_BOUNCES_ENABLED,\nREMOVE_REPLIES_ENABLED,\nOPT_OUT_LINK_INCLUDED,\nDRAFT,\n\
+  CADENCE_FUNCTION,\nNAME,\nTAGS,\nCURRENT_STATE,\nGROUPS,\nCREATOR_HREF,\nCREATOR_ID,\n\
+  OWNER_HREF,\nOWNER_ID,\nBOUNCED_STAGE_HREF,\nBOUNCED_STAGE_ID,\nREPLIED_STAGE_HREF,\n\
+  REPLIED_STAGE_ID,\nADDED_STAGE_HREF,\nADDED_STAGE_ID,\nFINISHED_STAGE_HREF,\nFINISHED_STAGE_ID,\n\
+  COUNTS_CADENCE_PEOPLE,\nCOUNTS_PEOPLE_ACTED_ON_COUNT,\nCOUNTS_TARGET_DAILY_PEOPLE,\n\
+  COUNTS_OPPORTUNITIES_CREATED,\nCOUNTS_MEETINGS_BOOKED,\nCADENCE_PRIORITY_HREF,\n\
+  CADENCE_PRIORITY_ID,\nARCHIVED_AT,\nEXTERNAL_IDENTIFIER,\nCADENCE_FRAMEWORK_ID,\n\
+  OVERRIDE_CONTACT_RESTRICTIONS\n,case when  name like 'random' then 'random' else\
+  \ 'random' end as PERSONALIZED_CADENCE_FLAG\n,case when  name like 'random' then\
+  \ lower(substr(name,'random')) end LEAD_EMAIL\nFROM RDS.SALESLOFT.CADENCES\n;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

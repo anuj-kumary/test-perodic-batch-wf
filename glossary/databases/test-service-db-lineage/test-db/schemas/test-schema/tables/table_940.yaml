@@ -1,0 +1,71 @@
+name: table_940
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_940
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_940.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_CONTACTS_HISTORY(\n\t\"QuoteNumberKey\"\
+  ,\n\t\"QuoteNumber\",\n\t\"RowId\",\n\t\"ContactTypeFrom\",\n\t\"ContactType\",\n\
+  \t\"ContactNameFrom\",\n\t\"ContactName\",\n\t\"ContactAccountNameFrom\",\n\t\"\
+  ContactAccountName\",\n\t\"ContactTitleFrom\",\n\t\"ContactTitle\",\n\t\"ContactEmailFrom\"\
+  ,\n\t\"ContactEmail\",\n\t\"ContactCPQIDFrom\",\n\t\"ContactCPQID\",\n\t\"ContactMDMIDFrom\"\
+  ,\n\t\"ContactMDMID\",\n\t\"QuoteCompositeNumberFrom\",\n\t\"QuoteCompositeNumber\"\
+  ,\n\t\"AccountCMIDFrom\",\n\t\"AccountCMID\",\n\t\"ContactFirstNameFrom\",\n\t\"\
+  ContactFirstName\",\n\t\"ContactLastNameFrom\",\n\t\"ContactLastName\",\n\t\"QuoteStatus\"\
+  ,\n\t\"HistoryActive\",\n\t\"EtlInsertDate\",\n\t\"EtlUpdateDate\",\n\t\"EtlDeleteDate\"\
+  \n) as\nSELECT\n\nQUOTENUMBER_KEY as \"QuoteNumberKey\",\nQUOTENUMBER as \"QuoteNumber\"\
+  ,\nROWID as \"RowId\",\nSN_CONTACT_TYPE_FROM as \"ContactTypeFrom\",\nSN_CONTACT_TYPE\
+  \ as \"ContactType\",\nSN_CONTACT_NAME_FROM as \"ContactNameFrom\",\nSN_CONTACT_NAME\
+  \ as \"ContactName\",\nSN_CONTACT_ACCOUNT_NAME_FROM as \"ContactAccountNameFrom\"\
+  ,\nSN_CONTACT_ACCOUNT_NAME as \"ContactAccountName\",\nSN_CONTACT_TITLE_FROM as\
+  \ \"ContactTitleFrom\",\nSN_CONTACT_TITLE as \"ContactTitle\",\nSN_CONTACT_EMAIL_FROM\
+  \ as \"ContactEmailFrom\",\nSN_CONTACT_EMAIL as  \"ContactEmail\",\nSN_CONTACT_CPQ_ID_FROM\
+  \ as \"ContactCPQIDFrom\",\nSN_CONTACT_CPQ_ID as \"ContactCPQID\",\nSN_CONTACT_MDM_ID_FROM\
+  \ as \"ContactMDMIDFrom\",\nSN_CONTACT_MDM_ID as \"ContactMDMID\",\nSN_QUOTE_COMPOSITE_NUMBER_FROM\
+  \ as \"QuoteCompositeNumberFrom\",\nSN_QUOTE_COMPOSITE_NUMBER as \"QuoteCompositeNumber\"\
+  ,\nSN_ACCOUNT_CMID_FROM as \"AccountCMIDFrom\",\nSN_ACCOUNT_CMID as \"AccountCMID\"\
+  ,\nSN_CONTACT_FIRSTNAME_FROM as \"ContactFirstNameFrom\",\nSN_CONTACT_FIRSTNAME\
+  \ as \"ContactFirstName\",\nSN_CONTACT_LASTNAME_FROM as \"ContactLastNameFrom\"\
+  ,\nSN_CONTACT_LASTNAME as \"ContactLastName\",\nQUOTE_STATUS as \"QuoteStatus\"\
+  ,\nHISTORY_ACTIVE as \"HistoryActive\",\nETL_INSERT_DATE as \"EtlInsertDate\",\n\
+  ETL_UPDATE_DATE as \"EtlUpdateDate\",\nETL_DELETE_DATE as \"EtlDeleteDate\"\nFROM\
+  \ RDS.CALLIDUS.SN_CONTACTS_HISTORY;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

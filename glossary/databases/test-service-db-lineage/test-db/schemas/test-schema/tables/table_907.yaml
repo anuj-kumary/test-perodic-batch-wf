@@ -1,0 +1,67 @@
+name: table_907
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_907
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_907.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view V_EMAILS(\n\tID,\n\tCREATED_AT,\n\tUPDATED_AT,\n\
+  \tRECIPIENT_EMAIL_ADDRESS,\n\tSTATUS,\n\tBOUNCED,\n\tSEND_AFTER,\n\tSENT_AT,\n\t\
+  VIEW_TRACKING,\n\tCLICK_TRACKING,\n\tPERSONALIZATION,\n\tCOUNTS_CLICKS,\n\tCOUNTS_VIEWS,\n\
+  \tCOUNTS_REPLIES,\n\tCOUNTS_UNIQUE_DEVICES,\n\tCOUNTS_UNIQUE_LOCATIONS,\n\tCOUNTS_ATTACHMENTS,\n\
+  \tUSER_HREF,\n\tUSER_ID,\n\tRECIPIENT_HREF,\n\tRECIPIENT_ID,\n\tMAILING_ID,\n\t\
+  ACTION_ID,\n\tCRM_ACTIVITY_HREF,\n\tCRM_ACTIVITY_ID,\n\tCADENCE_HREF,\n\tCADENCE_ID,\n\
+  \tSTEP_HREF,\n\tSTEP_ID,\n\tEMAIL_TEMPLATE_HREF,\n\tEMAIL_TEMPLATE_ID,\n\tTASK_ID\n\
+  ) as\n/* Comments retained from HANA input file */\n    /*************************************************************************************************************************************************\n\
+  \     * Story \t\t\t\t\t :    STRY2589383\n     * Date Created   : \t  05/03/2024\n\
+  \     * Developed By   :    UDAY KUMAR REDDY\t :\n     * Brief Description    :\
+  \ \tBuild a new data model to calculate LDR's Email Adoption Rate on top of Sales\
+  \ loft Data\n     * ------------------------------------------------------------------------------------------------------------------------------------------\n\
+  \     * REVISION HISTORY:\n     *---------------------------------------------------------------------------------------------------------------------------------------\n\
+  \    * Story#   Date Modified     Modified By  Brief Description of Change\n  *************************************************************************************************************************************************/\n\
+  SELECT\nID,\nCREATED_AT,\nUPDATED_AT,\nRECIPIENT_EMAIL_ADDRESS,\nSTATUS,\nBOUNCED,\n\
+  SEND_AFTER,\nSENT_AT,\nVIEW_TRACKING,\nCLICK_TRACKING,\nPERSONALIZATION,\nCOUNTS_CLICKS,\n\
+  COUNTS_VIEWS,\nCOUNTS_REPLIES,\nCOUNTS_UNIQUE_DEVICES,\nCOUNTS_UNIQUE_LOCATIONS,\n\
+  COUNTS_ATTACHMENTS,\nUSER_HREF,\nUSER_ID,\nRECIPIENT_HREF,\nRECIPIENT_ID,\nMAILING_ID,\n\
+  ACTION_ID,\nCRM_ACTIVITY_HREF,\nCRM_ACTIVITY_ID,\nCADENCE_HREF,\nCADENCE_ID,\nSTEP_HREF,\n\
+  STEP_ID,\nEMAIL_TEMPLATE_HREF,\nEMAIL_TEMPLATE_ID,\nTASK_ID\n--\"HEADERS_IN-REPLY-TO\"\
+  ,\n--HEADERS_REFERENCES,\n--HEADERS_CC,\n--HEADERS_BCC,\n--HEADERS_TO\nFROM RDS.SALESLOFT.EMAILS\n\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

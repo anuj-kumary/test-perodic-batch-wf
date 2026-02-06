@@ -1,0 +1,64 @@
+name: table_949
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_949
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_949.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SAP_CREDITLINES(\n\tPART_NUMBER,\n\tITEM,\n\
+  \tQUANTITY,\n\tSALESORDER,\n\tSAP_ORDERLINE,\n\tTXN_AGREEMENT,\n\tORDER_START_DATE,\n\
+  \tORDER_END_DATE,\n\tBILLING_START_DATE,\n\tBILLING_END_DATE,\n\tBILLING_STATUS,\n\
+  \tORIGINAL_AGREEMENT,\n\tOPPORTUNITY_ID,\n\tDP_UNIQUE_ID,\n\tBILLPLAN,\n\tSURF_CONTRACT_ID,\n\
+  \tENTITLEMENT_ID,\n\tTYPE,\n\tQUOTENUMBER,\n\tUNIT_SALESPRICE,\n\tCREDIT_LINE_STATUS,\n\
+  \tCREDIT_LINES_MESSAGE,\n\tINVOICE_DATE,\n\tPAYMENT_STATUS,\n\tOPTION_PERIOD,\n\t\
+  INVOICE_SCHEDULE\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\n\tSN_PART_NUMBER as part_number,\n\
+  \tSN_ITEM as item,\n\tSN_QUANTITY as quantity,\n\tSN_SALESORDER_NUMBER as salesorder,\n\
+  \tSN_SAP_ORDERLINE as sap_orderline,\n\tSN_TXN_AGREEMENT as txn_agreement,\n\tSN_ORDER_STARTDATE\
+  \ as order_start_date,\n\tSN_ORDER_ENDDATE as order_end_date,\n\tSN_BILLING_STARTDATE\
+  \ as billing_start_date,\n\tSN_BILLING_ENDDATE as billing_end_date,\n\tSN_BILLING_STATUS\
+  \ as billing_status,\n\tSN_ORIGINAL_AGREEMENT as original_agreement,\n\tSN_OPPORTUNITYID\
+  \ as opportunity_id,\n\tSN_DP_UNIQUEID as dp_unique_id,\n\tSN_BILLPLAN as billplan,\n\
+  \tSN_SURF_CONTRACTID as surf_contract_id,\n\tSN_ENTITLEMENTID as entitlement_id,\n\
+  \tSN_TYPE as type,\n    QUOTENUMBER as quotenumber,\n    SN_UNIT_SALESPRICE as unit_salesprice,\n\
+  \    SN_CRDT_LINE_STATUS as credit_line_status,\n    SN_CRDTLINES_MSG as credit_lines_message,\n\
+  \    SN_INVOICE_DATE as invoice_date,\n\tSN_PAYMENT_STATUS as payment_status,\n\t\
+  SN_OPTION_PERIOD as option_period,\n\tSN_INVOICE_SCHEDULE as invoice_schedule\n\
+  FROM RDS.\"CALLIDUS\".\"SAP_CREDITLINES\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

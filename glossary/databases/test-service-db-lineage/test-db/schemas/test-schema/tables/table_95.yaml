@@ -1,0 +1,80 @@
+name: table_95
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_95
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_95.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ST_UTILIZATION(\n\tEXTRACT_DATE,\n\t\"PSGeo\"\
+  ,\n\t\"Role\",\n\t\"PSArea\",\n\t\"PSMajorArea\",\n\t\"SEmpDepartment\",\n\t\"SEmpManagerName\"\
+  ,\n\t\"PsUtiBillableHoursThisMonth\",\n\t\"PsUtiBusinessHoursMonth\",\n\t\"PsUtiBillableHoursThisQuarter\"\
+  ,\n\t\"PsUtiBusinessHoursQuarter\",\n\t\"PsUtiBillableHoursThisWeek\",\n\t\"PsUtiBusinessHoursWeek\"\
+  ,\n\t\"PsUtiBillableHoursThisYear\",\n\t\"PsUtiBusinessHoursYear\",\n\t\"PSUtiTotalHoursThisMonth\"\
+  ,\n\t\"PSUtiTotalHoursThisQuarter\",\n\t\"PSUtiTotalHoursThisWeek\",\n\t\"PSUtiTotalHoursThisYear\"\
+  ,\n\t\"PSUtiCSATHoursThisMonth\",\n\t\"PSUtiCSATHoursThisQuarter\",\n\t\"PSUtiCSATHoursThisWeek\"\
+  ,\n\t\"PSUtiCSATHoursThisYear\",\n\t\"PSUtiAvailHoursYear\",\n\t\"PSUtiAvailHoursWeek\"\
+  ,\n\t\"PSUtiAvailHoursMonth\",\n\t\"PSUtiAvailHoursQtr\",\n\t\"PsUtiEmployee\",\n\
+  \t\"Ramped\",\n\t\"RecordID\",\n\t\"PSUtiWeekStartsOn\",\n\t\"Source\",\n\t\"ActualWeekStartOn\"\
+  ,\n\t\"SEmpEmployeeNumber\",\n\t\"SEmpSysID\"\n) as -- SEMANTIC LAYER BEGINS\n\n\
+  SELECT \"EXTRACT_DATE\" as \"EXTRACT_DATE\",\n       \"PSGeo\" as \"PSGeo\",\n \
+  \      \"Role\" as \"Role\",\n       \"PSArea\" as \"PSArea\",\n       \"PSMajorArea\"\
+  \ as \"PSMajorArea\",\n       \"SEmpDepartment\" as \"SEmpDepartment\",\n      \
+  \ \"SEmpManagerName\" as \"SEmpManagerName\",\n       \"PsUtiBillableHoursThisMonth\"\
+  \ as \"PsUtiBillableHoursThisMonth\",\n       \"PsUtiBusinessHoursMonth\" as \"\
+  PsUtiBusinessHoursMonth\",\n       \"PsUtiBillableHoursThisQuarter\" as \"PsUtiBillableHoursThisQuarter\"\
+  ,\n       \"PsUtiBusinessHoursQuarter\" as \"PsUtiBusinessHoursQuarter\",\n    \
+  \   \"PsUtiBillableHoursThisWeek\" as \"PsUtiBillableHoursThisWeek\",\n       \"\
+  PsUtiBusinessHoursWeek\" as \"PsUtiBusinessHoursWeek\",\n       \"PsUtiBillableHoursThisYear\"\
+  \ as \"PsUtiBillableHoursThisYear\",\n       \"PsUtiBusinessHoursYear\" as \"PsUtiBusinessHoursYear\"\
+  ,\n       \"PSUtiTotalHoursThisMonth\" as \"PSUtiTotalHoursThisMonth\",\n      \
+  \ \"PSUtiTotalHoursThisQuarter\" as \"PSUtiTotalHoursThisQuarter\",\n       \"PSUtiTotalHoursThisWeek\"\
+  \ as \"PSUtiTotalHoursThisWeek\",\n       \"PSUtiTotalHoursThisYear\" as \"PSUtiTotalHoursThisYear\"\
+  ,\n       \"PSUtiCSATHoursThisMonth\" as \"PSUtiCSATHoursThisMonth\",\n       \"\
+  PSUtiCSATHoursThisQuarter\" as \"PSUtiCSATHoursThisQuarter\",\n       \"PSUtiCSATHoursThisWeek\"\
+  \ as \"PSUtiCSATHoursThisWeek\",\n       \"PSUtiCSATHoursThisYear\" as \"PSUtiCSATHoursThisYear\"\
+  ,\n       \"PSUtiAvailHoursYear\" as \"PSUtiAvailHoursYear\",\n       \"PSUtiAvailHoursWeek\"\
+  \ as \"PSUtiAvailHoursWeek\",\n       \"PSUtiAvailHoursMonth\" as \"PSUtiAvailHoursMonth\"\
+  ,\n       \"PSUtiAvailHoursQtr\" as \"PSUtiAvailHoursQtr\",\n       \"PsUtiEmployee\"\
+  \ as \"PsUtiEmployee\",\n       \"Ramped\" as \"Ramped\",\n       \"RecordID\" as\
+  \ \"RecordID\",\n       \"PSUtiWeekStartsOn\" as \"PSUtiWeekStartsOn\",\n      \
+  \ \"Source\" as \"Source\",\n       \"ActualWeekStartOn\" as \"ActualWeekStartOn\"\
+  ,\n       \"SEmpEmployeeNumber\" as \"SEmpEmployeeNumber\",\n       \"SEmpSysID\"\
+  \ as \"SEmpSysID\"\nFROM \"RDS\".\"SURF\".\"ST_UTILIZATION\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

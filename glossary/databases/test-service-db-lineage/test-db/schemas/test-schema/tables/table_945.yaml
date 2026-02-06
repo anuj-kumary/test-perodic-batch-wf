@@ -1,0 +1,56 @@
+name: table_945
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_945
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_945.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view SN_BUILD_MULTI_TERM(\n\tQUOTENUMBER,\n\t\
+  ROWID,\n\tSTART_DATE,\n\tEND_DATE,\n\tTERM,\n\tEXACT_TERM,\n\tOPTION_YEAR,\n\tTL_INSERT_DATE,\n\
+  \tETL_UPDATE_DATE,\n\tETL_DELETE_DATE,\n\tITEMSTATE,\n\tYEARLY_TRACV_EXCLUDE_CREDITS,\n\
+  \tYEARLY_TOTAL_SUBSCRIPTION_EXCLUDE_CREDITS\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\n\
+  QUOTENUMBER as QuoteNumber,\nROWID as RowID,\nSN_START_DATE as Start_Date,\nSN_END_DATE\
+  \ as End_Date,\nSN_TERM as Term,\nSN_EXACT_TERM as Exact_Term,\nSN_OPTION_YEAR as\
+  \ Option_Year,\nETL_INSERT_DATE as ETL_INSERT_DATE,\nETL_UPDATE_DATE as ETL_UPDATE_DATE,\n\
+  ETL_DELETE_DATE as ETL_DELETE_DATE,\nITEMSTATE as ITEMSTATE,\nSN_YEARLY_TRACV_EXCLUDE_CREDITS\
+  \ as YEARLY_TRACV_EXCLUDE_CREDITS,\nSN_YEARLY_TOTAL_SUBSCRIPTION_EXCLUDE_CREDITS\
+  \ as YEARLY_TOTAL_SUBSCRIPTION_EXCLUDE_CREDITS\nFROM RDS.\"CALLIDUS\".\"SN_BUILD_MULTI_TERM\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

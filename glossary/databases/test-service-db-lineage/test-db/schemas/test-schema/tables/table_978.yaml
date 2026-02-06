@@ -1,0 +1,508 @@
+name: table_978
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_978
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_978.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view EM_KC_CUSTOMER_FACT(\n\t\"AcctNumber\",\n\
+  \tCACV,\n\tITAM_CACV1,\n\tITSM_CACV1,\n\tITOM_CACV1,\n\t\"Risk_CACV1\",\n\t\"Security_CACV1\"\
+  ,\n\tCSM_CACV1,\n\tFSM_CACV1,\n\tHR_CACV1,\n\t\"Legal_CACV1\",\n\t\"Workplace_CACV1\"\
+  ,\n\t\"AppEngine_CACV1\",\n\t\"Other_CACV1\",\n\tCS_CACV1,\n\tFL_CACV1,\n\t\"PipelineNNACV\"\
+  ,\n\t\"PercMutualSuccPlan\",\n\t\"Growth\",\n\t\"PercValuePrompters\",\n\t\"NPSRating\"\
+  ,\n\tITOM_NNACV,\n\tITAM_NNACV,\n\tITSM_NNACV,\n\t\"Risk_NNACV\",\n\t\"Security_NNACV\"\
+  ,\n\tHR_NNACV,\n\t\"CustomerService_NNACV\",\n\t\"CustomerSuccess_NNACV\",\n\t\"\
+  Other_NNACV\",\n\t\"Finance_NNACV\",\n\t\"App_Engine_NNACV\",\n\t\"Workplace_NNACV\"\
+  ,\n\t\"Legal_NNACV\",\n\tFSM_NNACV,\n\t\"NumOfPromoters\",\n\t\"NumOfDetractors\"\
+  ,\n\t\"NumOfRespondent\",\n\tNPS,\n\tFINANCE_FLAG,\n\tBUSINESS_UNIT_CHECK,\n\tUSERID,\n\
+  \tUSERID1,\n\tITOM_CACV,\n\tITAM_CACV,\n\t\"StrategicPortfolioManagement_CACV\"\
+  ,\n\t\"Risk_CACV\",\n\tITSM_CACV,\n\t\"Security_CACV\",\n\tCSM_CACV,\n\t\"AppEngine_CACV\"\
+  ,\n\t\"AutomationEngine_CACV\",\n\tHR_CACV,\n\t\"Other_CACV\",\n\tCS_CACV,\n\tFL_CACV,\n\
+  \tORIG_USERID,\n\t\"ITWorkflow_CACV\",\n\t\"ITWorkflow_NNACV\",\n\t\"CreatorWorkflow_CACV\"\
+  ,\n\t\"CreatorWorkflow_NNACV\",\n\t\"CustomerWorkflow_CACV\",\n\t\"CustomerWorkflow_NNACV\"\
+  ,\n\t\"EmployeeWorkflow_CACV\",\n\t\"EmployeeWorkflow_NNACV\",\n\tTAM,\n\t\"StrategicPortfolioManagement_NNACV\"\
+  ,\n\t\"AutomationEngine_NNACV\",\n\t\"StrategicPortfolioManagement_CACV1\",\n\t\"\
+  AutomationEngine_CACV1\"\n) as WITH Projection_1 AS\n  (SELECT \"AcctNumber\" as\
+  \ \"AcctNumber\",\n          \"CACV\" as \"CACV\",\n          \"PipelineNNACV\"\
+  \ as \"PipelineNNACV\",\n          \"ITOM_NNACV\" as \"ITOM_NNACV\",\n         \
+  \ \"ITAM_NNACV\" as \"ITAM_NNACV\",\n          \"ITSM_NNACV\" as \"ITSM_NNACV\"\
+  ,\n          \"Risk_NNACV\" as \"Risk_NNACV\",\n          \"Security_NNACV\" as\
+  \ \"Security_NNACV\",\n          \"HR_NNACV\" as \"HR_NNACV\",\n          \"CustomerService_NNACV\"\
+  \ as \"CustomerService_NNACV\",\n          \"CustomerSuccess_NNACV\" as \"CustomerSuccess_NNACV\"\
+  ,\n          \"Other_NNACV\" as \"Other_NNACV\",\n          \"Finance_NNACV\" as\
+  \ \"Finance_NNACV\",\n          \"App_Engine_NNACV\" as \"App_Engine_NNACV\",\n\
+  \          \"Workplace_NNACV\" as \"Workplace_NNACV\",\n          \"Legal_NNACV\"\
+  \ as \"Legal_NNACV\",\n          \"FSM_NNACV\" as \"FSM_NNACV\",\n          \"PercMutualSuccPlan\"\
+  \ as \"PercMutualSuccPlan\",\n          \"Growth\" as \"Growth\",\n          \"\
+  PercValuePrompters\" as \"PercValuePrompters\",\n          \"USERID\" as \"USERID1\"\
+  ,\n          \"NPSRating\" as \"NPSRating\",\n          \"NumOfPromoters\" as \"\
+  NumOfPromoters\",\n          \"NumOfDetractors\" as \"NumOfDetractors\",\n     \
+  \     \"NumOfRespondent\" as \"NumOfRespondent\",\n          \"FINANCE_FLAG\" as\
+  \ \"FINANCE_FLAG\",\n          \"BUSINESS_UNIT_CHECK\" as \"BUSINESS_UNIT_CHECK\"\
+  ,\n          \"ORIG_USERID\" as \"ORIG_USERID\",\n          \"TAM\" as \"TAM\",\n\
+  \          \"StrategicPortfolioManagement_NNACV\" as \"StrategicPortfolioManagement_NNACV\"\
+  ,\n          \"AutomationEngine_NNACV\" as \"AutomationEngine_NNACV\",\n       \
+  \   LOWER(\"USERID1\") as \"USERID\",\n          CASE\n              WHEN \"USERID1\"\
+  \ like 'random' then 'random'\n              else 'random'\n          end as \"\
+  GLOBAL_USER\"\n   FROM \"CDL_LS\".\"CUSTOMER_CD_RPT\".\"EM_CUSTOMER_INDEX_PORTFOLIO_FLIP_FLOP\"\
+  ) -- SEMANTIC LAYER BEGINS\n\nselect \"AcctNumber\",\n       CACV,\n       ITAM_CACV1,\n\
+  \       ITSM_CACV1,\n       ITOM_CACV1,\n       \"Risk_CACV1\",\n       \"Security_CACV1\"\
+  ,\n       CSM_CACV1,\n       FSM_CACV1,\n       HR_CACV1,\n       \"Legal_CACV1\"\
+  ,\n       \"Workplace_CACV1\",\n       \"AppEngine_CACV1\",\n       \"Other_CACV1\"\
+  ,\n       CS_CACV1,\n       FL_CACV1,\n       \"PipelineNNACV\",\n       \"PercMutualSuccPlan\"\
+  ,\n       \"Growth\",\n       \"PercValuePrompters\",\n       \"NPSRating\",\n \
+  \      ITOM_NNACV,\n       ITAM_NNACV,\n       ITSM_NNACV,\n       \"Risk_NNACV\"\
+  ,\n       \"Security_NNACV\",\n       HR_NNACV,\n       \"CustomerService_NNACV\"\
+  ,\n       \"CustomerSuccess_NNACV\",\n       \"Other_NNACV\",\n       \"Finance_NNACV\"\
+  ,\n       \"App_Engine_NNACV\",\n       \"Workplace_NNACV\",\n       \"Legal_NNACV\"\
+  ,\n       FSM_NNACV,\n       \"NumOfPromoters\",\n       \"NumOfDetractors\",\n\
+  \       \"NumOfRespondent\",\n       NPS,\n       FINANCE_FLAG,\n       BUSINESS_UNIT_CHECK,\n\
+  \       USERID,\n       USERID1,\n       \"ITOM_CACV2\" as ITOM_CACV,\n       \"\
+  ITAM_CACV2\" as ITAM_CACV,\n       \"StrategicPortfolioManagement_CACV2\" as \"\
+  StrategicPortfolioManagement_CACV\",\n       \"Risk_CACV2\" as \"Risk_CACV\",\n\
+  \       \"ITSM_CACV2\" as \"ITSM_CACV\",\n       \"Security_CACV2\" as \"Security_CACV\"\
+  ,\n       \"CSM_CACV2\" as \"CSM_CACV\",\n       \"AppEngine_CACV_2\" as \"AppEngine_CACV\"\
+  ,\n       \"AutomationEngine_CACV2\" as \"AutomationEngine_CACV\",\n       \"HR_CACV2\"\
+  \ as HR_CACV,\n       \"Other_CACV2\" as \"Other_CACV\",\n       \"CS_CACV2\" as\
+  \ \"CS_CACV\",\n       \"FL_CACV2\" as \"FL_CACV\",\n       ORIG_USERID,\n     \
+  \  \"ITWorkflow_CACV\",\n       \"ITWorkflow_NNACV\",\n       \"CreatorWorkflow_CACV\"\
+  ,\n       \"CreatorWorkflow_NNACV\",\n       \"CustomerWorkflow_CACV\",\n      \
+  \ \"CustomerWorkflow_NNACV\",\n       \"EmployeeWorkflow_CACV\",\n       \"EmployeeWorkflow_NNACV\"\
+  ,\n       TAM,\n       \"StrategicPortfolioManagement_NNACV\",\n       \"AutomationEngine_NNACV\"\
+  ,\n       \"StrategicPortfolioManagement_CACV1\",\n       \"AutomationEngine_CACV1\"\
+  \nfrom\n  (SELECT \"AcctNumber\" as \"AcctNumber\",\n          SUM(CACV) as \"CACV\"\
+  ,\n          SUM(ITAM_CACV) as \"ITAM_CACV1\",\n          SUM(ITSM_CACV) as \"ITSM_CACV1\"\
+  ,\n          SUM(ITOM_CACV) as \"ITOM_CACV1\",\n          SUM(\"Risk_CACV\") as\
+  \ \"Risk_CACV1\",\n          SUM(\"Security_CACV\") as \"Security_CACV1\",\n   \
+  \       SUM(\"CSM_CACV\") as \"CSM_CACV1\",\n          SUM(\"FSM_CACV\") as \"FSM_CACV1\"\
+  ,\n          SUM(\"HR_CACV\") as \"HR_CACV1\",\n          SUM(\"Legal_CACV\") as\
+  \ \"Legal_CACV1\",\n          SUM(\"Workplace_CACV\") as \"Workplace_CACV1\",\n\
+  \          SUM(\"AppEngine_CACV\") as \"AppEngine_CACV1\",\n          SUM(\"Other_CACV\"\
+  ) as \"Other_CACV1\",\n          SUM(\"CS_CACV\") as \"CS_CACV1\",\n          SUM(\"\
+  FL_CACV\") as \"FL_CACV1\",\n          SUM(\"PipelineNNACV\") as \"PipelineNNACV\"\
+  ,\n          SUM(\"PercMutualSuccPlan\") as \"PercMutualSuccPlan\",\n          SUM(\"\
+  Growth\") as \"Growth\",\n          SUM(\"PercValuePrompters\") as \"PercValuePrompters\"\
+  ,\n          SUM(\"NPSRating\") as \"NPSRating\",\n          SUM(\"ITOM_NNACV\"\
+  ) as \"ITOM_NNACV\",\n          SUM(\"ITAM_NNACV\") as \"ITAM_NNACV\",\n       \
+  \   SUM(\"ITSM_NNACV\") as \"ITSM_NNACV\",\n          SUM(\"Risk_NNACV\") as \"\
+  Risk_NNACV\",\n          SUM(\"Security_NNACV\") as \"Security_NNACV\",\n      \
+  \    SUM(\"HR_NNACV\") as \"HR_NNACV\",\n          SUM(\"CustomerService_NNACV\"\
+  ) as \"CustomerService_NNACV\",\n          SUM(\"CustomerSuccess_NNACV\") as \"\
+  CustomerSuccess_NNACV\",\n          SUM(\"Other_NNACV\") as \"Other_NNACV\",\n \
+  \         SUM(\"Finance_NNACV\") as \"Finance_NNACV\",\n          SUM(\"App_Engine_NNACV\"\
+  ) as \"App_Engine_NNACV\",\n          SUM(\"Workplace_NNACV\") as \"Workplace_NNACV\"\
+  ,\n          SUM(\"Legal_NNACV\") as \"Legal_NNACV\",\n          SUM(\"FSM_NNACV\"\
+  ) as \"FSM_NNACV\",\n          SUM(\"NumOfPromoters\") as \"NumOfPromoters\",\n\
+  \          SUM(\"NumOfDetractors\") as \"NumOfDetractors\",\n          SUM(\"NumOfRespondent\"\
+  ) as \"NumOfRespondent\",\n          SUM(ROUND((\"NumOfPromoters\"-\"NumOfDetractors\"\
+  )/\"NumOfRespondent\"*'random', 'random')) as \"NPS\",\n          \"FINANCE_FLAG\"\
+  \ as \"FINANCE_FLAG\",\n          \"BUSINESS_UNIT_CHECK\" as \"BUSINESS_UNIT_CHECK\"\
+  ,\n          \"USERID\" as \"USERID\",\n          \"USERID1\" as \"USERID1\",\n\
+  \          SUM(\"StrategicPortfolioManagement_CACV\") as \"StrategicPortfolioManagement_CACV1\"\
+  ,\n          SUM(\"AutomationEngine_CACV\") as \"AutomationEngine_CACV1\",\n   \
+  \       IFF(\"FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'random')>'random'\n                                                  OR REGEXP_INSTR(\"\
+  BUSINESS_UNIT_CHECK\", 'random')>'random', \"ITOM_CACV1\", 'random'), 'random')\
+  \ as \"ITOM_CACV2\",\n          IFF(\"FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"\
+  BUSINESS_UNIT_CHECK\", 'random')>'random'\n                                    \
+  \              OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random', \"ITAM_CACV1\"\
+  , 'random'), 'random') as \"ITAM_CACV2\",\n          IFF(\"FINANCE_FLAG\" ='random',\
+  \ IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random'\n               \
+  \                                   OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random',\
+  \ \"StrategicPortfolioManagement_CACV1\", 'random'), 'random') as \"StrategicPortfolioManagement_CACV2\"\
+  ,\n          IFF(\"FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'random')>'random'\n                                                  OR REGEXP_INSTR(\"\
+  BUSINESS_UNIT_CHECK\", 'random')>'random', \"Risk_CACV1\", 'random'), 'random')\
+  \ as \"Risk_CACV2\",\n          IFF(\"FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"\
+  BUSINESS_UNIT_CHECK\", 'random')>'random'\n                                    \
+  \              OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random', \"ITSM_CACV1\"\
+  , 'random'), 'random') as \"ITSM_CACV2\",\n          IFF(\"FINANCE_FLAG\" ='random',\
+  \ IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random'\n               \
+  \                                   OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random',\
+  \ \"Security_CACV1\", 'random'), 'random') as \"Security_CACV2\",\n          IFF(\"\
+  FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random'\n\
+  \                                                  OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'random')>'random', \"CSM_CACV1\", 'random'), 'random') as \"CSM_CACV2\", /*\n\
+  IFF(\"FINANCE_FLAG\" ='Unrestricted', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\",\
+  \ 'ITOM')>0 OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'All')>0 ,\"ITOM_CACV1\",0),0)\
+  \ as \"ITOM_CACV\",\nIFF(\"FINANCE_FLAG\" ='Unrestricted', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'ITAM')>0 OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'All')>0,\"ITAM_CACV1\",0),0)\
+  \ as \"ITAM_CACV\",\nIFF(\"FINANCE_FLAG\" ='Unrestricted', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'Strategic Portfolio Management')>0 OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'All')>0,\"\
+  StrategicPortfolioManagement_CACV\",0),0) as \"StrategicPortfolioManagement_CACV\"\
+  ,\nIFF(\"FINANCE_FLAG\" ='Unrestricted', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'Risk')>0 OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'All')>0,\"Risk_CACV1\",0),0)\
+  \ as \"Risk_CACV\",\nIFF(\"FINANCE_FLAG\" ='Unrestricted', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'ITSM')>0 OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'All')>0,\"ITSM_CACV1\",0),0)\
+  \ as \"ITSM_CACV\",\nIFF(\"FINANCE_FLAG\" ='Unrestricted', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'Security')>0 OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'All')>0,\"Security_CACV1\"\
+  ,0),0) as \"Security_CACV\",\nIFF(\"FINANCE_FLAG\" ='Unrestricted', IFF(REGEXP_INSTR(\"\
+  BUSINESS_UNIT_CHECK\", 'Customer Service')>0 OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'All')>0,\"CSM_CACV1\",0),0) as \"CSM_CACV\", */ IFF(\"FINANCE_FLAG\" ='random',\
+  \ IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random'\n               \
+  \                                                                              \
+  \                                                                              \
+  \                                                   OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'random')>'random', \"AppEngine_CACV1\", 'random'), 'random') as \"AppEngine_CACV_2\"\
+  ,\n                                                                            \
+  \                                                                              \
+  \                            IFF(\"FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"\
+  BUSINESS_UNIT_CHECK\", 'random')>'random'\n                                    \
+  \                                                                              \
+  \                                                                              \
+  \                              OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random',\
+  \ \"AutomationEngine_CACV1\", 'random'), 'random') as \"AutomationEngine_CACV2\"\
+  ,\n                                                                            \
+  \                                                                              \
+  \                            IFF(\"FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"\
+  BUSINESS_UNIT_CHECK\", 'random')>'random'\n                                    \
+  \                                                                              \
+  \                                                                              \
+  \                              OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random',\
+  \ \"HR_CACV1\", 'random'), 'random') as \"HR_CACV2\",\n                        \
+  \                                                                              \
+  \                                                                              \
+  \  IFF(\"FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random'\n\
+  \                                                                              \
+  \                                                                              \
+  \                                                                  OR REGEXP_INSTR(\"\
+  BUSINESS_UNIT_CHECK\", 'random')>'random', \"Other_CACV1\", 'random'), 'random')\
+  \ as \"Other_CACV2\",\n                                                        \
+  \                                                                              \
+  \                                                IFF(\"FINANCE_FLAG\" ='random',\
+  \ IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random'\n               \
+  \                                                                              \
+  \                                                                              \
+  \                                                   OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'random')>'random', \"CS_CACV1\", 'random'), 'random') as \"CS_CACV2\",\n    \
+  \                                                                              \
+  \                                                                              \
+  \                      IFF(\"FINANCE_FLAG\" ='random', IFF(REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\"\
+  , 'random')>'random'\n                                                         \
+  \                                                                              \
+  \                                                                              \
+  \         OR REGEXP_INSTR(\"BUSINESS_UNIT_CHECK\", 'random')>'random', \"FL_CACV1\"\
+  , 'random'), 'random') as \"FL_CACV2\",\n                                      \
+  \                                                                              \
+  \                                                                  \"ORIG_USERID\"\
+  \ as \"ORIG_USERID\", --IFF((IFNULL(\"ITSM_CACV\",0)+ IFNULL(\"ITOM_CACV\",0)+ IFNULL(\"\
+  ITAM_CACV\",0)+ IFNULL(\"StrategicPortfolioManagement_CACV\",0)+IFNULL(\"Risk_CACV\"\
+  ,0)+ IFNULL(\"Security_CACV\",0)) IS NULL,0,(IFNULL(\"ITSM_CACV\",0)+ IFNULL(\"\
+  ITOM_CACV\",0)+ IFNULL(\"ITAM_CACV\",0)+ IFNULL(\"StrategicPortfolioManagement_CACV\"\
+  ,0)+IFNULL(\"Risk_CACV\",0)+ IFNULL(\"Security_CACV\",0))) as \"ITWorkflow_CACV\"\
+  ,\nIFF((IFNULL(\"ITSM_CACV2\", 'random')+ IFNULL(\"ITOM_CACV2\", 'random')+ IFNULL(\"\
+  ITAM_CACV2\", 'random')+ IFNULL(\"StrategicPortfolioManagement_CACV2\", 'random')+IFNULL(\"\
+  Risk_CACV2\", 'random')+ IFNULL(\"Security_CACV2\", 'random')) IS NULL, 'random',(IFNULL(\"\
+  ITSM_CACV2\", 'random')+ IFNULL(\"ITOM_CACV2\", 'random')+ IFNULL(\"ITAM_CACV2\"\
+  , 'random')+ IFNULL(\"StrategicPortfolioManagement_CACV2\", 'random')+IFNULL(\"\
+  Risk_CACV2\", 'random')+ IFNULL(\"Security_CACV2\", 'random'))) as \"ITWorkflow_CACV\"\
+  ,\n                                                                            \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                        SUM(IFF((IFNULL(\"ITSM_NNACV\", 'random')+\
+  \ IFNULL(\"ITOM_NNACV\", 'random')+ IFNULL(\"ITAM_NNACV\", 'random')+ IFNULL(\"\
+  StrategicPortfolioManagement_NNACV\", 'random')+IFNULL(\"Risk_NNACV\", 'random')+\
+  \ IFNULL(\"Security_NNACV\", 'random')) IS NULL, 'random',(IFNULL(\"ITSM_NNACV\"\
+  , 'random')+ IFNULL(\"ITOM_NNACV\", 'random')+ IFNULL(\"ITAM_NNACV\", 'random')+\
+  \ IFNULL(\"StrategicPortfolioManagement_NNACV\", 'random')+IFNULL(\"Risk_NNACV\"\
+  , 'random')+ IFNULL(\"Security_NNACV\", 'random')))) as \"ITWorkflow_NNACV\",\n\
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                      IFNULL(\"AppEngine_CACV_2\", 'random')+IFNULL(\"\
+  AutomationEngine_CACV2\", 'random') as \"CreatorWorkflow_CACV\",\n             \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                         SUM(IFF((IFNULL(\"App_Engine_NNACV\", 'random')+IFNULL(\"\
+  AutomationEngine_NNACV\", 'random')) IS NULL, 'random', IFNULL(\"App_Engine_NNACV\"\
+  , 'random')+IFNULL(\"AutomationEngine_NNACV\", 'random'))) as \"CreatorWorkflow_NNACV\"\
+  ,\n                                                                            \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                        IFF((IFNULL(\"CSM_CACV1\", 'random')+IFNULL(\"\
+  FSM_CACV1\", 'random')) IS NULL, 'random', IFNULL(\"CSM_CACV1\", 'random')+IFNULL(\"\
+  FSM_CACV1\", 'random')) as \"CustomerWorkflow_CACV\",\n                        \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \              SUM(IFF((IFNULL(\"CustomerService_NNACV\", 'random')+IFNULL(\"FSM_NNACV\"\
+  , 'random')) IS NULL, 'random',(IFNULL(\"CustomerService_NNACV\", 'random')+IFNULL(\"\
+  FSM_NNACV\", 'random')))) as \"CustomerWorkflow_NNACV\",\n                     \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                 IFF((IFNULL(\"HR_CACV1\", 'random')+IFNULL(\"Legal_CACV1\", 'random')+IFNULL(\"\
+  Workplace_CACV1\", 'random')) IS NULL, 'random',(IFNULL(\"HR_CACV1\", 'random')+IFNULL(\"\
+  Legal_CACV1\", 'random')+IFNULL(\"Workplace_CACV1\", 'random'))) as \"EmployeeWorkflow_CACV\"\
+  ,\n                                                                            \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                        SUM(IFF((IFNULL(\"HR_NNACV\", 'random')+IFNULL(\"\
+  Legal_NNACV\", 'random')+IFNULL(\"Workplace_NNACV\", 'random')) IS NULL, 'random',(IFNULL(\"\
+  HR_NNACV\", 'random')+IFNULL(\"Legal_NNACV\", 'random')+IFNULL(\"Workplace_NNACV\"\
+  , 'random')))) as \"EmployeeWorkflow_NNACV\",\n                                \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \      \"FSP_TAM\" as \"TAM\",\n                                               \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                     SUM(\"StrategicPortfolioManagement_NNACV\"\
+  ) as \"StrategicPortfolioManagement_NNACV\",\n                                 \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \                                                                              \
+  \     SUM(\"AutomationEngine_NNACV\") as \"AutomationEngine_NNACV\"\n   FROM\n \
+  \    (SELECT \"Projection_2\".\"ITAM_CACV\" as \"ITAM_CACV\",\n             \"Projection_2\"\
+  .\"ITSM_CACV\" as \"ITSM_CACV\",\n             \"Projection_2\".\"ITOM_CACV\" as\
+  \ \"ITOM_CACV\",\n             \"Projection_2\".\"Risk_CACV\" as \"Risk_CACV\",\n\
+  \             \"Projection_2\".\"Security_CACV\" as \"Security_CACV\",\n       \
+  \      \"Projection_2\".\"HR_CACV\" as \"HR_CACV\",\n             \"Projection_2\"\
+  .\"Legal_CACV\" as \"Legal_CACV\",\n             \"Projection_2\".\"Workplace_CACV\"\
+  \ as \"Workplace_CACV\",\n             \"Projection_2\".\"CSM_CACV\" as \"CSM_CACV\"\
+  ,\n             \"Projection_2\".\"FSM_CACV\" as \"FSM_CACV\",\n             \"\
+  Projection_2\".\"AppEngine_CACV\" as \"AppEngine_CACV\",\n             \"Projection_2\"\
+  .\"CS_CACV\" as \"CS_CACV\",\n             \"Projection_2\".\"Other_CACV\" as \"\
+  Other_CACV\",\n             \"Projection_2\".\"FL_CACV\" as \"FL_CACV\",\n     \
+  \        \"Union_1\".\"ORIG_USERID\" as \"ORIG_USERID\",\n             \"Union_1\"\
+  .\"BUSINESS_UNIT_CHECK\" as \"BUSINESS_UNIT_CHECK\",\n             \"Union_1\".\"\
+  FINANCE_FLAG\" as \"FINANCE_FLAG\",\n             \"Union_1\".\"NumOfRespondent\"\
+  \ as \"NumOfRespondent\",\n             \"Union_1\".\"NumOfDetractors\" as \"NumOfDetractors\"\
+  ,\n             \"Union_1\".\"NumOfPromoters\" as \"NumOfPromoters\",\n        \
+  \     \"Union_1\".\"NPSRating\" as \"NPSRating\",\n             \"Union_1\".\"PercValuePrompters\"\
+  \ as \"PercValuePrompters\",\n             \"Union_1\".\"Growth\" as \"Growth\"\
+  ,\n             \"Union_1\".\"PercMutualSuccPlan\" as \"PercMutualSuccPlan\",\n\
+  \             \"Union_1\".\"Finance_NNACV\" as \"Finance_NNACV\",\n            \
+  \ \"Union_1\".\"CustomerSuccess_NNACV\" as \"CustomerSuccess_NNACV\",\n        \
+  \     \"Union_1\".\"Other_NNACV\" as \"Other_NNACV\",\n             \"Union_1\"\
+  .\"App_Engine_NNACV\" as \"App_Engine_NNACV\",\n             \"Union_1\".\"Legal_NNACV\"\
+  \ as \"Legal_NNACV\",\n             \"Union_1\".\"Workplace_NNACV\" as \"Workplace_NNACV\"\
+  ,\n             \"Union_1\".\"HR_NNACV\" as \"HR_NNACV\",\n             \"Union_1\"\
+  .\"FSM_NNACV\" as \"FSM_NNACV\",\n             \"Union_1\".\"CustomerService_NNACV\"\
+  \ as \"CustomerService_NNACV\",\n             \"Union_1\".\"Security_NNACV\" as\
+  \ \"Security_NNACV\",\n             \"Union_1\".\"Risk_NNACV\" as \"Risk_NNACV\"\
+  ,\n             \"Union_1\".\"ITSM_NNACV\" as \"ITSM_NNACV\",\n             \"Union_1\"\
+  .\"ITAM_NNACV\" as \"ITAM_NNACV\",\n             \"Union_1\".\"ITOM_NNACV\" as \"\
+  ITOM_NNACV\",\n             \"Union_1\".\"PipelineNNACV\" as \"PipelineNNACV\",\n\
+  \             \"Union_1\".\"CACV\" as \"CACV\",\n             \"Union_1\".\"AcctNumber\"\
+  \ as \"AcctNumber\",\n             \"Union_1\".\"USERID1\" as \"USERID1\",\n   \
+  \          \"Union_1\".\"USERID\" as \"USERID\",\n             \"Projection_2\"\
+  .\"FSP_TAM\" as \"FSP_TAM\",\n             \"Union_1\".\"StrategicPortfolioManagement_NNACV\"\
+  \ as \"StrategicPortfolioManagement_NNACV\",\n             \"Union_1\".\"AutomationEngine_NNACV\"\
+  \ as \"AutomationEngine_NNACV\",\n             \"Projection_2\".\"StrategicPortfolioManagement_CACV\"\
+  \ as \"StrategicPortfolioManagement_CACV\",\n             \"Projection_2\".\"AutomationEngine_CACV\"\
+  \ as \"AutomationEngine_CACV\"\n      FROM\n        (SELECT *\n         FROM\n \
+  \          (SELECT \"ORIG_USERID\" as \"ORIG_USERID\",\n                   \"BUSINESS_UNIT_CHECK\"\
+  \ as \"BUSINESS_UNIT_CHECK\",\n                   \"FINANCE_FLAG\" as \"FINANCE_FLAG\"\
+  ,\n                   \"NumOfRespondent\" as \"NumOfRespondent\",\n            \
+  \       \"NumOfDetractors\" as \"NumOfDetractors\",\n                   \"NumOfPromoters\"\
+  \ as \"NumOfPromoters\",\n                   \"NPSRating\" as \"NPSRating\",\n \
+  \                  \"PercValuePrompters\" as \"PercValuePrompters\",\n         \
+  \          \"Growth\" as \"Growth\",\n                   \"PercMutualSuccPlan\"\
+  \ as \"PercMutualSuccPlan\",\n                   \"Finance_NNACV\" as \"Finance_NNACV\"\
+  ,\n                   \"CustomerSuccess_NNACV\" as \"CustomerSuccess_NNACV\",\n\
+  \                   \"Other_NNACV\" as \"Other_NNACV\",\n                   \"App_Engine_NNACV\"\
+  \ as \"App_Engine_NNACV\",\n                   \"Legal_NNACV\" as \"Legal_NNACV\"\
+  ,\n                   \"Workplace_NNACV\" as \"Workplace_NNACV\",\n            \
+  \       \"HR_NNACV\" as \"HR_NNACV\",\n                   \"FSM_NNACV\" as \"FSM_NNACV\"\
+  ,\n                   \"CustomerService_NNACV\" as \"CustomerService_NNACV\",\n\
+  \                   \"Security_NNACV\" as \"Security_NNACV\",\n                \
+  \   \"Risk_NNACV\" as \"Risk_NNACV\",\n                   \"ITSM_NNACV\" as \"ITSM_NNACV\"\
+  ,\n                   \"ITAM_NNACV\" as \"ITAM_NNACV\",\n                   \"ITOM_NNACV\"\
+  \ as \"ITOM_NNACV\",\n                   \"PipelineNNACV\" as \"PipelineNNACV\"\
+  ,\n                   \"CACV\" as \"CACV\",\n                   \"AcctNumber\" as\
+  \ \"AcctNumber\",\n                   \"USERID1\" as \"USERID1\",\n            \
+  \       \"USERID\" as \"USERID\",\n                   'random' as \"TAM\",\n   \
+  \                \"StrategicPortfolioManagement_NNACV\" as \"StrategicPortfolioManagement_NNACV\"\
+  ,\n                   \"AutomationEngine_NNACV\" as \"AutomationEngine_NNACV\"\n\
+  \            FROM Projection_1\n            UNION SELECT \"ORIG_USERID\" as \"ORIG_USERID\"\
+  ,\n                         \"BUSINESS_UNIT_CHECK\" as \"BUSINESS_UNIT_CHECK\",\n\
+  \                         \"FINANCE_FLAG\" as \"FINANCE_FLAG\",\n              \
+  \           \"NumOfRespondent\" as \"NumOfRespondent\",\n                      \
+  \   \"NumOfDetractors\" as \"NumOfDetractors\",\n                         \"NumOfPromoters\"\
+  \ as \"NumOfPromoters\",\n                         \"NPSRating\" as \"NPSRating\"\
+  ,\n                         \"PercValuePrompters\" as \"PercValuePrompters\",\n\
+  \                         \"Growth\" as \"Growth\",\n                         \"\
+  PercMutualSuccPlan\" as \"PercMutualSuccPlan\",\n                         \"Finance_NNACV\"\
+  \ as \"Finance_NNACV\",\n                         \"CustomerSuccess_NNACV\" as \"\
+  CustomerSuccess_NNACV\",\n                         \"Other_NNACV\" as \"Other_NNACV\"\
+  ,\n                         \"App_Engine_NNACV\" as \"App_Engine_NNACV\",\n    \
+  \                     \"Legal_NNACV\" as \"Legal_NNACV\",\n                    \
+  \     \"Workplace_NNACV\" as \"Workplace_NNACV\",\n                         \"HR_NNACV\"\
+  \ as \"HR_NNACV\",\n                         \"FSM_NNACV\" as \"FSM_NNACV\",\n \
+  \                        \"CustomerService_NNACV\" as \"CustomerService_NNACV\"\
+  ,\n                         \"Security_NNACV\" as \"Security_NNACV\",\n        \
+  \                 \"Risk_NNACV\" as \"Risk_NNACV\",\n                         \"\
+  ITSM_NNACV\" as \"ITSM_NNACV\",\n                         \"ITAM_NNACV\" as \"ITAM_NNACV\"\
+  ,\n                         \"ITOM_NNACV\" as \"ITOM_NNACV\",\n                \
+  \         \"PipelineNNACV\" as \"PipelineNNACV\",\n                         \"CACV\"\
+  \ as \"CACV\",\n                         \"AcctNumber\" as \"AcctNumber\",\n   \
+  \                      \"USERID1\" as \"USERID1\",\n                         \"\
+  USERID\" as \"USERID\",\n                         \"TAM\" as \"TAM\",\n        \
+  \                 \"StrategicPortfolioManagement_NNACV\" as \"StrategicPortfolioManagement_NNACV\"\
+  ,\n                         \"AutomationEngine_NNACV\" as \"AutomationEngine_NNACV\"\
+  \n            FROM\n              (SELECT \"Projection_4\".\"AcctNumber\" as \"\
+  AcctNumber\",\n                      \"Projection_4\".\"CACV\" as \"CACV\",\n  \
+  \                    \"Projection_4\".\"PipelineNNACV\" as \"PipelineNNACV\",\n\
+  \                      \"Projection_4\".\"ITOM_NNACV\" as \"ITOM_NNACV\",\n    \
+  \                  \"Projection_4\".\"ITAM_NNACV\" as \"ITAM_NNACV\",\n        \
+  \              \"Projection_4\".\"ITSM_NNACV\" as \"ITSM_NNACV\",\n            \
+  \          \"Projection_4\".\"Risk_NNACV\" as \"Risk_NNACV\",\n                \
+  \      \"Projection_4\".\"Security_NNACV\" as \"Security_NNACV\",\n            \
+  \          \"Projection_4\".\"HR_NNACV\" as \"HR_NNACV\",\n                    \
+  \  \"Projection_4\".\"CustomerService_NNACV\" as \"CustomerService_NNACV\",\n  \
+  \                    \"Projection_4\".\"CustomerSuccess_NNACV\" as \"CustomerSuccess_NNACV\"\
+  ,\n                      \"Projection_4\".\"Other_NNACV\" as \"Other_NNACV\",\n\
+  \                      \"Projection_4\".\"Finance_NNACV\" as \"Finance_NNACV\",\n\
+  \                      \"Projection_4\".\"App_Engine_NNACV\" as \"App_Engine_NNACV\"\
+  ,\n                      \"Projection_4\".\"Workplace_NNACV\" as \"Workplace_NNACV\"\
+  ,\n                      \"Projection_4\".\"Legal_NNACV\" as \"Legal_NNACV\",\n\
+  \                      \"Projection_4\".\"FSM_NNACV\" as \"FSM_NNACV\",\n      \
+  \                \"Projection_4\".\"PercMutualSuccPlan\" as \"PercMutualSuccPlan\"\
+  ,\n                      \"Projection_4\".\"Growth\" as \"Growth\",\n          \
+  \            \"Projection_4\".\"PercValuePrompters\" as \"PercValuePrompters\",\n\
+  \                      \"Projection_4\".\"USERID1\" as \"USERID1\",\n          \
+  \            \"Projection_4\".\"NPSRating\" as \"NPSRating\",\n                \
+  \      \"Projection_4\".\"NumOfPromoters\" as \"NumOfPromoters\",\n            \
+  \          \"Projection_4\".\"NumOfDetractors\" as \"NumOfDetractors\",\n      \
+  \                \"Projection_4\".\"NumOfRespondent\" as \"NumOfRespondent\",\n\
+  \                      \"Projection_4\".\"FINANCE_FLAG\" as \"FINANCE_FLAG\",\n\
+  \                      \"Projection_4\".\"BUSINESS_UNIT_CHECK\" as \"BUSINESS_UNIT_CHECK\"\
+  ,\n                      \"Projection_5\".\"Map_Dummy\" as \"Map_Dummy\",\n    \
+  \                  \"Projection_5\".\"ORIG_USERID\" as \"ORIG_USERID\",\n      \
+  \                \"Projection_5\".\"USERID\" as \"USERID\",\n                  \
+  \    \"Projection_4\".\"TAM\" as \"TAM\",\n                      \"Projection_4\"\
+  .\"StrategicPortfolioManagement_NNACV\" as \"StrategicPortfolioManagement_NNACV\"\
+  ,\n                      \"Projection_4\".\"AutomationEngine_NNACV\" as \"AutomationEngine_NNACV\"\
+  \n               FROM\n                 (SELECT \"AcctNumber\" as \"AcctNumber\"\
+  ,\n                         \"CACV\" as \"CACV\",\n                         \"PipelineNNACV\"\
+  \ as \"PipelineNNACV\",\n                         \"ITOM_NNACV\" as \"ITOM_NNACV\"\
+  ,\n                         \"ITAM_NNACV\" as \"ITAM_NNACV\",\n                \
+  \         \"ITSM_NNACV\" as \"ITSM_NNACV\",\n                         \"Risk_NNACV\"\
+  \ as \"Risk_NNACV\",\n                         \"Security_NNACV\" as \"Security_NNACV\"\
+  ,\n                         \"HR_NNACV\" as \"HR_NNACV\",\n                    \
+  \     \"CustomerService_NNACV\" as \"CustomerService_NNACV\",\n                \
+  \         \"CustomerSuccess_NNACV\" as \"CustomerSuccess_NNACV\",\n            \
+  \             \"Other_NNACV\" as \"Other_NNACV\",\n                         \"Finance_NNACV\"\
+  \ as \"Finance_NNACV\",\n                         \"App_Engine_NNACV\" as \"App_Engine_NNACV\"\
+  ,\n                         \"Workplace_NNACV\" as \"Workplace_NNACV\",\n      \
+  \                   \"Legal_NNACV\" as \"Legal_NNACV\",\n                      \
+  \   \"FSM_NNACV\" as \"FSM_NNACV\",\n                         \"PercMutualSuccPlan\"\
+  \ as \"PercMutualSuccPlan\",\n                         \"Growth\" as \"Growth\"\
+  ,\n                         \"PercValuePrompters\" as \"PercValuePrompters\",\n\
+  \                         \"USERID1\" as \"USERID1\",\n                        \
+  \ \"NPSRating\" as \"NPSRating\",\n                         \"NumOfPromoters\" as\
+  \ \"NumOfPromoters\",\n                         \"NumOfDetractors\" as \"NumOfDetractors\"\
+  ,\n                         \"NumOfRespondent\" as \"NumOfRespondent\",\n      \
+  \                   \"FINANCE_FLAG\" as \"FINANCE_FLAG\",\n                    \
+  \     \"BUSINESS_UNIT_CHECK\" as \"BUSINESS_UNIT_CHECK\",\n                    \
+  \     \"ORIG_USERID\" as \"ORIG_USERID\",\n                         \"USERID\" as\
+  \ \"USERID\",\n                         \"GLOBAL_USER\" as \"GLOBAL_USER\",\n  \
+  \                       \"TAM\" as \"TAM\",\n                         \"StrategicPortfolioManagement_NNACV\"\
+  \ as \"StrategicPortfolioManagement_NNACV\",\n                         \"AutomationEngine_NNACV\"\
+  \ as \"AutomationEngine_NNACV\",\n                         'random' as \"Map_Dummy\"\
+  \n                  FROM Projection_1\n                  WHERE \"GLOBAL_USER\" =\
+  \ 'random')\"Projection_4\"\n               INNER JOIN\n                 (SELECT\
+  \ \"ORIG_USERID\" as \"ORIG_USERID\",\n                         'random' as \"Map_Dummy\"\
+  ,\n                         LOWER(\"ORIG_USERID\") as \"USERID\"\n             \
+  \     FROM \"EDW_LS\".\"SCORE_CARDS_EM\".\"SCORECARD_CUSTOMER_GLOBAL_USERS\")\"\
+  Projection_5\" ON \"Projection_4\".\"Map_Dummy\" = \"Projection_5\".\"Map_Dummy\"\
+  )\"Join_2\"))\"Union_1\"\n      LEFT JOIN\n        (SELECT \"AccountNumber\" as\
+  \ \"AccountNumber\",\n                \"ITAM_CACV\" as \"ITAM_CACV\",\n        \
+  \        \"ITSM_CACV\" as \"ITSM_CACV\",\n                \"ITOM_CACV\" as \"ITOM_CACV\"\
+  ,\n                \"Risk_CACV\" as \"Risk_CACV\",\n                \"Security_CACV\"\
+  \ as \"Security_CACV\",\n                \"CSM_CACV\" as \"CSM_CACV\",\n       \
+  \         \"FSM_CACV\" as \"FSM_CACV\",\n                \"HR_CACV\" as \"HR_CACV\"\
+  ,\n                \"Legal_CACV\" as \"Legal_CACV\",\n                \"Workplace_CACV\"\
+  \ as \"Workplace_CACV\",\n                \"AppEngine_CACV\" as \"AppEngine_CACV\"\
+  ,\n                \"FL_CACV\" as \"FL_CACV\",\n                \"CS_CACV\" as \"\
+  CS_CACV\",\n                \"Other_CACV\" as \"Other_CACV\",\n                \"\
+  FSP_TAM\" as \"FSP_TAM\",\n                \"StrategicPortfolioManagement_CACV\"\
+  \ as \"StrategicPortfolioManagement_CACV\",\n                \"AutomationEngine_CACV\"\
+  \ as \"AutomationEngine_CACV\"\n         FROM \"EDW_LS\".\"SCORE_CARDS_EM\".\"EM_KC_CUSTOMER_INCOME_STATEMENT\"\
+  )\"Projection_2\" ON \"Union_1\".\"AcctNumber\" = \"Projection_2\".\"AccountNumber\"\
+  )Join_1\n   GROUP BY \"AcctNumber\",\n            \"FINANCE_FLAG\",\n          \
+  \  \"BUSINESS_UNIT_CHECK\",\n            \"USERID\",\n            \"USERID1\",\n\
+  \            \"ORIG_USERID\",\n            \"TAM\",\n            \"StrategicPortfolioManagement_CACV\"\
+  ,\n            \"AutomationEngine_CACV\",\n            \"ITSM_CACV\",\n        \
+  \    \"ITOM_CACV\",\n            \"ITAM_CACV\",\n            \"Risk_CACV\",\n  \
+  \          \"Security_CACV\",\n            \"AppEngine_CACV\");"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
