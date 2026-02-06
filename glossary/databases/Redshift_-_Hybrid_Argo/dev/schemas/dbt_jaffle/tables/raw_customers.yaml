@@ -1,0 +1,153 @@
+name: raw_customers
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_customers
+description: "This table stores customer information, including their first and last\
+  \ names, allowing businesses to manage and analyze their client base effectively\
+  \ for marketing, sales, and customer relationship management purposes."
+tableType: Partitioned
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: The 'id' column serves as a unique identifier for each customer in
+      the database. It is essential for distinguishing between different customers.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_customers.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    description: The 'first_name' column stores the first name of the customer. It
+      is used to identify and address customers personally.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_customers.first_name
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.Sensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    description: The 'last_name' column contains the last name of the customer. It
+      is used alongside the first name for full identification.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: DIST_KEY
+    columns:
+      - id
+tablePartition:
+  columns:
+    - columnName: id
+      intervalType: COLUMN-VALUE
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: d844b54c-b22f-4a70-b34d-b5380f29527b
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_customers.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_customers.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_customers.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.first_name.tags
+      newValue: "[{\"tagFQN\":\"General.Person\",\"name\":\"Person\",\"description\"\
+        :\"A full person name, which can include first names, middle names or initials,\
+        \ and last names.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\"\
+        ,\"description\":\"PII which if lost, compromised, or disclosed without authorization,\
+        \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.Sensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.Person\",\"\
+        name\":\"Person\",\"description\":\"A full person name, which can include\
+        \ first names, middle names or initials, and last names.\",\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\"\
+        ,\"name\":\"Sensitive\",\"description\":\"PII which if lost, compromised,\
+        \ or disclosed without authorization, could result in substantial harm, embarrassment,\
+        \ inconvenience, or unfairness to an individual.\",\"style\":{\"color\":\"\
+        #ff0000\"},\"source\":\"Classification\",\"labelType\":\"Generated\",\"state\"\
+        :\"Suggested\",\"reason\":\"Chose PII.Sensitive with a classification score\
+        \ of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396886
+    columns.id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396886
+    columns.last_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396886
+    columns.first_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396886
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667996111994
+sourceHash: b755d5605d183b909738a906ca3976f8
+processedLineage: false
+entityStatus: Unprocessed

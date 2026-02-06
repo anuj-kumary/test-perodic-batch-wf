@@ -1,0 +1,82 @@
+name: stg_orders
+fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_orders
+tableType: View
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_orders.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_orders.order_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: ea310f1d-0436-4fe7-b452-8898e9be3e92
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: red-test-dc.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: ce307a71-0126-48b4-96d2-ed26d9025857
+  type: database
+  name: dev
+  fullyQualifiedName: red-test-dc.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 8bb82497-dc97-441a-ac49-be207f2f497c
+  type: databaseService
+  name: red-test-dc
+  fullyQualifiedName: red-test-dc
+  description: ""
+  displayName: red-test-dc
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_jaffle.stg_orders AS  SELECT renamed.order_id, renamed.customer_id, renamed.order_date, renamed.status
+     FROM ( SELECT source.id AS order_id, source.user_id AS customer_id, source.order_date, source.status
+             FROM ( SELECT raw_orders.id, raw_orders.user_id, raw_orders.order_date, raw_orders.status
+                     FROM dbt_jaffle.raw_orders) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: c971fc5eeab96809a48372899414cb10
+processedLineage: false
+entityStatus: Approved

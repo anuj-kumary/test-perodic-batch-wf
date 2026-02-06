@@ -1,0 +1,227 @@
+name: orders_ts
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts
+description: "This table stores detailed information about customer orders, including\
+  \ payment methods, amounts, and order status, enabling businesses to analyze sales\
+  \ performance and customer behavior effectively."
+tableType: Regular
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: The order ID uniquely identifies each order in the system.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: The customer ID uniquely identifies the customer who placed the order.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    description: "The status indicates the current state of the order, such as 'pending',\
+      \ 'completed', or 'canceled'."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: credit_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The credit card amount shows the portion of the order amount that
+      was paid using a credit card.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.credit_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: coupon_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The coupon amount reflects any discounts applied to the order through
+      coupon codes.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.coupon_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: bank_transfer_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The bank transfer amount indicates the portion of the order amount
+      that was paid via bank transfer.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.bank_transfer_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: gift_card_amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The gift card amount indicates the portion of the order amount that
+      was paid using a gift card.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.gift_card_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The amount represents the total value of the order placed by the
+      customer.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_ts
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp without time zone
+    description: The order timestamp records the exact date and time when the order
+      was placed.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.order_ts
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: DIST_KEY
+    columns:
+      - order_id
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 7dfc2559-c076-4d62-9f9c-8efb532d807b
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.orders_ts.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.order_ts.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.DateTime\"\
+        ,\"name\":\"DateTime\",\"description\":\"Absolute or relative dates or periods\
+        \ or times smaller than a day.\",\"source\":\"Classification\",\"labelType\"\
+        :\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.NonSensitive\",\"\
+        name\":\"NonSensitive\",\"description\":\"PII which is easily accessible from\
+        \ public sources and can include zip code, race, gender, and date of birth.\"\
+        ,\"style\":{},\"source\":\"Classification\",\"labelType\":\"Generated\",\"\
+        state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive with a classification\
+        \ score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.amount.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.status.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.order_id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.order_ts.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.customer_id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.coupon_amount.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.gift_card_amount.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.credit_card_amount.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+    columns.bank_transfer_amount.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757397493
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1723105072250
+sourceHash: 7bf5a7d0306d1dc4ef62c0db3c36f309
+processedLineage: false
+entityStatus: Unprocessed

@@ -1,0 +1,142 @@
+name: customer_checklist
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist
+description: This table stores tickets sales data. reverse metadata
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist.name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: is_customer
+    dataType: BOOLEAN
+    dataLength: 1
+    dataTypeDisplay: boolean
+    description: boolean value if it is customer or not
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist.is_customer
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: age
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: age of customer boolean test
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist.age
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: birthdate
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist.birthdate
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 9a3d5f37-a76d-4e32-b624-78e5aa5099e9
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.customer_checklist.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.birthdate.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.DateTime\"\
+        ,\"name\":\"DateTime\",\"description\":\"Absolute or relative dates or periods\
+        \ or times smaller than a day.\",\"source\":\"Classification\",\"labelType\"\
+        :\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.NonSensitive\",\"\
+        name\":\"NonSensitive\",\"description\":\"PII which is easily accessible from\
+        \ public sources and can include zip code, race, gender, and date of birth.\"\
+        ,\"style\":{},\"source\":\"Classification\",\"labelType\":\"Generated\",\"\
+        state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive with a classification\
+        \ score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1668000936556
+sourceHash: 6c3a939ce55e9f907380f09cc73bde5c
+processedLineage: false
+entityStatus: Unprocessed

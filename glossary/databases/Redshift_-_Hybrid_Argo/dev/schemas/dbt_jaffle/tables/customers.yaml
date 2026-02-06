@@ -1,0 +1,279 @@
+name: customers
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers
+description: "This table stores detailed information about customers, including their\
+  \ lifetime value, order history, and number of orders. It can be used to analyze\
+  \ customer behavior, track customer loyalty, and personalize marketing strategies.\
+  \ this is a better description"
+tableType: Regular
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: New ID from Collate UI
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 20
+    dataTypeDisplay: character varying(20)
+    description: The first name of the customer. This column is used for personalizing
+      communication and identifying customers.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.first_name
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.Sensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    description: First letter of the Last name of the customer
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The date when the customer made their first purchase. This information
+      is crucial for analyzing customer acquisition and retention.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.first_order
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: most_recent_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: The date of the customer's most recent purchase. This column is important
+      for understanding customer engagement and activity.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.most_recent_order
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: number_of_orders
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The total number of orders placed by the customer. This metric helps
+      in understanding customer behavior and loyalty.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.number_of_orders
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_lifetime_value
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The total revenue that a business can expect from a customer throughout
+      their relationship. This metric helps in understanding the long-term value of
+      customers.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.customer_lifetime_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags:
+  - tagFQN: '`custom`.tag1'
+    name: tag1
+    displayName: tag1
+    description: <p>tag1</p>
+    style:
+      color: "#fd3f3f"
+      iconURL: https://cdn-icons-png.flaticon.com/512/9029/9029931.png
+    source: Classification
+    labelType: Manual
+    state: Confirmed
+    appliedAt: 1767969396000
+    appliedBy: admin
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 8f1d0103-4208-4a1d-8059-fa935fbb0b4b
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.customers.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.first_name.tags
+      newValue: "[{\"tagFQN\":\"General.Person\",\"name\":\"Person\",\"description\"\
+        :\"A full person name, which can include first names, middle names or initials,\
+        \ and last names.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\"\
+        ,\"description\":\"PII which if lost, compromised, or disclosed without authorization,\
+        \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.Sensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.Person\",\"\
+        name\":\"Person\",\"description\":\"A full person name, which can include\
+        \ first names, middle names or initials, and last names.\",\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\"\
+        ,\"name\":\"Sensitive\",\"description\":\"PII which if lost, compromised,\
+        \ or disclosed without authorization, could result in substantial harm, embarrassment,\
+        \ inconvenience, or unfairness to an individual.\",\"style\":{\"color\":\"\
+        #ff0000\"},\"source\":\"Classification\",\"labelType\":\"Generated\",\"state\"\
+        :\"Suggested\",\"reason\":\"Chose PII.Sensitive with a classification score\
+        \ of 1.00\"}]"
+    - name: columns.first_order.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.DateTime\"\
+        ,\"name\":\"DateTime\",\"description\":\"Absolute or relative dates or periods\
+        \ or times smaller than a day.\",\"source\":\"Classification\",\"labelType\"\
+        :\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.NonSensitive\",\"\
+        name\":\"NonSensitive\",\"description\":\"PII which is easily accessible from\
+        \ public sources and can include zip code, race, gender, and date of birth.\"\
+        ,\"style\":{},\"source\":\"Classification\",\"labelType\":\"Generated\",\"\
+        state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive with a classification\
+        \ score of 1.00\"}]"
+    - name: columns.most_recent_order.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.DateTime\"\
+        ,\"name\":\"DateTime\",\"description\":\"Absolute or relative dates or periods\
+        \ or times smaller than a day.\",\"source\":\"Classification\",\"labelType\"\
+        :\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.NonSensitive\",\"\
+        name\":\"NonSensitive\",\"description\":\"PII which is easily accessible from\
+        \ public sources and can include zip code, race, gender, and date of birth.\"\
+        ,\"style\":{},\"source\":\"Classification\",\"labelType\":\"Generated\",\"\
+        state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive with a classification\
+        \ score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    columns.first_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757403902
+    columns.first_order.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757403902
+    columns.number_of_orders.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757403902
+    columns.most_recent_order.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757403902
+    columns.customer_lifetime_value.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757403902
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1700477489486
+sourceHash: 3a1bbf07932bd99e98dd229a9fd48176
+processedLineage: false
+entityStatus: Unprocessed

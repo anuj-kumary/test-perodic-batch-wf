@@ -1,0 +1,230 @@
+name: sensitive_customers
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers
+description: "This table stores sensitive customer information, including personal\
+  \ identifiers like social security numbers and usernames, which can be used for\
+  \ secure customer management and data analysis while ensuring compliance with privacy\
+  \ regulations."
+tableType: Regular
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: "A unique identifier for each customer, used to distinguish between\
+      \ different customers in the database."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    description: "The username associated with the customer, used for login and account\
+      \ management."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers.user_name
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.Sensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: ssn
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    description: "The Social Security Number of the customer, used for identification\
+      \ and verification purposes."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers.ssn
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: address
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    description: "The address of the customer, which is used for identifying their\
+      \ location and for correspondence purposes."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers.address
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: dwh_x10
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    description: "A field that may contain additional data related to the customer,\
+      \ potentially used for data warehousing or analytics purposes."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers.dwh_x10
+    tags:
+      - tagFQN: General.Email
+        name: Email
+        description: Email address.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.Sensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 879ba30d-7c1c-423f-9a7d-18c550f6f9d0
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.sensitive_customers.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.user_name.tags
+      newValue: "[{\"tagFQN\":\"General.Person\",\"name\":\"Person\",\"description\"\
+        :\"A full person name, which can include first names, middle names or initials,\
+        \ and last names.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\"\
+        ,\"description\":\"PII which if lost, compromised, or disclosed without authorization,\
+        \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.Sensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.Person\",\"\
+        name\":\"Person\",\"description\":\"A full person name, which can include\
+        \ first names, middle names or initials, and last names.\",\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\"\
+        ,\"name\":\"Sensitive\",\"description\":\"PII which if lost, compromised,\
+        \ or disclosed without authorization, could result in substantial harm, embarrassment,\
+        \ inconvenience, or unfairness to an individual.\",\"style\":{\"color\":\"\
+        #ff0000\"},\"source\":\"Classification\",\"labelType\":\"Generated\",\"state\"\
+        :\"Suggested\",\"reason\":\"Chose PII.Sensitive with a classification score\
+        \ of 1.00\"}]"
+    - name: columns.address.tags
+      newValue: "[{\"tagFQN\":\"General.Person\",\"name\":\"Person\",\"description\"\
+        :\"A full person name, which can include first names, middle names or initials,\
+        \ and last names.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"General.Person\",\"name\":\"Person\"\
+        ,\"description\":\"A full person name, which can include first names, middle\
+        \ names or initials, and last names.\",\"source\":\"Classification\",\"labelType\"\
+        :\"Generated\",\"state\":\"Suggested\"}]"
+    - name: columns.dwh_x10.tags
+      newValue: "[{\"tagFQN\":\"General.Email\",\"name\":\"Email\",\"description\"\
+        :\"Email address.\",\"source\":\"Classification\",\"labelType\":\"Generated\"\
+        ,\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\",\"name\":\"Sensitive\"\
+        ,\"description\":\"PII which if lost, compromised, or disclosed without authorization,\
+        \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+        \ to an individual.\",\"style\":{\"color\":\"#ff0000\"},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.Sensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.Email\",\"\
+        name\":\"Email\",\"description\":\"Email address.\",\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.Sensitive\"\
+        ,\"name\":\"Sensitive\",\"description\":\"PII which if lost, compromised,\
+        \ or disclosed without authorization, could result in substantial harm, embarrassment,\
+        \ inconvenience, or unfairness to an individual.\",\"style\":{\"color\":\"\
+        #ff0000\"},\"source\":\"Classification\",\"labelType\":\"Generated\",\"state\"\
+        :\"Suggested\",\"reason\":\"Chose PII.Sensitive with a classification score\
+        \ of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395177
+    columns.ssn.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395177
+    columns.address.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395177
+    columns.dwh_x10.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395177
+    columns.user_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395177
+    columns.customer_id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395177
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1731488820569
+sourceHash: 613bd1914e5378db46f4ef5d61a55133
+processedLineage: false
+entityStatus: Unprocessed

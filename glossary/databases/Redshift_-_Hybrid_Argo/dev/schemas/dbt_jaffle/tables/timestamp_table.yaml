@@ -1,0 +1,131 @@
+name: timestamp_table
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.timestamp_table
+description: "This table records timestamps for various events, allowing users to\
+  \ track when specific entries were added. It can be utilized for auditing, data\
+  \ analysis, and understanding the timing of data changes within the system."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: "The id column serves as a unique identifier for each record in the\
+      \ timestamp_table, ensuring that every entry can be distinctly referenced. This\
+      \ is crucial for maintaining data integrity and facilitating operations such\
+      \ as updates and deletions."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.timestamp_table.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: inserted_at
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp without time zone
+    description: The inserted_at column records the exact timestamp when each record
+      was created in the timestamp_table. This is important for tracking the age of
+      the data and understanding when specific entries were added.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.timestamp_table.inserted_at
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 82d35280-0ca6-4970-996f-cc779b7eedcd
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.timestamp_table.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.timestamp_table.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.timestamp_table.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.inserted_at.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.DateTime\"\
+        ,\"name\":\"DateTime\",\"description\":\"Absolute or relative dates or periods\
+        \ or times smaller than a day.\",\"source\":\"Classification\",\"labelType\"\
+        :\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.NonSensitive\",\"\
+        name\":\"NonSensitive\",\"description\":\"PII which is easily accessible from\
+        \ public sources and can include zip code, race, gender, and date of birth.\"\
+        ,\"style\":{},\"source\":\"Classification\",\"labelType\":\"Generated\",\"\
+        state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive with a classification\
+        \ score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1759757391858
+    columns.id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757391858
+    columns.inserted_at.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757391858
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1679912937651
+sourceHash: 69c3a9f0673ae46dc4e6b5815e2d999c
+processedLineage: false
+entityStatus: Unprocessed

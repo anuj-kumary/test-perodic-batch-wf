@@ -1,0 +1,80 @@
+name: stg_customers
+fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_customers
+tableType: View
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_customers.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_customers.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_customers.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: ea310f1d-0436-4fe7-b452-8898e9be3e92
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: red-test-dc.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: ce307a71-0126-48b4-96d2-ed26d9025857
+  type: database
+  name: dev
+  fullyQualifiedName: red-test-dc.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 8bb82497-dc97-441a-ac49-be207f2f497c
+  type: databaseService
+  name: red-test-dc
+  fullyQualifiedName: red-test-dc
+  description: ""
+  displayName: red-test-dc
+  deleted: false
+serviceType: Redshift
+schemaDefinition: |-
+  CREATE VIEW dbt_jaffle.stg_customers AS  SELECT renamed.customer_id, renamed.first_name, renamed.last_name
+     FROM ( SELECT source.id AS customer_id, source.first_name, source.last_name
+             FROM ( SELECT raw_customers.id, raw_customers.first_name, raw_customers.last_name
+                     FROM dbt_jaffle.raw_customers) source) renamed;
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: e425ef2e-2a51-4b3e-b2f7-41cffe6f78ed
+  type: testSuite
+  name: red-test-dc.dev.dbt_jaffle.stg_customers.testSuite
+  fullyQualifiedName: red-test-dc.dev.dbt_jaffle.stg_customers.testSuite
+  displayName: red-test-dc.dev.dbt_jaffle.stg_customers.testSuite
+  deleted: false
+domains: []
+dataProducts: []
+sourceHash: a0d00d74266fff35d90a9730bc2c494d
+processedLineage: false
+entityStatus: Approved

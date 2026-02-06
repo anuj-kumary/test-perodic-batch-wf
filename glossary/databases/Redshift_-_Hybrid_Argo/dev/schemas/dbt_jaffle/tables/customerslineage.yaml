@@ -1,0 +1,175 @@
+name: customerslineage
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage
+description: "This table stores customer data, including their lifetime value, order\
+  \ history, and personal details, enabling businesses to analyze customer behavior,\
+  \ improve marketing strategies, and enhance overall customer relationship management."
+tableType: Regular
+columns:
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: "The unique identifier for each customer in the database, used to\
+      \ distinguish between different customers."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: character varying(10)
+    description: "The first name of the customer, used for personalization and identification."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.first_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 2
+    dataTypeDisplay: character varying(2)
+    description: "The last name of the customer, used for personalization and identification."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.last_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: first_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: "The date when the customer made their first purchase, indicating\
+      \ the start of their relationship with the business."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.first_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: most_recent_order
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: "The date of the customer's most recent purchase, indicating their\
+      \ current engagement level."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.most_recent_order
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: number_of_orders
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: "The total number of orders placed by the customer, indicating their\
+      \ purchasing behavior."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.number_of_orders
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: customer_lifetime_value
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: bigint
+    description: The total revenue that a business can expect from a customer throughout
+      their relationship.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.customer_lifetime_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: f9f26ef5-07ea-444c-8ea6-21cd668bfacb
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.customerslineage.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.customer_id.description
+      newValue: "The unique identifier for each customer in the database, used to\
+        \ distinguish between different customers."
+    - name: columns.first_name.description
+      newValue: "The first name of the customer, used for personalization and identification."
+    - name: columns.last_name.description
+      newValue: "The last name of the customer, used for personalization and identification."
+    - name: columns.first_order.description
+      newValue: "The date when the customer made their first purchase, indicating\
+        \ the start of their relationship with the business."
+    - name: columns.most_recent_order.description
+      newValue: "The date of the customer's most recent purchase, indicating their\
+        \ current engagement level."
+    - name: columns.number_of_orders.description
+      newValue: "The total number of orders placed by the customer, indicating their\
+        \ purchasing behavior."
+    - name: columns.customer_lifetime_value.description
+      newValue: The total revenue that a business can expect from a customer throughout
+        their relationship.
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1759757402627
+    columns.last_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757402819
+    columns.first_name.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757402819
+    columns.customer_id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757402819
+    columns.first_order.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757402819
+    columns.number_of_orders.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757402819
+    columns.most_recent_order.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757402819
+    columns.customer_lifetime_value.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757402819
+domains: []
+dataProducts: []
+sourceHash: 8cd855f30520f2ddbeacb25b3dc39666
+processedLineage: false
+entityStatus: Unprocessed

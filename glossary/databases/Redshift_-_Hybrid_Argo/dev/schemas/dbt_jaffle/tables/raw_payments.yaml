@@ -1,0 +1,133 @@
+name: raw_payments
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_payments
+description: "This table stores payment transaction details, including the amount,\
+  \ unique identifiers, and payment methods used. Users can analyze payment patterns,\
+  \ track order payments, and assess the effectiveness of different payment methods."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: The id serves as a unique identifier for each payment record in the
+      table. It is essential for distinguishing between different payment entries.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_payments.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: "The order_id links the payment to a specific order, allowing for\
+      \ the association of payments with the corresponding orders in the system."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_payments.order_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_method
+    dataType: VARCHAR
+    dataLength: 13
+    dataTypeDisplay: character varying(13)
+    description: "The payment_method indicates the type of payment used for the transaction,\
+      \ such as credit card, debit card, or other payment options."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_payments.payment_method
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: amount
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: The amount represents the total value of the payment made for a specific
+      order. It is used to quantify the financial transaction associated with the
+      payment.
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_payments.amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: 7e2cba16-316d-4306-a3d9-a6aff94bd4c8
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_payments.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_payments.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_payments.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.id.description
+      newValue: The id serves as a unique identifier for each payment record in the
+        table. It is essential for distinguishing between different payment entries.
+    - name: columns.order_id.description
+      newValue: "The order_id links the payment to a specific order, allowing for\
+        \ the association of payments with the corresponding orders in the system."
+    - name: columns.payment_method.description
+      newValue: "The payment_method indicates the type of payment used for the transaction,\
+        \ such as credit card, debit card, or other payment options."
+    - name: columns.amount.description
+      newValue: The amount represents the total value of the payment made for a specific
+        order. It is used to quantify the financial transaction associated with the
+        payment.
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395556
+    columns.id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395730
+    columns.amount.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395730
+    columns.order_id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395730
+    columns.payment_method.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757395730
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667996118787
+sourceHash: 83197171d34e86ae89e9d4b904136280
+processedLineage: false
+entityStatus: Unprocessed

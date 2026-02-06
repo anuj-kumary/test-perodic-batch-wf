@@ -1,0 +1,156 @@
+name: raw_orders
+fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_orders
+description: "This table stores order information, including unique identifiers, order\
+  \ dates, statuses, and associated user IDs, enabling analysis of customer purchasing\
+  \ behavior and order management."
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: "The 'id' column serves as a unique identifier for each order in\
+      \ the dataset, ensuring that every order can be distinctly referenced."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_orders.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: user_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: "The 'user_id' column identifies the user who placed the order, linking\
+      \ the order to a specific customer in the system."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_orders.user_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: "The 'order_date' column records the date on which the order was\
+      \ placed, providing a temporal context for the order."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_orders.order_date
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status
+    dataType: VARCHAR
+    dataLength: 14
+    dataTypeDisplay: character varying(14)
+    description: "The 'status' column indicates the current state of the order, such\
+      \ as 'pending', 'shipped', or 'completed', reflecting the order's progress."
+    fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_orders.status
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 00bf653b-0fb2-4e77-8481-ec32519dfb3b
+  type: databaseSchema
+  name: dbt_jaffle
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle
+  displayName: dbt_jaffle
+  deleted: false
+database:
+  id: cfeac7dc-5ff6-4572-8ce5-5360f6d64267
+  type: database
+  name: dev
+  fullyQualifiedName: Redshift - Hybrid Argo.dev
+  displayName: dev
+  deleted: false
+service:
+  id: 141aaa73-5b0d-4abd-a6d0-6e73925e8fbd
+  type: databaseService
+  name: Redshift - Hybrid Argo
+  fullyQualifiedName: Redshift - Hybrid Argo
+  description: ""
+  displayName: Redshift - Hybrid Argo
+  deleted: false
+serviceType: Redshift
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+testSuite:
+  id: d5784ab3-cab2-48f8-a825-b471a5f3956c
+  type: testSuite
+  name: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_orders.testSuite
+  fullyQualifiedName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_orders.testSuite
+  displayName: Redshift - Hybrid Argo.dev.dbt_jaffle.raw_orders.testSuite
+  deleted: false
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.order_date.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"},{\"tagFQN\":\"General.DateTime\"\
+        ,\"name\":\"DateTime\",\"description\":\"Absolute or relative dates or periods\
+        \ or times smaller than a day.\",\"source\":\"Classification\",\"labelType\"\
+        :\"Generated\",\"state\":\"Suggested\"},{\"tagFQN\":\"PII.NonSensitive\",\"\
+        name\":\"NonSensitive\",\"description\":\"PII which is easily accessible from\
+        \ public sources and can include zip code, race, gender, and date of birth.\"\
+        ,\"style\":{},\"source\":\"Classification\",\"labelType\":\"Generated\",\"\
+        state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive with a classification\
+        \ score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary:
+    description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396304
+    columns.id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396304
+    columns.status.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396304
+    columns.user_id.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396304
+    columns.order_date.description:
+      changedBy: ingestion-bot
+      changedAt: 1759757396304
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1667996111994
+sourceHash: f5656a477fdf3d417b395e08d07b08f6
+processedLineage: false
+entityStatus: Unprocessed
