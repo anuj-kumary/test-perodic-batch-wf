@@ -1,0 +1,191 @@
+name: all_refresh
+fullyQualifiedName: oracle_test.default.sys.all_refresh
+tableType: View
+columns:
+  - name: rowner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the owner of the refresh group
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.rowner
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rname
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the refresh group
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.rname
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refgroup
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Internal identifier of refresh group
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.refgroup
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: implicit_destroy
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "Y or N, if Y then destroy the refresh group when its last item is\
+      \ subtracted"
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.implicit_destroy
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: push_deferred_rpc
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "Y or N, if Y then push changes from snapshot to master before refresh"
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.push_deferred_rpc
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: refresh_after_errors
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "If Y, proceed with refresh despite error when pushing deferred RPCs"
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.refresh_after_errors
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: rollback_seg
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the rollback segment to use while refreshing
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.rollback_seg
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: job
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Identifier of job used to automatically refresh the group
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.job
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: next_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: "Date that this job will next be automatically refreshed, if not\
+      \ broken"
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.next_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: interval
+    dataType: VARCHAR
+    dataLength: 200
+    dataTypeDisplay: varchar2(200)
+    description: A date function used to compute the next NEXT_DATE
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.interval
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: broken
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar2(1)
+    description: "Y or N, Y is the job is broken and will never be run"
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.broken
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: purge_option
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The method for purging the transaction queue after each push
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.purge_option
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: parallelism
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The level of parallelism for transaction propagation
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.parallelism
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: heap_size
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: number
+    description: The heap size used for transaction propagation
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.heap_size
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: job_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    fullyQualifiedName: oracle_test.default.sys.all_refresh.job_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 4b4621a6cb57d2983534db736d9a4242
+processedLineage: false
+entityStatus: Approved

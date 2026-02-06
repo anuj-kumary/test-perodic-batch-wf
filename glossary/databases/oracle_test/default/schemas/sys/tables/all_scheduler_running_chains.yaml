@@ -1,0 +1,230 @@
+name: all_scheduler_running_chains
+fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains
+tableType: View
+columns:
+  - name: owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the job which is running the chain
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: job_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the job which is running the chain
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.job_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: job_subname
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Subname of the job which is running the chain (for a subchain)
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.job_subname
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: chain_owner
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Owner of the chain being run
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.chain_owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: chain_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of the chain being run
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.chain_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: step_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Name of this step of the running chain
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.step_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: state
+    dataType: VARCHAR
+    dataLength: 15
+    dataTypeDisplay: varchar2(15)
+    description: State of this step
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.state
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_code
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: "Error code of this step, if it has finished running"
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.error_code
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: completed
+    dataType: VARCHAR
+    dataLength: 5
+    dataTypeDisplay: varchar2(5)
+    description: Whether this step has completed
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.completed
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: start_date
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6) with time zone
+    description: "When this step started, if it has already started"
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.start_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: end_date
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6) with time zone
+    description: "When this job step finished running, if it has finished running"
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.end_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: duration
+    dataType: INTERVAL
+    dataLength: 1
+    dataTypeDisplay: interval day(9) to second(6)
+    description: "How long this step took to complete, if it has completed"
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.duration
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: skip
+    dataType: VARCHAR
+    dataLength: 5
+    dataTypeDisplay: varchar2(5)
+    description: Whether this step will be skipped or not
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.skip
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: pause
+    dataType: VARCHAR
+    dataLength: 5
+    dataTypeDisplay: varchar2(5)
+    description: Whether this step will be paused after running or not
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.pause
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: pause_before
+    dataType: VARCHAR
+    dataLength: 5
+    dataTypeDisplay: varchar2(5)
+    description: Whether this step will be paused before running or not
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.pause_before
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: restart_on_recovery
+    dataType: VARCHAR
+    dataLength: 5
+    dataTypeDisplay: varchar2(5)
+    description: Whether this step will be restarted on database recovery
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.restart_on_recovery
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: restart_on_failure
+    dataType: VARCHAR
+    dataLength: 5
+    dataTypeDisplay: varchar2(5)
+    description: Whether this step should be retried on application failure
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.restart_on_failure
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: step_job_subname
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: "Subname of the job running this step, if the step job has been created"
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.step_job_subname
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: step_job_log_id
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Log id of the step job if it has completed and has been logged.
+    fullyQualifiedName: oracle_test.default.sys.all_scheduler_running_chains.step_job_log_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 7f1d0975d79c5365103614af92cc650d
+processedLineage: false
+entityStatus: Approved

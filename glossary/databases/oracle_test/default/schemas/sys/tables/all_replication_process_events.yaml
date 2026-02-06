@@ -1,0 +1,124 @@
+name: all_replication_process_events
+fullyQualifiedName: oracle_test.default.sys.all_replication_process_events
+tableType: View
+columns:
+  - name: streams_type
+    dataType: VARCHAR
+    dataLength: 10
+    dataTypeDisplay: varchar2(10)
+    description: "Streams type: Streams, XStream, GoldenGate"
+    fullyQualifiedName: oracle_test.default.sys.all_replication_process_events.streams_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: process_type
+    dataType: VARCHAR
+    dataLength: 27
+    dataTypeDisplay: varchar2(27)
+    description: |-
+      Process type: Capture, Capture server, Apply Coordinator, Apply Server,
+      Apply Network Receiver, Apply Reader, Apply Hash server.
+    fullyQualifiedName: oracle_test.default.sys.all_replication_process_events.process_type
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: streams_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: Streams name
+    fullyQualifiedName: oracle_test.default.sys.all_replication_process_events.streams_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_name
+    dataType: VARCHAR
+    dataLength: 128
+    dataTypeDisplay: varchar2(128)
+    description: |-
+      EVENT NAME: START, STOP, ABORT, CREATE, DROP, PARAMETER CHANGE,
+       HANDLER CREATE, HANDLER REMOVE, ALTER
+    fullyQualifiedName: oracle_test.default.sys.all_replication_process_events.event_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: VARCHAR
+    dataLength: 2000
+    dataTypeDisplay: varchar2(2000)
+    description: Event Description
+    fullyQualifiedName: oracle_test.default.sys.all_replication_process_events.description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: event_time
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp(6)
+    description: Time when the event ocurred
+    fullyQualifiedName: oracle_test.default.sys.all_replication_process_events.event_time
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_number
+    dataType: NUMBER
+    dataLength: 1
+    dataTypeDisplay: number
+    description: Error Number (valid when event is Error)
+    fullyQualifiedName: oracle_test.default.sys.all_replication_process_events.error_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: error_message
+    dataType: VARCHAR
+    dataLength: 2000
+    dataTypeDisplay: varchar2(2000)
+    description: Error Message (valid when event is Error)
+    fullyQualifiedName: oracle_test.default.sys.all_replication_process_events.error_message
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: a11e2293-c7ca-4d3a-9e0f-ebcfa337159d
+  type: databaseSchema
+  name: sys
+  fullyQualifiedName: oracle_test.default.sys
+  displayName: sys
+  deleted: false
+database:
+  id: 635299d9-9c3d-4ccc-98ff-dfb95889d8d6
+  type: database
+  name: default
+  fullyQualifiedName: oracle_test.default
+  displayName: default
+  deleted: false
+service:
+  id: 81062063-d522-406b-92a3-ccad1f68f1ad
+  type: databaseService
+  name: oracle_test
+  fullyQualifiedName: oracle_test
+  displayName: oracle_test
+  deleted: false
+serviceType: Oracle
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 909bfc2969c9fed741b43f2352d6611a
+processedLineage: false
+entityStatus: Approved
