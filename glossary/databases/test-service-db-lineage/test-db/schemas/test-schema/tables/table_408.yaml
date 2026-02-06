@@ -1,0 +1,115 @@
+name: table_408
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_408
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_408.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_CONTRACT_INSTANCE(\n\t\"ContractInstanceAssignedVersion\"\
+  ,\n\t\"ContractInstanceContract\",\n\t\"ContractInstanceInstanceID\",\n\t\"ContractInstanceName\"\
+  ,\n\t\"ContractInstancePurpose\",\n\t\"ContractInstanceOperationalStatus\",\n\t\"\
+  ContractInstanceSysID\",\n\tDV_U_CONTRACT,\n\t\"RecordSource\",\n\tPSP_PER_INSERT_DT,\n\
+  \tPSP_PER_UPDATE_DT\n) as -- SEMANTIC LAYER BEGINS\n/********************************************************************************************************************************\n\
+  \ * Program  Name            :         U_CONTRACT_INSTANCE\n * Development Request\
+  \ #    :\n * Date Created             :     \t  26-03-2024\n * Developed By    \
+  \         :         Vamshi\n * Brief Description        :    \t  Base model for\
+  \ U_CONTRACT_INSTANCE\n * Story\t\t\t\t\t:\n * -----------------------------------------------------------------------------------------------------------------------------\n\
+  \ * REVISION HISTORY :\n * -----------------------------------------------------------------------------------------------------------------------------\n\
+  \ *  CR#      Modified By    Date Modified      Brief Description of Change\n *\
+  \   1       Vamshi D       26-03-2024         Added the columns PSP_PER_INSERT_DT,PSP_PER_UPDATE_DT\n\
+  \ ********************************************************************************************************************************/\n\
+  SELECT  \"ContractInstanceAssignedVersion\",\n        UCI.U_CONTRACT AS \"ContractInstanceContract\"\
+  ,\n    \t\"ContractInstanceInstanceID\",\n    \t\"ContractInstanceName\",\n    \t\
+  \"ContractInstancePurpose\",\n    \t\"ContractInstanceOperationalStatus\",\n   \
+  \     UCI.SYS_ID AS \"ContractInstanceSysID\",\n    \tENT.DV_U_CONTRACT,\n     \
+  \   RECORD_SOURCE,\n        UCI.PSP_PER_INSERT_DT,  --Rev 1\n        UCI.PSP_PER_UPDATE_DT\
+  \ --Rev 1\n        FROM\n        (\n            SELECT \"ContractInstanceAssignedVersion\"\
+  ,\"ContractInstanceInstanceID\",\"ContractInstanceName\",\"ContractInstancePurpose\"\
+  ,\"ContractInstanceOperationalStatus\",\"DV_U_CONTRACT\",'random' AS RECORD_SOURCE\n\
+  \        FROM\n        (\n\n        SELECT DISTINCT INSTANCE_VERSION AS \"ContractInstanceAssignedVersion\"\
+  ,INSTANCEID AS \"ContractInstanceInstanceID\",INSTANCENAME AS \"ContractInstanceName\"\
+  ,DECODE(INSTANCE_PURPOSE,'random','random','random','random','random','random',INSTANCE_PURPOSE)\
+  \ AS \"ContractInstancePurpose\",INSTANCE_STATUS AS \"ContractInstanceOperationalStatus\"\
+  ,LISTAGG(ZEMS_SURF_CONTRACT_NUMBER_V2,'random') AS \"DV_U_CONTRACT\"\n        FROM\n\
+  \        \t(\n        \t\tSELECT ENT.INSTANCEID,ENT.INSTANCENAME,ENT.ZEMS_SURF_CONTRACT_NUMBER_V2,ENT.INSTANCE_STATUS,ENT.INSTANCE_PURPOSE,ENT.INSTANCE_VERSION,ENT.HOSTINGTYPE\n\
+  \        \t\tFROM RDS_SHARE.SAP_EMS.ENTITLEMENTS ENT\n        \t\twhere\n      \
+  \          ENT.ENTITLEMENTMODELNAME='random'\n        \t\tAND ENT.INSTANCEID IS\
+  \ not NULL\n\n        \t\tUNION\n\n        \t\tSELECT DISTINCT PAR.INSTANCEID,PAR.INSTANCENAME,CHI.ZEMS_SURF_CONTRACT_NUMBER_V2,PAR.INSTANCE_STATUS,PAR.INSTANCE_PURPOSE,PAR.INSTANCE_VERSION,PAR.HOSTINGTYPE\n\
+  \        \t\tFROM RDS_SHARE.SAP_EMS.ENTITLEMENTS PAR\n        \t\tINNER JOIN\n \
+  \       \t\tRDS_SHARE.SAP_EMS.ENTITLEMENTS CHI\n        \t\tON PAR.ENTITLEMENTNO=CHI.PARENTENTITLEMENTNO\n\
+  \        \t\tWHERE PAR.ZEMS_SURF_CONTRACT_NUMBER_V2 <> CHI.ZEMS_SURF_CONTRACT_NUMBER_V2\n\
+  \                AND PAR.INSTANCEID IS not NULL\n        \t\tand PAR.ENTITLEMENTMODELNAME='random'\n\
+  \        \t)\n            GROUP BY INSTANCE_VERSION,INSTANCEID,INSTANCENAME,INSTANCE_PURPOSE,INSTANCE_STATUS\n\
+  \n        )\n        EMS\n        WHERE EXISTS (\n        SELECT 'random' FROM RDS_SHARE.SURF.U_CONTRACT_INSTANCE\
+  \ UCI\n        WHERE UCI.U_INSTANCE_ID = EMS.\"ContractInstanceInstanceID\"\n  \
+  \      AND UCI.U_NAME = EMS.\"ContractInstanceName\"\n        AND UCI.DV_U_PURPOSE\
+  \ = EMS.\"ContractInstancePurpose\"\n        AND UCI.U_OPERATIONAL_STATUS = EMS.\"\
+  ContractInstanceOperationalStatus\"\n        AND UCI.DV_U_CONTRACT = EMS.\"DV_U_CONTRACT\"\
+  \n        AND UCI.U_ASSIGNED_VERSION = EMS.\"ContractInstanceAssignedVersion\"\n\
+  \        )\n\n        UNION ALL\n\n        select distinct UCI.U_ASSIGNED_VERSION,UCI.U_INSTANCE_ID,UCI.U_NAME,UCI.U_PURPOSE,UCI.U_OPERATIONAL_STATUS,UCI.DV_U_CONTRACT,'random'\n\
+  \        from RDS_SHARE.surf.u_contract_instance uci\n        WHERE NOT EXISTS\n\
+  \        (\n         SELECT 'random' FROM\n         (\n                SELECT DISTINCT\
+  \ INSTANCE_VERSION AS \"ContractInstanceAssignedVersion\",INSTANCEID AS \"ContractInstanceInstanceID\"\
+  ,INSTANCENAME AS \"ContractInstanceName\",INSTANCE_PURPOSE as \"ContractInstancePurpose\"\
+  ,INSTANCE_STATUS AS \"ContractInstanceOperationalStatus\",LISTAGG(ZEMS_SURF_CONTRACT_NUMBER_V2,'random')\
+  \ AS \"DV_U_CONTRACT\"\n            FROM\n            \t(\n            \t\tSELECT\
+  \ ENT.INSTANCEID,ENT.INSTANCENAME,ENT.ZEMS_SURF_CONTRACT_NUMBER_V2,ENT.INSTANCE_STATUS,ENT.INSTANCE_PURPOSE,ENT.INSTANCE_VERSION,ENT.HOSTINGTYPE\n\
+  \            \t\tFROM RDS_SHARE.SAP_EMS.ENTITLEMENTS ENT\n            \t\twhere\n\
+  \                    ENT.ENTITLEMENTMODELNAME='random'\n            \t\tAND ENT.INSTANCEID\
+  \ IS not NULL\n\n            \t\tUNION\n\n            \t\tSELECT DISTINCT PAR.INSTANCEID,PAR.INSTANCENAME,CHI.ZEMS_SURF_CONTRACT_NUMBER_V2,PAR.INSTANCE_STATUS,PAR.INSTANCE_PURPOSE,PAR.INSTANCE_VERSION,PAR.HOSTINGTYPE\n\
+  \            \t\tFROM RDS_SHARE.SAP_EMS.ENTITLEMENTS PAR\n            \t\tINNER\
+  \ JOIN\n            \t\tRDS_SHARE.SAP_EMS.ENTITLEMENTS CHI\n            \t\tON PAR.ENTITLEMENTNO=CHI.PARENTENTITLEMENTNO\n\
+  \            \t\tWHERE PAR.ZEMS_SURF_CONTRACT_NUMBER_V2 <> CHI.ZEMS_SURF_CONTRACT_NUMBER_V2\n\
+  \                    AND PAR.INSTANCEID IS not NULL\n            \t\tand PAR.ENTITLEMENTMODELNAME='random'\n\
+  \            \t)\n                GROUP BY INSTANCE_VERSION,INSTANCEID,INSTANCENAME,INSTANCE_PURPOSE,INSTANCE_STATUS\n\
+  \            )EMS\n            WHERE UCI.U_INSTANCE_ID = EMS.\"ContractInstanceInstanceID\"\
+  \n            AND UCI.U_NAME = EMS.\"ContractInstanceName\"\n            AND UCI.DV_U_PURPOSE\
+  \ = EMS.\"ContractInstancePurpose\"\n            AND UCI.U_OPERATIONAL_STATUS =\
+  \ EMS.\"ContractInstanceOperationalStatus\"\n            AND UCI.DV_U_CONTRACT =\
+  \ EMS.\"DV_U_CONTRACT\"\n            AND UCI.U_ASSIGNED_VERSION = EMS.\"ContractInstanceAssignedVersion\"\
+  \n        )\n\n\n\n\n        )ENT\n        LEFT JOIN RDS_SHARE.SURF.U_CONTRACT_INSTANCE\
+  \ UCI\n        ON ifnull(UCI.U_INSTANCE_ID,'random')=ifnull(ENT.\"ContractInstanceInstanceID\"\
+  ,'random')\n        and ifnull(ENT.\"ContractInstanceName\",'random') = ifnull(UCI.U_NAME,'random')\n\
+  \        and ifnull(ENT.\"ContractInstanceAssignedVersion\",'random') = ifnull(UCI.U_ASSIGNED_VERSION,'random')\n\
+  \        and ifnull(ENT.\"DV_U_CONTRACT\",'random') = ifnull(UCI.DV_U_CONTRACT ,'random')\n\
+  \        and ifnull(ENT.\"ContractInstancePurpose\",'random') = ifnull(UCI.U_PURPOSE\
+  \ ,'random')\n        and ifnull(ENT.\"ContractInstanceOperationalStatus\",'random')\
+  \ = ifnull(UCI.U_OPERATIONAL_STATUS,'random')\n     ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

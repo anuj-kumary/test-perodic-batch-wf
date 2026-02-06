@@ -1,0 +1,64 @@
+name: table_378
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_378
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_378.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_CONTRACT_INSTANCE_HYBRID(\n\t\"ContractInstanceAssignedVersion\"\
+  ,\n\t\"ContractInstanceInstanceID\",\n\t\"ContractInstanceName\",\n\t\"ContractInstancePurpose\"\
+  ,\n\t\"ContractInstanceOperationalStatus\",\n\tDV_U_CONTRACT\n) as -- SEMANTIC LAYER\
+  \ BEGINS\n\nSELECT DISTINCT INSTANCE_VERSION AS \"ContractInstanceAssignedVersion\"\
+  ,INSTANCEID AS \"ContractInstanceInstanceID\",INSTANCENAME AS \"ContractInstanceName\"\
+  ,INSTANCE_PURPOSE AS \"ContractInstancePurpose\",INSTANCE_STATUS AS \"ContractInstanceOperationalStatus\"\
+  ,LISTAGG(ZEMS_SURF_CONTRACT_NUMBER_V2,'random') AS \"DV_U_CONTRACT\"\nFROM\n\t(\n\
+  \t\tSELECT ENT.INSTANCEID,ENT.INSTANCENAME,ENT.ZEMS_SURF_CONTRACT_NUMBER_V2,ENT.INSTANCE_STATUS,ENT.INSTANCE_PURPOSE,ENT.INSTANCE_VERSION,ENT.HOSTINGTYPE\n\
+  \t\tFROM RDS.SAP_EMS.ENTITLEMENTS ENT\n\t\twhere ENT.INSTANCE_STATUS='random'\n\t\
+  \tand ENT.ENTITLEMENTMODELNAME='random'\n        AND ENT.HOSTINGTYPE || 'random'\
+  \ || ENT.INSTANCE_PURPOSE IN ( 'random', 'random' )\n\t\tAND ENT.INSTANCEID IS not\
+  \ NULL\n\n\t\tUNION\n\n\t\tSELECT DISTINCT PAR.INSTANCEID,PAR.INSTANCENAME,CHI.ZEMS_SURF_CONTRACT_NUMBER_V2,PAR.INSTANCE_STATUS,PAR.INSTANCE_PURPOSE,PAR.INSTANCE_VERSION,PAR.HOSTINGTYPE\n\
+  \t\tFROM RDS.SAP_EMS.ENTITLEMENTS PAR\n\t\tINNER JOIN\n\t\tRDS.SAP_EMS.ENTITLEMENTS\
+  \ CHI\n\t\tON PAR.ENTITLEMENTNO=CHI.PARENTENTITLEMENTNO\n\t\tWHERE PAR.ZEMS_SURF_CONTRACT_NUMBER_V2\
+  \ <> CHI.ZEMS_SURF_CONTRACT_NUMBER_V2\n\t\tAND PAR.INSTANCE_STATUS='random'\n  \
+  \      AND PAR.HOSTINGTYPE || 'random' || PAR.INSTANCE_PURPOSE IN ( 'random', 'random'\
+  \ )\n        AND PAR.INSTANCEID IS not NULL\n\t\tand PAR.ENTITLEMENTMODELNAME='random'\n\
+  \t)\n    GROUP BY INSTANCE_VERSION,INSTANCEID,INSTANCENAME,INSTANCE_PURPOSE,INSTANCE_STATUS\n\
+  \     ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

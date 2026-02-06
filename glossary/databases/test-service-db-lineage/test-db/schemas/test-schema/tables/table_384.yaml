@@ -1,0 +1,55 @@
+name: table_384
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_384
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_384.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view U_CONTRACT_INSTANCE_BCKP(\n\t\"ContractInstanceAssignedVersion\"\
+  ,\n\t\"ContractInstanceContract\",\n\t\"ContractInstanceInstanceID\",\n\t\"ContractInstanceName\"\
+  ,\n\t\"ContractInstancePurpose\",\n\t\"ContractInstanceOperationalStatus\",\n\t\"\
+  ContractInstanceSysID\",\n\tDV_U_CONTRACT\n) as -- SEMANTIC LAYER BEGINS\n\nSELECT\
+  \ \"U_ASSIGNED_VERSION\" as \"ContractInstanceAssignedVersion\",\n       \"U_CONTRACT\"\
+  \ as \"ContractInstanceContract\",\n       \"U_INSTANCE_ID\" as \"ContractInstanceInstanceID\"\
+  ,\n       \"U_NAME\" as \"ContractInstanceName\",\n       \"U_PURPOSE\" as \"ContractInstancePurpose\"\
+  ,\n       \"U_OPERATIONAL_STATUS\" as \"ContractInstanceOperationalStatus\",\n \
+  \      \"SYS_ID\" as \"ContractInstanceSysID\",\n       \"DV_U_CONTRACT\" as \"\
+  DV_U_CONTRACT\"\nFROM \"RDS\".\"SURF\".\"U_CONTRACT_INSTANCE\";"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

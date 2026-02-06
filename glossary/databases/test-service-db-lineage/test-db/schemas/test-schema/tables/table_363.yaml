@@ -1,0 +1,55 @@
+name: table_363
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_363
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_363.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ASSESSMENT_QUESTIONS(\n\t\"Anwsers\",\n\t\
+  \"SysID\",\n\t\"SubPillarID\",\n\t\"QuestionID\",\n\t\"PillarName\",\n\t\"DvAnswers\"\
+  ,\n\t\"SubPillarName\",\n\t\"Questions\",\n\t\"ActiveFlag\",\n\t\"PillarID\"\n)\
+  \ as -- SEMANTIC LAYER BEGINS\n\nSELECT \"U_ANSWERS\" as \"Anwsers\",\n       \"\
+  SYS_ID\" as \"SysID\",\n       \"U_PILLAR\" as \"SubPillarID\",\n       \"U_QUESTIONID\"\
+  \ as \"QuestionID\",\n       \"U_MAIN_PILLAR\" as \"PillarName\",\n       \"DV_U_ANSWERS\"\
+  \ as \"DvAnswers\",\n       \"U_SUB_PILLAR_NAME\" as \"SubPillarName\",\n      \
+  \ \"U_QUESTIONS\" as \"Questions\",\n       \"U_ACTIVE\" as \"ActiveFlag\",\n  \
+  \     \"U_MAINPILLARID\" as \"PillarID\"\nFROM \"RDS\".\"SURF\".\"U_ASSESSMENT_QUESTIONS\"\
+  ;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved

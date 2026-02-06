@@ -1,0 +1,71 @@
+name: table_389
+fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_389
+tableType: View
+columns:
+  - name: id
+    dataType: BIGINT
+    dataTypeDisplay: bigint
+    fullyQualifiedName: test-service-db-lineage.test-db.test-schema.table_389.id
+    tags: []
+    children: []
+    customMetrics: []
+owners: []
+databaseSchema:
+  id: 46334aff-5d83-4872-94c8-902145192247
+  type: databaseSchema
+  name: test-schema
+  fullyQualifiedName: test-service-db-lineage.test-db.test-schema
+  displayName: test-schema
+  deleted: false
+database:
+  id: 252ee8f8-11a2-4af5-bf4b-05dcda48e1ec
+  type: database
+  name: test-db
+  fullyQualifiedName: test-service-db-lineage.test-db
+  displayName: test-db
+  deleted: false
+service:
+  id: 7088ea8b-d5a8-4adf-bff1-a539758cd4ea
+  type: databaseService
+  name: test-service-db-lineage
+  fullyQualifiedName: test-service-db-lineage
+  displayName: test-service-db-lineage
+  deleted: false
+serviceType: Snowflake
+schemaDefinition: "create or replace view ASMT_METRIC(\n\t\"DVMetricType\",\n\t\"\
+  DVCategory\",\n\t\"Category\",\n\t\"Active\",\n\t\"Weight\",\n\t\"SourceField\"\
+  ,\n\t\"Scale\",\n\t\"Description\",\n\t\"Order\",\n\t\"Details\",\n\t\"SysID\",\n\
+  \t\"Name\",\n\t\"IsDefault\",\n\t\"DVContext\",\n\t\"Duration\",\n\t\"MetricType\"\
+  ,\n\t\"Scored\",\n\t\"Question\",\n\t\"DVDuration\",\n\t\"Context\"\n) as\nSELECT\
+  \ \"DVMetricType\" as \"DVMetricType\",\n       \"DVCategory\" as \"DVCategory\"\
+  ,\n       \"Category\" as \"Category\",\n       \"Active\" as \"Active\",\n    \
+  \   \"Weight\" as \"Weight\",\n       \"SourceField\" as \"SourceField\",\n    \
+  \   \"Scale\" as \"Scale\",\n       \"Description\" as \"Description\",\n      \
+  \ \"Order\" as \"Order\",\n       \"Details\" as \"Details\",\n       \"SysID\"\
+  \ as \"SysID\",\n       \"Name\" as \"Name\",\n       \"IsDefault\" as \"IsDefault\"\
+  ,\n       \"DVContext\" as \"DVContext\",\n       \"Duration\" as \"Duration\",\n\
+  \       \"MetricType\" as \"MetricType\",\n       \"Scored\" as \"Scored\",\n  \
+  \     \"Question\" as \"Question\",\n       \"DVDuration\" as \"DVDuration\",\n\
+  \       \"Context\" as \"Context\"\nFROM\n  (SELECT \"DV_METRIC_TYPE\" as \"DVMetricType\"\
+  ,\n          \"DV_CATEGORY\" as \"DVCategory\",\n          \"CATEGORY\" as \"Category\"\
+  ,\n          \"ACTIVE\" as \"Active\",\n          \"WEIGHT\" as \"Weight\",\n  \
+  \        \"SOURCE_FIELD\" as \"SourceField\",\n          \"SCALE\" as \"Scale\"\
+  ,\n          \"DESCRIPTION\" as \"Description\",\n          \"ORDER\" as \"Order\"\
+  ,\n          \"DETAILS\" as \"Details\",\n          \"SYS_ID\" as \"SysID\",\n \
+  \         \"NAME\" as \"Name\",\n          \"IS_DEFAULT\" as \"IsDefault\",\n  \
+  \        \"DV_CONTEXT\" as \"DVContext\",\n          \"DURATION\" as \"Duration\"\
+  ,\n          \"METRIC_TYPE\" as \"MetricType\",\n          \"SCORED\" as \"Scored\"\
+  ,\n          \"QUESTION\" as \"Question\",\n          \"DV_DURATION\" as \"DVDuration\"\
+  ,\n          \"CONTEXT\" as \"Context\"\n   FROM \"RDS\".\"SURF\".\"ASMT_METRIC\"\
+  )Projection_1;"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+processedLineage: false
+entityStatus: Approved
