@@ -1,0 +1,278 @@
+name: 1acaa958-dcea-4368-9ea5-c633eb6bea61
+displayName: Getting Started in Power BI
+fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61
+owners:
+  - id: 7a12b462-36c7-488a-b4c2-9756918704cb
+    type: user
+    name: mayur
+    fullyQualifiedName: mayur
+    displayName: Mayur Singal
+    deleted: false
+dataProducts: []
+tags: []
+service:
+  id: 89d9de05-72fb-4da7-9066-4f8c202000ea
+  type: dashboardService
+  name: powerbi_prod
+  fullyQualifiedName: powerbi_prod
+  description: ""
+  displayName: powerbi_prod
+  deleted: false
+serviceType: PowerBI
+dataModelType: PowerBIDataModel
+columns:
+  - name: Product
+    displayName: Product
+    dataType: TABLE
+    dataTypeDisplay: powerbi table
+    fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product
+    tags: []
+    children:
+      - name: Product Category
+        displayName: Product Category
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Product
+          Category
+        tags: []
+        children: []
+      - name: Year
+        displayName: Year
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Year
+        tags: []
+        children: []
+      - name: Sales
+        displayName: Sales
+        dataType: DOUBLE
+        dataTypeDisplay: Double
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Sales
+        tags: []
+        children: []
+      - name: Cost
+        displayName: Cost
+        dataType: DOUBLE
+        dataTypeDisplay: Double
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Cost
+        tags: []
+        children: []
+      - name: Product
+        displayName: Product
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Product
+        tags: []
+        children: []
+      - name: Margin
+        displayName: Margin
+        dataType: DOUBLE
+        dataTypeDisplay: Double
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Margin
+        tags: []
+        children: []
+      - name: Date
+        displayName: Date
+        dataType: DATETIME
+        dataTypeDisplay: DateTime
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Date
+        tags: []
+        children: []
+      - name: Month Name
+        displayName: Month Name
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Month
+          Name
+        tags: []
+        children: []
+      - name: Geography
+        displayName: Geography
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Geography
+        tags: []
+        children: []
+      - name: Month
+        displayName: Month
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Month
+        tags: []
+        children: []
+      - name: Sales2020
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : CALCULATE(SUM('Product'[Sales]), 'Product'[Year]\
+          \ = 2020)"
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Sales2020
+        tags: []
+        children: []
+      - name: Sales2021
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : CALCULATE(SUM('Product'[Sales]), 'Product'[Year]\
+          \ = 2021)"
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Sales2021
+        tags: []
+        children: []
+      - name: Sales2022
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : CALCULATE(SUM('Product'[Sales]), 'Product'[Year]\
+          \ = 2022)"
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Sales2022
+        tags: []
+        children: []
+      - name: Monthly Sales Label
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : \"Monthly Sales in \" & AVERAGE('Product'[Year])"
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Monthly
+          Sales Label
+        tags: []
+        children: []
+      - name: Category in a Year Label
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : VALUES('Product'[Product Category]) & \" Summary\
+          \ in \" & AVERAGE('Product'[Year])"
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Category
+          in a Year Label
+        tags: []
+        children: []
+      - name: Profit ($)
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : SUM('Product'[Margin])"
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Product.Profit
+          ($)
+        tags: []
+        children: []
+  - name: Geography
+    displayName: Geography
+    dataType: TABLE
+    dataTypeDisplay: powerbi table
+    fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Geography
+    tags: []
+    children:
+      - name: Geography Group
+        displayName: Geography Group
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Geography.Geography
+          Group
+        tags: []
+        children: []
+      - name: Country
+        displayName: Country
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Geography.Country
+        tags: []
+        children: []
+      - name: Sales
+        displayName: Sales
+        dataType: DOUBLE
+        dataTypeDisplay: Double
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Geography.Sales
+        tags: []
+        children: []
+  - name: Country
+    displayName: Country
+    dataType: TABLE
+    dataTypeDisplay: powerbi table
+    fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Country
+    tags: []
+    children:
+      - name: Country
+        displayName: Country
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Country.Country
+        tags: []
+        children: []
+      - name: City
+        displayName: City
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Country.City
+        tags: []
+        children: []
+      - name: Sales
+        displayName: Sales
+        dataType: DOUBLE
+        dataTypeDisplay: Double
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Country.Sales
+        tags: []
+        children: []
+      - name: Location
+        displayName: Location
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Country.Location
+        tags: []
+        children: []
+  - name: Date
+    displayName: Date
+    dataType: TABLE
+    dataTypeDisplay: powerbi table
+    fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Date
+    tags: []
+    children:
+      - name: Date
+        displayName: Date
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Date.Date
+        tags: []
+        children: []
+      - name: Year
+        displayName: Year
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Date.Year
+        tags: []
+        children: []
+      - name: Month
+        displayName: Month
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Date.Month
+        tags: []
+        children: []
+      - name: Quarter
+        displayName: Quarter
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Date.Quarter
+        tags: []
+        children: []
+      - name: Month Abbr
+        displayName: Month Abbr
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Date.Month
+          Abbr
+        tags: []
+        children: []
+  - name: Just Geography
+    displayName: Just Geography
+    dataType: TABLE
+    dataTypeDisplay: powerbi table
+    fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Just
+      Geography
+    tags: []
+    children:
+      - name: Geography Group
+        displayName: Geography Group
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.1acaa958-dcea-4368-9ea5-c633eb6bea61.Just
+          Geography.Geography Group
+        tags: []
+        children: []
+project: PersonalWorkspace Mayur
+domains: []
+sourceHash: 0be40adfabb2368948bc56c25665c1f7
+entityStatus: Approved

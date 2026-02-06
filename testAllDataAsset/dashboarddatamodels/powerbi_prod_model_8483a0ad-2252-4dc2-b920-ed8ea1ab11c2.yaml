@@ -1,0 +1,872 @@
+name: 8483a0ad-2252-4dc2-b920-ed8ea1ab11c2
+displayName: Feature Usage and Adoption
+fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2
+owners: []
+dataProducts: []
+tags: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns
+      newValue: "[{\"name\":\"Refresh Stats\",\"displayName\":\"Refresh Stats\",\"\
+        dataType\":\"TABLE\",\"dataTypeDisplay\":\"PowerBI Table\",\"fullyQualifiedName\"\
+        :\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Refresh Stats\"\
+        ,\"tags\":[],\"children\":[{\"name\":\"Last refresh datetime\",\"displayName\"\
+        :\"Last refresh datetime\",\"dataType\":\"DATETIME\",\"dataTypeDisplay\":\"\
+        DateTime\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Refresh\
+        \ Stats.Last refresh datetime\",\"tags\":[],\"children\":[]}]}]"
+    - name: columns._Measures
+      newValue: "[{\"name\":\"Value\",\"displayName\":\"Value\",\"dataType\":\"STRING\"\
+        ,\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Value\"\
+        ,\"tags\":[],\"children\":[]},{\"name\":\"Active capacities\",\"dataType\"\
+        :\"MEASURE VISIBLE\",\"dataTypeDisplay\":\"MEASURE VISIBLE\",\"description\"\
+        :\"Expression : CALCULATE(\\n    DISTINCTCOUNT(Audit[CapacityKeyIndex]), FILTER(Capacity,\\\
+        n        Capacity[Capacity SKU] <> \\\"PPU\\\" &&\\n        Capacity[Capacity\
+        \ SKU] <> \\\"Pro\\\" &&\\n        Capacity[CapacityKeyIndex] <> BLANK() &&\\\
+        n        Capacity[CapacityKeyIndex] <> 0\\n        )\\n    ) + 0\",\"fullyQualifiedName\"\
+        :\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Active\
+        \ capacities\",\"tags\":[],\"children\":[]},{\"name\":\"Active users\",\"\
+        dataType\":\"MEASURE VISIBLE\",\"dataTypeDisplay\":\"MEASURE VISIBLE\",\"\
+        description\":\"Expression : \\n CALCULATE(\\n        DISTINCTCOUNT ( Audit[UserKeyIndex]\
+        \ ) ,\\n        User[UserKeyIndex] <> BLANK() &&\\n        User[UserKeyIndex]\
+        \ <> 0\\n         ) + 0\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Active\
+        \ users\",\"tags\":[],\"children\":[]},{\"name\":\"Active workspaces\",\"\
+        dataType\":\"MEASURE VISIBLE\",\"dataTypeDisplay\":\"MEASURE VISIBLE\",\"\
+        description\":\"Expression : \\nCALCULATE(\\n    DISTINCTCOUNT(Audit[WorkspaceKeyIndex]),\\\
+        n        Workspace[WorkspaceKeyIndex] <> BLANK() &&\\n        Workspace[WorkspaceKeyIndex]\
+        \ <> 0\\n        ) + 0\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Active\
+        \ workspaces\",\"tags\":[],\"children\":[]},{\"name\":\"Activities\",\"dataType\"\
+        :\"MEASURE VISIBLE\",\"dataTypeDisplay\":\"MEASURE VISIBLE\",\"description\"\
+        :\"Expression : COUNTROWS(Audit)\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Activities\"\
+        ,\"tags\":[],\"children\":[]},{\"name\":\"Items\",\"dataType\":\"MEASURE VISIBLE\"\
+        ,\"dataTypeDisplay\":\"MEASURE VISIBLE\",\"description\":\"Expression : CALCULATE(DISTINCTCOUNT('Fabric\
+        \ Items'[Item Id]), USERELATIONSHIP(Workspace[Workspace Id],'Fabric Items'[Workspace\
+        \ Id]),USERELATIONSHIP(Capacity[CapacityKeyIndex],Workspace[CapacityKeyIndex]))\"\
+        ,\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Items\"\
+        ,\"tags\":[],\"children\":[]},{\"name\":\"Total activities\",\"dataType\"\
+        :\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"MEASURE HIDDEN\",\"description\"\
+        :\"Expression : [Activities] + 0\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ activities\",\"tags\":[],\"children\":[]},{\"name\":\"Total items\",\"dataType\"\
+        :\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"MEASURE HIDDEN\",\"description\"\
+        :\"Expression : CALCULATE(DISTINCTCOUNT('Fabric Items'[Item Id]), USERELATIONSHIP(Workspace[Workspace\
+        \ Id],'Fabric Items'[Workspace Id]),USERELATIONSHIP(Capacity[CapacityKeyIndex],Workspace[CapacityKeyIndex]))\
+        \ + 0 \",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ items\",\"tags\":[],\"children\":[]},{\"name\":\"Total active items alt\
+        \ text\",\"dataType\":\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"MEASURE HIDDEN\"\
+        ,\"description\":\"Expression : \\\"Card visual shows Total active items\\\
+        \" & [Total items]\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ active items alt text\",\"tags\":[],\"children\":[]},{\"name\":\"Total activities\
+        \ alt text\",\"dataType\":\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"MEASURE\
+        \ HIDDEN\",\"description\":\"Expression : \\\"Card visual shows Total activities\\\
+        \" & [Total activities] \",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ activities alt text\",\"tags\":[],\"children\":[]},{\"name\":\"Total capacities\
+        \ alt text\",\"dataType\":\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"MEASURE\
+        \ HIDDEN\",\"description\":\"Expression : \\\"Card visual shows Total active\
+        \ capacities\\\" & [Active capacities]\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ capacities alt text\",\"tags\":[],\"children\":[]},{\"name\":\"Total inactive\
+        \ items alt text\",\"dataType\":\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"\
+        MEASURE HIDDEN\",\"description\":\"Expression : \\\"Card visual shows Total\
+        \ inactive items\\\" & [Total items]\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ inactive items alt text\",\"tags\":[],\"children\":[]},{\"name\":\"Total\
+        \ items alt text\",\"dataType\":\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"\
+        MEASURE HIDDEN\",\"description\":\"Expression : \\\"Card visual shows Total\
+        \ items\\\" & [Total items]\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ items alt text\",\"tags\":[],\"children\":[]},{\"name\":\"Total users alt\
+        \ text\",\"dataType\":\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"MEASURE HIDDEN\"\
+        ,\"description\":\"Expression : \\\"Card visual shows Total active users\\\
+        \" & [Active users]\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ users alt text\",\"tags\":[],\"children\":[]},{\"name\":\"Total workspaces\
+        \ alt text\",\"dataType\":\"MEASURE HIDDEN\",\"dataTypeDisplay\":\"MEASURE\
+        \ HIDDEN\",\"description\":\"Expression : \\\"Card visual shows Total active\
+        \ workspaces\\\" & [Active workspaces]\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total\
+        \ workspaces alt text\",\"tags\":[],\"children\":[]},{\"name\":\"Report last\
+        \ refreshed alt text\",\"dataType\":\"MEASURE HIDDEN\",\"dataTypeDisplay\"\
+        :\"MEASURE HIDDEN\",\"description\":\"Expression : \\\"Report last refreshed\\\
+        \" & FORMAT(MAX('Refresh Stats'[Last refresh datetime]), \\\"DD-MMM-YYYY HH:MM:SS\\\
+        \") & \\\" UTC\\\"\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Report\
+        \ last refreshed alt text\",\"tags\":[],\"children\":[]}]"
+    - name: columns.Workspace
+      newValue: "[{\"name\":\"Domain Id\",\"displayName\":\"Domain Id\",\"dataType\"\
+        :\"STRING\",\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.Domain\
+        \ Id\",\"tags\":[],\"children\":[]},{\"name\":\"CapacityKeyIndex\",\"displayName\"\
+        :\"CapacityKeyIndex\",\"dataType\":\"BIGINT\",\"dataTypeDisplay\":\"Int64\"\
+        ,\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.CapacityKeyIndex\"\
+        ,\"tags\":[],\"children\":[]},{\"name\":\"Url\",\"displayName\":\"Url\",\"\
+        dataType\":\"STRING\",\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\"\
+        :\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.Url\"\
+        ,\"tags\":[],\"children\":[]}]"
+    - name: columns.Audit
+      newValue: "[{\"name\":\"Incremental_Refresh_DateTime_Column\",\"displayName\"\
+        :\"Incremental_Refresh_DateTime_Column\",\"dataType\":\"STRING\",\"dataTypeDisplay\"\
+        :\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.Incremental_Refresh_DateTime_Column\"\
+        ,\"tags\":[],\"children\":[]}]"
+    - name: columns.User
+      newValue: "[{\"name\":\"User Id\",\"displayName\":\"User Id\",\"dataType\":\"\
+        STRING\",\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.User.User\
+        \ Id\",\"tags\":[],\"children\":[]}]"
+    - name: columns.Changelog
+      newValue: "[{\"name\":\"Change type\",\"displayName\":\"Change type\",\"dataType\"\
+        :\"STRING\",\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Change\
+        \ type\",\"tags\":[],\"children\":[]},{\"name\":\"Release\",\"displayName\"\
+        :\"Release\",\"dataType\":\"STRING\",\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\"\
+        :\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Release\"\
+        ,\"tags\":[],\"children\":[]}]"
+    - name: columns.Fabric Items
+      newValue: "[{\"name\":\"Endorsement\",\"displayName\":\"Endorsement\",\"dataType\"\
+        :\"STRING\",\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric\
+        \ Items.Endorsement\",\"tags\":[],\"children\":[]},{\"name\":\"Sensitivity\
+        \ label\",\"displayName\":\"Sensitivity label\",\"dataType\":\"STRING\",\"\
+        dataTypeDisplay\":\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric\
+        \ Items.Sensitivity label\",\"tags\":[],\"children\":[]},{\"name\":\"MIP label\
+        \ Id\",\"displayName\":\"MIP label Id\",\"dataType\":\"STRING\",\"dataTypeDisplay\"\
+        :\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric\
+        \ Items.MIP label Id\",\"tags\":[],\"children\":[]},{\"name\":\"Is deleted\"\
+        ,\"displayName\":\"Is deleted\",\"dataType\":\"STRING\",\"dataTypeDisplay\"\
+        :\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric\
+        \ Items.Is deleted\",\"tags\":[],\"children\":[]},{\"name\":\"User (UPN)\"\
+        ,\"displayName\":\"User (UPN)\",\"dataType\":\"STRING\",\"dataTypeDisplay\"\
+        :\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric\
+        \ Items.User (UPN)\",\"tags\":[],\"children\":[]},{\"name\":\"Url\",\"displayName\"\
+        :\"Url\",\"dataType\":\"STRING\",\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\"\
+        :\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric Items.Url\"\
+        ,\"tags\":[],\"children\":[]}]"
+    - name: sourceHash
+      newValue: 23ec8fd458275fa90772293a544c28aa
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: columns.Audit
+      oldValue: "[{\"name\":\"Incremental_Refresh_DateTime_Column\",\"displayName\"\
+        :\"Incremental_Refresh_DateTime_Column\",\"dataType\":\"DATETIME\",\"dataTypeDisplay\"\
+        :\"DateTime\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.Incremental_Refresh_DateTime_Column\"\
+        ,\"tags\":[],\"children\":[]}]"
+    - name: columns.Changelog
+      oldValue: "[{\"name\":\"Release \",\"displayName\":\"Release \",\"dataType\"\
+        :\"STRING\",\"dataTypeDisplay\":\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Release\
+        \ \",\"tags\":[],\"children\":[]},{\"name\":\"Reporting/Data modeling\",\"\
+        displayName\":\"Reporting/Data modeling\",\"dataType\":\"STRING\",\"dataTypeDisplay\"\
+        :\"String\",\"fullyQualifiedName\":\"powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Reporting/Data\
+        \ modeling\",\"tags\":[],\"children\":[]}]"
+  previousVersion: 0.1
+  changeSummary: {}
+service:
+  id: 89d9de05-72fb-4da7-9066-4f8c202000ea
+  type: dashboardService
+  name: powerbi_prod
+  fullyQualifiedName: powerbi_prod
+  description: ""
+  displayName: powerbi_prod
+  deleted: false
+serviceType: PowerBI
+dataModelType: PowerBIDataModel
+columns:
+  - name: Date
+    displayName: Date
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date
+    tags: []
+    children:
+      - name: Date
+        displayName: Date
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Date
+        tags: []
+        children: []
+      - name: Date (no year)
+        displayName: Date (no year)
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Date
+          (no year)
+        tags: []
+        children: []
+      - name: Day
+        displayName: Day
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Day
+        tags: []
+        children: []
+      - name: Year
+        displayName: Year
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Year
+        tags: []
+        children: []
+      - name: Quarter
+        displayName: Quarter
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Quarter
+        tags: []
+        children: []
+      - name: Week number
+        displayName: Week number
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Week
+          number
+        tags: []
+        children: []
+      - name: Year month
+        displayName: Year month
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Year
+          month
+        tags: []
+        children: []
+      - name: Month number
+        displayName: Month number
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Month
+          number
+        tags: []
+        children: []
+      - name: Month name
+        displayName: Month name
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Month
+          name
+        tags: []
+        children: []
+      - name: Day of year
+        displayName: Day of year
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Day
+          of year
+        tags: []
+        children: []
+      - name: Day of week
+        displayName: Day of week
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Day
+          of week
+        tags: []
+        children: []
+      - name: Day name
+        displayName: Day name
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Date.Day
+          name
+        tags: []
+        children: []
+  - name: _Measures
+    displayName: _Measures
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures
+    tags: []
+    children:
+      - name: Value
+        displayName: Value
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Value
+        tags: []
+        children: []
+      - name: Active capacities
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: |-
+          Expression : CALCULATE(
+              DISTINCTCOUNT(Audit[CapacityKeyIndex]), FILTER(Capacity,
+                  Capacity[Capacity SKU] <> "PPU" &&
+                  Capacity[Capacity SKU] <> "Pro" &&
+                  Capacity[CapacityKeyIndex] <> BLANK() &&
+                  Capacity[CapacityKeyIndex] <> 0
+                  )
+              ) + 0
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Active
+          capacities
+        tags: []
+        children: []
+      - name: Active users
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : \n CALCULATE(\n        DISTINCTCOUNT ( Audit[UserKeyIndex]\
+          \ ) ,\n        User[UserKeyIndex] <> BLANK() &&\n        User[UserKeyIndex]\
+          \ <> 0\n         ) + 0"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Active
+          users
+        tags: []
+        children: []
+      - name: Active workspaces
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : \nCALCULATE(\n    DISTINCTCOUNT(Audit[WorkspaceKeyIndex]),\n\
+          \        Workspace[WorkspaceKeyIndex] <> BLANK() &&\n        Workspace[WorkspaceKeyIndex]\
+          \ <> 0\n        ) + 0"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Active
+          workspaces
+        tags: []
+        children: []
+      - name: Activities
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : COUNTROWS(Audit)"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Activities
+        tags: []
+        children: []
+      - name: Items
+        dataType: MEASURE VISIBLE
+        dataTypeDisplay: MEASURE VISIBLE
+        description: "Expression : CALCULATE(DISTINCTCOUNT('Fabric Items'[Item Id]),\
+          \ USERELATIONSHIP(Workspace[Workspace Id],'Fabric Items'[Workspace Id]),USERELATIONSHIP(Capacity[CapacityKeyIndex],Workspace[CapacityKeyIndex]))"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Items
+        tags: []
+        children: []
+      - name: Total activities
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : [Activities] + 0"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          activities
+        tags: []
+        children: []
+      - name: Total items
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : CALCULATE(DISTINCTCOUNT('Fabric Items'[Item Id]),\
+          \ USERELATIONSHIP(Workspace[Workspace Id],'Fabric Items'[Workspace Id]),USERELATIONSHIP(Capacity[CapacityKeyIndex],Workspace[CapacityKeyIndex]))\
+          \ + 0 "
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          items
+        tags: []
+        children: []
+      - name: Total active items alt text
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : \"Card visual shows Total active items\" & [Total\
+          \ items]"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          active items alt text
+        tags: []
+        children: []
+      - name: Total activities alt text
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : \"Card visual shows Total activities\" & [Total\
+          \ activities] "
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          activities alt text
+        tags: []
+        children: []
+      - name: Total capacities alt text
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : \"Card visual shows Total active capacities\" &\
+          \ [Active capacities]"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          capacities alt text
+        tags: []
+        children: []
+      - name: Total inactive items alt text
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : \"Card visual shows Total inactive items\" & [Total\
+          \ items]"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          inactive items alt text
+        tags: []
+        children: []
+      - name: Total items alt text
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : \"Card visual shows Total items\" & [Total items]"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          items alt text
+        tags: []
+        children: []
+      - name: Total users alt text
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : \"Card visual shows Total active users\" & [Active\
+          \ users]"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          users alt text
+        tags: []
+        children: []
+      - name: Total workspaces alt text
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : \"Card visual shows Total active workspaces\" &\
+          \ [Active workspaces]"
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Total
+          workspaces alt text
+        tags: []
+        children: []
+      - name: Report last refreshed alt text
+        dataType: MEASURE HIDDEN
+        dataTypeDisplay: MEASURE HIDDEN
+        description: "Expression : \"Report last refreshed\" & FORMAT(MAX('Refresh\
+          \ Stats'[Last refresh datetime]), \"DD-MMM-YYYY HH:MM:SS\") & \" UTC\""
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2._Measures.Report
+          last refreshed alt text
+        tags: []
+        children: []
+  - name: Workspace
+    displayName: Workspace
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace
+    tags: []
+    children:
+      - name: Workspace name
+        displayName: Workspace name
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.Workspace
+          name
+        tags: []
+        children: []
+      - name: Workspace type
+        displayName: Workspace type
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.Workspace
+          type
+        tags: []
+        children: []
+      - name: Workspace Id
+        displayName: Workspace Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.Workspace
+          Id
+        tags: []
+        children: []
+      - name: WorkspaceKeyIndex
+        displayName: WorkspaceKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.WorkspaceKeyIndex
+        tags: []
+        children: []
+      - name: Domain Id
+        displayName: Domain Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.Domain
+          Id
+        tags: []
+        children: []
+      - name: Capacity Id
+        displayName: Capacity Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.Capacity
+          Id
+        tags: []
+        children: []
+      - name: CapacityKeyIndex
+        displayName: CapacityKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.CapacityKeyIndex
+        tags: []
+        children: []
+      - name: Url
+        displayName: Url
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Workspace.Url
+        tags: []
+        children: []
+  - name: Audit
+    displayName: Audit
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit
+    tags: []
+    children:
+      - name: Incremental_Refresh_DateTime_Column
+        displayName: Incremental_Refresh_DateTime_Column
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.Incremental_Refresh_DateTime_Column
+        tags: []
+        children: []
+      - name: Creation time
+        displayName: Creation time
+        dataType: DATETIME
+        dataTypeDisplay: DateTime
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.Creation
+          time
+        tags: []
+        children: []
+      - name: CapacityKeyIndex
+        displayName: CapacityKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.CapacityKeyIndex
+        tags: []
+        children: []
+      - name: Consumption method
+        displayName: Consumption method
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.Consumption
+          method
+        tags: []
+        children: []
+      - name: DatasetKeyIndex
+        displayName: DatasetKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.DatasetKeyIndex
+        tags: []
+        children: []
+      - name: ObjectKeyIndex
+        displayName: ObjectKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.ObjectKeyIndex
+        tags: []
+        children: []
+      - name: Operation
+        displayName: Operation
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.Operation
+        tags: []
+        children: []
+      - name: ReportKeyIndex
+        displayName: ReportKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.ReportKeyIndex
+        tags: []
+        children: []
+      - name: UserKeyIndex
+        displayName: UserKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.UserKeyIndex
+        tags: []
+        children: []
+      - name: WorkspaceKeyIndex
+        displayName: WorkspaceKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.WorkspaceKeyIndex
+        tags: []
+        children: []
+      - name: AppKeyIndex
+        displayName: AppKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.AppKeyIndex
+        tags: []
+        children: []
+      - name: DashboardKeyIndex
+        displayName: DashboardKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.DashboardKeyIndex
+        tags: []
+        children: []
+      - name: Distribution method
+        displayName: Distribution method
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.Distribution
+          method
+        tags: []
+        children: []
+      - name: Creation date
+        displayName: Creation date
+        dataType: DATETIME
+        dataTypeDisplay: DateTime
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Audit.Creation
+          date
+        tags: []
+        children: []
+  - name: Capacity
+    displayName: Capacity
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Capacity
+    tags: []
+    children:
+      - name: Capacity name
+        displayName: Capacity name
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Capacity.Capacity
+          name
+        tags: []
+        children: []
+      - name: Capacity SKU
+        displayName: Capacity SKU
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Capacity.Capacity
+          SKU
+        tags: []
+        children: []
+      - name: Capacity Id
+        displayName: Capacity Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Capacity.Capacity
+          Id
+        tags: []
+        children: []
+      - name: CapacityKeyIndex
+        displayName: CapacityKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Capacity.CapacityKeyIndex
+        tags: []
+        children: []
+  - name: User
+    displayName: User
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.User
+    tags: []
+    children:
+      - name: Email address
+        displayName: Email address
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.User.Email
+          address
+        tags: []
+        children: []
+      - name: User (UPN)
+        displayName: User (UPN)
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.User.User
+          (UPN)
+        tags: []
+        children: []
+      - name: PUID
+        displayName: PUID
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.User.PUID
+        tags: []
+        children: []
+      - name: User type
+        displayName: User type
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.User.User
+          type
+        tags: []
+        children: []
+      - name: User Id
+        displayName: User Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.User.User
+          Id
+        tags: []
+        children: []
+      - name: UserKeyIndex
+        displayName: UserKeyIndex
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.User.UserKeyIndex
+        tags: []
+        children: []
+  - name: Changelog
+    displayName: Changelog
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog
+    tags: []
+    children:
+      - name: Version
+        displayName: Version
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Version
+        tags: []
+        children: []
+      - name: Change type
+        displayName: Change type
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Change
+          type
+        tags: []
+        children: []
+      - name: Page
+        displayName: Page
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Page
+        tags: []
+        children: []
+      - name: Comment
+        displayName: Comment
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Comment
+        tags: []
+        children: []
+      - name: Release
+        displayName: Release
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Changelog.Release
+        tags: []
+        children: []
+  - name: Fabric Items
+    displayName: Fabric Items
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+      Items
+    tags: []
+    children:
+      - name: Item name
+        displayName: Item name
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Item name
+        tags: []
+        children: []
+      - name: Item Id
+        displayName: Item Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Item Id
+        tags: []
+        children: []
+      - name: Item type
+        displayName: Item type
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Item type
+        tags: []
+        children: []
+      - name: Item sub type
+        displayName: Item sub type
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Item sub type
+        tags: []
+        children: []
+      - name: Created by user Id
+        displayName: Created by user Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Created by user Id
+        tags: []
+        children: []
+      - name: Modified by user Id
+        displayName: Modified by user Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Modified by user Id
+        tags: []
+        children: []
+      - name: IndexKey
+        displayName: IndexKey
+        dataType: BIGINT
+        dataTypeDisplay: Int64
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.IndexKey
+        tags: []
+        children: []
+      - name: Workspace Id
+        displayName: Workspace Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Workspace Id
+        tags: []
+        children: []
+      - name: Endorsement
+        displayName: Endorsement
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Endorsement
+        tags: []
+        children: []
+      - name: Sensitivity label
+        displayName: Sensitivity label
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Sensitivity label
+        tags: []
+        children: []
+      - name: MIP label Id
+        displayName: MIP label Id
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.MIP label Id
+        tags: []
+        children: []
+      - name: Is deleted
+        displayName: Is deleted
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Is deleted
+        tags: []
+        children: []
+      - name: Activity status
+        displayName: Activity status
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Activity status
+        tags: []
+        children: []
+      - name: User (UPN)
+        displayName: User (UPN)
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.User (UPN)
+        tags: []
+        children: []
+      - name: Url
+        displayName: Url
+        dataType: STRING
+        dataTypeDisplay: String
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Fabric
+          Items.Url
+        tags: []
+        children: []
+  - name: Refresh Stats
+    displayName: Refresh Stats
+    dataType: TABLE
+    dataTypeDisplay: PowerBI Table
+    fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Refresh
+      Stats
+    tags: []
+    children:
+      - name: Last refresh datetime
+        displayName: Last refresh datetime
+        dataType: DATETIME
+        dataTypeDisplay: DateTime
+        fullyQualifiedName: powerbi_prod.model.8483a0ad-2252-4dc2-b920-ed8ea1ab11c2.Refresh
+          Stats.Last refresh datetime
+        tags: []
+        children: []
+project: Admin monitoring
+domains: []
+sourceHash: 23ec8fd458275fa90772293a544c28aa
+entityStatus: Approved

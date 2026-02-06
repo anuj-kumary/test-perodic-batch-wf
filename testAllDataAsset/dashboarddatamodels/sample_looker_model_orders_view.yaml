@@ -1,0 +1,96 @@
+name: orders_view
+displayName: Orders View
+fullyQualifiedName: sample_looker.model.orders_view
+description: Orders View from Sample Data
+owners: []
+dataProducts: []
+tags: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: Unprocessed
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+service:
+  id: 2d102aaa-e683-425c-a8bf-e4afa43dde99
+  type: dashboardService
+  name: sample_looker
+  fullyQualifiedName: sample_looker
+  displayName: sample_looker
+  deleted: false
+serviceType: Looker
+dataModelType: LookMlView
+sql: |-
+  view: orders {
+    sql_table_name: orders ;;
+
+    dimension: "1. Phase I" {
+      type: string
+      sql: ${TABLE}.status ;;
+    }
+
+    dimension: "4. Authorized" {
+      type: int
+      sql: ${TABLE}.amount ;;
+    }
+  }
+columns:
+  - name: 0. Pre-clinical
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Pre-clinical'"
+    fullyQualifiedName: sample_looker.model.orders_view."0. Pre-clinical"
+    tags: []
+    ordinalPosition: 1
+    children: []
+  - name: 2. Phase II or Combined I/II
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Phase II or Combined I/II'"
+    fullyQualifiedName: sample_looker.model.orders_view."2. Phase II or Combined I/II"
+    tags: []
+    ordinalPosition: 2
+    children: []
+  - name: 1. Phase I
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Phase I'"
+    fullyQualifiedName: sample_looker.model.orders_view."1. Phase I"
+    tags: []
+    ordinalPosition: 3
+    children: []
+  - name: 3. Phase III
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Phase III'"
+    fullyQualifiedName: sample_looker.model.orders_view."3. Phase III"
+    tags: []
+    ordinalPosition: 4
+    children: []
+  - name: 4. Authorized
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: "Vaccine Candidates in phase: 'Authorize'"
+    fullyQualifiedName: sample_looker.model.orders_view."4. Authorized"
+    tags: []
+    ordinalPosition: 5
+    children: []
+domains:
+  - id: 52fc9c67-78b7-42bf-8147-69278853c230
+    type: domain
+    name: Design
+    fullyQualifiedName: Design
+    description: <p>Here' the description for Product Design</p>
+    displayName: 'Product Design '
+    inherited: true
+  - id: 761f0a12-7b08-4889-acc3-b8d4d11a7865
+    type: domain
+    name: domain.with.dot
+    fullyQualifiedName: '"domain.with.dot"'
+    description: domain.with.dot
+    displayName: domain.with.dot
+    inherited: true
+entityStatus: Unprocessed

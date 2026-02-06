@@ -1,0 +1,91 @@
+name: operations
+displayName: Operations
+fullyQualifiedName: sample_looker.model.operations
+description: Operations Explore from Sample Data
+owners:
+  - id: 18ca6cd1-d696-4a22-813f-c7a42fc09dc4
+    type: user
+    name: ashish
+    fullyQualifiedName: ashish
+    description: this is test description. this is test description!this is test description!this
+      is test description!this is test description!this is test description!this is
+      test description!this is test description!this is test description!this is test
+      description!this is test description!
+    displayName: Ashish Gupta
+    deleted: false
+dataProducts: []
+tags: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: entityStatus
+      oldValue: Approved
+      newValue: Unprocessed
+  fieldsDeleted: []
+  previousVersion: 2.6
+  changeSummary: {}
+service:
+  id: 2d102aaa-e683-425c-a8bf-e4afa43dde99
+  type: dashboardService
+  name: sample_looker
+  fullyQualifiedName: sample_looker
+  displayName: sample_looker
+  deleted: false
+serviceType: Looker
+dataModelType: LookMlExplore
+sql: |-
+  view: operations {
+    sql_table_name: customers ;;
+
+    dimension: "country_name" {
+      type: string
+      sql: ${TABLE}.country ;;
+    }
+
+    dimension: "count" {
+      type: int
+      sql: ${TABLE}.amount ;;
+    }
+  }
+columns:
+  - name: country_name
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: varchar
+    description: Name of the country.
+    fullyQualifiedName: sample_looker.model.operations.country_name
+    tags: []
+    ordinalPosition: 1
+    children: []
+  - name: count
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: Total number of vaccine candidates per country.
+    fullyQualifiedName: sample_looker.model.operations.count
+    tags: []
+    ordinalPosition: 2
+    children: []
+  - name: COUNT(Country_Name)
+    dataType: NUMERIC
+    dataTypeDisplay: numeric
+    description: Total number of vaccine candidates.
+    fullyQualifiedName: sample_looker.model.operations.COUNT(Country_Name)
+    tags: []
+    ordinalPosition: 3
+    children: []
+domains:
+  - id: 52fc9c67-78b7-42bf-8147-69278853c230
+    type: domain
+    name: Design
+    fullyQualifiedName: Design
+    description: <p>Here' the description for Product Design</p>
+    displayName: 'Product Design '
+    inherited: true
+  - id: 761f0a12-7b08-4889-acc3-b8d4d11a7865
+    type: domain
+    name: domain.with.dot
+    fullyQualifiedName: '"domain.with.dot"'
+    description: domain.with.dot
+    displayName: domain.with.dot
+    inherited: true
+entityStatus: Unprocessed
