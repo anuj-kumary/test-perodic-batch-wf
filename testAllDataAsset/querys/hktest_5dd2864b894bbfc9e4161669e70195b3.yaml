@@ -1,0 +1,32 @@
+name: 5dd2864b894bbfc9e4161669e70195b3
+fullyQualifiedName: hktest.5dd2864b894bbfc9e4161669e70195b3
+owners: []
+duration: 87.0
+users: []
+query: "WITH \"8511959cacf194b495273e731f3ed7de_rnd\" AS \n(SELECT \"WEB_PAGE_1\"\
+  .\"WP_MAX_AD_COUNT\" AS \"WP_MAX_AD_COUNT\" \nFROM \"TPCDS_SF10TCL\".\"WEB_PAGE\"\
+  \ AS \"WEB_PAGE_1\" TABLESAMPLE ROW(? ROWS)), \n\"8511959cacf194b495273e731f3ed7de_sample\"\
+  \ AS \n(SELECT \"8511959cacf194b495273e731f3ed7de_rnd\".\"WP_MAX_AD_COUNT\" AS \"\
+  WP_MAX_AD_COUNT\" \nFROM \"8511959cacf194b495273e731f3ed7de_rnd\")\n SELECT percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY \"WP_MAX_AD_COUNT\" ASC) AS median, percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY \"WP_MAX_AD_COUNT\" ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY \"WP_MAX_AD_COUNT\" ASC) AS \"thirdQuartile\" \nFROM \"\
+  8511959cacf194b495273e731f3ed7de_sample\"\n LIMIT ?"
+checksum: 5dd2864b894bbfc9e4161669e70195b3
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 15850230-c0de-41cd-9f07-b1bdcb2d47b6
+    type: table
+    name: WEB_PAGE
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_PAGE
+    displayName: WEB_PAGE
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

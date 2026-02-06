@@ -1,0 +1,32 @@
+name: 61dc1b630bc579a2bbf5637891e55743
+fullyQualifiedName: hktest.61dc1b630bc579a2bbf5637891e55743
+owners: []
+duration: 67.0
+users: []
+query: "WITH \"53f6b3ace3aa40916de167636293ac80_rnd\" AS \n(SELECT \"CONT_1\".\"CONT_NON_IPN_BENE_PRIM\"\
+  \ AS \"CONT_NON_IPN_BENE_PRIM\" \nFROM \"LANDING\".\"CONT\" AS \"CONT_1\" TABLESAMPLE\
+  \ ROW(? ROWS)), \n\"53f6b3ace3aa40916de167636293ac80_sample\" AS \n(SELECT \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  .\"CONT_NON_IPN_BENE_PRIM\" AS \"CONT_NON_IPN_BENE_PRIM\" \nFROM \"53f6b3ace3aa40916de167636293ac80_rnd\"\
+  )\n SELECT percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_NON_IPN_BENE_PRIM\"\
+  ) ASC) AS median, percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_NON_IPN_BENE_PRIM\"\
+  ) ASC) AS \"firstQuartile\", percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"CONT_NON_IPN_BENE_PRIM\"\
+  ) ASC) AS \"thirdQuartile\" \nFROM \"53f6b3ace3aa40916de167636293ac80_sample\"\n\
+  \ LIMIT ?"
+checksum: 61dc1b630bc579a2bbf5637891e55743
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: cf2309d8-d7e7-4cd1-b805-b99f1a50f838
+    type: table
+    name: CONT
+    fullyQualifiedName: hktest.INDIVIDUAL.LANDING.CONT
+    displayName: CONT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

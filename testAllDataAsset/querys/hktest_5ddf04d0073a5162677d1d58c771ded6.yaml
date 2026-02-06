@@ -1,0 +1,26 @@
+name: 5ddf04d0073a5162677d1d58c771ded6
+fullyQualifiedName: hktest.5ddf04d0073a5162677d1d58c771ded6
+owners: []
+duration: 67.0
+users: []
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"TOTALCREDITS\")\
+  \ AS count_1 \nFROM \"MSSQLBANKING_ACCOUNT\".\"ACCOUNTSTATEMENT\" GROUP BY \"TOTALCREDITS\"\
+  \ \nHAVING count(\"TOTALCREDITS\") = ?) AS only_once\n LIMIT ?"
+checksum: 5ddf04d0073a5162677d1d58c771ded6
+queryDate: 1751587200000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 081b5958-06b1-4866-818f-ed255e483244
+    type: table
+    name: ACCOUNTSTATEMENT
+    fullyQualifiedName: hktest.FIVETRAN.MSSQLBANKING_ACCOUNT.ACCOUNTSTATEMENT
+    displayName: ACCOUNTSTATEMENT
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

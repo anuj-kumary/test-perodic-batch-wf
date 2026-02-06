@@ -1,0 +1,32 @@
+name: 61cea0d31f479c85f1c911ec5e4767a3
+fullyQualifiedName: hktest.61cea0d31f479c85f1c911ec5e4767a3
+owners: []
+duration: 100.0
+users:
+  - id: d32d383f-071b-4aa8-8de7-241b3493453c
+    type: user
+    name: himanshu
+    fullyQualifiedName: himanshu
+    displayName: Himanshu Khairajani
+    deleted: false
+query: "SELECT count(*) AS \"uniqueCount\" \nFROM (SELECT count(\"FULL_REFRESH\")\
+  \ AS count_1 \nFROM \"DBT_SAMPLE_ELEMENTARY\".\"SNAPSHOT_RUN_RESULTS\" GROUP BY\
+  \ \"FULL_REFRESH\" \nHAVING count(\"FULL_REFRESH\") = ?) AS only_once\n LIMIT ?"
+checksum: 61cea0d31f479c85f1c911ec5e4767a3
+queryDate: 1748649600000
+usedBy:
+  - HIMANSHU
+tags: []
+queryUsedIn:
+  - id: 1067c449-1123-409b-88c7-98614f62bedd
+    type: table
+    name: SNAPSHOT_RUN_RESULTS
+    fullyQualifiedName: hktest.DBT_DB.DBT_SAMPLE_ELEMENTARY.SNAPSHOT_RUN_RESULTS
+    displayName: SNAPSHOT_RUN_RESULTS
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

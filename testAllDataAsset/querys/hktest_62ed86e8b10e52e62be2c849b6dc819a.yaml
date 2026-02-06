@@ -1,0 +1,31 @@
+name: 62ed86e8b10e52e62be2c849b6dc819a
+fullyQualifiedName: hktest.62ed86e8b10e52e62be2c849b6dc819a
+owners: []
+duration: 205.0
+users: []
+query: "WITH \"36eddfbda4235dee51fe30bd18ca5ce4_rnd\" AS \n(SELECT \"REASON_1\".\"\
+  R_REASON_DESC\" AS \"R_REASON_DESC\" \nFROM \"TPCDS_SF10TCL\".\"REASON\" AS \"REASON_1\"\
+  \ TABLESAMPLE ROW(? ROWS)), \n\"36eddfbda4235dee51fe30bd18ca5ce4_sample\" AS \n\
+  (SELECT \"36eddfbda4235dee51fe30bd18ca5ce4_rnd\".\"R_REASON_DESC\" AS \"R_REASON_DESC\"\
+  \ \nFROM \"36eddfbda4235dee51fe30bd18ca5ce4_rnd\")\n SELECT count(*) AS \"uniqueCount\"\
+  \ \nFROM (SELECT count(\"R_REASON_DESC\") AS count_1 \nFROM \"36eddfbda4235dee51fe30bd18ca5ce4_sample\"\
+  \ GROUP BY \"R_REASON_DESC\" \nHAVING count(\"R_REASON_DESC\") = ?) AS only_once\n\
+  \ LIMIT ?"
+checksum: 62ed86e8b10e52e62be2c849b6dc819a
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 1a059891-9bd5-44e3-99ba-0b5a6737a9d3
+    type: table
+    name: REASON
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.REASON
+    displayName: REASON
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

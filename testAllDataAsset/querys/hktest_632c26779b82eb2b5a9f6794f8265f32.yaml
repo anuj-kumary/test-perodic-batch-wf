@@ -1,0 +1,35 @@
+name: 632c26779b82eb2b5a9f6794f8265f32
+fullyQualifiedName: hktest.632c26779b82eb2b5a9f6794f8265f32
+owners: []
+duration: 785.0
+users: []
+query: "WITH \"9be203cdfef8628939c9942fb61fdae3_rnd\" AS \n(SELECT \"PART_1\".\"P_COMMENT\"\
+  \ AS \"P_COMMENT\" \nFROM \"TPCH_SF1000\".\"PART\" AS \"PART_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"9be203cdfef8628939c9942fb61fdae3_sample\" AS \n(SELECT \"9be203cdfef8628939c9942fb61fdae3_rnd\"\
+  .\"P_COMMENT\" AS \"P_COMMENT\" \nFROM \"9be203cdfef8628939c9942fb61fdae3_rnd\"\
+  )\n SELECT count(CASE WHEN (LEN(\"P_COMMENT\") >= ? AND LEN(\"P_COMMENT\") < ?)\
+  \ THEN LEN(\"P_COMMENT\") END) AS \"5.000 to 9.615\", count(CASE WHEN (LEN(\"P_COMMENT\"\
+  ) >= ? AND LEN(\"P_COMMENT\") < ?) THEN LEN(\"P_COMMENT\") END) AS \"9.615 to 14.229\"\
+  , count(CASE WHEN (LEN(\"P_COMMENT\") >= ? AND LEN(\"P_COMMENT\") < ?) THEN LEN(\"\
+  P_COMMENT\") END) AS \"14.229 to 18.844\", count(CASE WHEN (LEN(\"P_COMMENT\") >=\
+  \ ?) THEN LEN(\"P_COMMENT\") END) AS \"18.844 and up\" \nFROM \"9be203cdfef8628939c9942fb61fdae3_sample\"\
+  \n LIMIT ?"
+checksum: 632c26779b82eb2b5a9f6794f8265f32
+queryDate: 1748390400000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 03426c16-5b12-4bcd-bcae-f510b5297f84
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest

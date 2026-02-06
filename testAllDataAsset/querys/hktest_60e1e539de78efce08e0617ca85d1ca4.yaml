@@ -1,0 +1,32 @@
+name: 60e1e539de78efce08e0617ca85d1ca4
+fullyQualifiedName: hktest.60e1e539de78efce08e0617ca85d1ca4
+owners: []
+duration: 728.0
+users: []
+query: "WITH \"9be203cdfef8628939c9942fb61fdae3_rnd\" AS \n(SELECT \"PART_1\".\"P_MFGR\"\
+  \ AS \"P_MFGR\" \nFROM \"TPCH_SF1000\".\"PART\" AS \"PART_1\" TABLESAMPLE ROW(?\
+  \ ROWS)), \n\"9be203cdfef8628939c9942fb61fdae3_sample\" AS \n(SELECT \"9be203cdfef8628939c9942fb61fdae3_rnd\"\
+  .\"P_MFGR\" AS \"P_MFGR\" \nFROM \"9be203cdfef8628939c9942fb61fdae3_rnd\")\n SELECT\
+  \ percentile_cont(?) WITHIN GROUP (ORDER BY LEN(\"P_MFGR\") ASC) AS median, percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"P_MFGR\") ASC) AS \"firstQuartile\", percentile_cont(?)\
+  \ WITHIN GROUP (ORDER BY LEN(\"P_MFGR\") ASC) AS \"thirdQuartile\" \nFROM \"9be203cdfef8628939c9942fb61fdae3_sample\"\
+  \n LIMIT ?"
+checksum: 60e1e539de78efce08e0617ca85d1ca4
+queryDate: 1748649600000
+usedBy:
+  - TESTOPENMETADATA
+tags: []
+queryUsedIn:
+  - id: 03426c16-5b12-4bcd-bcae-f510b5297f84
+    type: table
+    name: PART
+    fullyQualifiedName: hktest.SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PART
+    description: Part data as defined by TPC-H
+    displayName: PART
+    deleted: false
+processedLineage: false
+service:
+  id: 28293590-2cd0-4d6a-ad7c-bf50802ee2dd
+  type: databaseService
+  name: hktest
+  fullyQualifiedName: hktest
