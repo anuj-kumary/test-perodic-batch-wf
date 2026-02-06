@@ -1,0 +1,194 @@
+name: SAMPLE_TABLE
+fullyQualifiedName: query_runner_snow.HK_DB.HK_SCHEMA.SAMPLE_TABLE
+tableType: Regular
+columns:
+  - name: CUSTOMERID
+    dataType: DECIMAL
+    dataLength: 1
+    precision: 38
+    scale: 0
+    dataTypeDisplay: "number(38,0)"
+    fullyQualifiedName: query_runner_snow.HK_DB.HK_SCHEMA.SAMPLE_TABLE.CUSTOMERID
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: NAME
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: query_runner_snow.HK_DB.HK_SCHEMA.SAMPLE_TABLE.NAME
+    tags:
+      - tagFQN: General.Person
+        name: Person
+        description: "A full person name, which can include first names, middle names\
+          \ or initials, and last names."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.Sensitive with a classification score of 0.85
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: EMAIL
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: query_runner_snow.HK_DB.HK_SCHEMA.SAMPLE_TABLE.EMAIL
+    tags:
+      - tagFQN: General.Email
+        name: Email
+        description: Email address.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.Sensitive
+        name: Sensitive
+        description: "PII which if lost, compromised, or disclosed without authorization,\
+          \ could result in substantial harm, embarrassment, inconvenience, or unfairness\
+          \ to an individual."
+        style:
+          color: "#ff0000"
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.Sensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: COUNTRY
+    dataType: VARCHAR
+    dataLength: 16777216
+    dataTypeDisplay: text(16777216)
+    fullyQualifiedName: query_runner_snow.HK_DB.HK_SCHEMA.SAMPLE_TABLE.COUNTRY
+    tags:
+      - tagFQN: General.Location
+        name: Location
+        description: "Name of politically or geographically defined location (cities,\
+          \ provinces, countries, international regions, bodies of water, mountains."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SIGNUPDATE
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: query_runner_snow.HK_DB.HK_SCHEMA.SAMPLE_TABLE.SIGNUPDATE
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: PURCHASEAMOUNT
+    dataType: FLOAT
+    dataLength: 1
+    dataTypeDisplay: float
+    fullyQualifiedName: query_runner_snow.HK_DB.HK_SCHEMA.SAMPLE_TABLE.PURCHASEAMOUNT
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 2780117a-0473-4a3a-b61f-e55604b9d2d0
+  type: databaseSchema
+  name: HK_SCHEMA
+  fullyQualifiedName: query_runner_snow.HK_DB.HK_SCHEMA
+  displayName: HK_SCHEMA
+  deleted: false
+database:
+  id: 77ef4832-e383-4927-b979-2622941066d4
+  type: database
+  name: HK_DB
+  fullyQualifiedName: query_runner_snow.HK_DB
+  displayName: HK_DB
+  deleted: false
+service:
+  id: 6b3e532a-ccbe-4e9d-8a5f-f9bf4fc6cdf2
+  type: databaseService
+  name: query_runner_snow
+  fullyQualifiedName: query_runner_snow
+  description: ""
+  displayName: query_runner_snow
+  deleted: false
+serviceType: Snowflake
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated:
+    - name: deleted
+      oldValue: true
+      newValue: false
+  fieldsDeleted: []
+  previousVersion: 0.3
+  changeSummary: {}
+sourceUrl: https://app.snowflake.com/fmfahqk/gi58232/#/data/databases/HK_DB/schemas/HK_SCHEMA/table/SAMPLE_TABLE
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1763337600000
+    accessedByAProcess: TESTAUTH
+sourceHash: b3f060d2c54210ee5cb3ee6f1ba8292d
+processedLineage: false
+entityStatus: Unprocessed

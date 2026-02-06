@@ -1,0 +1,165 @@
+name: auto_loan_payment
+fullyQualifiedName: query_runner_trino.sample.burstbank.auto_loan_payment
+tableType: Regular
+columns:
+  - name: auto_loan_id
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.burstbank.auto_loan_payment.auto_loan_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_date
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.burstbank.auto_loan_payment.payment_date
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_amount
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: double
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.burstbank.auto_loan_payment.payment_amount
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: payment_due_date
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.burstbank.auto_loan_payment.payment_due_date
+    tags:
+      - tagFQN: General.DateTime
+        name: DateTime
+        description: Absolute or relative dates or periods or times smaller than a
+          day.
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: delinquent_payment
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar(1)
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.burstbank.auto_loan_payment.delinquent_payment
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: balance
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: double
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.burstbank.auto_loan_payment.balance
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 18218724-96e2-4278-a464-adcbed532fe7
+  type: databaseSchema
+  name: burstbank
+  fullyQualifiedName: query_runner_trino.sample.burstbank
+  displayName: burstbank
+  deleted: false
+database:
+  id: 36b13b4a-cfea-40fc-a845-60226f9b8222
+  type: database
+  name: sample
+  fullyQualifiedName: query_runner_trino.sample
+  displayName: sample
+  deleted: false
+service:
+  id: f334ee58-aa52-47f1-8c6b-ea1b2237521e
+  type: databaseService
+  name: query_runner_trino
+  fullyQualifiedName: query_runner_trino
+  description: ""
+  displayName: query_runner_trino
+  deleted: false
+serviceType: Trino
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.payment_date.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+    - name: columns.payment_due_date.tags
+      newValue: "[{\"tagFQN\":\"General.DateTime\",\"name\":\"DateTime\",\"description\"\
+        :\"Absolute or relative dates or periods or times smaller than a day.\",\"\
+        source\":\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"\
+        },{\"tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\"\
+        :\"PII which is easily accessible from public sources and can include zip\
+        \ code, race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: 96d3de88ec0281b40931cf6230622e18
+processedLineage: false
+entityStatus: Unprocessed

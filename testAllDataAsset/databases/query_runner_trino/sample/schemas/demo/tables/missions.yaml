@@ -1,0 +1,157 @@
+name: missions
+fullyQualifiedName: query_runner_trino.sample.demo.missions
+tableType: Regular
+columns:
+  - name: id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.demo.missions.id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: company_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.demo.missions.company_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: location
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.demo.missions.location
+    tags:
+      - tagFQN: General.Location
+        name: Location
+        description: "Name of politically or geographically defined location (cities,\
+          \ provinces, countries, international regions, bodies of water, mountains."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 1.00
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: date
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.demo.missions.date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: detail
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.demo.missions.detail
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status_rocket
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.demo.missions.status_rocket
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: cost
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: double
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.demo.missions.cost
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: status_mission
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.sample.demo.missions.status_mission
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: ca2dfc01-5340-4d6c-b808-b63885cd20d9
+  type: databaseSchema
+  name: demo
+  fullyQualifiedName: query_runner_trino.sample.demo
+  displayName: demo
+  deleted: false
+database:
+  id: 36b13b4a-cfea-40fc-a845-60226f9b8222
+  type: database
+  name: sample
+  fullyQualifiedName: query_runner_trino.sample
+  displayName: sample
+  deleted: false
+service:
+  id: f334ee58-aa52-47f1-8c6b-ea1b2237521e
+  type: databaseService
+  name: query_runner_trino
+  fullyQualifiedName: query_runner_trino
+  description: ""
+  displayName: query_runner_trino
+  deleted: false
+serviceType: Trino
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.location.tags
+      newValue: "[{\"tagFQN\":\"General.Location\",\"name\":\"Location\",\"description\"\
+        :\"Name of politically or geographically defined location (cities, provinces,\
+        \ countries, international regions, bodies of water, mountains.\",\"source\"\
+        :\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"\
+        tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\":\"\
+        PII which is easily accessible from public sources and can include zip code,\
+        \ race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 1.00\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: e7970406db6c4264f1141a8bf614a5de
+processedLineage: false
+entityStatus: Unprocessed

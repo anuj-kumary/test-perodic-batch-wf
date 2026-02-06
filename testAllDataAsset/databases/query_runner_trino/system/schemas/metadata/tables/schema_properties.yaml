@@ -1,0 +1,127 @@
+name: schema_properties
+fullyQualifiedName: query_runner_trino.system.metadata.schema_properties
+tableType: Regular
+columns:
+  - name: catalog_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.metadata.schema_properties.catalog_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: property_name
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.metadata.schema_properties.property_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_value
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.metadata.schema_properties.default_value
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: type
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.metadata.schema_properties.type
+    tags:
+      - tagFQN: General.Location
+        name: Location
+        description: "Name of politically or geographically defined location (cities,\
+          \ provinces, countries, international regions, bodies of water, mountains."
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: PII.NonSensitive
+        name: NonSensitive
+        description: "PII which is easily accessible from public sources and can include\
+          \ zip code, race, gender, and date of birth."
+        style: {}
+        source: Classification
+        labelType: Generated
+        state: Suggested
+        reason: Chose PII.NonSensitive with a classification score of 0.85
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: VARCHAR
+    dataLength: 1
+    dataTypeDisplay: varchar
+    description: ""
+    fullyQualifiedName: query_runner_trino.system.metadata.schema_properties.description
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 23d19ffc-0717-41d9-b187-f7c172e1ec9c
+  type: databaseSchema
+  name: metadata
+  fullyQualifiedName: query_runner_trino.system.metadata
+  displayName: metadata
+  deleted: false
+database:
+  id: 433d26f7-15f3-4109-859b-a2291efe0ea6
+  type: database
+  name: system
+  fullyQualifiedName: query_runner_trino.system
+  displayName: system
+  deleted: false
+service:
+  id: f334ee58-aa52-47f1-8c6b-ea1b2237521e
+  type: databaseService
+  name: query_runner_trino
+  fullyQualifiedName: query_runner_trino
+  description: ""
+  displayName: query_runner_trino
+  deleted: false
+serviceType: Trino
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: columns.type.tags
+      newValue: "[{\"tagFQN\":\"General.Location\",\"name\":\"Location\",\"description\"\
+        :\"Name of politically or geographically defined location (cities, provinces,\
+        \ countries, international regions, bodies of water, mountains.\",\"source\"\
+        :\"Classification\",\"labelType\":\"Generated\",\"state\":\"Suggested\"},{\"\
+        tagFQN\":\"PII.NonSensitive\",\"name\":\"NonSensitive\",\"description\":\"\
+        PII which is easily accessible from public sources and can include zip code,\
+        \ race, gender, and date of birth.\",\"style\":{},\"source\":\"Classification\"\
+        ,\"labelType\":\"Generated\",\"state\":\"Suggested\",\"reason\":\"Chose PII.NonSensitive\
+        \ with a classification score of 0.85\"}]"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: fb252dcf13a53940ce0aa0ed398918f2
+processedLineage: false
+entityStatus: Unprocessed
