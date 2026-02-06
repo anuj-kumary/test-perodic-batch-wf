@@ -1,0 +1,108 @@
+name: asynchronous_metric_log
+fullyQualifiedName: test_clickhouse.default.system.asynchronous_metric_log
+description: |-
+  Contains the historical values for system.asynchronous_metrics, once per time interval (one second by default).
+
+  It is safe to truncate or drop this table at any time.
+tableType: Regular
+columns:
+  - name: hostname
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Hostname of the server executing the query.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metric_log.hostname
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    description: Event date.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metric_log.event_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: event_time
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime
+    description: Event time.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metric_log.event_time
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: metric
+    dataType: LOWCARDINALITY
+    dataLength: 1
+    dataTypeDisplay: lowcardinality<string>
+    description: Metric name.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metric_log.metric
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: value
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: Metric value.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metric_log.value
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"monitoring-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: monitoring-internal
+sourceHash: c851c753bb4e99380c7d71294c7e2d4c
+processedLineage: false
+entityStatus: Unprocessed

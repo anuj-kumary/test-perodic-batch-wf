@@ -1,0 +1,62 @@
+name: character_sets
+fullyQualifiedName: test_clickhouse.default.information_schema.character_sets
+tableType: View
+columns:
+  - name: character_set_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.information_schema.character_sets.character_set_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: CHARACTER_SET_NAME
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.information_schema.character_sets.CHARACTER_SET_NAME
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 47149ff7-5826-4de4-8841-9efdb0650d6f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: test_clickhouse.default.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+schemaDefinition: "CREATE VIEW information_schema.character_sets (`character_set_name`\
+  \ String, `CHARACTER_SET_NAME` String) SQL SECURITY INVOKER AS SELECT arrayJoin(['utf8',\
+  \ 'utf8mb4', 'ascii', 'binary']) AS character_set_name, character_set_name AS CHARACTER_SET_NAME"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: c2da9578ecf0bce3cbea0476049f4ef2
+processedLineage: false
+entityStatus: Unprocessed

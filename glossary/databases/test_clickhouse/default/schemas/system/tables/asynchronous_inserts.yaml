@@ -1,0 +1,121 @@
+name: asynchronous_inserts
+fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts
+description: Contains information about pending asynchronous inserts in queue in server's
+  memory.
+tableType: Regular
+columns:
+  - name: query
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Query text.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts.query
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: database
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Database name.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts.database
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: table
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Table name.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts.table
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: format
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Format name.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts.format
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: first_update
+    dataType: DATETIME
+    dataLength: 1
+    dataTypeDisplay: datetime64<6>
+    description: First insert time with microseconds resolution.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts.first_update
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: total_bytes
+    dataType: BIGINT
+    dataLength: 1
+    dataTypeDisplay: uint64
+    description: Total number of bytes waiting in the queue.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts.total_bytes
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: entries.query_id
+    dataType: ARRAY
+    arrayDataType: STRING
+    dataTypeDisplay: array<string>
+    description: Array of query ids of the inserts waiting in the queue.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts."entries.query_id"
+    tags: []
+    children: []
+    customMetrics: []
+  - name: entries.bytes
+    dataType: ARRAY
+    arrayDataType: BIGINT
+    dataTypeDisplay: array<uint64>
+    description: Array of bytes of each insert query waiting in the queue.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_inserts."entries.bytes"
+    tags: []
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 995581c725fac815867f57a1b2b7927c
+processedLineage: false
+entityStatus: Unprocessed

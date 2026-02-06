@@ -1,0 +1,95 @@
+name: asynchronous_metrics
+fullyQualifiedName: test_clickhouse.default.system.asynchronous_metrics
+description: "Contains metrics that are calculated periodically in the background.\
+  \ For example, the amount of RAM in use."
+tableType: Regular
+columns:
+  - name: metric
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Metric name.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metrics.metric
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: value
+    dataType: DOUBLE
+    dataLength: 1
+    dataTypeDisplay: float64
+    description: Metric value.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metrics.value
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: description
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Metric description.
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metrics.description
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.system.asynchronous_metrics.name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: lifeCycle
+      newValue: "{\"accessed\":{\"timestamp\":1768521600000,\"accessedByAProcess\"\
+        :\"observability-internal\"}}"
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.1
+  changeSummary: {}
+domains: []
+dataProducts: []
+lifeCycle:
+  accessed:
+    timestamp: 1768521600000
+    accessedByAProcess: observability-internal
+sourceHash: 4c24c4538f6c3b280bccc98854af84e6
+processedLineage: false
+entityStatus: Unprocessed

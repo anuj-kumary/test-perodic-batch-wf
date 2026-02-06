@@ -1,0 +1,146 @@
+name: certificates
+fullyQualifiedName: test_clickhouse.default.system.certificates
+description: Contains information about available certificates and their sources.
+tableType: Regular
+columns:
+  - name: version
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: int32
+    description: "Version of the certificate. Values are 0 for v1, 1 for v2, 2 for\
+      \ v3."
+    fullyQualifiedName: test_clickhouse.default.system.certificates.version
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: serial_number
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Serial Number of the certificate assigned by the issuer.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.serial_number
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: signature_algo
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Signature Algorithm - an algorithm used by the issuer to sign this
+      certificate.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.signature_algo
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: issuer
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Issuer - an unique identifier for the Certificate Authority issuing
+      this certificate.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.issuer
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: not_before
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: The beginning of the time window when this certificate is valid.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.not_before
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: not_after
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: The end of the time window when this certificate is valid.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.not_after
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: subject
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Subject - identifies the owner of the public key.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.subject
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: pkey_algo
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    description: Public Key Algorithm defines the algorithm the public key can be
+      used with.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.pkey_algo
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    description: Path to the file or directory containing this certificate.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.path
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: uint8
+    description: Certificate is in the default certificate location.
+    fullyQualifiedName: test_clickhouse.default.system.certificates.default
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 8a7299bd-4233-40a1-9e70-dc760e5e6b42
+  type: databaseSchema
+  name: system
+  fullyQualifiedName: test_clickhouse.default.system
+  displayName: system
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 2e745355088fea1fdab5c5221986887c
+processedLineage: false
+entityStatus: Unprocessed

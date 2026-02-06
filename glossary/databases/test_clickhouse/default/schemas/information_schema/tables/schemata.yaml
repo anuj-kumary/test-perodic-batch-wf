@@ -1,0 +1,180 @@
+name: schemata
+fullyQualifiedName: test_clickhouse.default.information_schema.schemata
+tableType: View
+columns:
+  - name: catalog_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.catalog_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: schema_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.schema_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: schema_owner
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.schema_owner
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: default_character_set_catalog
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.default_character_set_catalog
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_character_set_schema
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.default_character_set_schema
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: default_character_set_name
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.default_character_set_name
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: sql_path
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.sql_path
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: CATALOG_NAME
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.CATALOG_NAME
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SCHEMA_NAME
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.SCHEMA_NAME
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: SCHEMA_OWNER
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: string
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.SCHEMA_OWNER
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: DEFAULT_CHARACTER_SET_CATALOG
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.DEFAULT_CHARACTER_SET_CATALOG
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: DEFAULT_CHARACTER_SET_SCHEMA
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.DEFAULT_CHARACTER_SET_SCHEMA
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: DEFAULT_CHARACTER_SET_NAME
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.DEFAULT_CHARACTER_SET_NAME
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: SQL_PATH
+    dataType: STRING
+    dataLength: 1
+    dataTypeDisplay: nullable<string>
+    fullyQualifiedName: test_clickhouse.default.information_schema.schemata.SQL_PATH
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: 47149ff7-5826-4de4-8841-9efdb0650d6f
+  type: databaseSchema
+  name: information_schema
+  fullyQualifiedName: test_clickhouse.default.information_schema
+  displayName: information_schema
+  deleted: false
+database:
+  id: 892667da-43ed-425c-94ad-24a4cc252df4
+  type: database
+  name: default
+  fullyQualifiedName: test_clickhouse.default
+  displayName: default
+  deleted: false
+service:
+  id: b468f00e-0925-45e5-a89d-c038e1a5e79f
+  type: databaseService
+  name: test_clickhouse
+  fullyQualifiedName: test_clickhouse
+  description: ""
+  displayName: test_clickhouse
+  deleted: false
+serviceType: Clickhouse
+schemaDefinition: "CREATE VIEW information_schema.schemata (`catalog_name` String,\
+  \ `schema_name` String, `schema_owner` String, `default_character_set_catalog` Nullable(String),\
+  \ `default_character_set_schema` Nullable(String), `default_character_set_name`\
+  \ Nullable(String), `sql_path` Nullable(String), `CATALOG_NAME` String, `SCHEMA_NAME`\
+  \ String, `SCHEMA_OWNER` String, `DEFAULT_CHARACTER_SET_CATALOG` Nullable(String),\
+  \ `DEFAULT_CHARACTER_SET_SCHEMA` Nullable(String), `DEFAULT_CHARACTER_SET_NAME`\
+  \ Nullable(String), `SQL_PATH` Nullable(String)) SQL SECURITY INVOKER AS SELECT\
+  \ name AS catalog_name, name AS schema_name, 'default' AS schema_owner, NULL AS\
+  \ default_character_set_catalog, NULL AS default_character_set_schema, NULL AS default_character_set_name,\
+  \ NULL AS sql_path, catalog_name AS CATALOG_NAME, schema_name AS SCHEMA_NAME, schema_owner\
+  \ AS SCHEMA_OWNER, default_character_set_catalog AS DEFAULT_CHARACTER_SET_CATALOG,\
+  \ default_character_set_schema AS DEFAULT_CHARACTER_SET_SCHEMA, default_character_set_name\
+  \ AS DEFAULT_CHARACTER_SET_NAME, sql_path AS SQL_PATH FROM system.databases"
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: b6f8e68efd8c559148404a967578b3e4
+processedLineage: false
+entityStatus: Unprocessed

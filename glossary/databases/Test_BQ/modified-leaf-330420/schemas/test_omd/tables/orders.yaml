@@ -1,0 +1,134 @@
+name: orders
+fullyQualifiedName: Test_BQ.modified-leaf-330420.test_omd.orders
+tableType: Regular
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.test_omd.orders.order_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.test_omd.orders.customer_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: TIMESTAMP
+    dataLength: 1
+    dataTypeDisplay: timestamp
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.test_omd.orders.order_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: product_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.test_omd.orders.product_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: quantity
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: Test_BQ.modified-leaf-330420.test_omd.orders.quantity
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - customer_id
+    referredColumns:
+      - Test_BQ.modified-leaf-330420.test_omd.customers.customer_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - product_id
+    referredColumns:
+      - Test_BQ.modified-leaf-330420.test_omd.products.product_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - customer_id
+    referredColumns:
+      - Test_BQ.modified-leaf-330420.test_omd.customer_products.customer_id
+    relationshipType: MANY_TO_MANY
+  - constraintType: FOREIGN_KEY
+    columns:
+      - product_id
+    referredColumns:
+      - Test_BQ.modified-leaf-330420.test_omd.customer_products.product_id
+    relationshipType: MANY_TO_MANY
+owners: []
+databaseSchema:
+  id: 4f739295-7d5b-408c-9213-0ba27d739212
+  type: databaseSchema
+  name: test_omd
+  fullyQualifiedName: Test_BQ.modified-leaf-330420.test_omd
+  description: ""
+  displayName: test_omd
+  deleted: false
+database:
+  id: e9cc6bf9-f233-47ba-8ac6-f84af30ce935
+  type: database
+  name: modified-leaf-330420
+  fullyQualifiedName: Test_BQ.modified-leaf-330420
+  displayName: modified-leaf-330420
+  deleted: false
+service:
+  id: f38d98e9-f2f3-4900-b904-bbbb7e09ff47
+  type: databaseService
+  name: Test_BQ
+  fullyQualifiedName: Test_BQ
+  description: ""
+  displayName: Test_BQ
+  deleted: false
+serviceType: BigQuery
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: tableConstraints
+      newValue: "[{\"constraintType\":\"FOREIGN_KEY\",\"columns\":[\"customer_id\"\
+        ],\"referredColumns\":[\"Test_BQ.modified-leaf-330420.test_omd.customers.customer_id\"\
+        ],\"relationshipType\":\"MANY_TO_ONE\"},{\"constraintType\":\"FOREIGN_KEY\"\
+        ,\"columns\":[\"product_id\"],\"referredColumns\":[\"Test_BQ.modified-leaf-330420.test_omd.products.product_id\"\
+        ],\"relationshipType\":\"MANY_TO_ONE\"},{\"constraintType\":\"FOREIGN_KEY\"\
+        ,\"columns\":[\"customer_id\"],\"referredColumns\":[\"Test_BQ.modified-leaf-330420.test_omd.customer_products.customer_id\"\
+        ],\"relationshipType\":\"MANY_TO_MANY\"},{\"constraintType\":\"FOREIGN_KEY\"\
+        ,\"columns\":[\"product_id\"],\"referredColumns\":[\"Test_BQ.modified-leaf-330420.test_omd.customer_products.product_id\"\
+        ],\"relationshipType\":\"MANY_TO_MANY\"}]"
+  fieldsUpdated:
+    - name: sourceHash
+      oldValue: 4bcf117b549073bfd5b1701b692d4a23
+      newValue: 4cb72e1ac09a261a124bef82c756b1c8
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary: {}
+sourceUrl: https://console.cloud.google.com/bigquery?project=modified-leaf-330420&ws=!1m5!1m4!4m3!1smodified-leaf-330420!2stest_omd!3sorders
+domains: []
+dataProducts: []
+lifeCycle:
+  created:
+    timestamp: 1678785660759
+sourceHash: 4cb72e1ac09a261a124bef82c756b1c8
+processedLineage: false
+entityStatus: Unprocessed
