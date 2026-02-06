@@ -1,0 +1,85 @@
+name: orders
+fullyQualifiedName: PSQL.postgres.openmetadata.orders
+tableType: Regular
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.openmetadata.orders.order_id
+    tags:
+      - tagFQN: imp.NONE
+        name: NONE
+        description: DATABRICKS TAG
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: quality.raw
+        name: raw
+        description: Bigquery Dataset Label
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: metadata
+    dataType: VARCHAR
+    dataLength: 256
+    dataTypeDisplay: character varying(256)
+    fullyQualifiedName: PSQL.postgres.openmetadata.orders.metadata
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints: []
+owners: []
+databaseSchema:
+  id: d52e42d8-cd44-4746-9507-71a16b594f0d
+  type: databaseSchema
+  name: openmetadata
+  fullyQualifiedName: PSQL.postgres.openmetadata
+  displayName: openmetadata
+  deleted: false
+database:
+  id: 57850cbb-ab09-4635-a36d-b4392f86cd40
+  type: database
+  name: postgres
+  fullyQualifiedName: PSQL.postgres
+  displayName: postgres
+  deleted: false
+service:
+  id: 76b57203-6d4e-46ad-a623-a5a9bdd7eecc
+  type: databaseService
+  name: PSQL
+  fullyQualifiedName: PSQL
+  description: ""
+  displayName: PSQL
+  deleted: false
+serviceType: Postgres
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded: []
+  fieldsUpdated: []
+  fieldsDeleted:
+    - name: columns.order_id.tags
+      oldValue: "[{\"tagFQN\":\"label_1.value_1\",\"name\":\"value_1\",\"description\"\
+        :\"Bigquery Dataset Label\",\"source\":\"Classification\",\"labelType\":\"\
+        Manual\",\"state\":\"Confirmed\"}]"
+  previousVersion: 0.2
+  changeSummary: {}
+domains: []
+dataProducts: []
+sourceHash: 5a0fd7bce097945a3bd097f6c5cd4e03
+processedLineage: false
+entityStatus: Approved

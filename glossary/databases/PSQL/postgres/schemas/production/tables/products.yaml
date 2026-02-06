@@ -1,0 +1,103 @@
+name: products
+fullyQualifiedName: PSQL.postgres.production.products
+tableType: Regular
+columns:
+  - name: product_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.production.products.product_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: product_name
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: character varying(255)
+    fullyQualifiedName: PSQL.postgres.production.products.product_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: brand_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.production.products.brand_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: category_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.production.products.category_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: model_year
+    dataType: SMALLINT
+    dataLength: 1
+    dataTypeDisplay: smallint
+    fullyQualifiedName: PSQL.postgres.production.products.model_year
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: list_price
+    dataType: NUMERIC
+    dataLength: 1
+    precision: 10
+    scale: 2
+    dataTypeDisplay: "numeric(10,2)"
+    fullyQualifiedName: PSQL.postgres.production.products.list_price
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - brand_id
+    referredColumns:
+      - PSQL.postgres.production.brands.brand_id
+    relationshipType: MANY_TO_ONE
+owners: []
+databaseSchema:
+  id: 7a5ed0ab-40eb-4542-9d9c-fc29839cc0f1
+  type: databaseSchema
+  name: production
+  fullyQualifiedName: PSQL.postgres.production
+  displayName: production
+  deleted: false
+database:
+  id: 57850cbb-ab09-4635-a36d-b4392f86cd40
+  type: database
+  name: postgres
+  fullyQualifiedName: PSQL.postgres
+  displayName: postgres
+  deleted: false
+service:
+  id: 76b57203-6d4e-46ad-a623-a5a9bdd7eecc
+  type: databaseService
+  name: PSQL
+  fullyQualifiedName: PSQL
+  description: ""
+  displayName: PSQL
+  deleted: false
+serviceType: Postgres
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+domains: []
+dataProducts: []
+sourceHash: 0bb3aaadbf414b2d61dd5288eb992616
+processedLineage: false
+entityStatus: Approved

@@ -1,0 +1,197 @@
+name: orders
+displayName: ""
+fullyQualifiedName: PSQL.postgres.sales.orders
+description: ""
+tableType: Regular
+columns:
+  - name: order_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.orders.order_id
+    tags:
+      - tagFQN: General.IPAddress
+        name: IPAddress
+        description: An Internet Protocol (IP) address (either IPv4 or IPv6).
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: label_1.value_1
+        name: value_1
+        description: Bigquery Dataset Label
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+      - tagFQN: quality.raw
+        name: raw
+        description: Bigquery Dataset Label
+        source: Classification
+        labelType: Manual
+        state: Confirmed
+        appliedAt: 1767969396000
+        appliedBy: admin
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: customer_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.orders.customer_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: order_status
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.orders.order_status
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: order_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: PSQL.postgres.sales.orders.order_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: required_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: PSQL.postgres.sales.orders.required_date
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: shipped_date
+    dataType: DATE
+    dataLength: 1
+    dataTypeDisplay: date
+    fullyQualifiedName: PSQL.postgres.sales.orders.shipped_date
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: store_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.orders.store_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: staff_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.orders.staff_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - customer_id
+    referredColumns:
+      - PSQL.postgres.sales.customers.customer_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - staff_id
+    referredColumns:
+      - PSQL.postgres.sales.staffs.staff_id
+    relationshipType: MANY_TO_ONE
+  - constraintType: FOREIGN_KEY
+    columns:
+      - store_id
+    referredColumns:
+      - PSQL.postgres.sales.stores.store_id
+    relationshipType: MANY_TO_ONE
+owners:
+  - id: 41287584-9a21-4735-b1b5-fdf06d78e316
+    type: user
+    name: james
+    fullyQualifiedName: james
+    displayName: James Nguyen
+    deleted: false
+    inherited: true
+  - id: 381056e4-417b-47bf-bbd6-5a3c74f2764f
+    type: user
+    name: nmartin
+    fullyQualifiedName: nmartin
+    displayName: James Nguyen
+    deleted: false
+    inherited: true
+databaseSchema:
+  id: 14e7bb37-e18c-4c4b-8c7a-0e5338072a10
+  type: databaseSchema
+  name: sales
+  fullyQualifiedName: PSQL.postgres.sales
+  displayName: sales
+  deleted: false
+database:
+  id: 57850cbb-ab09-4635-a36d-b4392f86cd40
+  type: database
+  name: postgres
+  fullyQualifiedName: PSQL.postgres
+  displayName: postgres
+  deleted: false
+service:
+  id: 76b57203-6d4e-46ad-a623-a5a9bdd7eecc
+  type: databaseService
+  name: PSQL
+  fullyQualifiedName: PSQL
+  description: ""
+  displayName: PSQL
+  deleted: false
+serviceType: Postgres
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: description
+      newValue: ""
+    - name: displayName
+      newValue: ""
+    - name: sourceUrl
+      newValue: ""
+    - name: retentionPeriod
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ajith.prasad
+      changedAt: 1749188581853
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: ef10e521-d8c5-4d84-b039-549e8d1d8aaf
+    type: domain
+    name: Customer Domain
+    fullyQualifiedName: Customer Domain
+    description: <p>Customer Domain</p>
+    displayName: Customer
+    inherited: true
+dataProducts: []
+sourceHash: 1f048dc75bd138772623328ad1ebfd02
+processedLineage: false
+entityStatus: Approved

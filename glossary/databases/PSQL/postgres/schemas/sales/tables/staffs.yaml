@@ -1,0 +1,161 @@
+name: staffs
+displayName: ""
+fullyQualifiedName: PSQL.postgres.sales.staffs
+description: ""
+tableType: Regular
+columns:
+  - name: staff_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.staffs.staff_id
+    tags: []
+    constraint: PRIMARY_KEY
+    children: []
+    customMetrics: []
+  - name: first_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: PSQL.postgres.sales.staffs.first_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: last_name
+    dataType: VARCHAR
+    dataLength: 50
+    dataTypeDisplay: character varying(50)
+    fullyQualifiedName: PSQL.postgres.sales.staffs.last_name
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: email
+    dataType: VARCHAR
+    dataLength: 255
+    dataTypeDisplay: character varying(255)
+    fullyQualifiedName: PSQL.postgres.sales.staffs.email
+    tags: []
+    constraint: UNIQUE
+    children: []
+    customMetrics: []
+  - name: phone
+    dataType: VARCHAR
+    dataLength: 25
+    dataTypeDisplay: character varying(25)
+    fullyQualifiedName: PSQL.postgres.sales.staffs.phone
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+  - name: active
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.staffs.active
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: store_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.staffs.store_id
+    tags: []
+    constraint: NOT_NULL
+    children: []
+    customMetrics: []
+  - name: manager_id
+    dataType: INT
+    dataLength: 1
+    dataTypeDisplay: integer
+    fullyQualifiedName: PSQL.postgres.sales.staffs.manager_id
+    tags: []
+    constraint: "NULL"
+    children: []
+    customMetrics: []
+tableConstraints:
+  - constraintType: FOREIGN_KEY
+    columns:
+      - manager_id
+    referredColumns:
+      - PSQL.postgres.sales.staffs.staff_id
+    relationshipType: MANY_TO_ONE
+owners:
+  - id: 41287584-9a21-4735-b1b5-fdf06d78e316
+    type: user
+    name: james
+    fullyQualifiedName: james
+    displayName: James Nguyen
+    deleted: false
+    inherited: true
+  - id: 381056e4-417b-47bf-bbd6-5a3c74f2764f
+    type: user
+    name: nmartin
+    fullyQualifiedName: nmartin
+    displayName: James Nguyen
+    deleted: false
+    inherited: true
+databaseSchema:
+  id: 14e7bb37-e18c-4c4b-8c7a-0e5338072a10
+  type: databaseSchema
+  name: sales
+  fullyQualifiedName: PSQL.postgres.sales
+  displayName: sales
+  deleted: false
+database:
+  id: 57850cbb-ab09-4635-a36d-b4392f86cd40
+  type: database
+  name: postgres
+  fullyQualifiedName: PSQL.postgres
+  displayName: postgres
+  deleted: false
+service:
+  id: 76b57203-6d4e-46ad-a623-a5a9bdd7eecc
+  type: databaseService
+  name: PSQL
+  fullyQualifiedName: PSQL
+  description: ""
+  displayName: PSQL
+  deleted: false
+serviceType: Postgres
+tags: []
+joins:
+  startDate: 2026-01-07
+  dayCount: 30
+  columnJoins: []
+  directTableJoins: []
+customMetrics: []
+incrementalChangeDescription:
+  fieldsAdded:
+    - name: description
+      newValue: ""
+    - name: displayName
+      newValue: ""
+    - name: sourceUrl
+      newValue: ""
+    - name: retentionPeriod
+      newValue: ""
+  fieldsUpdated: []
+  fieldsDeleted: []
+  previousVersion: 0.2
+  changeSummary:
+    description:
+      changedBy: ajith.prasad
+      changedAt: 1749188582435
+retentionPeriod: ""
+sourceUrl: ""
+domains:
+  - id: ef10e521-d8c5-4d84-b039-549e8d1d8aaf
+    type: domain
+    name: Customer Domain
+    fullyQualifiedName: Customer Domain
+    description: <p>Customer Domain</p>
+    displayName: Customer
+    inherited: true
+dataProducts: []
+sourceHash: eea38fa5ec12150930e79bd3d2bd75b4
+processedLineage: false
+entityStatus: Approved
